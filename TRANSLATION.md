@@ -21,6 +21,11 @@ First line of every translated file, before the back-link:
 - The «说人话» line is the most important line — translate it fully and idiomatically; it may not introduce numbers absent from the 收益 line.
 - Units: 元→CNY (keep "yuan" also acceptable in RU: «юаней»); keep mmHg, mg, %, etc. Chinese administrative terms (医保, 户口, ICP 备案, 疾控中心) → transliterate or translate with the Chinese term in parentheses on first use in a file.
 - Law/regulation names: translate the meaning + keep the official Chinese name and document number in the sources line (already there); in body text give an English/Russian gloss.
+- Translator's additions (localization) must be clearly marked INSERTIONS — never edit or replace original content:
+  - **Translator's note block** (`> Примечание переводчика: …`) under the chapter heading, for chapter-wide country-specific facts (emergency numbers, units, institution names). Allowed additions: RU/112 and 911 mappings for Chinese emergency numbers, unit hints, one-line "what this Chinese institution is".
+  - **In-line gloss** on first use per chapter: `термин (中文 — короткое пояснение)` for China-specific concepts (дибао 低保, хукоу 户口, …). The Chinese term + meaning must come from the original; no invented facts.
+  - **Glossary** in `README.ru.md`: terms that recur across chapters (дибао, хукоу, 医保…) get a one-line entry; chapters gloss on first use and stay short afterwards.
+  - Verification scripts must tolerate these insertion patterns (strip `> Примечание переводчика` blocks and `(中文 …)` glosses before counting hanzi/numbers).
 
 ## RU file naming
 
