@@ -66,6 +66,22 @@ Chinese original (`../01-不要早死.md`) — that link must not change.
 EN filenames: decide together with the EN pilot's fate (same rename policy or mirror the
 Chinese names) — do not mix schemes between languages silently.
 
+## Russian README (README.ru.md)
+
+- `README.md` (Chinese) stays byte-identical — `index.html` reads it, upstream owns it.
+  Only addition allowed: one «Языки / Languages» selector line in the header.
+- `README.ru.md` = full Russian translation of `README.md`. First line: status
+  («> Неофициальный перевод файла [README.md](README.md). При расхождениях приоритет у китайского оригинала.»)
+  + link back to the Chinese README.
+- All numbers byte-faithful (498, 323/126/49, 88/248/162, 97.2%, thresholds…). The
+  example item block keeps citation lines byte-identical after the label.
+- Badges: recreate with Russian labels (URL-encode programmatically), same colors/numbers,
+  same link targets; anchors inside the doc point to translated headings.
+- Chapter links → `book/ru/<Russian slug>.md`. `docs/*` links keep Chinese targets
+  (not translated yet), label = Russian title + «(на китайском)».
+- Back-link in every `book/ru/` file: `[← К общему оглавлению](../../README.ru.md)`
+  (replaces the earlier `../../README.md` rule).
+
 ## Localization (RU) — no translated-English/epidemiology jargon
 
 Goal: text must read like Russian popular science, not translated epidemiology.
