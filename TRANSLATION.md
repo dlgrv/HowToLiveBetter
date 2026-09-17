@@ -22,6 +22,27 @@ First line of every translated file, before the back-link:
 - Units: 元→CNY (keep "yuan" also acceptable in RU: «юаней»); keep mmHg, mg, %, etc. Chinese administrative terms (医保, 户口, ICP 备案, 疾控中心) → transliterate or translate with the Chinese term in parentheses on first use in a file.
 - Law/regulation names: translate the meaning + keep the official Chinese name and document number in the sources line (already there); in body text give an English/Russian gloss.
 
+## Localization (RU) — no translated-English/epidemiology jargon
+
+Goal: text must read like Russian popular science, not translated epidemiology.
+Numbers, HR/RR/OR/CI values and CIs stay byte-identical — reword the words around them.
+
+Rewrite in «Эффект» / «Примечания» body text (term may appear in parentheses once per file on first use):
+- когорта / когортное исследование → «наблюдательное исследование N человек», «N человек под наблюдением», «объединённый анализ 15 наблюдательных исследований»
+- экспозиция → «воздействие», «контакт с дымом/взвесью» (дома дыма больше, чем вне дома)
+- верхний/нижний квартиль, квинтиль → «25% участников с самым высоким … против 25% с самым низким» (термин в скобках — не более 1 раза на файл)
+- конфаундинг / остаточный конфаундинг → «смешивающие факторы», «часть смешивающих факторов остаётся неучтённой»
+- популяция → «у японцев», «в японской выборке»
+- низкодостоверные доказательства (GRADE) → «доказательства низкого качества»
+- инцидент (бытовое значение) → «разовый случай», «происшествие»
+
+Keep — established Russian scientific usage: метаанализ, рандомизированное испытание,
+наблюдательное исследование, медиана наблюдения, доверительный интервал, отношение
+рисков/шансов, исследование «случай–контроль»; «человеко-лет» keep with a short gloss
+once per file («сумма лет наблюдения по всем участникам»).
+
+«Простыми словами» stays strictly colloquial — none of the terms above (existing rule).
+
 ## Tone
 Match the original: restrained, no exclamation marks, no moralizing, verb-first item titles. Grade A/B/C letters stay A/B/C.
 
