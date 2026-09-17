@@ -22,6 +22,50 @@ First line of every translated file, before the back-link:
 - Units: 元→CNY (keep "yuan" also acceptable in RU: «юаней»); keep mmHg, mg, %, etc. Chinese administrative terms (医保, 户口, ICP 备案, 疾控中心) → transliterate or translate with the Chinese term in parentheses on first use in a file.
 - Law/regulation names: translate the meaning + keep the official Chinese name and document number in the sources line (already there); in body text give an English/Russian gloss.
 
+## RU file naming
+
+Files under `book/ru/` are renamed to Russian slugs (localization of filenames):
+`book/ru/<NN>-<Заголовок-через-дефисы>.md`. Keep the two-digit chapter prefix (sort order),
+no spaces, proper Russian, ё allowed. The status line inside the file still links to the
+Chinese original (`../01-不要早死.md`) — that link must not change.
+
+| Ch | Slug |
+|---|---|
+| 01 | 01-Не-умирайте-рано |
+| 02 | 02-Не-умирайте-медленно |
+| 03 | 03-Не-тратьте-силы-зря |
+| 04 | 04-Не-тратьте-время-зря |
+| 05 | 05-Не-тратьте-деньги-зря |
+| 06 | 06-Мнимая-выгода |
+| 07 | 07-Как-жить-без-денег |
+| 08 | 08-Не-подставляйтесь |
+| 09 | 09-Юридические-красные-линии |
+| 10 | 10-Окупается-ли-брак |
+| 11 | 11-Красные-линии-для-технарей |
+| 12 | 12-Своё-дело |
+| 13 | 13-Экстренные-случаи |
+| 14 | 14-Аккаунты-и-безопасность |
+| 15 | 15-Аренда-и-покупка-жилья |
+| 16 | 16-Жизнь-с-хронической-болезнью |
+| 17 | 17-Пожилые-в-семье |
+| 18 | 18-Окупаются-ли-дети |
+| 19 | 19-Работа-и-травмы |
+| 20 | 20-Новорождённый |
+| 21 | 21-Заграница |
+| 22 | 22-Как-расслабляться |
+| 23 | 23-Выгодные-навыки |
+| 24 | 24-Как-ходить-к-врачам |
+| 25 | 25-После-смерти-близкого |
+| 26 | 26-Сайт-или-платформа |
+| 27 | 27-Беременность-и-роды |
+| 28 | 28-Не-губите-тело-ради-внешности |
+| 29 | 29-После-тяжёлого-удара |
+| 30 | 30-Ребёнок-в-школе |
+| 31 | 31-Пути-после-18 |
+
+EN filenames: decide together with the EN pilot's fate (same rename policy or mirror the
+Chinese names) — do not mix schemes between languages silently.
+
 ## Localization (RU) — no translated-English/epidemiology jargon
 
 Goal: text must read like Russian popular science, not translated epidemiology.
