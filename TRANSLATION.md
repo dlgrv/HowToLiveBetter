@@ -68,8 +68,41 @@ Chinese original (`../01-不要早死.md`) — that link must not change.
 | 30 | 30-Ребёнок-в-школе |
 | 31 | 31-Дороги-после-восемнадцати |
 
-EN filenames: decide together with the EN pilot's fate (same rename policy or mirror the
-Chinese names) — do not mix schemes between languages silently.
+EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 2026-09-18):
+
+| Ch | Slug |
+|---|---|
+| 01 | 01-Do-Not-Die-Early |
+| 02 | 02-Do-Not-Die-Slowly |
+| 03 | 03-Do-Not-Waste-Energy |
+| 04 | 04-Do-Not-Waste-Time |
+| 05 | 05-Do-Not-Waste-Money |
+| 06 | 06-The-Anti-List |
+| 07 | 07-Living-With-No-Money |
+| 08 | 08-Do-Not-End-Up-Inside |
+| 09 | 09-Legal-Red-Lines |
+| 10 | 10-Is-Love-And-Marriage-Worth-It |
+| 11 | 11-Red-Lines-For-Techies |
+| 12 | 12-Starting-Your-Own-Business |
+| 13 | 13-Emergencies |
+| 14 | 14-Accounts-And-Security |
+| 15 | 15-Renting-And-Buying-Housing |
+| 16 | 16-Living-With-Chronic-Disease |
+| 17 | 17-Elderly-At-Home |
+| 18 | 18-Is-Having-Kids-Worth-It |
+| 19 | 19-Employment-And-Work-Injury |
+| 20 | 20-Newborn |
+| 21 | 21-Travel-And-Abroad-Safety |
+| 22 | 22-How-To-Relax |
+| 23 | 23-Which-Skills-To-Learn |
+| 24 | 24-Seeing-The-Doctor |
+| 25 | 25-After-Someone-Dies |
+| 26 | 26-Building-A-Website-Or-Platform |
+| 27 | 27-Pregnancy-And-Birth |
+| 28 | 28-Do-Not-Ruin-Health-For-Looks |
+| 29 | 29-After-A-Major-Blow |
+| 30 | 30-School-Age-Kids |
+| 31 | 31-Paths-After-Eighteen |
 
 ## Russian README (README.ru.md)
 
