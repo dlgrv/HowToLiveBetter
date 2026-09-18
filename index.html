@@ -310,7 +310,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   </div>
   <div class="hint">
     <p>Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».</p>
-    <p>Внутри раздела — по убыванию выгоды，Поиск не меняет порядок。</p>
+    <p>Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.</p>
     <p>Данные — из каталога <a href="book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.</p>
   </div>
 </aside>
@@ -328,11 +328,11 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div id="list">
       <div class="status" id="status">Загружаю текст… …</div>
       <div class="empty" id="empty" hidden>
-        Ничего не найдено。уберите один из фильтров，или попробуйте более короткий запрос。
+        Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.
         <div><button id="reset2">Сбросить</button></div>
       </div>
     </div>
-    <div class="foot">Категория эффекта указана в каждом пункте (口径): разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录</a>. Оригинал — Public Domain (Unlicense).</div>
+    <div class="foot">Категория эффекта указана в каждом пункте: разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (отчёт о проверке источников, на китайском)</a>. Оригинал — Public Domain (Unlicense).</div>
   </div>
 </main>
 
@@ -543,7 +543,7 @@ const CARD_IO = new IntersectionObserver(list => {
     card.vis = it.isIntersecting;
     if (card.vis && card.key !== CUR_KEY) { n++; renderCard(card, CUR_TERMS, CUR_KEY); }
   }
-  if (n) PERF.log('滚动补渲染', t0, n + ' 张');
+  if (n) PERF.log('дозировка карточек', t0, n + ' шт.');
 }, {rootMargin:'600px 0px'});
 function esc(s){ return s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
 function build(sections){
@@ -672,7 +672,7 @@ function apply(){
   document.getElementById('cnt').textContent = shown;
   document.getElementById('empty').hidden = shown !== 0;
   syncControls(); writeUrl();
-  PERF.log('apply', t0, `命中 ${shown} 条，重渲染 ${rerender} 张`);
+  PERF.log('apply', t0, `найдено ${shown}, перерисовано ${rerender}`);
 }
 
 /* ---------- 事件 ---------- */
@@ -744,7 +744,7 @@ function wire(){
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
     buildGlossary(); readUrl(); wire(); apply();
-    PERF.mark(`DOM 节点 ${document.getElementsByTagName('*').length}，术语 ${GLOSS.length}`);
+    PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
     if (location.hash){
       const target = document.getElementById(location.hash.slice(1));
       target?.scrollIntoView();
