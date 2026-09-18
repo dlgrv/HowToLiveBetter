@@ -106,8 +106,8 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg-alt);padding:32px 32px 96px;overflow-y:auto;overscroll-behavior:contain;z-index:20}
 .group{padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--divider)}
 .group:last-of-type{border-bottom:0}
-.gt{font-size:14px;font-weight:700;color:var(--t1);line-height:24px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:baseline}
-.gt small{font-weight:400;font-size:12px;color:var(--t3)}
+.gt{font-size:14px;font-weight:700;color:var(--t1);line-height:24px;margin-bottom:4px;display:block}
+.gt small{font-weight:400;font-size:12px;color:var(--t3);display:block;line-height:16px;margin-top:2px}
 .sec-links{display:flex;flex-direction:column}
 .sec-link{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;font-size:14px;font-weight:500;color:var(--t2);line-height:24px;text-align:left;transition:color .25s;border-radius:0}
 .sec-link:hover{color:var(--t1)}
@@ -361,15 +361,15 @@ const PERF = (function(){
     if (!ev.target.matches('details')) return;
     const t0 = performance.now();
     void document.documentElement.scrollHeight;   // 强制走一遍布局
-    api.log((ev.target.open ? 'развернуть' : 'свернуть') + '重排', t0);
+    api.log((ev.target.open ? 'развернуть' : 'свернуть') + ': reflow', t0);
   }, true);
   // 掉帧：连续两帧间隔超过 32ms 就记一条
   let last = performance.now(), worst = 0, since = last;
   const tick = (t) => { const d = t - last; last = t; if (d > worst) worst = d;
-    if (t - since > 1000){ if (worst > 32) put(`⚠ 最长帧 ${worst.toFixed(0)}ms`); worst = 0; since = t; }
+    if (t - since > 1000){ if (worst > 32) put(`⚠ самый длинный кадр ${worst.toFixed(0)}ms`); worst = 0; since = t; }
     requestAnimationFrame(tick); };
   requestAnimationFrame(tick);
-  try { new PerformanceObserver(l => { for (const e of l.getEntries()) put(`⚠ 长任务 ${e.duration.toFixed(0)}ms`); })
+  try { new PerformanceObserver(l => { for (const e of l.getEntries()) put(`⚠ длинная задача ${e.duration.toFixed(0)}ms`); })
     .observe({entryTypes:['longtask']}); } catch (e) {}
   return api;
 })();
@@ -578,7 +578,7 @@ function build(sections){
         t.textContent = 'Выгода/затраты: ' + e.ratio;
         t.title = 'Оценка автора: из уровня эффекта (' + e.level + ') и трёх затрат, сравнима только внутри категории (' + LENS_LABEL[e.lens] + '), к доказательности отношения не имеет';
         badges.appendChild(t); }
-      add(e.grade, `证据 ${e.grade} 级`);
+      add(e.grade, `Доказательность: ${e.grade}`);
       if (e.lens) add('plain', LENS_LABEL[e.lens] || e.lens);
       for (const d of ['money','time','will']) if (e[d]) add('plain', LABEL[d][e[d]] || e[d]);
       if (e.dispute) add('danger', 'Спорно');
@@ -732,7 +732,7 @@ function wire(){
     if (!files.length) throw new Error('empty');
     const parts = await Promise.all(files.map(async f => {
       const res = await fetch(f, {cache:'no-cache'});
-      if (!res.ok) throw new Error('http '+res.status+'：'+f);
+      if (!res.ok) throw new Error('http '+res.status+': '+f);
       return res.text();
     }));
     const t1 = performance.now();
