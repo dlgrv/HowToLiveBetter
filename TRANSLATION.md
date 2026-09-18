@@ -68,6 +68,12 @@ Chinese original (`../01-不要早死.md`) — that link must not change.
 | 30 | 30-Ребёнок-в-школе |
 | 31 | 31-Дороги-после-восемнадцати |
 
+README policy (decided 2026-09-18): in the dlgrv fork the primary README language is English.
+- `README.md` — English (becomes the root README on `translation/en` and fork `main`)
+- `README.zh.md` — Chinese (renamed copy of the original Chinese README, links back to EN + RU)
+- `README.ru.md` — Russian (existing; gets a tri-lingual Languages line)
+Apply when the EN README is ready; keep all three linked via a `Languages:` line.
+
 EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 2026-09-18):
 
 | Ch | Slug |
