@@ -257,50 +257,50 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   <div class="group">
     <div class="gt">Выгода/затраты <small>оценка автора, сравнима в рамках одной категории</small></div>
     <div class="chips" data-dim="ratio">
-      <button class="chip" data-v="极高" aria-pressed="false">очень высокая</button>
-      <button class="chip" data-v="高" aria-pressed="false">высокая</button>
-      <button class="chip" data-v="一般" aria-pressed="false">обычная</button>
+      <button class="chip" data-v="极高" aria-pressed="false">Очень высокая</button>
+      <button class="chip" data-v="高" aria-pressed="false">Высокая</button>
+      <button class="chip" data-v="一般" aria-pressed="false">Обычная</button>
     </div>
   </div>
   <div class="group">
     <div class="gt">Что получаешь <small>категории не сравниваются между собой</small></div>
     <div class="chips" data-dim="lens">
-      <button class="chip" data-v="死亡率" aria-pressed="false">жизнь</button>
-      <button class="chip" data-v="金钱" aria-pressed="false">деньги</button>
-      <button class="chip" data-v="时间" aria-pressed="false">время и силы</button>
-      <button class="chip" data-v="自由" aria-pressed="false">свобода</button>
+      <button class="chip" data-v="死亡率" aria-pressed="false">Жизнь</button>
+      <button class="chip" data-v="金钱" aria-pressed="false">Деньги</button>
+      <button class="chip" data-v="时间" aria-pressed="false">Время и силы</button>
+      <button class="chip" data-v="自由" aria-pressed="false">Свобода</button>
     </div>
   </div>
   <div class="group">
     <div class="gt">Доказательность <small>метаанализ/RCT · есть исследования · консенсус</small></div>
     <div class="chips" data-dim="grade">
-      <button class="chip" data-v="A" aria-pressed="false">уровень A</button>
-      <button class="chip" data-v="B" aria-pressed="false">уровень B</button>
-      <button class="chip" data-v="C" aria-pressed="false">уровень C</button>
+      <button class="chip" data-v="A" aria-pressed="false">Уровень A</button>
+      <button class="chip" data-v="B" aria-pressed="false">Уровень B</button>
+      <button class="chip" data-v="C" aria-pressed="false">Уровень C</button>
     </div>
   </div>
   <div class="group">
     <div class="gt">Деньги</div>
     <div class="chips" data-dim="money">
-      <button class="chip" data-v="0" aria-pressed="false">бесплатно</button>
-      <button class="chip" data-v="少" aria-pressed="false">少</button>
-      <button class="chip" data-v="多" aria-pressed="false">多</button>
+      <button class="chip" data-v="0" aria-pressed="false">Бесплатно</button>
+      <button class="chip" data-v="少" aria-pressed="false">Мало</button>
+      <button class="chip" data-v="多" aria-pressed="false">Много</button>
     </div>
   </div>
   <div class="group">
     <div class="gt">Время</div>
     <div class="chips" data-dim="time">
-      <button class="chip" data-v="少" aria-pressed="false">на бегу</button>
-      <button class="chip" data-v="中" aria-pressed="false">несколько часов</button>
-      <button class="chip" data-v="多" aria-pressed="false">каждый день</button>
+      <button class="chip" data-v="少" aria-pressed="false">На бегу</button>
+      <button class="chip" data-v="中" aria-pressed="false">Несколько часов</button>
+      <button class="chip" data-v="多" aria-pressed="false">Каждый день</button>
     </div>
   </div>
   <div class="group">
     <div class="gt">Сила воли</div>
     <div class="chips" data-dim="will">
-      <button class="chip" data-v="否" aria-pressed="false">не нужна</button>
-      <button class="chip" data-v="些" aria-pressed="false">немного</button>
-      <button class="chip" data-v="是" aria-pressed="false">сильно</button>
+      <button class="chip" data-v="否" aria-pressed="false">Не нужна</button>
+      <button class="chip" data-v="些" aria-pressed="false">Немного</button>
+      <button class="chip" data-v="是" aria-pressed="false">Сильно</button>
     </div>
   </div>
   <div class="group">
@@ -528,9 +528,9 @@ function highlightInto(el, s, terms){
 }
 
 const COST_W = { money:{'0':0,'少':1,'多':2}, time:{'少':0,'中':1,'多':2}, will:{'否':0,'些':1,'是':2} };
-const LENS_LABEL = {'死亡率':'жизнь','金钱':'деньги','时间':'время и силы','自由':'свобода'};
+const LENS_LABEL = {'死亡率':'Жизнь','金钱':'Деньги','时间':'Время и силы','自由':'Свобода'};
 /* ---------- 构建 DOM ---------- */
-const LABEL = { money:{'0':'бесплатно','少':'небольшие траты','多':'заметные траты'}, time:{'少':'на бегу','中':'несколько часов','多':'каждый день'}, will:{'否':'без силы воли','些':'немного усилий','是':'серьёзные усилия'} };
+const LABEL = { money:{'0':'Бесплатно','少':'Небольшие траты','多':'Заметные траты'}, time:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'}, will:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'} };
 let CARDS = [], BLOCKS = [];
 // 卡片文字只在「上屏 + 搜索词变了」时重渲染，离屏的先记账，滚进来再补
 let CUR_TERMS = [], CUR_KEY = '';
