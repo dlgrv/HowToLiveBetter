@@ -529,6 +529,7 @@ function highlightInto(el, s, terms){
 
 const COST_W = { money:{'0':0,'少':1,'多':2}, time:{'少':0,'中':1,'多':2}, will:{'否':0,'些':1,'是':2} };
 const LENS_LABEL = {'死亡率':'Жизнь','金钱':'Деньги','时间':'Время и силы','自由':'Свобода'};
+const RATIO_LABEL = { ru:{'极高':'Очень высокая','高':'Высокая','一般':'Обычная'}, zh:{'极高':'极高','高':'高','一般':'一般'} };
 /* ---------- 构建 DOM ---------- */
 const LABEL = { money:{'0':'Бесплатно','少':'Небольшие траты','多':'Заметные траты'}, time:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'}, will:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'} };
 let CARDS = [], BLOCKS = [];
@@ -575,7 +576,7 @@ function build(sections){
       const badges = c.querySelector('.badges');
       const add = (cls, text) => { const t=document.createElement('span'); t.className='badge '+cls; t.textContent=text; badges.appendChild(t); };
       if (e.ratio) { const t = document.createElement('span'); t.className = 'badge r' + ({'极高':'3','高':'2','一般':'1'}[e.ratio]);
-        t.textContent = 'Выгода/затраты: ' + e.ratio;
+        t.textContent = 'Выгода/затраты: ' + (RATIO_LABEL[LANG][e.ratio] || e.ratio);
         t.title = 'Оценка автора: из уровня эффекта (' + e.level + ') и трёх затрат, сравнима только внутри категории (' + LENS_LABEL[e.lens] + '), к доказательности отношения не имеет';
         badges.appendChild(t); }
       add(e.grade, `Доказательность: ${e.grade}`);
