@@ -1,5 +1,6 @@
 .idea/
 .junie/
 
-# EN translation working units (transient)
+# translation pipeline transient state
 tools/digest/
+tools/.status/

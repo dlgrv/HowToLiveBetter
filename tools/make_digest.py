@@ -49,6 +49,45 @@ for i, it in enumerate(items, 1):
         "\n".join(unit))
     blocks[str(i)] = {"tag": it["tag"], "src": it["src"]}
 
+# Per-unit terminology injection: units/NN.gloss.md contains ONLY the glossary
+# terms occurring in this unit (00 gets the chapter-wide union + style rules).
+# assemble.py reads only NN.md, so gloss files never leak into the book; they
+# are copied together with units and pasted into the translator-subagent task.
+gloss_path = os.path.join(root, "tools", "glossary.json")
+gloss = json.load(open(gloss_path, encoding="utf-8")) if os.path.exists(gloss_path) \
+    else {"terms": [], "style_rules": {}}
+
+def gloss_rows(text, only_present=True):
+    rows = []
+    for t in gloss.get("terms", []):
+        if not only_present or t["cn"] in text:
+            rows.append(f'{t["cn"]} → RU: {t.get("ru", "?")} / EN: {t.get("en", "?")}')
+    return rows
+
+for i in range(len(items) + 1):
+    if i == 0:
+        chapter_text = "\n".join(head) + "\n" + "\n".join(
+            it["title"] + "\n".join(it["body"]) for it in items)
+        rows = gloss_rows(chapter_text, only_present=False)
+    else:
+        it = items[i - 1]
+        rows = gloss_rows(it["title"] + "\n" + "\n".join(it["body"]))
+    style = []
+    if i == 0:  # style rules once, in the chapter-overview unit
+        for lang in ("ru", "en"):
+            style += [f"[STYLE {lang.upper()}] " + r
+                      for r in gloss.get("style_rules", {}).get(lang, [])]
+    if rows or style:
+        g = ["[СПРАВКА — НЕ переводить этот блок и НЕ вставлять в текст юнита.",
+             " Используй закреплённые эквиваленты; глосс (иероглифы — пояснение) —",
+             " при ПЕРВОМ употреблении термина в файле]",
+             ""]
+        g += rows
+        if style:
+            g += [""] + style
+        open(os.path.join(d, "units", f"{i:02d}.gloss.md"), "w", encoding="utf-8").write(
+            "\n".join(g) + "\n")
+
 json.dump({"chapter": n, "file": srcs[0], "head": head,
            "items": len(items), "blocks": blocks},
           open(os.path.join(d, "blocks.json"), "w", encoding="utf-8"),
