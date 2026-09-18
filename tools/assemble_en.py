@@ -27,7 +27,7 @@ for i in range(1, meta["items"] + 1):
     src = meta["blocks"][str(i)]["src"]
     txt = txt.replace("§TAG§", tag)
     # Russian label + byte-identical content after the label
-    src_ru = ["- Sources:" + l.split("：", 1)[1] if l.startswith("- 来源：") else l
+    src_ru = ["- Sources: " + l.split("：", 1)[1] if l.startswith("- 来源：") else l
               for l in src]
     # In the original, 来源 sits between 证据等级 and 备注 in most items;
     # splice each source line in at the position of its §SRC§ marker only if

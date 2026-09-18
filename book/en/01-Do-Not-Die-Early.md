@@ -1,0 +1,267 @@
+> Unofficial translation of [book/01-不要早死.md](../01-不要早死.md). In case of any discrepancy the Chinese original prevails.
+
+[← Back to the table of contents](../README.md)
+
+# 1. Do Not Die Early
+
+This section collects only deaths from external causes, the handful of vaccines and screenings with the hardest evidence, and body signals that warrant a check-up once they appear. The figures in the Benefit column come from randomized trials, large cohorts, or official statistics; the Cost column is the author's rough estimate at market prices, meant for comparison only, not for citation.
+### 1. Buckle up — front and rear seats
+<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 0 yuan, 2 seconds each time you get in the car
+- In plain terms: Fasten your seat belt in the front seat and the odds of being killed or seriously hurt in a crash drop by roughly half (60 percent in light trucks). Among vehicle occupants who died in crashes in the United States in 2022, half of those whose belt use could be determined were unbelted.
+- Benefit: US NHTSA estimates seat belts cut the risk of fatal injury for front-seat car occupants by 45% and for front-seat occupants of light trucks by 60%; among passenger-vehicle occupants who died in the US in 2022, 50% of those with known belt use were unrestrained; WHO puts the reduction in death risk for vehicle occupants at up to 50%. WHO estimates 248,099 road traffic deaths in China in 2021 (17.4 per 100,000)
+- Evidence grade: A
+- Sources: NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries> ; WHO GHO RS_196/RS_198 (China, 2021). <https://ghoapi.azureedge.net/api/RS_196?$filter=SpatialDim%20eq%20%27CHN%27>
+- Notes: NHTSA's 45%/60% are official estimates based on US crash databases (citing Kahane 2015), not randomized trials. Riding unbelted in the back is just as deadly: in the same NHTSA report, 60% of second-row occupants killed in crashes were unbelted. WHO's China death count is a model estimate, several times higher than the figure registered by the traffic police; the two use different definitions, and only the WHO figure is used here.
+
+### 2. Wear a helmet on motorcycles and e-bikes — and fasten it
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 100 to 300 yuan for one; 5 seconds to put on each time
+- In plain terms: Wear a helmet and click the strap shut, and a motorcyclist's odds of dying in a crash fall by about 40% and of a head injury by about 70%. An unfastened helmet is as good as no helmet.
+- Benefit: Cochrane meta-analysis: helmet use by motorcyclists cuts the risk of death by 42% (OR 0.58, 95% CI 0.50 to 0.68) and head injury by 69% (OR 0.31, 95% CI 0.25 to 0.38)
+- Evidence grade: A
+- Sources: Liu BC 等 (2008). Helmets for preventing injury in motorcycle riders. Cochrane Database of Systematic Reviews. <https://doi.org/10.1002/14651858.CD004333.pub3>
+- Notes: The data come from motorcycles; e-bikes are an extrapolation, but the injury mechanism is the same. Fasten the strap — a helmet hanging on the handlebar does not count.
+
+### 3. Install smoke alarms; add a carbon monoxide alarm if you burn coal or heat with gas indoors in winter
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 30 to 100 yuan per smoke alarm, 50 to 150 yuan per carbon monoxide alarm; change the batteries once a year after installation
+- In plain terms: A working smoke alarm cuts the odds of dying in a house fire by about 60% — when fire breaks out, four in ten people are asleep, and your nose will not wake you. If you burn coal or use gas indoors in winter, add a carbon monoxide alarm: in 2018 alone, about 11,500 people in China died of carbon monoxide poisoning, and in the three winter months seven in ten of those deaths happened at home.
+- Benefit: North Carolina case-control study of residential fires: a working smoke alarm lowers the risk of death (OR 0.39, 95% CI 0.18 to 0.83). In fatal fires in occupied US homes from 2018 to 2020, 24% had no smoke alarm and in 41% someone was asleep when the fire started. China reported 11,523 deaths from carbon monoxide poisoning in 2018; 72.59%, 67.42%, and 66.48% of the December, January, and February deaths occurred at home
+- Evidence grade: B
+- Sources: Marshall SW 等 (1998). Fatal residential fires: who dies and who survives? JAMA. <https://doi.org/10.1001/jama.279.20.1633> ; USFA (2022). Fatal Fires in Residential Buildings (2018-2020), Topical Fire Report Series 22(2). <https://www.usfa.fema.gov/downloads/pdf/statistics/v22i2.pdf> ; You J 等 (2020). Number of Deaths due to Carbon Monoxide Poisoning by Month and by Place of Death — China, 2018. China CDC Weekly. <https://doi.org/10.46234/ccdcw2020.008>
+- Notes: The mortality evidence for smoke alarms rests on a single case-control study with no randomized trial, hence only a B. There is no mortality study of carbon monoxide alarms as such; the benefit is inferred from the fact that poisoning deaths cluster in winter and at home.
+
+### 4. Replace gas hoses and stoves when due, never modify the piping yourself, and turn away gas-company door-to-door sales outright
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: a compliant gas hose costs a few dozen yuan; stoves are replaced every few years — check the expiry date while you are at it
+- In plain terms: A compliant hose costs a few dozen yuan, and replacing it on time is a user obligation written into the national gas-safety regulation. Modifying the piping or dismantling the gas meter yourself, on the other hand, is explicitly forbidden. The same regulation says the gas company may not make you buy its designated products or services, so a door-to-door salesperson claiming you "must" switch can be refused outright.
+- Benefit: the regulation makes "promptly replacing gas appliances and connection hoses that the state has ordered phased out or that have passed their service life" a user obligation, and lists "unauthorized installation, alteration, or removal of indoor gas facilities and gas metering devices" as prohibited conduct; it also states that gas operators may not require users to buy their designated products or accept their services
+- Evidence grade: A
+- Sources: 国务院 (2010). 城镇燃气管理条例（国务院令第 583 号）第二十七条：「燃气用户应当遵守安全用气规则，使用合格的燃气燃烧器具和气瓶，及时更换国家明令淘汰或者使用年限已届满的燃气燃烧器具、连接管等」；第二十八条禁止行为含「（一）擅自操作公用燃气阀门」「（二）将燃气管道作为负重支架或者接地引线」「（四）擅自安装、改装、拆除户内燃气设施和燃气计量装置」；第二十条燃气经营者不得「（六）要求燃气用户购买其指定的产品或者接受其提供的服务」；第二十九条用户可就收费、服务向燃气管理等部门投诉，「有关部门应当自收到投诉之日起15个工作日内予以处理」. <http://www.gov.cn/gongbao/content/2010/content_1758214.htm>
+- Notes: Sellers who show up in the name of a "safety check" and then pitch self-closing valves and alarms are blocked by Article 20, item 6 of the regulation — you may refuse and complain. TODO (to verify: the standard steps after smelling gas — open windows, shut the valve, touch no electrical switches, and phone from outdoors — no official wording was available to check verbatim this time). Carbon monoxide poisoning is a separate matter; see Chapter 13.
+
+### 5. Do not pick, buy, or eat wild mushrooms — no folk identification method holds up
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: 0 yuan; the price is giving up a seasonal wild delicacy
+- In plain terms: In 2025 alone there were 828 mushroom-poisoning outbreaks nationwide, 2165 people affected, and 13 deaths; that same year saw 34 mushroom species previously unrecorded as toxic identified for the first time. Silver-needle testing, "if the bugs ate it, it is safe," and "only the brightly colored ones are poisonous" all fail.
+- Benefit: China CDC (中国疾控中心 — the national disease-control agency) investigated 828 mushroom poisoning incidents in 2025, involving 2165 people and 13 deaths, a case fatality rate of 0.6%; from 2019 to 2024 there were 276 to 676 incidents a year, with case fatality rates between 0.87% and 2.86%. In 2025 alone, 138 poisonous mushroom species were identified, 34 of them recorded as causing poisoning in China for the first time
+- Evidence grade: A
+- Sources: Mushroom Poisoning Outbreaks — China, 2025. China CDC Weekly (2026)：「In 2025, China CDC investigated 828 mushroom poisoning incidents across 27 provincial-level administrative divisions (PLADs), affecting 2,165 individuals and causing 13 deaths - a case fatality rate of 0.6%, the lowest of the past six years. In total, 138 poisonous mushroom species were identified, including 34 newly recorded in poisoning incidents in China.」「From 2019 to 2024, the annual number of incidents ranged from 276 to 676, and the case fatality rate ranged from 0.87% to 2.86%.」<https://doi.org/10.46234/ccdcw2026.120>；同刊 2024 年度报告 <https://doi.org/10.46234/ccdcw2025.106>
+- Notes: New species are recorded as poisonous every year, which undermines the premise that "the locals know what to avoid." Silver-needle testing, boiling with garlic, "if the bugs ate it, it is safe," and "only the brightly colored ones are poisonous" all fail. After eating a suspect mushroom, induce vomiting immediately and go to the hospital with the leftover mushrooms or photos — mushroom poisoning has several clinical syndromes, and identifying the species directly determines the treatment.
+
+### 6. Never wheel an e-bike into hallways or elevators, and never charge it at home
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: 0 yuan; park it at the communal charging point downstairs, a few dozen meters further to walk
+- In plain terms: Taking an e-bike into a hallway, an elevator, or your home to charge it is explicitly banned by the national fire-safety rule for high-rise buildings: individuals who fail to correct it face fines of 500–1000 yuan, commercial operators 2000–10000 yuan. The fine is the lesser issue — a fire like this starts right across your only escape route.
+- Benefit: a ministerial rule of the Ministry of Emergency Management states verbatim: "parking electric bicycles or charging them in the public lobbies, evacuation corridors, stairwells, or emergency exits of high-rise residential buildings is prohibited"; those who refuse to correct the violation are fined 500 to 1000 yuan (individuals and non-commercial entities) or 2000 to 10000 yuan (commercial operators)
+- Evidence grade: A
+- Sources: 应急管理部 (2021). 高层民用建筑消防安全管理规定（应急管理部令第 5 号，第三十七条、第四十七条）. <https://www.gov.cn/zhengce/zhengceku/2021-08/01/content_5628815.htm>
+- Notes: A lithium battery fire turns into a flashover within tens of seconds and produces toxic smoke; a bike left in the stairwell amounts to setting fire to your only way out. Do not buy modified batteries or no-name chargers, and do not charge overnight. TODO (to verify: official annual figures on the number of e-bike fires and deaths nationwide)
+
+### 7. Measure your blood pressure; if it is high, take medication until you are at target
+<!-- 成本标签: 钱=少 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: an electronic blood pressure monitor costs 100 to 200 yuan, 1 minute per reading; most blood pressure drugs run from a few yuan to a few dozen yuan a month
+- In plain terms: Every 10 mmHg your blood pressure comes down, the odds of a major cardiovascular event drop by a fifth, stroke by 27%, heart failure by 28%, and death by 13%. In China, 44.7% of people aged 35–75 have hypertension, and only 7.2% actually have it under control.
+- Benefit: meta-analysis (123 trials, over 610,000 people): each 10 mmHg reduction in systolic blood pressure gives major cardiovascular events RR 0.80 (95% CI 0.77 to 0.83), stroke RR 0.73, heart failure RR 0.72, all-cause mortality down 13% (RR 0.87, 95% CI 0.84 to 0.91). A screening of 1.7 million people in China aged 35 to 75: 44.7% had hypertension, of whom 44.7% were aware of it, 30.1% were treated, and 7.2% were controlled
+- Evidence grade: A
+- Sources: Ettehad D 等 (2016). Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis. Lancet. <https://doi.org/10.1016/S0140-6736(15)01225-8> ; Lu J 等 (2017). Prevalence, awareness, treatment, and control of hypertension in China (China PEACE Million Persons Project). Lancet. <https://doi.org/10.1016/S0140-6736(17)32478-9>
+- Notes: The target value (130 vs 140) is still debated, but "knowing you have hypertension and bringing it down" is not. Fewer than 1 in 10 people with hypertension in China has it controlled; a single blood pressure reading is one of the most cost-effective actions in this book.
+
+### 8. Test fasting blood glucose once after 35 if you are overweight, and retest every three years even if normal
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=死亡率 -->
+- Cost: a fasting glucose test costs a dozen-odd yuan, HbA1c a few dozen yuan; one blood draw
+- In plain terms: A few dozen yuan for one vial of blood can catch prediabetes while you still have no symptoms at all. The official US screening advice is to test people aged 35–70 who are overweight or obese, and to retest every three years if the result is normal.
+- Benefit: current recommendation of the US Preventive Services Task Force: screen asymptomatic adults aged 35 to 70 who are overweight or obese (body mass index ≥25 and ≥30 respectively) for prediabetes and type 2 diabetes, grade B recommendation; "screening every 3 years is a reasonable approach for adults with normal blood glucose"
+- Evidence grade: A
+- Sources: US Preventive Services Task Force (2021). Screening for Prediabetes and Type 2 Diabetes. <https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes>
+- Notes: A prediabetes result does not mean medication; lifestyle intervention alone reverses it in a substantial share of people. Awareness of diabetes among Chinese adults has long been low, and many people find out only when complications appear.
+
+### 9. Do not speed and do not drink and drive
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: 0 yuan; a few extra minutes on the road, and drink less at dinner parties
+- In plain terms: For every 1% rise in average speed, the odds of a crash killing someone go up by about 4%. Alcohol has no safe line where "a little is fine" — the risk starts climbing at very low blood concentrations.
+- Benefit: WHO: each 1% increase in average speed raises the risk of a fatal crash by 4%; drink-driving risk begins to rise at very low blood alcohol concentrations
+- Evidence grade: B
+- Sources: WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries>
+- Notes: The 1%/4% speed-mortality link comes from crash-model estimates, not randomized trials. On drink-driving WHO gives only a qualitative conclusion; the specific dose-effect was not verified against the primary literature for this section.
+
+### 10. Put children under 4 in a child safety seat, never hold them on your lap
+<!-- 成本标签: 钱=多 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 300 to 2000 yuan for one, usable for several years; 1 extra minute each trip
+- In plain terms: An infant under one in a safety seat is about 70% less likely to be fatally injured in a crash; for ages 1–4 the drop is about half. Holding the child on your lap gives no such protection — in a hard braking event you cannot hold on.
+- Benefit: US NHTSA estimates child safety seats cut the risk of fatal injury for infants under 1 year old in passenger cars by 71% and for toddlers aged 1 to 4 by 54%; WHO puts the reduction in infant deaths at 71%
+- Evidence grade: A
+- Sources: NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries>
+- Notes: The figures are official US estimates based on crash data. A misinstalled seat is as good as none: fasten it per the manual, and rear-facing for children under 1.
+
+### 11. Fit window and balcony limiters if you have small children — a screen is not protection
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: a set of window limiters or child safety locks costs a few dozen yuan; ten minutes to install
+- In plain terms: Limiters run a few dozen yuan a set. After New York City began installing window guards free of charge for high-risk households and walking them through the risks, reported child falls in one borough halved within three years, and the city later legislated that landlords must fit guards in homes with small children. A screen pops open with one push — it is not protection.
+- Benefit: New York City's "Children Can't Fly" program, running since 1972, handed out window guards free in high-risk areas with in-home education; reported falls in the Bronx fell 50% from 1973 to 1975; the city then amended its health code to require landlords to install window guards in apartments where children aged 10 and under reside
+- Evidence grade: B
+- Sources: Spiegel CN, Lindaman FC (1977). Children can't fly: a program to prevent childhood morbidity and mortality from window falls. American Journal of Public Health：「Significant reduction in falls resulted, particularly in the Bronx, where reported falls declined 50 percent from 1973 to 1975」，1976 年纽约市卫生法典修订「to require that landlords provide window guards in apartments where children ten years old and younger reside」. <https://doi.org/10.2105/AJPH.67.12.1143>；(2021). Unintentional Window Falls in Children and Adolescents. Academic Pediatrics：2007 年 1 月至 2017 年 8 月全国电子伤害监测系统 38,840 例急诊就诊，「The majority of falls occurred in children under the age of 6 and were related to falls from a second story or below」. <https://doi.org/10.1016/j.acap.2020.07.008>
+- Notes: It is not only high floors that need guards: in that US dataset most falls were from a second story or lower. A screen only keeps mosquitoes out; one push and it comes off — do not treat it as a guard. Keep beds, sofas, and boxes — anything a child can climb — away from windows and balcony edges.
+
+### 12. Keep children in sight near water, and wear life jackets when boating or swimming in open water
+<!-- 成本标签: 钱=少 时间=中 毅力=否 收益=大 口径=死亡率 -->
+- Cost: a life jacket costs 50 to 200 yuan; plus the attention of supervising the child
+- In plain terms: A person wearing a life jacket in the water is only about half as likely to drown as one without. Drowning is still the leading cause of death among children aged 1–14 in China, and the drowning death rate in rural areas is about twice that of cities.
+- Benefit: a matched cohort from US Coast Guard data: among recreational boaters who ended up in the water, wearing a life jacket gave an adjusted RR of 0.51 for drowning death (95% CI 0.35 to 0.74). In China, the drowning death rate for under-20s fell from 6.60 per 100,000 in 2013 to 3.28 per 100,000 in 2021; rural rates are about 2 times urban, and drowning remains the leading cause of death for children aged 1 to 14; among injury deaths of ages 0 to 19 in 2021, drowning accounted for 31.1% and road traffic for 27.9%
+- Evidence grade: A
+- Sources: Cummings P 等 (2011). Association between wearing a personal floatation device and death by drowning among recreational boaters. Injury Prevention. <https://doi.org/10.1136/ip.2010.028688> ; Li Z 等 (2023). Unintentional Drowning Mortality Among Individuals Under Age 20 — China, 2013–2021. China CDC Weekly. <https://doi.org/10.46234/ccdcw2023.198> ; Zhou J 等 (2024). Injury Mortality of Children and Adolescents Aged 0–19 Years — China, 2010–2021. China CDC Weekly. <https://doi.org/10.46234/ccdcw2024.057>
+- Notes: The A grade covers only the life jacket; "never out of sight" is consensus (C) — no randomized trial exists, and none will. Drowning deaths in China cluster in rural areas, in summer, and among males aged 15 to 19.
+
+### 13. Train balance and leg strength from 60, and adapt your bathroom and stairs at home
+<!-- 成本标签: 钱=少 时间=多 毅力=是 收益=大 口径=死亡率 -->
+- Cost: tai chi or balance training 2 to 3 times a week, 30 minutes each; non-slip mats, grab bars, and night lights for the bathroom run a few dozen to a few hundred yuan
+- In plain terms: Train balance two or three times a week (tai chi and the like) and an older person's fall count drops by about 23%, the share of people who fall by 15%; a home retrofit with non-slip surfaces and grab bars brings a further drop of about 20%. Falls are the leading cause of injury death among people over 65 in China, and more than half of them happen in the person's own home.
+- Benefit: Cochrane meta-analysis (108 trials, 23,407 people): exercise cuts the rate of falls in older people by 23% (RaR 0.77, 95% CI 0.71 to 0.83) and the number of people who fall by 15% (RR 0.85); home safety assessment and modification lowers the fall rate (RR 0.81, 95% CI 0.68 to 0.97); tai chi gives RR 0.71 for fall risk. In China falls are the leading cause of injury death at 65 and older; in 2018 surveillance, 55.97% of falls among older people happened at home
+- Evidence grade: A
+- Sources: Sherrington C 等 (2019). Exercise for preventing falls in older people living in the community. Cochrane Database of Systematic Reviews. <https://doi.org/10.1002/14651858.CD012424.pub2> ; Gillespie LD 等 (2012). Interventions for preventing falls in older people living in the community. Cochrane Database of Systematic Reviews. <https://doi.org/10.1002/14651858.CD007146.pub3> ; Lu Z 等 (2021). Characteristics of Falls Among Older People — China, 2018. China CDC Weekly. <https://doi.org/10.46234/ccdcw2021.013>
+- Notes: The outcome is the number of falls, not deaths; the chain from a fall to a hip fracture to death is short in older people. Applies to community-dwelling adults over 60.
+
+### 14. Test for hepatitis B antibodies; get vaccinated if you have none
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: the test costs a few dozen yuan; the adult hepatitis B vaccine runs about 100 to 300 yuan for all 3 shots, completed within six months
+- In plain terms: A one-time test costs a few dozen yuan. In the Qidong trial with 30 years of follow-up, people vaccinated against hepatitis B at birth were 84% less likely to develop primary liver cancer later and 72% less likely to carry the virus. Adults who test antibody-negative get three catch-up shots, finished within six months, one to two hundred yuan.
+- Benefit: 30-year follow-up of the Qidong cluster-randomized trial: neonatal hepatitis B vaccination cut primary liver cancer by 84% (95% CI 23% to 97%) and HBsAg positivity by 72% (95% CI 68% to 75%). In China overall, HBsAg prevalence fell 52% from 1992 to 2014, and 97% among children under 5
+- Evidence grade: A
+- Sources: Qu C 等 (2014). Efficacy of neonatal HBV vaccination on liver cancer and other liver diseases over 30-year follow-up of the Qidong hepatitis B intervention study. PLoS Medicine. <https://doi.org/10.1371/journal.pmed.1001774> ; Cui F 等 (2017). Prevention of Chronic Hepatitis B after 3 Decades of Escalating Vaccination Policy, China. Emerging Infectious Diseases. <https://doi.org/10.3201/eid2305.161477>
+- Notes: The relevant group is adults born before 1992 who were never vaccinated or whose antibodies have waned. The liver cancer reduction comes from neonatal vaccination; in the same trial, catch-up vaccination of adolescents showed only 21% efficacy against HBsAg, and the main benefit for adults is avoiding new infection — the 84% cannot be carried over directly. For people already infected (HBsAg-positive), vaccination is useless; see a hepatology department for follow-up.
+
+### 15. Get a puncture wound from a nail or splinter, or a wound dirtied with soil, treated the same day — and ask whether you need a tetanus shot
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: registration plus treatment runs a few dozen yuan; if a shot is needed, the vaccine or immunoglobulin costs a few dozen to a few hundred yuan
+- In plain terms: Once tetanus takes hold, about 1 in 10 people dies. Deep wounds and wounds contaminated with soil carry the highest risk; getting it treated the same day costs well under a hundred yuan — do not wait until it swells up.
+- Benefit: in the US, roughly 1 in 10 tetanus cases is fatal; deep, soil-contaminated wounds carry higher risk
+- Evidence grade: B
+- Sources: 美国疾病控制与预防中心. 破伤风：「Tetanus bacteria can get into someone's body through broken skin, usually through injuries.」「Tetanus can lead to death (1 in 10 cases in the United States are fatal).」「People who didn't complete the primary series or who aren't up to date with their 10-year tetanus booster shots are also at increased risk.」「Vaccination also helps prevent tetanus in people with wounds, depending on their tetanus vaccination history.」<https://www.cdc.gov/tetanus/about/index.html>；国家卫生健康委办公厅 (2024). 关于印发非新生儿破伤风诊疗规范（2024 年版）的通知（国卫办医急函〔2024〕381 号）. <https://www.gov.cn/zhengce/zhengceku/202410/content_6982262.htm>
+- Notes: Not every wound needs a shot; the doctor decides based on the nature of the wound plus your vaccination history, so neither self-judge nor refuse to ask. "I had my childhood shots, so I am covered for life" is wrong — boosters run on a 10-year cycle. TODO (to verify: the wound classification and immunization schedule tables in China's 2024 clinical protocol for non-neonatal tetanus — the appendix is a PDF and could not be read on this machine).
+
+### 16. Get the HPV vaccine — the earlier the better
+<!-- 成本标签: 钱=多 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: the domestically made bivalent vaccine runs about 300-odd yuan a shot, the imported 9-valent about 1300 yuan a shot, 2 to 3 shots; half a day for the appointment
+- In plain terms: In Swedish data on 1.67 million women, those vaccinated against HPV before 17 were only about one-eighth as likely to later develop invasive cervical cancer as the unvaccinated; those vaccinated between 17 and 30 had roughly half the risk. The earlier the shot, the more it is worth.
+- Benefit: cohort of 1.67 million Swedish women: vaccinated women had lower incidence of invasive cervical cancer than unvaccinated — vaccinated before 17, IRR 0.12 (95% CI 0.00 to 0.34); vaccinated between 17 and 30, IRR 0.47 (95% CI 0.27 to 0.75)
+- Evidence grade: A
+- Sources: Lei J 等 (2020). HPV Vaccination and the Risk of Invasive Cervical Cancer. New England Journal of Medicine. <https://doi.org/10.1056/NEJMoa1917338>
+- Notes: The benefit is greatest at ages 9 to 14; between 17 and 30 there is still a reduction of more than half; after 30 it tapers. Screening is still needed after vaccination (see the next item).
+
+### 17. Start breast cancer screening at 40, with a mammogram every two years
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=死亡率 -->
+- Cost: a mammogram runs two to three hundred yuan per session; many regions have free screening programs; half a day every two years
+- In plain terms: A mammogram every two years from 40 to 74 is what the official US screening advice explicitly recommends. For women over 75, and for adding ultrasound and MRI for dense breasts, the official verdict is that the evidence is not yet sufficient — you can skip these when a checkup package tries to charge extra for them.
+- Benefit: current recommendation of the US Preventive Services Task Force: "biennial screening mammography is recommended for women aged 40 to 74 years," grade B recommendation; for women 75 and older, and for supplemental ultrasound and MRI in dense breasts, the verdict is "insufficient evidence"
+- Evidence grade: A
+- Sources: US Preventive Services Task Force (2024). Breast Cancer: Screening. <https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening>
+- Notes: Starting ages differ across countries; some Chinese guidelines and local programs begin at 45. Women with a first-degree relative who had breast cancer or a BRCA mutation are high-risk and need a plan worked out with a doctor individually — this item does not apply to them.
+
+### 18. Screen women 30 and older for cervical cancer, with HPV testing first
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: an HPV test costs 100 to 300 yuan; if negative, once every 5 years; the sample takes a few minutes
+- In plain terms: In the rural India trial, women who had a single HPV test in their lifetime were about half as likely to die of cervical cancer and about 50% less likely to be diagnosed with late-stage cervical cancer. One test costs one to two hundred yuan, and a negative result holds for 5 years.
+- Benefit: cluster-randomized trial in rural India (women aged 30 to 59): a single round of HPV test screening gave HR 0.52 for cervical cancer death (95% CI 0.33 to 0.83) and HR 0.47 for advanced cervical cancer (95% CI 0.32 to 0.69)
+- Evidence grade: A
+- Sources: Sankaranarayanan R 等 (2009). HPV screening for cervical cancer in rural India. New England Journal of Medicine. <https://doi.org/10.1056/NEJMoa0808516>
+- Notes: This is one of the few screening randomized trials to use death as the outcome, and it screened only one round. Women vaccinated against HPV still need screening — the vaccine does not cover all types.
+
+### 19. Start colorectal cancer screening at 45 to 50, with a stool immunochemical test or colonoscopy
+<!-- 成本标签: 钱=少 时间=中 毅力=否 收益=中 口径=死亡率 -->
+- Cost: a stool test costs a few dozen yuan, every 1 to 2 years; a colonoscopy runs a few hundred to over a thousand yuan, once every 10 years if negative, plus a day of bowel preparation
+- In plain terms: A stool occult blood test every one or two years, a few dozen yuan a time, cuts the odds of dying of colorectal cancer by about 16%; those who complete every round see a 25% drop. One colonoscopy and your odds of getting colorectal cancer within ten years fall from 1.20% to 0.98%.
+- Benefit: Cochrane meta-analysis: stool occult blood screening gives RR 0.84 for colorectal cancer death (95% CI 0.78 to 0.90), and RR 0.75 for those attending at least one round. NordICC randomized trial: being invited to colonoscopy lowered 10-year colorectal cancer incidence from 1.20% to 0.98% (RR 0.82, 95% CI 0.70 to 0.93)
+- Evidence grade: A
+- Sources: Hewitson P 等 (2007). Screening for colorectal cancer using the faecal occult blood test, Hemoccult. Cochrane Database of Systematic Reviews. <https://doi.org/10.1002/14651858.CD001216.pub2> ; Bretthauer M 等 (2022). Effect of Colonoscopy Screening on Risks of Colorectal Cancer and Related Death. New England Journal of Medicine. <https://doi.org/10.1056/NEJMoa2208375>
+- Notes: Contested. In NordICC's intention-to-screen analysis, colorectal cancer death was 0.28% vs 0.31% (RR 0.90, 95% CI 0.64 to 1.16), not statistically significant, and the benefit of colonoscopy for mortality has been overstated; the mortality evidence for stool testing is actually the firmer one. Starting ages across national guidelines fall between 45 and 50; earlier with a family history.
+
+### 20. Get a flu shot every year if you have cardiovascular disease or are elderly
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 50 to 150 yuan a shot, once every autumn
+- In plain terms: In the trial of flu shots after a heart attack, the share of deaths within a year fell from 4.9% to 2.9%. People with cardiovascular disease and older adults should top up every autumn, 50–150 yuan.
+- Benefit: randomized double-blind trial after myocardial infarction (2571 people): 12 months after flu vaccination, all-cause mortality 2.9% vs 4.9% on placebo (HR 0.59, 95% CI 0.39 to 0.89), cardiovascular death HR 0.59. Meta-analysis: flu vaccine for major cardiovascular events 3.6% vs 5.4% (RR 0.66, 95% CI 0.53 to 0.83), cardiovascular death RR 0.74 (95% CI 0.42 to 1.30, not statistically significant)
+- Evidence grade: A
+- Sources: Fröbert O 等 (2021). Influenza Vaccination After Myocardial Infarction: A Randomized, Double-Blind, Placebo-Controlled, Multicenter Trial. Circulation. <https://doi.org/10.1161/CIRCULATIONAHA.121.057042> ; Behrouzi B 等 (2022). Association of Influenza Vaccination With Cardiovascular Risk: A Meta-analysis. JAMA Network Open. <https://doi.org/10.1001/jamanetworkopen.2022.8873>
+- Notes: Contested. The A grade covers only people with cardiovascular disease. For healthy older adults, the Cochrane review (Demicheli V et al. 2018, Vaccines for preventing influenza in the elderly, <https://doi.org/10.1002/14651858.CD004876.pub4>) can offer only low-certainty evidence — one season of influenza falling from 6% to 2.4% — and the evidence on mortality is very low certainty.
+
+### 21. Get the shingles vaccine after 50
+<!-- 成本标签: 钱=多 时间=少 毅力=否 收益=中 口径=死亡率 -->
+- Cost: the recombinant shingles vaccine runs about 3000 to 4000 yuan for the two shots, out of pocket
+- In plain terms: In the phase 3 trial this vaccine blocked 97% of shingles cases, similar across age groups. The downside: two shots at three to four thousand yuan, all out of pocket — and shingles itself is rarely fatal. What you are mainly paying for is not going through that stretch of nerve pain.
+- Benefit: phase 3 randomized controlled trial in 18 countries with 15,400 participants, mean follow-up 3.2 years: 6 cases of shingles in the vaccine arm vs 210 on placebo (0.3 vs 9.1 per 1,000 person-years); "overall vaccine efficacy against herpes zoster was 97.2% (95% CI 93.7–99.0, P<0.001)", with efficacy between 96.6% and 97.9% across age groups
+- Evidence grade: A
+- Sources: Lal H, Cunningham AL, Godeaux O, et al. (2015). Efficacy of an adjuvanted herpes zoster subunit vaccine in older adults. New England Journal of Medicine, 372(22), 2087-2096. <https://doi.org/10.1056/NEJMoa1501184>
+- Notes: This item ranks lower on cost-effectiveness because it is expensive. Shingles itself is rarely fatal; the real trouble is post-herpetic neuralgia, which can hurt for months to years. Local pain and fever after the shot are not rare (grade 3 symptoms 17.0% vs 3.2%).
+
+### 22. Get the pneumococcal vaccine at 65 and older
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=死亡率 -->
+- Cost: a few hundred yuan; free for older adults in some regions
+- In plain terms: In the trial of 84,500 older adults, the 13-valent pneumococcal vaccine blocked about 46% of pneumonias of vaccine-covered types and 75% of the most dangerous invasive infections — but showed no effect on pneumonia "from all causes," so do not expect it to rule out every pneumonia.
+- Benefit: randomized controlled trial of 84,500 adults over 65 in the Netherlands: the 13-valent pneumococcal conjugate vaccine had 45.6% efficacy against vaccine-type pneumonia (95.2% CI 21.8–62.5) and 75.0% against invasive pneumococcal disease (95% CI 41.4–90.8); no effect on all-cause pneumonia
+- Evidence grade: A
+- Sources: Bonten MJ, Huijts SM, Bolkenbaas M, et al. (2015). Polysaccharide conjugate vaccine against pneumococcal pneumonia in adults. New England Journal of Medicine, 372(12), 1114-1125. <https://doi.org/10.1056/NEJMoa1408544>
+- Notes: It protects only against the types the vaccine covers; the shot does not make pneumonia impossible. The vaccine commonly given to older adults in China is the 23-valent polysaccharide one, not the same product as the 13-valent conjugate used in this trial, so the efficacy figures cannot be applied directly.
+
+### 23. Test for Helicobacter pylori; eradicate it if positive
+<!-- 成本标签: 钱=少 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: the C13/C14 breath test costs 100 to 200 yuan; quadruple eradication therapy runs 200 to 500 yuan for 2 weeks of drugs
+- In plain terms: In the trial from Linqu, Shandong, with 22 years of follow-up, people whose H. pylori was eradicated were about half as likely to later get stomach cancer and about 40% less likely to die of it. One test costs one to two hundred yuan; eradication is two weeks of pills.
+- Benefit: 22-year follow-up of the randomized intervention trial in Linqu, Shandong: H. pylori eradication therapy gave OR 0.48 for gastric cancer incidence (95% CI 0.32 to 0.71) and HR 0.62 for gastric cancer death (95% CI 0.39 to 0.99)
+- Evidence grade: A
+- Sources: Li WQ 等 (2019). Effects of Helicobacter pylori treatment and vitamin and garlic supplementation on gastric cancer incidence and mortality: follow-up of a randomized intervention trial. BMJ. <https://doi.org/10.1136/bmj.l5016>
+- Notes: The trial population lived in a high-incidence area for stomach cancer; the absolute benefit in low-incidence areas would be much smaller. Reinfection after eradication is possible — get the whole family tested and treated together.
+
+### 24. Get a low-dose chest CT every year if you are a heavy smoker
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 200 to 400 yuan per scan, 10 minutes; plus the follow-up testing and anxiety that come with false positives
+- In plain terms: For heavy smokers who meet the criteria, a yearly low-dose CT cuts the odds of dying of lung cancer by 20% compared with a chest X-ray alone, and overall deaths by 6.7%. The price is the follow-up scans and a stretch of worry that false positives bring.
+- Benefit: US NLST randomized trial (53,454 people, aged 55 to 74, smoking history of 30 pack-years or more, quit for no more than 15 years): low-dose CT vs chest X-ray gave a 20.0% relative reduction in lung cancer death (95% CI 6.8 to 26.7) and a 6.7% relative reduction in all-cause mortality (95% CI 1.2 to 13.6)
+- Evidence grade: A
+- Sources: National Lung Screening Trial Research Team (2011). Reduced Lung-Cancer Mortality with Low-Dose Computed Tomographic Screening. New England Journal of Medicine. <https://doi.org/10.1056/NEJMoa1102873>
+- Notes: Applies only to high-risk smokers. In the same trial, 24.2% of low-dose CT screens were positive, and 96.4% of those were false positives; for non-smokers this scan is paying money for anxiety.
+
+### 25. Call 12356 when depressed or suicidal, and keep no sleeping pills or pesticides at home
+<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- Cost: 0 yuan; one phone call, or lock up the medicines and keep pesticides out of the house
+- In plain terms: Removing lethal means from arm's reach is one of the interventions that actually works in this space: after painkillers were brought under control, related suicides fell 43%; after barriers went up at jumping hot spots, 86%. So keep no sleeping pills or pesticides at home. When things feel unbearable, call 12356 first — it works nationwide and runs at least 18 hours a day.
+- Benefit: 10-year systematic review: evidence for restricting means of suicide keeps strengthening — control of analgesic drugs cut related suicides by 43%, and barriers at jumping hot spots cut them by 86% (79% to 91%); school-based awareness programs gave OR 0.45 for suicide attempts (95% CI 0.24 to 0.85); drug and psychological treatment of depression is a key part of prevention. From May 1, 2025, dialing 12356 anywhere in China connects to a psychological assistance hotline, operating no fewer than 18 hours a day
+- Evidence grade: B
+- Sources: Zalsman G 等 (2016). Suicide prevention strategies revisited: 10-year systematic review. Lancet Psychiatry. <https://doi.org/10.1016/S2215-0366(16)30030-X> ; 国家卫生健康委 (2024). 关于应用"12356"全国统一心理援助热线电话号码的通知（国卫医政函〔2024〕259 号）. <https://www.gov.cn/zhengce/zhengceku/202412/content_6994470.htm>
+- Notes: The evidence on means restriction is mostly ecological studies (before-and-after policy comparisons), and the hotline itself has no mortality evidence, hence a B. Suicidal impulses often last only minutes to hours; putting lethal tools one step further away is itself an intervention.
+
+### 26. Keep a fire extinguisher, fire blanket, escape respirators, and a first-aid kit, and check them once a year
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=死亡率 -->
+- Cost: fire extinguisher, fire blanket, one respirator per person plus a first-aid kit — a few hundred yuan the set; buy once, then ten minutes a year to check
+- In plain terms: Fire extinguisher, fire blanket, escape masks, first-aid kit — these are items from the Ministry of Emergency Management's 11-item home emergency list, a few hundred yuan for the set bought once. In studies where families received home safety visits, injury rates ran about a quarter lower.
+- Benefit: the Ministry of Emergency Management's National Basic Home Emergency Supplies Checklist has 11 items; the "fire extinguisher and fire blanket" are for "fighting an incipient fire," and "the fire blanket can be wrapped around the body to escape"; the "respirator" refers to a "fire-fighting filter-type self-rescue respirator, used to escape a fire"; "topical medicines" are "styptic powder, adhesive bandages, gauze bandages and the like, for treating wounds". Cochrane review of 98 studies with 2,605,044 people: home safety interventions gave IRR 0.89 for injury rates (95% CI 0.78 to 1.01), and interventions delivered in person IRR 0.75 (95% CI 0.62 to 0.91)
+- Evidence grade: B
+- Sources: 应急管理部 (2020). 全国基础版家庭应急物资储备建议清单. <https://www.mem.gov.cn/kp/shaq/202011/t20201129_372149.shtml> ; Kendrick D 等 (2012). Home safety education and provision of safety equipment for injury prevention. Cochrane Database of Systematic Reviews. <https://doi.org/10.1002/14651858.CD005014.pub3> ; 武胜县市场监督管理局 (2025). 手提式灭火器、防火门（窗）、点型感温（烟）火灾探测器消费提示. <https://www.wusheng.gov.cn/gasylbzj/c109568/zzzq/content/content_1988424970198126592.html>
+- Notes: Contested. In the same Cochrane review, interventions that did not supply equipment gave IRR 0.78 (95% CI 0.66 to 0.92), and the equipment-supplying arm did not do better; the injury reduction comes mainly from in-home education and modification, so the benefit of the gear itself is recorded as "medium" rather than "large". Buy a fire extinguisher with the CCC mark, and on stored-pressure models the gauge needle must sit in the green zone. Smoke alarms and carbon monoxide alarms are covered in item 3 of this section, tourniquet use in item 11 of Chapter 13; for how to choose, place, and replace each item, see the [home emergency supplies checklist (docs/家庭应急装备清单.md, in Chinese)](../docs/家庭应急装备清单.md)
+
+### 27. Get visible blood in the urine checked once — even painless, even gone by the next day
+<!-- 成本标签: 钱=少 时间=中 毅力=否 收益=小 口径=死亡率 -->
+- Cost: a urinalysis runs a few dozen yuan plus a urinary tract ultrasound one to two hundred yuan; a cystoscopy, if the doctor deems it necessary, is around a thousand yuan
+- In plain terms: For people over 60, one visible episode of blood in the urine ends in a bladder cancer diagnosis about 2.8% of the time; at ages 40–59 it is about 1.2% — not high, but high enough to warrant a check. Blood in the urine often stops on its own, and stopping does not mean all is well.
+- Benefit: case-control study of electronic primary-care records in the UK, 4915 bladder cancer cases vs 21718 controls: positive predictive value of visible haematuria for bladder cancer was 2.8% (95% CI 2.5 to 3.1) at ages over 60 and 1.2% (0.6 to 2.3) at ages 40 to 59; blood visible only under the microscope matters too, odds ratio 20 (95% CI 12 to 33), with a positive predictive value of 1.6% (1.2 to 2.1) at ages over 60
+- Evidence grade: B
+- Sources: Price SJ, Shephard EA, Stapley SA, Barraclough K, Hamilton WT (2014). Non-visible versus visible haematuria and bladder cancer risk: a study of electronic records in primary care. British Journal of General Practice, 64(626), e584-e589. <https://doi.org/10.3399/bjgp14X681409>
+- Notes: The benefit is recorded as "small" because there is only a detection rate, no effect size on "how many deaths earlier detection prevents". "Painless" is the key point: blood in the urine from stones and infection usually comes with gripping flank or abdominal pain, or frequent, urgent, painful urination, while tumor-related bleeding often has no sensation at all and tends to stop for a few days and return — which is where many people let it go. Taking anticoagulants is not a reason to skip the check. Blood in the urine after intense exercise or near a woman's period can be retested once before deciding.
+
+### 28. Use condoms for the whole act, every time, and never share needles
+<!-- 成本标签: 钱=少 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: one to two yuan apiece; the hard part is not money but using one every time, starting from the very beginning
+- In plain terms: With a condom on for the whole act, every time, the odds of passing HIV between men and women drop by about 70% or more; "usually wearing one" is barely better than not wearing one at all. Syphilis and gonorrhea get blocked by the same layer.
+- Benefit: systematic review and meta-analysis of 25 studies with 10676 HIV-serodiscordant heterosexual couples: consistent condom users had HIV transmission risk RR 0.29 versus never-users (95% CI 0.20 to 0.43), and RR 0.23 versus irregular users (95% CI 0.13 to 0.40). The authors' conclusion: although condoms are not perfect, "consistent use can reduce HIV transmission by over 70%". The same layer of protection also covers syphilis, gonorrhea, chlamydia, and other sexually transmitted infections
+- Evidence grade: A
+- Sources: Giannou FK, Tsiara CG, Nikolopoulos GK, et al. (2016). Condom effectiveness in reducing heterosexual HIV transmission: a systematic review and meta-analysis of studies on HIV serodiscordant couples. Expert Review of Pharmacoeconomics & Outcomes Research, 16(4), 489-499. <https://doi.org/10.1586/14737167.2016.1102635>
+- Notes: The gap between "irregular use" and "no use" is small; the entire effect of this item lives in the words "every time, the whole act". Sharing needles (injecting drugs, tattoos, piercings included) is another independent and highly efficient transmission route with nothing to do with sex. People at high risk also have pre-exposure prophylaxis (PrEP): a meta-analysis of 18 studies showed that in trials with adherence above 70%, oral PrEP versus placebo gave a risk ratio of 0.30 for HIV infection (95% CI 0.21 to 0.45), while low-adherence trials showed no protective effect (Fonner VA et al., 2016, AIDS, <https://doi.org/10.1097/QAD.0000000000001145>); PrEP is prescription-only — ask at an infectious disease clinic or the CDC, do not buy it online. What to do after a possible exposure: see Chapter 13.
+
+### 29. Get tested once after any high-risk exposure — free and anonymous at the CDC
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
+- Cost: 0 yuan; one trip to the CDC or a designated medical facility, one vial of blood
+- In plain terms: An HIV test at the CDC costs nothing and can be done without giving your name. Testing positive is not a death sentence: people who keep taking their medication and hold the virus below detection do not pass it on to sexual partners — in a study following over seven hundred couples through more than seventy thousand condomless acts, the number of transmissions between partners was zero.
+- Benefit: Article 23 of the national HIV/AIDS prevention and control regulation: medical institutions designated by the health authorities of local governments at or above the county level "shall provide free counselling and preliminary screening tests to anyone who voluntarily seeks HIV counselling and testing". The point of testing early is not reassurance: current antiretroviral therapy can hold the virus below detection, and in WHO's wording "people living with HIV on antiretroviral therapy with an undetectable viral load do not transmit HIV to their sexual partners" — the PARTNER study followed 782 serodiscordant same-sex couples over 1593 couple-years and 76088 condomless acts in total; phylogenetic analysis showed that none of the 15 new infections came from the partner, i.e. zero transmission between partners
+- Evidence grade: A
+- Sources: 国务院 (2006). 艾滋病防治条例（第三、二十三、三十八条）. <https://wjw.beijing.gov.cn/zwgk_20040/zcwj2022/flfg/202304/t20230408_2992986.html>（北京市卫生健康委员会转载）；Rodger AJ, Cambiano V, Bruun T, et al. (2019). Risk of HIV transmission through condomless sex in serodifferent gay couples with the HIV-positive partner taking suppressive antiretroviral therapy (PARTNER): final results of a multicentre, prospective, observational study. The Lancet, 393(10189), 2428-2438. <https://doi.org/10.1016/S0140-6736(19)30418-0>
+- Notes: The window period decides when a test actually counts. Per the Guangdong Provincial CDC: nucleic acid testing detects infection at about 1 week, fourth-generation combined antigen-antibody testing at about 2 weeks, third-generation antibody testing at about 3 weeks; the advice is to test no earlier than 2 weeks after exposure, retest 2 to 4 weeks apart, and after 3 months past the last high-risk act, more than 99.99% of infections can be excluded (<https://cdcp.gd.gov.cn/jkjy/kpydjwjxz/content/post_3441820.html>). A positive self-test kit is not a diagnosis; you must confirm at the CDC or a proper institution. Article 3 of the regulation states that no organization or individual may discriminate against people living with HIV or their families, whose rights to marriage, employment, medical care, and schooling are protected by law; Article 38 also obliges people living with HIV to "promptly inform their sexual partners of their infection or illness". Pregnancy triple-screening and mother-to-child transmission blocking: see Chapter 27.
