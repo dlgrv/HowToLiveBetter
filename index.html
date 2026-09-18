@@ -356,9 +356,11 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 </main>
 
 <script>
-let LANG = 'ru';
+let LANG = 'en';
 try { const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
-      LANG = p.get('lang') || saved || 'ru'; if(!['ru','zh','en'].includes(LANG)) LANG='ru'; } catch(e){}
+      const nav=(navigator.language||'').toLowerCase();
+      const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
+      LANG = p.get('lang') || saved || sys || 'en'; if(!['ru','zh','en'].includes(LANG)) LANG='en'; } catch(e){}
 window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){} location.href = location.pathname + '?lang=' + l; };
 
 /* ---------- i18n static UI ---------- */
@@ -392,7 +394,14 @@ const I18N = {
    gloss:'Непонятные сокращения и термины', glossP:'Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.',
    errFile:'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.',
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
-   cap:true },
+   cap:true,
+   allSections:'Все разделы',
+   readmeHref:'README.ru.md', readmeTitle:'Открыть README.ru',
+   menuAria:'Открыть фильтры', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
+   metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 498 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
+   keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
+   author:'Как жить выгодно (перевод HowToLiveBetter)',
+   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
  en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
@@ -422,7 +431,14 @@ const I18N = {
    gloss:'Unclear abbreviations and terms', glossP:'Dotted-underlined words in the text: click or hover for an explanation. Full table below.',
    errFile:'This page only opens over http. Run <code>python -m http.server</code> in the repository directory and open <code>http://localhost:8000/</code>, or use the GitHub Pages address.',
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
-   cap:true },
+   cap:true,
+   allSections:'All sections',
+   readmeHref:'README.md', readmeTitle:'Open README',
+   menuAria:'Open filters', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
+   metaDesc:'A guide sorted by value for money: 498 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
+   keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
+   author:'HowToLiveBetter (English translation)',
+   about:['health','longevity','personal finance','first aid','law','consumer protection'] },
  zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
@@ -452,7 +468,14 @@ const I18N = {
    gloss:'看不懂的缩写与术语', glossP:'正文里带虚线下划线的词：点击或悬停会弹出解释。完整表格见下。',
    errFile:'本页只能通过 http 打开。请在仓库目录运行 <code>python -m http.server</code> 并访问 <code>http://localhost:8000/</code>，或使用 GitHub Pages 地址。',
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
-   cap:false }
+   cap:false,
+   allSections:'全部小节',
+   readmeHref:'README.zh.md', readmeTitle:'打开 README.zh',
+   menuAria:'打开筛选栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
+   metaDesc:'按性价比排序的人生指南：498 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
+   keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
+   author:'高性价比人生指南',
+   about:['健康','长寿','个人理财','急救','法律','消费者权益'] }
 };
 function T(){ return I18N[LANG]; }
 function applyI18n(){
@@ -498,6 +521,36 @@ function applyI18n(){
   document.querySelectorAll('.lang-menu button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===LANG)));
   document.getElementById('lang-label').textContent={ru:'РУ',en:'EN',zh:'中'}[LANG];
   document.getElementById('lang').open=false;
+  // nav attributes
+  const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
+  const menu=document.getElementById('menu'); if(menu) menu.setAttribute('aria-label',t.menuAria);
+  const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
+  const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
+  const rm=document.querySelector('.nav-r a[href^="README"]'); if(rm){ rm.setAttribute('href',t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
+  // head meta / social cards / JSON-LD
+  const setm=(sel,attr,val)=>{const el=document.querySelector(sel); if(el) el.setAttribute(attr,val);};
+  setm('meta[name="description"]','content',t.metaDesc);
+  setm('meta[name="keywords"]','content',t.keywords);
+  setm('meta[name="author"]','content',t.author);
+  for(const sel of ['meta[property="og:site_name"]','meta[property="og:title"]','meta[name="twitter:title"]']) setm(sel,'content',t.title);
+  for(const sel of ['meta[property="og:description"]','meta[name="twitter:description"]']) setm(sel,'content',t.metaDesc);
+  setm('meta[property="og:locale"]','content',{ru:'ru_RU',en:'en_US',zh:'zh_CN'}[LANG]);
+  try{
+    const jl=document.querySelector('script[type="application/ld+json"]');
+    if(jl){
+      const data=JSON.parse(jl.textContent);
+      for(const node of (data['@graph']||[])){
+        if(node.name) node.name=t.title;
+        if(node.description) node.description=t.metaDesc;
+        if(node.abstract) node.abstract=t.metaDesc;
+        if(node.inLanguage) node.inLanguage={ru:'ru-RU',en:'en-US',zh:'zh-CN'}[LANG];
+        if(node.about) node.about=t.about;
+      }
+      jl.textContent=JSON.stringify(data,null,1);
+    }
+  }catch(e){}
+  // "All sections" button (built dynamically)
+  const allSpan=document.querySelector('.sec-link.all span'); if(allSpan) allSpan.textContent=t.allSections;
 }
 document.getElementById('lang').addEventListener('click',e=>{
   if(e.target.closest('.lang-menu button')){ e.preventDefault(); __setLang(e.target.closest('.lang-menu button').dataset.lang); }
@@ -711,7 +764,7 @@ function build(sections){
   const fsec = document.getElementById('f-sec');
   const allBtn = document.createElement('button');
   allBtn.className = 'sec-link all'; allBtn.dataset.v = ''; allBtn.setAttribute('aria-pressed','true');
-  allBtn.innerHTML = `<span>Все разделы</span><i>${sections.reduce((n,s)=>n+s.entries.length,0)}</i>`;
+  allBtn.innerHTML = `<span>${T().allSections}</span><i>${sections.reduce((n,s)=>n+s.entries.length,0)}</i>`;
   fsec.appendChild(allBtn);
   for (const s of sections){
     const b = document.createElement('button'); b.className='sec-link'; b.dataset.v = s.n; b.setAttribute('aria-pressed','false');
