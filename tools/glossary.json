@@ -1,0 +1,41 @@
+{
+  "_comment": "Закреплённая терминология CN→RU/EN для пайплайна HowToLiveBetter. Термины проверены по book/*.md (тела, не источники); RU/EN эквиваленты сняты с устоявшихся переводов book/ru/ и book/en/ (2026-09-18). make_digest.py инжектит термины юнита в units/NN.gloss.md. НИЧЕГО не добавлять без grep-проверки по book/ — см. skill htlb-translation §Localization.",
+  "terms": [
+    {"cn": "低保", "ru": "дибао", "ru_gloss": "дибао (低保 — пособие малоимущим)", "en": "dibao", "en_gloss": "dibao (低保 — means-tested minimum subsistence allowance)"},
+    {"cn": "户口", "ru": "хукоу", "ru_gloss": "хукоу (户口 — регистрация, привязанная к месту жительства)", "en": "hukou", "en_gloss": "hukou (户口 — household registration tied to place)"},
+    {"cn": "户口簿", "ru": "домовая книга (хукоу)", "ru_gloss": "домовая книга (户口簿 — семейный регистрационный журнал)", "en": "household register", "en_gloss": "household register (户口簿 — family hukou booklet)"},
+    {"cn": "医保", "ru": "медстраховка (ибао)", "ru_gloss": "медстраховка ибао (医保 — базовая медицинская страховка)", "en": "yibao (basic medical insurance)", "en_gloss": "yibao (医保 — basic medical insurance)"},
+    {"cn": "社保", "ru": "соцстрах", "ru_gloss": "соцстрах (社保 — социальное страхование)", "en": "social insurance", "en_gloss": "social insurance (社保)"},
+    {"cn": "公积金", "ru": "жилищный накопительный фонд (гунцзицзинь)", "ru_gloss": "жилищный накопительный фонд (公积金, гунцзицзинь)", "en": "housing provident fund", "en_gloss": "housing provident fund (公积金)"},
+    {"cn": "民政", "ru": "органы гражданской администрации", "ru_gloss": "органы гражданской администрации (民政 — гражданские дела: соцзащита, брак, похороны)", "en": "civil affairs bureau", "en_gloss": "civil affairs bureau (民政)"},
+    {"cn": "派出所", "ru": "отделение полиции", "ru_gloss": "отделение полиции (派出所)", "en": "police station", "en_gloss": "local police station (派出所)"},
+    {"cn": "疾控中心", "ru": "Центр по контролю заболеваний", "ru_gloss": "Центр по контролю заболеваний (疾控中心, аналог ЦЗЗ/СПИД-центра)", "en": "Chinese CDC", "en_gloss": "Chinese CDC (疾控中心 — Center for Disease Control)"},
+    {"cn": "卫健委", "ru": "комитет здравоохранения", "ru_gloss": "комитет здравоохранения (卫健委)", "en": "health commission", "en_gloss": "health commission (卫健委)"},
+    {"cn": "人社局", "ru": "управление по труду и соцстраху", "ru_gloss": "управление по труду и соцстраху (人社局)", "en": "human resources and social security bureau", "en_gloss": "human resources and social security bureau (人社局)"},
+    {"cn": "营业执照", "ru": "бизнес-лицензия", "ru_gloss": "бизнес-лицензия (营业执照)", "en": "business license", "en_gloss": "business license (营业执照)"},
+    {"cn": "认缴出资", "ru": "заявленный уставный капитал", "ru_gloss": "заявленный уставный капитал (认缴出资 — подписочный, не обязательно оплаченный)", "en": "subscribed registered capital", "en_gloss": "subscribed registered capital (认缴出资 — pledged, not necessarily paid in)"},
+    {"cn": "一裁终局", "ru": "арбитраж в одну инстанцию, решение окончательно", "ru_gloss": "арбитраж в одну инстанцию, окончательный для сторон (一裁终局)", "en": "final and binding one-instance arbitration", "en_gloss": "one-instance arbitration, final and binding (一裁终局)"},
+    {"cn": "居委会", "ru": "комитет жителей", "ru_gloss": "комитет жителей (居委会 — квартальный комитет самоуправления)", "en": "residents' committee", "en_gloss": "residents' committee (居委会)"},
+    {"cn": "村委会", "ru": "комитет деревни", "ru_gloss": "комитет деревни (村委会)", "en": "villagers' committee", "en_gloss": "villagers' committee (村委会)"},
+    {"cn": "市场监管局", "ru": "управление по надзору за рынком", "ru_gloss": "управление по надзору за рынком (市场监管局)", "en": "market supervision administration", "en_gloss": "market supervision administration (市场监管局)"},
+    {"cn": "街道办", "ru": "администрация подрайона города", "ru_gloss": "администрация подрайона города (街道办 — уличная администрация)", "en": "subdistrict office", "en_gloss": "subdistrict office (街道办)"},
+    {"cn": "荟萃分析", "ru": "метаанализ", "ru_gloss": null, "en": "meta-analysis", "en_gloss": null},
+    {"cn": "观察性", "ru": "наблюдательное исследование", "ru_gloss": null, "en": "observational study", "en_gloss": null}
+  ],
+  "style_rules": {
+    "ru": [
+      "Живой русский, НЕ 1-в-1; функциональная эквивалентность.",
+      "Запрещённые англицизмы: когорта→«наблюдательное исследование N человек»; экспозиция→«воздействие»; квартиль/квинтиль→«25% участников с самым высоким … против 25% с самым низким» (термин в скобках ≤1 раза на файл); конфаундинг→«смешивающие факторы»; популяция→«в японской выборке»; низкодостоверные доказательства→«доказательства низкого качества».",
+      "Сохранить: метаанализ, доверительный интервал, отношение рисков/шансов, наблюдательное исследование, человеко-лет (+краткий глосс 1 раз на файл).",
+      "«Простыми словами» — строго разговорно, без цифр, которых нет в «Эффекте»; без восклицательных знаков; заголовки с глаголами.",
+      "Все числа байт-в-байт; 万 = ×10000 (2 万 = 20 000 юаней).",
+      "Китайские термины при первом употреблении: эквивалент + (иероглифы — короткое пояснение)."
+    ],
+    "en": [
+      "Plain, restrained English; no exclamation marks; verb-first item titles.",
+      "China-specific concepts on first use per file: transliteration + short gloss, e.g. dibao (低保 — means-tested minimum subsistence allowance).",
+      "万 = ×10,000 (2 万 = 20,000 yuan). All numbers byte-for-byte.",
+      "No translated-English epidemiology jargon in 'In plain terms' — keep it colloquial; numbers only from the 'Benefit' line."
+    ]
+  }
+}
