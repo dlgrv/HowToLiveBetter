@@ -1,2 +1,5 @@
 .idea/
 .junie/
+
+# EN translation working units (transient)
+tools/digest/
