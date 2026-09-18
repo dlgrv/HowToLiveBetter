@@ -322,7 +322,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
       <div class="stat" aria-live="polite">Показано <b id="cnt">–</b> из <span id="tot">–</span></div>
-      <div class="doc-links">Длинные статьи: <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/ru/%E9%81%87%E5%88%B0%E9%99%8C%E7%94%9F%E4%BA%BA%E5%87%BA%E4%BA%8B%E8%AF%A5%E4%B8%8D%E8%AF%A5%E5%81%9C.md">Останавливаться ли при ЧП с незнакомцем</a> · <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/ru/%E5%AE%B6%E5%BA%AD%E5%BA%94%E6%80%A5%E8%A3%85%E5%A4%87%E6%B8%85%E5%8D%95.md">Домашний аварийный комплект</a> · <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/ru/%E7%BB%93%E5%A9%9A%E5%88%92%E4%B8%8D%E5%88%92%E7%AE%97.md">Окупается ли брак</a> · <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/ru/%E5%81%9A%E5%B9%B3%E5%8F%B0%E8%A6%81%E5%8A%9E%E5%93%AA%E4%BA%9B%E8%AF%81.md">Документы для запуска платформы</a></div>
+      
       <details class="gloss" id="gloss"><summary>непонятные сокращения и термины</summary><p>слова с пунктирным подчёркиванием в тексте，клик или наведение покажут пояснение。полная таблица ниже。</p><dl></dl></details>
     </div>
     <div id="list">
@@ -393,11 +393,11 @@ function parseReadme(md){
     }
     if (entry){
       if ((m = /^- (?:成本|Стоимость)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами)[：:](.*)$/.exec(line))) entry.human = m[1];
-      else if ((m = /^- (?:收益|Эффект)[：:](.*)$/.exec(line))) entry.gain = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (LANG==='ru') entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (LANG==='ru') entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       else if ((m = /^- (?:证据等级|Уровень доказательности)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
       else if ((m = /^- (?:来源|Источники)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания)[：:](.*)$/.exec(line))) entry.note = m[1];
+      else if ((m = /^- (?:备注|Примечания)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (LANG==='ru') entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
