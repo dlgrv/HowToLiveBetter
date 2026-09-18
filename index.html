@@ -216,6 +216,18 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   .rows .k:first-child{padding-top:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* language dropdown */
+.lang-dd{position:relative}
+.lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;gap:0;height:34px;width:34px;border-radius:50%;border:1px solid var(--divider);background:var(--bg-elv);grid-auto-flow:column;grid-template-columns:1fr 10px;padding:0 7px;width:auto}
+.lang-dd>summary::-webkit-details-marker{display:none}
+.lang-dd>summary svg{width:10px;height:10px;color:var(--t3)}
+.lang-dd[open]>summary{border-color:var(--brand-1);color:var(--brand-1)}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:4px;min-width:120px;z-index:50}
+.lang-menu button{display:block;width:100%;text-align:left;padding:7px 12px;border:0;border-radius:7px;background:none;color:var(--t1);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.lang-menu button:hover{background:var(--brand-soft);color:var(--brand-1)}
+.lang-menu button[aria-current="true"]{color:var(--brand-1);font-weight:600}
+
 </style>
 </head>
 <body>
@@ -240,7 +252,14 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <kbd>/</kbd>
     </label>
     <div class="nav-r">
-      <button class="icon-btn" id="lang" title="中文版 / Русская версия" onclick="__setLang(LANG==='ru'?'zh':'ru')" style="font-size:12px;font-weight:600"><span id="lang-label">中</span></button> <a class="icon-btn" href="README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
+      <details class="lang-dd" id="lang">
+        <summary class="icon-btn" title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">🌐</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="lang-menu" role="menu">
+          <button role="menuitem" data-lang="ru">Русский</button>
+          <button role="menuitem" data-lang="en">English</button>
+          <button role="menuitem" data-lang="zh">中文</button>
+        </div>
+      </details> <a class="icon-btn" href="README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
       <button class="switch" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><span class="knob"><svg class="sun" viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm12.07-5.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zM8.05 16.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.02 0l.7.71a1 1 0 1 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.42-1.42zM6.34 5.93l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.41-1.42zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M12.1 22c-5.5 0-10-4.5-10-10 0-4.8 3.4-8.9 8-9.8.5-.1.9.4.7.9A8 8 0 0 0 20.9 13c.5-.2 1 .2.9.7-.9 4.7-5 8.3-9.7 8.3z"/></svg></span></button>
     </div>
@@ -326,7 +345,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <details class="gloss" id="gloss"><summary>Непонятные сокращения и термины</summary><p>Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.</p><dl></dl></details>
     </div>
     <div id="list">
-      <div class="status" id="status">Загружаю текст…</div>
+      <div class="status" id="status"></div>
       <div class="empty" id="empty" hidden>
         Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.
         <div><button id="reset2">Сбросить</button></div>
@@ -339,8 +358,152 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 <script>
 let LANG = 'ru';
 try { const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
-      LANG = p.get('lang') || saved || 'ru'; if(!['ru','zh'].includes(LANG)) LANG='ru'; } catch(e){}
+      LANG = p.get('lang') || saved || 'ru'; if(!['ru','zh','en'].includes(LANG)) LANG='ru'; } catch(e){}
 window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){} location.href = location.pathname + '?lang=' + l; };
+
+/* ---------- i18n static UI ---------- */
+const I18N = {
+ ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям',
+   noscriptH:'Пособие по выгодной жизни',
+   noscriptP:'Русский перевод книги HowToLiveBetter (高性价比人生指南): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.',
+   noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.',
+   docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
+   docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
+   shown:'Показано', of:'из', loading:'Загружаю текст…',
+   empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
+   sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
+   lensH:'Что получаешь', lensS:'Категории не сравниваются между собой',
+   gradeH:'Доказательность', gradeS:'Метаанализ/RCT · есть исследования · консенсус', gradeA:'Уровень A', gradeB:'Уровень B', gradeC:'Уровень C',
+   moneyH:'Деньги', timeH:'Время', willH:'Сила воли',
+   money0:'Бесплатно', moneyL:'Мало', moneyM:'Много', timeL:'На бегу', timeM:'Несколько часов', timeH2:'Каждый день', willN:'Не нужна', willS:'Немного', willB:'Сильно',
+   fDispute:'только спорные', fTodo:'только требующие проверки',
+   hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
+   hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
+   hint3:'Данные — из каталога <a href="book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.',
+   foot:'Категория эффекта указана в каждом пункте: разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (отчёт о проверке источников, на китайском)</a>. Оригинал — Public Domain (Unlicense).',
+   kCost:'Стоимость', kGain:'Эффект', kNote:'Примечания', src:'Источники', anchor:'Ссылка на этот пункт',
+   ratioBadge:'Выгода/затраты', ratioTitle:'Оценка автора: из уровня эффекта', gradeBadge:'Доказательность', dispute:'Спорно', todo:'Есть непроверенное',
+   ratio:{'极高':'Очень высокая','高':'Высокая','一般':'Обычная'},
+   lens:{'死亡率':'Жизнь','金钱':'Деньги','时间':'Время и силы','自由':'Свобода'},
+   moneyL2:{'0':'Бесплатно','少':'Небольшие траты','多':'Заметные траты'},
+   timeL2:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'},
+   willL2:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'},
+   ratioFull:'Выгода/затраты: ', gradeFull:'Доказательность: ',
+   gloss:'Непонятные сокращения и термины', glossP:'Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.',
+   errFile:'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.',
+   errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
+   cap:true },
+ en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations',
+   noscriptH:'The Best-Value Life Guide',
+   noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
+   noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="README.md">README.md</a> (table of contents) and the <a href="book/en/">book/en/</a> directory.',
+   docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
+   docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
+   shown:'Showing', of:'of', loading:'Loading text…',
+   empty:'Nothing found. Remove one of the filters or try a shorter query.', reset:'Reset', resetF:'Reset filters',
+   sections:'Sections', ratioH:'Benefit / costs', ratioS:'Author judgment, comparable within one category only',
+   lensH:'What you get', lensS:'Categories are not compared with each other',
+   gradeH:'Evidence', gradeS:'Meta-analysis/RCT · studies exist · consensus', gradeA:'Grade A', gradeB:'Grade B', gradeC:'Grade C',
+   moneyH:'Money', timeH:'Time', willH:'Willpower',
+   money0:'Free', moneyL:'Little', moneyM:'Much', timeL:'On the go', timeM:'A few hours', timeH2:'Every day', willN:'None needed', willS:'A little', willB:'A lot',
+   fDispute:'contested only', fTodo:'unverified only',
+   hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
+   hint2:'Within a section — by descending benefit. Search does not change the order.',
+   hint3:'Data comes from the <a href="book/en/">book/en/</a> directory (31 files); edit the text there.',
+   foot:'The benefit category is stated on every item: sec. 1–2 — all-cause mortality or a specific cause of death; sec. 3–4 — time and energy; sec. 5 — money; sec. 7 — money and protection; sec. 8–9 — money and personal freedom. Categories are not compared with each other. Source verification: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (verification records, in Chinese)</a>. The original is Public Domain (Unlicense).',
+   kCost:'Cost', kGain:'Benefit', kNote:'Notes', src:'Sources', anchor:'Link to this item',
+   ratioBadge:'Benefit/costs', ratioTitle:'Author judgment: from the effect level', gradeBadge:'Evidence', dispute:'Contested', todo:'Has unverified',
+   ratio:{'极高':'Very high','高':'High','一般':'Ordinary'},
+   lens:{'死亡率':'Lifespan','金钱':'Money','时间':'Time & energy','自由':'Freedom'},
+   moneyL2:{'0':'Free','少':'Small spending','多':'Noticeable spending'},
+   timeL2:{'少':'On the go','中':'A few hours','多':'Every day'},
+   willL2:{'否':'No willpower','些':'A little effort','是':'Serious effort'},
+   ratioFull:'Benefit/costs: ', gradeFull:'Evidence: ',
+   gloss:'Unclear abbreviations and terms', glossP:'Dotted-underlined words in the text: click or hover for an explanation. Full table below.',
+   errFile:'This page only opens over http. Run <code>python -m http.server</code> in the repository directory and open <code>http://localhost:8000/</code>, or use the GitHub Pages address.',
+   errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
+   cap:true },
+ zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议',
+   noscriptH:'高性价比人生指南',
+   noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
+   noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="README.zh.md">README.zh.md</a>（目录）与 <a href="book/">book/</a> 目录。',
+   docHead:'每条建议回答两个问题：付出什么——换回什么。',
+   docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
+   shown:'显示', of:'/', loading:'正在载入正文…',
+   empty:'没有符合条件的结果。请去掉一个筛选条件，或换更短的关键词。', reset:'重置', resetF:'重置筛选',
+   sections:'小节', ratioH:'性价比', ratioS:'作者判断，仅在同一口径内可比',
+   lensH:'换回什么', lensS:'不同口径之间不做比较',
+   gradeH:'证据等级', gradeS:'荟萃分析/RCT · 有研究支持 · 共识', gradeA:'A 级', gradeB:'B 级', gradeC:'C 级',
+   moneyH:'花钱', timeH:'花时间', willH:'要毅力',
+   money0:'免费', moneyL:'少', moneyM:'多', timeL:'顺手', timeM:'几小时', timeH2:'每天', willN:'不需要', willS:'一点点', willB:'明显',
+   fDispute:'只看有争议', fTodo:'只看待核实',
+   hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
+   hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
+   hint3:'数据来自 <a href="book/">book/</a> 目录（31 个文件）；改正文请改那里。',
+   foot:'每个条目都标明收益口径：1–2 节——总死亡率或特定死因；3–4 节——时间精力；5 节——金钱；7 节——金钱与保障；8–9 节——金钱与人身自由。口径之间不做比较。来源核查：<a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录（中文）</a>。原文为 Public Domain（Unlicense）。',
+   kCost:'成本', kGain:'收益', kNote:'备注', src:'来源', anchor:'链接到此条',
+   ratioBadge:'性价比', ratioTitle:'作者判断：由效果量级', gradeBadge:'证据', dispute:'争议', todo:'有待核实',
+   ratio:{'极高':'极高','高':'高','一般':'一般'},
+   lens:{'死亡率':'寿命','金钱':'金钱','时间':'时间精力','自由':'自由'},
+   moneyL2:{'0':'免费','少':'少量花费','多':'明显花费'},
+   timeL2:{'少':'顺手','中':'几小时','多':'每天'},
+   willL2:{'否':'不需要毅力','些':'一点毅力','是':'明显毅力'},
+   ratioFull:'性价比: ', gradeFull:'证据: ',
+   gloss:'看不懂的缩写与术语', glossP:'正文里带虚线下划线的词：点击或悬停会弹出解释。完整表格见下。',
+   errFile:'本页只能通过 http 打开。请在仓库目录运行 <code>python -m http.server</code> 并访问 <code>http://localhost:8000/</code>，或使用 GitHub Pages 地址。',
+   errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
+   cap:false }
+};
+function T(){ return I18N[LANG]; }
+function applyI18n(){
+  const t=T(); document.documentElement.lang=t.htmlLang;
+  document.title=t.title;
+  document.querySelector('.title span:last-child').textContent=t.title;
+  document.getElementById('q').placeholder=t.search; document.getElementById('q').setAttribute('aria-label',t.search);
+  const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
+  const dh=document.querySelector('.doc-head');
+  dh.querySelector('h1').textContent=t.title;
+  const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
+  dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
+  dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
+  const gl=document.getElementById('gloss'); gl.querySelector('summary').textContent=t.gloss; gl.querySelector('p').textContent=t.glossP;
+  document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
+  document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
+  document.getElementById('reset').textContent=t.resetF;
+  document.getElementById('reset2').textContent=t.reset;
+  document.getElementById('empty').childNodes[0].textContent=t.empty;
+  const sb=document.querySelectorAll('.sidebar .gt'); 
+  sb[0].childNodes[0].textContent=t.sections;
+  sb[1].childNodes[0].textContent=t.ratioH; sb[1].querySelector('small').textContent=t.ratioS;
+  sb[2].childNodes[0].textContent=t.lensH; sb[2].querySelector('small').textContent=t.lensS;
+  sb[3].childNodes[0].textContent=t.gradeH; sb[3].querySelector('small').textContent=t.gradeS;
+  sb[4].childNodes[0].textContent=t.moneyH;
+  sb[5].childNodes[0].textContent=t.timeH;
+  sb[6].childNodes[0].textContent=t.willH;
+  document.querySelectorAll('.sidebar .hint p')[0].textContent=t.hint1;
+  document.querySelectorAll('.sidebar .hint p')[1].textContent=t.hint2;
+  document.querySelectorAll('.sidebar .hint p')[2].innerHTML=t.hint3;
+  document.querySelector('.foot').innerHTML=t.foot;
+  const chips={ratio:[['极高',t.ratio['极高']],['高',t.ratio['高']],['一般',t.ratio['一般']]],
+    lens:[['死亡率',t.lens['死亡率']],['金钱',t.lens['金钱']],['时间',t.lens['时间']],['自由',t.lens['自由']]],
+    grade:[['A',t.gradeA],['B',t.gradeB],['C',t.gradeC]],
+    money:[['0',t.money0],['少',t.moneyL],['多',t.moneyM]],
+    time:[['少',t.timeL],['中',t.timeM],['多',t.timeH2]],
+    will:[['否',t.willN],['些',t.willS],['是',t.willB]]};
+  for (const [dim,arr] of Object.entries(chips)){
+    document.querySelectorAll(`.chips[data-dim="${dim}"] .chip`).forEach(b=>{
+      const hit=arr.find(([v])=>b.dataset.v===v); if(hit) b.textContent=hit[1];
+    });
+  }
+  document.querySelectorAll('.lang-menu button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===LANG)));
+  document.getElementById('lang-label').textContent={ru:'РУ',en:'EN',zh:'中'}[LANG];
+  document.getElementById('lang').open=false;
+}
+document.getElementById('lang').addEventListener('click',e=>{
+  if(e.target.closest('.lang-menu button')){ e.preventDefault(); __setLang(e.target.closest('.lang-menu button').dataset.lang); }
+  else { e.preventDefault(); const d=document.getElementById('lang'); d.open=!d.open; }
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('#lang')) document.getElementById('lang').open=false; });
 /* ---------- отладочная панель: добавьте ?perf=1 к адресу ---------- */
 const PERF = (function(){
   const off = { on:false, log(){}, mark(){} };
@@ -392,20 +555,20 @@ function parseReadme(md){
       continue;
     }
     if (entry){
-      if ((m = /^- (?:成本|Стоимость)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (LANG==='ru') entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:收益|Эффект)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (LANG==='ru') entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:证据等级|Уровень доказательности)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
-      else if ((m = /^- (?:来源|Источники)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (LANG==='ru') entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      if ((m = /^- (?:成本|Стоимость|Cost)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|In plain terms)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Benefit)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Sources)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notes)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
   }
   flush();
   for (const s of sections) for (const e of s.entries){
-    e.dispute = /^\s*(争议|[Сс]порно)/.test(e.note);
-    e.todo = /待核实|TODO/.test(e.src + e.gain + e.note + e.cost);
+    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
+    e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
     e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);
     e.ratio = e.level === '大' ? (e.cs === 0 ? '极高' : (e.cs <= 2 ? '高' : '一般'))
             : e.level === '中' ? (e.cs === 0 ? '高' : '一般') : '一般';
@@ -417,12 +580,12 @@ function parseReadme(md){
 /* ---------- 术语表 ---------- */
 let GLOSS = [];   // [{term, meaning, re}]
 function parseGlossary(md){
-  const m = (LANG==='ru' ? /^## Как читать цифры[^\n]*\n([\s\S]*?)(?=^## )/m : /^## 读懂数字[^\n]*\n([\s\S]*?)(?=^## )/m).exec(md);
+  const m = (LANG==='ru' ? /^## Как читать цифры[^\n]*\n([\s\S]*?)(?=^## )/m : LANG==='en' ? /^## Reading the numbers[^\n]*\n([\s\S]*?)(?=^## )/m : /^## 读懂数字[^\n]*\n([\s\S]*?)(?=^## )/m).exec(md);
   if (!m) return [];
   const rows = [];
   for (const line of m[1].split(/\r?\n/)){
     const c = /^\|\s*(.+?)\s*\|\s*(.+?)\s*\|$/.exec(line);
-    if (!c || c[1] === 'термин' || /^-+$/.test(c[1])) continue;
+    if (!c || c[1] === 'термин' || c[1] === 'Term' || /^-+$/.test(c[1])) continue;
     for (const t of c[1].split('、')){
       const term = t.trim(); if (!term) continue;
       rows.push({term, meaning: c[2], latin: /^[A-Za-z0-9%. ]+$/.test(term)});
@@ -528,10 +691,7 @@ function highlightInto(el, s, terms){
 }
 
 const COST_W = { money:{'0':0,'少':1,'多':2}, time:{'少':0,'中':1,'多':2}, will:{'否':0,'些':1,'是':2} };
-const LENS_LABEL = {'死亡率':'Жизнь','金钱':'Деньги','时间':'Время и силы','自由':'Свобода'};
-const RATIO_LABEL = { ru:{'极高':'Очень высокая','高':'Высокая','一般':'Обычная'}, zh:{'极高':'极高','高':'高','一般':'一般'} };
 /* ---------- 构建 DOM ---------- */
-const LABEL = { money:{'0':'Бесплатно','少':'Небольшие траты','多':'Заметные траты'}, time:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'}, will:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'} };
 let CARDS = [], BLOCKS = [];
 // 卡片文字只在「上屏 + 搜索词变了」时重渲染，离屏的先记账，滚进来再补
 let CUR_TERMS = [], CUR_KEY = '';
@@ -568,22 +728,27 @@ function build(sections){
         <div class="badges"></div>
         <p class="human"></p>
         <div class="rows">
-          <div class="k">Стоимость</div><div class="v cost"></div>
-          <div class="k">Эффект</div><div class="v gain"></div>
-          <div class="k">Примечания</div><div class="v note"></div>
+          <div class="k" data-k="cost"></div><div class="v cost"></div>
+          <div class="k" data-k="gain"></div><div class="v gain"></div>
+          <div class="k" data-k="note"></div><div class="v note"></div>
         </div>
-        <details class="src"><summary>Источники</summary><div class="body"></div></details>`;
+        <details class="src"><summary></summary><div class="body"></div></details>`;
+      c.querySelector('[data-k="cost"]').textContent = T().kCost;
+      c.querySelector('[data-k="gain"]').textContent = T().kGain;
+      c.querySelector('[data-k="note"]').textContent = T().kNote;
+      c.querySelector('.src summary').textContent = T().src;
+      c.querySelector('.anchor').setAttribute('aria-label', T().anchor);
       const badges = c.querySelector('.badges');
       const add = (cls, text) => { const t=document.createElement('span'); t.className='badge '+cls; t.textContent=text; badges.appendChild(t); };
       if (e.ratio) { const t = document.createElement('span'); t.className = 'badge r' + ({'极高':'3','高':'2','一般':'1'}[e.ratio]);
-        t.textContent = 'Выгода/затраты: ' + (RATIO_LABEL[LANG][e.ratio] || e.ratio);
-        t.title = 'Оценка автора: из уровня эффекта (' + e.level + ') и трёх затрат, сравнима только внутри категории (' + LENS_LABEL[e.lens] + '), к доказательности отношения не имеет';
+        t.textContent = T().ratioFull + (T().ratio[e.ratio] || e.ratio);
+        t.title = T().ratioTitle + ' (' + e.level + ') — ' + (T().lens[e.lens] || e.lens);
         badges.appendChild(t); }
-      add(e.grade, `Доказательность: ${e.grade}`);
-      if (e.lens) add('plain', LENS_LABEL[e.lens] || e.lens);
-      for (const d of ['money','time','will']) if (e[d]) add('plain', LABEL[d][e[d]] || e[d]);
-      if (e.dispute) add('danger', 'Спорно');
-      if (e.todo) add('warn', 'Есть непроверенное');
+      add(e.grade, T().gradeFull + e.grade);
+      if (e.lens) add('plain', T().lens[e.lens] || e.lens);
+      for (const d of ['money','time','will']) if (e[d]) add('plain', T()[d+'L2'][e[d]] || e[d]);
+      if (e.dispute) add('danger', T().dispute);
+      if (e.todo) add('warn', T().todo);
       block.appendChild(c);
       const card = {e, el:c, key:null, vis:false, f:{t:c.querySelector('.t'), cost:c.querySelector('.cost'), human:c.querySelector('.human'), gain:c.querySelector('.gain'), note:c.querySelector('.note'), src:c.querySelector('.src .body'), details:c.querySelector('.src')}};
       renderCard(card, [], '');
@@ -723,10 +888,13 @@ function wire(){
 
 /* ---------- 启动 ---------- */
 (async function init(){
+  applyI18n();
   const status = document.getElementById('status');
+  status.textContent = T().loading;
   try {
     if (location.protocol === 'file:') throw new Error('file');
-    const r = await fetch(LANG==='ru' ? 'README.ru.md' : 'README.md', {cache:'no-cache'});
+    const data = {ru:'README.ru.md', en:'README.md', zh:'README.zh.md'}[LANG];
+    const r = await fetch(data, {cache:'no-cache'});
     if (!r.ok) throw new Error('http '+r.status);
     const md = await r.text();
     const files = [...new Set(Array.from(md.matchAll(/\]\((book\/[^)]+\.md)\)/g), m => m[1]))].sort();
@@ -753,8 +921,8 @@ function wire(){
     }
   } catch (err) {
     status.innerHTML = err.message === 'file'
-      ? 'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.'
-      : `Не удалось загрузить текст (${esc(String(err.message))}). Проверьте, что README.ru.md и book/ru/ лежат рядом с index.html.`;
+      ? T().errFile
+      : T().errLoad(esc(String(err.message)));
   }
 })();
 </script>
