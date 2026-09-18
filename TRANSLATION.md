@@ -117,7 +117,7 @@ EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 202
 - `README.ru.md` = full Russian translation of `README.md`. First line: status
   («> Неофициальный перевод файла [README.md](README.md). При расхождениях приоритет у китайского оригинала.»)
   + link back to the Chinese README.
-- All numbers byte-faithful (498, 323/126/49, 88/248/162, 97.2%, thresholds…). The
+- All numbers byte-faithful (528, 347/131/50, 88/248/162, 97.2%, thresholds…). The
   example item block keeps citation lines byte-identical after the label.
 - Badges: recreate with Russian labels (URL-encode programmatically), same colors/numbers,
   same link targets; anchors inside the doc point to translated headings.

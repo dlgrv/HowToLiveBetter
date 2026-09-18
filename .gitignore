@@ -4,3 +4,6 @@
 # translation pipeline transient state
 tools/digest/
 tools/.status/
+
+# hermes local artifacts
+.hermes/
