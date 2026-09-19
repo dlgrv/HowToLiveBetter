@@ -16,3 +16,5 @@ __pycache__/
 
 # hermes local artifacts
 .hermes/
+_build_batch4.py
+tools/validate/results/_build_batch4.py
