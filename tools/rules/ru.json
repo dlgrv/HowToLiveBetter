@@ -1,7 +1,13 @@
 {
-  "_comment": "RU language pack. Skeleton owned by pipeline Task 1: labels/banned_calques filled in Task 10b (moved from tools/verify.py), style_markers/whitelist_zones filled in Task 6 (FP audit).",
+  "_comment": "RU language pack. labels/banned_calques filled in Task 10b (moved from tools/verify.py). style_markers: corpus-driven (Task 6, freq audit 2026-09-19 over book/ru: 'dann' x240 split by POS, 'javlyaetsya' x26, 'osushchestvlya' x1, 'v ramkakh' x4); whitelist_zones = line prefixes where passive/evidence phrasing is legitimate.",
   "labels": {},
   "banned_calques": [],
-  "style_markers": [],
-  "whitelist_zones": []
+  "style_markers": [
+    {"pattern": "\\bосуществля", "label": "осуществля", "note": "канцелярит-глагол"},
+    {"pattern": "\\bявляется", "label": "является", "note": "канцелярит-связка"},
+    {"pattern": "\\bв рамках\\b", "label": "в рамках", "note": "канцелярит-предлог"},
+    {"pattern": "\\bданн(ого|ой|ое|ая|ым|ом|ыми)\\b", "label": "данн-указат.", "note": "указательное «данного/данным»; существительное «данные» не матчится"},
+    {"pattern": "[а-яё]{4,}(нн|ем|им)(ый|ая|ое|ым|ом|ые|ых|ыми)\\s+[а-яё]{4,}(нн|ем|им)(ый|ая|ое|ым|ом|ые|ых|ыми)\\b", "label": "причастная цепочка", "note": "две страдательные причастные формы подряд"}
+  ],
+  "whitelist_zones": ["- Эффект:", "- Примечания:", "- Источники:", "- Уровень доказательности:", "<!-- 成本标签"]
 }
