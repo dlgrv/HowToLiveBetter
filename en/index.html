@@ -184,7 +184,6 @@ abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
 abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .pop{position:absolute;z-index:40;background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:10px 12px;font-size:13px;line-height:1.6;color:var(--t2)}
 .pop b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
-.gloss-hint{margin:12px 0 0;font-size:14px;color:var(--t3)}
 .empty{border:1px dashed var(--divider);border-radius:12px;padding:40px 24px;text-align:center;color:var(--t2);margin-top:24px}
 .empty button{margin-top:12px;padding:7px 16px;border:1px solid var(--divider);border-radius:20px;font-weight:500;background:var(--bg-elv)}
 .empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
@@ -340,15 +339,13 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
       <div class="stat" aria-live="polite">Показано <b id="cnt">–</b> из <span id="tot">–</span></div>
       <p class="meta-line" id="feedback-line">
-        <span id="fb-issue-t">Нашли ошибку в переводе –</span>
+        <span id="fb-issue-t">Нашли ошибку в переводе —</span>
         <a id="fb-issue" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener">откройте issue</a>
       </p>
       <p class="meta-line" id="feedback-line-star">
         <span id="fb-star-t">Понравился перевод —</span>
         <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репо</a>
       </p>
-      
-      <p class="gloss-hint" id="gloss-hint">Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение.</p>
     </div>
     <div id="list">
       <div class="status" id="status"></div>
@@ -387,7 +384,7 @@ const I18N = {
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.',
    docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
    docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
-   fbAria:'Обратная связь о переводе', fbIssueT:'Нашли ошибку в переводе –', fbIssue:'откройте issue', fbStarT:'Понравился перевод —', fbStar:'поставьте звезду репо',
+   fbAria:'Обратная связь о переводе', fbIssueT:'Нашли ошибку в переводе —', fbIssue:'откройте issue', fbStarT:'Понравился перевод —', fbStar:'поставьте звезду репо',
    shown:'Показано', of:'из', loading:'Загружаю текст…',
    empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
    sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
@@ -408,7 +405,6 @@ const I18N = {
    timeL2:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'},
    willL2:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'},
    ratioFull:'Выгода/затраты: ', gradeFull:'Доказательность: ',
-   gloss:'Непонятные сокращения и термины', glossHint:'Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение.',
    errFile:'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.',
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
    cap:true,
@@ -446,7 +442,6 @@ const I18N = {
    timeL2:{'少':'On the go','中':'A few hours','多':'Every day'},
    willL2:{'否':'No willpower','些':'A little effort','是':'Serious effort'},
    ratioFull:'Benefit/costs: ', gradeFull:'Evidence: ',
-   gloss:'Unclear abbreviations and terms', glossHint:'Dotted-underlined words in the text: click or hover for an explanation.',
    errFile:'This page only opens over http. Run <code>python -m http.server</code> in the repository directory and open <code>http://localhost:8000/</code>, or use the GitHub Pages address.',
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
    cap:true,
@@ -484,7 +479,6 @@ const I18N = {
    timeL2:{'少':'顺手','中':'几小时','多':'每天'},
    willL2:{'否':'不需要毅力','些':'一点毅力','是':'明显毅力'},
    ratioFull:'性价比: ', gradeFull:'证据: ',
-   gloss:'看不懂的缩写与术语', glossHint:'正文里带虚线下划线的词：点击或悬停会弹出解释。',
    errFile:'本页只能通过 http 打开。请在仓库目录运行 <code>python -m http.server</code> 并访问 <code>http://localhost:8000/</code>，或使用 GitHub Pages 地址。',
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
    cap:false,
@@ -508,7 +502,6 @@ function applyI18n(){
   const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
-  const ghint=document.getElementById('gloss-hint'); if(ghint) ghint.textContent=t.glossHint;
   const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
   const issueUrl='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle);
   const ft=document.getElementById('fb-issue-t'); if(ft) ft.textContent=t.fbIssueT;
