@@ -45,6 +45,34 @@ def unit_progress(units_dir):
     return done, len(units)
 
 
+def pass_columns(n, lang):
+    """Quality-pipeline pass states for one chapter-language (plan Task 10).
+
+    Order fixed by plan: verify -> factcheck (E) -> style (A) -> QE -> judge.
+    Any not-yet-run pass shows SKIPPED explicitly (never silently absent).
+    """
+    states = {}
+    # factcheck verdicts live in tools/validate/results/factcheck/<n>-<lang>.json
+    fc_path = os.path.join(root, "tools", "validate", "results", "factcheck",
+                           f"{n}-{lang}.json")
+    if os.path.exists(fc_path):
+        try:
+            d = json.load(open(fc_path, encoding="utf-8"))
+            g = (d.get("gate") or
+                 ("fail" if d.get("grounding", {}).get("dropped") else "pass"))
+            states["fc"] = g.upper() if g != "pass" else "ok"
+        except (ValueError, OSError):
+            states["fc"] = "?"
+    else:
+        states["fc"] = "SKIP"
+    # style warnings are advisory (WARN-only, style_check.py)
+    states["style"] = "SKIP"  # filled by wave runner after style_check pass
+    # QE deltas require the Mac venv; absent cache -> SKIPPED
+    qe_path = os.path.join(root, "tools", ".qe", f"{n}-{lang}.json")
+    states["qe"] = "ok" if os.path.exists(qe_path) else "SKIP"
+    return states
+
+
 def main():
     nums = chapter_nums(sys.argv[1:])
     rows = []
@@ -55,10 +83,12 @@ def main():
             f = glob.glob(os.path.join(root, "book", lang, f"{n}-*.md"))
             stamp, ts = verify_stamp(n, lang)
             row[lang] = (os.path.basename(f[0]) if f else "—", stamp, ts)
+            row[lang + "-passes"] = pass_columns(n, lang)
         row["run"] = unit_progress(f"/root/htlb-run/{n}/units")
         rows.append(row)
 
-    print(f"{'ch':<4}{'items':<7}{'RU':<34}{'EN':<34}{'workdir':<12}")
+    print(f"{'ch':<4}{'items':<7}{'RU':<34}{'EN':<34}{'workdir':<12}"
+          f"{'RU passes':<28}{'EN passes':<28}")
     for r in rows:
         def cell(lang):
             name, stamp, ts = r[lang]
@@ -67,7 +97,11 @@ def main():
             day = time.strftime("%m-%d", time.localtime(ts)) if ts else "?"
             return f"{name[:24]} {stamp}({day})"
         w = f"{r['run'][0]}/{r['run'][1]}" if r["run"] else "—"
-        print(f"{r['n']:<4}{r['cn']:<7}{cell('ru'):<34}{cell('en'):<34}{w:<12}")
+        def passes(lang):
+            p = r[lang + "-passes"]
+            return f"fc:{p['fc']} sty:{p['style']} qe:{p['qe']}"
+        print(f"{r['n']:<4}{r['cn']:<7}{cell('ru'):<34}{cell('en'):<34}{w:<12}"
+              f"{passes('ru'):<28}{passes('en'):<28}")
 
     ru_ok = sum(1 for r in rows if r["ru"][0] != "—")
     en_ok = sum(1 for r in rows if r["en"][0] != "—")
