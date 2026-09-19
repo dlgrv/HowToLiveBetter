@@ -47,7 +47,8 @@
   --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#8e8e8e;
   --line:#e3e3e3; --line-soft:#d5d5d5; --hover:#2481cc; --pop-bg:#ffffff;
   --serif:Georgia,"Times New Roman",serif;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --sans:Georgia,"Times New Roman",serif; /* единый шрифт на всей странице (решение пользователя) */
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --nav-h:56px; --side-w:264px;
 }
 html.dark{
@@ -166,7 +167,7 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
 
 /* status / empty / foot */
 .status{max-width:720px;margin:0 auto 8px;font:12px/1.6 var(--sans);color:var(--faint)}
-.status code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px}
+.status code{font-family:var(--mono);font-size:11px}
 .empty{max-width:720px;margin:48px auto;text-align:center;font:16px/1.7 var(--serif);color:var(--mut)}
 .empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:2px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
 .empty button:hover{border-color:var(--ink);color:var(--ink)}
