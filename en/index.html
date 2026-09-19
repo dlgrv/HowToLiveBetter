@@ -142,15 +142,6 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 #feedback-line-star{margin-top:6px}
 .meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
 .meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
-/* feedback: floating stack (desktop >=1100px) / inline line (mobile) */
-.fb-float{position:fixed;right:max(14px,calc((100vw - 940px)/2 - 68px));top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:6px;opacity:.7;transition:opacity .25s}
-.fb-float:hover{opacity:1}
-.fb-float a{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--bg-elv);border:1px solid var(--divider);box-shadow:0 2px 8px rgba(0,0,0,.08);color:var(--t2);position:relative}
-.fb-float a:hover{color:var(--brand-1);border-color:var(--brand-1)}
-.fb-float a .tip{position:absolute;right:calc(100% + 8px);top:50%;transform:translateY(-50%);background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:5px 10px;font-size:13px;white-space:nowrap;color:var(--t1);opacity:0;pointer-events:none;transition:opacity .2s}
-.fb-float a:hover .tip,.fb-float a:focus-visible .tip{opacity:1}
-@media (max-width:1099px){.fb-float{display:none}}
-@media (min-width:1100px){.doc-head .meta-line{display:none}}
 
 .sec-block{margin-top:40px}
 .sec-h{display:flex;align-items:baseline;gap:12px;padding-top:24px;border-top:1px solid var(--divider);margin-bottom:8px}
@@ -369,10 +360,6 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="foot">Категория эффекта указана в каждом пункте: разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (отчёт о проверке источников, на китайском)</a>. Оригинал — Public Domain (Unlicense).</div>
   </div>
 </main>
-<aside class="fb-float" aria-label="Обратная связь о переводе">
-  <a id="fb-issue-f" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tip" data-tip="fbIssue">​</span></a>
-  <a id="fb-star-f" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="tip" data-tip="fbStar">​</span></a>
-</aside>
 
 <script>
 let LANG = 'en';
@@ -529,10 +516,6 @@ function applyI18n(){
   if(fb){ fb.textContent=t.fbIssue; fb.href=issueUrl; }
   const st=document.getElementById('fb-star-t'); if(st) st.textContent=t.fbStarT;
   const fs=document.getElementById('fb-star'); if(fs) fs.textContent=t.fbStar;
-  document.querySelectorAll('.fb-float .tip').forEach(el=>{ el.textContent=el.dataset.tip==='fbIssue'?t.fbIssueT+' '+t.fbIssue:t.fbStarT+' '+t.fbStar; });
-  const fa=document.querySelector('.fb-float'); if(fa) fa.setAttribute('aria-label',t.fbAria);
-  const ff=document.getElementById('fb-issue-f');
-  if(ff){ ff.href=issueUrl; }
   document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
   document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
   document.getElementById('reset').textContent=t.resetF;
