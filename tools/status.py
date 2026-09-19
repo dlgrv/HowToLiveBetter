@@ -70,6 +70,18 @@ def pass_columns(n, lang):
     # QE deltas require the Mac venv; absent cache -> SKIPPED
     qe_path = os.path.join(root, "tools", ".qe", f"{n}-{lang}.json")
     states["qe"] = "ok" if os.path.exists(qe_path) else "SKIP"
+    # plainness lint (WARN-only): WARN count, or SKIP if not linted yet
+    pl_path = os.path.join(root, "tools", "validate", "results", "plainness",
+                           f"{n}-{lang}.json")
+    if os.path.exists(pl_path):
+        try:
+            d = json.load(open(pl_path, encoding="utf-8"))
+            w = sum(len(u["warns"]) for u in d.get("units", []))
+            states["plain"] = "ok" if w == 0 else f"W{w}"
+        except (ValueError, OSError, KeyError, TypeError):
+            states["plain"] = "?"
+    else:
+        states["plain"] = "SKIP"
     return states
 
 
@@ -88,7 +100,7 @@ def main():
         rows.append(row)
 
     print(f"{'ch':<4}{'items':<7}{'RU':<34}{'EN':<34}{'workdir':<12}"
-          f"{'RU passes':<28}{'EN passes':<28}")
+          f"{'RU passes':<34}{'EN passes':<34}")
     for r in rows:
         def cell(lang):
             name, stamp, ts = r[lang]
@@ -99,9 +111,9 @@ def main():
         w = f"{r['run'][0]}/{r['run'][1]}" if r["run"] else "—"
         def passes(lang):
             p = r[lang + "-passes"]
-            return f"fc:{p['fc']} sty:{p['style']} qe:{p['qe']}"
+            return f"fc:{p['fc']} sty:{p['style']} qe:{p['qe']} pl:{p['plain']}"
         print(f"{r['n']:<4}{r['cn']:<7}{cell('ru'):<34}{cell('en'):<34}{w:<12}"
-              f"{passes('ru'):<28}{passes('en'):<28}")
+              f"{passes('ru'):<34}{passes('en'):<34}")
 
     ru_ok = sum(1 for r in rows if r["ru"][0] != "—")
     en_ok = sum(1 for r in rows if r["en"][0] != "—")

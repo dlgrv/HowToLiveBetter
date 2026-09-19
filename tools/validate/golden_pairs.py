@@ -39,6 +39,8 @@ DEGRADE_RECIPES = [
      "instruction": "Insert officialese: 'является', 'данного', 'в рамках', 'осуществля' (RU) / 'utilize', 'with respect to', 'aforementioned' (EN). Keep every number byte-identical."},
     {"name": "passive_chain",
      "instruction": "Chain two or more passive participle constructions into heavy stacked phrases. Keep every number byte-identical."},
+    {"name": "jargonize",
+     "instruction": "Swap common words for professional jargon/terminology WITHOUT explanation (medical, legal, financial register), keeping meaning identical and all numbers byte-identical. The variant must stay grammatical — it should read as 'expert-speak' a layperson cannot follow."},
 ]
 
 CLEAN_GREEN = set(GREEN_CHAPTERS)
