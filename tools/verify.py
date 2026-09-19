@@ -40,6 +40,23 @@ NUM = re.compile(r"\d+(?:\.\d+)?")
 BANNED_RU = ["когорт", "экспозици", "квартил", "квинтил", "конфаунд", "популяц"]
 
 
+def _lang_pack(lang):
+    """Load tools/rules/<lang>.json (labels/banned_calques); None if absent/empty.
+
+    Fallback contract (plan Task 10b): while the language pack is not yet
+    filled, verify.py keeps its built-in LABELS/BANNED_RU — zero behavior
+    change until Task 10b lands in full.
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rules", f"{lang}.json")
+    try:
+        pack = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if not pack or (not pack.get("labels") and not pack.get("banned_calques")):
+        return None
+    return pack
+
+
 WORD_VALUES = [
     # compound first
     (r"двадцать[\s-]?четыре", "24"), (r"twenty-four", "24"),

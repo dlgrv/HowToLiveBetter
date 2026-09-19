@@ -8,6 +8,7 @@ tools/.status/
 # quality pipeline v2 transient state (verdicts and QE caches are machine-local)
 tools/judge/
 tools/.qe/
+tools/validate/results/_batch*.json
 
 # python
 __pycache__/
