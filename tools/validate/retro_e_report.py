@@ -47,6 +47,8 @@ def build_report():
     for path in sorted(glob.glob(os.path.join(JUDGE_DIR, "*-ru-*.json"))):
         base = os.path.basename(path)[:-5]
         nn, unit = base.split("-ru-")
+        if nn not in CHAPTERS:
+            continue  # totals must match per_chapter scope (review code#14)
         rec = json.load(open(path, encoding="utf-8"))
         cn_text = cn_unit_text(nn, unit)
         totals["verdicts"] += 1

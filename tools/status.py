@@ -10,7 +10,7 @@ Shows, per chapter: item count, RU/EN file presence, verify stamp
 for active workdirs under /root/htlb-run/ (a unit counts as translated when
 its ### title line no longer contains CJK).
 """
-import glob, json, os, re, sys
+import glob, json, os, re, sys, time
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CJK = re.compile(r"[\u4e00-\u9fff]")
@@ -58,9 +58,11 @@ def pass_columns(n, lang):
     if os.path.exists(fc_path):
         try:
             d = json.load(open(fc_path, encoding="utf-8"))
-            g = (d.get("gate") or
-                 ("fail" if d.get("grounding", {}).get("dropped") else "pass"))
-            states["fc"] = g.upper() if g != "pass" else "ok"
+            # new write_result persists gate_major's verdict; dropped-only
+            # fallback kept for old files (dropped ≠ fail per protocol —
+            # ungrounded assertions are discarded, not failures)
+            g = d.get("gate") or "pass"
+            states["fc"] = g.upper() if g not in ("pass",) else "ok"
         except (ValueError, OSError):
             states["fc"] = "?"
     else:

@@ -44,7 +44,7 @@ SEED_REF_SPEC = {
 def book_path(nn, lang):
     """Resolve book/<lang>/<NN>-*.md to its concrete path."""
     hits = [p for p in os.listdir(os.path.join(REPO, "book", lang))
-            if re.match(rf"{nn}-", p) and p.endswith(".md")]
+            if re.match(rf"{re.escape(nn)}-", p) and p.endswith(".md")]
     if len(hits) != 1:
         raise FileNotFoundError(f"expected 1 book/{lang}/{nn}-*.md, got {len(hits)}")
     return os.path.join(REPO, "book", lang, hits[0])
@@ -155,19 +155,20 @@ def validate_spec():
 
 def build_cases():
     """Materialise 60 verify-safe cases (mutants must PASS verify)."""
+    validate_spec()  # never trust the spec file blindly (review F6/#17)
     with open(SPEC_PATH, encoding="utf-8") as f:
         spec = json.load(f)
-    cases = []
+    cases, skipped = [], []
     for m in spec["mutations"]:
         nn, lang = m["target"]
         book = read_book(nn, lang)
         if book.count(m["original_excerpt"]) != 1:
-            print(f"SKIP mutant (excerpt not unique in book): {lang}{nn}")
+            skipped.append(f"excerpt not unique in book: {lang}{nn}")
             continue
         mutant_full = book.replace(m["original_excerpt"], m["mutant_text"], 1)
         code, out = run_verify(nn, lang, file_text=mutant_full)
         if out["status"] != "pass":
-            print(f"SKIP mutant (verify catches it): {lang}{nn} {m['issue_type']}")
+            skipped.append(f"verify catches it: {lang}{nn} {m['issue_type']}")
             continue
         cases.append({"kind": "mutation", "issue_type": m["issue_type"],
                       "target": [nn, lang], "text": mutant_full,
@@ -176,6 +177,14 @@ def build_cases():
         nn, lang = c["target"]
         cases.append({"kind": "control", "target": [nn, lang],
                       "text": read_book(nn, lang)})
+    # run-artifact: post-filter census must be recorded, not implied (review F6)
+    with open(os.path.join(RESULTS, "mutations_cases.json"), "w", encoding="utf-8") as f:
+        json.dump({"n_mutants": sum(1 for c in cases if c["kind"] == "mutation"),
+                   "n_controls": sum(1 for c in cases if c["kind"] == "control"),
+                   "skipped": skipped}, f, ensure_ascii=False, indent=2)
+    print(f"cases: {sum(1 for c in cases if c['kind'] == 'mutation')} mutants / "
+          f"{sum(1 for c in cases if c['kind'] == 'control')} controls, "
+          f"{len(skipped)} skipped")
     return cases
 
 

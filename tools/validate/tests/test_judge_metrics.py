@@ -40,7 +40,11 @@ class TestKappa(unittest.TestCase):
             jm.cohens_kappa([1, 0], [1])
 
     def test_degenerate_all_same(self):
-        self.assertAlmostEqual(jm.cohens_kappa([1, 1], [1, 1]), 1.0)
+        # pe==1 -> kappa undefined; the function must say so, not fake 1.0
+        # (review S5: the old fudge laundered 0/0 into a pass)
+        self.assertIsNone(jm.cohens_kappa([1, 1], [1, 1]))
+        # po is still meaningful and must be reported alongside
+        self.assertEqual(jm.cohens_kappa([1, 0, 1, 0], [1, 0, 1, 0]), 1.0)
 
 
 class TestScreening(unittest.TestCase):

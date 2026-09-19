@@ -22,7 +22,13 @@ VERDICTS = os.path.join(RESULTS, "golden_verdicts.json")
 
 
 def cohens_kappa(a, b):
-    """Cohen's kappa for two equal-length lists of labels."""
+    """Cohen's kappa for two equal-length lists of labels.
+
+    Returns None when kappa is undefined (unanimous marginals, pe == 1):
+    with every rater in one category the statistic is 0/0, and the
+    prevalence paradox makes a bare 1.0 meaningless. Callers must treat
+    None as "not computable", never as a pass.
+    """
     if len(a) != len(b):
         raise ValueError("rater lists must have equal length")
     n = len(a)
@@ -33,7 +39,7 @@ def cohens_kappa(a, b):
     pe = sum((sum(1 for x in a if x == l) / n) * (sum(1 for y in b if y == l) / n)
              for l in levels)
     if pe == 1.0:
-        return 1.0  # unanimous marginals
+        return None  # undefined: unanimous marginals (prevalence paradox)
     return (po - pe) / (1 - pe)
 
 
@@ -100,6 +106,9 @@ def main():
     # A/B-against-degradation: score judge answers against known ground truth
     def decode(session, marks):
         """marks (1|2|0 tie) -> 1 if 'native variant chosen' else 0 (ties excluded)."""
+        if len(marks) != len(session["pairs"]):
+            raise ValueError(
+                f"marks {len(marks)} != pairs {len(session['pairs'])} — answer file misaligned")
         out = []
         for p, m in zip(session["pairs"], marks):
             if m in (None, 0, "="):
@@ -114,16 +123,27 @@ def main():
     degraded_scored = decode({"pairs": manifest["pairs"]}, verdicts.get("degraded", []))
     nr = nativeness_rate({"native": native_scored, "degraded": degraded_scored})
 
-    # kappa: judge vs Лёня on the same pair preferences (first run only)
+    # kappa: judge vs Лёня on the same pair preferences (first run only).
+    # Dimension: 3-category marks (1/2/=), ties included — documented policy.
     k = None
+    kappa_note = None
     if labels.get("marks") and verdicts.get("first"):
         judge_first = verdicts["first"]
         lenya = labels["marks"]
         k = cohens_kappa(judge_first, lenya)
+        if k is None:
+            kappa_note = ("kappa undefined (unanimous marginals): use po and "
+                          "Gwet's AC1 as the prevalence-robust check")
+    po_agreement = None
+    if labels.get("marks") and verdicts.get("first"):
+        pairs_ = zip(verdicts["first"], labels["marks"])
+        po_agreement = round(sum(1 for x, y in pairs_ if x == y) / len(labels["marks"]), 3)
 
     report = {"status": "ok",
               "nativeness": nr,
               "kappa_vs_lenya": (round(k, 3) if k is not None else None),
+              "kappa_note": kappa_note,
+              "po_agreement": po_agreement,
               "gap_gate": {"gap_required": 0.25,
                            "passed": bool(nr.get("gap") is not None and nr["gap"] >= 0.25)},
               "fnr_gate": {"threshold": args.fnr_gate}}

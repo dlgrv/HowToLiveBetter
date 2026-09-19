@@ -54,7 +54,7 @@ def write_verdict(base, nn, lang, unit, payload):
     d = os.path.join(base, "tools", "judge", nn, lang)
     os.makedirs(d, exist_ok=True)
     path = os.path.join(d, f"{unit}.json")
-    tmp = path + ".tmp"
+    tmp = f"{path}.{os.getpid()}.tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
         f.write("\n")

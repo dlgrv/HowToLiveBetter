@@ -150,5 +150,57 @@ class TestPersist(unittest.TestCase):
             self.assertEqual(data["backend"], "mock")
 
 
+class TestGateRobustness(unittest.TestCase):
+    """Expert-review fixes: broken judge output must not read as clean."""
+
+    def test_unparseable_verdict_gates_error(self):
+        v = {"parse_error": True, "raw_reply": "..."}
+        self.assertEqual(fc.gate_major(v)["gate"], "error")
+
+    def test_missing_assertions_gates_error(self):
+        self.assertEqual(fc.gate_major({"note": "truncated"})["gate"], "error")
+
+    def test_prompt_schema_mapped_to_status(self):
+        # verdict per committed prompt (ru_ok/en_ok, no status): must NOT
+        # silently pass — ru_ok=False is a major issue
+        v = {"assertions": [{"claim": "c", "cn_span": "不要空腹服药",
+                             "ru_ok": False, "en_ok": True,
+                             "issue_type": "dropped_condition"}]}
+        self.assertEqual(fc.gate_major(v)["gate"], "fail")
+        ok = {"assertions": [{"claim": "c", "cn_span": "每天至少30分钟",
+                              "ru_ok": True, "en_ok": True, "issue_type": None}]}
+        self.assertEqual(fc.gate_major(ok)["gate"], "pass")
+
+    def test_hardened_claim_is_major(self):
+        v = {"assertions": [{"claim": "c", "cn_span": "一般不超过",
+                             "status": "issue", "issue_type": "hardened_claim"}]}
+        self.assertEqual(fc.gate_major(v)["gate"], "fail")
+
+    def test_ellipsis_span_grounds(self):
+        # 30-ru-02 / 13-ru-19 class: judge quotes with … between fragments
+        verdict = {"assertions": [
+            {"claim": "в двух фрагментах", "status": "ok",
+             "cn_span": "说人话：吸烟者平均比不吸烟者少活十年以上……40 岁前戒烟可以消除约 90%"}]}
+        report = fc.check_grounding(verdict, CN_UNIT)
+        self.assertTrue(report["grounded"], report["dropped"])
+
+    def test_multiline_span_touching_service_line_dropped(self):
+        verdict = {"assertions": [
+            {"claim": "span crosses into service line", "status": "ok",
+             "cn_span": "- 收益：美国观察性研究：现在吸烟者的预期寿命比从不吸烟者短 10 年以上。\n- 证据等级：A"}]}
+        report = fc.check_grounding(verdict, CN_UNIT)
+        self.assertFalse(report["grounded"])
+        self.assertEqual(report["dropped"][0]["reason"], "service_line")
+
+    def test_unsupported_claim_dropped(self):
+        verdict = {"assertions": [
+            {"claim": "c", "status": "ok",
+             "cn_span": "40 岁前戒烟可以消除约 90% 的额外死亡风险",
+             "span_supports_claim": False}]}
+        report = fc.check_grounding(verdict, CN_UNIT)
+        self.assertFalse(report["grounded"])
+        self.assertEqual(report["dropped"][0]["reason"], "span_does_not_support_claim")
+
+
 if __name__ == "__main__":
     unittest.main()

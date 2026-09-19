@@ -156,11 +156,13 @@ def main():
     src_path = os.path.join(root, "book", srcs[0])
     if args.file:
         tr_path = args.file
+        explicit_file = True
     else:
         cand = glob.glob(os.path.join(root, "book", lang, f"{n}-*.md"))
         if len(cand) != 1:
             sys.exit(f"expected exactly 1 book/{lang}/{n}-*.md, got {len(cand)}")
         tr_path = cand[0]
+        explicit_file = False
     if not os.path.exists(tr_path):
         sys.exit(f"translated file not found: {tr_path}")
 
@@ -294,6 +296,11 @@ def main():
     print(f"OK: headings={len(th)} tags={tt} sources={len(ts)} "
           f"numbers={len(cn_nums)} (lost=0, extra={sum(extra.values())})")
     os.makedirs(os.path.join(root, "tools", ".status"), exist_ok=True)
+    if explicit_file:
+        # a candidate file is not the committed book: do not refresh the
+        # chapter's freshness stamp (mutation harness/tests pass --file)
+        print("stamp skipped (--file mode)")
+        return
     mark = os.path.join(root, "tools", ".status", f"{n}-{lang}.ok")
     json.dump({"chapter": n, "lang": lang, "file": os.path.basename(tr_path),
                "ts": time.time(), "nums": len(cn_nums)},

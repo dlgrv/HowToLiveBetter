@@ -29,10 +29,10 @@ Reply with STRICT JSON only, no prose, no markdown fences:
 
 ```json
 {
-  "winner": 1,
+  "winner": "1",
   "reason": "one short sentence why"
 }
 ```
 
-`winner` is `1`, `2`, or `"tie"` (the string). `reason` must reference the
+`winner` is the STRING `"1"`, `"2"`, or `"tie"`. `reason` must reference the
 language quality, not content.

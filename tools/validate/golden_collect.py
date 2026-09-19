@@ -35,19 +35,28 @@ def _rate(pairs, answers):
     """Share of pairs where the judge picked variant_a (the original).
 
     On decoys (A==B) any preference is a false positive; when the judge ties
-    on all decoys the FP rate is 0.0, not None.
+    on all decoys the FP rate is 0.0, not None. But if the judge never even
+    ANSWERED the decoys (empty/lost data), rate is null — a missing metric
+    must not read as a perfect one (review code#6).
     """
-    picked_native = answered = 0
+    picked_native = answered = ties = 0
     for p in pairs:
         a = answers.get(p["id"])
-        if a in (None, "=", 0):
+        if a is None:
+            continue
+        if a in ("=", 0):
+            ties += 1
             continue
         answered += 1
         native_first = p["show_order"] == "AB"
         if (a == 1) == native_first:
             picked_native += 1
-    return {"picked_original": picked_native, "answered": answered,
-            "rate": round(picked_native / answered, 3) if answered else 0.0}
+    if answered == 0:
+        missing = all(answers.get(p["id"]) is None for p in pairs)
+        return {"picked_original": picked_native, "answered": 0, "ties": ties,
+                "rate": None if missing else 0.0}
+    return {"picked_original": picked_native, "answered": answered, "ties": ties,
+            "rate": round(picked_native / answered, 3)}
 
 
 def summarize(results_dir=RESULTS):
@@ -66,6 +75,10 @@ def summarize(results_dir=RESULTS):
         "native_detail": pref,
         "decoy_fp_rate": fp["rate"],
         "decoy_detail": fp,
+        "tie_contrast": {  # review S9: ties on decoys vs ties on content pairs
+            "decoy_ties": fp["ties"],
+            "content_ties": pref["ties"],
+        },
         "per_recipe": per_recipe,
         "unanswered": [p["id"] for p in manifest["pairs"] if p["id"] not in answers],
     }

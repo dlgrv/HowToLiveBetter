@@ -36,7 +36,7 @@ Reply with STRICT JSON only, no prose, no markdown fences:
     {"span": "exact substring from the text",
      "quote": "short surrounding quote",
      "severity": "minor|major",
-     "type": "calque|bureacratese|awkward|grammar|other"}
+     "type": "calque|bureaucratese|awkward|grammar|other"}
   ],
   "note": "one short sentence, optional"
 }

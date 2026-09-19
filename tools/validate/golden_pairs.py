@@ -92,6 +92,11 @@ def select_pairs(root=REPO):
         })
 
     # anchors: 6 chapters x 3 strata x 2 langs = 36
+    seen_excerpts = set()
+
+    def excerpt_key(excerpt):
+        return " ".join(excerpt.split())[:120]
+
     for nn in chapters:
         for lang in ("ru", "en"):
             pool = excerpt_pool(root, nn, lang)
@@ -100,6 +105,7 @@ def select_pairs(root=REPO):
             chosen = sorted(rng.sample(pool, 3), key=len)
             for excerpt, stratum in zip(chosen, ("short", "medium", "long")):
                 add(nn, lang, excerpt, stratum, decoy=False)
+                seen_excerpts.add(excerpt_key(excerpt))
     # fresh random pairs to reach 60 total, 10 of them decoys
     need = 60 - len(pairs)
     decoy_slots = set(rng.sample(range(need), min(10, need)))  # relative indices
@@ -110,7 +116,11 @@ def select_pairs(root=REPO):
         pool = excerpt_pool(root, nn, lang)
         if not pool:
             continue
-        add(nn, lang, rng.choice(pool), "fresh", decoy=placed in decoy_slots)
+        excerpt = rng.choice(pool)
+        if not decoy_slots and excerpt_key(excerpt) in seen_excerpts:
+            continue  # global excerpt dedupe (F11: duplicates break κ independence)
+        add(nn, lang, excerpt, "fresh", decoy=placed in decoy_slots)
+        seen_excerpts.add(excerpt_key(excerpt))
         placed += 1
     manifest = {"seed": SEED, "green_chapters": GREEN_CHAPTERS,
                 "recipes": DEGRADE_RECIPES,

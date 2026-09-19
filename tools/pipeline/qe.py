@@ -65,6 +65,7 @@ def run_scores(segments, root=None):
     if not exe:
         raise QeUnavailable("qe venv not found (~/.venvs/qe); COMET scoring unavailable")
     cfg = load_qe_config(root)
+    check_model_license(cfg["model"])
     payload = json.dumps({
         "model": cfg["model"],
         "revision": cfg.get("revision"),
@@ -73,7 +74,8 @@ def run_scores(segments, root=None):
     })
     proc = subprocess.run(
         [exe, "-c", _runner_source()], input=payload,
-        capture_output=True, text=True, timeout=cfg.get("timeout_s", 1800))
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+        timeout=cfg.get("timeout_s", 1800))
     if proc.returncode != 0:
         raise QeUnavailable(f"comet runner failed: {proc.stderr.strip()[-400:]}")
     scores = parse_scores(proc.stdout)

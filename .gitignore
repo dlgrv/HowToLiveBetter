@@ -22,3 +22,5 @@ tools/validate/results/_ru_work/
 tools/validate/results/_golden_b_*.json
 tools/validate/results/golden_session/
 tools/validate/results/golden_verdicts_batch*.json
+tools/validate/results/factcheck/
+tools/validate/results/style_fp_session*.json

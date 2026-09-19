@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 
 from tools.pipeline import judges  # noqa: E402
 from tools.pipeline import store   # noqa: E402
+from tools.validate.factcheck import parse_verdict  # noqa: E402
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PROMPTS_DIR = os.path.join(REPO, "tools", "prompts")
@@ -72,7 +73,7 @@ def main():
     try:
         verdict = json.loads(reply)
     except json.JSONDecodeError:
-        verdict = {"raw_reply": reply}
+        verdict = parse_verdict(reply)
 
     payload = store.build_payload(
         tool=f"validate.judge.{args.mode}", mode=args.mode, model_id=model_id,
