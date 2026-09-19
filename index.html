@@ -193,16 +193,7 @@ abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
 abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .pop{position:absolute;z-index:40;background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:10px 12px;font-size:13px;line-height:1.6;color:var(--t2)}
 .pop b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
-.gloss{margin-top:16px;border:1px solid var(--divider);border-radius:8px;padding:0 16px;font-size:13px;color:var(--t2)}
-.gloss summary{cursor:pointer;padding:10px 0;font-weight:500;color:var(--t2);list-style:none;display:flex;align-items:center;gap:6px}
-.gloss summary::-webkit-details-marker{display:none}
-.gloss summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(-45deg);transition:transform .2s;margin-right:2px}
-.gloss[open] summary::before{transform:rotate(45deg)}
-.gloss p{margin:0 0 8px}
-.gloss dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 14px}
-.gloss dt{font-weight:600;color:var(--t1);white-space:nowrap}
-.gloss dd{margin:0}
-@media (max-width:960px){.gloss dl{grid-template-columns:1fr;gap:2px} .gloss dd{margin-bottom:8px}}
+.gloss-hint{margin:12px 0 0;font-size:14px;color:var(--t3)}
 .empty{border:1px dashed var(--divider);border-radius:12px;padding:40px 24px;text-align:center;color:var(--t2);margin-top:24px}
 .empty button{margin-top:12px;padding:7px 16px;border:1px solid var(--divider);border-radius:20px;font-weight:500;background:var(--bg-elv)}
 .empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
@@ -366,7 +357,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
         <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репо</a>
       </p>
       
-      <details class="gloss" id="gloss"><summary>Непонятные сокращения и термины</summary><p>Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.</p><dl></dl></details>
+      <p class="gloss-hint" id="gloss-hint">Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение.</p>
     </div>
     <div id="list">
       <div class="status" id="status"></div>
@@ -430,7 +421,7 @@ const I18N = {
    timeL2:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'},
    willL2:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'},
    ratioFull:'Выгода/затраты: ', gradeFull:'Доказательность: ',
-   gloss:'Непонятные сокращения и термины', glossP:'Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.',
+   gloss:'Непонятные сокращения и термины', glossHint:'Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение.',
    errFile:'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.',
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
    cap:true,
@@ -468,7 +459,7 @@ const I18N = {
    timeL2:{'少':'On the go','中':'A few hours','多':'Every day'},
    willL2:{'否':'No willpower','些':'A little effort','是':'Serious effort'},
    ratioFull:'Benefit/costs: ', gradeFull:'Evidence: ',
-   gloss:'Unclear abbreviations and terms', glossP:'Dotted-underlined words in the text: click or hover for an explanation. Full table below.',
+   gloss:'Unclear abbreviations and terms', glossHint:'Dotted-underlined words in the text: click or hover for an explanation.',
    errFile:'This page only opens over http. Run <code>python -m http.server</code> in the repository directory and open <code>http://localhost:8000/</code>, or use the GitHub Pages address.',
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
    cap:true,
@@ -506,7 +497,7 @@ const I18N = {
    timeL2:{'少':'顺手','中':'几小时','多':'每天'},
    willL2:{'否':'不需要毅力','些':'一点毅力','是':'明显毅力'},
    ratioFull:'性价比: ', gradeFull:'证据: ',
-   gloss:'看不懂的缩写与术语', glossP:'正文里带虚线下划线的词：点击或悬停会弹出解释。完整表格见下。',
+   gloss:'看不懂的缩写与术语', glossHint:'正文里带虚线下划线的词：点击或悬停会弹出解释。',
    errFile:'本页只能通过 http 打开。请在仓库目录运行 <code>python -m http.server</code> 并访问 <code>http://localhost:8000/</code>，或使用 GitHub Pages 地址。',
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
    cap:false,
@@ -530,7 +521,7 @@ function applyI18n(){
   const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
-  const gl=document.getElementById('gloss'); gl.querySelector('summary').textContent=t.gloss; gl.querySelector('p').textContent=t.glossP;
+  const ghint=document.getElementById('gloss-hint'); if(ghint) ghint.textContent=t.glossHint;
   const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
   const issueUrl='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle);
   const ft=document.getElementById('fb-issue-t'); if(ft) ft.textContent=t.fbIssueT;
@@ -864,15 +855,7 @@ function build(sections){
   }
   document.getElementById('tot').textContent = CARDS.length;
 }
-function buildGlossary(){
-  const box = document.getElementById('gloss'); if (!GLOSS.length) { box.hidden = true; return; }
-  const dl = box.querySelector('dl');
-  for (const g of [...GLOSS].sort((a,b) => a.term.localeCompare(b.term, 'zh'))){
-    const dt = document.createElement('dt'); dt.textContent = g.term;
-    const dd = document.createElement('dd'); dd.textContent = g.meaning;
-    dl.appendChild(dt); dl.appendChild(dd);
-  }
-}
+function buildGlossary(){ /* глоссарий-таблица убрана с сайта: термины объясняются только тултипами */ }
 
 /* ---------- 筛选状态 ---------- */
 const DIMS = ['sec','ratio','lens','grade','money','time','will'];
