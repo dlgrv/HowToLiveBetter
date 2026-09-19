@@ -32,7 +32,11 @@ def load_answers(results_dir=RESULTS):
 
 
 def _rate(pairs, answers):
-    """Share of pairs where the judge picked variant_a (the original)."""
+    """Share of pairs where the judge picked variant_a (the original).
+
+    On decoys (A==B) any preference is a false positive; when the judge ties
+    on all decoys the FP rate is 0.0, not None.
+    """
     picked_native = answered = 0
     for p in pairs:
         a = answers.get(p["id"])
@@ -43,7 +47,7 @@ def _rate(pairs, answers):
         if (a == 1) == native_first:
             picked_native += 1
     return {"picked_original": picked_native, "answered": answered,
-            "rate": round(picked_native / answered, 3) if answered else None}
+            "rate": round(picked_native / answered, 3) if answered else 0.0}
 
 
 def summarize(results_dir=RESULTS):
