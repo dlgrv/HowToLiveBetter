@@ -89,6 +89,15 @@ class TestGrounding(unittest.TestCase):
         self.assertFalse(report["grounded"])
         self.assertEqual(report["dropped"][0]["reason"], "service_line")
 
+    def test_substring_service_marker_not_dropped(self):
+        # 出资来源 = "source of funds" — 来源 inside body text is NOT a service line
+        unit = CN_UNIT + "- 成本：按出资来源和比例判归一方并合理补偿\n"
+        verdict = {"assertions": [
+            {"claim": "дележ по источнику средств",
+             "cn_span": "按出资来源和比例判归一方并合理补偿", "status": "ok"}]}
+        report = fc.check_grounding(verdict, unit)
+        self.assertTrue(report["grounded"], report["dropped"])
+
     def test_grounded_rate(self):
         verdicts = [GOOD_VERDICT, GOOD_VERDICT, FAKE_SPAN_VERDICT]
         self.assertAlmostEqual(fc.grounded_rate(verdicts, CN_UNIT), 2 / 3)
