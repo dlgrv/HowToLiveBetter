@@ -5,5 +5,13 @@
 tools/digest/
 tools/.status/
 
+# quality pipeline v2 transient state (verdicts and QE caches are machine-local)
+tools/judge/
+tools/.qe/
+
+# python
+__pycache__/
+*.pyc
+
 # hermes local artifacts
 .hermes/

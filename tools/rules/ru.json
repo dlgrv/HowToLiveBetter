@@ -1,0 +1,7 @@
+{
+  "_comment": "RU language pack. Skeleton owned by pipeline Task 1: labels/banned_calques filled in Task 10b (moved from tools/verify.py), style_markers/whitelist_zones filled in Task 6 (FP audit).",
+  "labels": {},
+  "banned_calques": [],
+  "style_markers": [],
+  "whitelist_zones": []
+}
