@@ -94,6 +94,37 @@ class TestGrounding(unittest.TestCase):
         self.assertAlmostEqual(fc.grounded_rate(verdicts, CN_UNIT), 2 / 3)
 
 
+class TestMajorGate(unittest.TestCase):
+    def test_major_class_fails(self):
+        for t in ("reversed_logic", "invented", "dropped_condition"):
+            v = {"assertions": [{"claim": "c", "cn_span": "40 岁前戒烟可以消除约 90% 的额外死亡风险",
+                                 "status": "issue", "issue_type": t}]}
+            self.assertEqual(fc.gate_major(v)["gate"], "fail", t)
+
+    def test_minor_class_warns_only(self):
+        v = {"assertions": [{"claim": "c", "cn_span": "x", "status": "issue",
+                             "issue_type": "softened_claim"}]}
+        self.assertEqual(fc.gate_major(v)["gate"], "warn")
+
+    def test_clean_passes(self):
+        self.assertEqual(fc.gate_major(GOOD_VERDICT)["gate"], "pass")
+
+
+class TestMutationEndToEnd(unittest.TestCase):
+    """Plan Task 8: Task-4 mutations must be catchable end-to-end (gate logic)."""
+
+    def test_spec_mutations_classify(self):
+        spec = json.load(open(os.path.join(
+            ROOT, "tools", "validate", "results", "mutations_seed42.json"),
+            encoding="utf-8"))
+        caught = sum(1 for m in spec["mutations"]
+                     if fc.gate_major({"assertions": [
+                         {"claim": "c", "cn_span": "x", "status": "issue",
+                          "issue_type": m["issue_type"]}]}).get("gate") == "fail")
+        # dropped_condition / reversed_logic / invented are major; the rest warn
+        self.assertGreaterEqual(caught, 8)  # deterministic type assignment: >=8 of 30
+
+
 class TestPersist(unittest.TestCase):
     def test_write_result_has_audit_fields(self):
         with tempfile.TemporaryDirectory() as tmp:

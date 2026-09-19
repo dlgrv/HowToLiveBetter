@@ -20,6 +20,10 @@ sys.path.insert(0, REPO)
 
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 PROMPT_PATH = os.path.join(REPO, "tools", "prompts", "judge-factcheck.md")
+JUDGE_DIR = os.path.join(REPO, "tools", "judge", "factcheck")  # transient (gitignored)
+
+# plan Task 8: major classes fail the chapter gate (after verify.py, before style/QE)
+MAJOR_ISSUE_TYPES = ("reversed_logic", "invented", "dropped_condition")
 
 SERVICE_MARKERS = ("来源", "§SRC§", "成本标签", "证据等级")
 SERVICE_LINE_RE = re.compile(r"^\s*-\s*(来源|证据等级)|§SRC§|<!--")
@@ -64,6 +68,24 @@ def grounded_rate(verdicts, cn_text):
         return 0.0
     ok = sum(1 for v in verdicts if check_grounding(v, cn_text)["grounded"])
     return ok / len(verdicts)
+
+
+def gate_major(verdict):
+    """Chapter-gate: any major finding -> FAIL ('fail'), else 'pass'/'warn'.
+
+    Numeric drift is excluded here on purpose (verify.py owns numbers) —
+    duplication would only add noise.
+    """
+    findings = verdict.get("assertions", []) if isinstance(verdict, dict) else []
+    major = [a for a in findings
+             if a.get("status") == "issue" and a.get("issue_type") in MAJOR_ISSUE_TYPES]
+    minor = [a for a in findings
+             if a.get("status") == "issue" and a.get("issue_type") not in MAJOR_ISSUE_TYPES]
+    if major:
+        return {"gate": "fail", "major": major, "minor": minor}
+    if minor:
+        return {"gate": "warn", "major": [], "minor": minor}
+    return {"gate": "pass", "major": [], "minor": []}
 
 
 def write_result(outdir, nn, lang, verdict, cn_text, tr_text, backend, model_id):
