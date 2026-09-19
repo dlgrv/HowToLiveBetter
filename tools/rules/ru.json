@@ -1,7 +1,10 @@
 {
   "_comment": "RU language pack. labels/banned_calques filled in Task 10b (moved from tools/verify.py). style_markers: corpus-driven (Task 6, freq audit 2026-09-19 over book/ru: 'dann' x240 split by POS, 'javlyaetsya' x26, 'osushchestvlya' x1, 'v ramkakh' x4); whitelist_zones = line prefixes where passive/evidence phrasing is legitimate.",
-  "labels": {},
-  "banned_calques": [],
+  "labels": {
+    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
+    "ru": ["Стоимость", "Простыми словами", "Эффект", "Уровень доказательности", "Примечания"]
+  },
+  "banned_calques": ["когорт", "экспозици", "квартил", "квинтил", "конфаунд", "популяц"],
   "style_markers": [
     {"pattern": "\\bосуществля", "label": "осуществля", "note": "канцелярит-глагол"},
     {"pattern": "\\bявляется", "label": "является", "note": "канцелярит-связка"},

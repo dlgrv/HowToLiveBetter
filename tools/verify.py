@@ -200,17 +200,26 @@ def main():
             if a != b:
                 fails.append("source line mismatch: " + a[:60])
 
-    # 4. field labels ----------------------------------------------------------
+    # 4. field labels (labels from language pack, fallback to built-ins) ---------
     cn_body = body(sl, "- 来源：")
     tr_body = body(tl, SRC_LABEL[lang])
-    for i, cn_lab in enumerate(LABELS["cn"]):
+    pack = _lang_pack(lang)
+    if pack and pack.get("labels"):
+        labels = pack["labels"]
+    else:
+        labels = LABELS
+    if pack and pack.get("banned_calques"):
+        banned = pack["banned_calques"]
+    else:
+        banned = BANNED_RU if lang == "ru" else []
+    for i, cn_lab in enumerate(labels["cn"]):
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
-        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + LABELS[lang][i]))
+        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))
         if want != got:
-            fails.append(f'field {LABELS[lang][i]}: {got} != {want} ("-{cn_lab}")')
+            fails.append(f'field {labels[lang][i]}: {got} != {want} ("- {cn_lab}")')
 
     # 4.5 plain-terms lines must stay jargon-free (CLAUDE.md: 说人话 bans HR/RR/OR/CI)
-    plain = LABELS[lang][1]
+    plain = labels[lang][1]
     for idx, l in enumerate(tl, 1):
         if l.lstrip().startswith("- " + plain):
             hits = re.findall(r"\b(?:HR|RR|OR|CI)\b", l)
@@ -263,11 +272,11 @@ def main():
         fails.append(f"CJK outside allowed zones: {len(zh_lines)} line(s), " +
                      "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]))
 
-    # 7. RU banned calques -------------------------------------------------------
-    if lang == "ru":
-        allru = "\n".join(tl).lower()
-        for stem in BANNED_RU:
-            cnt = len(re.findall(stem, allru))
+    # 7. banned calques (stems from language pack) -------------------------------
+    if banned:
+        alltr = "\n".join(tl).lower()
+        for stem in banned:
+            cnt = len(re.findall(stem, alltr))
             if cnt > 1:
                 fails.append(f'banned calque "{stem}": {cnt} occurrences (max 1, first-use gloss)')
             elif cnt == 1:
