@@ -137,6 +137,20 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .doc-head p{margin:0;color:var(--t2);font-size:16px}
 .doc-head .stat{color:var(--t3);font-size:14px;margin-top:6px}
 .doc-head .stat b{color:var(--brand-1);font-weight:600}
+.doc-head .meta-line{margin-top:10px;font-size:14px;color:var(--t3)}
+.doc-head .meta-line a{white-space:nowrap}
+.meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
+.meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
+/* feedback: floating stack (desktop >=1100px) / inline line (mobile) */
+.fb-float{position:fixed;right:max(14px,calc((100vw - 940px)/2 - 68px));top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:6px;opacity:.7;transition:opacity .25s}
+.fb-float:hover{opacity:1}
+.fb-float a{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--bg-elv);border:1px solid var(--divider);box-shadow:0 2px 8px rgba(0,0,0,.08);color:var(--t2);position:relative}
+.fb-float a:hover{color:var(--brand-1);border-color:var(--brand-1)}
+.fb-float a .tip{position:absolute;right:calc(100% + 8px);top:50%;transform:translateY(-50%);background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:5px 10px;font-size:13px;white-space:nowrap;color:var(--t1);opacity:0;pointer-events:none;transition:opacity .2s}
+.fb-float a:hover .tip,.fb-float a:focus-visible .tip{opacity:1}
+@media (max-width:1099px){.fb-float{display:none}}
+@media (min-width:1100px){.doc-head .meta-line{display:none}}
+
 .sec-block{margin-top:40px}
 .sec-h{display:flex;align-items:baseline;gap:12px;padding-top:24px;border-top:1px solid var(--divider);margin-bottom:8px}
 .sec-h h2{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -342,6 +356,11 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
       <div class="stat" aria-live="polite">Показано <b id="cnt">–</b> из <span id="tot">–</span></div>
+      <p class="meta-line" id="feedback-line">
+        <a id="fb-issue" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener">Нашли ошибку в переводе? Откройте issue</a>
+        <span aria-hidden="true">·</span>
+        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">Понравился перевод — поставьте ★</a>
+      </p>
       
       <details class="gloss" id="gloss"><summary>Непонятные сокращения и термины</summary><p>Слова с пунктирным подчёркиванием в тексте: клик или наведение покажут пояснение. Полная таблица ниже.</p><dl></dl></details>
     </div>
@@ -355,6 +374,10 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="foot">Категория эффекта указана в каждом пункте: разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (отчёт о проверке источников, на китайском)</a>. Оригинал — Public Domain (Unlicense).</div>
   </div>
 </main>
+<aside class="fb-float" aria-label="Обратная связь о переводе">
+  <a id="fb-issue-f" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tip" data-tip="fbIssue">​</span></a>
+  <a id="fb-star-f" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="tip" data-tip="fbStar">​</span></a>
+</aside>
 
 <script>
 let LANG = 'en';
@@ -382,6 +405,7 @@ const I18N = {
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.',
    docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
    docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
+   fbAria:'Обратная связь о переводе', fbIssue:'Нашли ошибку или есть пожелание? Откройте issue', fbStar:'Понравился перевод — поставьте ★',
    shown:'Показано', of:'из', loading:'Загружаю текст…',
    empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
    sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
@@ -419,6 +443,7 @@ const I18N = {
    noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="README.md">README.md</a> (table of contents) and the <a href="book/en/">book/en/</a> directory.',
    docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
    docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
+   fbAria:'Translation feedback', fbIssue:'Spotted a mistake or have a suggestion? Let us know', fbStar:'Like the translation — give it a ★',
    shown:'Showing', of:'of', loading:'Loading text…',
    empty:'Nothing found. Remove one of the filters or try a shorter query.', reset:'Reset', resetF:'Reset filters',
    sections:'Sections', ratioH:'Benefit / costs', ratioS:'Author judgment, comparable within one category only',
@@ -456,6 +481,7 @@ const I18N = {
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="README.zh.md">README.zh.md</a>（目录）与 <a href="book/">book/</a> 目录。',
    docHead:'每条建议回答两个问题：付出什么——换回什么。',
    docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
+   fbAria:'翻译反馈', fbIssue:'发现翻译有误或有建议？欢迎反馈', fbStar:'觉得翻译不错 — 给个 ★',
    shown:'显示', of:'/', loading:'正在载入正文…',
    empty:'没有符合条件的结果。请去掉一个筛选条件，或换更短的关键词。', reset:'重置', resetF:'重置筛选',
    sections:'小节', ratioH:'性价比', ratioS:'作者判断，仅在同一口径内可比',
@@ -501,6 +527,14 @@ function applyI18n(){
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
   const gl=document.getElementById('gloss'); gl.querySelector('summary').textContent=t.gloss; gl.querySelector('p').textContent=t.glossP;
+  const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
+  const fb=document.getElementById('fb-issue');
+  if(fb){ fb.textContent=t.fbIssue; fb.href='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle); }
+  const fs=document.getElementById('fb-star'); if(fs) fs.textContent=t.fbStar;
+  document.querySelectorAll('.fb-float .tip').forEach(el=>{ const k=el.dataset.tip==='fbIssue'?'fbIssue':'fbStar'; el.textContent=t[k]; });
+  const fa=document.querySelector('.fb-float'); if(fa) fa.setAttribute('aria-label',t.fbAria);
+  const ff=document.getElementById('fb-issue-f');
+  if(ff){ const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] '; ff.href='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle); }
   document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
   document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
   document.getElementById('reset').textContent=t.resetF;
