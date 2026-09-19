@@ -1,0 +1,9 @@
+{
+  "model": "Unbabel/wmt20-comet-qe-da",
+  "revision": null,
+  "venv": "~/.venvs/qe",
+  "accelerator": "cpu",
+  "batch_size": 32,
+  "max_tokens_per_segment": 512,
+  "timeout_s": 1800
+}
