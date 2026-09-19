@@ -18,3 +18,6 @@ __pycache__/
 .hermes/
 _build_batch4.py
 tools/validate/results/_build_batch4.py
+tools/validate/results/_ru_work/
+tools/validate/results/_golden_b_*.json
+tools/validate/results/golden_session/
