@@ -5,13 +5,3 @@ title: "[RU/EN] "
 labels: "translation"
 assignees: ""
 ---
-
-**Раздел / Chapter (например 01-不要早死):**
-
-**Пункт / Item (номер рекомендации):**
-
-**Текущий текст / Current text:**
-
-**Предлагаемая правка или пожелание / Suggested fix or suggestion:**
-
-**Источник из оригинала (китайский) / Source from the Chinese original (optional):**
