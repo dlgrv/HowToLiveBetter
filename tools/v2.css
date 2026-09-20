@@ -39,7 +39,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:0;padding:0;pointer-events:none}
 .icon-btn{display:grid;place-items:center;gap:0;width:32px;height:32px;border:0;border-radius:0;background:none;color:var(--faint);cursor:pointer;transition:color .15s;flex:none}
 .icon-btn:hover{color:var(--ink)}
-.icon-btn svg{width:16px;height:16px;fill:currentColor}
+.icon-btn svg{width:16px;height:16px}
 /* единый оптический калибр: README-глиф занимает 18/24 viewBox, октокат 24/24 */
 button,input,kbd,summary{font-family:var(--sans)}
 .ic-doc svg{width:20px;height:20px}
