@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<script>/* per-language override (set in /ru/ /en/ /zh/ copies) */ window.__HTLB_LANG__=window.__HTLB_LANG__||null; window.__HTLB_BASE__=window.__HTLB_BASE__||'';</script>
+<script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
@@ -11,12 +11,12 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#3451b2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1b1b1f" media="(prefers-color-scheme: dark)">
-<link rel="canonical" href="https://eternity4719.github.io/HowToLiveBetter/">
+<link rel="canonical" href="https://dlgrv.github.io/HowToLiveBetter/v2/en/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Пособие по выгодной жизни">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:url" content="https://eternity4719.github.io/HowToLiveBetter/">
+<meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/v2/en/">
 <meta property="og:title" content="Пособие по выгодной жизни">
 <meta property="og:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
 <meta property="og:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
@@ -34,196 +34,198 @@
 </script>
 <script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})();</script>
 <style>
+/* ============================================================
+   HTLB v2 — editorial minimal skin (dlgrv.com style)
+   Same DOM & JS as v1; this file replaces the <style> block
+   for pages generated under /v2/ (tools/build_pages.py).
+   Light: white / ink. Dark: #111 / #d0d0d0. One accent: link hover blue.
+   ============================================================ */
 :root{
-  --bg:#ffffff; --bg-alt:#f6f6f7; --bg-soft:#f6f6f7; --bg-mute:#f1f1f2; --bg-elv:#ffffff;
-  --divider:#e2e2e3; --gutter:#e2e2e3;
-  --t1:rgba(60,60,67,1); --t2:rgba(60,60,67,.78); --t3:rgba(60,60,67,.56);
-  --brand-1:#3451b2; --brand-2:#3a5ccc; --brand-3:#5672cd; --brand-soft:rgba(100,108,255,.14);
-  --green-1:#18794e; --green-soft:rgba(16,185,129,.14);
-  --yellow-1:#915930; --yellow-soft:rgba(234,179,8,.14);
-  --red-1:#b8272c; --red-soft:rgba(244,63,94,.14);
-  --gray-1:#565a5f; --gray-soft:rgba(142,150,170,.14);
-  --mark:rgba(234,179,8,.32);
-  --shadow:0 1px 2px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
-  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
-  --nav-h:64px; --side-w:272px;
-  color-scheme:light;
+  --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#8e8e8e;
+  --line:#e3e3e3; --line-soft:#d5d5d5; --hover:#2481cc; --pop-bg:#ffffff;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Georgia,"Times New Roman",serif; /* единый шрифт на всей странице (решение пользователя) */
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --nav-h:56px; --side-w:264px;
 }
 html.dark{
-  --bg:#1b1b1f; --bg-alt:#161618; --bg-soft:#202127; --bg-mute:#2b2b2f; --bg-elv:#202127;
-  --divider:#2e2e32; --gutter:#000000;
-  --t1:rgba(255,255,245,.86); --t2:rgba(235,235,245,.6); --t3:rgba(235,235,245,.38);
-  --brand-1:#a8b1ff; --brand-2:#5c73e7; --brand-3:#3e63dd; --brand-soft:rgba(100,108,255,.16);
-  --green-1:#3dd68c; --green-soft:rgba(16,185,129,.16);
-  --yellow-1:#f9b44e; --yellow-soft:rgba(234,179,8,.16);
-  --red-1:#f66f81; --red-soft:rgba(244,63,94,.16);
-  --gray-1:#a4a8ae; --gray-soft:rgba(142,150,170,.16);
-  --mark:rgba(234,179,8,.28);
-  --shadow:0 1px 2px rgba(0,0,0,.3);
-  color-scheme:dark;
+  --bg:#111111; --ink:#f5f5f5; --text:#d0d0d0; --mut:#a0a0a0; --faint:#7d7d7d;
+  --line:#2e2e2e; --line-soft:#3a3a3a; --hover:#5cb1e8; --pop-bg:#1b1b1b;
 }
-*{box-sizing:border-box}
-html{scroll-padding-top:calc(var(--nav-h) + 16px)}
-body{margin:0;background:var(--bg);color:var(--t1);font:14px/1.7 var(--font);-webkit-font-smoothing:antialiased}
-a{color:var(--brand-1);text-decoration:none;transition:color .25s}
-a:hover{color:var(--brand-2);text-decoration:underline;text-underline-offset:2px}
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--brand-1);outline-offset:2px;border-radius:4px}
-mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
+*,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font:17.5px/1.7 var(--serif);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,abbr:focus-visible{outline:1px solid var(--hover);outline-offset:2px}
+::selection{background:var(--ink);color:var(--bg)}
 
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--divider)}
-.nav-in{height:100%;display:flex;align-items:center;gap:16px;padding:0 24px}
-.title{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;color:var(--t1);white-space:nowrap}
-.title:hover{text-decoration:none;color:var(--t1)}
-.logo{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--brand-3),var(--brand-1));display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
-.logo svg{width:15px;height:15px}
-.search{flex:1;max-width:520px;margin-left:auto;position:relative}
-.search input{width:100%;height:40px;padding:0 44px 0 40px;border-radius:8px;border:1px solid transparent;background:var(--bg-alt);color:var(--t1);font:inherit;font-size:14px;transition:border-color .25s,background .25s}
-.search input:hover{border-color:var(--divider)}
-.search input:focus{outline:0;border-color:var(--brand-1);background:var(--bg)}
-.search input::placeholder{color:var(--t3)}
-.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:var(--t3);stroke-width:2;pointer-events:none}
-.search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--font);color:var(--t3);border:1px solid var(--divider);border-radius:4px;padding:3px 6px;background:var(--bg-elv);pointer-events:none}
-.nav-r{display:flex;align-items:center;gap:8px}
-.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s}
-.icon-btn:hover{background:var(--bg-soft);color:var(--t1)}
-.icon-btn svg{width:20px;height:20px}
-/* кнопка темы вместо ползунка (v1 тоже): луна в светлой, солнце в тёмной */
+/* ---------- top bar ---------- */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 24px;position:relative}
+.icon-btn.menu-btn{display:none}
+.title{display:flex;align-items:center;gap:8px;font:500 14px/1.3 var(--sans);color:var(--text);white-space:nowrap}
+.title:hover{color:var(--ink)}
+.title .logo{display:none}
+/* поиск строго по центру окна (независимо от ширины титула и правого кластера) */
+.search{position:absolute;left:50%;transform:translateX(-50%);width:min(340px,32vw)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.search input{width:100%;height:36px;padding:0 44px 0 32px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font:14px/1.4 var(--sans);transition:border-color .15s,box-shadow .15s}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{outline:0;border-color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:1px solid var(--line-soft);border-radius:4px;padding:3px 6px;background:var(--bg);pointer-events:none}
+.icon-btn{display:grid;place-items:center;gap:0;width:32px;height:32px;border:0;border-radius:0;background:none;color:var(--faint);cursor:pointer;transition:color .15s;flex:none}
+.icon-btn:hover{color:var(--ink)}
+.icon-btn svg{width:16px;height:16px}
+/* все иконки — Lucide stroke, единый калибр 16px; шеврон у «РУ» — аффорданс, оставлен мелким */
+button,input,kbd,summary{font-family:var(--sans)}
+.lang-dd summary svg{width:11px;height:11px}
+.nav-r{display:flex;align-items:center;gap:10px;margin-left:auto}
+.switch{display:none!important}
+/* кнопка темы: icon-btn с sun/moon — в светлой показываем луну (переход в тёмную), в тёмной — солнце */
 .theme-btn .sun{display:none}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
-/* версия v2→v1 скрыта на v1; в v2-скине включается */
-.ver-btn{display:none!important}
-html.v2 .ver-btn{display:grid!important}
-/* старый ползунок темы больше не используется */
-.switch{display:none!important}
-.menu-btn{display:none}
+/* кнопка версии: только в v2-скине (v1-страницы не получают ver-switch) */
+.ver-btn{display:none}
+html.v2 .ver-btn{display:grid}
 
-/* sidebar */
-.sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg-alt);padding:32px 32px 96px;overflow-y:auto;overscroll-behavior:contain;z-index:20}
-.group{padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--divider)}
-.group:last-of-type{border-bottom:0}
-.gt{font-size:14px;font-weight:700;color:var(--t1);line-height:24px;margin-bottom:4px;display:block}
-.gt small{font-weight:400;font-size:12px;color:var(--t3);display:block;line-height:16px;margin-top:2px}
-.sec-links{display:flex;flex-direction:column}
-.sec-link{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;font-size:14px;font-weight:500;color:var(--t2);line-height:24px;text-align:left;transition:color .25s;border-radius:0}
-.sec-link:hover{color:var(--t1)}
-.sec-link[aria-pressed="true"]{color:var(--brand-1)}
-.sec-link i{font-style:normal;font-size:12px;color:var(--t3);font-variant-numeric:tabular-nums}
-.sec-link.all{padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--divider)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:6px}
-.chip{border:1px solid var(--divider);background:var(--bg-elv);color:var(--t2);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:500;line-height:18px;transition:all .2s}
-.chip:hover{border-color:var(--brand-3);color:var(--t1)}
-.chip[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
-.toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t2);padding:4px 0;cursor:pointer;font-weight:500}
-.toggle input{accent-color:var(--brand-1);width:15px;height:15px;margin:0}
-.reset{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;border:1px solid var(--divider);border-radius:20px;font-size:13px;font-weight:500;color:var(--t2);background:var(--bg-elv);transition:all .25s}
-.reset:hover{border-color:var(--brand-1);color:var(--brand-1)}
-.doc-links{margin-top:8px;font-size:14px;color:var(--t3)}
-.doc-links a{margin-right:4px}
-.hint{font-size:12px;color:var(--t3);line-height:1.6;margin-top:16px}
-.hint p{margin:4px 0}
-.backdrop{display:none}
+/* ---------- language dropdown ---------- */
+.lang-dd{position:relative}
+.lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;height:32px;width:auto;min-width:32px;border:0;background:none;color:var(--faint);grid-auto-flow:column;grid-template-columns:auto auto;column-gap:4px;align-items:center;padding:0 6px;transition:color .15s}
+.lang-dd>summary::-webkit-details-marker{display:none}
+.lang-dd>summary:hover{color:var(--ink)}
+.lang-dd>summary svg{width:10px;height:10px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2}
+#lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--pop-bg);border:1px solid var(--line);padding:4px 0;min-width:120px;z-index:40}
+.lang-menu button{display:block;width:100%;text-align:left;padding:7px 14px;border:0;background:none;color:var(--mut);font:13px/1.4 var(--sans);cursor:pointer;transition:color .15s,background .15s}
+.lang-menu button:hover{color:var(--ink);background:var(--line)}
 
-/* content */
-.content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 48px)}
-.doc{max-width:900px;margin:0 auto}
-.doc-head{margin-bottom:28px}
-.doc-head h1{font-size:32px;line-height:40px;font-weight:700;letter-spacing:-.02em;margin:0 0 8px}
-.doc-head p{margin:0;color:var(--t2);font-size:16px}
-.doc-head .stat{color:var(--t3);font-size:14px;margin-top:6px}
-.doc-head .stat b{color:var(--brand-1);font-weight:600}
-.doc-head .meta-line{margin-top:10px;font-size:14px;color:var(--t3)}
-.doc-head .meta-line a{white-space:nowrap;margin:0 6px}
-#feedback-line-star{margin-top:6px}
-.meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
-.meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
+/* ---------- tooltip popup ---------- */
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
+.backdrop.on{opacity:1;pointer-events:auto}
+.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
+.pop b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
 
-.sec-block{margin-top:40px}
-.sec-h{display:flex;align-items:baseline;gap:12px;padding-top:24px;border-top:1px solid var(--divider);margin-bottom:8px}
-.sec-h h2{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em;margin:0}
-.sec-h .shown{margin-left:auto;font-size:13px;color:var(--t3);font-variant-numeric:tabular-nums}
-.intro{margin:0 0 20px;color:var(--t2);font-size:14px;max-width:100%}
+/* ---------- sidebar (filters) ---------- */
+.sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg);border-right:1px solid var(--line);padding:28px 24px 96px;overflow-y:auto;overscroll-behavior:contain;z-index:20;font-family:var(--sans)}
+.group{margin-bottom:26px}
+.gt{font:700 11px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.gt small{display:block;font:400 12px/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--mut);margin-top:2px}
+.sec-links{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.sec-link{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;padding:5px 0;border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer;transition:color .15s}
+.sec-link:hover{color:var(--ink)}
+.sec-link[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.sec-link i{margin-left:auto;font:400 11px/1 var(--sans);font-style:normal;font-variant-numeric:tabular-nums;color:var(--faint)}
+.chips{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.chip{border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);padding:5px 0;cursor:pointer;transition:color .15s;text-align:left}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ink)}
+.toggle{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer}
+.toggle:hover{color:var(--ink)}
+.toggle input{accent-color:var(--ink);margin:0}
+.reset{display:inline-block;margin-top:10px;padding:0;border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-soft);transition:color .15s}
+.reset:hover{color:var(--ink);text-decoration-color:var(--ink)}
+.hint{margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.hint p{margin:0 0 8px;font:12px/1.6 var(--sans);color:var(--faint)}
+.hint a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.hint a:hover{color:var(--hover)}
 
-.card{background:var(--bg-soft);border:1px solid transparent;border-radius:12px;padding:22px 24px 18px;margin-bottom:16px;transition:border-color .25s,background .25s;content-visibility:auto;contain-intrinsic-size:300px;contain-intrinsic-size:auto 300px}
-.card:hover{border-color:var(--divider)}
-.card-h{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
-.card-h h3{margin:0;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:0;overflow-wrap:anywhere}
-.card-h .idx{color:var(--t3);font-size:14px;line-height:28px;font-variant-numeric:tabular-nums;min-width:22px}
-.card-h .anchor{opacity:0;color:var(--brand-1);font-size:16px;line-height:28px;font-weight:500;transition:opacity .2s}
+/* ---------- content ---------- */
+.content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 56px)}
+.sec-block{max-width:760px;margin:0 auto 88px}
+.sec-h{display:flex;align-items:baseline;gap:16px;padding-top:16px;margin-bottom:8px}
+.sec-h h2{margin:0;font:600 24px/1.35 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.sec-h .shown{margin-left:auto;flex:none;font:12px/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
+.intro{margin:14px 0 30px;font:16px/1.7 var(--serif);color:var(--mut)}
+
+/* card: no box — hairline top only */
+.card{border-top:1px solid var(--line);padding:26px 0 20px;content-visibility:auto;contain-intrinsic-size:auto 300px}
+.card-h{display:flex;align-items:baseline;gap:12px}
+.idx{flex:none;min-width:28px;font:15px/1.5 var(--serif);font-variant-numeric:tabular-nums;color:var(--faint)}
+.card-h h3{margin:0;font:600 19px/1.45 var(--serif);color:var(--ink);overflow-wrap:anywhere}
+.anchor{flex:none;color:var(--faint);font:14px/1.5 var(--serif);opacity:0;transition:opacity .15s,color .15s}
 .card:hover .anchor,.anchor:focus-visible{opacity:1}
-.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.badge{display:inline-block;border-radius:10px;padding:0 10px;line-height:20px;font-size:12px;font-weight:600;white-space:nowrap;transform:translateY(0)}
-.badge.tip{background:var(--brand-soft);color:var(--brand-1)}
-.badge.A{background:var(--green-soft);color:var(--green-1)}
-.badge.B{background:var(--yellow-soft);color:var(--yellow-1)}
-.badge.C{background:var(--gray-soft);color:var(--gray-1)}
-.badge.danger{background:var(--red-soft);color:var(--red-1)}
-.badge.warn{background:var(--yellow-soft);color:var(--yellow-1)}
-.badge.plain{background:var(--gray-soft);color:var(--t2);font-weight:500}
-.badge.r3{background:var(--brand-soft);color:var(--brand-1)}
-.badge.r2{background:var(--green-soft);color:var(--green-1)}
-.badge.r1{background:var(--gray-soft);color:var(--gray-1)}
-.human{margin:0 0 14px;padding:10px 14px;border-left:2px solid var(--brand-1);background:var(--brand-soft);border-radius:0 6px 6px 0;font-size:15px;line-height:1.75;color:var(--t1);overflow-wrap:anywhere}
-.rows{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:1.75}
-.rows .k{color:var(--t3);font-weight:500;font-size:13px;line-height:1.75;padding-top:1px}
-.rows .v{color:var(--t1);min-width:0;overflow-wrap:anywhere}
-.rows .v.note{color:var(--t2)}
-.src{margin-top:14px;border-top:1px solid var(--divider);padding-top:10px}
-.src summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--t2);display:flex;align-items:center;gap:6px;user-select:none}
-.src summary::-webkit-details-marker{display:none}
-.src summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(-45deg);transition:transform .2s;margin-right:2px}
-.src[open] summary::before{transform:rotate(45deg)}
-.src .body{padding-top:8px;font-size:13px;line-height:1.75;color:var(--t2);overflow-wrap:anywhere}
+.anchor:hover{color:var(--hover)}
+.badges{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 0 40px;font:11px/1.6 var(--sans);letter-spacing:.02em}
+.badge{color:var(--faint)}
+.badge.r3{color:var(--ink);font-weight:600}
+.badge.r2{color:var(--mut)}
+.badge.r1{color:var(--faint)}
+.badge.danger{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.badge.warn{color:var(--mut);font-style:italic}
+.human{margin:12px 0;padding:2px 0 2px 16px;border-left:3px solid var(--line);font:italic 16px/1.7 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.rows{display:grid;grid-template-columns:86px minmax(0,1fr);gap:4px 14px;margin:0 0 12px 40px}
+.rows .k{font:700 11px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.rows .v{font:16px/1.65 var(--serif);color:var(--text);min-width:0;overflow-wrap:anywhere}
+.rows .v.gain{color:var(--ink)}
+.src{margin:0 0 0 40px}
+.src summary{display:inline-block;cursor:pointer;font:12px/1.6 var(--sans);color:var(--faint);text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--line-soft);text-underline-offset:3px;transition:color .15s}
+.src summary:hover{color:var(--ink)}
+.src .body{margin-top:8px;padding:2px 0 2px 14px;border-left:2px solid var(--line);font:14.5px/1.7 var(--serif);color:var(--mut)}
+.src .body p{margin:0 0 .6em}
+.src .body a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.src .body a:hover{color:var(--hover)}
 
-abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
-abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
-.pop{position:absolute;z-index:40;background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:10px 12px;font-size:13px;line-height:1.6;color:var(--t2)}
-.pop b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
-.empty{border:1px dashed var(--divider);border-radius:12px;padding:40px 24px;text-align:center;color:var(--t2);margin-top:24px}
-.empty button{margin-top:12px;padding:7px 16px;border:1px solid var(--divider);border-radius:20px;font-weight:500;background:var(--bg-elv)}
-.empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
-.status{color:var(--t3);padding:40px 0;text-align:center}
-.status code{font-family:var(--mono);font-size:13px;background:var(--bg-mute);padding:2px 6px;border-radius:4px}
-.foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--divider);color:var(--t3);font-size:13px;line-height:1.7}
+/* ---------- press polish: scroll-spy, marginalia ---------- */
+/* подсветка текущего раздела в сайдбаре */
+.sec-link.spy-on{color:var(--ink)}
+.sec-link.spy-on span{text-decoration:underline;text-decoration-color:var(--ink);text-underline-offset:3px}
+h1,h2,h3{text-wrap:balance}
+body{hyphens:auto;-webkit-hyphens:auto}
+/* маргиналии по-Тафти: Примечания уходят в правое поле; колонка прижата влево,
+   чтобы поле было широким; на узких экранах всё остаётся в потоке */
+@media (min-width:1440px){
+  .doc{margin-left:0;margin-right:auto}
+  .card{position:relative}
+  .card .marg{position:absolute;top:2px;left:calc(100% + 36px);width:200px}
+  .card > .rows [data-k="note"],.card > .rows [data-k="note"] + .v{display:none}
+}
+@media (max-width:1439px){
+  .card .marg{display:none}
+}
+.marg{font:13.5px/1.65 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.marg .k{font:700 10px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block}
+.term{cursor:help;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--faint);text-underline-offset:3px}
+.term:hover,.term:focus-visible{color:var(--ink)}
 
-@media (max-width:960px){
-  :root{--nav-h:56px}
-  .nav-in{padding:0 16px;gap:10px}
-  .title span{display:none}
+/* status / empty / foot */
+.status{max-width:720px;margin:0 auto 8px;font:12px/1.6 var(--sans);color:var(--faint)}
+.status code{font-family:var(--mono);font-size:11px}
+.empty{max-width:720px;margin:48px auto;text-align:center;font:16px/1.7 var(--serif);color:var(--mut)}
+.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:2px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
+.empty button:hover{border-color:var(--ink);color:var(--ink)}
+.foot{max-width:720px;margin:64px auto 0;padding-top:20px;border-top:1px solid var(--line);font:12.5px/1.7 var(--sans);color:var(--faint)}
+.foot a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.foot a:hover{color:var(--hover)}
+.meta-line a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.meta-line a:hover{color:var(--hover)}
+
+/* noscript / doc */
+.doc{max-width:720px;margin:0 auto;padding:calc(var(--nav-h) + 48px) 24px 64px}
+.doc-head h1{margin:0 0 20px;font:600 36px/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.doc-head p{margin:0 0 12px}
+.doc-head .stat{margin:12px 0;font:14px/1.6 var(--sans);color:var(--faint)}
+.meta-line{margin:0 0 12px}
+.doc a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.doc a:hover{color:var(--hover)}
+
+/* ---------- mobile ---------- */
+@media (max-width:1099px){
+  .icon-btn.menu-btn{display:grid}
+  .search{position:static;transform:none;flex:1;width:auto;max-width:none}
+  .sidebar{transform:translateX(-100%);transition:transform .2s;box-shadow:none;width:min(var(--side-w),84vw);padding:24px 24px 96px}
+  .sidebar.open{transform:none;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+  .content{padding:calc(var(--nav-h) + 16px) 20px 96px}
+  .badges,.human,.rows,.src{margin-left:0}
+}
+@media (max-width:560px){
+  .title span:last-child{display:none}
   .search{max-width:none}
   .search kbd{display:none}
-  .menu-btn{display:grid}
-  .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:none;padding:24px 24px 96px;width:min(var(--side-w),86vw)}
-  .sidebar.open{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
-  .backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:15;opacity:0;pointer-events:none;transition:opacity .25s}
-  .backdrop.on{opacity:1;pointer-events:auto}
-  .content{padding:calc(var(--nav-h) + 24px) 20px 96px}
-  .doc-head h1{font-size:26px;line-height:34px}
-  .card{padding:18px 16px 14px;border-radius:10px}
-  .card-h h3{font-size:16px;line-height:24px}
-  .card-h .idx{line-height:24px}
-  .human{padding:9px 12px;font-size:14px;margin-bottom:12px}
-  .rows{grid-template-columns:1fr;gap:4px}
-  .rows .k{padding-top:6px}
-  .rows .k:first-child{padding-top:0}
+  .nav-in{padding:0 16px;gap:10px}
+  .doc-head h1{font-size:27px}
+  .sec-h h2{font-size:21px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-
-/* language dropdown */
-.lang-dd{position:relative}
-.lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;gap:5px;height:36px;border-radius:8px;border:0;background:none;grid-auto-flow:column;grid-template-columns:auto auto;column-gap:4px;align-items:center;padding:0 8px;width:auto;min-width:32px;transition:background .25s,color .25s}
-.lang-dd>summary::-webkit-details-marker{display:none}
-.lang-dd>summary svg{width:12px;height:12px;color:var(--t3)}
-#lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
-.lang-dd[open]>summary{background:var(--bg-soft);color:var(--t1)}
-.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:4px;min-width:120px;z-index:50}
-.lang-menu button{display:block;width:100%;text-align:left;padding:7px 12px;border:0;border-radius:7px;background:none;color:var(--t1);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
-.lang-menu button:hover{background:var(--brand-soft);color:var(--brand-1)}
-.lang-menu button[aria-current="true"]{color:var(--brand-1);font-weight:600}
 
 </style>
 </head>
@@ -234,7 +236,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="doc-head">
       <h1>Пособие по выгодной жизни</h1>
       <p>Русский перевод книги HowToLiveBetter (高性价比人生指南 · «Пособие по выгодной жизни»): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.</p>
-      <p>Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.</p>
+      <p>Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.</p>
     </div>
   </div>
 </noscript>
@@ -257,7 +259,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
           <button role="menuitem" data-lang="zh">中文</button>
         </div>
       </details>
-      <a class="icon-btn ic-doc" href="README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <a class="icon-btn ic-doc" href="../../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
       <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
       <button class="icon-btn ver-btn" id="ver-switch" title="Старая версия сайта" aria-label="Переключить на старую версию"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></button>
       <button class="icon-btn theme-btn" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="m6.34 17.66-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
@@ -329,7 +331,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   <div class="hint">
     <p>Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».</p>
     <p>Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.</p>
-    <p>Данные — из каталога <a href="book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.</p>
+    <p>Данные — из каталога <a href="../../book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.</p>
   </div>
 </aside>
 
@@ -383,7 +385,7 @@ const I18N = {
  ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям',
    noscriptH:'Пособие по выгодной жизни',
    noscriptP:'Русский перевод книги HowToLiveBetter (高性价比人生指南): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.',
-   noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.',
+   noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.',
    docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
    docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
    fbAria:'Обратная связь о переводе', fbIssueT:'Нашли ошибку в переводе —', fbIssue:'откройте issue', fbStarT:'Понравился перевод —', fbStar:'поставьте звезду репо',
@@ -397,7 +399,7 @@ const I18N = {
    fDispute:'только спорные', fTodo:'только требующие проверки',
    hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
    hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
-   hint3:'Данные — из каталога <a href="book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.',
+   hint3:'Данные — из каталога <a href="../../book/ru/">book/ru/</a> (31 файл); правки текста вносятся там.',
    foot:'Категория эффекта указана в каждом пункте: разд. 1–2 — общая смертность или конкретная причина смерти; разд. 3–4 — время и силы; разд. 5 — деньги; разд. 7 — деньги и гарантии; разд. 8–9 — деньги и личная свобода. Категории между собой не сравниваются. Проверка источников: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (отчёт о проверке источников, на китайском)</a>. Оригинал — Public Domain (Unlicense).',
    kCost:'Стоимость', kGain:'Эффект', kNote:'Примечания', src:'Источники', anchor:'Ссылка на этот пункт',
    ratioBadge:'Выгода/затраты', ratioTitle:'Оценка автора: из уровня эффекта', gradeBadge:'Доказательность', dispute:'Спорно', todo:'Есть непроверенное',
@@ -420,7 +422,7 @@ const I18N = {
  en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
-   noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="README.md">README.md</a> (table of contents) and the <a href="book/en/">book/en/</a> directory.',
+   noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="../../README.md">README.md</a> (table of contents) and the <a href="../../book/en/">book/en/</a> directory.',
    docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
    docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
    fbAria:'Translation feedback', fbIssueT:'Spotted a mistake in the translation —', fbIssue:'open an issue', fbStarT:'Like the translation —', fbStar:'give the repo a star',
@@ -434,7 +436,7 @@ const I18N = {
    fDispute:'contested only', fTodo:'unverified only',
    hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
    hint2:'Within a section — by descending benefit. Search does not change the order.',
-   hint3:'Data comes from the <a href="book/en/">book/en/</a> directory (31 files); edit the text there.',
+   hint3:'Data comes from the <a href="../../book/en/">book/en/</a> directory (31 files); edit the text there.',
    foot:'The benefit category is stated on every item: sec. 1–2 — all-cause mortality or a specific cause of death; sec. 3–4 — time and energy; sec. 5 — money; sec. 7 — money and protection; sec. 8–9 — money and personal freedom. Categories are not compared with each other. Source verification: <a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (verification records, in Chinese)</a>. The original is Public Domain (Unlicense).',
    kCost:'Cost', kGain:'Benefit', kNote:'Notes', src:'Sources', anchor:'Link to this item',
    ratioBadge:'Benefit/costs', ratioTitle:'Author judgment: from the effect level', gradeBadge:'Evidence', dispute:'Contested', todo:'Has unverified',
@@ -457,7 +459,7 @@ const I18N = {
  zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
-   noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="README.zh.md">README.zh.md</a>（目录）与 <a href="book/">book/</a> 目录。',
+   noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../../README.zh.md">README.zh.md</a>（目录）与 <a href="../../book/">book/</a> 目录。',
    docHead:'每条建议回答两个问题：付出什么——换回什么。',
    docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
    fbAria:'翻译反馈', fbIssueT:'发现翻译有误 —', fbIssue:'欢迎提 issue', fbStarT:'觉得翻译不错 —', fbStar:'给仓库点个 star',
@@ -471,7 +473,7 @@ const I18N = {
    fDispute:'只看有争议', fTodo:'只看待核实',
    hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
    hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
-   hint3:'数据来自 <a href="book/">book/</a> 目录（31 个文件）；改正文请改那里。',
+   hint3:'数据来自 <a href="../../book/">book/</a> 目录（31 个文件）；改正文请改那里。',
    foot:'每个条目都标明收益口径：1–2 节——总死亡率或特定死因；3–4 节——时间精力；5 节——金钱；7 节——金钱与保障；8–9 节——金钱与人身自由。口径之间不做比较。来源核查：<a href="https://github.com/eternity4719/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录（中文）</a>。原文为 Public Domain（Unlicense）。',
    kCost:'成本', kGain:'收益', kNote:'备注', src:'来源', anchor:'链接到此条',
    ratioBadge:'性价比', ratioTitle:'作者判断：由效果量级', gradeBadge:'证据', dispute:'争议', todo:'有待核实',
