@@ -113,7 +113,7 @@ html.v2 .ver-btn{display:grid}
 
 /* ---------- content ---------- */
 .content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 56px)}
-.sec-block{max-width:760px;margin:0 auto 88px}
+.sec-block{max-width:760px;margin:0 0 88px}
 .sec-h{display:flex;align-items:baseline;gap:16px;padding-top:16px;margin-bottom:8px}
 .sec-h h2{margin:0;font:600 var(--fs-4)/1.35 var(--serif);letter-spacing:-.01em;color:var(--ink)}
 .sec-h .shown{margin-left:auto;flex:none;font:var(--fs-0)/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
@@ -170,19 +170,19 @@ body{hyphens:auto;-webkit-hyphens:auto}
 .term:hover,.term:focus-visible{color:var(--ink)}
 
 /* status / empty / foot */
-.status{max-width:720px;margin:0 auto 8px;font:var(--fs-0)/1.6 var(--sans);color:var(--faint)}
+.status{max-width:720px;margin:0 0 8px;font:var(--fs-0)/1.6 var(--sans);color:var(--faint)}
 .status code{font-family:var(--mono);font-size:var(--fs-0)}
-.empty{max-width:720px;margin:48px auto;text-align:center;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
+.empty{max-width:720px;margin:48px 0;text-align:center;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
 .empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:6px;background:none;color:var(--text);font:var(--fs-1)/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
 .empty button:hover{border-color:var(--ink);color:var(--ink)}
-.foot{max-width:720px;margin:64px auto 0;padding-top:20px;border-top:1px solid var(--line);font:var(--fs-0)/1.7 var(--sans);color:var(--faint)}
+.foot{max-width:720px;margin:64px 0 0;padding-top:20px;border-top:1px solid var(--line);font:var(--fs-0)/1.7 var(--sans);color:var(--faint)}
 .foot a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
 .foot a:hover{color:var(--hover)}
 .meta-line a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
 .meta-line a:hover{color:var(--hover)}
 
 /* noscript / doc */
-.doc{max-width:750px;margin:0 auto;padding:0 24px 64px}
+.doc{max-width:750px;margin:0;padding:0 24px 64px}
 /* после base-правила: на ultrawide даём тексту больше ширины */
 @media (min-width:1800px){
   .doc{max-width:900px}
