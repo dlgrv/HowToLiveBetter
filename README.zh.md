@@ -18,7 +18,7 @@
 </div>
 
 **语言 / Languages:**
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/)
+- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
 - 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/en/)
 
