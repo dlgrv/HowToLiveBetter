@@ -64,25 +64,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 
 /* ---------- top bar ---------- */
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 24px}
-.menu-btn{display:none}
+.nav-in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 24px;position:relative}
+.icon-btn.menu-btn{display:none}
 .title{display:flex;align-items:center;gap:8px;font:500 14px/1.3 var(--sans);color:var(--text);white-space:nowrap}
 .title:hover{color:var(--ink)}
 .title .logo{display:none}
-.search{flex:1;max-width:420px;margin-left:auto;position:relative}
+/* поиск строго по центру окна (независимо от ширины титула и правого кластера) */
+.search{position:absolute;left:50%;transform:translateX(-50%);width:min(420px,40vw)}
 .search svg{position:absolute;left:2px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2}
 .search input{width:100%;height:34px;padding:0 34px 0 24px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;color:var(--ink);font:14px/1.4 var(--sans);transition:border-color .15s}
 .search input::placeholder{color:var(--faint)}
 .search input:focus{outline:0;border-bottom-color:var(--ink)}
-.search kbd{position:absolute;right:2px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:0;padding:0;pointer-events:none}
+.search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:0;padding:0;pointer-events:none}
 .icon-btn{display:grid;place-items:center;gap:0;width:32px;height:32px;border:0;border-radius:0;background:none;color:var(--faint);cursor:pointer;transition:color .15s;flex:none}
 .icon-btn:hover{color:var(--ink)}
-.icon-btn svg{width:17px;height:17px;fill:currentColor}
-.nav-r{display:flex;align-items:center;gap:6px}
-.switch{position:relative;width:34px;height:19px;border-radius:0;border:1px solid var(--line);background:none;cursor:pointer;flex:none;margin-left:4px;transition:border-color .15s}
+.icon-btn svg{width:16px;height:16px;fill:currentColor}
+/* единый оптический калибр: глиф README занимает 14/24 viewBox, октокат ~24/24 */
+.ic-doc svg{width:24px;height:24px}
+.ic-gh svg{width:15px;height:15px}
+.nav-r{display:flex;align-items:center;gap:10px;margin-left:auto}
+.switch{position:relative;width:34px;height:19px;border-radius:0;border:1px solid var(--line);background:none;cursor:pointer;flex:none;margin-left:8px;transition:border-color .15s}
 .switch:hover{border-color:var(--mut)}
-.switch .knob{position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:0;background:var(--line-soft);transition:transform .15s,background .15s;display:grid;place-items:center}
-.switch .knob svg{width:9px;height:9px;fill:var(--bg)}
+.switch .knob{position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:0;background:var(--mut);transition:transform .15s,background .15s}
+.switch .knob svg{display:none}
 .switch .sun{display:block}.switch .moon{display:none}
 html.dark .switch .knob{transform:translateX(15px);background:var(--mut)}
 html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
@@ -129,7 +133,7 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
 
 /* ---------- content ---------- */
 .content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 56px)}
-.sec-block{max-width:680px;margin:0 auto 64px}
+.sec-block{max-width:760px;margin:0 auto 64px}
 .sec-h{display:flex;align-items:baseline;gap:16px;padding-top:8px;margin-bottom:6px}
 .sec-h h2{margin:0;font:600 22px/1.4 var(--serif);color:var(--ink)}
 .sec-h .shown{margin-left:auto;flex:none;font:12px/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
@@ -187,7 +191,8 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
 
 /* ---------- mobile ---------- */
 @media (max-width:1099px){
-  .menu-btn{display:grid}
+  .icon-btn.menu-btn{display:grid}
+  .search{position:static;transform:none;flex:1;width:auto;max-width:none}
   .sidebar{transform:translateX(-100%);transition:transform .2s;box-shadow:none;width:min(var(--side-w),84vw);padding:24px 24px 96px}
   .sidebar.open{transform:none;box-shadow:0 4px 24px rgba(0,0,0,.15)}
   .content{padding:calc(var(--nav-h) + 16px) 20px 96px}
@@ -231,8 +236,8 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
           <button role="menuitem" data-lang="en">English</button>
           <button role="menuitem" data-lang="zh">中文</button>
         </div>
-      </details> <a class="icon-btn" href="README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
-      <a class="icon-btn" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+      </details> <a class="icon-btn ic-doc" href="README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
+      <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
       <button class="switch" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><span class="knob"><svg class="sun" viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm12.07-5.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zM8.05 16.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.02 0l.7.71a1 1 0 1 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.42-1.42zM6.34 5.93l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.41-1.42zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M12.1 22c-5.5 0-10-4.5-10-10 0-4.8 3.4-8.9 8-9.8.5-.1.9.4.7.9A8 8 0 0 0 20.9 13c.5-.2 1 .2.9.7-.9 4.7-5 8.3-9.7 8.3z"/></svg></span></button>
     </div>
   </div>
