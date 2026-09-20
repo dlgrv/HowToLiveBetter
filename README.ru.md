@@ -18,9 +18,9 @@
 </div>
 
 **Языки / Languages:**
-- 🇷🇺 [Русский](README.ru.md) · [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇬🇧 [English](README.md) · [site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇨🇳 [中文](README.zh.md) · [сайт](https://dlgrv.github.io/HowToLiveBetter/)
+- 🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- 🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇨🇳 [中文](README.zh.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/)
 
 ---
 
