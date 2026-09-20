@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<script>window.__HTLB_LANG__='ru';window.__HTLB_BASE__='../../';window.__HTLB_V2__=1;</script>
+<script>window.__HTLB_LANG__='ru';window.__HTLB_BASE__='../../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
@@ -82,13 +82,14 @@ button,input,kbd,summary{font-family:var(--sans)}
 .ic-gh svg{width:15px;height:15px}
 .lang-dd summary svg{width:11px;height:11px}
 .nav-r{display:flex;align-items:center;gap:10px;margin-left:auto}
-.switch{position:relative;width:34px;height:19px;border-radius:0;border:1px solid var(--line);background:none;cursor:pointer;flex:none;margin-left:8px;transition:border-color .15s}
-.switch:hover{border-color:var(--mut)}
-.switch .knob{position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:0;background:var(--mut);transition:transform .15s,background .15s}
-.switch .knob svg{display:none}
-.switch .sun{display:block}.switch .moon{display:none}
-html.dark .switch .knob{transform:translateX(15px);background:var(--mut)}
-html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
+.switch{display:none!important}
+/* кнопка темы: icon-btn с sun/moon — в светлой показываем луну (переход в тёмную), в тёмной — солнце */
+.theme-btn .sun{display:none}
+html.dark .theme-btn .sun{display:block}
+html.dark .theme-btn .moon{display:none}
+/* кнопка версии: только в v2-скине (v1-страницы не получают ver-switch) */
+.ver-btn{display:none}
+html.v2 .ver-btn{display:grid}
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}
@@ -256,9 +257,10 @@ body{hyphens:auto;-webkit-hyphens:auto}
           <button role="menuitem" data-lang="en">English</button>
           <button role="menuitem" data-lang="zh">中文</button>
         </div>
-      </details> <a class="icon-btn ic-doc" href="../../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
+      <a class="icon-btn ic-doc" href="../../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
       <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
-      <button class="switch" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><span class="knob"><svg class="sun" viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm12.07-5.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zM8.05 16.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.02 0l.7.71a1 1 0 1 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.42-1.42zM6.34 5.93l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.41-1.42zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M12.1 22c-5.5 0-10-4.5-10-10 0-4.8 3.4-8.9 8-9.8.5-.1.9.4.7.9A8 8 0 0 0 20.9 13c.5-.2 1 .2.9.7-.9 4.7-5 8.3-9.7 8.3z"/></svg></span></button>
+      <button class="icon-btn ver-btn" id="ver-switch" title="Старая версия сайта" aria-label="Переключить на старую версию"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 3v9h-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="icon-btn theme-btn" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><svg class="sun" viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm12.07-5.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zM8.05 16.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.02 0l.7.71a1 1 0 1 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.42-1.42zM6.34 5.93l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.41-1.42zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M12.1 22c-5.5 0-10-4.5-10-10 0-4.8 3.4-8.9 8-9.8.5-.1.9.4.7.9A8 8 0 0 0 20.9 13c.5-.2 1 .2.9.7-.9 4.7-5 8.3-9.7 8.3z"/></svg></button>
     </div>
   </div>
 </header>
@@ -410,7 +412,7 @@ const I18N = {
    cap:true,
    allSections:'Все разделы',
    readmeHref:'README.ru.md', readmeTitle:'Открыть README.ru',
-   menuAria:'Открыть фильтры', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
+   menuAria:'Открыть фильтры', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык', verTitle:'Старая версия сайта',
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
@@ -447,7 +449,7 @@ const I18N = {
    cap:true,
    allSections:'All sections',
    readmeHref:'README.md', readmeTitle:'Open README',
-   menuAria:'Open filters', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
+   menuAria:'Open filters', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language', verTitle:'Old site version',
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
@@ -484,7 +486,7 @@ const I18N = {
    cap:false,
    allSections:'全部小节',
    readmeHref:'README.zh.md', readmeTitle:'打开 README.zh',
-   menuAria:'打开筛选栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
+   menuAria:'打开筛选栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言', verTitle:'旧版网站',
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
@@ -544,6 +546,7 @@ function applyI18n(){
   const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
   const menu=document.getElementById('menu'); if(menu) menu.setAttribute('aria-label',t.menuAria);
   const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
+  const vb=document.getElementById('ver-switch'); if(vb){ vb.setAttribute('title',t.verTitle); vb.setAttribute('aria-label',t.verTitle); }
   const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
   const rm=document.querySelector('.nav-r a[href^="README"]'); if(rm){ rm.setAttribute('href',t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
   // head meta / social cards / JSON-LD
@@ -972,6 +975,11 @@ function wire(){
     const dark = !document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', dark);
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+  // v2 → v1: та же страница без /v2/, с сохранением запроса и якоря
+  const vb = document.getElementById('ver-switch');
+  if (vb) vb.addEventListener('click', () => {
+    location.href = location.pathname.replace('/v2/', '/') + location.search + location.hash;
   });
 }
 

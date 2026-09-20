@@ -46,13 +46,14 @@ button,input,kbd,summary{font-family:var(--sans)}
 .ic-gh svg{width:15px;height:15px}
 .lang-dd summary svg{width:11px;height:11px}
 .nav-r{display:flex;align-items:center;gap:10px;margin-left:auto}
-.switch{position:relative;width:34px;height:19px;border-radius:0;border:1px solid var(--line);background:none;cursor:pointer;flex:none;margin-left:8px;transition:border-color .15s}
-.switch:hover{border-color:var(--mut)}
-.switch .knob{position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:0;background:var(--mut);transition:transform .15s,background .15s}
-.switch .knob svg{display:none}
-.switch .sun{display:block}.switch .moon{display:none}
-html.dark .switch .knob{transform:translateX(15px);background:var(--mut)}
-html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
+.switch{display:none!important}
+/* кнопка темы: icon-btn с sun/moon — в светлой показываем луну (переход в тёмную), в тёмной — солнце */
+.theme-btn .sun{display:none}
+html.dark .theme-btn .sun{display:block}
+html.dark .theme-btn .moon{display:none}
+/* кнопка версии: только в v2-скине (v1-страницы не получают ver-switch) */
+.ver-btn{display:none}
+html.v2 .ver-btn{display:grid}
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}
