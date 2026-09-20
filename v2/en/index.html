@@ -78,6 +78,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .search input::placeholder{color:var(--faint)}
 .search input:focus{outline:0;border-color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.03)}
 .search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:1px solid var(--line-soft);border-radius:4px;padding:3px 6px;background:var(--bg);pointer-events:none}
+/* на десктопе поиск центрирован относительно ТЕКСТОВОЙ КОЛОНКИ (ось H1), не окна:
+   центр колонки = side-w + 56 + (W - side-w - 56 - 48)/2 = 50%W + side-w/2 + 4 */
+@media (min-width:1100px){
+  .search{left:calc(50% + var(--side-w)/2 + 4px)}
+}
 .icon-btn{display:grid;place-items:center;gap:0;width:32px;height:32px;border:0;border-radius:0;background:none;color:var(--faint);cursor:pointer;transition:color .15s;flex:none}
 .icon-btn:hover{color:var(--ink)}
 .icon-btn svg{width:16px;height:16px}
