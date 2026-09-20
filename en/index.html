@@ -95,9 +95,8 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 .theme-btn .sun{display:none}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
-/* версия v2→v1 скрыта на v1; в v2-скине включается */
-.ver-btn{display:none!important}
-html.v2 .ver-btn{display:grid!important}
+/* переключатель версий: виден и в v1, и в v2 */
+.ver-btn{display:grid!important}
 /* старый ползунок темы больше не используется */
 .switch{display:none!important}
 .menu-btn{display:none}
@@ -412,7 +411,7 @@ const I18N = {
    cap:true,
    allSections:'Все разделы',
    readmeHref:'README.ru.md', readmeTitle:'Открыть README.ru',
-   menuAria:'Открыть фильтры', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык', verTitle:'Старая версия сайта',
+   menuAria:'Открыть фильтры', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык', verTitle:'Старая версия сайта', verTitle2:'Новая версия сайта',
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
@@ -449,7 +448,7 @@ const I18N = {
    cap:true,
    allSections:'All sections',
    readmeHref:'README.md', readmeTitle:'Open README',
-   menuAria:'Open filters', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language', verTitle:'Old site version',
+   menuAria:'Open filters', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language', verTitle:'Old site version', verTitle2:'New site version',
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
@@ -486,7 +485,7 @@ const I18N = {
    cap:false,
    allSections:'全部小节',
    readmeHref:'README.zh.md', readmeTitle:'打开 README.zh',
-   menuAria:'打开筛选栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言', verTitle:'旧版网站',
+   menuAria:'打开筛选栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言', verTitle:'旧版网站', verTitle2:'新版网站',
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
@@ -546,7 +545,7 @@ function applyI18n(){
   const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
   const menu=document.getElementById('menu'); if(menu) menu.setAttribute('aria-label',t.menuAria);
   const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
-  const vb=document.getElementById('ver-switch'); if(vb){ vb.setAttribute('title',t.verTitle); vb.setAttribute('aria-label',t.verTitle); }
+  const vb=document.getElementById('ver-switch'); if(vb){ const vt=window.__HTLB_V2__?t.verTitle:t.verTitle2; vb.setAttribute('title',vt); vb.setAttribute('aria-label',vt); }
   const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
   const rm=document.querySelector('.nav-r a[href^="README"]'); if(rm){ rm.setAttribute('href',t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
   // head meta / social cards / JSON-LD
@@ -976,10 +975,13 @@ function wire(){
     document.documentElement.classList.toggle('dark', dark);
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
   });
-  // v2 → v1: та же страница без /v2/, с сохранением запроса и якоря
+  // переключение версии: v2→v1 (без /v2/), v1→v2 (добавляем /v2/); сохраняем запрос и якорь
   const vb = document.getElementById('ver-switch');
   if (vb) vb.addEventListener('click', () => {
-    location.href = location.pathname.replace('/v2/', '/') + location.search + location.hash;
+    let p = location.pathname;
+    if (window.__HTLB_V2__) p = p.replace('/v2/', '/');
+    else p = p.replace(/\/(ru|en|zh)?\/?$/, (m, lang) => lang ? '/v2/' + lang + '/' : '/v2/');
+    location.href = p + location.search + location.hash;
   });
 }
 
