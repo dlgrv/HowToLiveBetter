@@ -77,7 +77,7 @@ html.v2 .ver-btn{display:grid}
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
 .backdrop.on{opacity:1;pointer-events:auto}
-.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
+.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
 .pop b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
 
 /* ---------- sidebar (filters) ---------- */
@@ -166,7 +166,7 @@ body{hyphens:auto;-webkit-hyphens:auto}
 .status{max-width:720px;margin:0 auto 8px;font:12px/1.6 var(--sans);color:var(--faint)}
 .status code{font-family:var(--mono);font-size:11px}
 .empty{max-width:720px;margin:48px auto;text-align:center;font:16px/1.7 var(--serif);color:var(--mut)}
-.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:2px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
+.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:6px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
 .empty button:hover{border-color:var(--ink);color:var(--ink)}
 .foot{max-width:720px;margin:64px auto 0;padding-top:20px;border-top:1px solid var(--line);font:12.5px/1.7 var(--sans);color:var(--faint)}
 .foot a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
@@ -192,7 +192,7 @@ body{hyphens:auto;-webkit-hyphens:auto}
   .icon-btn.menu-btn{display:grid}
   .search{position:static;transform:none;flex:1;width:auto;max-width:none}
   .sidebar{transform:translateX(-100%);transition:transform .2s;box-shadow:none;width:min(var(--side-w),84vw);padding:24px 24px 96px}
-  .sidebar.open{transform:none;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+  .sidebar.open{transform:none;box-shadow:0 4px 16px rgba(0,0,0,.08)}
   .content{padding:calc(var(--nav-h) + 16px) 20px 96px}
   .badges,.human,.rows,.src{margin-left:0}
 }
