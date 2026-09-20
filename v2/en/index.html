@@ -66,6 +66,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .title{display:flex;align-items:center;gap:8px;font:500 14px/1.3 var(--sans);color:var(--text);white-space:nowrap}
 .title:hover{color:var(--ink)}
 .title .logo{display:none}
+/* на десктопе титул стоит ровно над сайдбаром-оглавлением (x=24), как в VitePress/GitBook */
+@media (min-width:1100px){
+  .nav-in{position:static;max-width:none;padding:0 24px}
+  .title{position:absolute;left:24px;top:50%;transform:translateY(-50%)}
+}
 /* поиск строго по центру окна (независимо от ширины титула и правого кластера) */
 .search{position:absolute;left:50%;transform:translateX(-50%);width:min(340px,32vw)}
 .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -73,6 +78,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .search input::placeholder{color:var(--faint)}
 .search input:focus{outline:0;border-color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.03)}
 .search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:1px solid var(--line-soft);border-radius:4px;padding:3px 6px;background:var(--bg);pointer-events:none}
+/* на десктопе поиск центрирован относительно ТЕКСТОВОЙ КОЛОНКИ (ось H1), не окна:
+   центр колонки = side-w + 56 + (W - side-w - 56 - 48)/2 = 50%W + side-w/2 + 4 */
+@media (min-width:1100px){
+  .search{left:calc(50% + var(--side-w)/2 + 4px)}
+}
 .icon-btn{display:grid;place-items:center;gap:0;width:32px;height:32px;border:0;border-radius:0;background:none;color:var(--faint);cursor:pointer;transition:color .15s;flex:none}
 .icon-btn:hover{color:var(--ink)}
 .icon-btn svg{width:16px;height:16px}
@@ -96,14 +106,14 @@ html.v2 .ver-btn{display:grid}
 .lang-dd>summary:hover{color:var(--ink)}
 .lang-dd>summary svg{width:10px;height:10px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2}
 #lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
-.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--pop-bg);border:1px solid var(--line);padding:4px 0;min-width:120px;z-index:40}
-.lang-menu button{display:block;width:100%;text-align:left;padding:7px 14px;border:0;background:none;color:var(--mut);font:13px/1.4 var(--sans);cursor:pointer;transition:color .15s,background .15s}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:4px 0;min-width:120px;z-index:40}
+.lang-menu button{display:block;width:100%;text-align:left;padding:7px 14px;border:0;border-radius:6px;background:none;color:var(--mut);font:13px/1.4 var(--sans);cursor:pointer;transition:color .15s,background .15s}
 .lang-menu button:hover{color:var(--ink);background:var(--line)}
 
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
 .backdrop.on{opacity:1;pointer-events:auto}
-.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
+.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
 .pop b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
 
 /* ---------- sidebar (filters) ---------- */
@@ -175,10 +185,10 @@ body{hyphens:auto;-webkit-hyphens:auto}
 /* маргиналии по-Тафти: Примечания уходят в правое поле; колонка прижата влево,
    чтобы поле было широким; на узких экранах всё остаётся в потоке */
 @media (min-width:1440px){
-  .doc{margin-left:0;margin-right:auto}
   .card{position:relative}
-  .card .marg{position:absolute;top:2px;left:calc(100% + 36px);width:200px}
+  .card .marg{position:absolute;top:2px;left:calc(100% + 28px);width:180px}
   .card > .rows [data-k="note"],.card > .rows [data-k="note"] + .v{display:none}
+  .sec-block,.status,.empty,.foot{max-width:none}
 }
 @media (max-width:1439px){
   .card .marg{display:none}
@@ -192,7 +202,7 @@ body{hyphens:auto;-webkit-hyphens:auto}
 .status{max-width:720px;margin:0 auto 8px;font:12px/1.6 var(--sans);color:var(--faint)}
 .status code{font-family:var(--mono);font-size:11px}
 .empty{max-width:720px;margin:48px auto;text-align:center;font:16px/1.7 var(--serif);color:var(--mut)}
-.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:2px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
+.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:6px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
 .empty button:hover{border-color:var(--ink);color:var(--ink)}
 .foot{max-width:720px;margin:64px auto 0;padding-top:20px;border-top:1px solid var(--line);font:12.5px/1.7 var(--sans);color:var(--faint)}
 .foot a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
@@ -201,7 +211,11 @@ body{hyphens:auto;-webkit-hyphens:auto}
 .meta-line a:hover{color:var(--hover)}
 
 /* noscript / doc */
-.doc{max-width:720px;margin:0 auto;padding:calc(var(--nav-h) + 48px) 24px 64px}
+.doc{max-width:750px;margin:0 auto;padding:0 24px 64px}
+/* после base-правила: на ultrawide даём тексту больше ширины */
+@media (min-width:1800px){
+  .doc{max-width:900px}
+}
 .doc-head h1{margin:0 0 20px;font:600 36px/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
 .doc-head p{margin:0 0 12px}
 .doc-head .stat{margin:12px 0;font:14px/1.6 var(--sans);color:var(--faint)}
@@ -214,7 +228,7 @@ body{hyphens:auto;-webkit-hyphens:auto}
   .icon-btn.menu-btn{display:grid}
   .search{position:static;transform:none;flex:1;width:auto;max-width:none}
   .sidebar{transform:translateX(-100%);transition:transform .2s;box-shadow:none;width:min(var(--side-w),84vw);padding:24px 24px 96px}
-  .sidebar.open{transform:none;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+  .sidebar.open{transform:none;box-shadow:0 4px 16px rgba(0,0,0,.08)}
   .content{padding:calc(var(--nav-h) + 16px) 20px 96px}
   .badges,.human,.rows,.src{margin-left:0}
 }
