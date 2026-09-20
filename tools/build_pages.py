@@ -33,7 +33,9 @@ if not STYLE_RE.search(src):
 if V2MARK not in src:
     print('note: root index.html has no %s marker; v2 pages get skin flag only via generation' % V2MARK)
 for lang in ('ru','en','zh'):
-    d = src.replace(tpl, "<script>window.__HTLB_LANG__='%s';window.__HTLB_BASE__='../../';</script>" % lang)
+    d = src.replace(tpl, "<script>window.__HTLB_LANG__='%s';window.__HTLB_BASE__='../../';window.__HTLB_V2__=1;</script>" % lang)
+    # README/book links in header & noscript point to repo root; v2 lives one level deeper
+    d = d.replace('href="README', 'href="../../README').replace('href="book/', 'href="../../book/')
     d = STYLE_RE.sub(lambda _: '<style>\n' + v2css + '\n</style>', d, count=1)
     d = d.replace(CANON, '<link rel="canonical" href="https://dlgrv.github.io/HowToLiveBetter/v2/%s/">' % lang)
     d = d.replace(OGURL, '<meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/v2/%s/">' % lang)

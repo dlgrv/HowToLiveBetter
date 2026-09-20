@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<script>window.__HTLB_LANG__='ru';window.__HTLB_BASE__='../../';</script>
+<script>window.__HTLB_LANG__='ru';window.__HTLB_BASE__='../../';window.__HTLB_V2__=1;</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
@@ -165,6 +165,26 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
 .src .body p{margin:0 0 .6em}
 .src .body a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
 .src .body a:hover{color:var(--hover)}
+
+/* ---------- press polish: scroll-spy, marginalia ---------- */
+/* подсветка текущего раздела в сайдбаре */
+.sec-link.spy-on{color:var(--ink)}
+.sec-link.spy-on span{text-decoration:underline;text-decoration-color:var(--ink);text-underline-offset:3px}
+h1,h2,h3{text-wrap:balance}
+body{hyphens:auto;-webkit-hyphens:auto}
+/* маргиналии по-Тафти: Примечания уходят в правое поле; колонка прижата влево,
+   чтобы поле было широким; на узких экранах всё остаётся в потоке */
+@media (min-width:1440px){
+  .doc{margin-left:0;margin-right:auto}
+  .card{position:relative}
+  .card .marg{position:absolute;top:2px;left:calc(100% + 36px);width:200px}
+  .card > .rows [data-k="note"],.card > .rows [data-k="note"] + .v{display:none}
+}
+@media (max-width:1439px){
+  .card .marg{display:none}
+}
+.marg{font:13.5px/1.65 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.marg .k{font:700 10px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block}
 .term{cursor:help;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--faint);text-underline-offset:3px}
 .term:hover,.term:focus-visible{color:var(--ink)}
 
@@ -785,6 +805,11 @@ function build(sections){
           <div class="k" data-k="note"></div><div class="v note"></div>
         </div>
         <details class="src"><summary></summary><div class="body"></div></details>`;
+      if (window.__HTLB_V2__){
+        const mg = document.createElement('aside'); mg.className = 'marg';
+        mg.innerHTML = `<span class="k"></span><span class="mt"></span>`;
+        c.appendChild(mg);
+      }
       c.querySelector('[data-k="cost"]').textContent = T().kCost;
       c.querySelector('[data-k="gain"]').textContent = T().kGain;
       c.querySelector('[data-k="note"]').textContent = T().kNote;
@@ -847,6 +872,8 @@ function renderCard(card, terms, key){
   if (e.human) renderText(f.human, e.human, terms);
   renderText(f.gain, e.gain, terms);
   renderText(f.note, e.note, terms);
+  const mg = f.note.closest('.card')?.querySelector('.marg');
+  if (mg){ mg.querySelector('.k').textContent = T().kNote; renderText(mg.querySelector('.mt'), e.note, terms); }
   renderText(f.src, e.src, terms);
   const inBody = (e.title+e.human+e.cost+e.gain+e.note).toLowerCase();
   f.details.open = terms.length > 0 && terms.some(t => e.src.toLowerCase().includes(t)) && !terms.some(t => inBody.includes(t));
@@ -882,6 +909,24 @@ function apply(){
   document.getElementById('empty').hidden = shown !== 0;
   syncControls(); writeUrl();
   PERF.log('apply', t0, `найдено ${shown}, перерисовано ${rerender}`);
+}
+
+/* ---------- scroll-spy: подсветка текущего раздела в сайдбаре ---------- */
+let SPY_LINKS = null;
+function spyTick(){
+  if (!SPY_LINKS) return;
+  const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
+  const probe = navH + 120;
+  let cur = '';
+  for (const b of BLOCKS){
+    if (b.el.hidden) continue;
+    const r = b.el.getBoundingClientRect();
+    if (r.top <= probe) cur = b.n; else break;
+  }
+  for (const {n, btn} of SPY_LINKS){
+    const on = n === cur;
+    if (btn.dataset.spy !== String(on)){ btn.dataset.spy = String(on); btn.classList.toggle('spy-on', on); }
+  }
 }
 
 /* ---------- 事件 ---------- */
@@ -956,6 +1001,15 @@ function wire(){
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
     buildGlossary(); readUrl(); wire(); apply();
+    // scroll-spy: только в v2-скине, после первой раскладки
+    if (window.__HTLB_V2__ && BLOCKS.length){
+      SPY_LINKS = [...document.querySelectorAll('#f-sec .sec-link:not(.all)')].map(btn => ({ n: btn.dataset.v, btn }));
+      let spyPending = false;
+      const onScroll = () => { if (spyPending) return; spyPending = true; requestAnimationFrame(() => { spyPending = false; spyTick(); }); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      spyTick();
+    }
     PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
     if (location.hash){
       const target = document.getElementById(location.hash.slice(1));

@@ -129,6 +129,26 @@ html.dark .switch .sun{display:none}html.dark .switch .moon{display:block}
 .src .body p{margin:0 0 .6em}
 .src .body a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
 .src .body a:hover{color:var(--hover)}
+
+/* ---------- press polish: scroll-spy, marginalia ---------- */
+/* подсветка текущего раздела в сайдбаре */
+.sec-link.spy-on{color:var(--ink)}
+.sec-link.spy-on span{text-decoration:underline;text-decoration-color:var(--ink);text-underline-offset:3px}
+h1,h2,h3{text-wrap:balance}
+body{hyphens:auto;-webkit-hyphens:auto}
+/* маргиналии по-Тафти: Примечания уходят в правое поле; колонка прижата влево,
+   чтобы поле было широким; на узких экранах всё остаётся в потоке */
+@media (min-width:1440px){
+  .doc{margin-left:0;margin-right:auto}
+  .card{position:relative}
+  .card .marg{position:absolute;top:2px;left:calc(100% + 36px);width:200px}
+  .card > .rows [data-k="note"],.card > .rows [data-k="note"] + .v{display:none}
+}
+@media (max-width:1439px){
+  .card .marg{display:none}
+}
+.marg{font:13.5px/1.65 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.marg .k{font:700 10px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block}
 .term{cursor:help;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--faint);text-underline-offset:3px}
 .term:hover,.term:focus-visible{color:var(--ink)}
 
