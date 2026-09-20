@@ -15,12 +15,12 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 
 **[Open the online search page](https://eternity4719.github.io/HowToLiveBetter/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/核实记录/) · [Is marriage worth it (long read)](docs/结婚划不划算.md) · [Home emergency kit (long read)](docs/家庭应急装备清单.md) · [Should you stop to help a stranger (long read)](docs/遇到陌生人出事该不该停.md) · [What licenses a platform needs (long read)](docs/做平台要办哪些证.md)
 
+</div>
+
 **Languages / Языки:**
 - 🇨🇳 [中文](README.zh.md)
 - 🇷🇺 [Русский](README.ru.md)
 - 🇬🇧 [English](README.md)
-
-</div>
 
 ---
 
