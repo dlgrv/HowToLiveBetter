@@ -15,14 +15,14 @@
 
 **[打开在线检索页](https://eternity4719.github.io/HowToLiveBetter/)** · [下载 EPUB 电子书](https://github.com/eternity4719/HowToLiveBetter/releases/download/epub-latest/HowToLiveBetter.epub) · [目录](#目录) · [术语表](#读懂数字术语表) · [核实记录](docs/核实记录/) · [结婚划不划算（长文）](docs/结婚划不划算.md) · [家庭应急装备清单（长文）](docs/家庭应急装备清单.md) · [遇到陌生人出事该不该停（长文）](docs/遇到陌生人出事该不该停.md) · [做平台要办哪些证（长文）](docs/做平台要办哪些证.md)
 
+</div>
+
 **语言 / Languages:**
 - 🇨🇳 [中文](README.zh.md)
 - 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md)
 - 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md)
 
 俄语版与英文版由 [dlgrv](https://github.com/dlgrv) 维护的非官方翻译，内容以本仓库的中文原文为准。
-
-</div>
 
 ---
 
