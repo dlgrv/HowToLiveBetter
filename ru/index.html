@@ -399,6 +399,9 @@ h1,h2,h3{text-wrap:wrap}
 @media (max-width:560px){
   .nav-title span:last-child{display:none}
   .nav-title .logo{display:none}
+  /* wider text column on phones: .doc desktop padding stacks with .content's */
+  .content{padding-left:var(--sp-4);padding-right:var(--sp-4)}
+  .doc{padding-left:0;padding-right:0}
   .nav-title .logo svg{width:var(--icon);height:var(--icon)}
   .ic-doc{display:none}
   .nav-r{gap:var(--sp-1)}
