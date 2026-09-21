@@ -201,6 +201,9 @@ html.dark .theme-btn .moon{display:none}
 .src summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(-45deg);transition:transform .2s;margin-right:2px}
 .src[open] summary::before{transform:rotate(45deg)}
 .src .body{padding-top:8px;font-size:13px;line-height:1.75;color:var(--t2);overflow-wrap:anywhere}
+.src .body ul{margin:6px 0 0;padding-left:1.25em;list-style:disc}
+.src .body li{margin:0 0 6px}
+.src .body li:last-child{margin-bottom:0}
 
 abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
 abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
@@ -211,6 +214,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
 .status{color:var(--t3);padding:40px 0;text-align:center}
 .status code{font-family:var(--mono);font-size:13px;background:var(--bg-mute);padding:2px 6px;border-radius:4px}
+.skel,.skel-bar{display:none}
 .foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--divider);color:var(--t3);font-size:13px;line-height:1.7}
 
 @media (max-width:960px){
@@ -243,6 +247,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .lang-dd{position:relative}
 .lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;gap:5px;height:36px;border-radius:8px;border:0;background:none;grid-auto-flow:column;grid-template-columns:auto auto;column-gap:4px;align-items:center;padding:0 8px;width:auto;min-width:32px;transition:background .25s,color .25s}
 .lang-dd>summary::-webkit-details-marker{display:none}
+.lang-dd>summary:hover{background:var(--bg-soft);color:var(--t1)}
 .lang-dd>summary svg{width:12px;height:12px;color:var(--t3)}
 #lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
 .lang-dd[open]>summary{background:var(--bg-soft);color:var(--t1)}
@@ -276,7 +281,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     </label>
     <div class="nav-r">
       <details class="lang-dd" id="lang">
-        <summary class="icon-btn" title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="lang-menu" role="menu">
           <button role="menuitem" data-lang="ru">Русский</button>
           <button role="menuitem" data-lang="en">English</button>
@@ -373,10 +378,40 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
         <span id="fb-star-t">Понравился перевод —</span>
         <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
       </p>
-      <div class="stat" aria-live="polite">Показано <span id="cnt">–</span> из <span id="tot">–</span></div>
+      <div class="stat" aria-live="polite">Показано <span id="cnt"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span> из <span id="tot"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span></div>
     </div>
-    <div id="list">
-      <div class="status" id="status"></div>
+    <div id="list" aria-busy="true">
+      <div class="skel" id="skel" aria-hidden="true"></div>
+      <script>
+      (function(){
+        var sk=document.getElementById('skel'); if(!sk) return;
+        var H=[[42,3],[48,3],[36,3],[55,3],[40,3],[50,3]];
+        var C=[
+          [72,100,88,92,78],[64,96,70,85,60],[68,100,82,90,74],
+          [58,94,76,88,66],[75,98,84,91,71],[61,95,68,80,55],
+          [70,100,80,86,72],[66,97,73,89,63],[77,99,85,93,69]
+        ];
+        function card(a){
+          return '<div class="skel-card">'
+            +'<i class="skel-bar" style="width:'+a[0]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[1]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[2]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[3]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:4.5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[4]+'%"></i>'
+            +'</div>';
+        }
+        var html='', i, j;
+        for(i=0;i<H.length;i++){
+          html+='<div class="skel-sec"><div class="skel-h"><i class="skel-bar" style="width:'+H[i][0]+'%"></i><i class="skel-bar skel-bar-sm" style="width:3.5rem"></i></div>';
+          for(j=0;j<3;j++) html+=card(C[(i*3+j)%C.length]);
+          html+='</div>';
+        }
+        sk.innerHTML=html;
+      })();
+      </script>
+      <div class="status" id="status" hidden></div>
       <div class="empty" id="empty" hidden>
         Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.
         <div><button id="reset2">Сбросить</button></div>
@@ -918,7 +953,22 @@ function syncControls(){
 function srcCount(s){
   const n = ((s || '').match(/https?:\/\//g) || []).length;
   if (n) return n;
-  return (s || '').trim() ? 1 : 0;
+  return splitSources(s).length;
+}
+function splitSources(s){
+  return (s || '').split(/\s*[；;]\s*/).map(x => x.trim()).filter(Boolean);
+}
+function renderSources(el, text, terms){
+  el.textContent = '';
+  const parts = splitSources(text);
+  if (!parts.length) return;
+  const ul = document.createElement('ul');
+  for (const p of parts){
+    const li = document.createElement('li');
+    renderText(li, p, terms);
+    ul.appendChild(li);
+  }
+  el.appendChild(ul);
 }
 function renderCard(card, terms, key){
   const {e, f} = card;
@@ -937,7 +987,7 @@ function renderCard(card, terms, key){
     mg.hidden = !hasNote;
     if (hasNote){ mg.querySelector('.k').textContent = T().kNote; renderText(mg.querySelector('.mt'), e.note, terms); }
   }
-  renderText(f.src, e.src, terms);
+  renderSources(f.src, e.src, terms);
   if (f.srcSum) f.srcSum.textContent = T().src + ' (' + srcCount(e.src) + ')';
   const inBody = (e.title+e.human+e.cost+e.gain+e.note).toLowerCase();
   f.details.open = terms.length > 0 && terms.some(t => e.src.toLowerCase().includes(t)) && !terms.some(t => inBody.includes(t));
@@ -996,8 +1046,31 @@ function spyTick(){
 /* ---------- 事件 ---------- */
 function wire(){
   const sb = document.getElementById('sidebar'), bd = document.getElementById('backdrop'), mb = document.getElementById('menu');
-  const setMenu = (on) => { sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on)); };
+  const setMenu = (on) => {
+    sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on));
+    if (on) document.documentElement.classList.remove('nav-hidden');
+  };
   const toTop = () => { setMenu(false); scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  /* mobile: hide topbar on scroll down, show on scroll up */
+  {
+    const mq = matchMedia('(max-width:1099px)');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let lastY = scrollY, ticking = false;
+    const showNav = () => document.documentElement.classList.remove('nav-hidden');
+    addEventListener('scroll', () => {
+      if (!window.__HTLB_V2__ || !mq.matches || reduce.matches) { showNav(); return; }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = scrollY, dy = y - lastY;
+        if (y < 12 || sb.classList.contains('open')) showNav();
+        else if (dy > 6) document.documentElement.classList.add('nav-hidden');
+        else if (dy < -6) showNav();
+        lastY = y; ticking = false;
+      });
+    }, {passive:true});
+    mq.addEventListener('change', () => { if (!mq.matches) showNav(); });
+  }
   document.querySelectorAll('[data-dim]').forEach(g => g.addEventListener('click', ev => {
     const b = ev.target.closest('[data-v]'); if (!b) return;
     const dim = g.dataset.dim, v = b.dataset.v, set = state[dim];
@@ -1070,8 +1143,13 @@ function wire(){
 /* ---------- 启动 ---------- */
 (async function init(){
   applyI18n();
+  const list = document.getElementById('list');
   const status = document.getElementById('status');
-  status.textContent = T().loading;
+  const skel = document.getElementById('skel');
+  const clearSkel = () => {
+    skel?.remove();
+    list.removeAttribute('aria-busy');
+  };
   try {
     if (location.protocol === 'file:') throw new Error('file');
     const data = {ru:'README.ru.md', en:'README.md', zh:'README.zh.md'}[LANG];
@@ -1091,6 +1169,7 @@ function wire(){
     if (!sections.length) throw new Error('empty');
     GLOSS = parseGlossary(md);
     PERF.log('парсинг текста', t1, files.length + ' файлов');
+    clearSkel();
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
     buildGlossary(); readUrl(); wire(); applyI18n(); apply();
@@ -1111,6 +1190,11 @@ function wire(){
       if (target) requestAnimationFrame(() => target.scrollIntoView());
     }
   } catch (err) {
+    clearSkel();
+    const c = document.getElementById('cnt'), t = document.getElementById('tot');
+    if (c) c.textContent = '–';
+    if (t) t.textContent = '–';
+    status.hidden = false;
     status.innerHTML = err.message === 'file'
       ? T().errFile
       : T().errLoad(esc(String(err.message)));
