@@ -85,6 +85,37 @@ def diff_texts(t1, t2):
     return "\n".join(out1), "\n".join(out2)
 
 
+def diff_line_pairs(t1, t2):
+    """Return [(html1|None, html2|None), ...] for differing lines only.
+
+    Aligned line pairs from replace ops go through diff_words (marks on the
+    changed words); pure insert/delete get a whole-line mark on one side and
+    None on the other (rendered as an em-dash).
+    """
+    lines1, lines2 = t1.split("\n"), t2.split("\n")
+    sm = SequenceMatcher(None, lines1, lines2, autojunk=False)
+    pairs = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "equal":
+            continue
+        if op == "replace":
+            for k in range(max(i2 - i1, j2 - j1)):
+                l1 = lines1[i1 + k] if i1 + k < i2 else None
+                l2 = lines2[j1 + k] if j1 + k < j2 else None
+                if l1 is not None and l2 is not None:
+                    pairs.append(diff_words(l1, l2))
+                else:
+                    pairs.append((f"<mark>{_esc(l1)}</mark>" if l1 else None,
+                                  f"<mark>{_esc(l2)}</mark>" if l2 else None))
+        elif op == "delete":
+            for ln in lines1[i1:i2]:
+                pairs.append((f"<mark>{_esc(ln)}</mark>", None))
+        elif op == "insert":
+            for ln in lines2[j1:j2]:
+                pairs.append((None, f"<mark>{_esc(ln)}</mark>"))
+    return pairs
+
+
 def render(pair):
     a, b = pair["variant_a"], pair["variant_b"]
     first, second = (a, b) if pair["show_order"] == "AB" else (b, a)
@@ -126,6 +157,8 @@ def main():
     ap.add_argument("--subset", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--title", default="Золотой сет ЛАЙТ — 20 пар")
+    ap.add_argument("--diff-only", action="store_true",
+                    help="show only the differing lines (compact mode)")
     args = ap.parse_args()
 
     subset = json.load(open(args.subset, encoding="utf-8"))
@@ -134,17 +167,33 @@ def main():
     by_id = {p["id"]: p for p in manifest["pairs"]}
     pairs = [by_id[pid] for pid in subset["ids"]]
 
+    def pair_card(p, compact):
+        a, b = p["variant_a"], p["variant_b"]
+        first, second = (a, b) if p["show_order"] == "AB" else (b, a)
+        if compact:
+            rows = diff_line_pairs(first, second)
+            if not rows:  # decoy/identical pair
+                rows = [("<i>(варианты идентичны)</i>",
+                         "<i>(варианты идентичны)</i>")]
+            body1, body2 = [], []
+            for h1, h2 in rows:
+                body1.append(h1 if h1 is not None else "<i>—</i>")
+                body2.append(h2 if h2 is not None else "<i>—</i>")
+            d1, d2 = "\n".join(body1), "\n".join(body2)
+        else:
+            d1, d2 = diff_texts(first, second)
+        return f'''<div class="pair">
+<h3>{p["id"]}</h3>
+<div class="var"><div class="lab">ВАРИАНТ 1</div><div class="txt">{d1}</div></div>
+<div class="var v2"><div class="lab">ВАРИАНТ 2</div><div class="txt">{d2}</div></div>
+</div>'''
+
     batches = [pairs[:10], pairs[10:]]
     cards = []
     for bi, batch in enumerate(batches, 1):
         cards.append(f'<h2 id="b{bi}">Батч {bi} из {len(batches)}</h2>')
         for p in batch:
-            d1, d2 = render(p)
-            cards.append(f'''<div class="pair">
-<h3>{p["id"]}</h3>
-<div class="var"><div class="lab">ВАРИАНТ 1</div><div class="txt">{d1}</div></div>
-<div class="var v2"><div class="lab">ВАРИАНТ 2</div><div class="txt">{d2}</div></div>
-</div>''')
+            cards.append(pair_card(p, args.diff_only))
     navlinks = " ".join(f'<a href="#b{i}">{i}</a>' for i in range(1, len(batches) + 1))
     doc = PAGE.format(title=html.escape(args.title), navlinks=navlinks,
                       cards="\n".join(cards))
