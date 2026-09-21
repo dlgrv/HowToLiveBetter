@@ -153,6 +153,8 @@ html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
 .ver-btn{display:none}
 html.v2 .ver-btn{display:grid}
+/* mobile parity with v1 (#28): old-version switch hidden below 961px */
+@media (max-width:960px){ html.v2 .ver-btn{display:none} }
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}
@@ -322,7 +324,7 @@ h1,h2,h3{text-wrap:wrap}
   .nav-title{display:flex}
   .nav-in{padding:0 calc((var(--nav-h) - var(--icon-btn)) / 2)}
   .side-title{display:flex;margin:0 0 var(--group-gap);font:var(--fw-strong) var(--fs-2)/var(--lh-tight) var(--serif);color:var(--ink);white-space:normal;padding:0}
-  .search{position:static;transform:none;flex:1;width:auto;max-width:none}
+  .search{position:relative;left:auto;transform:none;flex:1;width:auto;max-width:none}
   .sidebar{
     top:var(--nav-h);width:min(var(--side-w-open),84vw);padding:var(--sp-6) var(--side-pad-x) var(--side-pad-bottom);
     transform:translateX(-100%);transition:transform .2s;box-shadow:none;pointer-events:auto;
@@ -336,7 +338,10 @@ h1,h2,h3{text-wrap:wrap}
 }
 @media (max-width:560px){
   .nav-title span:last-child{display:none}
-  .nav-title .logo{display:flex;align-items:center}
+  .nav-title .logo{display:none}
+  /* wider text column on phones: .doc desktop padding stacks with .content's */
+  .content{padding-left:var(--sp-4);padding-right:var(--sp-4)}
+  .doc{padding-left:0;padding-right:0}
   .nav-title .logo svg{width:var(--icon);height:var(--icon)}
   .ic-doc{display:none}
   .nav-r{gap:var(--sp-1)}
