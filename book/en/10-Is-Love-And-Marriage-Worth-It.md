@@ -1,8 +1,8 @@
-[← Back to master table of contents](../README.md)
+[← Back to master table of contents](../../README.md)
 
 # 10. Are Dating and Marriage Worth It
 
-This section breaks the question "is marriage worth it" into several accounts that can be tallied separately: money, time, health, legal risk, and relationship quality. Each account gives only numbers that can be found in official statistics or meta-analyses, makes no moral judgment, and draws no conclusion for the reader; health figures use a mortality-risk measure, time figures use a daily-minutes measure, and legal figures use a statutory-text measure, and the three are not converted into one another. For the method of splitting the accounts, a fill-in checklist, and common misconceptions, see [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+This section breaks the question "is marriage worth it" into several accounts that can be tallied separately: money, time, health, legal risk, and relationship quality. Each account gives only numbers that can be found in official statistics or meta-analyses, makes no moral judgment, and draws no conclusion for the reader; health figures use a mortality-risk measure, time figures use a daily-minutes measure, and legal figures use a statutory-text measure, and the three are not converted into one another. For the method of splitting the accounts, a fill-in checklist, and common misconceptions, see [Is marriage worth it — the full breakdown](../../docs/en/结婚划不划算.md).
 ### 1. Meet more people instead of fixating on one: two people's compatibility cannot be predicted before they meet
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
 - Cost: 0 yuan; spend the time widening the circle of people you meet, not brooding over the same person
@@ -154,4 +154,4 @@ This section breaks the question "is marriage worth it" into several accounts th
 - Benefit: the elders' benefits are real, but they do not automatically convert into health benefits (item 8) or relationship quality (item 15), while the time account (item 9), the money account (items 10 to 12), and the exit costs (item 16) are all borne by the parties themselves; once the accounts are kept separately, whether "marrying-as-a-task" is good value can be seen at a glance, with no need for anyone else to judge for you
 - Evidence grade: C
 - Sources: 作者经验，方法类建议；数据部分见本节前面各条
-- Notes: this item draws no conclusion for the reader; the elders' account may also be counted as a heavy one; the fill-in checklist is at [docs/结婚划不划算.md](../docs/结婚划不划算.md)
+- Notes: this item draws no conclusion for the reader; the elders' account may also be counted as a heavy one; the fill-in checklist is at [Is marriage worth it — the full breakdown](../../docs/en/结婚划不划算.md)
