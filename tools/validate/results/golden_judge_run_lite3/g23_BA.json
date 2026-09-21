@@ -1,0 +1,9 @@
+{
+  "pair_id": "g23",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads more naturally: its key sentence is short and idiomatic, while Variant 1 tangles the same point in stacked clauses and pads the notes with verbatim-duplicated канцелярит ('данный порядок... снимает большинство типовых вопросов').\"\n}\n```",
+  "latency_s": 35.0,
+  "model": "glm-5.3-flash"
+}
