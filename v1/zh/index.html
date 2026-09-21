@@ -537,12 +537,11 @@ function applyI18n(){
   document.title=t.title;
   document.querySelectorAll('a.title span:last-child').forEach(el=>{ el.textContent=t.title; });
   const qEl=document.getElementById('q');
-  const shortPh=window.matchMedia('(max-width:960px)').matches;
-  qEl.placeholder=shortPh?(t.searchShort||t.search):t.search;
+  qEl.placeholder=t.searchShort||t.search;
   qEl.setAttribute('aria-label',t.search);
   if(!window.__htlbPhMql){ // attach once, not per applyI18n call
-    window.__htlbPhMql=window.matchMedia('(max-width:960px)');
-    window.__htlbPhMql.addEventListener('change',e=>{ const tt=T(); qEl.placeholder=e.matches?(tt.searchShort||tt.search):tt.search; });
+    window.__htlbPhMql=window.matchMedia('(max-width:960px)'); // kept for compat; short placeholder is now universal
+    window.__htlbPhMql.addEventListener('change',()=>{ const tt=T(); qEl.placeholder=tt.searchShort||tt.search; });
   }
   const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
   const dh=document.querySelector('.doc-head');
