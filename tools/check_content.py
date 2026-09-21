@@ -62,7 +62,7 @@ PAREN = re.compile(r"[（(][^（）()]*[）)]")
 
 
 def translated_dirs():
-    return ["book/en", "book/ru", "docs/en", "docs/ru"]
+    return ["book/en", "book/ru", "book/es", "docs/en", "docs/ru", "docs/es"]
 
 
 def strip_legal_cjk(text):
@@ -102,7 +102,10 @@ def gate_cjk_leaks(issues):
 
 def gate_filenames(issues):
     for d in translated_dirs():
-        for name in sorted(os.listdir(os.path.join(ROOT, d))):
+        dp = os.path.join(ROOT, d)
+        if not os.path.isdir(dp):
+            continue  # language not started yet (e.g. book/es during rollout)
+        for name in sorted(os.listdir(dp)):
             if CJK.search(name):
                 issues.append(f"[cjk-filename] {d}/{name}")
 
@@ -129,10 +132,28 @@ def gate_parity(issues):
             issues.append(f"[parity] {label}: missing chapters {miss}")
         if extra:
             issues.append(f"[parity] {label}: unexpected chapters {extra}")
+    # ES parity: SOFT while the translation is in progress — chapters present in
+    # book/es must also be linked from README.es.md, item counts must match CN.
+    es = chapter_nns("book/es")
+    if es:
+        dup = {x for x in es if es.count(x) > 1}
+        if dup:
+            issues.append(f"[parity] book/es: duplicate chapters {sorted(dup)}")
+        extra = [x for x in es if x not in expected]
+        if extra:
+            issues.append(f"[parity] book/es: unexpected chapters {extra}")
+        es_readme = "README.es.md"
+        if os.path.exists(os.path.join(ROOT, es_readme)):
+            text = open(os.path.join(ROOT, es_readme), encoding="utf-8").read()
+            for nn in es:
+                if f"book/es/{nn}-" not in text:
+                    issues.append(f"[parity] {es_readme}: chapter {nn} not linked")
+        else:
+            issues.append(f"[parity] book/es has {len(es)} chapters but {es_readme} is missing")
     # item-count parity per chapter across languages
     for nn in expected:
         counts = {}
-        for label in ("book", "book/en", "book/ru"):
+        for label in ("book", "book/en", "book/ru", "book/es"):
             files = glob.glob(os.path.join(ROOT, label, f"{nn}-*.md"))
             if len(files) == 1:
                 counts[label] = len(

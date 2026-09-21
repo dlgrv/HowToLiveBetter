@@ -32,7 +32,7 @@ def write(path, text):
     print('built', os.path.relpath(path, ROOT))
 
 # ---------- default = v2 editorial under /{lang}/ ----------
-for lang in ('ru','en','zh'):
+for lang in ('ru','en','es','zh'):
     d = src.replace(tpl, "<script>window.__HTLB_LANG__='%s';window.__HTLB_BASE__='../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>" % lang)
     d = d.replace('href="README', 'href="../README').replace('href="book/', 'href="../book/')
     d = STYLE_RE.sub(lambda _: '<style>\n' + v2css + '\n</style>', d, count=1)
@@ -41,7 +41,7 @@ for lang in ('ru','en','zh'):
     write(os.path.join(ROOT, lang, 'index.html'), d)
 
 # ---------- legacy v1 under /v1/{lang}/ ----------
-for lang in ('ru','en','zh'):
+for lang in ('ru','en','es','zh'):
     d = src.replace(tpl, "<script>window.__HTLB_LANG__='%s';window.__HTLB_BASE__='../../';</script>" % lang)
     d = d.replace('href="README', 'href="../../README').replace('href="book/', 'href="../../book/')
     d = d.replace(CANON, '<link rel="canonical" href="%s/v1/%s/">' % (HOST, lang))
@@ -49,7 +49,7 @@ for lang in ('ru','en','zh'):
     write(os.path.join(ROOT, 'v1', lang, 'index.html'), d)
 
 # ---------- back-compat: /v2/{lang}/ → /{lang}/ ----------
-for lang in ('ru','en','zh'):
+for lang in ('ru','en','es','zh'):
     html = '''<!doctype html>
 <html lang="%s">
 <head>
