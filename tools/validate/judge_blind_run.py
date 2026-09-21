@@ -71,6 +71,9 @@ def main():
     ap.add_argument("--subset", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--override", default=None,
+                    help="JSON with {pairs: [{pair_id, variant_b}]} merged "
+                         "over the manifest (for degraded variants)")
     args = ap.parse_args()
 
     cfg = judges._config.load_config(REPO).get("judge", {})
@@ -85,6 +88,17 @@ def main():
     manifest = json.load(open(os.path.join(REPO, "tools/validate/results/golden_manifest.json"),
                               encoding="utf-8"))
     by_id = {p["id"]: p for p in manifest["pairs"]}
+
+    if args.override:
+        ov = json.load(open(args.override, encoding="utf-8"))
+        for op in ov["pairs"]:
+            pid = op["pair_id"]
+            if pid not in by_id:
+                print(f"override: unknown pair {pid}", file=sys.stderr)
+                return 1
+            by_id[pid] = {**by_id[pid],
+                          "variant_b": op["variant_b"],
+                          "_degraded": op.get("notes", "degraded")}
 
     os.makedirs(args.out, exist_ok=True)
     # single-writer guard: two concurrent runs into one outdir race on the
