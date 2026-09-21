@@ -153,6 +153,8 @@ html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
 .ver-btn{display:none}
 html.v2 .ver-btn{display:grid}
+/* mobile parity with v1 (#28): old-version switch hidden below 961px */
+@media (max-width:960px){ html.v2 .ver-btn{display:none} }
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}

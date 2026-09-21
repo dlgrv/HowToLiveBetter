@@ -113,7 +113,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:var(--t3);stroke-width:2;pointer-events:none}
 .search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--font);color:var(--t3);border:1px solid var(--divider);border-radius:4px;padding:3px 6px;background:var(--bg-elv);pointer-events:none}
 .nav-r{display:flex;align-items:center;gap:8px}
-.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s}
+.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s;flex:0 0 auto}
 .icon-btn:hover{background:var(--bg-soft);color:var(--t1)}
 .icon-btn svg{width:20px;height:20px}
 /* кнопка темы вместо ползунка (v1 тоже): луна в светлой, солнце в тёмной */
@@ -121,7 +121,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
 /* переключатель версий: виден и в v1, и в v2 */
-.ver-btn{display:grid!important}
+@media (min-width:961px){.ver-btn{display:grid!important}}
 /* старый ползунок темы больше не используется */
 .switch{display:none!important}
 .menu-btn{display:none}
@@ -218,8 +218,11 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   .nav-in{padding:0 calc((var(--nav-h) - 36px) / 2);gap:10px}
   .title span{display:none}
   .search{max-width:none}
+  .search input{padding-right:16px}
   .search kbd{display:none}
   .menu-btn{display:grid}
+  .ver-btn{display:none}
+  .ic-doc{display:none}
   .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:none;padding:24px 24px 96px;width:min(var(--side-w),86vw)}
   .sidebar.open{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
   .backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:15;opacity:0;pointer-events:none;transition:opacity .25s}
@@ -416,7 +419,7 @@ window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e
 
 /* ---------- i18n static UI ---------- */
 const I18N = {
- ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям',
+ ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям', searchShort:'Поиск',
    noscriptH:'Пособие по выгодной жизни',
    noscriptP:'Русский перевод книги HowToLiveBetter (高性价比人生指南): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.',
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.',
@@ -453,7 +456,7 @@ const I18N = {
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
    about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
- en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations',
+ en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations', searchShort:'Search',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
    noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="../../README.md">README.md</a> (table of contents) and the <a href="../../book/en/">book/en/</a> directory.',
@@ -490,7 +493,7 @@ const I18N = {
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
    about:['health','longevity','personal finance','first aid','law','consumer protection'] },
- zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议',
+ zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../../README.zh.md">README.zh.md</a>（目录）与 <a href="../../book/">book/</a> 目录。',
@@ -533,7 +536,14 @@ function applyI18n(){
   const t=T(); document.documentElement.lang=t.htmlLang;
   document.title=t.title;
   document.querySelectorAll('a.title span:last-child').forEach(el=>{ el.textContent=t.title; });
-  document.getElementById('q').placeholder=t.search; document.getElementById('q').setAttribute('aria-label',t.search);
+  const qEl=document.getElementById('q');
+  const shortPh=window.matchMedia('(max-width:960px)').matches;
+  qEl.placeholder=shortPh?(t.searchShort||t.search):t.search;
+  qEl.setAttribute('aria-label',t.search);
+  if(!window.__htlbPhMql){ // attach once, not per applyI18n call
+    window.__htlbPhMql=window.matchMedia('(max-width:960px)');
+    window.__htlbPhMql.addEventListener('change',e=>{ const tt=T(); qEl.placeholder=e.matches?(tt.searchShort||tt.search):tt.search; });
+  }
   const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
   const dh=document.querySelector('.doc-head');
   dh.querySelector('h1').textContent=t.title;
