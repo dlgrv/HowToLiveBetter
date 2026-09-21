@@ -1,0 +1,40 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "03",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Mechanism: filler enters a facial vessel, flows backward, occludes the ophthalmic artery, instant blindness — conveyed in RU.",
+      "cn_span": "填充剂被推进面部血管、逆流堵住眼动脉，人当场就看不见了",
+      "status": "ok"
+    },
+    {
+      "claim": "More than 80% of the injections were hyaluronic acid — conveyed in RU.",
+      "cn_span": "八成以上打的是玻尿酸",
+      "status": "ok"
+    },
+    {
+      "claim": "Only 20.8% full visual recovery, 16.7% partial, rest none; nearly a fifth had brain complications — conveyed in RU.",
+      "cn_span": "只有 20.8% 视力完全恢复，16.7% 部分恢复，剩下的没恢复；将近两成还出现了脑部并发症",
+      "status": "ok"
+    },
+    {
+      "claim": "No rescue method proven consistently effective; the only protection is avoiding these zones in advance — conveyed in RU.",
+      "cn_span": "目前没有一种抢救办法被证明稳定有效，所以这件事只能靠事前避开",
+      "status": "ok"
+    },
+    {
+      "claim": "Case summary without a denominator, so per-injection blindness probability cannot be computed — preserved in RU.",
+      "cn_span": "没有分母，算不出「打一次的失明概率」",
+      "status": "ok"
+    },
+    {
+      "claim": "Standard risk-reduction routine in licensed facilities (vessel mapping, blunt needles, small aliquots on withdrawal, hyaluronidase on hand) requires a trained physician — preserved in RU.",
+      "cn_span": "术前评估血管走行、用钝针、边退边小量注射、随时准备透明质酸酶",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

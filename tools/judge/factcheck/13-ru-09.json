@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "09",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "After an elderly head bump, blood usually accumulates only by the third week; at the time of impact there may be nothing, and the person may not remember.",
+      "cn_span": "血通常到第三周才积起来",
+      "status": "ok"
+    },
+    {
+      "claim": "Chronic subdural hematoma: post-op recurrence up to 33%, mortality up to 32%, good overall outcome 24% in those over 90.",
+      "cn_span": "术后复发率能到 33%、病死率能到 32%",
+      "status": "ok"
+    },
+    {
+      "claim": "Global incidence 3.39–39.1/100k/year, rising with age, can triple after 80; top causes trauma/falls, then long-term alcohol, anticoagulants, violence.",
+      "cn_span": "80 岁以上可达三倍",
+      "status": "ok"
+    },
+    {
+      "claim": "If an elderly person suddenly becomes confused, walks unsteadily, is sleepy, or one side weakens — first ask about falls/head bumps in the past 2–3 months, then CT.",
+      "cn_span": "先倒回去问这两三个月摔没摔过头，再去做 CT",
+      "status": "ok"
+    },
+    {
+      "claim": "Higher risk in the elderly on aspirin, clopidogrel, warfarin or novel oral anticoagulants, and in heavy drinkers; don't dismiss as dementia or old-stroke sequelae.",
+      "cn_span": "吃阿司匹林、氯吡格雷、华法林或新型口服抗凝药的老人风险更高",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

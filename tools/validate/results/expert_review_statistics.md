@@ -1,0 +1,142 @@
+# Expert review: statistics & validation methodology of the quality-pipeline harness
+
+Reviewer: adversarial statistics/methodology subagent, 2026-09-19.
+Scope: `tools/validate/{golden_pairs,judge_metrics,mutation_test,golden_collect}.py`,
+`results/{golden_blind_summary,mutations_seed42,retro_e_findings}.json`, `docs/validation-protocol.md`,
+plan `2026-09-18_221500-quality-pipeline-v2.md`. All numbers below were recomputed from the
+committed artifacts (scripts in review notes; Clopper–Pearson/Wilson CIs computed exactly).
+
+Verdict in one line: the harness is well-engineered as an *engineering smoke test*, but the
+headline blind-run result (native preference 1.0, decoy FP 0/10) is presented in a way that
+overstates what was proven, the κ gate has no data behind it yet (human labels absent), and
+several gates are underpowered to the point of being unrejectable at the planned sample sizes.
+
+Findings are numbered; severity in brackets. "Plan" = the 2026-09-18 plan; "Protocol" = docs/validation-protocol.md.
+
+---
+
+## F1 [CRITICAL] The κ≥0.6 judge gate has zero data behind it; the committed "validation" artifacts measure something else
+
+Evidence:
+- Plan Task 7 / Protocol Шаг 3: the accept gate for passes C/D is **Cohen's κ judge↔Лёня ≥ 0.6** on the golden pairs. `results/golden_labels.json` (Лёня's markup) does **not exist** in the repo.
+- `python3 tools/validate/judge_metrics.py` → `{"status": "pending", "reason": "golden_labels.json / golden_verdicts.json not yet present"}`. The committed batch files (`golden_verdicts_batch{1..6}.json`, schema `{"batch", "answers"}`) do not even match the schema `judge_metrics.py` expects (`{native: [], degraded: [], first: []}`) — the Task 7 module cannot consume the Task 11-prep data without an adapter that has not been written.
+- Commit 07f2d0f advertises "blind judge validation — native preference 1.0 (50/50), decoy FP 0/10 … (plan task 11, judge solo metrics)". Plan Task 11 is the *human* markup session. What was actually run is judge-vs-crafted-golden, which validates the **degradation recipes**, not the judge-as-decision-maker.
+
+What this means: no claim of the form "the judge passes its validation gate" is currently supported. The blind summary is a *prerequisite* signal (can the judge detect controlled degradation at all?), and a useful one — but as committed, the κ/FNR gates in `judge_metrics.py` have never been exercised end-to-end, and the git history implies validation is further along than it is.
+
+Fix:
+1. Rename/annotate `golden_blind_summary.json` as "recipe-separation smoke test, judge-only" everywhere it is referenced (commit messages, plan checkpoints, SKILL).
+2. Write the adapter (or change the batch-file schema) so `judge_metrics.py` consumes `golden_verdicts_batch*.json`, and dry-run it with mock labels.
+3. Only after the human session: populate `golden_labels.json`, compute κ with a CI (see F4/F5), and *then* cite gate results.
+
+## F2 [CRITICAL] The blind run is perfect in a way that demands explanation before it can be celebrated (50/50 native picks, 0 ties, decoys 10/10 ties)
+
+Evidence (recomputed from `golden_manifest.json` × `golden_verdicts_batch*.json`):
+- 60 answers, no unanswered. Non-decoy: 22 answers "1", 28 answers "2", **0 ties**; decoys: 10/10 "=".
+- The judge's answer is *exactly* determined by `show_order`: all 22 AB pairs → "1", all 28 BA pairs → "2". The judge never once picked the degraded variant and never once contradicted position.
+- Under a realistic judge, even at true native-preference p=0.75, P(50/50 picks) ≈ 5.7·10⁻⁷; at p=0.9 it is ≈ 5·10⁻³. Zero ties on 50 pairs containing `impersonal_calque`/`bureaucratese` degradations — where the protocol itself expects ties to be "valid and expected" — is inconsistent with a stochastic judge at room temperature.
+- Reproducibility gap: there is **no committed script that produced the batch answer files** — `golden_collect.py` only aggregates them; `judge.py` is a per-file CLI. The batch files carry no `model_id`, `prompt_hash`, or `ts` (the plan mandates these audit fields on every verdict). The single most important artifact of the validation campaign is the only one that cannot be re-derived.
+
+Alternative explanations that this design cannot rule out:
+1. **Label leakage / same-pipeline generation**: whoever (or whatever) produced the answers had access to the manifest mapping. The perfect show_order tracking is exactly what leakage looks like.
+2. **Degradations are caricatures**: `bureaucratese` inserts "является/данного/в рамках/осуществля"; `impersonal_calque` rewrites voice wholesale. These are DEMETR-style *synthetic* perturbations — trivially separable by surface registers. Real translationese (the thing pass C/D must catch in production) is subtler, and detection of caricature does not transfer (Karpinska et al. 2022, DEMETR: even strong learned metrics fail on naturalistic errors while catching synthetic ones).
+3. **Self-preference untested**: B-variants were generated by GLM-family subagents and judged by GLM (plan: "GLM-судья = семья переводчика"). The A/B-vs-degradation design offsets self-preference only if the degradation direction is symmetric; a judge may still rate its family's *style* as more native on genuinely close pairs — invisible at this separation ceiling.
+
+What the result *does* prove: the four recipes, as instantiated in this manifest, are distinguishable from the original in one presentation by the judge used, and the decoy mechanism elicits ties. What it does *not* prove: production-set sensitivity, position-bias robustness, self-preference offset, run-to-run stability, or that the judge will behave the same when the human's harder/organic pairs are mixed in.
+
+Fix:
+1. **Double presentation**: judge every pair in both orders (2× cost, halves effective novelty but buys swap-consistency); keep for gating only swap-consistent answers; report the consistency rate as a first-class metric (Zheng et al. 2023, "LLMs are not Fair Evaluators" — position bias is large and order-swap is the standard mitigation).
+2. **≥3 independent runs** (temperature ≥ default sampling), report per-pair answer variance; a judge that flips answers run-to-run cannot hold κ≥0.6 with a stable human.
+3. **Add an organic-translationese stratum**: pre-fix units with known calques (ru13 history), raw GLM-first-draft variants, or MT-baseline outputs — pairs where the degradation was *not* generated by a recipe subagent.
+4. **Commit the runner** that invoked the judge (or record model_id/prompt_hash/ts per answer) so the blind run is reproducible; re-run it once with the runner committed to confirm the 1.0 replicates. If it does not replicate, the committed result is invalid.
+5. Optionally, one **canary** decoy with an obvious preference reversed (degraded shown as "original") to detect mapping leakage directly.
+
+## F3 [CRITICAL] The decoy gate (≤1/10 FP) cannot reject the null it is written to reject; 0/10 has upper-95 CI = 0.31
+
+Evidence (exact Clopper–Pearson):
+- Observed 0/10 → 95% upper bound on true FP rate = **0.308**. The gate "false preference ≤ 1 of 10" therefore cannot distinguish a perfect judge from one with a 25–30% false-preference rate.
+- Even a judge at exactly the gate boundary (true FP=0.10) passes the gate with probability P(≤1/10) = **0.736** — the gate passes a third of judges *worse* than its own threshold.
+- To make 0 observed FPs bound the true rate at ≤0.10 with 95% confidence requires **≈36 decoys**; the plan fixed 10 and the protocol's "≤10%" is ambiguous between "≤1 event" and "rate ≤ 0.1".
+
+Same arithmetic for the FNR gate at n=50: observed 0/50 → upper-95 = 0.071, so *if* the blind numbers were the gate input, FNR≤0.2 would be the one gate that is actually decisive at its sample size. That is the exception, not the rule.
+
+Fix: raise decoys to 30–40 (they are cheap — identical texts, no generation cost), and/or report the exact one-sided binomial p-value against the null "FP rate = 0.10" instead of a raw count; define the gate as a rate with an explicit test, not an event count.
+
+## F4 [MAJOR] n=60 cannot decide the κ≥0.6 boundary the plan is built around
+
+Evidence (delta-method SEs for κ at n=60):
+- po=0.75, pe=0.35 → κ=0.615, CI95 ≈ [0.45, 0.78]. The plan's three tiers (reject <0.4 / advisor 0.4–0.6 / trusted ≥0.6) span this entire interval: a single session's point estimate cannot assign a tier with any confidence.
+- Half-width ±0.05 — the precision needed to separate 0.55 from 0.65 — requires n≈530–680 pairs at these marginals. n=60 buys ±0.15 at best; near-perfect agreement (which F2 suggests) buys ±0.06.
+- Effective n is further reduced: 10 decoys (where agreement is trivially "correct" and inflates po *and* pe in proportion to decoy share — κ becomes a function of decoy fraction, not judge quality), plus asymmetric tie-exclusion between raters.
+
+The protocol already promises the judges see 120 pairs ("Судьи C и D размечают те же 60 + ещё 60 расширенных"); the human sees only 60.
+
+Fix: pick one — (a) expand the human session to ≥120 pairs (protocol already budgeted judges at 120; +10 min of Лёня's time), or (b) keep n=60 but make the decision rule CI-aware: e.g. "trusted" requires the *lower* 80% bound > 0.4 and point ≥ 0.6; report κ with CI wherever the gate is cited. Also compute κ separately on decoys vs non-decoys, or replace κ with PABAK/Gwet's AC1 as a prevalence-robustness check (see F5).
+
+## F5 [MAJOR] κ implementation: degenerate-case fudge returns 1.0 where κ is undefined; paradox exposure unhandled
+
+Evidence:
+- `judge_metrics.py:35-37`: `if pe == 1.0: return 1.0`. κ = (po−pe)/(1−pe) is 0/0 when marginals are unanimous; returning 1.0 launders an undefined statistic into a pass. Given F2 (a judge whose answers are near-constant per position), a rater pair that both answer "1" on every non-decoy item — high *agreement*, uninterpretable *kappa* — would be recorded as κ=1.0.
+- This is the prevalence/bias paradox (Feinstein & Cicchetti 1990): with imbalanced marginals (native≫degraded is likely once ties are excluded), κ collapses or explodes unpredictably at high po; the plan's hard tier boundaries sit exactly in the unstable zone.
+- Ties are handled by exclusion inside `decode()` but κ is computed on raw `marks` vectors (`judge_first` vs `lenya`): a human "=" vs judge "1" counts as disagreement on the *choice* dimension while the "tie tendency" dimension is silently merged. There is no documented policy for which dimension κ measures.
+
+Fix: (1) return NaN/None + an explicit flag on pe==1 (and pe>0.9 warn); (2) report po next to κ always — po≥0.9 with unstable κ should *pass* on po, not fail on the paradox; (3) fix the tie policy (either κ on 3-category marks as-is, documented, or κ on tie-excluded subsets with n reported); (4) add Gwet's AC1/PABAK to the test file with textbook values (the Landis–Koch table tests are good — keep them) so paradox behavior is visible at review time.
+
+## F6 [MAJOR] Mutation harness: runtime verify-blind filter silently reshapes the sample; one "semantic" mutant is a numeric mutation; 5/30 mutants are structurally undetectable by design; the run result was never committed
+
+Evidence:
+- `build_cases()` SKIPS mutants caught by verify at runtime and prints to stdout only; **no artifact records the post-filter n or the skips**. The catch-rate denominator (30) is thus not guaranteed a priori — a generation batch that produced more verify-detectable mutants shrinks the sample and the ≥80% gate becomes easier, silently. The committed `mutations_seed42.json` is the *spec*, not the *run*: there is no `catch-rate / FP / novelty` results file, so plan Task 4 acceptance has no evidence either way (commit 083b95a records only "verify-blind confirmed").
+- Mutant `05/en` labeled `cross_unit_contradiction` changes "a 400-fold difference" → "a 40-fold difference" (spec line 81–82). Recomputed: `verify.py 05 --lang en --file <mutant>` exits **0** with only a WARN ("numbers less frequent: 400×1") — so it survives verify-blind filtering, but a numeric-domain mutation counted as an E-domain success inflates E's novelty metric (E catches it as "meaning change" while the numeric gate already WARNs on it — the novelty-vs-verify accounting treats a WARN-domain case as E-exclusive). The plan's own rule for the golden set was "числа не трогать"; the mutation spec violates its spirit.
+- `cross_unit_contradiction` is 5/30 mutants (17%), but the factcheck prompt sends **one CN unit + one translation unit** and defines the class as "only when both texts are visible to you" (`tools/prompts/judge-factcheck.md:30-31`). The orchestrator never shows a second unit → these mutants are undetectable *by construction*; a 17% ceiling on catch-rate is baked in, or the judge is incentivized to violate its own scope (guessing contradictions it cannot see → FP risk on controls).
+- Controls are whole chapters (`read_book(nn, lang)`) while mutants are chapter-with-one-excerpt-replaced — the E judge sees a 2–6 line excerpt context in one case and a full chapter in the other; FP-on-controls and catch-rate are measured on different input granularity.
+
+Fix: (1) commit `build-cases` output (`results/mutations_cases.json`, post-filter) and assert the final mutant count at gate time; (2) reclassify the 400→40 mutant (numeric domain) or promote verify's numeric WARN to FAIL for off-by-magnitude changes; (3) either provide sibling-unit context to E for cross_unit checks or move those 5 mutants to a dedicated harness — do not leave them in a single-unit denominator; (4) run E on controls at the same excerpt granularity as mutants; (5) commit the actual run result with per-mutant outcomes.
+
+## F7 [MAJOR] Retro pass-E validation has no positive controls: every seeded known defect was pre-assigned to another pass, making the "≥2 of 3 classes" accept criterion circular
+
+Evidence:
+- `retro_e_findings.json` `known_defects`: ch10/11 → "numbers: verify domain (not E)"; ch13/28/30 → "calque когорт: style domain (not E)". I.e., the retro chapters were selected *because* they fail verify/style, and their known defects are excluded from E's scoring by definition. There is nothing in the run that E was expected to find — recall is unmeasurable, only precision-ish "3 grounded issues / 5 ungrounded dropped / 95 pass".
+- The plan's Task 8 Accept ("ретро-тест находит ≥ 2 из 3 известных классов дефектов") cannot fail as wired: the 3 known classes were assigned to other passes. The 2 FAILs found (11-ru-10 invented, 30-ru-06 dropped_condition) are genuinely interesting new finds, but "found something" ≠ "finds what it should".
+- Coverage: all 98 verdict files are `-ru-`; **zero EN units** in the retro run, while the pipeline is CN→RU+EN and E gates both.
+
+Fix: inject the Task 4 mutants (or semantic analogues of the known defects) into the retro chapters as positive controls and report recall against them — this is exactly what the mutation harness is for, currently disconnected from the retro run. Add an EN retro slice (or state explicitly in the accept artifact that EN is unvalidated).
+
+## F8 [MAJOR] Position bias is unmeasurable in this design: one presentation per pair, randomization confounded with difficulty
+
+Evidence:
+- `show_order` is randomized per pair but each pair is judged once (Task 5, `build_session`). At F2's separation ceiling, position effects are unobservable; the moment real (harder) pairs are added, order effects of the magnitude documented for GPT-4-class judges (Zheng et al. 2023; IJCNLP 2025 systematic study) will dominate ties and single-order wins, and there is no data to correct them.
+- The blind run's perfect position tracking (22/22 AB→1, 28/28 BA→2) shows the judge answers position-appropriately *when separation is trivial*; it says nothing about order effects near the decision boundary — which is where κ with the human will be lost.
+
+Fix: as F2.1 — both orders for every pair at least for the judge; report swap-consistency; for the human (cost-bound), counterbalance across pairs and keep the decoys symmetric (already 2 BA / 8 AB — rebalance).
+
+## F9 [MINOR] Decoy "=" semantics is instruction-relative; tie-rate on content pairs is untracked (and currently 0, itself a red flag)
+
+The instruction "оценивайте только естественность" makes "=" mean "equally natural", but the decoy gate treats any pick as FP *noise* — a judge with a strong tie bias passes decoys while being useless on close content pairs, and a decisive judge that never ties fails decoys while being useful. The informative metric is the *contrast*: ties on identical pairs vs ties on degraded pairs. Currently 10/10 vs 0/50 — the contrast is perfect in the suspicious direction (see F2) and should be tracked as a calibration curve, not just a gate. Add 1–2 "near-decoy" pairs (trivial rewording) to separate "detects identity" from "always ties".
+
+## F10 [MINOR] Threshold provenance: κ tiers from Landis–Koch (1977) are a convention for *human inter-rater* tables, not a validated bar for LLM-judge-vs-human preference; FNR≤0.2 and gap≥0.25 are uncited
+
+κ≥0.6/"substantial" is defensible as an engineering bar, but the plan presents tiers as if calibrated. WMT DA/QE practice needs ~800+ segments for stable segment-level conclusions; the nativeness gap ≥0.25 on 50+50 answered pairs has a sampling half-width of roughly ±0.13 at p≈0.9 (and worse near 0.75) — the gap gate can flip on resampling. Suggest: re-derive the gap threshold from a noise anchor (as correctly done for QE τ = max(3σ, 0.01)) instead of a bare constant, or run the gap test as a two-proportion test with the p-value in the artifact. Keep the gates, but label them "provisional engineering gates" in the protocol until a first real session recalibrates them.
+
+## F11 [MINOR] Golden manifest contains duplicate excerpts — 2 pairs share the same `variant_a` (prefix-80 collision)
+
+`select_pairs()` samples per-chapter without a global excerpt dedupe across strata and the fresh pool; recomputed: 2 duplicate `variant_a[:80]` among the 60. Duplicate items violate the independence assumption behind κ SEs and let one excerpt's idiosyncrasies count twice (possibly once native, once degraded). Fix: dedupe by excerpt hash globally in `select_pairs()` + assert in `validate_manifest()`.
+
+## F12 [MINOR] Protocol/plan drift is not just cosmetic — the committed protocol contradicts the committed code
+
+`docs/validation-protocol.md` still specifies CometKiwi (code/config: COMET `wmt20-comet-qe-da`, plan Task 3), judge D = local Qwen3 (plan: GLM primary, Qwen3 fallback), and a style pass inside verify.py (plan D9: separate `style_check.py`). The plan acknowledges this ("устарел в 4 пунктах… актуализируется в Task 14") — but until Task 14 lands, `golden_collect`/`judge_metrics` artifacts are being committed against a protocol whose Step-3 metrics text ("κ судья↔Лёня") is the one gate F1 shows has never run. Fix: fold the "which gates exist vs pending" status into `results/` as a small `validation_status.json` that CI (or the checkpoint reviewer) can read, so "pending" states are machine-visible rather than implicit in missing files.
+
+---
+
+## What is actually solid (credit where due)
+
+- Determinism discipline: seed=42 selection, `gen_ref`/`seed_ref` sha256 pins, manifest validators with hard rejections (`golden_merge.py` number/structure rules) — above-average reproducibility hygiene for this kind of script.
+- Grounding gate for pass E (`cn_span` literal-in-CN after service-line filtering, positional service-line rule) is a well-reasoned hallucination defense, and the `check_grounding` code matches the plan.
+- The kappa unit tests use textbook tables (Landis–Koch) and the degenerate cases *except* the pe==1 fudge (F5).
+- FNR gate at n=50 is the one gate whose sample size actually supports its threshold (0/50 → upper-95 = 0.071 < 0.2).
+
+## Priority order
+
+1. F1 + F2: run the real human session and re-run the blind judge from a committed runner with swap-consistency — everything else is downstream of knowing whether 1.0 is real.
+2. F6 + F7: connect the mutation harness to the retro run as positive controls; commit run artifacts, not just specs.
+3. F3/F4/F5: raise decoy count, make gates CI-aware, fix the κ degenerate case — cheap code changes, do before the human session so the session data is spent on a correct estimator.
+4. F8–F12: fold into the next revision of the protocol.

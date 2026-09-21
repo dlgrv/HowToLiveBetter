@@ -1,0 +1,30 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "17",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:09:26Z",
+  "assertions": [
+    {
+      "claim": "Cut the power first, or push the wire off with a dry wooden stick, and only then touch the person.",
+      "cn_span": "先断电，或者用干燥的木棍之类把电源挑开，再碰人",
+      "status": "ok"
+    },
+    {
+      "claim": "Grabbing with hands turns one casualty into two (pure self-interest rule).",
+      "cn_span": "直接上手拉，一个伤者就变成两个",
+      "status": "ok"
+    },
+    {
+      "claim": "After separation from the source, no breathing → CPR per item 1; electric injury is no reason to fear touching.",
+      "cn_span": "脱离电源后没有呼吸的，立刻按第 1 条按压，别因为是电伤就不敢碰",
+      "status": "ok"
+    },
+    {
+      "claim": "Downed high-voltage line and transformer equipment: don't handle it yourself, move away and wait for the power crew.",
+      "cn_span": "高压线落地、变电设备附近不自己处置，退远等电力部门断电",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

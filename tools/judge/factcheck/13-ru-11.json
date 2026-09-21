@@ -1,0 +1,40 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "11",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Order: press the wound hard by hand/cloth → limb bleeding not controllable → tourniquet → call 120 → don't loosen the tourniquet.",
+      "cn_span": "四肢压不住就上止血带",
+      "status": "ok"
+    },
+    {
+      "claim": "Field data: tourniquet before shock → 90% survived; after shock → 10%; all 5 who needed one and didn't get it died (Baghdad field hospital, 232 casualties).",
+      "cn_span": "休克出现前上止血带的活了 90%，休克之后才上只剩 10%，该上没上的 5 个人全死了",
+      "status": "ok"
+    },
+    {
+      "claim": "Place above the wound, twist until bleeding stops, record the time.",
+      "cn_span": "扎在伤口上方、拧到血停、记下时间",
+      "status": "ok"
+    },
+    {
+      "claim": "Neck and torso can only be pressed, not bandaged with a tourniquet; don't substitute shoelaces/rope.",
+      "cn_span": "脖子和躯干只能压不能扎",
+      "status": "ok"
+    },
+    {
+      "claim": "Texas 6 years, 11 level-I trauma centers, 1026 limb vascular injuries; crude mortality 3.9% with tourniquet vs 5.2% without; adjusted OR 5.86 (1.41–24.47).",
+      "cn_span": "多因素校正后止血带与存活独立相关（校正 OR 5.86，95% CI 1.41 到 24.47）",
+      "status": "ok"
+    },
+    {
+      "claim": "In the Kragh data the tourniquet itself never caused an amputation; 4 cases of transient nerve palsy; don't periodically loosen it to 'let blood out'.",
+      "cn_span": "Kragh 数据里止血带本身没有导致截肢，短暂神经麻痹 4 例",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

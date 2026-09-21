@@ -1,0 +1,154 @@
+{
+  "batch": 3,
+  "seed_ref": "f0c2674f729c6af1ef33c4575c30cbb3e2be5f13e7626090a5e16144790d1ef9",
+  "chapters": [
+    "16",
+    "17",
+    "20",
+    "22"
+  ],
+  "counts": {
+    "mutations": 8,
+    "controls": 8
+  },
+  "mutations": [
+    {
+      "target": [
+        "16",
+        "ru"
+      ],
+      "issue_type": "subject_swapped",
+      "original_excerpt": "диабетическая ретинопатия и диабетическая стопа почти ничем не дают о себе знать, пока зрение не начнёт пропадать и не появится изъязвление, а на ранней стадии с ними ещё можно что-то делать. При диабете 2 типа осмотр глазного дна с расширением зрачка делают сразу при постановке диагноза, при 1 типе — начиная с 5-го года болезни; если после одного-двух осмотров всё в порядке и сахар в норме, интервал можно увеличить до одного-двух лет, стопы осматривают раз в год.",
+      "mutant_text": "диабетическая ретинопатия и диабетическая стопа почти ничем не дают о себе знать, пока зрение не начнёт пропадать и не появится изъязвление, а на ранней стадии с ними ещё можно что-то делать. При диабете 1 типа осмотр глазного дна с расширением зрачка делают сразу при постановке диагноза, при 2 типе — начиная с 5-го года болезни; если после одного-двух осмотров всё в порядке и сахар в норме, интервал можно увеличить до одного-двух лет, стопы осматривают раз в год.",
+      "rationale": "Who is screened when is swapped: immediate fundus exam moved from type 2 to type 1 diabetes and the 5-year delay moved to type 2."
+    },
+    {
+      "target": [
+        "16",
+        "en"
+      ],
+      "issue_type": "cross_unit_contradiction",
+      "original_excerpt": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" But the harm of stopping the drug itself is certain, especially for blood pressure medication, anticoagulants, and anti-rejection drugs.",
+      "mutant_text": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" Once your blood pressure or blood sugar is back to normal you can safely stop, and the same applies to the urate-lowering drug recommended later in this section.",
+      "rationale": "Contradicts item 9 of the same chapter ('take urate-lowering medication long term... even after reaching the target you cannot stop')."
+    },
+    {
+      "target": [
+        "17",
+        "ru"
+      ],
+      "issue_type": "dropped_condition",
+      "original_excerpt": "если пожилой человек тяжело утратил способность к самообслуживанию и это состояние длится полгода и дольше, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят.",
+      "mutant_text": "если пожилой человек тяжело утратил способность к самообслуживанию, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят.",
+      "rationale": "Drops the 'state lasting six months or longer' eligibility condition for long-term care insurance."
+    },
+    {
+      "target": [
+        "17",
+        "en"
+      ],
+      "issue_type": "reversed_logic",
+      "original_excerpt": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and do not leave the person lying face down for long — the face-down position produces more sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day.",
+      "mutant_text": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and leave the person lying face down for long — the face-down position produces fewer sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day.",
+      "rationale": "Pressure-sore logic reversed: face-down position is now claimed to produce fewer sores than supine, so the person is left prone."
+    },
+    {
+      "target": [
+        "20",
+        "ru"
+      ],
+      "issue_type": "softened_claim",
+      "original_excerpt": "ребёнку меньше 3 месяцев и температура 38 ℃ — идите в больницу сразу, не наблюдайте дома и не давайте сначала жаропонижающее, чтобы «подождать и посмотреть». В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно.",
+      "mutant_text": "ребёнку меньше 3 месяцев и температура 38 ℃ — если ребёнок выглядит бодрым, можно сначала понаблюдать дома и дать жаропонижающее, а в больницу идти, только если температура не спадает. В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно.",
+      "rationale": "The '<3 months + 38 ℃ → hospital immediately' rule is softened into home observation and self-medication if the baby 'looks fine'."
+    },
+    {
+      "target": [
+        "20",
+        "en"
+      ],
+      "issue_type": "added_advice",
+      "original_excerpt": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one.",
+      "mutant_text": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water, though on hot days offer a few sips of cooled boiled water between feeds to prevent dehydration — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one.",
+      "rationale": "Adds harmful advice (extra water for a <6-month-old) that directly contradicts the exclusive-breastfeeding rule of the same item."
+    },
+    {
+      "target": [
+        "22",
+        "ru"
+      ],
+      "issue_type": "subject_swapped",
+      "original_excerpt": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф от 1000 до 5000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф до 3000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый.",
+      "mutant_text": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф до 3000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф от 1000 до 5000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый.",
+      "rationale": "Sanctions reassigned between subjects: the drug-deception perpetrator gets the lighter penalty and the deceived victim the heavier one."
+    },
+    {
+      "target": [
+        "22",
+        "en"
+      ],
+      "issue_type": "cross_unit_contradiction",
+      "original_excerpt": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. For what to do when someone produces unknown powder, pills, or a cartridge in a venue, see item 3 of this section; for carrying things for other people, see item 27 of section 8.",
+      "mutant_text": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. If someone produces unknown powder, pills, or a cartridge in a venue, there is no need to leave the way item 3 tells you — just take the item and hand it to the venue staff or the police afterwards; briefly carrying things for other people, despite what item 27 of section 8 says, is harmless in practice.",
+      "rationale": "Contradicts item 3 of this chapter ('walk out on the spot') and section 8 item 27 (never carry things for others)."
+    }
+  ],
+  "controls": [
+    {
+      "target": [
+        "16",
+        "ru"
+      ],
+      "original_excerpt": "при хронической болезни важно смотреть на линию тренда, а не на отдельное значение. Дата, показатель, принимаемые в тот момент лекарства и дозы — всё в одном месте; тогда при смене больницы не придётся заново сдавать анализы и заново за них платить."
+    },
+    {
+      "target": [
+        "16",
+        "en"
+      ],
+      "original_excerpt": "if you want to try a supplement, tell your attending doctor; some interact with prescription drugs, for example by affecting blood concentrations of anticoagulants and anti-rejection drugs"
+    },
+    {
+      "target": [
+        "17",
+        "ru"
+      ],
+      "original_excerpt": "схемы, к которым подталкивают пожилых, — «оздоровительные продукты», коллекционирование, «финансовые продукты» — устроены одинаково: несколько месяцев строят доверие, а потом выкачивают всё за один раз. Договоритесь заранее: о любой трате выше условной суммы сначала сказать такому-то. Это растягивает момент оплаты, и импульс успевает погаснуть. Продать это как «мы ведём семейный бюджет под единым учётом» заметно легче, чем как «я боюсь, тебя обманут»."
+    },
+    {
+      "target": [
+        "17",
+        "en"
+      ],
+      "original_excerpt": "Do not present this as \"we're afraid you'll be scammed\" — framing it as \"unified bookkeeping for household money\" is easier to accept. Do not put all of the elderly person's money into the children's hands either; that invites a different kind of dispute."
+    },
+    {
+      "target": [
+        "20",
+        "ru"
+      ],
+      "original_excerpt": "детям до 1 года мёд не дают вообще — ни медовую воду, ни мёд, размешанный в прикорме, ни выпечку с мёдом. В мёде могут оказаться бактерии, вызывающие ботулизм: кишечная микрофлора взрослого человека их подавляет, а у младенца это не получается. То же относится к домашним соленьям и ферментированным продуктам."
+    },
+    {
+      "target": [
+        "20",
+        "en"
+      ],
+      "original_excerpt": "births in legitimate Chinese hospitals include the injection routinely, so you do not need to worry; those giving birth at home or in unregulated facilities should confirm it themselves. Oral regimens are less effective than the intramuscular shot"
+    },
+    {
+      "target": [
+        "22",
+        "ru"
+      ],
+      "original_excerpt": "в контролируемом испытании — 5 минут в день, целый месяц подряд — все три дыхательных упражнения улучшали настроение и снижали частоту дыхания сильнее, чем равная по времени медитация осознанности (mindfulness), а лучше всего показал себя «циклический вздох», где выдох растянут. Делается так: носом взять один вдох, затем добрать ещё маленький, чтобы наполнить лёгкие до конца, и медленно выдохнуть ртом до отказа. Испытание только одно и результаты — самоотчёт, но цена нулевая."
+    },
+    {
+      "target": [
+        "22",
+        "en"
+      ],
+      "original_excerpt": "9 studies, 7 countries, 8.32 million people: for every 0.1 increase in the vegetation index of greenery within 500 meters of your home, the probability of dying over the same period was about 4% lower. What was measured is the greenery around the home, not how often you visit a park, and people living in greener areas also tend to be wealthier and enjoy better air. So do not read this as \"going to the park extends your life\"; the usable part is to factor nearby green space into where you choose to live."
+    }
+  ]
+}

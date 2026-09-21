@@ -1,0 +1,96 @@
+{
+  "batch_id": "batch2",
+  "chapters": ["07", "09", "12", "14"],
+  "mutations": [
+    {
+      "target": ["07", "ru"],
+      "issue_type": "softened_claim",
+      "original_excerpt": "Центры скорой помощи и больницы не вправе отказывать, отмахиваться или тянуть с лечением тяжёлых и критических пострадавших из-за денег; за нарушение виновных накажут и обяжут исправиться.",
+      "mutant_text": "Центры скорой помощи и больницы в большинстве случаев не отказывают тяжёлым и критическим пострадавшим из-за денег, хотя гарантии этого закон не даёт.",
+      "rationale": "Softened: legal prohibition + sanction ('не вправе… накажут') weakened to a statistical tendency with no guarantee."
+    },
+    {
+      "target": ["07", "en"],
+      "issue_type": "added_advice",
+      "original_excerpt": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure.",
+      "mutant_text": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure. Apply for the replacement during off-peak morning hours to get same-day pickup.",
+      "rationale": "Added advice: fabricated same-day-pickup tip not present in the original (issuance is within 60 days; temporary card within 3 days)."
+    },
+    {
+      "target": ["09", "ru"],
+      "issue_type": "subject_swapped",
+      "original_excerpt": "И это дело публичного обвинения: полиция заводит его сама, владельцу не нужно идти в суд.",
+      "mutant_text": "И это дело публичного обвинения: владелец заводит его сам, полиции не нужно идти в суд.",
+      "rationale": "Subject swap: the actor of the publicly prosecuted case switched from police to the card owner."
+    },
+    {
+      "target": ["09", "en"],
+      "issue_type": "cross_unit_contradiction",
+      "original_excerpt": "Whichever name the loan is in, that person owns the debt and the credit record.",
+      "mutant_text": "Whichever name the loan is in, that person owns the debt and the credit record — but unlike the card-cashing jobs in item 5, fronting a loan carries no personal liability at all; only the gang answers.",
+      "rationale": "Cross-unit contradiction: appended claim that loan fronting carries no personal liability, directly contradicting item 5 of the same chapter (detention/sentences for card cashing) and item 6's own sentencing figures."
+    },
+    {
+      "target": ["12", "ru"],
+      "issue_type": "dropped_condition",
+      "original_excerpt": "не подписывайте, а если без подписи не обойтись — подписывайте только поручительство общего типа и вписывайте верхний предел суммы",
+      "mutant_text": "не подписывайте, а если без подписи не обойтись — подписывайте и вписывайте верхний предел суммы",
+      "rationale": "Dropped condition: the protective requirement 'only a general-type guarantee' is removed, making any guarantee acceptable."
+    },
+    {
+      "target": ["12", "en"],
+      "issue_type": "reversed_logic",
+      "original_excerpt": "It comes down to one line: if nobody will prepay and nobody will place a small order, don't believe \"once it's built, buyers will come.\"",
+      "mutant_text": "It comes down to one line: if nobody will prepay and nobody will place a small order, scale up production anyway — once it's built, buyers will come.",
+      "rationale": "Reversed logic: the 'sell before you build' conclusion is inverted into 'produce anyway on zero demand signals'."
+    },
+    {
+      "target": ["14", "ru"],
+      "issue_type": "softened_claim",
+      "original_excerpt": "пароль, утёкший с какого-нибудь сайта, первым делом подставляют к вашей почте",
+      "mutant_text": "пароль, утёкший с какого-нибудь сайта, изредка кто-то подставляет к вашей почте, и почти всегда это ничем не заканчивается",
+      "rationale": "Softened: 'the first thing attackers do' weakened to 'rarely, and almost never leads to anything', gutting the rationale for a unique email password."
+    },
+    {
+      "target": ["14", "en"],
+      "issue_type": "added_advice",
+      "original_excerpt": "and three wrong entries require a PUK code to unlock — write it down right after you set it",
+      "mutant_text": "and three wrong entries require a PUK code to unlock — write it down right after you set it and keep the note taped to the back of the phone so it is always at hand",
+      "rationale": "Added advice: harmful instruction to tape the SIM PIN to the phone itself, absent from the original."
+    }
+  ],
+  "controls": [
+    {
+      "target": ["07", "ru"],
+      "original_excerpt": "Станция социальной помощи бесплатно даёт еду и ночлег — сначала туда."
+    },
+    {
+      "target": ["07", "en"],
+      "original_excerpt": "When job hunting, ask whether the job covers room and board — a job that does wipes out both big items outright."
+    },
+    {
+      "target": ["09", "ru"],
+      "original_excerpt": "Долг может быть по-настоящему вашим — всё равно нельзя: в статье прямо написано, что задержание и запирание человека «для взыскания долга» — то же незаконное лишение свободы."
+    },
+    {
+      "target": ["09", "en"],
+      "original_excerpt": "if the other person is under 14, it is treated as rape with heavier punishment regardless of whether she consented, and the base sentence is 3 to 10 years."
+    },
+    {
+      "target": ["12", "ru"],
+      "original_excerpt": "никто не готов платить вперёд и делать мелкий заказ — не верьте, что «когда сделаем, покупатели придут сами»."
+    },
+    {
+      "target": ["12", "en"],
+      "original_excerpt": "\"Affordable to lose\" means that a total loss would not force you to sell your home or borrow from relatives to plug the hole."
+    },
+    {
+      "target": ["14", "ru"],
+      "original_excerpt": "Начинайте с почты: пароль любого другого аккаунта можно восстановить через неё"
+    },
+    {
+      "target": ["14", "en"],
+      "original_excerpt": "Money you were tricked into transferring yourself is a different path — see Section 8, item 2."
+    }
+  ]
+}

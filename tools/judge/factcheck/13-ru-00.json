@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "00",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Chapter intro: the section answers only what to do first, next, and what not to do in a sudden emergency.",
+      "cn_span": "突发状况下先做什么、再做什么、什么不要做",
+      "status": "ok"
+    },
+    {
+      "claim": "The two counting systems (case-fatality/survival vs money/freedom) are not converted into each other.",
+      "cn_span": "两类数字不互相换算",
+      "status": "ok"
+    },
+    {
+      "claim": "Items are ordered descending by frequency × life-death difference between right and wrong action.",
+      "cn_span": "排序按「最常见 × 做对做错的生死差别」从高到低",
+      "status": "ok"
+    },
+    {
+      "claim": "79.2% of cardiac arrests happen at home, so first-aid items primarily target self/spouse/close family.",
+      "cn_span": "心脏骤停有 79.2% 发生在家里",
+      "status": "ok"
+    },
+    {
+      "claim": "For strangers the benefit is not zero but lowest tier, with the downside of being scammed/dragged into a case; self-protection and liability waivers are written first.",
+      "cn_span": "对陌生人不是零收益，但档次最低、还带被讹和被卷进案子的一面",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

@@ -1,0 +1,45 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "06",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "During separation, long-distance relationships are even more stable — less contact, more imagined content",
+      "cn_span": "异地在分开期间反而更稳，因为见得少、想象成分高",
+      "status": "ok"
+    },
+    {
+      "claim": "The real crunch comes after moving in together",
+      "cn_span": "真正的坎在搬到一起之后",
+      "status": "ok"
+    },
+    {
+      "claim": "About half of LDR couples reached co-location, the other half ended while apart; of those who reunited, a third broke up within 3 months",
+      "cn_span": "追踪数据里约一半异地伴侣走到了同城这一步，另一半在分开期间就结束了；而重聚的这一半里，三分之一在 3 个月内分手",
+      "status": "ok"
+    },
+    {
+      "claim": "Longer gaps between meetings and rosier imagining during separation predict less post-reunion stability",
+      "cn_span": "分开时见面间隔越长、想得越美，重聚后越不稳",
+      "status": "ok"
+    },
+    {
+      "claim": "Prepare for the months after reunion: less personal space, more real knowledge of each other, more conflict and jealousy",
+      "cn_span": "要准备的是重聚后那几个月：自主空间变少、了解变多、冲突和吃醋变多",
+      "status": "ok"
+    },
+    {
+      "claim": "That stability holds only while still apart; once co-located, LDR couples break up more easily",
+      "cn_span": "但这种稳定只在双方仍然分开时成立，一旦变成同城，异地伴侣更容易分手",
+      "status": "ok"
+    },
+    {
+      "claim": "Sample: US student dating relationships, no marriage, older data — don't apply absolute proportions directly",
+      "cn_span": "样本是美国大学生的恋爱关系，不含婚姻，年代也较早，绝对比例别直接套",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

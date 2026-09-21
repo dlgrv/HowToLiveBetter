@@ -1,0 +1,30 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "00",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Chapter splits 'is marriage worth it' into separately countable accounts: money, time, health, legal risk, relationship quality",
+      "cn_span": "本节把「结婚划不划算」拆成几笔可以分开算的账：钱、时间、健康、法律风险和关系质量",
+      "status": "ok"
+    },
+    {
+      "claim": "Each account gives only numbers findable in official statistics or meta-analyses; no moral judgment, no conclusion made for the reader",
+      "cn_span": "每笔账只给官方统计或荟萃分析里能找到的数字，不做道德判断，也不替读者下结论",
+      "status": "ok"
+    },
+    {
+      "claim": "Health figures in death-risk terms, time figures in minutes per day, legal ones in statute wording; the three measures are not interconverted",
+      "cn_span": "健康类数字按死亡风险口径，时间类数字按每日分钟口径，法律类按条文口径，三者不互相换算",
+      "status": "ok"
+    },
+    {
+      "claim": "Method, fill-in checklist and common pitfalls are in the linked docs file",
+      "cn_span": "拆账方法、填空清单和常见误区见",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

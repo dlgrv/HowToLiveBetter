@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "13",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "From May 2025, registration needs only two things: your ID card plus a signed declaration of no existing spouse and no lineal or collateral kinship within three generations",
+      "cn_span": "2025 年 5 月起领证只要两样东西——本人身份证，加一份「本人无配偶、与对方没有直系血亲和三代以内旁系血亲关系」的签字声明",
+      "status": "ok"
+    },
+    {
+      "claim": "Household registry not needed and no return to either party's hukou location required",
+      "cn_span": "户口簿不用带，也不用回一方户口所在地办",
+      "status": "ok"
+    },
+    {
+      "claim": "Registration itself costs nothing; with conditions met the certificate is issued on the spot, usually in tens of minutes",
+      "cn_span": "登记本身一分钱不收，符合条件当场发证，通常几十分钟办完",
+      "status": "ok"
+    },
+    {
+      "claim": "Refuse and report any 'form fee' or 'expedited fee'",
+      "cn_span": "遇到收「工本费」「加急费」的直接拒绝并投诉",
+      "status": "ok"
+    },
+    {
+      "claim": "Four refusal grounds: under legal marriage age, not fully voluntary, one or both already married, lineal or three-generation collateral kinship",
+      "cn_span": "不予登记的四种情形是：未到法定结婚年龄、非双方完全自愿、一方或双方已有配偶、属于直系血亲或三代以内旁系血亲",
+      "status": "ok"
+    },
+    {
+      "claim": "The old rule's 'at one party's permanent hukou residence' restriction is abolished",
+      "cn_span": "旧条例里「到一方当事人常住户口所在地」的限制已经取消",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

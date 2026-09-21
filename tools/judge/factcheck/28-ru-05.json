@@ -1,0 +1,40 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "05",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "3x mortality risk vs controls and hospital-visit median 0.81 vs 0.36 per year — conveyed in RU.",
+      "cn_span": "死亡风险是对照组的 3 倍，每年跑医院的次数中位数 0.81 次对 0.36 次",
+      "status": "ok"
+    },
+    {
+      "claim": "Acne, gynecomastia and erectile dysfunction each affect more than a tenth of users; replication on another cohort gives the same result — conveyed in RU.",
+      "cn_span": "痤疮、男性乳房发育、勃起功能障碍各有超过一成的人中招，用另一批人复核结果一样",
+      "status": "ok"
+    },
+    {
+      "claim": "In China these drugs are prescription-only and on the doping list — conveyed in RU.",
+      "cn_span": "这类药在中国是处方药，同时列在兴奋剂目录里",
+      "status": "ok"
+    },
+    {
+      "claim": "Illegal production, sale, import and export are prohibited for any person or organization; therefore any channel that can sell to you is already breaking the law, and nobody guarantees the contents — conveyed in RU.",
+      "cn_span": "任何单位和个人非法生产、销售、进出口都是违法的——所以能卖给你的渠道，本身就在违法，药是不是真的也没人保证",
+      "status": "ok"
+    },
+    {
+      "claim": "Caveat: observational cohort, users may be risk-prone in other ways, the 3x figure cannot be fully attributed to the drug; wide CI acknowledged — preserved in RU.",
+      "cn_span": "这是观察性队列，用药的人本身可能在其他方面也更冒险，3 倍这个数不能全算到药头上",
+      "status": "ok"
+    },
+    {
+      "claim": "Ordinary protein powder and creatine are out of scope; the problem is products promising especially fast muscle gain with possible illegal additives — preserved in RU.",
+      "cn_span": "普通蛋白粉、肌酸不在本条范围内，问题出在「宣称增肌效果特别快」的产品可能非法添加",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

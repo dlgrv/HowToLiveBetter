@@ -1,0 +1,30 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "18",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:09:26Z",
+  "assertions": [
+    {
+      "claim": "Alarm sounds or the whole room sickens at once → get everyone outside first, then call.",
+      "cn_span": "一屋子人同时头痛、恶心、发晕，先把人都带到室外，再打电话",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't stay inside to find the cause and don't return to close the valve.",
+      "cn_span": "别留在屋里找原因，也别回去关阀门",
+      "status": "ok"
+    },
+    {
+      "claim": "Symptoms resemble both a cold and drunkenness; 'better outdoors' is the strongest sign.",
+      "cn_span": "症状像感冒又像喝多了，「出门就好转」是最强的提示",
+      "status": "ok"
+    },
+    {
+      "claim": "US: 400+ deaths/year from non-fire unintentional CO poisoning, 100k+ ED visits, 14k+ hospitalizations.",
+      "cn_span": "美国每年 400 多人死于与火灾无关的意外一氧化碳中毒，10 万人以上进急诊、1.4 万人以上住院",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

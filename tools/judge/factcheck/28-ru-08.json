@@ -1,0 +1,40 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "08",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Pooled over 33 studies, 15.04% of plastic-surgery candidates meet body dysmorphic disorder criteria — conveyed in RU.",
+      "cn_span": "去做整形手术的人里有 15.04% 符合躯体变形障碍",
+      "status": "ok"
+    },
+    {
+      "claim": "BDD described as a defect others barely notice magnified until it disrupts life — conveyed in RU.",
+      "cn_span": "就是把一个别人基本看不出来的缺陷放大到影响生活",
+      "status": "ok"
+    },
+    {
+      "claim": "Surgery changes the face but not the checking-dissatisfaction loop, easily leading to one operation after another — conveyed in RU.",
+      "cn_span": "手术改的是脸，不改那个「反复检查、反复不满意」的循环，就容易一台接一台做下去",
+      "status": "ok"
+    },
+    {
+      "claim": "Authors recommend plastic surgeons and dermatologists actively assess, identify high-risk individuals and arrange multidisciplinary care — conveyed in RU.",
+      "cn_span": "作者建议整形外科医师与皮肤科医师主动评估、识别高风险者并安排多学科处理",
+      "status": "ok"
+    },
+    {
+      "claim": "The item does not claim cosmetic-medicine seekers are psychologically troubled — the vast majority are not; it targets the small repeating, persistent, life-impairing group whom surgery does not help — conveyed in RU.",
+      "cn_span": "本条不是说想做医美的人有心理问题，绝大多数不是",
+      "status": "ok"
+    },
+    {
+      "claim": "Orientation cues: long daily checking or hiding of one area, avoiding social contact or photos, moving to the next spot after finishing one — conveyed in RU.",
+      "cn_span": "一天里花很长时间检查或遮挡某个部位、因此回避社交或拍照、做完一处又盯上下一处",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

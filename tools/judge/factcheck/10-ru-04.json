@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "04",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Across 29 labs and 43 couples datasets, the strongest predictors of relationship quality are the participants' own feelings",
+      "cn_span": "29 个实验室、43 份配对追踪数据的分析里，最能说明关系好不好的全是当事人自己的感受",
+      "status": "ok"
+    },
+    {
+      "claim": "Perceived partner commitment, appreciation, sexual satisfaction, perceived partner satisfaction, conflict — not the partner's traits",
+      "cn_span": "感觉到对方的承诺、欣赏、性满意度、感觉到对方满意、冲突多不多，而不是对方的条件",
+      "status": "ok"
+    },
+    {
+      "claim": "Self-reports predicted quality two to four times better than partner reports",
+      "cn_span": "自己报告的这些东西，预测力是伴侣报告的二到四倍",
+      "status": "ok"
+    },
+    {
+      "claim": "Whether the relationship improves or worsens over time is nearly impossible to compute from any self-report questionnaires",
+      "cn_span": "这段关系往后是变好还是变坏，用任何自陈问卷都基本算不出来",
+      "status": "ok"
+    },
+    {
+      "claim": "Relationship variables explained up to 45% of variance at baseline and up to 18% at study end",
+      "cn_span": "关系变量能解释基线时最多 45% 的方差，研究结束时最多 18%",
+      "status": "ok"
+    },
+    {
+      "claim": "To judge the current relationship, asking your own feelings beats checking a partner-trait checklist; don't count on predicting its future",
+      "cn_span": "判断当下这段关系好不好，问自己的感受比核对对方的条件清单准；但别指望能预测它以后会怎样",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

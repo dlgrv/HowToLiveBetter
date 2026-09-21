@@ -1,0 +1,45 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "20",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:09:26Z",
+  "assertions": [
+    {
+      "claim": "Step 1: immediately remove soaked clothing and shoes — damage is worst where clothing pressed.",
+      "cn_span": "立刻脱掉沾上的衣服鞋袜（衣服兜住的地方伤得最重）",
+      "status": "ok"
+    },
+    {
+      "claim": "Flush skin and eyes at least 15 min per the CDC institute, 20–30 min per the Hunan emergency-management document — take the longer.",
+      "cn_span": "皮肤和眼睛都至少 15 分钟，另一份官方口径给到 20 到 30 分钟，就长的那个",
+      "status": "ok"
+    },
+    {
+      "claim": "Eyes flushed with lids held apart, then straight to ophthalmology; never rub.",
+      "cn_span": "眼睛撑开眼皮冲，冲完直接去眼科",
+      "status": "ok"
+    },
+    {
+      "claim": "Room-temp or slightly warm water, never hot; nothing on the fresh wound; no cross-neutralizing acid with alkali (Hunan's 'neutralizing solution' is a pre-stocked dedicated rinse).",
+      "cn_span": "用常温或微温水，不用热水；创面上别涂任何东西，也别拿另一种酸碱去中和",
+      "status": "ok"
+    },
+    {
+      "claim": "Workplace cases go as occupational disease and work injury; employer bears treatment and examination costs.",
+      "cn_span": "工作中发生的按职业病和工伤走，救治和检查费用由单位承担",
+      "status": "ok"
+    },
+    {
+      "claim": "Dry powders like lime and cement dust are brushed off first, then flushed; the book deliberately omits the contested concentrated-sulfuric-acid variant.",
+      "cn_span": "石灰粉、水泥粉这类干粉先刷掉再冲水",
+      "status": "ok"
+    },
+    {
+      "claim": "On the first workday, locate eyewash stations and showers in advance — don't search after the accident.",
+      "cn_span": "上岗第一天就把洗眼器和冲淋装置的位置看好",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

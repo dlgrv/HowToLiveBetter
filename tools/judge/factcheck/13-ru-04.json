@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "04",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Of 736 strokes, 14.1% had neither facial droop nor arm weakness — the three FAST signs alone would have missed them.",
+      "cn_span": "736 例卒中里有 14.1% 一开始既不歪嘴也不瘫手",
+      "status": "ok"
+    },
+    {
+      "claim": "Adding unsteadiness/double vision/missing field cut reduces missed strokes to 4.4% (Kentucky stroke center 2014 review).",
+      "cn_span": "漏掉的降到 4.4%",
+      "status": "ok"
+    },
+    {
+      "claim": "Nose-finger ataxia and closed-eye instability are cerebellar signs, but no maneuver reversely excludes stroke.",
+      "cn_span": "指鼻不准、闭眼站不住是小脑受累的体征，但没有哪一个动作能反过来排除卒中",
+      "status": "ok"
+    },
+    {
+      "claim": "Posterior-circulation infarcts are most often mistaken for cervical spondylosis, hypoglycemia, or BPPV, losing time.",
+      "cn_span": "最容易被当成颈椎病、低血糖、耳石症耽误",
+      "status": "ok"
+    },
+    {
+      "claim": "The study is a single-center retrospective analysis; the authors themselves note prospective validation is needed.",
+      "cn_span": "该研究是单中心回顾性分析，作者自己写明需要前瞻验证",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}
