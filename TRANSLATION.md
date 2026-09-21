@@ -153,3 +153,49 @@ Match the original: restrained, no exclamation marks, no moralizing, verb-first 
 ## China-context disclaimer
 Chapters 8, 9, 11, 15, 19, 25, 26, 31 (and any other chapter citing Chinese law) get one extra line under the heading:
 "Chapter X cites Chinese laws and institutions; for readers outside China it is reference material, not applicable law." (RU equivalent.)
+
+## Spanish (ES) — conventions
+
+Applies to `book/es/` and `docs/es/`. Status, keep-untouched, tone and
+China-context rules above are identical; field labels differ.
+
+### ES field labels (verified in verify.py / assemble_es.py / index.html)
+
+- 成本 → `- Costo: `
+- 说人话 → `- En términos sencillos: `
+- 收益 → `- Beneficio: `
+- 证据等级 → `- Nivel de evidencia: A/B/C`
+- 来源 → `- Fuentes: ` (injected byte-for-byte by assemble_es.py)
+- 备注 → `- Notas: `
+- Dispute marker in Notas: starts with `En disputa` (web UI badge)
+- TODO marker: `por verificar` (web UI badge)
+
+### ES file naming
+
+`NN-Title-Slug.md`, Spanish Title-Case, e.g. `01-No-Mueras-Temprano.md`
+(final slugs recorded in README.es.md table of contents; the table links
+`book/es/NN-…`).
+
+### ES numbers (verify gate folds scale words into values)
+
+- Space as thousands separator: `248 099`; decimal comma: `17,4`
+- 万 → ×10 000 (`6,4 万` → `64 000`), 亿 → ×10⁸, 千 → ×1 000
+- Percentages and mg/ml/°C units pass through unchanged
+- Never `mil millones` — write digits for ≥10⁹ (`3,2 亿` → `320 000 000`)
+- Time windows keep values (`72 horas`, `4,5 horas`)
+
+### ES style
+
+- Neutral international Spanish (es-419-compatible), no regional slang, no exclamation marks
+- Live prose, not calque; no HR/RR/OR/CI/queue jargon inside `En términos sencillos`
+- Chinese legal/medical identifiers keep hanzi + short Spanish gloss on first use: `《民法典》 (Código Civil)`
+- Emergency numbers keep Chinese values in place; Spanish/RU/US equivalents only as a Notas gloss
+- Sources are never translated (injected byte-for-byte)
+
+### ES rollout status
+
+- Infrastructure: verify.py `--lang es`, assemble_es.py, web UI (I18N dict,
+  parser, /es/ page via build_pages.py), README.es.md scaffold, soft parity
+  in tools/check_content.py — landed 2026-09-21 (branch translation/es-w1)
+- Pilot: chapters 01 + 13 (write-first subagents, workdirs /root/htlb-run-es/{01,13})
+- Waves: chapters 02–12, 14–32 (5–6 per wave), then 4 docs articles in docs/es/
