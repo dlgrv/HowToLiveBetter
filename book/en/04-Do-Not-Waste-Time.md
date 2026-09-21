@@ -1,4 +1,4 @@
-[← Back to main contents](../README.md)
+[← Back to main contents](../../README.md)
 
 # 4. Don't Waste Time
 

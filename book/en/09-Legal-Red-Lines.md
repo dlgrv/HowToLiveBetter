@@ -1,4 +1,4 @@
-[← Back to the main table of contents](../README.md)
+[← Back to the main table of contents](../../README.md)
 
 # 9. Legal red lines that ordinary people easily trip over
 

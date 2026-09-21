@@ -1,4 +1,4 @@
-[← Back to the main table of contents](../README.md)
+[← Back to the main table of contents](../../README.md)
 
 # 16. How to Live After a Chronic Disease Diagnosis
 

@@ -1,4 +1,4 @@
-[← Back to master table of contents](../README.md)
+[← Back to master table of contents](../../README.md)
 
 # 22. How to relax: entertainment venues and stress relief
 

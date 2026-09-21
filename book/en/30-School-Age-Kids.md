@@ -1,4 +1,4 @@
-[← Back to the main table of contents](../README.md)
+[← Back to the main table of contents](../../README.md)
 
 # 30. Children Once They Start School
 

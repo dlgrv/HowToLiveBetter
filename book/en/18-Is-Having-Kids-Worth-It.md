@@ -1,4 +1,4 @@
-[← Back to main contents](../README.md)
+[← Back to main contents](../../README.md)
 
 # 18. Does Raising a Child Pay Off
 

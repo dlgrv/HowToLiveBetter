@@ -1,4 +1,4 @@
-[← Back to main table of contents](../README.md)
+[← Back to main table of contents](../../README.md)
 
 # 20. How to care for a newborn
 

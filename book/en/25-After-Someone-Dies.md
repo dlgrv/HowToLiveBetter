@@ -1,4 +1,4 @@
-[← Back to the main table of contents](../README.md)
+[← Back to the main table of contents](../../README.md)
 
 # 25. What needs to be done after a person dies
 
