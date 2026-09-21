@@ -18,9 +18,9 @@
     var p = new URLSearchParams(location.search);
     var saved = localStorage.getItem('htlb-lang');
     var nav = (navigator.language || '').toLowerCase();
-    var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
+    var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : null;
     var lang = p.get('lang') || saved || sys || 'en';
-    if (['ru','zh','en'].indexOf(lang) < 0) lang = 'en';
+    if (['ru','zh','en','es'].indexOf(lang) < 0) lang = 'en';
     var prefix = segs.length ? '/' + segs.join('/') + '/' : '/';
     location.replace(prefix + lang + '/' + location.search + location.hash);
   } catch (e) {}
@@ -113,7 +113,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:var(--t3);stroke-width:2;pointer-events:none}
 .search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--font);color:var(--t3);border:1px solid var(--divider);border-radius:4px;padding:3px 6px;background:var(--bg-elv);pointer-events:none}
 .nav-r{display:flex;align-items:center;gap:8px}
-.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s}
+.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s;flex:0 0 auto}
 .icon-btn:hover{background:var(--bg-soft);color:var(--t1)}
 .icon-btn svg{width:20px;height:20px}
 /* кнопка темы вместо ползунка (v1 тоже): луна в светлой, солнце в тёмной */
@@ -121,7 +121,7 @@ mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
 /* переключатель версий: виден и в v1, и в v2 */
-.ver-btn{display:grid!important}
+@media (min-width:961px){.ver-btn{display:grid!important}}
 /* старый ползунок темы больше не используется */
 .switch{display:none!important}
 .menu-btn{display:none}
@@ -218,8 +218,11 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   .nav-in{padding:0 calc((var(--nav-h) - 36px) / 2);gap:10px}
   .title span{display:none}
   .search{max-width:none}
+  .search input{padding-right:16px}
   .search kbd{display:none}
   .menu-btn{display:grid}
+  .ver-btn{display:none}
+  .ic-doc{display:none}
   .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:none;padding:24px 24px 96px;width:min(var(--side-w),86vw)}
   .sidebar.open{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
   .backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:15;opacity:0;pointer-events:none;transition:opacity .25s}
@@ -277,6 +280,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
         <div class="lang-menu" role="menu">
           <button role="menuitem" data-lang="ru">Русский</button>
           <button role="menuitem" data-lang="en">English</button>
+          <button role="menuitem" data-lang="es">Español</button>
           <button role="menuitem" data-lang="zh">中文</button>
         </div>
       </details>
@@ -390,10 +394,10 @@ try {
   else {
     const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
     const nav=(navigator.language||'').toLowerCase();
-    const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
+    const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : null;
     LANG = p.get('lang') || saved || sys || 'en';
   }
-  if(!['ru','zh','en'].includes(LANG)) LANG='en';
+  if(!['ru','zh','en','es'].includes(LANG)) LANG='en';
 } catch(e){}
 window.__HTLB_BASE__ = window.__HTLB_BASE__ || '';
 let BOOK_FILES = 0;
@@ -409,14 +413,14 @@ function fileCountPhrase(n){
 if (window.__HTLB_BASE__) { const _f=window.fetch; window.fetch=(u,o)=> _f(typeof u==='string' && !/^([a-z]+:|\/|\.\.\/)/i.test(u) ? window.__HTLB_BASE__+u : u, o); }
 window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){}
   const suffix = location.search + location.hash;
-  let p = location.pathname.replace(/\/(ru|en|zh)(?=\/|$)/, '/' + l);
+  let p = location.pathname.replace(/\/(ru|en|zh|es)(?=\/|$)/, '/' + l);
   if (!p.endsWith('/')) p += '/';
   location.href = p + suffix;
 };
 
 /* ---------- i18n static UI ---------- */
 const I18N = {
- ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям',
+ ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям', searchShort:'Поиск',
    noscriptH:'Пособие по выгодной жизни',
    noscriptP:'Русский перевод книги HowToLiveBetter (高性价比人生指南): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.',
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.',
@@ -453,7 +457,7 @@ const I18N = {
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
    about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
- en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations',
+ en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations', searchShort:'Search',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
    noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="../../README.md">README.md</a> (table of contents) and the <a href="../../book/en/">book/en/</a> directory.',
@@ -490,7 +494,44 @@ const I18N = {
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
    about:['health','longevity','personal finance','first aid','law','consumer protection'] },
- zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议',
+   es:{ htmlLang:'es', title:'Guía de la vida al mejor precio', search:'Busca en las recomendaciones', searchShort:'Buscar',
+   noscriptH:'Guía de la vida al mejor precio',
+   noscriptP:'Traducción al español de HowToLiveBetter (高性价比人生指南): 31 secciones; cada recomendación indica su costo, beneficio, nivel de evidencia y fuente primaria.',
+   noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../../README.es.md">README.es.md</a> (índice) y el directorio <a href="../../book/es/">book/es/</a>.',
+   docHead:'Cada recomendación responde a dos preguntas: qué cuesta — y qué devuelve.',
+   docHead2:'A quién llega el beneficio también está por niveles: primero tú mismo, luego tu cónyuge y la familia directa, después amigos y colegas; los extraños van al final. «Final» no significa «cero»: la probabilidad de retorno es menor y hay que sopesar los riesgos junto con el beneficio.',
+   fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta la traducción —', fbStar:'dale una estrella al repositorio',
+   shown:'Mostrando', of:'de', loading:'Cargando el texto…',
+   empty:'No se encontró nada. Quita uno de los filtros o prueba con una búsqueda más corta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
+   sections:'Secciones', ratioH:'Beneficio / costos', ratioS:'Juicio del autor, comparable solo dentro de una misma categoría',
+   lensH:'Qué obtienes', lensS:'Las categorías no se comparan entre sí',
+   gradeH:'Evidencia', gradeS:'Metanálisis/ECR · hay estudios · consenso', gradeA:'Nivel A', gradeB:'Nivel B', gradeC:'Nivel C',
+   moneyH:'Dinero', timeH:'Tiempo', willH:'Voluntad',
+   money0:'Gratis', moneyL:'Poco', moneyM:'Mucho', timeL:'Al momento', timeM:'Unas horas', timeH2:'A diario', willN:'No hace falta', willS:'Un poco', willB:'Bastante',
+   fDispute:'solo controvertidas', fTodo:'solo sin verificar',
+   hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
+   hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
+   hint3:'Los datos vienen del directorio <a href="../../book/es/">book/es/</a> ({n}); edita el texto allí.',
+   foot:'La categoría del beneficio se indica en cada entrada (mortalidad / tiempo y energía / dinero / protección y libertad personal); las categorías no se comparan entre sí. Verificación de fuentes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (en chino)</a>. El texto es de dominio público (Unlicense).',
+   kCost:'Costo', kGain:'Beneficio', kNote:'Notas', src:'Fuentes', anchor:'Enlace a esta entrada',
+   ratioBadge:'Beneficio/costos', ratioTitle:'Juicio del autor: a partir del nivel del efecto', gradeBadge:'Evidencia', dispute:'En disputa', todo:'Tiene sin verificar',
+   ratio:{'极高':'Muy alta','高':'Alta','一般':'Normal'},
+   lens:{'死亡率':'Vida','金钱':'Dinero','时间':'Tiempo y energía','自由':'Libertad'},
+   moneyL2:{'0':'Gratis','少':'Gasto pequeño','多':'Gasto notable'},
+   timeL2:{'少':'Al momento','中':'Unas horas','多':'A diario'},
+   willL2:{'否':'Sin esfuerzo','些':'Un poco de esfuerzo','是':'Esfuerzo serio'},
+   ratioFull:'Beneficio/costos: ', gradeFull:'Evidencia: ',
+   errFile:'Esta página solo se abre por http. Ejecuta <code>python -m http.server</code> en el directorio del repositorio y abre <code>http://localhost:8000/</code>, o usa la dirección de GitHub Pages.',
+   errLoad:(m)=>`No se pudo cargar el texto (${m}). Asegúrate de que el README y el directorio book/ estén junto a index.html.`,
+   cap:true,
+   allSections:'Secciones',
+   readmeHref:'README.es.md', readmeTitle:'Abrir README',
+   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma', verTitle:'Versión antigua del sitio', verTitle2:'Versión nueva del sitio',
+   metaDesc:'Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
+   keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
+   author:'HowToLiveBetter (traducción al español)',
+   about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'] },
+   zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../../README.zh.md">README.zh.md</a>（目录）与 <a href="../../book/">book/</a> 目录。',
@@ -533,7 +574,14 @@ function applyI18n(){
   const t=T(); document.documentElement.lang=t.htmlLang;
   document.title=t.title;
   document.querySelectorAll('a.title span:last-child').forEach(el=>{ el.textContent=t.title; });
-  document.getElementById('q').placeholder=t.search; document.getElementById('q').setAttribute('aria-label',t.search);
+  const qEl=document.getElementById('q');
+  const shortPh=window.matchMedia('(max-width:960px)').matches;
+  qEl.placeholder=shortPh?(t.searchShort||t.search):t.search;
+  qEl.setAttribute('aria-label',t.search);
+  if(!window.__htlbPhMql){ // attach once, not per applyI18n call
+    window.__htlbPhMql=window.matchMedia('(max-width:960px)');
+    window.__htlbPhMql.addEventListener('change',e=>{ const tt=T(); qEl.placeholder=e.matches?(tt.searchShort||tt.search):tt.search; });
+  }
   const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
   const dh=document.querySelector('.doc-head');
   dh.querySelector('h1').textContent=t.title;
@@ -670,20 +718,20 @@ function parseReadme(md){
       continue;
     }
     if (entry){
-      if ((m = /^- (?:成本|Стоимость|Cost)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами|In plain terms)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:收益|Эффект|Benefit)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
-      else if ((m = /^- (?:来源|Источники|Sources)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания|Notes)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      if ((m = /^- (?:成本|Стоимость|Cost|Costo)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|In plain terms|En términos sencillos)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Benefit|Beneficio)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade|Nivel de evidencia)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Sources|Fuentes)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notes|Notas)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
   }
   flush();
   for (const s of sections) for (const e of s.entries){
-    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
-    e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
+    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : LANG==='es' ? /^\s*(争议|En disputa|Controvertido)/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
+    e.todo = /待核实|TODO|to be verified|por verificar/i.test(e.src + e.gain + e.note + e.cost);
     e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);
     e.ratio = e.level === '大' ? (e.cs === 0 ? '极高' : (e.cs <= 2 ? '高' : '一般'))
             : e.level === '中' ? (e.cs === 0 ? '高' : '一般') : '一般';
@@ -1048,9 +1096,9 @@ function wire(){
   const vb = document.getElementById('ver-switch');
   if (vb) vb.addEventListener('click', () => {
     const q = location.search + location.hash;
-    const lang = (location.pathname.match(/\/(ru|en|zh)(?=\/|$)/) || [])[1] || LANG;
+    const lang = (location.pathname.match(/\/(ru|en|zh|es)(?=\/|$)/) || [])[1] || LANG;
     let root = location.pathname.replace(/\/index\.html$/, '/');
-    root = root.replace(/\/(v1|v2)\/(ru|en|zh)\/?$/, '/').replace(/\/(ru|en|zh)\/?$/, '/');
+    root = root.replace(/\/(v1|v2)\/(ru|en|zh|es)\/?$/, '/').replace(/\/(ru|en|zh|es)\/?$/, '/');
     if (!root.endsWith('/')) root += '/';
     location.href = window.__HTLB_V2__
       ? (root + 'v1/' + lang + '/' + q)
@@ -1065,7 +1113,7 @@ function wire(){
   status.textContent = T().loading;
   try {
     if (location.protocol === 'file:') throw new Error('file');
-    const data = {ru:'README.ru.md', en:'README.md', zh:'README.zh.md'}[LANG];
+    const data = {ru:'README.ru.md', en:'README.md', es:'README.es.md', zh:'README.zh.md'}[LANG];
     const r = await fetch(data, {cache:'no-cache'});
     if (!r.ok) throw new Error('http '+r.status);
     const md = await r.text();
