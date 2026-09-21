@@ -188,7 +188,7 @@ def main():
 <div class="var v2"><div class="lab">ВАРИАНТ 2</div><div class="txt">{d2}</div></div>
 </div>'''
 
-    batches = [pairs[:10], pairs[10:]]
+    batches = [pairs[i:i+10] for i in range(0, len(pairs), 10)] or [[]]
     cards = []
     for bi, batch in enumerate(batches, 1):
         cards.append(f'<h2 id="b{bi}">Батч {bi} из {len(batches)}</h2>')
