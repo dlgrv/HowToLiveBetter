@@ -1,5 +1,16 @@
 {
-  "marks": {},
+  "marks": {
+    "g24": "a_first",
+    "g28": "a_first",
+    "g30": "tie",
+    "g33": "b_second",
+    "g35": "b_second",
+    "g37": "b_second",
+    "g38": "a_first",
+    "g40": "b_second",
+    "g43": "a_first",
+    "g48": "tie"
+  },
   "received": [
     {
       "batch": 1,
@@ -32,6 +43,32 @@
         "g22": "1",
         "g23": "1"
       }
+    },
+    {
+      "batch": 2,
+      "at": "2026-09-21T18:14:03",
+      "marks_raw": {
+        "g24": "1",
+        "g28": "1",
+        "g30": "=",
+        "g33": "2",
+        "g35": "2",
+        "g37": "2",
+        "g38": "1",
+        "g40": "2",
+        "g43": "1"
+      },
+      "missing": [
+        "g48"
+      ]
+    },
+    {
+      "batch": 2,
+      "at": "2026-09-21T18:14:52",
+      "marks_raw": {
+        "g48": "="
+      },
+      "note": "completion of batch 2"
     }
   ]
 }
