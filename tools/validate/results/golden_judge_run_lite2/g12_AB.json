@@ -1,0 +1,9 @@
+{
+  "pair_id": "g12",
+  "order": "AB",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "```json\n{\n  \"winner\": \"tie\",\n  \"reason\": \"The overlapping prose is word-for-word identical and equally fluent; the only difference is extra content in Variant 1, which is outside the language-quality criteria.\"\n}\n```",
+  "latency_s": 17.9,
+  "model": "glm-5.3-flash"
+}

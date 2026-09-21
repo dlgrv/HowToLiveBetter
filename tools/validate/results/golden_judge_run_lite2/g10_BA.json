@@ -1,0 +1,9 @@
+{
+  "pair_id": "g10",
+  "order": "BA",
+  "winner_raw": "1",
+  "decoded": "b",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 keeps the plain-terms line clean and idiomatic, while Variant 2's added 'do not expect it to rule out every pneumonia' is a slightly awkward, less natural collocation.\"\n}\n```",
+  "latency_s": 42.7,
+  "model": "glm-5.3-flash"
+}

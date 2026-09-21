@@ -1,0 +1,9 @@
+{
+  "pair_id": "g51",
+  "order": "BA",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "{\n  \"winner\": \"tie\",\n  \"reason\": \"The two variants are textually identical, so their Russian phrasing, rhythm, and clarity are exactly the same.\"\n}",
+  "latency_s": 21.5,
+  "model": "glm-5.3-flash"
+}

@@ -1,0 +1,9 @@
+{
+  "pair_id": "g09",
+  "order": "BA",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "{\"winner\": \"tie\", \"reason\": \"The two variants are textually identical, so their naturalness, word order, and clarity are exactly equal.\"}",
+  "latency_s": 6.0,
+  "model": "glm-5.3-flash"
+}

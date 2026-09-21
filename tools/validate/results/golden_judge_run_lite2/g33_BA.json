@@ -1,0 +1,9 @@
+{
+  "pair_id": "g33",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads as natural, direct prose, while Variant 1 is weighed down by stilted bureaucratese ('in the event that', 'it should be noted that', 'the aforementioned requests', 'the exception is constituted by those cases', 'such rights as the inspecting, the copying') that is especially jarring under a heading promising plain terms.\"\n}\n```",
+  "latency_s": 10.7,
+  "model": "glm-5.3-flash"
+}

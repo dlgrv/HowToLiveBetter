@@ -1,0 +1,9 @@
+{
+  "pair_id": "g10",
+  "order": "AB",
+  "winner_raw": "2",
+  "decoded": "b",
+  "reply": "```json\n{\"winner\": \"2\", \"reason\": \"Variant 2 stays uniformly idiomatic, while Variant 1 adds slightly awkward phrasing like 'do not expect it to rule out every pneumonia' and 'does not make pneumonia impossible'.\"}\n```",
+  "latency_s": 35.3,
+  "model": "glm-5.3-flash"
+}

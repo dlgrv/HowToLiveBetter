@@ -1,0 +1,9 @@
+{
+  "pair_id": "g23",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads as direct, natural Russian, while Variant 1 is burdened with канцелярит and passive constructs («производится перезвон», «в рамках осуществления защиты», «находится в зависимости»).\"\n}\n```",
+  "latency_s": 11.3,
+  "model": "glm-5.3-flash"
+}

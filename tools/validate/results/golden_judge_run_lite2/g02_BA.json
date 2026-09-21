@@ -1,0 +1,9 @@
+{
+  "pair_id": "g02",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "{\"winner\": \"2\", \"reason\": \"Variant 2 delivers the same content in lean, natural prose, while Variant 1 pads it with redundancy and канцелярит ('данное действие', 'в стандартном установленном порядке', 'если изложить суть данного положения простым и доступным языком', 'следует помнить и иметь в виду').\"}",
+  "latency_s": 27.7,
+  "model": "glm-5.3-flash"
+}

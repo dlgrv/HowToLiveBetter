@@ -1,0 +1,9 @@
+{
+  "pair_id": "g22",
+  "order": "BA",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "{\"winner\": \"tie\", \"reason\": \"The variants are identical except for a small extra passage in Variant 2 that is just as fluent and natural as the surrounding text, so neither reads better as native Russian.\"}",
+  "latency_s": 39.5,
+  "model": "glm-5.3-flash"
+}

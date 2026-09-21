@@ -1,0 +1,9 @@
+{
+  "pair_id": "g17",
+  "order": "AB",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "```json\n{\n  \"winner\": \"tie\",\n  \"reason\": \"The two variants are textually identical in every line, so there is no language-quality difference to judge.\"\n}\n```",
+  "latency_s": 9.5,
+  "model": "glm-5.3-flash"
+}
