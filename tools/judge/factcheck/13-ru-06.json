@@ -1,0 +1,30 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "06",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Chest pressure/tightness/pain lasting over 15 minutes unrelieved → call 120.",
+      "cn_span": "超过 15 分钟不缓解，打 120",
+      "status": "ok"
+    },
+    {
+      "claim": "Door-to-balloon ≤55 min: 30-day mortality 2.8% (5/178); >55 min: 9.7% (15/155) — Israeli national ACS survey, STEMI.",
+      "cn_span": "到院后 55 分钟内做上球囊扩张的，30 天内死亡 2.8%，超过 55 分钟的 9.7%",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't drive yourself; losing consciousness on the road is a second accident.",
+      "cn_span": "别自己开车，路上失去意识就是第二场事故",
+      "status": "ok"
+    },
+    {
+      "claim": "In diabetics and the elderly pain may be absent, only shortness of breath; pain can masquerade as abdominal/back/jaw pain or left-arm numbness.",
+      "cn_span": "糖尿病人和老年人可能不痛只喘",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

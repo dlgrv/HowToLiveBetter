@@ -1,0 +1,37 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "00",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "The section collects body-modifying practices (starving, pills, injections, surgery); RU intro lists them faithfully.",
+      "cn_span": "本节收的是「为了改变外形而对身体动手」的做法：饿、吃药、打针、开刀",
+      "status": "ok"
+    },
+    {
+      "claim": "Decisions mostly arise from comparing oneself with others, the cost falls entirely on the person, and a large share of consequences is irreversible — all conveyed in RU.",
+      "cn_span": "决定多半来自和别人比较，代价却全落在自己身上，而且相当一部分不可逆",
+      "status": "ok"
+    },
+    {
+      "claim": "The section does not judge anyone's wish to change their appearance — preserved in RU.",
+      "cn_span": "本节不评价任何人想把自己变成什么样子——那是各人自己的事",
+      "status": "ok"
+    },
+    {
+      "claim": "The section answers exactly one question: how much risk differs between the qualified path and the online/salon/self-dosing path — both framings preserved in RU.",
+      "cn_span": "走「有处方、有资质、有复查」的路，和走「网购、美容院、自己加量」的路，风险差多少",
+      "status": "ok"
+    },
+    {
+      "claim": "Health outcomes are the main criterion, and the two medical-cosmetology items also involve criminal liability for unlicensed practice — preserved in RU.",
+      "cn_span": "口径以健康终点为主，医美那两条同时涉及非法行医的刑事责任",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": [
+    "RU adds a translator's preface (glosses for 医美 and 主诊医师资格) and a standalone line that the chapter references Chinese laws and is reference-only outside China; both are translator/edition meta-notes without a CN counterpart, not judged as added_advice."
+  ]
+}

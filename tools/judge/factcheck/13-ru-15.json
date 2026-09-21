@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "15",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:08:19Z",
+  "assertions": [
+    {
+      "claim": "Clear hard objects around, lay the person on the side face down, time the seizure on a watch.",
+      "cn_span": "把周围的硬东西挪开，让他侧躺、嘴朝下，看表记时间",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't hold them down, don't pry the jaw, don't put anything in the mouth — it only damages teeth and jaw.",
+      "cn_span": "别按住他、别掰嘴、别往嘴里塞东西，那只会弄伤牙齿和下颌",
+      "status": "ok"
+    },
+    {
+      "claim": "Ambulance needed: seizure >5 min, immediate repeat, unresponsive or breathing poorly, in water, or first-ever seizure.",
+      "cn_span": "超过 5 分钟不停、停了很快又发作、发作后叫不醒或呼吸困难、在水里发作、这是头一次发作，都要叫救护车",
+      "status": "ok"
+    },
+    {
+      "claim": "Give water only after the person is fully alert (CDC first-aid quotes preserved).",
+      "cn_span": "Don't offer water or food until they are fully alert",
+      "status": "ok"
+    },
+    {
+      "claim": "For strangers the same actions are a tier lower in benefit but impose no liability (Civil Code art. 184).",
+      "cn_span": "对陌生人做同样的动作收益档次低一些，但也不会让你担责",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

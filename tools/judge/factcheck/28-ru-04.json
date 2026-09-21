@@ -1,0 +1,47 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "04",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Sibutramine is the most commonly detected illegal additive in such products — conveyed in RU.",
+      "cn_span": "这类产品里最常查出的违法添加成分是西布曲明",
+      "status": "ok"
+    },
+    {
+      "claim": "SCOUT: near-10,000 subjects, mean 3+ years; non-fatal MI ~30% higher, non-fatal stroke ~36% higher on sibutramine — conveyed in RU.",
+      "cn_span": "一项近万人、平均吃三年多的试验里，吃药的人非致死性心梗高约三成，非致死性中风高约三成六",
+      "status": "ok"
+    },
+    {
+      "claim": "Only 1.7 kg extra weight loss over 3+ years — conveyed in RU.",
+      "cn_span": "而三年多只多减了 1.7 公斤",
+      "status": "ok"
+    },
+    {
+      "claim": "Adding it to foods and health foods is illegal: strict punishment on sampling inspection, transfer to police if criminal — but this happens only after you have eaten it — conveyed in RU.",
+      "cn_span": "往食品和保健食品里加它是违法的，抽检查到就严处，涉嫌犯罪的移送公安",
+      "status": "ok"
+    },
+    {
+      "claim": "Sibutramine and phenolphthalein are both banned as food additives (incl. health foods) — conveyed in RU.",
+      "cn_span": "西布曲明与酚酞均禁止添加于食品（含保健食品）",
+      "status": "ok"
+    },
+    {
+      "claim": "Phenolphthalein: long-term excessive use can cause electrolyte imbalance and induce arrhythmia; RU states the electrolyte effect directly and hedges arrhythmia with 'в тяжёлых случаях' — hedging nuance, warning direction unchanged.",
+      "cn_span": "长期过量可造成电解质紊乱、诱发心律失常",
+      "status": "ok"
+    },
+    {
+      "claim": "SCOUT did not prove the same harm in healthy young people, yet the regulator withdrew the drug because the at-risk population cannot be identified — logic preserved in RU.",
+      "cn_span": "试验没有证明健康年轻人吃它同样出事；但正因为风险人群识别不了，监管才直接撤市",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": [
+    "Translator's aside that the regulator page hosting 国食药监办〔2010〕432 号 'стабильно возвращает 412' on this machine — machine-specific access claim, not re-verified."
+  ]
+}

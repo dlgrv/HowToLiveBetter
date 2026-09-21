@@ -1,0 +1,50 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "01",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Mortality in anorexia nervosa is nearly 6 times that of peers — conveyed in RU.",
+      "cn_span": "神经性厌食的人，死亡概率是同龄人的近 6 倍",
+      "status": "ok"
+    },
+    {
+      "claim": "One in five of the deaths is suicide — conveyed in RU ('каждый пятый из умерших — самоубийство').",
+      "cn_span": "死的人里每五个有一个是自杀",
+      "status": "ok"
+    },
+    {
+      "claim": "Three-year tracking of 44 secondary schools: severe dieting raises eating-disorder risk 18x, moderate 5x — conveyed; RU also says 'тремя волнами наблюдения', a numeric detail verified separately (CN effect line says 6 waves).",
+      "cn_span": "跟踪 44 所中学的学生三年，严重节食的女生出现进食障碍的概率是不节食的 18 倍，中度节食是 5 倍",
+      "status": "ok"
+    },
+    {
+      "claim": "Weight and exercise taken separately do not predict new onset; only 'dieting' does — conveyed in RU.",
+      "cn_span": "把体重、运动量单独拿出来看，都预测不了新发病，只有「节食」能",
+      "status": "ok"
+    },
+    {
+      "claim": "Advice to control weight by moving more and not cutting food to the point of hunger — conveyed in RU (awkward wording, not reversed).",
+      "cn_span": "想控制体重就多动，别少吃到饿",
+      "status": "ok"
+    },
+    {
+      "claim": "After adjustment for prior dieting and psychiatric symptoms, BMI, exercise and sex stop predicting new eating disorders — conveyed; RU renders 精神症状 as 'психические расстройства', wording drift without meaning flip.",
+      "cn_span": "校正既往节食与精神症状后，BMI、运动量和性别都不再预测新发进食障碍",
+      "status": "ok"
+    },
+    {
+      "claim": "Definition of 'severe dieting' including the not-one-skipped-meal exclusion — preserved in RU.",
+      "cn_span": "这里的「严重节食」指的是长期把进食压到远低于需要，不是指少吃一顿或不吃夜宵",
+      "status": "ok"
+    },
+    {
+      "claim": "Warning signs and referral to psychiatry/clinical psychology of a general hospital, framed as a treatable illness not a willpower issue — preserved in RU.",
+      "cn_span": "已经出现催吐、暴食后自责、反复称重停不下来的，去精神科或综合医院的临床心理科",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

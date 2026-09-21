@@ -1,4 +1,4 @@
-[← Back to the master table of contents](../README.md)
+[← Back to the master table of contents](../../README.md)
 
 # 15. Renting and Buying a Home
 

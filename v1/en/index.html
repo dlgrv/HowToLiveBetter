@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../../';</script>
+<script>
+/* Root → /{lang}/ (v2 default). Skip if already under ru|en|zh|v1|v2. */
+(function(){
+  if (window.__HTLB_LANG__) return;
+  try {
+    var segs = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+    if (segs.length && segs[segs.length-1] === 'index.html') segs.pop();
+    var last = segs[segs.length-1] || '';
+    if (last === 'ru' || last === 'en' || last === 'zh' || last === 'v1' || last === 'v2') return;
+    if (segs.length >= 2) {
+      var prev = segs[segs.length-2];
+      if (prev === 'v1' || prev === 'v2') return;
+    }
+    var p = new URLSearchParams(location.search);
+    var saved = localStorage.getItem('htlb-lang');
+    var nav = (navigator.language || '').toLowerCase();
+    var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
+    var lang = p.get('lang') || saved || sys || 'en';
+    if (['ru','zh','en'].indexOf(lang) < 0) lang = 'en';
+    var prefix = segs.length ? '/' + segs.join('/') + '/' : '/';
+    location.replace(prefix + lang + '/' + location.search + location.hash);
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
+<meta name="description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
+<meta name="keywords" content="здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,пособия,бизнес,выгода">
+<meta name="author" content="Как жить выгодно (перевод HowToLiveBetter)">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#3451b2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1b1f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://dlgrv.github.io/HowToLiveBetter/v1/en/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Пособие по выгодной жизни">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/v1/en/">
+<meta property="og:title" content="Пособие по выгодной жизни">
+<meta property="og:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
+<meta property="og:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Пособие по выгодной жизни">
+<meta name="twitter:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
+<meta name="twitter:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://eternity4719.github.io/HowToLiveBetter/#website","url":"https://eternity4719.github.io/HowToLiveBetter/","name":"Пособие по выгодной жизни","description":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://eternity4719.github.io/HowToLiveBetter/?q={search_term_string}"},"query-input":"required name=search_term_string"}},
+{"@type":"Book","@id":"https://eternity4719.github.io/HowToLiveBetter/#book","name":"Пособие по выгодной жизни","url":"https://eternity4719.github.io/HowToLiveBetter/","inLanguage":"zh-CN","bookFormat":"https://schema.org/EBook","numberOfPages":528,"license":"https://unlicense.org/","abstract":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","about":["здоровье","долголетие","личные финансы","первая помощь","право","защита прав потребителей"],"isAccessibleForFree":true}
+]}
+</script>
+<script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){};try{if(localStorage.getItem('htlb-side')==='collapsed')document.documentElement.classList.add('side-collapsed')}catch(e){}})();</script>
+<style>
+:root{
+  --bg:#ffffff; --bg-alt:#f6f6f7; --bg-soft:#f6f6f7; --bg-mute:#f1f1f2; --bg-elv:#ffffff;
+  --divider:#e2e2e3; --gutter:#e2e2e3;
+  --t1:rgba(60,60,67,1); --t2:rgba(60,60,67,.78); --t3:rgba(60,60,67,.56);
+  --brand-1:#3451b2; --brand-2:#3a5ccc; --brand-3:#5672cd; --brand-soft:rgba(100,108,255,.14);
+  --green-1:#18794e; --green-soft:rgba(16,185,129,.14);
+  --yellow-1:#915930; --yellow-soft:rgba(234,179,8,.14);
+  --red-1:#b8272c; --red-soft:rgba(244,63,94,.14);
+  --gray-1:#565a5f; --gray-soft:rgba(142,150,170,.14);
+  --mark:rgba(234,179,8,.32);
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --nav-h:64px; --side-w:272px;
+  color-scheme:light;
+}
+html.dark{
+  --bg:#1b1b1f; --bg-alt:#161618; --bg-soft:#202127; --bg-mute:#2b2b2f; --bg-elv:#202127;
+  --divider:#2e2e32; --gutter:#000000;
+  --t1:rgba(255,255,245,.86); --t2:rgba(235,235,245,.6); --t3:rgba(235,235,245,.38);
+  --brand-1:#a8b1ff; --brand-2:#5c73e7; --brand-3:#3e63dd; --brand-soft:rgba(100,108,255,.16);
+  --green-1:#3dd68c; --green-soft:rgba(16,185,129,.16);
+  --yellow-1:#f9b44e; --yellow-soft:rgba(234,179,8,.16);
+  --red-1:#f66f81; --red-soft:rgba(244,63,94,.16);
+  --gray-1:#a4a8ae; --gray-soft:rgba(142,150,170,.16);
+  --mark:rgba(234,179,8,.28);
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--nav-h) + 16px)}
+body{margin:0;background:var(--bg);color:var(--t1);font:14px/1.7 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--brand-1);text-decoration:none;transition:color .25s}
+a:hover{color:var(--brand-2);text-decoration:underline;text-underline-offset:2px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--brand-1);outline-offset:2px;border-radius:4px}
+mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
+[hidden]{display:none!important}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--divider)}
+.nav-in{height:100%;display:flex;align-items:center;gap:16px;padding:0 24px}
+.title{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;color:var(--t1);white-space:nowrap}
+.title:hover{text-decoration:none;color:var(--t1)}
+.side-title{display:none}
+.logo{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--brand-3),var(--brand-1));display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+.logo svg{width:15px;height:15px}
+.search{flex:1;max-width:520px;margin-left:auto;position:relative}
+.search input{width:100%;height:40px;padding:0 44px 0 40px;border-radius:8px;border:1px solid transparent;background:var(--bg-alt);color:var(--t1);font:inherit;font-size:14px;transition:border-color .25s,background .25s}
+.search input:hover{border-color:var(--divider)}
+.search input:focus{outline:0;border-color:var(--brand-1);background:var(--bg)}
+.search input::placeholder{color:var(--t3)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:none;stroke:var(--t3);stroke-width:2;pointer-events:none}
+.search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--font);color:var(--t3);border:1px solid var(--divider);border-radius:4px;padding:3px 6px;background:var(--bg-elv);pointer-events:none}
+.nav-r{display:flex;align-items:center;gap:8px}
+.icon-btn{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:var(--t2);transition:background .25s,color .25s;flex:0 0 auto}
+.icon-btn:hover{background:var(--bg-soft);color:var(--t1)}
+.icon-btn svg{width:20px;height:20px}
+/* кнопка темы вместо ползунка (v1 тоже): луна в светлой, солнце в тёмной */
+.theme-btn .sun{display:none}
+html.dark .theme-btn .sun{display:block}
+html.dark .theme-btn .moon{display:none}
+/* переключатель версий: виден и в v1, и в v2 */
+@media (min-width:961px){.ver-btn{display:grid!important}}
+/* старый ползунок темы больше не используется */
+.switch{display:none!important}
+.menu-btn{display:none}
+
+/* sidebar */
+.sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg-alt);padding:32px 32px 96px;overflow-y:auto;overscroll-behavior:contain;z-index:20}
+.group{padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--divider)}
+.group:last-of-type{border-bottom:0}
+.gt{font-size:14px;font-weight:700;color:var(--t1);line-height:24px;margin-bottom:4px;display:block}
+.gt small{font-weight:400;font-size:12px;color:var(--t3);display:block;line-height:16px;margin-top:2px}
+.sec-links{display:flex;flex-direction:column}
+.sec-link{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;font-size:14px;font-weight:500;color:var(--t2);line-height:24px;text-align:left;transition:color .25s;border-radius:0}
+.sec-link:hover{color:var(--t1)}
+.sec-link[aria-pressed="true"]{color:var(--brand-1)}
+.sec-link i{font-style:normal;font-size:12px;color:var(--t3);font-variant-numeric:tabular-nums}
+.sec-link.all{padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--divider)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:6px}
+.chip{border:1px solid var(--divider);background:var(--bg-elv);color:var(--t2);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:500;line-height:18px;transition:all .2s}
+.chip:hover{border-color:var(--brand-3);color:var(--t1)}
+.chip[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
+.toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t2);padding:4px 0;cursor:pointer;font-weight:500}
+.toggle input{accent-color:var(--brand-1);width:15px;height:15px;margin:0}
+.reset{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;border:1px solid var(--divider);border-radius:20px;font-size:13px;font-weight:500;color:var(--t2);background:var(--bg-elv);transition:all .25s}
+.reset:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.doc-links{margin-top:8px;font-size:14px;color:var(--t3)}
+.doc-links a{margin-right:4px}
+.hint{font-size:12px;color:var(--t3);line-height:1.6;margin-top:16px}
+.hint p{margin:4px 0}
+.backdrop{display:none}
+
+/* content */
+.content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 48px)}
+.doc{max-width:900px;margin:0 auto}
+.doc-head{margin-bottom:28px}
+.doc-head h1{font-size:32px;line-height:40px;font-weight:700;letter-spacing:-.02em;margin:0 0 8px}
+.doc-head p{margin:0;color:var(--t2);font-size:16px}
+.doc-head .stat{color:var(--t3);font-size:14px;margin-top:6px}
+.doc-head .meta-line{margin-top:10px;font-size:14px;color:var(--t3)}
+.doc-head .meta-line a{white-space:nowrap;margin:0 6px}
+#feedback-line-star{margin-top:6px}
+.meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
+.meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
+
+.sec-block{margin-top:40px}
+.sec-h{display:flex;align-items:baseline;gap:12px;padding-top:24px;border-top:1px solid var(--divider);margin-bottom:8px}
+.sec-h h2{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em;margin:0}
+.sec-h .shown{margin-left:auto;font-size:13px;color:var(--t3);font-variant-numeric:tabular-nums}
+.intro{margin:0 0 20px;color:var(--t2);font-size:14px;max-width:100%}
+
+.card{background:var(--bg-soft);border:1px solid transparent;border-radius:12px;padding:22px 24px 18px;margin-bottom:16px;transition:border-color .25s,background .25s;content-visibility:auto;contain-intrinsic-size:300px;contain-intrinsic-size:auto 300px}
+.card:hover{border-color:var(--divider)}
+.card-h{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.card-h h3{margin:0;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:0;overflow-wrap:anywhere}
+.card-h .idx{color:var(--t3);font-size:14px;line-height:28px;font-variant-numeric:tabular-nums;min-width:22px}
+.card-h .anchor{opacity:0;color:var(--brand-1);font-size:16px;line-height:28px;font-weight:500;transition:opacity .2s}
+.card:hover .anchor,.anchor:focus-visible{opacity:1}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.badge{display:inline-block;border-radius:10px;padding:0 10px;line-height:20px;font-size:12px;font-weight:600;white-space:nowrap;transform:translateY(0)}
+.badge.tip{background:var(--brand-soft);color:var(--brand-1)}
+.badge.A{background:var(--green-soft);color:var(--green-1)}
+.badge.B{background:var(--yellow-soft);color:var(--yellow-1)}
+.badge.C{background:var(--gray-soft);color:var(--gray-1)}
+.badge.danger{background:var(--red-soft);color:var(--red-1)}
+.badge.warn{background:var(--yellow-soft);color:var(--yellow-1)}
+.badge.plain{background:var(--gray-soft);color:var(--t2);font-weight:500}
+.badge.r3{background:var(--brand-soft);color:var(--brand-1)}
+.badge.r2{background:var(--green-soft);color:var(--green-1)}
+.badge.r1{background:var(--gray-soft);color:var(--gray-1)}
+.human{margin:0 0 14px;padding:10px 14px;border-left:2px solid var(--brand-1);background:var(--brand-soft);border-radius:0 6px 6px 0;font-size:15px;line-height:1.75;color:var(--t1);overflow-wrap:anywhere}
+.rows{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:1.75}
+.rows .k{color:var(--t3);font-weight:500;font-size:13px;line-height:1.75;padding-top:1px}
+.rows .v{color:var(--t1);min-width:0;overflow-wrap:anywhere}
+.rows .v.note{color:var(--t2)}
+.src{margin-top:14px;border-top:1px solid var(--divider);padding-top:10px}
+.src summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--t2);display:flex;align-items:center;gap:6px;user-select:none}
+.src summary::-webkit-details-marker{display:none}
+.src summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(-45deg);transition:transform .2s;margin-right:2px}
+.src[open] summary::before{transform:rotate(45deg)}
+.src .body{padding-top:8px;font-size:13px;line-height:1.75;color:var(--t2);overflow-wrap:anywhere}
+.src .body ul{margin:6px 0 0;padding-left:1.25em;list-style:disc}
+.src .body li{margin:0 0 6px}
+.src .body li:last-child{margin-bottom:0}
+
+abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
+abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
+.pop{position:absolute;z-index:40;background:var(--bg-elv);border:1px solid var(--divider);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:10px 12px;font-size:13px;line-height:1.6;color:var(--t2)}
+.pop b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
+.empty{border:1px dashed var(--divider);border-radius:12px;padding:40px 24px;text-align:center;color:var(--t2);margin-top:24px}
+.empty button{margin-top:12px;padding:7px 16px;border:1px solid var(--divider);border-radius:20px;font-weight:500;background:var(--bg-elv)}
+.empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
+.status{color:var(--t3);padding:40px 0;text-align:center}
+.status code{font-family:var(--mono);font-size:13px;background:var(--bg-mute);padding:2px 6px;border-radius:4px}
+.skel,.skel-bar{display:none}
+.foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--divider);color:var(--t3);font-size:13px;line-height:1.7}
+
+@media (max-width:960px){
+  :root{--nav-h:56px}
+  .nav-in{padding:0 calc((var(--nav-h) - 36px) / 2);gap:10px}
+  .title span{display:none}
+  .search{max-width:none}
+  .search input{padding-right:16px}
+  .search kbd{display:none}
+  .menu-btn{display:grid}
+  .ver-btn{display:none}
+  .ic-doc{display:none}
+  .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:none;padding:24px 24px 96px;width:min(var(--side-w),86vw)}
+  .sidebar.open{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:15;opacity:0;pointer-events:none;transition:opacity .25s}
+  .backdrop.on{opacity:1;pointer-events:auto}
+  .content{padding:calc(var(--nav-h) + 24px) 20px 96px}
+  .doc-head h1{font-size:26px;line-height:34px}
+  .card{padding:18px 16px 14px;border-radius:10px}
+  .card-h h3{font-size:16px;line-height:24px}
+  .card-h .idx{line-height:24px}
+  .human{padding:9px 12px;font-size:14px;margin-bottom:12px}
+  .rows{grid-template-columns:1fr;gap:4px}
+  .rows .k{padding-top:6px}
+  .rows .k:first-child{padding-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* language dropdown */
+.lang-dd{position:relative}
+.lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;gap:5px;height:36px;border-radius:8px;border:0;background:none;grid-auto-flow:column;grid-template-columns:auto auto;column-gap:4px;align-items:center;padding:0 8px;width:auto;min-width:32px;transition:background .25s,color .25s}
+.lang-dd>summary::-webkit-details-marker{display:none}
+.lang-dd>summary:hover{background:var(--bg-soft);color:var(--t1)}
+.lang-dd>summary svg{width:12px;height:12px;color:var(--t3)}
+#lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
+.lang-dd[open]>summary{background:var(--bg-soft);color:var(--t1)}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--bg-elv);border:1px solid var(--divider);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:4px;min-width:120px;z-index:50}
+.lang-menu button{display:block;width:100%;text-align:left;padding:7px 12px;border:0;border-radius:7px;background:none;color:var(--t1);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.lang-menu button:hover{background:var(--brand-soft);color:var(--brand-1)}
+.lang-menu button[aria-current="true"]{color:var(--brand-1);font-weight:600}
+
+</style>
+</head>
+<body>
+
+<noscript>
+  <div class="doc">
+    <div class="doc-head">
+      <h1>Пособие по выгодной жизни</h1>
+      <p>Русский перевод книги HowToLiveBetter (高性价比人生指南 · «Пособие по выгодной жизни»): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.</p>
+      <p>Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.</p>
+    </div>
+  </div>
+</noscript>
+
+<header class="nav">
+  <div class="nav-in">
+    <button class="icon-btn menu-btn" id="menu" aria-label="Открыть фильтры" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+    <a class="title nav-title" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Пособие по выгодной жизни</span></a>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Поиск по рекомендациям" autocomplete="off" aria-label="Поиск по рекомендациям">
+      <kbd>/</kbd>
+    </label>
+    <div class="nav-r">
+      <details class="lang-dd" id="lang">
+        <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="lang-menu" role="menu">
+          <button role="menuitem" data-lang="ru">Русский</button>
+          <button role="menuitem" data-lang="en">English</button>
+          <button role="menuitem" data-lang="zh">中文</button>
+        </div>
+      </details>
+      <a class="icon-btn ic-doc" href="../../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+      <button class="icon-btn ver-btn" id="ver-switch" title="Старая версия сайта" aria-label="Переключить на старую версию"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></button>
+      <button class="icon-btn theme-btn" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="m6.34 17.66-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+<div class="pop" id="pop" role="tooltip" hidden><b></b><span></span></div>
+<aside class="sidebar" id="sidebar">
+  <a class="title side-title" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Пособие по выгодной жизни</span></a>
+  <div class="group">
+    <div class="sec-links" id="f-sec" data-dim="sec"></div>
+  </div>
+  <div class="group">
+    <div class="gt">Выгода/затраты <small>Оценка автора, сравнима в рамках одной категории</small></div>
+    <div class="chips" data-dim="ratio">
+      <button class="chip" data-v="极高" aria-pressed="false">Очень высокая</button>
+      <button class="chip" data-v="高" aria-pressed="false">Высокая</button>
+      <button class="chip" data-v="一般" aria-pressed="false">Обычная</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt">Что получаешь <small>Категории не сравниваются между собой</small></div>
+    <div class="chips" data-dim="lens">
+      <button class="chip" data-v="死亡率" aria-pressed="false">Жизнь</button>
+      <button class="chip" data-v="金钱" aria-pressed="false">Деньги</button>
+      <button class="chip" data-v="时间" aria-pressed="false">Время и силы</button>
+      <button class="chip" data-v="自由" aria-pressed="false">Свобода</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt">Доказательность <small>Метаанализ/RCT · есть исследования · консенсус</small></div>
+    <div class="chips" data-dim="grade">
+      <button class="chip" data-v="A" aria-pressed="false">Уровень A</button>
+      <button class="chip" data-v="B" aria-pressed="false">Уровень B</button>
+      <button class="chip" data-v="C" aria-pressed="false">Уровень C</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt">Деньги</div>
+    <div class="chips" data-dim="money">
+      <button class="chip" data-v="0" aria-pressed="false">Бесплатно</button>
+      <button class="chip" data-v="少" aria-pressed="false">Мало</button>
+      <button class="chip" data-v="多" aria-pressed="false">Много</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt">Время</div>
+    <div class="chips" data-dim="time">
+      <button class="chip" data-v="少" aria-pressed="false">На бегу</button>
+      <button class="chip" data-v="中" aria-pressed="false">Несколько часов</button>
+      <button class="chip" data-v="多" aria-pressed="false">Каждый день</button>
+    </div>
+  </div>
+  <div class="group">
+    <div class="gt">Сила воли</div>
+    <div class="chips" data-dim="will">
+      <button class="chip" data-v="否" aria-pressed="false">Не нужна</button>
+      <button class="chip" data-v="些" aria-pressed="false">Немного</button>
+      <button class="chip" data-v="是" aria-pressed="false">Сильно</button>
+    </div>
+  </div>
+  <div class="group">
+    <label class="toggle"><input type="checkbox" id="f-dispute"> только спорные</label>
+    <label class="toggle"><input type="checkbox" id="f-todo"> только требующие проверки</label>
+    <button class="reset" id="reset">Сбросить фильтры</button>
+  </div>
+  <div class="hint">
+    <p>Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».</p>
+    <p>Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.</p>
+    <p>Данные — из каталога <a href="../../book/ru/">book/ru/</a> (…); правки текста вносятся там.</p>
+  </div>
+</aside>
+
+<main class="content">
+  <div class="doc">
+    <div class="doc-head">
+      <h1>Пособие по выгодной жизни</h1>
+      <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
+      <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
+      <p class="meta-line" id="feedback-line">
+        <span id="fb-issue-t">Нашли ошибку в переводе или есть что добавить —</span>
+        <a id="fb-issue" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener">откройте issue</a>
+      </p>
+      <p class="meta-line" id="feedback-line-star">
+        <span id="fb-star-t">Понравился перевод —</span>
+        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
+      </p>
+      <div class="stat" aria-live="polite">Показано <span id="cnt"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span> из <span id="tot"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span></div>
+    </div>
+    <div id="list" aria-busy="true">
+      <div class="skel" id="skel" aria-hidden="true"></div>
+      <script>
+      (function(){
+        var sk=document.getElementById('skel'); if(!sk) return;
+        var H=[[42,3],[48,3],[36,3],[55,3],[40,3],[50,3]];
+        var C=[
+          [72,100,88,92,78],[64,96,70,85,60],[68,100,82,90,74],
+          [58,94,76,88,66],[75,98,84,91,71],[61,95,68,80,55],
+          [70,100,80,86,72],[66,97,73,89,63],[77,99,85,93,69]
+        ];
+        function card(a){
+          return '<div class="skel-card">'
+            +'<i class="skel-bar" style="width:'+a[0]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[1]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[2]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[3]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:4.5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[4]+'%"></i>'
+            +'</div>';
+        }
+        var html='', i, j;
+        for(i=0;i<H.length;i++){
+          html+='<div class="skel-sec"><div class="skel-h"><i class="skel-bar" style="width:'+H[i][0]+'%"></i><i class="skel-bar skel-bar-sm" style="width:3.5rem"></i></div>';
+          for(j=0;j<3;j++) html+=card(C[(i*3+j)%C.length]);
+          html+='</div>';
+        }
+        sk.innerHTML=html;
+      })();
+      </script>
+      <div class="status" id="status" hidden></div>
+      <div class="empty" id="empty" hidden>
+        Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.
+        <div><button id="reset2">Сбросить</button></div>
+      </div>
+    </div>
+    <div class="foot">Категория эффекта указана в каждом пункте (смертность / время и силы / деньги / гарантии и личная свобода); категории между собой не сравниваются. Проверка источников: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (на китайском)</a>. Текст — Public Domain (Unlicense).</div>
+  </div>
+</main>
+
+<script>
+let LANG = 'en';
+try {
+  if (window.__HTLB_LANG__) { LANG = window.__HTLB_LANG__; }
+  else {
+    const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
+    const nav=(navigator.language||'').toLowerCase();
+    const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
+    LANG = p.get('lang') || saved || sys || 'en';
+  }
+  if(!['ru','zh','en'].includes(LANG)) LANG='en';
+} catch(e){}
+window.__HTLB_BASE__ = window.__HTLB_BASE__ || '';
+let BOOK_FILES = 0;
+function fileCountPhrase(n){
+  if (!n) return '…';
+  if (LANG === 'zh') return n + ' 个文件';
+  if (LANG === 'en') return n + (n === 1 ? ' file' : ' files');
+  const m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return n + ' файл';
+  if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return n + ' файла';
+  return n + ' файлов';
+}
+if (window.__HTLB_BASE__) { const _f=window.fetch; window.fetch=(u,o)=> _f(typeof u==='string' && !/^([a-z]+:|\/|\.\.\/)/i.test(u) ? window.__HTLB_BASE__+u : u, o); }
+window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){}
+  const suffix = location.search + location.hash;
+  let p = location.pathname.replace(/\/(ru|en|zh)(?=\/|$)/, '/' + l);
+  if (!p.endsWith('/')) p += '/';
+  location.href = p + suffix;
+};
+
+/* ---------- i18n static UI ---------- */
+const I18N = {
+ ru:{ htmlLang:'ru', title:'Пособие по выгодной жизни', search:'Поиск по рекомендациям', searchShort:'Поиск',
+   noscriptH:'Пособие по выгодной жизни',
+   noscriptP:'Русский перевод книги HowToLiveBetter (高性价比人生指南): 31 раздел, каждая рекомендация — с стоимостью, эффектом, уровнем доказательности и первоисточником.',
+   noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../../book/ru/">book/ru/</a>.',
+   docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
+   docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
+   fbAria:'Обратная связь', fbIssueT:'Нашли ошибку в переводе или есть что добавить —', fbIssue:'откройте issue', fbStarT:'Понравился перевод —', fbStar:'поставьте звезду репозиторию',
+   shown:'Показано', of:'из', loading:'Загружаю текст…',
+   empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
+   sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
+   lensH:'Что получаешь', lensS:'Категории не сравниваются между собой',
+   gradeH:'Доказательность', gradeS:'Метаанализ/RCT · есть исследования · консенсус', gradeA:'Уровень A', gradeB:'Уровень B', gradeC:'Уровень C',
+   moneyH:'Деньги', timeH:'Время', willH:'Сила воли',
+   money0:'Бесплатно', moneyL:'Мало', moneyM:'Много', timeL:'На бегу', timeM:'Несколько часов', timeH2:'Каждый день', willN:'Не нужна', willS:'Немного', willB:'Сильно',
+   fDispute:'только спорные', fTodo:'только требующие проверки',
+   hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
+   hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
+   hint3:'Данные — из каталога <a href="../../book/ru/">book/ru/</a> ({n}); правки текста вносятся там.',
+   foot:'Категория эффекта указана в каждом пункте (смертность / время и силы / деньги / гарантии и личная свобода); категории между собой не сравниваются. Проверка источников: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (на китайском)</a>. Текст — Public Domain (Unlicense).',
+   kCost:'Стоимость', kGain:'Эффект', kNote:'Примечания', src:'Источники', anchor:'Ссылка на этот пункт',
+   ratioBadge:'Выгода/затраты', ratioTitle:'Оценка автора: из уровня эффекта', gradeBadge:'Доказательность', dispute:'Спорно', todo:'Есть непроверенное',
+   ratio:{'极高':'Очень высокая','高':'Высокая','一般':'Обычная'},
+   lens:{'死亡率':'Жизнь','金钱':'Деньги','时间':'Время и силы','自由':'Свобода'},
+   moneyL2:{'0':'Бесплатно','少':'Небольшие траты','多':'Заметные траты'},
+   timeL2:{'少':'На бегу','中':'Несколько часов','多':'Каждый день'},
+   willL2:{'否':'Без силы воли','些':'Немного усилий','是':'Серьёзные усилия'},
+   ratioFull:'Выгода/затраты: ', gradeFull:'Доказательность: ',
+   errFile:'Страница открывается только по http. Запустите в каталоге репозитория <code>python -m http.server</code> и откройте <code>http://localhost:8000/</code>, либо используйте адрес GitHub Pages.',
+   errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
+   cap:true,
+   allSections:'Разделы',
+   readmeHref:'README.ru.md', readmeTitle:'Открыть README.ru',
+   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык', verTitle:'Старая версия сайта', verTitle2:'Новая версия сайта',
+   metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
+   keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
+   author:'Как жить выгодно (перевод HowToLiveBetter)',
+   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
+ en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations', searchShort:'Search',
+   noscriptH:'The Best-Value Life Guide',
+   noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
+   noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="../../README.md">README.md</a> (table of contents) and the <a href="../../book/en/">book/en/</a> directory.',
+   docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
+   docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
+   fbAria:'Feedback', fbIssueT:'Spotted a mistake or have something to add —', fbIssue:'open an issue', fbStarT:'Like the translation —', fbStar:'give the repo a star',
+   shown:'Showing', of:'of', loading:'Loading text…',
+   empty:'Nothing found. Remove one of the filters or try a shorter query.', reset:'Reset', resetF:'Reset filters',
+   sections:'Sections', ratioH:'Benefit / costs', ratioS:'Author judgment, comparable within one category only',
+   lensH:'What you get', lensS:'Categories are not compared with each other',
+   gradeH:'Evidence', gradeS:'Meta-analysis/RCT · studies exist · consensus', gradeA:'Grade A', gradeB:'Grade B', gradeC:'Grade C',
+   moneyH:'Money', timeH:'Time', willH:'Willpower',
+   money0:'Free', moneyL:'Little', moneyM:'Much', timeL:'On the go', timeM:'A few hours', timeH2:'Every day', willN:'None needed', willS:'A little', willB:'A lot',
+   fDispute:'contested only', fTodo:'unverified only',
+   hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
+   hint2:'Within a section — by descending benefit. Search does not change the order.',
+   hint3:'Data comes from the <a href="../../book/en/">book/en/</a> directory ({n}); edit the text there.',
+   foot:'The benefit category is stated on every item (mortality / time and energy / money / protection and personal freedom); categories are not compared with each other. Source verification: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (in Chinese)</a>. Text is Public Domain (Unlicense).',
+   kCost:'Cost', kGain:'Benefit', kNote:'Notes', src:'Sources', anchor:'Link to this item',
+   ratioBadge:'Benefit/costs', ratioTitle:'Author judgment: from the effect level', gradeBadge:'Evidence', dispute:'Contested', todo:'Has unverified',
+   ratio:{'极高':'Very high','高':'High','一般':'Ordinary'},
+   lens:{'死亡率':'Lifespan','金钱':'Money','时间':'Time & energy','自由':'Freedom'},
+   moneyL2:{'0':'Free','少':'Small spending','多':'Noticeable spending'},
+   timeL2:{'少':'On the go','中':'A few hours','多':'Every day'},
+   willL2:{'否':'No willpower','些':'A little effort','是':'Serious effort'},
+   ratioFull:'Benefit/costs: ', gradeFull:'Evidence: ',
+   errFile:'This page only opens over http. Run <code>python -m http.server</code> in the repository directory and open <code>http://localhost:8000/</code>, or use the GitHub Pages address.',
+   errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
+   cap:true,
+   allSections:'Sections',
+   readmeHref:'README.md', readmeTitle:'Open README',
+   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language', verTitle:'Old site version', verTitle2:'New site version',
+   metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
+   keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
+   author:'HowToLiveBetter (English translation)',
+   about:['health','longevity','personal finance','first aid','law','consumer protection'] },
+ zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
+   noscriptH:'高性价比人生指南',
+   noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
+   noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../../README.zh.md">README.zh.md</a>（目录）与 <a href="../../book/">book/</a> 目录。',
+   docHead:'每条建议回答两个问题：付出什么——换回什么。',
+   docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
+   fbAria:'反馈', fbIssueT:'发现翻译有误或有补充想法 —', fbIssue:'欢迎提 issue', fbStarT:'觉得翻译不错 —', fbStar:'给仓库点个 star',
+   shown:'显示', of:'/', loading:'正在载入正文…',
+   empty:'没有符合条件的结果。请去掉一个筛选条件，或换更短的关键词。', reset:'重置', resetF:'重置筛选',
+   sections:'小节', ratioH:'性价比', ratioS:'作者判断，仅在同一口径内可比',
+   lensH:'换回什么', lensS:'不同口径之间不做比较',
+   gradeH:'证据等级', gradeS:'荟萃分析/RCT · 有研究支持 · 共识', gradeA:'A 级', gradeB:'B 级', gradeC:'C 级',
+   moneyH:'花钱', timeH:'花时间', willH:'要毅力',
+   money0:'免费', moneyL:'少', moneyM:'多', timeL:'顺手', timeM:'几小时', timeH2:'每天', willN:'不需要', willS:'一点点', willB:'明显',
+   fDispute:'只看有争议', fTodo:'只看待核实',
+   hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
+   hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
+   hint3:'数据来自 <a href="../../book/">book/</a> 目录（{n}）；改正文请改那里。',
+   foot:'每个条目都标明收益口径（死亡率 / 时间精力 / 金钱 / 保障与人身自由）；口径之间不做比较。来源核查：<a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录（中文）</a>。正文为 Public Domain（Unlicense）。',
+   kCost:'成本', kGain:'收益', kNote:'备注', src:'来源', anchor:'链接到此条',
+   ratioBadge:'性价比', ratioTitle:'作者判断：由效果量级', gradeBadge:'证据', dispute:'争议', todo:'有待核实',
+   ratio:{'极高':'极高','高':'高','一般':'一般'},
+   lens:{'死亡率':'寿命','金钱':'金钱','时间':'时间精力','自由':'自由'},
+   moneyL2:{'0':'免费','少':'少量花费','多':'明显花费'},
+   timeL2:{'少':'顺手','中':'几小时','多':'每天'},
+   willL2:{'否':'不需要毅力','些':'一点毅力','是':'明显毅力'},
+   ratioFull:'性价比: ', gradeFull:'证据: ',
+   errFile:'本页只能通过 http 打开。请在仓库目录运行 <code>python -m http.server</code> 并访问 <code>http://localhost:8000/</code>，或使用 GitHub Pages 地址。',
+   errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
+   cap:false,
+   allSections:'小节',
+   readmeHref:'README.zh.md', readmeTitle:'打开 README.zh',
+   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言', verTitle:'旧版网站', verTitle2:'新版网站',
+   metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
+   keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
+   author:'高性价比人生指南',
+   about:['健康','长寿','个人理财','急救','法律','消费者权益'] }
+};
+function T(){ return I18N[LANG]; }
+function applyI18n(){
+  const t=T(); document.documentElement.lang=t.htmlLang;
+  document.title=t.title;
+  document.querySelectorAll('a.title span:last-child').forEach(el=>{ el.textContent=t.title; });
+  const qEl=document.getElementById('q');
+  qEl.placeholder=t.searchShort||t.search;
+  qEl.setAttribute('aria-label',t.search);
+  if(!window.__htlbPhMql){ // attach once, not per applyI18n call
+    window.__htlbPhMql=window.matchMedia('(max-width:960px)'); // kept for compat; short placeholder is now universal
+    window.__htlbPhMql.addEventListener('change',()=>{ const tt=T(); qEl.placeholder=tt.searchShort||tt.search; });
+  }
+  const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
+  const dh=document.querySelector('.doc-head');
+  dh.querySelector('h1').textContent=t.title;
+  const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
+  dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
+  dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
+  const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
+  const issueUrl='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle);
+  const ft=document.getElementById('fb-issue-t'); if(ft) ft.textContent=t.fbIssueT;
+  const fb=document.getElementById('fb-issue');
+  if(fb){ fb.textContent=t.fbIssue; fb.href=issueUrl; }
+  const st=document.getElementById('fb-star-t'); if(st) st.textContent=t.fbStarT;
+  const fs=document.getElementById('fb-star'); if(fs) fs.textContent=t.fbStar;
+  document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
+  document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
+  document.getElementById('reset').textContent=t.resetF;
+  document.getElementById('reset2').textContent=t.reset;
+  document.getElementById('empty').childNodes[0].textContent=t.empty;
+  const sb=document.querySelectorAll('.sidebar .gt'); 
+  sb[0].childNodes[0].textContent=t.ratioH; sb[0].querySelector('small').textContent=t.ratioS;
+  sb[1].childNodes[0].textContent=t.lensH; sb[1].querySelector('small').textContent=t.lensS;
+  sb[2].childNodes[0].textContent=t.gradeH; sb[2].querySelector('small').textContent=t.gradeS;
+  sb[3].childNodes[0].textContent=t.moneyH;
+  sb[4].childNodes[0].textContent=t.timeH;
+  sb[5].childNodes[0].textContent=t.willH;
+  document.querySelectorAll('.sidebar .hint p')[0].textContent=t.hint1;
+  document.querySelectorAll('.sidebar .hint p')[1].textContent=t.hint2;
+  document.querySelectorAll('.sidebar .hint p')[2].innerHTML=t.hint3.replace('{n}', fileCountPhrase(BOOK_FILES));
+  document.querySelector('.foot').innerHTML=t.foot;
+  const chips={ratio:[['极高',t.ratio['极高']],['高',t.ratio['高']],['一般',t.ratio['一般']]],
+    lens:[['死亡率',t.lens['死亡率']],['金钱',t.lens['金钱']],['时间',t.lens['时间']],['自由',t.lens['自由']]],
+    grade:[['A',t.gradeA],['B',t.gradeB],['C',t.gradeC]],
+    money:[['0',t.money0],['少',t.moneyL],['多',t.moneyM]],
+    time:[['少',t.timeL],['中',t.timeM],['多',t.timeH2]],
+    will:[['否',t.willN],['些',t.willS],['是',t.willB]]};
+  for (const [dim,arr] of Object.entries(chips)){
+    document.querySelectorAll(`.chips[data-dim="${dim}"] .chip`).forEach(b=>{
+      const hit=arr.find(([v])=>b.dataset.v===v); if(hit) b.textContent=hit[1];
+    });
+  }
+  document.querySelectorAll('.lang-menu button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===LANG)));
+  document.getElementById('lang-label').textContent={ru:'РУ',en:'EN',zh:'中'}[LANG];
+  document.getElementById('lang').open=false;
+  // nav attributes
+  const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
+  const menu=document.getElementById('menu'); if(menu){
+    const collapsed=document.documentElement.classList.contains('side-collapsed');
+    const desk=window.__HTLB_V2__ && matchMedia('(min-width:1100px)').matches;
+    menu.setAttribute('aria-label', desk ? (collapsed ? t.sideExpand : t.sideCollapse) : t.menuAria);
+    menu.setAttribute('title', desk ? (collapsed ? t.sideExpand : t.sideCollapse) : t.menuAria);
+  }
+  const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
+  const vb=document.getElementById('ver-switch'); if(vb){ const vt=window.__HTLB_V2__?t.verTitle:t.verTitle2; vb.setAttribute('title',vt); vb.setAttribute('aria-label',vt); }
+  const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
+  const rm=document.querySelector('.nav-r a[href^="README"]'); if(rm){ rm.setAttribute('href',t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
+  // head meta / social cards / JSON-LD
+  const setm=(sel,attr,val)=>{const el=document.querySelector(sel); if(el) el.setAttribute(attr,val);};
+  setm('meta[name="description"]','content',t.metaDesc);
+  setm('meta[name="keywords"]','content',t.keywords);
+  setm('meta[name="author"]','content',t.author);
+  for(const sel of ['meta[property="og:site_name"]','meta[property="og:title"]','meta[name="twitter:title"]']) setm(sel,'content',t.title);
+  for(const sel of ['meta[property="og:description"]','meta[name="twitter:description"]']) setm(sel,'content',t.metaDesc);
+  setm('meta[property="og:locale"]','content',{ru:'ru_RU',en:'en_US',zh:'zh_CN'}[LANG]);
+  try{
+    const jl=document.querySelector('script[type="application/ld+json"]');
+    if(jl){
+      const data=JSON.parse(jl.textContent);
+      for(const node of (data['@graph']||[])){
+        if(node.name) node.name=t.title;
+        if(node.description) node.description=t.metaDesc;
+        if(node.abstract) node.abstract=t.metaDesc;
+        if(node.inLanguage) node.inLanguage={ru:'ru-RU',en:'en-US',zh:'zh-CN'}[LANG];
+        if(node.about) node.about=t.about;
+      }
+      jl.textContent=JSON.stringify(data,null,1);
+    }
+  }catch(e){}
+  // "All sections" button (built dynamically)
+  const allSpan=document.querySelector('.sec-link.all span'); if(allSpan) allSpan.textContent=t.allSections;
+}
+document.getElementById('lang').addEventListener('click',e=>{
+  if(e.target.closest('.lang-menu button')){ e.preventDefault(); __setLang(e.target.closest('.lang-menu button').dataset.lang); }
+  else { e.preventDefault(); const d=document.getElementById('lang'); d.open=!d.open; }
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('#lang')) document.getElementById('lang').open=false; });
+/* ---------- отладочная панель: добавьте ?perf=1 к адресу ---------- */
+const PERF = (function(){
+  const off = { on:false, log(){}, mark(){} };
+  if (!/[?&]perf=1/.test(location.search)) return off;
+  const box = document.createElement('div');
+  box.style.cssText = 'position:fixed;right:10px;bottom:10px;z-index:99;width:300px;max-height:50vh;overflow:auto;background:rgba(0,0,0,.85);color:#8fe;font:12px/1.5 ui-monospace,Consolas,monospace;padding:8px 10px;border-radius:8px;white-space:pre-wrap;pointer-events:auto';
+  const rows = [];
+  const put = (s) => { rows.unshift(s); if (rows.length > 60) rows.pop(); box.textContent = rows.join('\n'); };
+  const api = {
+    on: true,
+    log(name, t0, extra){ const ms = performance.now() - t0; put(`${ms >= 16 ? '⚠' : '·'} ${name} ${ms.toFixed(1)}ms${extra ? ' ' + extra : ''}`); },
+    mark(s){ put('· ' + s); }
+  };
+  addEventListener('DOMContentLoaded', () => document.body.appendChild(box), {once:true});
+  if (document.readyState !== 'loading') document.body.appendChild(box);
+  // 展开/收起 <details> 的重排代价：强制同步布局来量
+  document.addEventListener('toggle', ev => {
+    if (!ev.target.matches('details')) return;
+    const t0 = performance.now();
+    void document.documentElement.scrollHeight;   // 强制走一遍布局
+    api.log((ev.target.open ? 'развернуть' : 'свернуть') + ': reflow', t0);
+  }, true);
+  // 掉帧：连续两帧间隔超过 32ms 就记一条
+  let last = performance.now(), worst = 0, since = last;
+  const tick = (t) => { const d = t - last; last = t; if (d > worst) worst = d;
+    if (t - since > 1000){ if (worst > 32) put(`⚠ самый длинный кадр ${worst.toFixed(0)}ms`); worst = 0; since = t; }
+    requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+  try { new PerformanceObserver(l => { for (const e of l.getEntries()) put(`⚠ длинная задача ${e.duration.toFixed(0)}ms`); })
+    .observe({entryTypes:['longtask']}); } catch (e) {}
+  return api;
+})();
+
+/* ---------- 解析 README ---------- */
+function parseReadme(md){
+  const lines = md.split(/\r?\n/);
+  const sections = [];
+  let sec = null, entry = null;
+  const flush = () => { if (entry && sec) { sec.entries.push(entry); } entry = null; };
+  for (const raw of lines){
+    const line = raw.trimEnd();
+    let m;
+    if ((m = /^#{1,2} (\d+)\. (.+)$/.exec(line))) { flush(); sec = {n:m[1], title:m[2].trim(), intro:'', entries:[]}; sections.push(sec); continue; }
+    if (/^#{1,2} /.test(line)) { flush(); sec = null; continue; }
+    if (!sec) continue;
+    if ((m = /^### (\d+)\. (.+)$/.exec(line))) { flush(); entry = {sec:sec.n, n:m[1], title:m[2].trim(), cost:'', human:'', gain:'', grade:'', src:'', note:'', money:'', time:'', will:'', level:'', lens:''}; continue; }
+    if ((m = /^<!--\s*成本标签:\s*(.*?)\s*-->/.exec(line)) && entry){
+      for (const kv of m[1].split(/\s+/)){ const [k,v] = kv.split('='); if(k==='钱') entry.money=v; if(k==='时间') entry.time=v; if(k==='毅力') entry.will=v; if(k==='收益') entry.level=v; if(k==='口径') entry.lens=v; }
+      continue;
+    }
+    if (entry){
+      if ((m = /^- (?:成本|Стоимость|Cost)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|In plain terms)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Benefit)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Sources)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notes)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      continue;
+    }
+    if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
+  }
+  flush();
+  for (const s of sections) for (const e of s.entries){
+    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
+    e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
+    e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);
+    e.ratio = e.level === '大' ? (e.cs === 0 ? '极高' : (e.cs <= 2 ? '高' : '一般'))
+            : e.level === '中' ? (e.cs === 0 ? '高' : '一般') : '一般';
+    e.hay = [e.title, e.human, e.cost, e.gain, e.note, e.src, e.grade].join('\n').toLowerCase();
+  }
+  return sections;
+}
+
+/* ---------- 术语表 ---------- */
+let GLOSS = [];   // [{term, meaning, re}]
+function parseGlossary(md){
+  const m = (LANG==='ru' ? /^## Как читать цифры[^\n]*\n([\s\S]*?)(?=^## )/m : LANG==='en' ? /^## Reading the numbers[^\n]*\n([\s\S]*?)(?=^## )/m : /^## 读懂数字[^\n]*\n([\s\S]*?)(?=^## )/m).exec(md);
+  if (!m) return [];
+  const rows = [];
+  for (const line of m[1].split(/\r?\n/)){
+    const c = /^\|\s*(.+?)\s*\|\s*(.+?)\s*\|$/.exec(line);
+    if (!c || c[1] === 'термин' || c[1] === 'Term' || /^-+$/.test(c[1])) continue;
+    for (const t of c[1].split('、')){
+      const term = t.trim(); if (!term) continue;
+      rows.push({term, meaning: c[2], latin: /^[A-Za-z0-9%. ]+$/.test(term)});
+    }
+  }
+  rows.sort((a,b) => b.term.length - a.term.length);
+  // 合并成一条正则：长词在前保证最长匹配，拉丁术语要求前后不是字母数字
+  const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const alt = (list) => list.map(g => escRe(g.term)).join('|');
+  const parts = [];
+  const latin = rows.filter(g => g.latin), cjk = rows.filter(g => !g.latin);
+  if (latin.length) parts.push(`(?<![A-Za-z0-9])(?:${alt(latin)})(?![A-Za-z0-9])`);
+  if (cjk.length) parts.push(`(?:${alt(cjk)})`);
+  GLOSS_RE = new RegExp(parts.join('|'), 'g');
+  GLOSS_BY = Object.fromEntries(rows.map(g => [g.term, g]));
+  return rows;
+}
+let GLOSS_RE = null, GLOSS_BY = {};
+function termify(root){
+  if (!GLOSS_RE) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = []; let n; while ((n = walker.nextNode())) if (!n.parentElement.closest('a,abbr')) nodes.push(n);
+  for (const node of nodes){
+    const s = node.nodeValue;
+    GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) continue;
+    GLOSS_RE.lastIndex = 0;
+    const frag = document.createDocumentFragment(); let pos = 0, m;
+    while ((m = GLOSS_RE.exec(s))){
+      const g = GLOSS_BY[m[0]]; if (!g) continue;
+      if (m.index > pos) frag.appendChild(document.createTextNode(s.slice(pos, m.index)));
+      const ab = document.createElement('abbr'); ab.className = 'term'; ab.textContent = m[0]; ab.title = g.meaning; ab.tabIndex = 0; ab.dataset.term = g.term;
+      frag.appendChild(ab); pos = m.index + m[0].length;
+    }
+    if (pos < s.length) frag.appendChild(document.createTextNode(s.slice(pos)));
+    node.parentNode.replaceChild(frag, node);
+  }
+}
+function showTerm(ab){
+  const pop = document.getElementById('pop');
+  pop.querySelector('b').textContent = ab.dataset.term;
+  pop.querySelector('span').textContent = ab.title;
+  pop.hidden = false;
+  const r = ab.getBoundingClientRect(); const w = Math.min(360, innerWidth - 24);
+  let x = r.left + r.width/2 - w/2; x = Math.max(12, Math.min(x, innerWidth - w - 12));
+  pop.style.width = w + 'px'; pop.style.left = x + 'px';
+  const below = r.bottom + 8 + pop.offsetHeight < innerHeight;
+  pop.style.top = (below ? r.bottom + 8 : r.top - 8 - pop.offsetHeight) + scrollY + 'px';
+}
+
+/* ---------- 文本渲染：链接 + 高亮 ---------- */
+const URL_RE = /<?(https?:\/\/[A-Za-z0-9\-._~:\/?#\[\]@!$&'()*+,=%]+)>?/g;
+function trimUrl(u){
+  let t = '';
+  for (;;){
+    const ch = u.slice(-1);
+    const unbalanced = ch === ')' && (u.split('(').length < u.split(')').length);
+    if (!/[）。,，]/.test(ch) && !unbalanced) break;
+    t = ch + t; u = u.slice(0, -1);
+  }
+  return [u, t];
+}
+// Markdown 链接 [文字](地址) 或裸 URL；仓库内的相对路径指向 GitHub 上的源文件
+const REPO_BLOB = 'https://github.com/eternity4719/HowToLiveBetter/blob/main/';
+const MD_LINK_RE = /\[([^\]\n]+)\]\(([^)\s]+)\)/;
+const LINK_RE = new RegExp(MD_LINK_RE.source + '|' + URL_RE.source, 'g');
+function hrefOf(p){
+  if (/^(https?:|mailto:|#)/.test(p)) return p;
+  return REPO_BLOB + p.replace(/^(\.\.?\/)+/, '').split('/').map(encodeURIComponent).join('/');
+}
+function mkLink(href, text){
+  const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = text;
+  return a;
+}
+function renderText(el, text, terms, withTerms = true){
+  el.textContent = '';
+  let last = 0; LINK_RE.lastIndex = 0; let m;
+  const pushText = (s) => { if (s) highlightInto(el, s, terms); };
+  while ((m = LINK_RE.exec(text))){
+    pushText(text.slice(last, m.index));
+    if (m[3]){
+      const [u, tail] = trimUrl(m[3]);
+      el.appendChild(mkLink(u, u)); pushText(tail);
+    } else {
+      el.appendChild(mkLink(hrefOf(m[2]), m[1]));
+    }
+    last = m.index + m[0].length;
+  }
+  pushText(text.slice(last));
+  if (withTerms) termify(el);
+}
+function highlightInto(el, s, terms){
+  if (!terms.length){ el.appendChild(document.createTextNode(s)); return; }
+  const lower = s.toLowerCase(); let i = 0;
+  while (i < s.length){
+    let best = -1, bl = 0;
+    for (const t of terms){ const k = lower.indexOf(t, i); if (k !== -1 && (best === -1 || k < best)) { best = k; bl = t.length; } }
+    if (best === -1){ el.appendChild(document.createTextNode(s.slice(i))); break; }
+    if (best > i) el.appendChild(document.createTextNode(s.slice(i, best)));
+    const mk = document.createElement('mark'); mk.textContent = s.slice(best, best+bl); el.appendChild(mk);
+    i = best + bl;
+  }
+}
+
+const COST_W = { money:{'0':0,'少':1,'多':2}, time:{'少':0,'中':1,'多':2}, will:{'否':0,'些':1,'是':2} };
+/* ---------- 构建 DOM ---------- */
+let CARDS = [], BLOCKS = [];
+// 卡片文字只在「上屏 + 搜索词变了」时重渲染，离屏的先记账，滚进来再补
+let CUR_TERMS = [], CUR_KEY = '';
+const CARD_OF = new WeakMap();
+const CARD_IO = new IntersectionObserver(list => {
+  const t0 = performance.now(); let n = 0;
+  for (const it of list){
+    const card = CARD_OF.get(it.target); if (!card) continue;
+    card.vis = it.isIntersecting;
+    if (card.vis && card.key !== CUR_KEY) { n++; renderCard(card, CUR_TERMS, CUR_KEY); }
+  }
+  if (n) PERF.log('дозировка карточек', t0, n + ' шт.');
+}, {rootMargin:'600px 0px'});
+function esc(s){ return s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
+function build(sections){
+  const list = document.getElementById('list');
+  const fsec = document.getElementById('f-sec');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'sec-link all'; allBtn.dataset.v = ''; allBtn.setAttribute('aria-pressed','true');
+  allBtn.innerHTML = `<span>${T().allSections}</span><i>${sections.reduce((n,s)=>n+s.entries.length,0)}</i>`;
+  fsec.appendChild(allBtn);
+  for (const s of sections){
+    const b = document.createElement('button'); b.className='sec-link'; b.dataset.v = s.n; b.setAttribute('aria-pressed','false');
+    b.innerHTML = `<span>${s.n}. ${esc(s.title)}</span><i>${s.entries.length}</i>`; fsec.appendChild(b);
+
+    const block = document.createElement('section'); block.className='sec-block'; block.dataset.sec = s.n; block.id = 'sec-'+s.n;
+    block.innerHTML = `<div class="sec-h"><h2>${s.n}. ${esc(s.title)}</h2><span class="shown"><span class="k"></span> / ${s.entries.length}</span></div><p class="intro"></p>`;
+    renderText(block.querySelector('.intro'), s.intro, [], false);
+    for (const e of s.entries){
+      const id = `e-${e.sec}-${e.n}`;
+      const c = document.createElement('article'); c.className='card'; c.id = id;
+      c.innerHTML = `
+        <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><a class="anchor" href="#${id}" aria-label="Ссылка на этот пункт">#</a></div>
+        <div class="badges"></div>
+        <p class="human"></p>
+        <div class="rows">
+          <div class="k" data-k="cost"></div><div class="v cost"></div>
+          <div class="k" data-k="gain"></div><div class="v gain"></div>
+          <div class="k" data-k="note"></div><div class="v note"></div>
+        </div>
+        <details class="src"><summary></summary><div class="body"></div></details>`;
+      if (window.__HTLB_V2__){
+        const mg = document.createElement('aside'); mg.className = 'marg';
+        mg.innerHTML = `<span class="k"></span><span class="mt"></span>`;
+        c.appendChild(mg);
+      }
+      c.querySelector('[data-k="cost"]').textContent = T().kCost;
+      c.querySelector('[data-k="gain"]').textContent = T().kGain;
+      c.querySelector('[data-k="note"]').textContent = T().kNote;
+      c.querySelector('.anchor').setAttribute('aria-label', T().anchor);
+      const badges = c.querySelector('.badges');
+      const add = (cls, text) => { const t=document.createElement('span'); t.className='badge '+cls; t.textContent=text; badges.appendChild(t); };
+      if (e.ratio) { const t = document.createElement('span'); t.className = 'badge r' + ({'极高':'3','高':'2','一般':'1'}[e.ratio]);
+        t.textContent = T().ratioFull + (T().ratio[e.ratio] || e.ratio);
+        t.title = T().ratioTitle + ' (' + e.level + ') — ' + (T().lens[e.lens] || e.lens);
+        badges.appendChild(t); }
+      add(e.grade, T().gradeFull + e.grade);
+      if (e.lens) add('plain', T().lens[e.lens] || e.lens);
+      for (const d of ['money','time','will']) if (e[d]) add('plain', T()[d+'L2'][e[d]] || e[d]);
+      if (e.dispute) add('danger', T().dispute);
+      if (e.todo) add('warn', T().todo);
+      block.appendChild(c);
+      const card = {e, el:c, key:null, vis:false, f:{t:c.querySelector('.t'), cost:c.querySelector('.cost'), human:c.querySelector('.human'), gain:c.querySelector('.gain'), note:c.querySelector('.note'), src:c.querySelector('.src .body'), details:c.querySelector('.src'), srcSum:c.querySelector('.src summary')}};
+      renderCard(card, [], '');
+      CARDS.push(card); CARD_OF.set(c, card); CARD_IO.observe(c);
+    }
+    list.appendChild(block);
+    BLOCKS.push({n:s.n, el:block, k:block.querySelector('.shown .k')});
+  }
+  document.getElementById('tot').textContent = CARDS.length;
+}
+function buildGlossary(){ /* глоссарий-таблица убрана с сайта: термины объясняются только тултипами */ }
+
+/* ---------- 筛选状态 ---------- */
+const DIMS = ['sec','ratio','lens','grade','money','time','will'];
+const state = { q:'', sec:new Set(), ratio:new Set(), lens:new Set(), grade:new Set(), money:new Set(), time:new Set(), will:new Set(), dispute:false, todo:false };
+function readUrl(){
+  const p = new URLSearchParams(location.search);
+  state.q = p.get('q') || '';
+  for (const d of DIMS) state[d] = new Set((p.get(d)||'').split(',').filter(Boolean));
+  state.dispute = p.get('dispute') === '1'; state.todo = p.get('todo') === '1';
+}
+function writeUrl(){
+  const p = new URLSearchParams();
+  if (state.q) p.set('q', state.q);
+  for (const d of DIMS) if (state[d].size) p.set(d, [...state[d]].join(','));
+  if (state.dispute) p.set('dispute','1'); if (state.todo) p.set('todo','1');
+  if (PERF.on) p.set('perf','1');
+  const qs = p.toString(); history.replaceState(null, '', (qs ? '?'+qs : location.pathname) + location.hash);
+}
+function syncControls(){
+  document.getElementById('q').value = state.q;
+  document.querySelectorAll('[data-dim] [data-v]').forEach(b => b.setAttribute('aria-pressed', String(state[b.parentElement.dataset.dim].has(b.dataset.v))));
+  const allBtn = document.querySelector('#f-sec .all');
+  if (allBtn) allBtn.setAttribute('aria-pressed', String(state.sec.size === 0));
+  document.getElementById('f-dispute').checked = state.dispute;
+  document.getElementById('f-todo').checked = state.todo;
+}
+// 文字只在搜索词变化时重渲染；筛选按钮只切换显隐，不碰卡片内容
+function srcCount(s){
+  const n = ((s || '').match(/https?:\/\//g) || []).length;
+  if (n) return n;
+  return splitSources(s).length;
+}
+function splitSources(s){
+  return (s || '').split(/\s*[；;]\s*/).map(x => x.trim()).filter(Boolean);
+}
+function renderSources(el, text, terms){
+  el.textContent = '';
+  const parts = splitSources(text);
+  if (!parts.length) return;
+  const ul = document.createElement('ul');
+  for (const p of parts){
+    const li = document.createElement('li');
+    renderText(li, p, terms);
+    ul.appendChild(li);
+  }
+  el.appendChild(ul);
+}
+function renderCard(card, terms, key){
+  const {e, f} = card;
+  renderText(f.t, e.title, terms);
+  renderText(f.cost, e.cost, terms);
+  f.human.hidden = !e.human;
+  if (e.human) renderText(f.human, e.human, terms);
+  renderText(f.gain, e.gain, terms);
+  const hasNote = !!e.note;
+  const noteK = f.note.previousElementSibling;
+  f.note.hidden = !hasNote;
+  if (noteK) noteK.hidden = !hasNote;
+  if (hasNote) renderText(f.note, e.note, terms);
+  const mg = f.note.closest('.card')?.querySelector('.marg');
+  if (mg){
+    mg.hidden = !hasNote;
+    if (hasNote){ mg.querySelector('.k').textContent = T().kNote; renderText(mg.querySelector('.mt'), e.note, terms); }
+  }
+  renderSources(f.src, e.src, terms);
+  if (f.srcSum) f.srcSum.textContent = T().src + ' (' + srcCount(e.src) + ')';
+  const inBody = (e.title+e.human+e.cost+e.gain+e.note).toLowerCase();
+  f.details.open = terms.length > 0 && terms.some(t => e.src.toLowerCase().includes(t)) && !terms.some(t => inBody.includes(t));
+  card.key = key;
+}
+function apply(){
+  const t0 = performance.now();
+  const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  const key = terms.join(' ');
+  CUR_TERMS = terms; CUR_KEY = key;
+  let shown = 0, rerender = 0; const perSec = {};
+  for (const card of CARDS){
+    const {e, el} = card;
+    let ok = true;
+    if (state.sec.size && !state.sec.has(e.sec)) ok = false;
+    if (ok && state.ratio.size && !state.ratio.has(e.ratio)) ok = false;
+    if (ok && state.lens.size && !state.lens.has(e.lens)) ok = false;
+    if (ok && state.grade.size && !state.grade.has(e.grade)) ok = false;
+    if (ok && state.money.size && !state.money.has(e.money)) ok = false;
+    if (ok && state.time.size && !state.time.has(e.time)) ok = false;
+    if (ok && state.will.size && !state.will.has(e.will)) ok = false;
+    if (ok && state.dispute && !e.dispute) ok = false;
+    if (ok && state.todo && !e.todo) ok = false;
+    if (ok && terms.length && !terms.every(t => e.hay.includes(t))) ok = false;
+    if (el.hidden === ok) el.hidden = !ok;
+    if (ok){
+      shown++; perSec[e.sec] = (perSec[e.sec]||0)+1;
+      if (card.vis && card.key !== key) { rerender++; renderCard(card, terms, key); }
+    }
+  }
+  for (const b of BLOCKS){ const n = perSec[b.n]||0; if (b.el.hidden !== (n === 0)) b.el.hidden = n === 0; b.k.textContent = n; }
+  document.getElementById('cnt').textContent = shown;
+  document.getElementById('empty').hidden = shown !== 0;
+  syncControls(); writeUrl();
+  PERF.log('apply', t0, `найдено ${shown}, перерисовано ${rerender}`);
+}
+
+/* ---------- scroll-spy: подсветка текущего раздела в сайдбаре ---------- */
+let SPY_LINKS = null;
+function spyTick(){
+  if (!SPY_LINKS) return;
+  const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
+  const probe = navH + 120;
+  let cur = '';
+  for (const b of BLOCKS){
+    if (b.el.hidden) continue;
+    const r = b.el.getBoundingClientRect();
+    if (r.top <= probe) cur = b.n; else break;
+  }
+  for (const {n, btn} of SPY_LINKS){
+    const on = n === cur;
+    if (btn.dataset.spy !== String(on)){ btn.dataset.spy = String(on); btn.classList.toggle('spy-on', on); }
+  }
+}
+
+/* ---------- 事件 ---------- */
+function wire(){
+  const sb = document.getElementById('sidebar'), bd = document.getElementById('backdrop'), mb = document.getElementById('menu');
+  const setMenu = (on) => {
+    sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on));
+    if (on) document.documentElement.classList.remove('nav-hidden');
+  };
+  const toTop = () => { setMenu(false); scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  /* mobile: hide topbar on scroll down, show on scroll up */
+  {
+    const mq = matchMedia('(max-width:1099px)');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let lastY = scrollY, ticking = false;
+    const showNav = () => document.documentElement.classList.remove('nav-hidden');
+    addEventListener('scroll', () => {
+      if (!window.__HTLB_V2__ || !mq.matches || reduce.matches) { showNav(); return; }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = scrollY, dy = y - lastY;
+        if (y < 12 || sb.classList.contains('open')) showNav();
+        else if (dy > 6) document.documentElement.classList.add('nav-hidden');
+        else if (dy < -6) showNav();
+        lastY = y; ticking = false;
+      });
+    }, {passive:true});
+    mq.addEventListener('change', () => { if (!mq.matches) showNav(); });
+  }
+  document.querySelectorAll('[data-dim]').forEach(g => g.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-v]'); if (!b) return;
+    const dim = g.dataset.dim, v = b.dataset.v, set = state[dim];
+    if (dim === 'sec'){
+      // 章节单选：再点一次已选中的不取消，免得双击退回全部章节；要看全部点「全部章节」
+      if (v === '') set.clear(); else { set.clear(); set.add(v); }
+    } else {
+      set.has(v) ? set.delete(v) : set.add(v);
+    }
+    apply(); toTop();
+  }));
+  document.getElementById('f-dispute').addEventListener('change', e => { state.dispute = e.target.checked; apply(); toTop(); });
+  document.getElementById('f-todo').addEventListener('change', e => { state.todo = e.target.checked; apply(); toTop(); });
+  let tm; document.getElementById('q').addEventListener('input', e => { clearTimeout(tm); tm = setTimeout(() => { state.q = e.target.value.trim(); apply(); }, 120); });
+  const reset = () => { state.q=''; for (const d of DIMS) state[d].clear(); state.dispute=false; state.todo=false; apply(); toTop(); };
+  document.getElementById('reset').addEventListener('click', reset);
+  document.getElementById('reset2').addEventListener('click', reset);
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); document.getElementById('q').focus(); }
+    if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); setMenu(false); }
+  });
+  // 术语弹层
+  const pop = document.getElementById('pop');
+  document.addEventListener('click', e => {
+    const ab = e.target.closest('abbr.term');
+    if (ab) { e.preventDefault(); showTerm(ab); return; }
+    if (!e.target.closest('#pop')) pop.hidden = true;
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Enter' && document.activeElement.matches?.('abbr.term')) showTerm(document.activeElement); });
+  addEventListener('scroll', () => { pop.hidden = true; }, {passive:true});
+  // сайдбар: на v2≥1100 — сворачивание; иначе мобильный drawer
+  const setSideCollapsed = (on) => {
+    if (!window.__HTLB_V2__) return;
+    document.documentElement.classList.toggle('side-collapsed', on);
+    try { localStorage.setItem('htlb-side', on ? 'collapsed' : 'open'); } catch (e) {}
+    applyI18n();
+  };
+  if (window.__HTLB_V2__) {
+    try { if (localStorage.getItem('htlb-side') === 'collapsed') document.documentElement.classList.add('side-collapsed'); } catch (e) {}
+  }
+  mb.addEventListener('click', () => {
+    if (window.__HTLB_V2__ && matchMedia('(min-width:1100px)').matches) {
+      setSideCollapsed(!document.documentElement.classList.contains('side-collapsed'));
+    } else {
+      setMenu(!sb.classList.contains('open'));
+    }
+  });
+  bd.addEventListener('click', () => setMenu(false));
+  addEventListener('resize', () => { if (window.__HTLB_V2__) applyI18n(); });
+  // 深色模式
+  document.getElementById('theme').addEventListener('click', () => {
+    const dark = !document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', dark);
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+  // версия: v2 (/{lang}/) ↔ v1 (/v1/{lang}/); /v2/ редиректит на /{lang}/
+  const vb = document.getElementById('ver-switch');
+  if (vb) vb.addEventListener('click', () => {
+    const q = location.search + location.hash;
+    const lang = (location.pathname.match(/\/(ru|en|zh)(?=\/|$)/) || [])[1] || LANG;
+    let root = location.pathname.replace(/\/index\.html$/, '/');
+    root = root.replace(/\/(v1|v2)\/(ru|en|zh)\/?$/, '/').replace(/\/(ru|en|zh)\/?$/, '/');
+    if (!root.endsWith('/')) root += '/';
+    location.href = window.__HTLB_V2__
+      ? (root + 'v1/' + lang + '/' + q)
+      : (root + lang + '/' + q);
+  });
+}
+
+/* ---------- 启动 ---------- */
+(async function init(){
+  applyI18n();
+  const list = document.getElementById('list');
+  const status = document.getElementById('status');
+  const skel = document.getElementById('skel');
+  const clearSkel = () => {
+    skel?.remove();
+    list.removeAttribute('aria-busy');
+  };
+  try {
+    if (location.protocol === 'file:') throw new Error('file');
+    const data = {ru:'README.ru.md', en:'README.md', zh:'README.zh.md'}[LANG];
+    const r = await fetch(data, {cache:'no-cache'});
+    if (!r.ok) throw new Error('http '+r.status);
+    const md = await r.text();
+    const files = [...new Set(Array.from(md.matchAll(/\]\((book\/[^)]+\.md)\)/g), m => m[1]))].sort();
+    if (!files.length) throw new Error('empty');
+    BOOK_FILES = files.length;
+    const parts = await Promise.all(files.map(async f => {
+      const res = await fetch(f, {cache:'no-cache'});
+      if (!res.ok) throw new Error('http '+res.status+': '+f);
+      return res.text();
+    }));
+    const t1 = performance.now();
+    const sections = parseReadme(parts.join('\n\n'));
+    if (!sections.length) throw new Error('empty');
+    GLOSS = parseGlossary(md);
+    PERF.log('парсинг текста', t1, files.length + ' файлов');
+    clearSkel();
+    status.remove();
+    const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
+    buildGlossary(); readUrl(); wire(); applyI18n(); apply();
+    // scroll-spy: только в v2-скине, после первой раскладки
+    if (window.__HTLB_V2__ && BLOCKS.length){
+      SPY_LINKS = [...document.querySelectorAll('#f-sec .sec-link:not(.all)')].map(btn => ({ n: btn.dataset.v, btn }));
+      let spyPending = false;
+      const onScroll = () => { if (spyPending) return; spyPending = true; requestAnimationFrame(() => { spyPending = false; spyTick(); }); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      spyTick();
+    }
+    PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
+    if (location.hash){
+      const target = document.getElementById(location.hash.slice(1));
+      target?.scrollIntoView();
+      // 卡片是 content-visibility:auto，首次定位后高度才准，下一帧再对一次
+      if (target) requestAnimationFrame(() => target.scrollIntoView());
+    }
+  } catch (err) {
+    clearSkel();
+    const c = document.getElementById('cnt'), t = document.getElementById('tot');
+    if (c) c.textContent = '–';
+    if (t) t.textContent = '–';
+    status.hidden = false;
+    status.innerHTML = err.message === 'file'
+      ? T().errFile
+      : T().errLoad(esc(String(err.message)));
+  }
+})();
+</script>
+</body>
+</html>

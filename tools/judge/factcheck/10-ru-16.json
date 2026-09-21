@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "16",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Divorce by agreement: within 30 days of filing either party may withdraw; after the period both must personally collect the divorce certificate within 30 days; not showing up counts as withdrawal",
+      "cn_span": "交了申请后 30 天内任何一方都能撤回，期满还要在 30 天内两人亲自去领离婚证，不去就当撤回",
+      "status": "ok"
+    },
+    {
+      "claim": "If the other side disagrees, only litigation remains; the court mediates first",
+      "cn_span": "对方不同意只能起诉，法院先调解",
+      "status": "ok"
+    },
+    {
+      "claim": "Divorce granted where there is remarriage or cohabitation with another, domestic violence/abuse/abandonment, uncorrected gambling or drug addiction, two years of separation — and mediation fails",
+      "cn_span": "要有重婚或与他人同居、家暴虐待遗弃、赌博吸毒屡教不改、分居满两年这些情形，调解不成才判离",
+      "status": "ok"
+    },
+    {
+      "claim": "If after a denial they live apart another year, the second petition must be granted",
+      "cn_span": "判了不离再分居满一年，第二次起诉应当准予",
+      "status": "ok"
+    },
+    {
+      "claim": "The cooling-off period applies only to divorce by agreement; litigation divorce has none but takes longer",
+      "cn_span": "冷静期只适用于协议离婚，诉讼离婚没有冷静期但周期更长",
+      "status": "ok"
+    },
+    {
+      "claim": "Of the 3.513 million divorces in 2024, 0.891 million went through court judgment or mediation",
+      "cn_span": "2024 年全国离婚 351.3 万对里 89.1 万对走的是法院判决、调解",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

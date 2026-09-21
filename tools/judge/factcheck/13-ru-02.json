@@ -1,0 +1,55 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "02",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "For a fallen elderly person: squat, call out, call 120, don't rush to lift them.",
+      "cn_span": "先蹲下喊他、打 120，别急着把人扶起来",
+      "status": "ok"
+    },
+    {
+      "claim": "For a stranger walking away is legal; if you stop, do not move the person.",
+      "cn_span": "陌生人这档走开也合法，停下来就别上手搬",
+      "status": "ok"
+    },
+    {
+      "claim": "Falls are the No.1 cause of injury death in people over 65; the person may have stroked or fainted before falling.",
+      "cn_span": "跌倒是 65 岁以上老人受伤死亡的头号原因",
+      "status": "ok"
+    },
+    {
+      "claim": "If they don't remember how they fell, it may have been syncope or a cerebrovascular accident.",
+      "cn_span": "想不起来就可能是晕厥或者脑血管意外",
+      "status": "ok"
+    },
+    {
+      "claim": "Forcing them up may worsen cerebral hemorrhage or ischemia; back pain/incontinence/fracture signs — don't move without expertise.",
+      "cn_span": "硬扶可能加重脑出血或脑缺血",
+      "status": "ok"
+    },
+    {
+      "claim": "If it was you who hit them, burden of proof is on the claimant; the party without evidence bears adverse consequences.",
+      "cn_span": "谁主张谁举证，拿不出证据的一方自己承担不利后果",
+      "status": "ok"
+    },
+    {
+      "claim": "In the SPC typical case the rescuer broke ribs and was sued for over 9,000 yuan; the court ruled no liability (RU 'Эффект' also names the pharmacy worker/18 days).",
+      "cn_span": "被索赔九千多，法院判不用赔",
+      "status": "ok"
+    },
+    {
+      "claim": "You have no duty to rescue a stranger; stopping costs time, leaving your number, being contacted by family, defendant status, workplace scandal, being filmed and spread online.",
+      "cn_span": "你没有救助义务",
+      "status": "ok"
+    },
+    {
+      "claim": "Exception: operators/managers/organizers bear a safety obligation under Civil Code art. 1198 and cannot walk away for free.",
+      "cn_span": "你若是这个场所的经营者、管理者或者活动组织者，走开就不再免费",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

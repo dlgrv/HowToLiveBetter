@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "13",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:08:19Z",
+  "assertions": [
+    {
+      "claim": "20 minutes of cool running water within 3 hours of the burn cuts graft probability to about 0.6 of unwashed (OR 0.6, 95% CI 0.4–0.8, Australian cohort of 2495 children).",
+      "cn_span": "受伤 3 小时内用凉的流动水冲够 20 分钟，最后需要植皮的概率大约只有没冲的六成",
+      "status": "ok"
+    },
+    {
+      "claim": "Cool, not icy water — ice worsens the damage.",
+      "cn_span": "是凉水不是冰水，冰敷会加重损伤",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't force off clothing stuck to the wound; cover with a clean cloth and go to hospital.",
+      "cn_span": "衣服粘在伤口上别硬撕，冲完拿干净布盖住去医院",
+      "status": "ok"
+    },
+    {
+      "claim": "No toothpaste, soy sauce, sesame oil or flour — they hinder depth assessment and raise infection risk.",
+      "cn_span": "牙膏、酱油、香油、面粉都不要抹",
+      "status": "ok"
+    },
+    {
+      "claim": "Delayed flushing still helps within three hours; 7-study meta-analysis found the same.",
+      "cn_span": "隔了一会儿才想起来，三小时内补冲仍然有用",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

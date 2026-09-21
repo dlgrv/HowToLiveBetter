@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "16",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:08:19Z",
+  "assertions": [
+    {
+      "claim": "Give 15 g of sugar first — sugar cubes or a small juice box; retest after 15 minutes, repeat if still low.",
+      "cn_span": "先吃 15 克糖——方糖、一小盒果汁都行，15 分钟后再测一次，还低就再来一次",
+      "status": "ok"
+    },
+    {
+      "claim": "Glucose below 3.0 mmol/L is clinically significant hypoglycemia; when outside help is needed it can be fatal.",
+      "cn_span": "血糖低于 3.0 就是有临床意义的低血糖，到了要别人帮忙才能处理的程度可以致命",
+      "status": "ok"
+    },
+    {
+      "claim": "Give nothing by mouth to an unconscious person — it will enter the airway; call 120 immediately.",
+      "cn_span": "意识不清的人一口都别喂，会呛进气管，直接打 120",
+      "status": "ok"
+    },
+    {
+      "claim": "The same standard advises glucagon be prescribed to anyone on insulin or at high hypoglycemia risk; nasal spray and prefilled pen are more convenient.",
+      "cn_span": "用胰岛素或低血糖高风险的人都应该配一份胰高血糖素",
+      "status": "ok"
+    },
+    {
+      "claim": "Default target is yourself or a diabetic family member — carry sugar for them.",
+      "cn_span": "这条的默认对象是你自己或家里的糖尿病人，随身带糖也是给他们带的",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

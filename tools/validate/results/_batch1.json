@@ -1,0 +1,149 @@
+{
+  "batch": "batch1",
+  "chapters": [
+    "02",
+    "04",
+    "05",
+    "06"
+  ],
+  "taxonomy": [
+    "dropped_condition",
+    "reversed_logic",
+    "softened_claim",
+    "added_advice",
+    "subject_swapped",
+    "cross_unit_contradiction"
+  ],
+  "mutations": [
+    {
+      "target": [
+        "02",
+        "ru"
+      ],
+      "issue_type": "dropped_condition",
+      "original_excerpt": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить до 40 лет, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь.",
+      "mutant_text": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь."
+    },
+    {
+      "target": [
+        "02",
+        "en"
+      ],
+      "issue_type": "reversed_logic",
+      "original_excerpt": "- In plain terms: people who chronically sleep under 7 hours are about 10% more likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration.",
+      "mutant_text": "- In plain terms: people who chronically sleep under 7 hours are about 10% less likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration."
+    },
+    {
+      "target": [
+        "04",
+        "ru"
+      ],
+      "issue_type": "softened_claim",
+      "original_excerpt": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши оказались самым быстрым из трёх способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь.",
+      "mutant_text": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши, возможно, оказались одним из сравнительно быстрых способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь."
+    },
+    {
+      "target": [
+        "04",
+        "en"
+      ],
+      "issue_type": "added_advice",
+      "original_excerpt": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality.",
+      "mutant_text": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality. For best results, hold stand-up meetings before 10 a.m., when decisions are sharpest."
+    },
+    {
+      "target": [
+        "05",
+        "ru"
+      ],
+      "issue_type": "subject_swapped",
+      "original_excerpt": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто подоходный и так не платит, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя.",
+      "mutant_text": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто платит подоходный по максимальной ставке, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя."
+    },
+    {
+      "target": [
+        "05",
+        "en"
+      ],
+      "issue_type": "cross_unit_contradiction",
+      "original_excerpt": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 400-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it.",
+      "mutant_text": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 40-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it."
+    },
+    {
+      "target": [
+        "06",
+        "ru"
+      ],
+      "issue_type": "dropped_condition",
+      "original_excerpt": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год. Тем, у кого подтверждён дефицит питательных веществ, и беременным, принимающим фолиевую кислоту, это не касается.",
+      "mutant_text": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год."
+    },
+    {
+      "target": [
+        "06",
+        "en"
+      ],
+      "issue_type": "reversed_logic",
+      "original_excerpt": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does not help with weight loss — the exercise itself is what works.",
+      "mutant_text": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does help with weight loss — the exercise itself is not what works."
+    }
+  ],
+  "controls": [
+    {
+      "target": [
+        "02",
+        "ru"
+      ],
+      "original_excerpt": "- Простыми словами: у тех, кто ест больше всего ветчины, бекона и колбасы, вероятность смерти за тот же период примерно на 20% выше, чем у тех, кто ест меньше всего; каждая дополнительная порция обработанного мяса в день добавляет примерно те же 20%."
+    },
+    {
+      "target": [
+        "02",
+        "en"
+      ],
+      "original_excerpt": "- In plain terms: people who cook with coal or wood are about 10% more likely to die over the same period, and those who heat with them about 14%; those who have switched to electricity or gas are 13%–33% less likely to die than those still burning solid fuels."
+    },
+    {
+      "target": [
+        "04",
+        "ru"
+      ],
+      "original_excerpt": "- Простыми словами: в среднем китаец тратит на домашние дела 1 час 17 минут в день, а тот, кто ими реально занимается, — 1 час 59 минут. Люди, покупающие себе время, довольны жизнью больше, и те же деньги, потраченные на время, радуют здесь и сейчас сильнее, чем потраченные на вещи."
+    },
+    {
+      "target": [
+        "04",
+        "en"
+      ],
+      "original_excerpt": "- In plain terms: students estimated 33.9 days to finish a thesis and actually took 55.5 days; only 29.7% finished by their own estimate. The group told to first recall how long their last similar task took saw on-time completion rise from 29.3% to 60.0%."
+    },
+    {
+      "target": [
+        "05",
+        "ru"
+      ],
+      "original_excerpt": "- Простыми словами: Дороговизну мы оцениваем по первой увиденной цифре, и последующие поправки всегда недостаточны — поэтому «было 999, стало 499» систематически завышает вашу оценку выгоды. А по правилам базой для скидки служит лишь минимальная цена сделки этого же продавца за семь дней до акции — зачёркнутая цена вовсе не обязана была существовать."
+    },
+    {
+      "target": [
+        "05",
+        "en"
+      ],
+      "original_excerpt": "- In plain terms: in that three-year US dataset, members on monthly contracts above 70 dollars averaged only 4.3 visits a month — over 17 dollars per visit — while a 10-visit pass cost just 10 dollars a visit; over the life of their membership they paid 600 dollars more on average. Unless you already have a steady record of going for over a year, per-visit or short-term is cheaper."
+    },
+    {
+      "target": [
+        "06",
+        "ru"
+      ],
+      "original_excerpt": "- Простыми словами: 471 взрослый с лишним весом получал одну и ту же программу изменений образа жизни: те, кто носил устройство, за два года сбросили 3.5 кг, а те, кто не носил, — 5.9 кг. Устройство на похудение не влияет — работает само движение."
+    },
+    {
+      "target": [
+        "06",
+        "en"
+      ],
+      "original_excerpt": "- In plain terms: trace the origin of \"8 glasses a day\" and you will not find a single study supporting it; on the contrary, surveys of several thousand people's food and fluid intake suggest that much is not needed, because food and other drinks already bring in a lot of water. Drink when thirsty and check your urine color — that is enough. People working in high heat, exercising hard, with a history of kidney stones, or older adults whose thirst response has dulled need to drink proactively."
+    }
+  ]
+}

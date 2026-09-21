@@ -1,4 +1,4 @@
-[← Back to the master table of contents](../README.md)
+[← Back to the master table of contents](../../README.md)
 
 # 7. How to Live When You Have No Money
 

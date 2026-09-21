@@ -1,4 +1,4 @@
-[← Back to master table of contents](../README.md)
+[← Back to master table of contents](../../README.md)
 
 # 32. Studying Abroad: Status, Part-Time Work, Insurance, and Credential Recognition at Home
 

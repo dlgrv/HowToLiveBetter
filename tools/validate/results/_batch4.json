@@ -1,0 +1,117 @@
+{
+  "batch_file": "/root/github/HowToLiveBetter/tools/validate/results/_batch4.json",
+  "chapters": {
+    "23": {
+      "ru": "dropped_condition",
+      "en": "reversed_logic"
+    },
+    "25": {
+      "ru": "softened_claim",
+      "en": "added_advice"
+    },
+    "27": {
+      "ru": "subject_swapped",
+      "en": "cross_unit_contradiction"
+    }
+  },
+  "mutations": [
+    {
+      "target": [
+        "23",
+        "ru"
+      ],
+      "issue_type": "dropped_condition",
+      "original_excerpt": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом, занятых в основном обработкой информации, риск максимальный.",
+      "mutant_text": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом риск максимальный."
+    },
+    {
+      "target": [
+        "23",
+        "en"
+      ],
+      "issue_type": "reversed_logic",
+      "original_excerpt": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently higher than for men.",
+      "mutant_text": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently lower than for men."
+    },
+    {
+      "target": [
+        "25",
+        "ru"
+      ],
+      "issue_type": "softened_claim",
+      "original_excerpt": "После кремации возможность вскрытия исчезает навсегда, поэтому этот вопрос нужно решить до обращения в похоронное бюро.",
+      "mutant_text": "После кремации возможность вскрытия, как правило, исчезает, поэтому этот вопрос лучше решить до обращения в похоронное бюро."
+    },
+    {
+      "target": [
+        "25",
+        "en"
+      ],
+      "issue_type": "added_advice",
+      "original_excerpt": "As soon as you have it, make several photocopies, and apply for the electronic version too where the institution can issue one.",
+      "mutant_text": "As soon as you have it, make several photocopies, have one copy notarised for the inheritance windows, and apply for the electronic version too where the institution can issue one."
+    },
+    {
+      "target": [
+        "27",
+        "ru"
+      ],
+      "issue_type": "subject_swapped",
+      "original_excerpt": "Теперь у неё есть отдельная позиция в тарифике, и больницам выгоднее её делать.",
+      "mutant_text": "Теперь у кесарева сечения есть отдельная позиция в тарифике, и больницам выгоднее его делать."
+    },
+    {
+      "target": [
+        "27",
+        "en"
+      ],
+      "issue_type": "cross_unit_contradiction",
+      "original_excerpt": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, and getting an ID card, and the longer you drag it out, the more paperwork you have to make up.",
+      "mutant_text": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, insurance enrollment, and getting an ID card — resident medical insurance for the newborn can only be enrolled after the household registration is completed — and the longer you drag it out, the more paperwork you have to make up."
+    }
+  ],
+  "controls": [
+    {
+      "target": [
+        "23",
+        "ru"
+      ],
+      "original_excerpt": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом, занятых в основном обработкой информации, риск максимальный."
+    },
+    {
+      "target": [
+        "23",
+        "en"
+      ],
+      "original_excerpt": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently higher than for men."
+    },
+    {
+      "target": [
+        "25",
+        "ru"
+      ],
+      "original_excerpt": "После кремации возможность вскрытия исчезает навсегда, поэтому этот вопрос нужно решить до обращения в похоронное бюро."
+    },
+    {
+      "target": [
+        "25",
+        "en"
+      ],
+      "original_excerpt": "As soon as you have it, make several photocopies, and apply for the electronic version too where the institution can issue one."
+    },
+    {
+      "target": [
+        "27",
+        "ru"
+      ],
+      "original_excerpt": "Теперь у неё есть отдельная позиция в тарифике, и больницам выгоднее её делать."
+    },
+    {
+      "target": [
+        "27",
+        "en"
+      ],
+      "original_excerpt": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, and getting an ID card, and the longer you drag it out, the more paperwork you have to make up."
+    }
+  ]
+}

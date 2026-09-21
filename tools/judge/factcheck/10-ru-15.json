@@ -1,0 +1,35 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "15",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Pool of 126 studies, 72k+ people: higher marital quality, better health, but the association is weak",
+      "cn_span": "126 篇研究、7.2 万多人的汇总显示，婚姻质量越高健康越好，但这个关联很弱",
+      "status": "ok"
+    },
+    {
+      "claim": "Magnitude comparable to diet-type health behaviors' effect on health; essentially no male-female difference found",
+      "cn_span": "量级跟饮食这类健康行为对健康的影响差不多，男女之间基本没发现差别",
+      "status": "ok"
+    },
+    {
+      "claim": "Judge relationship quality by several conflicts and months of living together, not by checking a trait checklist",
+      "cn_span": "关系好不好要拿几次冲突、几个月相处去看，不是核对条件清单",
+      "status": "ok"
+    },
+    {
+      "claim": "'Is a bad marriage worse than no marriage' has no direct comparative data; currently only an inference",
+      "cn_span": "至于「坏婚姻是不是比不结婚更差」，没有直接对比的数据，目前只是推论",
+      "status": "ok"
+    },
+    {
+      "claim": "Effect sizes r 0.07-0.21; death risk r=0.11; cardiovascular reaction in conflict r=-0.13",
+      "cn_span": "效应量 r 在 0.07 到 0.21 之间，其中死亡风险 r = 0.11、冲突时心血管反应 r = −0.13",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "11",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Before marriage, parents paying for a home defaults to a gift to their own child; after registration, absent agreement, treated as joint property",
+      "cn_span": "婚前父母出钱买房，默认算给自己孩子一个人的；婚后出的钱没约定就按共同财产处理",
+      "status": "ok"
+    },
+    {
+      "claim": "From Feb 2025: if one spouse's parents fully fund the marital home and the gift contract doesn't state it's only for their child, the court may award the house to the payer's child's side at divorce",
+      "cn_span": "婚内一方父母全额出资、赠与合同又没写明只给自己孩子的，离婚时法院可以把房判给出资方的孩子",
+      "status": "ok"
+    },
+    {
+      "claim": "The court then weighs cohabitation and childbearing, fault, each side's contribution to the family, current home value, to decide whether and how much to compensate the other side",
+      "cn_span": "再看共同生活和生育情况、有没有过错、谁对家庭贡献大、房子现在值多少，决定补不补偿另一方",
+      "status": "ok"
+    },
+    {
+      "claim": "Partial funding by one side's parents or funding by both sides': based on the source and proportion of contributions, award to one side with fair compensation",
+      "cn_span": "一方父母部分出资或者双方父母都出资的，以出资来源和比例为基础判归其中一方并合理补偿",
+      "status": "ok"
+    },
+    {
+      "claim": "To structure it as a loan, write it clearly the same day with both parties' signatures",
+      "cn_span": "要按借款办就当天写清楚、双方签字",
+      "status": "ok"
+    },
+    {
+      "claim": "After Interpretation (II) took effect, the funding source itself is the basis for division; whose name the home is registered in no longer decides its fate",
+      "cn_span": "解释（二）施行后，出资来源本身就是分割依据，登记在谁名下不再决定归属",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

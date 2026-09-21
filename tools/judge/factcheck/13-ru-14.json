@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "14",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:08:19Z",
+  "assertions": [
+    {
+      "claim": "Sudden whole-body rash plus breathlessness or dizziness is treated as anaphylactic shock: immediate 120, say 'suspected anaphylactic shock' so the crew brings adrenaline.",
+      "cn_span": "突然全身起疹，再加上喘不上气或者发晕，就按过敏性休克办",
+      "status": "ok"
+    },
+    {
+      "claim": "Adrenaline is first-line; antihistamines and steroids act slowly and cannot take its place.",
+      "cn_span": "肾上腺素是一线药，抗过敏药和激素起效慢，顶不了这个位置",
+      "status": "ok"
+    },
+    {
+      "claim": "Those who had one episode should get an auto-injector prescribed; injected into the mid-outer thigh, through clothing too.",
+      "cn_span": "有过一次的人找医生开自动注射笔，打大腿中外侧，隔着裤子也能打",
+      "status": "ok"
+    },
+    {
+      "claim": "EAACI itself states evidence mostly remains very low-grade; the strong recommendation comes from benefit far outweighing risk, not large trials.",
+      "cn_span": "EAACI 自己写明这个领域「证据大多停留在很低的等级」",
+      "status": "ok"
+    },
+    {
+      "claim": "Adrenaline in China is prescription-only, ordinary people usually don't have it; known severe allergy → paying for one's own auto-injector.",
+      "cn_span": "肾上腺素在国内是处方药，普通人手上通常没有",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

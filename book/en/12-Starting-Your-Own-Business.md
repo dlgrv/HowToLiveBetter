@@ -1,4 +1,4 @@
-[← Back to main table of contents](../README.md)
+[← Back to main table of contents](../../README.md)
 
 # 12. Starting a Business and Doing Deals: Don't Bet the Family Savings
 

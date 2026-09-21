@@ -1,4 +1,4 @@
-[← Back to main table of contents](../README.md)
+[← Back to main table of contents](../../README.md)
 
 # 27. Pregnancy and childbirth: from finding out you are pregnant to discharge and paperwork
 

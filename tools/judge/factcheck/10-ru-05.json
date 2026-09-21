@@ -1,0 +1,35 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "05",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Stranger pairs took turns answering three sets of 36 progressively deeper questions; after 45 minutes closeness clearly exceeded the equal-time small-talk control",
+      "cn_span": "轮流回答三组由浅入深、共 36 道问题，45 分钟后彼此的亲近感明显高于闲聊同样时长的对照组",
+      "status": "ok"
+    },
+    {
+      "claim": "Closeness even exceeded the students' average rating of their closest real relationships",
+      "cn_span": "甚至高过那批学生对自己现实中最亲密关系的平均打分",
+      "status": "ok"
+    },
+    {
+      "claim": "What works is both sides taking turns telling deeper truths, not conversational techniques",
+      "cn_span": "起作用的是两边轮流、一层层往深里说真话，不是话术",
+      "status": "ok"
+    },
+    {
+      "claim": "It measured only short-term closeness, not whether a long-term relationship can develop",
+      "cn_span": "它测的只是短时间内的亲近感，不代表能发展成长期关系",
+      "status": "ok"
+    },
+    {
+      "claim": "Closeness comes from escalating two-way self-disclosure, not techniques, scripts or one-sided presentation",
+      "cn_span": "亲近感来自逐步升级的双向自我披露，而不是话术、套路或单方面表现",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

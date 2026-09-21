@@ -1,0 +1,30 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "03",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Thrombolysis within 3 hours gives ~1.75× odds of recovering to basic self-care; 3–4.5h drops to 1.26×; beyond 4.5h no visible difference.",
+      "cn_span": "3 小时内溶栓，恢复到生活基本能自理的概率大约是不溶栓的 1.75 倍",
+      "status": "ok"
+    },
+    {
+      "claim": "Beyond 4.5 hours OR 1.15 (0.95–1.40), no longer significant (6756 patients, 16 trials, alteplase).",
+      "cn_span": "超过 4.5 小时 1.15（0.95–1.40），不再显著",
+      "status": "ok"
+    },
+    {
+      "claim": "Call 120 immediately, note exact symptom-onset time, no water/medication, don't drive yourself.",
+      "cn_span": "记下症状开始的准确时间，别喂水喂药，别自己开车",
+      "status": "ok"
+    },
+    {
+      "claim": "120 instead of own car because the ambulance goes straight to a stroke-center hospital and alerts it in advance.",
+      "cn_span": "救护车会直接送到有卒中中心的医院并提前通知",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

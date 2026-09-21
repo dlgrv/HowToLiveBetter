@@ -1,0 +1,45 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "08",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Married people's same-period death probability is ~12% lower than the unmarried; never-married ~24% higher than the married",
+      "cn_span": "已婚的人同期死亡的概率比非婚的人低约 12%，从未结过婚的人比已婚的人高约 24%",
+      "status": "ok"
+    },
+    {
+      "claim": "The gap shrinks with age and is more pronounced for men",
+      "cn_span": "年纪越大差距越小，男性受的影响更明显些",
+      "status": "ok"
+    },
+    {
+      "claim": "Correlation not causation: healthier, higher-income, more social people both marry more easily and live longer; the more rigorous the study, the smaller the gap",
+      "cn_span": "但这是相关不是因果：本来健康、收入高、社交多的人既更容易结婚，也更容易活得久，研究做得越严谨算出的差距越小",
+      "status": "ok"
+    },
+    {
+      "claim": "Figures are basically from European/American samples; for China use only as an order-of-magnitude reference",
+      "cn_span": "数字基本来自欧美样本，对国内只能当量级参考",
+      "status": "ok"
+    },
+    {
+      "claim": "Elderly meta-analysis: married vs unmarried all-cause RR 0.88; widowed 1.11; divorced/separated 1.16; never-married 1.11; no male-female difference; most conservative RR 0.94",
+      "cn_span": "已婚相对非婚全因死亡 RR 0.88（95% CI 0.85–0.91），丧偶 1.11、离异或分居 1.16、未婚 1.11，男女无差异，最保守估计 RR 0.94",
+      "status": "ok"
+    },
+    {
+      "claim": "Never-married vs married meta-analysis (95 publications, 500M+ people): HR 1.24, effect shrinks with age",
+      "cn_span": "未婚（从未结婚）相对已婚的荟萃分析（95 篇文献、5 亿余人）HR 1.24（1.19–1.30），效应随年龄增长而变小",
+      "status": "ok"
+    },
+    {
+      "claim": "Unmarried men vs unmarried women: stroke mortality +31%, all-cause +9%",
+      "cn_span": "未婚男性相对未婚女性卒中死亡多 31%、全因死亡多 9%",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

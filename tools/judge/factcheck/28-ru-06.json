@@ -1,0 +1,45 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "06",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Prescription drugs must be sold only against a prescription; pharmacies must keep prescriptions at least five years — conveyed in RU.",
+      "cn_span": "处方药按规定必须凭处方卖，药店还要把处方留满五年",
+      "status": "ok"
+    },
+    {
+      "claim": "Online sale of prescription drugs requires a genuine, reliable prescription and real-name verification — conveyed in RU.",
+      "cn_span": "在网上卖处方药，也必须有真实可靠的处方并且实名",
+      "status": "ok"
+    },
+    {
+      "claim": "A site that neither consults, nor requires a prescription, nor delays shipping leaves only two possibilities: wrong product or a rule-violating shop — conveyed in RU.",
+      "cn_span": "看到不问诊、不要处方、下单就发的，只有两种可能：卖的不是它说的那个药，或者这家店本身在违规",
+      "status": "ok"
+    },
+    {
+      "claim": "In both cases nobody is responsible for your dosage and contraindications if something goes wrong — conveyed in RU.",
+      "cn_span": "两种情况下，出了事都没人替你的剂量和禁忌负责",
+      "status": "ok"
+    },
+    {
+      "claim": "Pharmacist-off-duty notice, no sale of prescription drugs without their review, no open-shelf sale — all three rules conveyed in RU.",
+      "cn_span": "药师或其他药学技术人员不在岗时应挂牌告知，未经其审核不得销售处方药；处方药不得开架销售",
+      "status": "ok"
+    },
+    {
+      "claim": "Article 8 list of specially controlled drugs banned from online sale — same enumerated categories in RU.",
+      "cn_span": "第八条规定疫苗、血液制品、麻醉药品、精神药品、医疗用毒性药品、放射性药品、药品类易制毒化学品等国家实行特殊管理的药品不得在网络上销售",
+      "status": "ok"
+    },
+    {
+      "claim": "With a real indication the doctor first checks BMI, comorbidities and contraindications before deciding on a drug; this judgment cannot be bought — conveyed in RU.",
+      "cn_span": "医生会先看 BMI、合并症和禁忌症再决定用不用药、用哪种，这个判断是买不到的",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

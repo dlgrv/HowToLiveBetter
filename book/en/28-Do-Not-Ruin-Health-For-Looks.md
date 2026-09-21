@@ -1,4 +1,4 @@
-[← Back to table of contents](../README.md)
+[← Back to table of contents](../../README.md)
 
 # 28. Don't wreck your body for the sake of your appearance
 

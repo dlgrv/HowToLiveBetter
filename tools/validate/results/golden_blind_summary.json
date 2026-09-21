@@ -1,0 +1,37 @@
+{
+  "native_preference": 1.0,
+  "native_detail": {
+    "picked_original": 50,
+    "answered": 50,
+    "rate": 1.0
+  },
+  "decoy_fp_rate": null,
+  "decoy_detail": {
+    "picked_original": 0,
+    "answered": 0,
+    "rate": null
+  },
+  "per_recipe": {
+    "bureaucratese": {
+      "picked_original": 11,
+      "answered": 11,
+      "rate": 1.0
+    },
+    "passive_chain": {
+      "picked_original": 14,
+      "answered": 14,
+      "rate": 1.0
+    },
+    "literalisation": {
+      "picked_original": 13,
+      "answered": 13,
+      "rate": 1.0
+    },
+    "impersonal_calque": {
+      "picked_original": 12,
+      "answered": 12,
+      "rate": 1.0
+    }
+  },
+  "unanswered": []
+}

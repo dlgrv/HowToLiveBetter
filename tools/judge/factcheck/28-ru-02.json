@@ -1,0 +1,45 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "02",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "Surgery, injections and medical devices that break skin or enter the body count as medical practice, allowed only in institutions licensed with the medical-cosmetology scope — conveyed in RU.",
+      "cn_span": "只要是手术、打针、用医疗器械这类会破皮或者进到身体里的，都算医疗行为",
+      "status": "ok"
+    },
+    {
+      "claim": "Practitioner must be a licensed, registered physician; cosmetic surgery additionally requires 6+ years of clinical experience — conveyed in RU.",
+      "cn_span": "动手的医生要有执业医师资格并注册，做美容外科的还得有 6 年以上整形或美容外科的临床经历",
+      "status": "ok"
+    },
+    {
+      "claim": "Doing these in beauty salons, studios or hotel rooms is unlicensed medical practice — conveyed in RU with the same penalty structure.",
+      "cn_span": "美容院、工作室、酒店房间里做这些是非法行医",
+      "status": "ok"
+    },
+    {
+      "claim": "Written disclosure of indications, contraindications and risks plus signature before the procedure; skipping it means the process itself is violated — conveyed in RU.",
+      "cn_span": "做之前医生必须书面告诉你适应症、禁忌症和风险并让你签字，跳过这一步就说明流程本身不对",
+      "status": "ok"
+    },
+    {
+      "claim": "Article 11 qualification requirements (6/5/3/3 years by specialty) — all four specialties conveyed in RU with the same split.",
+      "cn_span": "美容外科需 6 年以上、美容牙科 5 年以上、美容中医科与美容皮肤科各 3 年以上相关专业临床工作经历",
+      "status": "ok"
+    },
+    {
+      "claim": "Article 20 guardian-consent rule; RU renders 监护人 as 'законный представитель' — equivalent in this context.",
+      "cn_span": "未经监护人同意，不得为无行为能力或者限制行为能力人实施医疗美容项目",
+      "status": "ok"
+    },
+    {
+      "claim": "Life beauty services are out of scope, but needle and scalpel make it medical cosmetology — preserved in RU.",
+      "cn_span": "生活美容（做脸、按摩、美甲）不在这个范围内，但一旦动到针和刀就是医疗美容",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

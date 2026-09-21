@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "01",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Two speed-dating studies had participants fill 100+ mate-choice questionnaire items before meeting",
+      "cn_span": "两场闪电约会研究让人在见面前填了 100 多项择偶问卷",
+      "status": "ok"
+    },
+    {
+      "claim": "Models could predict 'generally easy to like' and 'generally popular' but not the spark between two specific people",
+      "cn_span": "结果只能算出「这个人普遍容易喜欢别人」和「这个人普遍受欢迎」，唯独算不出「这两个具体的人之间来不来电」",
+      "status": "ok"
+    },
+    {
+      "claim": "Even self-stated ideal-partner preferences (looks vs financial prospects) did not predict in-person interest in a specific person",
+      "cn_span": "连人自己说的理想型（看重外貌还是看重经济前景），也预测不了他现场对某个人的兴趣",
+      "status": "ok"
+    },
+    {
+      "claim": "Compatibility is only known upon meeting, so time spent meeting several people beats betting on one",
+      "cn_span": "合不合得来只有见了面才知道，所以把时间花在多认识几个人上，比押在一个人身上划算",
+      "status": "ok"
+    },
+    {
+      "claim": "Random forest predicted general likability (4%-18% of variance) and general popularity (7%-27%)",
+      "cn_span": "随机森林模型能预测「一个人整体上有多容易喜欢别人」（4%–18% 的方差）和「一个人整体上有多受欢迎」（7%–27%）",
+      "status": "ok"
+    },
+    {
+      "claim": "Samples are European/American students; Chinese marriage market differs, transfer conclusions with a discount",
+      "cn_span": "都是欧美大学生样本，中国的婚恋市场结构不同，结论迁移要打折",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

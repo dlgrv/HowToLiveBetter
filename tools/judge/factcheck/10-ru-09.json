@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "09",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "National time-use survey: unpaid work (housework and caring for family) men average 1h52m/day, women 3h29m — a ~1.5-hour gap",
+      "cn_span": "男性每天平均 1 小时 52 分，女性 3 小时 29 分，差了一个半小时",
+      "status": "ok"
+    },
+    {
+      "claim": "Participation rates also differ by 16 percentage points",
+      "cn_span": "参与率也差 16 个百分点",
+      "status": "ok"
+    },
+    {
+      "claim": "The survey has no marital-status breakdown, so no official number for 'how much housework marriage adds'; the gender gap serves only as an upper bound",
+      "cn_span": "调查没按婚姻状况分组，所以「结了婚家务会多多少」没有官方数字，这个性别差距只能当上限参考",
+      "status": "ok"
+    },
+    {
+      "claim": "The division of labor can absolutely be negotiated into something different before registering",
+      "cn_span": "分工完全可以在领证前谈成另一个样子",
+      "status": "ok"
+    },
+    {
+      "claim": "2024 survey: unpaid labor participants average 2h45m/day; participation 67.5% men vs 83.9% women",
+      "cn_span": "无酬劳动（家务、陪伴照料家人等）参与者每日平均 2 小时 45 分，男性 1 小时 52 分、女性 3 小时 29 分，参与率男性 67.5%、女性 83.9%",
+      "status": "ok"
+    },
+    {
+      "claim": "Housework 1h17m/day (participants 1h59m, 28 min less than 2018); caring for family 30 min (participants 1h46m)",
+      "cn_span": "居民家务劳动每日平均 1 小时 17 分（参与者 1 小时 59 分，比 2018 年少 28 分），陪伴照料家人 30 分（参与者 1 小时 46 分）",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

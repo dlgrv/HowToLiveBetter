@@ -1,0 +1,16 @@
+name: check-links
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve every relative markdown link from its file's directory
+        run: python3 tools/check_links.py
+      - name: Content gates (CJK leaks, filename language, parity, badge stats)
+        run: python3 tools/check_content.py

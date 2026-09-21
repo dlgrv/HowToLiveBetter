@@ -1,0 +1,35 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "07",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "2024: 6.106 million marriages registered (about 20% fewer than the prior year), 3.513 million divorces handled",
+      "cn_span": "2024 年全国办理结婚登记 610.6 万对，比上一年少了两成，办理离婚 351.3 万对",
+      "status": "ok"
+    },
+    {
+      "claim": "The viral 'divorce rate over half' just divides the two counts (~57.5%); numerator and denominator are not the same people; the indicator is absent from the communiqué; cannot be read as 'half of marriages end in divorce'",
+      "cn_span": "网上传的「离婚率过半」是拿这两个数一除（约 57.5%），分子分母根本不是同一批人，公报里没有这个指标，不能读成「一半婚姻会离」",
+      "status": "ok"
+    },
+    {
+      "claim": "Marriage rate 4.3‰ and divorce rate 2.5‰ use the whole population as denominator, not the married population",
+      "cn_span": "公报里的结婚率 4.3‰、离婚率 2.5‰，分母是全体人口而不是已婚人口",
+      "status": "ok"
+    },
+    {
+      "claim": "'Probability that a given marriage ends in divorce' requires cohort data; no official source found for this section",
+      "cn_span": "「一段婚姻最终离婚的概率」需要队列数据，本节未找到官方原文",
+      "status": "ok"
+    },
+    {
+      "claim": "The communiqué notes the crude-rate formula: annual marriages(divorces) / mid-year total population x 1000‰",
+      "cn_span": "公报注明结（离）婚率 = 当年结（离）婚对数 / 当年平均总人口数 × 1000‰，是「粗率」，分母是全体人口而不是已婚人口",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "08",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Of 2131 severe headaches peaking within one hour, 6.2% (132) were subarachnoid hemorrhage (10 Canadian EDs).",
+      "cn_span": "一小时内到顶的剧烈头痛，2131 人里有 6.2% 是蛛网膜下腔出血",
+      "status": "ok"
+    },
+    {
+      "claim": "Any of the six Ottawa SAH-rule criteria (age ≥40, neck pain/stiffness, witnessed syncope, exertional onset, thunderclap, limited neck flexion) → head CT.",
+      "cn_span": "40 岁以上、脖子痛或发硬、有人看到你晕过去、活动中起病、瞬间炸开、脖子前屈受限，中任何一条就去急诊做头颅 CT",
+      "status": "ok"
+    },
+    {
+      "claim": "Rule sensitivity 100% (97.2–100.0), specificity 15.3%.",
+      "cn_span": "识别出血的敏感性 100%（95% CI 97.2%–100.0%），特异性 15.3%",
+      "status": "ok"
+    },
+    {
+      "claim": "Specificity 15.3% means most people sent by the rule turn out fine, but one missed re-bleed is death — the check is worth it.",
+      "cn_span": "特异性只有 15.3%，意味着按这条去查的人绝大多数查完没事",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't take a painkiller and go back to sleep; the key is how fast the pain peaked, not how much it hurts.",
+      "cn_span": "不要吃片止痛药压下去接着睡",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

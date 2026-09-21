@@ -1,0 +1,45 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "10",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Without a written agreement, default: wages/bonuses, business and investment income, IP income, inherited and gifted property acquired in marriage are jointly owned",
+      "cn_span": "法律默认婚后挣的工资奖金、经营和投资收益、知识产权收益、继承或受赠的财产都归两人共有",
+      "status": "ok"
+    },
+    {
+      "claim": "Personal property: premarital assets, personal-injury compensation, property a will or gift contract gives to one spouse only, personal-use items",
+      "cn_span": "婚前财产、人身损害赔偿、遗嘱或赠与合同写明只给一方的、一方专用的生活用品才是个人的",
+      "status": "ok"
+    },
+    {
+      "claim": "Spouses may agree in writing to separate or partial ownership; the agreement is binding; notarization not required",
+      "cn_span": "双方可以书面约定各归各或部分共有，签了就有约束力，公证不是必要条件",
+      "status": "ok"
+    },
+    {
+      "claim": "The spouse who bore more childcare/elder-care may claim compensation at divorce",
+      "cn_span": "因带孩子、照料老人多付出的一方，离婚时可以要求补偿",
+      "status": "ok"
+    },
+    {
+      "claim": "No official statistics for bride price, weddings, home purchase; no numbers given in this item",
+      "cn_span": "彩礼、婚礼、婚房没有官方统计，本条不写数字",
+      "status": "ok"
+    },
+    {
+      "claim": "The property agreement cuts both ways — useful for the higher earner and for the one doing more unpaid work",
+      "cn_span": "财产约定是双向的，对收入高的一方和承担无酬劳动多的一方都有用",
+      "status": "ok"
+    },
+    {
+      "claim": "Article 1088 compensation amount: by agreement between the parties, failing that by court; no statutory formula",
+      "cn_span": "第一千零八十八条的补偿金额由双方协议、协议不成由法院判，没有法定公式",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}
