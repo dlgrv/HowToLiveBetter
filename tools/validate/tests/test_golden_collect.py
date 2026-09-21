@@ -40,8 +40,8 @@ class TestCollect(unittest.TestCase):
         self.assertIn("per_recipe", s)
         self.assertTrue(0.0 <= s["native_preference"] <= 1.0)
         self.assertTrue(0.0 <= s["decoy_fp_rate"] <= 1.0)
-        # 50 non-decoy pairs distributed over 4 recipes
-        self.assertEqual(sum(v["answered"] for v in s["per_recipe"].values()), 50)
+        # 18 non-decoy pairs (lite2: abridgement+bloat) answered by judge
+        self.assertEqual(sum(v["answered"] for v in s["per_recipe"].values()), 18)
 
 
 if __name__ == "__main__":

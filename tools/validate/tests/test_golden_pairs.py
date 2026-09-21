@@ -39,10 +39,8 @@ class TestSelection(unittest.TestCase):
     def test_counts(self):
         m = load_manifest()
         self.assertEqual(len(m["pairs"]), 60)
-        # NOTE: manifest on disk still holds 10 decoys until regeneration
-        # (golden_pairs regen is deferred until degradation v2 lands);
-        # the generator constant itself is 36.
-        self.assertIn(sum(1 for p in m["pairs"] if p["decoy"]), (10, 36))
+        # lite2: 18 real pairs (abridgement+bloat) + 42 identical-twin decoys
+        self.assertEqual(sum(1 for p in m["pairs"] if p["decoy"]), 42)
         strata = {p["stratum"] for p in m["pairs"]}
         self.assertLessEqual(strata, {"short", "medium", "long", "fresh"})
 

@@ -34,15 +34,25 @@ class TestMerge(unittest.TestCase):
         empty = [p["id"] for p in m["pairs"] if not p["decoy"] and not p["variant_b"]]
         self.assertEqual(empty, [])
 
-    def test_numbers_byte_identical(self):
+    def test_numbers_recipe_aware(self):
+        """v2 rules: abridgement may remove digit-bearing sentences (subset
+        check on digit chars), bloat may only add (superset). Tampering
+        (46% -> 64%) is caught in both directions."""
         import re
+        from collections import Counter
         m = json.load(open(MANIFEST, encoding="utf-8"))
         for p in m["pairs"]:
             if p["decoy"] or not p["variant_b"]:
                 continue
-            nums_a = sorted(re.findall(r"\d+(?:[.,]\d+)?", p["variant_a"]))
-            nums_b = sorted(re.findall(r"\d+(?:[.,]\d+)?", p["variant_b"]))
-            self.assertEqual(nums_a, nums_b, f"pair {p['id']}: numbers changed")
+            pat = re.compile(r"\d")
+            ca = Counter(pat.findall(p["variant_a"]))
+            cb = Counter(pat.findall(p["variant_b"]))
+            if p["recipe"] == "abridgement":
+                self.assertTrue(all(cb[d] <= ca[d] for d in cb),
+                                f"pair {p['id']}: abridgement added digits")
+            else:
+                self.assertTrue(all(cb[d] >= n for d, n in ca.items()),
+                                f"pair {p['id']}: bloat lost digits")
 
     def test_structure_preserved(self):
         m = json.load(open(MANIFEST, encoding="utf-8"))

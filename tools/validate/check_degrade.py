@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import re
+from collections import Counter
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -32,7 +33,18 @@ def digits_multiset(t):
     out = []
     for m in DIGITS.finditer(t):
         out.extend(m.group(0))
-    return sorted(out)
+    return Counter(out)
+
+
+def digits_ok(orig, b, recipe):
+    """Tamper guard on digits. Abridgement may only REMOVE digit-bearing
+    text: every digit in B must be covered by A (count_B <= count_A).
+    Bloat may only ADD text: every digit of A must survive (count_B >= count_A).
+    Both catch altered statistics (e.g. 46% -> 64%)."""
+    ca, cb = digits_multiset(orig), digits_multiset(b)
+    if recipe == "bloat":
+        return all(cb[d] >= n for d, n in ca.items())
+    return all(cb[d] <= ca[d] for d, n in cb.items())
 
 
 def lang_ok(text, lang):
@@ -55,8 +67,8 @@ def check(pair, orig, recipe):
         return ["variant_b identical to variant_a"]
     if LEAK.search(b):
         problems.append("meta/leak words present")
-    if digits_multiset(orig) != digits_multiset(b):
-        problems.append("digits multiset differs")
+    if not digits_ok(orig, b, recipe):
+        problems.append("digits tampered (multiset direction violated)")
     o_lines, b_lines = set(orig.split("\n")), set(b.split("\n"))
     for ln in o_lines:
         if PROTECTED.match(ln.strip()) and ln not in b_lines:
@@ -91,7 +103,8 @@ def main():
     for pair in data["pairs"]:
         pid = pair["pair_id"]
         orig = by_id[pid]["variant_a"]
-        problems = check(pair, orig, args.recipe)
+        lang = pair.get("lang") or by_id[pid]["lang"]
+        problems = check({**pair, "lang": lang}, orig, args.recipe)
         status = "OK" if not problems else "FAIL: " + "; ".join(problems)
         if problems:
             fail += 1

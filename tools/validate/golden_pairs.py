@@ -31,6 +31,10 @@ GREEN_CHAPTERS = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "12",
                   "14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
                   "24", "25", "26", "27", "29", "31", "32"]
 DEGRADE_RECIPES = [
+    {"name": "abridgement",
+     "instruction": "Remove clarifications, practical notes, and caveat sentences; keep all field labels, protected lines, and the heading. May only REMOVE digit-bearing text, never alter surviving numbers."},
+    {"name": "bloat",
+     "instruction": "Inflate with officialese filler, repeated theses, and puffy connectives; keep meaning identical. May only ADD text: every original number must survive byte-identical."},
     {"name": "impersonal_calque",
      "instruction": "Replace active personal constructions with impersonal/agentless passive phrasing (RU: 'следует осуществлять', 'производится'; EN: 'it is recommended that', 'is to be performed'). Keep every number byte-identical."},
     {"name": "literalisation",
@@ -44,9 +48,10 @@ DEGRADE_RECIPES = [
 ]
 
 CLEAN_GREEN = set(GREEN_CHAPTERS)
-# 36 decoys: with N=36 zero FP bounds judge FP rate at <=0.083 (95% one-sided,
+# 42 decoys: 18 real (abridgement+bloat lite2 set) + 42 identical twins.
+# With N=42 zero FP bounds judge FP rate at <=0.071 (95% one-sided,
 # rule of three): decoy gate becomes decisive for the kappa-gate decision.
-DECOY_TARGET = 36
+DECOY_TARGET = 42
 
 
 def read_chapter(root, nn, lang):
@@ -109,9 +114,9 @@ def select_pairs(root=REPO):
             for excerpt, stratum in zip(chosen, ("short", "medium", "long")):
                 add(nn, lang, excerpt, stratum, decoy=False)
                 seen_excerpts.add(excerpt_key(excerpt))
-    # fresh random pairs to reach 60 total, 10 of them decoys
+    # fresh random pairs to reach 60 total, topped up to DECOY_TARGET decoys
     need = 60 - len(pairs)
-    decoy_slots = set(rng.sample(range(need), min(DECOY_TARGET, need)))  # relative indices
+    fresh_decoy_slots = set(rng.sample(range(need), min(DECOY_TARGET, need)))  # relative indices
     placed, guard = 0, 0
     while placed < need and guard < 1000:
         guard += 1
@@ -120,11 +125,21 @@ def select_pairs(root=REPO):
         if not pool:
             continue
         excerpt = rng.choice(pool)
-        if not decoy_slots and excerpt_key(excerpt) in seen_excerpts:
+        if not fresh_decoy_slots and excerpt_key(excerpt) in seen_excerpts:
             continue  # global excerpt dedupe (F11: duplicates break κ independence)
-        add(nn, lang, excerpt, "fresh", decoy=placed in decoy_slots)
+        add(nn, lang, excerpt, "fresh", decoy=placed in fresh_decoy_slots)
         seen_excerpts.add(excerpt_key(excerpt))
         placed += 1
+    # top up decoys from anchors when DECOY_TARGET exceeds fresh slots (F3)
+    fresh_decoys = sum(1 for p in pairs if p["decoy"])
+    if fresh_decoys < DECOY_TARGET:
+        anchor_ids = [p["id"] for p in pairs
+                      if p["stratum"] in ("short", "medium", "long") and not p["decoy"]]
+        for pid_ in rng.sample(anchor_ids, DECOY_TARGET - fresh_decoys):
+            p = next(x for x in pairs if x["id"] == pid_)
+            p["decoy"] = True
+            p["variant_b"] = p["variant_a"]
+            p["recipe"] = None
     manifest = {"seed": SEED, "green_chapters": GREEN_CHAPTERS,
                 "recipes": DEGRADE_RECIPES,
                 "counts": {"pairs": len(pairs), "decoys": sum(p["decoy"] for p in pairs)}}
