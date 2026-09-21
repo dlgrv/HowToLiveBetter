@@ -1,0 +1,45 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "01",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "CPR course at Red Cross or hospital takes half a day to a day, one training lasts years; can be done untrained.",
+      "cn_span": "红十字会或医院的心肺复苏课半天到一天，学一次够用多年",
+      "status": "ok"
+    },
+    {
+      "claim": "Of 38,227 cases, 79.2% of cardiac arrests occurred at home — you will most likely press on your own family member.",
+      "cn_span": "38,227 例里 79.2% 的心脏骤停发生在家里",
+      "status": "ok"
+    },
+    {
+      "claim": "With bystander CPR, survival-to-discharge rises from 3.9% to 16.1%.",
+      "cn_span": "有人按压，出院时活下来的比例从 3.9% 升到 16.1%",
+      "status": "ok"
+    },
+    {
+      "claim": "Send a second person to call 120 and fetch the AED while your hands do not stop.",
+      "cn_span": "让第二个人打 120 和拿 AED，你的手别停",
+      "status": "ok"
+    },
+    {
+      "claim": "53% of arrests were witnessed but only 32% got bystander CPR; overall survival 7.6%.",
+      "cn_span": "53% 的骤停有人目击、只有 32% 得到旁观者按压",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't waste time on the renzhong point, finding relatives, filming; don't press weakly for fear of breaking ribs.",
+      "cn_span": "不要先掐人中、先找家属、先拍视频；不要因为怕按断肋骨而不敢用力",
+      "status": "ok"
+    },
+    {
+      "claim": "Civil Code art. 184: voluntary emergency rescuer causing harm bears no civil liability.",
+      "cn_span": "自愿实施紧急救助造成受助人损害的，救助人不承担民事责任",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

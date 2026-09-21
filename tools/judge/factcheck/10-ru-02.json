@@ -1,0 +1,45 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "02",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "From January 2026, messaging or lying in wait after an explicit refusal is a public-security violation",
+      "cn_span": "对方明确拒绝之后还发消息、还去等人，2026 年 1 月起就是治安违法",
+      "status": "ok"
+    },
+    {
+      "claim": "Punishment: up to 5 days detention or fine up to 1000 yuan; serious cases 5-10 days",
+      "cn_span": "拘留 5 日以下或罚 1000 元以下，情节较重拘留 5 到 10 日",
+      "status": "ok"
+    },
+    {
+      "claim": "Police may also order a no-contact period; violating it means another 5-10 days detention",
+      "cn_span": "公安还可以责令你一段时间内禁止接触对方，违反禁止接触的规定再拘留 5 到 10 日",
+      "status": "ok"
+    },
+    {
+      "claim": "Such records affect civil-service exams, public-institution posts, political vetting and some professional licenses",
+      "cn_span": "这类记录还会影响考公、考编、政审和一些职业的从业资格",
+      "status": "ok"
+    },
+    {
+      "claim": "Statute quote: repeated obscene/insulting/threatening messages or harassing/stalking methods disturbing normal life: up to 5 days or 1000 yuan; serious cases 5-10 days",
+      "cn_span": "「多次发送淫秽、侮辱、恐吓等信息或者采取滋扰、纠缠、跟踪等方法，干扰他人正常生活的」，处五日以下拘留或者一千元以下罚款，情节较重的处五日以上十日以下拘留",
+      "status": "ok"
+    },
+    {
+      "claim": "'Persisting to the end will move them' has no research support",
+      "cn_span": "「死追到底会感动对方」没有任何研究支持",
+      "status": "ok"
+    },
+    {
+      "claim": "The line between courting and harassment is set by whether the person clearly refused, not by your motives",
+      "cn_span": "追一个人和骚扰一个人的分界线不由你的动机决定，由对方是否已经明确表示拒绝决定",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

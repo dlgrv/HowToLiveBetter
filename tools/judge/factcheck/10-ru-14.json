@@ -1,0 +1,35 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "14",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Hiding a major illness before registration lets the other party petition the court to annul the marriage; petition within one year of learning",
+      "cn_span": "有重大疾病没在登记前如实告诉对方，对方可以去法院请求撤销这段婚姻，撤销要在知道之日起一年内提出",
+      "status": "ok"
+    },
+    {
+      "claim": "Since 2003 the premarital medical check is not a precondition of registration; going is voluntary",
+      "cn_span": "婚检本身自 2003 年起就不是领证的前置条件，去不去自愿",
+      "status": "ok"
+    },
+    {
+      "claim": "Free or discounted for eligible ages in most regions; self-paid a few hundred yuan, takes half a day",
+      "cn_span": "多数地区对适龄人群免费或减免，自费也就几百元、花半天",
+      "status": "ok"
+    },
+    {
+      "claim": "The state treats the premarital check as the first line of defense against birth defects; targets: check rate and pre-pregnancy coverage kept at 70% and 80%+",
+      "cn_span": "国家把婚检当作出生缺陷防治的第一道关口，现行目标是「婚前医学检查率、孕前优生健康检查目标人群覆盖率分别保持在 70% 和 80% 以上」",
+      "status": "ok"
+    },
+    {
+      "claim": "Whether free and which items are tested are decided locally; ask the local maternal-and-child health institution or the one-stop window",
+      "cn_span": "是否免费、查哪些项目由各地定，去当地妇幼保健机构或婚姻登记处一站式窗口问",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

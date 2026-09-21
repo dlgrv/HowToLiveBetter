@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "10",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Among confirmed pulmonary embolism cases, 3-month all-cause mortality is 17.4% (426/2454, ICOPER, 52 hospitals in 7 countries).",
+      "cn_span": "确诊肺栓塞的人 3 个月内死亡 17.4%",
+      "status": "ok"
+    },
+    {
+      "claim": "Sitting >4 hours roughly doubles venous thromboembolism risk (WHO WRIGHT), but absolute risk stays low — about one in six thousand after >4h immobile sitting.",
+      "cn_span": "久坐超过 4 小时风险大约翻倍，但绝对概率仍然很低",
+      "status": "ok"
+    },
+    {
+      "claim": "Both legs swelling at once is usually heart, liver, kidney or venous insufficiency; one suddenly swollen leg thicker by a circle is typical DVT.",
+      "cn_span": "两条腿一起肿多半是心、肝、肾或静脉功能的问题",
+      "status": "ok"
+    },
+    {
+      "claim": "Added sudden breathlessness, chest pain on deep breath, fast pulse, dizziness → clot may be in the lungs, call 120 immediately.",
+      "cn_span": "突然喘不上气、深吸气时胸痛、心跳快、发晕，血栓可能已经跑到肺里，直接打 120",
+      "status": "ok"
+    },
+    {
+      "claim": "17.4% is mortality among confirmed PE cases, not the risk of a swollen leg — don't scare yourself with this number.",
+      "cn_span": "17.4% 是确诊肺栓塞病例的死亡率，不是「腿肿了就有这么大风险」",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

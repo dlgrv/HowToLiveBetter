@@ -1,0 +1,40 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "19",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:09:26Z",
+  "assertions": [
+    {
+      "claim": "Don't induce vomiting after swallowing cleaner/pesticide/medicine — the caustic liquid burns the esophagus again on the way up.",
+      "cn_span": "误服清洁剂、农药、药物不要催吐——腐蚀性液体吐出来会把食管再烧一遍",
+      "status": "ok"
+    },
+    {
+      "claim": "First drink a moderate amount of milk or egg white, take packaging and instructions to the doctor.",
+      "cn_span": "先喝适量牛奶或蛋清，带上瓶子和说明书立刻就医",
+      "status": "ok"
+    },
+    {
+      "claim": "Skin or eyes: flush with plenty of clean water for 15 minutes; eyes with lids pulled apart, never rub.",
+      "cn_span": "用大量清水冲够 15 分钟，眼睛要撑开眼皮冲、不要揉",
+      "status": "ok"
+    },
+    {
+      "claim": "Disinfectant mixed with toilet cleaner produces chlorine gas — can go wrong on the spot.",
+      "cn_span": "消毒液和洁厕剂混着用会产生氯气，当场就能出事",
+      "status": "ok"
+    },
+    {
+      "claim": "Hazardous products identified by pH (<3 and >11 categories) — reproduced in RU Эффект.",
+      "cn_span": "高危产品按 pH 认：pH<3 的是洁厕剂、除垢剂…pH>11 的是管道疏通剂、厨房强力除污剂…",
+      "status": "ok"
+    },
+    {
+      "claim": "Store out of children's reach or locked, never pour into beverage bottles; if unsure what was swallowed, take the bottle, instructions and vomit along.",
+      "cn_span": "把清洁剂、消毒液、农药和药品放到孩子够不着的高处或者带锁的柜子里，绝不分装进饮料瓶",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

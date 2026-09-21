@@ -1,0 +1,35 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "05",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Sudden curtain-like blackout of one eye is retinal vessel occlusion; the longer it stays, the less retina can be saved.",
+      "cn_span": "一只眼突然像拉下窗帘一样黑掉，是眼底血管堵了",
+      "status": "ok"
+    },
+    {
+      "claim": "It is one form of cerebral ischemia; the coming days are the peak window for stroke.",
+      "cn_span": "接下来几天正是中风高发窗口",
+      "status": "ok"
+    },
+    {
+      "claim": "Same-day assessment/treatment cut 90-day recurrent stroke from 10.3% (32/310) to 2.1% (6/281) (Oxford EXPRESS).",
+      "cn_span": "90 天内再中风的比例从 10.3% 降到 2.1%",
+      "status": "ok"
+    },
+    {
+      "claim": "Same day to an ED with a stroke center; don't wait for next-day ophthalmology (AHA 2021 CRAO statement: emergency).",
+      "cn_span": "当天去有卒中中心的急诊，不等第二天挂眼科",
+      "status": "ok"
+    },
+    {
+      "claim": "Level B because EXPRESS is a sequential before/after comparison of the same population, not a randomized trial.",
+      "cn_span": "EXPRESS 不是随机试验，是同一人群前后两期的序贯比较",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

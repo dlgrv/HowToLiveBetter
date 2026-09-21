@@ -1,0 +1,12 @@
+{
+  "tool": "validate.judge.screen",
+  "mode": "screen",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T08:14:51Z",
+  "prompt_hash": "07946a4e70e4c4f42bf005121aa2ad33bc88c6512bd29bc7112bda629d641cbf",
+  "unit_sha256": "0f671eaeb81ffaf6086743f8d8ceeecd71dcba02c92135fe6a02fc468ac5fd07",
+  "verdict": {
+    "verdict": "native",
+    "issues": []
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "12",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:08:19Z",
+  "assertions": [
+    {
+      "claim": "Rabies once symptomatic is almost 100% fatal; washing plus vaccination is the only path.",
+      "cn_span": "狂犬病一旦发病病死率几乎 100%，冲洗加疫苗是唯一的路",
+      "status": "ok"
+    },
+    {
+      "claim": "Alternate soapy water and running clean water for 15 minutes, get vaccinated the same day.",
+      "cn_span": "先用肥皂水和流动清水交替冲 15 分钟，当天去打疫苗",
+      "status": "ok"
+    },
+    {
+      "claim": "Transdermal bite or licking of broken skin is category III exposure, adding passive immunization.",
+      "cn_span": "贯穿性咬伤、破皮处被舔属于三级暴露，还要加打被动免疫制剂",
+      "status": "ok"
+    },
+    {
+      "claim": "'Household, vaccinated' does not change management; category is set by the wound, not the dog's origin.",
+      "cn_span": "「家养的、打过针的」不改变处置，级别按伤口定，不按狗的来历定",
+      "status": "ok"
+    },
+    {
+      "claim": "Light bite of intact skin or scratch without blood is category II — vaccination needed.",
+      "cn_span": "裸露皮肤被轻咬、无出血抓伤为 II 级暴露要打疫苗",
+      "status": "ok"
+    },
+    {
+      "claim": "WHO: ~59,000 rabies deaths globally per year, 99% transmitted by dogs.",
+      "cn_span": "全球每年约 5.9 万人死于狂犬病，99% 由狗传播",
+      "status": "ok"
+    },
+    {
+      "claim": "The 10-day observation rule only decides whether to stop the shots, not whether to start them; don't bandage the wound yourself; wild animals and bats handled the same way.",
+      "cn_span": "十日观察法只能决定是否停针，不能决定要不要开始打",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

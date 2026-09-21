@@ -1,0 +1,30 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "12",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "A debt taken secretly by a spouse, clearly beyond daily family expenses, without your signature or ratification, does not automatically become yours; the creditor must prove it went to shared life or joint business",
+      "cn_span": "配偶背着你借的钱，只要明显超出家里日常开销、你又没签字没追认，就不自动变成你的债，要债的人得自己证明这钱用在了共同生活或共同经营上",
+      "status": "ok"
+    },
+    {
+      "claim": "But home-purchase money that truly became a home you live in together or jointly own — creditors often prove that level",
+      "cn_span": "但买房这种钱如果确实变成了你们一起住或共有的房子，对方往往证得到这一层",
+      "status": "ok"
+    },
+    {
+      "claim": "When in divorce the other side's parents suddenly produce a note signed only by the spouse, first contest whether the loan happened at all; with only a transfer record, the claimant still bears the burden of proof",
+      "cn_span": "先质证这笔借贷到底发生没发生：只有转账凭证的，主张借款的一方还得继续举证",
+      "status": "ok"
+    },
+    {
+      "claim": "Statute: debts in one spouse's name beyond daily family needs are not joint unless the creditor proves use for shared life, joint production/business, or mutual expression of intent",
+      "cn_span": "一方以个人名义超出家庭日常生活需要所负的债务不属于夫妻共同债务，除非债权人能证明该债务用于夫妻共同生活、共同生产经营或者基于双方共同意思表示",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

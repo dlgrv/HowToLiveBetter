@@ -1,0 +1,40 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "03",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "52 pairs of strangers chatted about ten minutes and then judged whether flirting occurred",
+      "cn_span": "让 52 对陌生男女聊十来分钟再互相判断有没有在调情",
+      "status": "ok"
+    },
+    {
+      "claim": "'Not flirting' was judged fairly accurately while 'flirting' was barely detectable",
+      "cn_span": "「对方没在调情」判得比较准，「对方在调情」反而看不出来",
+      "status": "ok"
+    },
+    {
+      "claim": "261 people judging one-minute videos gave the same result",
+      "cn_span": "换成 261 个人看一分钟视频判断，结论一样",
+      "status": "ok"
+    },
+    {
+      "claim": "Don't infer minds from expression and tone; look at observable behavior: who initiates, who arranges the next date, who follows up when you don't push",
+      "cn_span": "所以别从表情语气反推心思，看可观察的行为：谁主动发起、谁安排下一次、你不推进时对方跟不跟进",
+      "status": "ok"
+    },
+    {
+      "claim": "Both research camps agree: inferring intent from subtle cues like expression and tone has low accuracy",
+      "cn_span": "从表情、语气这类细微线索反推对方心思，准确率很低",
+      "status": "ok"
+    },
+    {
+      "claim": "Other research argues men don't overestimate women's sexual interest; women underreport in self-reports; whose judgments are more accurate is unsettled",
+      "cn_span": "另有研究认为男性并非高估了女性的性意图，而是女性在自陈时低报了，双方到底谁的判断更准仍无定论",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

@@ -1,0 +1,45 @@
+{
+  "chapter": "28",
+  "lang": "ru",
+  "unit": "07",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:12:51Z",
+  "assertions": [
+    {
+      "claim": "The item does not discuss whether to use sex hormones, only how — conveyed in RU.",
+      "cn_span": "这条不讨论该不该用，只讨论怎么用",
+      "status": "ok"
+    },
+    {
+      "claim": "Transgender women (vast majority on estrogen) have markedly more venous thrombosis than matched controls — conveyed in RU.",
+      "cn_span": "跨性别女性（绝大多数在用雌激素）的静脉血栓比同龄对照明显多",
+      "status": "ok"
+    },
+    {
+      "claim": "Those starting therapy during follow-up show larger gaps in thrombosis and ischemic stroke; no overall difference for myocardial infarction — conveyed in RU.",
+      "cn_span": "随访期间才开始用药的那部分人，血栓和缺血性中风的差距更明显；心梗总体没看出差别",
+      "status": "ok"
+    },
+    {
+      "claim": "Thrombosis is checkable and preventable in advance only if someone monitors regularly; the buy-online-and-self-titrate path lacks that person — conveyed in RU.",
+      "cn_span": "血栓是能查、能提前干预的，前提是有人在定期给你查",
+      "status": "ok"
+    },
+    {
+      "claim": "Evidence for transgender men is insufficient for conclusions — conveyed in RU.",
+      "cn_span": "跨性别男性的证据不足以下结论",
+      "status": "ok"
+    },
+    {
+      "claim": "Applies to all sex-hormone uses (contraception, menopausal HT, testosterone): risk arises in the unmonitored segment, not in the motive — conveyed in RU.",
+      "cn_span": "凡是自己网购、参照网帖调量、不查血栓和肝肾指标的，风险都出在「没人监测」这一段，而不是出在用药动机上",
+      "status": "ok"
+    },
+    {
+      "claim": "The proper path in China is assessment, prescription and follow-up at endocrinology or the relevant specialty of a proper medical institution — conveyed in RU.",
+      "cn_span": "国内规范路径是去正规医疗机构的内分泌科或相应专科评估、开方、随访",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

@@ -1,0 +1,30 @@
+{
+  "chapter": "13",
+  "lang": "ru",
+  "unit": "07",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:07:01Z",
+  "assertions": [
+    {
+      "claim": "Without surgery, medication-only mortality for type A aortic dissection is 58%; in-hospital mortality overall 27.4% (IRAD, 12 centers, 464 cases).",
+      "cn_span": "这病不手术、光用药的死亡率 58%",
+      "status": "ok"
+    },
+    {
+      "claim": "Management is the opposite of myocardial infarction — a doctor who thinks of it orders contrast CT instead of anticoagulation/thrombolysis.",
+      "cn_span": "处理和心梗正相反",
+      "status": "ok"
+    },
+    {
+      "claim": "Large blood-pressure difference between arms or an unpalpable pulse on one side should also be reported.",
+      "cn_span": "两条胳膊血压差很多、一侧摸不到脉，也一起说出来",
+      "status": "ok"
+    },
+    {
+      "claim": "Higher risk with poorly controlled hypertension, Marfan syndrome, family history of aneurysm/dissection; don't drive, don't endure until tomorrow.",
+      "cn_span": "高血压控制不好、马凡综合征、有主动脉瘤或夹层家族史的人风险高",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}

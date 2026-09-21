@@ -1,0 +1,35 @@
+{
+  "chapter": "10",
+  "lang": "ru",
+  "unit": "17",
+  "model_id": "glm-5.3-flash",
+  "ts": "2026-09-19T09:32:49Z",
+  "assertions": [
+    {
+      "claim": "Elders' benefits (peace of mind, face, nagging stops) are real but do not automatically become your health benefit or relationship quality",
+      "cn_span": "长辈那份收益（安心、面子、不再催）是真的，但它不会自动变成你的健康收益或关系质量",
+      "status": "ok"
+    },
+    {
+      "claim": "The time account, money account and exit cost are all borne by you yourself",
+      "cn_span": "而时间账、钱账和退出成本这三笔全部由你自己承担",
+      "status": "ok"
+    },
+    {
+      "claim": "Split the page into two columns — which benefits are yours, which are the elders' — and whether the deal is worth it is visible at a glance",
+      "cn_span": "在纸上分两栏，把哪些收益归自己、哪些归长辈写开，这笔账划不划算自己一眼就能看出来",
+      "status": "ok"
+    },
+    {
+      "claim": "This item does not conclude for the reader; the elders' account can also be counted as a heavy one",
+      "cn_span": "这一条不替读者下结论，长辈的账也可以算成很重的一笔",
+      "status": "ok"
+    },
+    {
+      "claim": "Cross-references: time account (item 9), money account (items 10-12), exit cost (item 16) all borne by the person marrying",
+      "cn_span": "时间账（第 9 条）、钱账（第 10 到 12 条）和退出成本（第 16 条）全部由当事人承担",
+      "status": "ok"
+    }
+  ],
+  "unverifiable": []
+}
