@@ -5,20 +5,27 @@
    Light: white / ink. Dark: #111 / #d0d0d0. One accent: link hover blue.
    ============================================================ */
 :root{
-  --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#8e8e8e;
-  --line:#e3e3e3; --line-soft:#d5d5d5; --hover:#2481cc; --pop-bg:#ffffff;
-  --serif:Georgia,"Times New Roman",serif;
-  --sans:Georgia,"Times New Roman",serif; /* единый шрифт на всей странице (решение пользователя) */
+  --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#6f6f6f;
+  --line:#e3e3e3; --line-soft:#d5d5d5; --hover:#1a6aa8; --hover-2:#135a8c; --pop-bg:#ffffff;
+  --serif:Georgia,"Noto Serif SC","Source Han Serif SC","Times New Roman",serif;
+  --sans:Georgia,"Noto Serif SC","Source Han Serif SC","Times New Roman",serif; /* единый шрифт; CJK-серики закрывают zh-глифы вне Georgia */
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --nav-h:56px; --side-w:264px;
+  /* шрифтовая шкала: 6 кеглей на всю страницу (токены, никаких голых px) */
+  --fs-0:12px;  /* микро: kbd, счётчики, uppercase-метки, бейджи */
+  --fs-1:13px;  /* UI-слой: сайдбар, поиск, кнопки, meta, foot, маргиналии */
+  --fs-2:17.5px;/* весь контент карточек: значения, цитаты, источники, интро */
+  --fs-3:21px;  /* заголовок карточки h3 */
+  --fs-4:26px;  /* заголовок раздела h2 */
+  --fs-5:38px;  /* заголовок страницы h1 */
 }
 html.dark{
   --bg:#111111; --ink:#f5f5f5; --text:#d0d0d0; --mut:#a0a0a0; --faint:#7d7d7d;
-  --line:#2e2e2e; --line-soft:#3a3a3a; --hover:#5cb1e8; --pop-bg:#1b1b1b;
+  --line:#2e2e2e; --line-soft:#3a3a3a; --hover:#5cb1e8; --hover-2:#8cc6ef; --pop-bg:#1b1b1b;
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
-body{margin:0;background:var(--bg);color:var(--text);font:17.5px/1.7 var(--serif);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--text);font:var(--fs-2)/1.7 var(--serif);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,abbr:focus-visible{outline:1px solid var(--hover);outline-offset:2px}
 ::selection{background:var(--ink);color:var(--bg)}
@@ -27,7 +34,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
 .nav-in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 24px;position:relative}
 .icon-btn.menu-btn{display:none}
-.title{display:flex;align-items:center;gap:8px;font:500 14px/1.3 var(--sans);color:var(--text);white-space:nowrap}
+.title{display:flex;align-items:center;gap:8px;font:500 var(--fs-1)/1.3 var(--sans);color:var(--text);white-space:nowrap}
 .title:hover{color:var(--ink)}
 .title .logo{display:none}
 /* на десктопе титул стоит ровно над сайдбаром-оглавлением (x=24), как в VitePress/GitBook */
@@ -38,10 +45,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 /* поиск строго по центру окна (независимо от ширины титула и правого кластера) */
 .search{position:absolute;left:50%;transform:translateX(-50%);width:min(340px,32vw)}
 .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.search input{width:100%;height:36px;padding:0 44px 0 32px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font:14px/1.4 var(--sans);transition:border-color .15s,box-shadow .15s}
+.search input{width:100%;height:36px;padding:0 44px 0 32px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font:var(--fs-1)/1.4 var(--sans);transition:border-color .15s,box-shadow .15s}
 .search input::placeholder{color:var(--faint)}
 .search input:focus{outline:0;border-color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.03)}
-.search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 11px/1 var(--sans);color:var(--faint);border:1px solid var(--line-soft);border-radius:4px;padding:3px 6px;background:var(--bg);pointer-events:none}
+.search kbd{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:500 var(--fs-0)/1 var(--mono);color:var(--faint);border:1px solid var(--line-soft);border-radius:4px;padding:3px 6px;background:var(--bg);pointer-events:none}
 /* на десктопе поиск центрирован относительно ТЕКСТОВОЙ КОЛОНКИ (ось H1), не окна:
    центр колонки = side-w + 56 + (W - side-w - 56 - 48)/2 = 50%W + side-w/2 + 4 */
 @media (min-width:1100px){
@@ -51,7 +58,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .icon-btn:hover{color:var(--ink)}
 .icon-btn svg{width:16px;height:16px}
 /* все иконки — Lucide stroke, единый калибр 16px; шеврон у «РУ» — аффорданс, оставлен мелким */
-button,input,kbd,summary{font-family:var(--sans)}
+button,input,kbd,summary{font-family:var(--sans);font-size:var(--fs-1)}
 .lang-dd summary svg{width:11px;height:11px}
 .nav-r{display:flex;align-items:center;gap:10px;margin-left:auto}
 .switch{display:none!important}
@@ -69,81 +76,85 @@ html.v2 .ver-btn{display:grid}
 .lang-dd>summary::-webkit-details-marker{display:none}
 .lang-dd>summary:hover{color:var(--ink)}
 .lang-dd>summary svg{width:10px;height:10px;color:var(--faint);fill:none;stroke:currentColor;stroke-width:2}
-#lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
+#lang-label{font:600 var(--fs-0)/1 var(--sans);letter-spacing:.08em}
 .lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:4px 0;min-width:120px;z-index:40}
-.lang-menu button{display:block;width:100%;text-align:left;padding:7px 14px;border:0;border-radius:6px;background:none;color:var(--mut);font:13px/1.4 var(--sans);cursor:pointer;transition:color .15s,background .15s}
+.lang-menu button{display:block;width:100%;text-align:left;padding:7px 14px;border:0;border-radius:6px;background:none;color:var(--mut);font:var(--fs-1)/1.4 var(--sans);cursor:pointer;transition:color .15s,background .15s}
 .lang-menu button:hover{color:var(--ink);background:var(--line)}
 
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
 .backdrop.on{opacity:1;pointer-events:auto}
-.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:14px/1.6 var(--serif);color:var(--mut)}
+.pop{position:absolute;z-index:40;max-width:320px;background:var(--pop-bg);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);padding:10px 14px;font:var(--fs-1)/1.6 var(--serif);color:var(--mut)}
 .pop b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
 
 /* ---------- sidebar (filters) ---------- */
 .sidebar{position:fixed;top:var(--nav-h);bottom:0;left:0;width:var(--side-w);background:var(--bg);border-right:1px solid var(--line);padding:28px 24px 96px;overflow-y:auto;overscroll-behavior:contain;z-index:20;font-family:var(--sans)}
 .group{margin-bottom:26px}
-.gt{font:700 11px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
-.gt small{display:block;font:400 12px/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--mut);margin-top:2px}
+.gt{font:700 var(--fs-0)/1.5 var(--sans);color:var(--ink);margin-bottom:8px}
+.gt small{display:block;font:400 var(--fs-0)/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--mut);margin-top:2px}
 .sec-links{display:flex;flex-direction:column;align-items:stretch;gap:0}
-.sec-link{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;padding:5px 0;border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer;transition:color .15s}
+.sec-link{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;padding:10px 0;border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer;transition:color .15s}
 .sec-link:hover{color:var(--ink)}
 .sec-link[aria-pressed="true"]{color:var(--ink);font-weight:600}
-.sec-link i{margin-left:auto;font:400 11px/1 var(--sans);font-style:normal;font-variant-numeric:tabular-nums;color:var(--faint)}
+.sec-link i{margin-left:auto;font:400 var(--fs-0)/1 var(--sans);font-style:normal;font-variant-numeric:tabular-nums;color:var(--faint)}
 .chips{display:flex;flex-direction:column;align-items:flex-start;gap:0}
-.chip{border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);padding:5px 0;cursor:pointer;transition:color .15s;text-align:left}
+.chip{border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);padding:10px 0;cursor:pointer;transition:color .15s;text-align:left}
 .chip:hover{color:var(--ink)}
-.chip[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ink)}
-.toggle{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer}
+.chip[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.toggle{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer}
 .toggle:hover{color:var(--ink)}
 .toggle input{accent-color:var(--ink);margin:0}
-.reset{display:inline-block;margin-top:10px;padding:0;border:0;background:none;color:var(--mut);font:13px/1.5 var(--sans);cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-soft);transition:color .15s}
-.reset:hover{color:var(--ink);text-decoration-color:var(--ink)}
-.hint{margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
-.hint p{margin:0 0 8px;font:12px/1.6 var(--sans);color:var(--faint)}
-.hint a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.reset{display:inline-block;margin-top:10px;padding:0;border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer;transition:color .15s}
+.reset:hover{color:var(--ink)}
+.hint{margin-top:26px}
+.hint p{margin:0 0 8px;font:var(--fs-0)/1.6 var(--sans);color:var(--faint)}
+.hint a{color:var(--hover)}
 .hint a:hover{color:var(--hover)}
 
 /* ---------- content ---------- */
 .content{padding:calc(var(--nav-h) + 40px) 48px 128px calc(var(--side-w) + 56px)}
-.sec-block{max-width:760px;margin:0 auto 88px}
+.sec-block{max-width:64ch;margin:0 0 88px}
 .sec-h{display:flex;align-items:baseline;gap:16px;padding-top:16px;margin-bottom:8px}
-.sec-h h2{margin:0;font:600 24px/1.35 var(--serif);letter-spacing:-.01em;color:var(--ink)}
-.sec-h .shown{margin-left:auto;flex:none;font:12px/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
-.intro{margin:14px 0 30px;font:16px/1.7 var(--serif);color:var(--mut)}
+.sec-h h2{margin:0;font:600 var(--fs-4)/1.35 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.sec-h .shown{margin-left:auto;flex:none;font:var(--fs-0)/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
+.intro{margin:14px 0 30px;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
 
-/* card: no box — hairline top only */
-.card{border-top:1px solid var(--line);padding:26px 0 20px;content-visibility:auto;contain-intrinsic-size:auto 300px}
+/* card: no box, no rules - cards separated by whitespace only */
+.card{padding:34px 0 20px;content-visibility:auto;contain-intrinsic-size:auto 300px}
+/* card-h: ось контента одна (x=0); номер пункта - висячая маргиналия слева от оси,
+   заголовок стоит правее номера (idx 28px + gap 12px). Это канон, не дефект
+   (тафтовский приём, решение пользователя 2026-09-20) */
 .card-h{display:flex;align-items:baseline;gap:12px}
-.idx{flex:none;min-width:28px;font:15px/1.5 var(--serif);font-variant-numeric:tabular-nums;color:var(--faint)}
-.card-h h3{margin:0;font:600 19px/1.45 var(--serif);color:var(--ink);overflow-wrap:anywhere}
-.anchor{flex:none;color:var(--faint);font:14px/1.5 var(--serif);opacity:0;transition:opacity .15s,color .15s}
+.idx{flex:none;min-width:28px;font:var(--fs-2)/1.5 var(--serif);font-variant-numeric:tabular-nums;color:var(--faint)}
+.card-h h3{margin:0;font:600 var(--fs-3)/1.45 var(--serif);color:var(--ink);overflow-wrap:anywhere}
+.anchor{flex:none;color:var(--faint);font:var(--fs-1)/1.5 var(--serif);opacity:0;transition:opacity .15s,color .15s}
 .card:hover .anchor,.anchor:focus-visible{opacity:1}
 .anchor:hover{color:var(--hover)}
-.badges{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 0 40px;font:11px/1.6 var(--sans);letter-spacing:.02em}
+.badges{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 0 0;font:var(--fs-0)/1.6 var(--sans);letter-spacing:.02em}
 .badge{color:var(--faint)}
 .badge.r3{color:var(--ink);font-weight:600}
 .badge.r2{color:var(--mut)}
 .badge.r1{color:var(--faint)}
-.badge.danger{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.badge.danger{color:var(--ink);font-weight:600}
 .badge.warn{color:var(--mut);font-style:italic}
-.human{margin:12px 0;padding:2px 0 2px 16px;border-left:3px solid var(--line);font:italic 16px/1.7 var(--serif);color:var(--mut);overflow-wrap:anywhere}
-.rows{display:grid;grid-template-columns:86px minmax(0,1fr);gap:4px 14px;margin:0 0 12px 40px}
-.rows .k{font:700 11px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.rows .v{font:16px/1.65 var(--serif);color:var(--text);min-width:0;overflow-wrap:anywhere}
+.human{margin:14px 0;font:italic var(--fs-2)/1.7 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.rows{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin:0 0 12px 0}
+.rows .k{font:700 var(--fs-0)/1.8 var(--sans);color:var(--faint);white-space:nowrap}
+.rows .v{font:var(--fs-2)/1.65 var(--serif);color:var(--text);min-width:0;overflow-wrap:anywhere}
 .rows .v.gain{color:var(--ink)}
-.src{margin:0 0 0 40px}
-.src summary{display:inline-block;cursor:pointer;font:12px/1.6 var(--sans);color:var(--faint);text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--line-soft);text-underline-offset:3px;transition:color .15s}
+.src{margin:0 0 0 0}
+.src summary{display:inline-block;cursor:pointer;font:var(--fs-0)/1.6 var(--sans);color:var(--faint);transition:color .15s}
 .src summary:hover{color:var(--ink)}
-.src .body{margin-top:8px;padding:2px 0 2px 14px;border-left:2px solid var(--line);font:14.5px/1.7 var(--serif);color:var(--mut)}
+.src .body{margin-top:8px;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
+.src .body ul{margin:6px 0 0;padding-left:16px}
 .src .body p{margin:0 0 .6em}
-.src .body a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.src .body a{color:var(--hover)}
 .src .body a:hover{color:var(--hover)}
 
 /* ---------- press polish: scroll-spy, marginalia ---------- */
 /* подсветка текущего раздела в сайдбаре */
 .sec-link.spy-on{color:var(--ink)}
-.sec-link.spy-on span{text-decoration:underline;text-decoration-color:var(--ink);text-underline-offset:3px}
+.sec-link.spy-on span{font-weight:600}
 h1,h2,h3{text-wrap:balance}
 body{hyphens:auto;-webkit-hyphens:auto}
 /* маргиналии по-Тафти: Примечания уходят в правое поле; колонка прижата влево,
@@ -157,35 +168,32 @@ body{hyphens:auto;-webkit-hyphens:auto}
 @media (max-width:1439px){
   .card .marg{display:none}
 }
-.marg{font:13.5px/1.65 var(--serif);color:var(--mut);overflow-wrap:anywhere}
-.marg .k{font:700 10px/1.8 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block}
-.term{cursor:help;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--faint);text-underline-offset:3px}
+.marg{font:var(--fs-1)/1.65 var(--serif);color:var(--mut);overflow-wrap:anywhere}
+.marg .k{font:700 var(--fs-0)/1.8 var(--sans);color:var(--faint);display:block}
+.term{cursor:help;text-decoration:none}
 .term:hover,.term:focus-visible{color:var(--ink)}
 
 /* status / empty / foot */
-.status{max-width:720px;margin:0 auto 8px;font:12px/1.6 var(--sans);color:var(--faint)}
-.status code{font-family:var(--mono);font-size:11px}
-.empty{max-width:720px;margin:48px auto;text-align:center;font:16px/1.7 var(--serif);color:var(--mut)}
-.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:6px;background:none;color:var(--text);font:13px/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
+.status{max-width:720px;margin:0 0 8px;font:var(--fs-0)/1.6 var(--sans);color:var(--faint)}
+.status code{font-family:var(--mono);font-size:var(--fs-0)}
+.empty{max-width:720px;margin:48px 0;text-align:center;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
+.empty button{margin-top:14px;padding:8px 18px;border:1px solid var(--line);border-radius:6px;background:none;color:var(--text);font:var(--fs-1)/1.4 var(--sans);cursor:pointer;transition:border-color .15s,color .15s}
 .empty button:hover{border-color:var(--ink);color:var(--ink)}
-.foot{max-width:720px;margin:64px auto 0;padding-top:20px;border-top:1px solid var(--line);font:12.5px/1.7 var(--sans);color:var(--faint)}
-.foot a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.foot{max-width:720px;margin:64px 0 0;font:var(--fs-0)/1.7 var(--sans);color:var(--faint)}
+.foot a{color:var(--hover)}
 .foot a:hover{color:var(--hover)}
-.meta-line a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
+.meta-line a{color:var(--hover)}
 .meta-line a:hover{color:var(--hover)}
 
 /* noscript / doc */
-.doc{max-width:750px;margin:0 auto;padding:0 24px 64px}
-/* после base-правила: на ultrawide даём тексту больше ширины */
-@media (min-width:1800px){
-  .doc{max-width:900px}
-}
-.doc-head h1{margin:0 0 20px;font:600 36px/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.doc{max-width:64ch;margin:0;padding:0 24px 64px}
+/* мера строки зафиксирована на 64ch и на ultrawide — не расширяем (аудит: 95 CPL при 900px) */
+.doc-head h1{margin:0 0 20px;font:600 var(--fs-5)/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
 .doc-head p{margin:0 0 12px}
-.doc-head .stat{margin:12px 0;font:14px/1.6 var(--sans);color:var(--faint)}
+.doc-head .stat{margin:12px 0;font:var(--fs-1)/1.6 var(--sans);color:var(--faint)}
 .meta-line{margin:0 0 12px}
-.doc a{color:var(--mut);text-decoration:underline;text-decoration-color:var(--line-soft);text-underline-offset:2px}
-.doc a:hover{color:var(--hover)}
+.doc a{color:var(--hover)}
+.src .body a:hover,.hint a:hover,.foot a:hover,.meta-line a:hover,.doc a:hover{color:var(--hover-2)}
 
 /* ---------- mobile ---------- */
 @media (max-width:1099px){
@@ -198,9 +206,14 @@ body{hyphens:auto;-webkit-hyphens:auto}
 }
 @media (max-width:560px){
   .title span:last-child{display:none}
+  .title .logo{display:flex;align-items:center}
+  .title .logo svg{width:18px;height:18px}
+  .ic-doc{display:none}
+  .nav-r{gap:6px}
+  .nav-r .icon-btn{width:32px;height:32px}
   .search{max-width:none}
   .search kbd{display:none}
   .nav-in{padding:0 16px;gap:10px}
-  .doc-head h1{font-size:27px}
-  .sec-h h2{font-size:21px}
+  .doc-head h1{font-size:var(--fs-4)}
+  .sec-h h2{font-size:var(--fs-3)}
 }
