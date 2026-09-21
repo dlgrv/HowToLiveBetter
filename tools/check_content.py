@@ -31,7 +31,7 @@ import urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CJK = re.compile(r'[\u4e00-\u9fff]')
 NN = re.compile(r'^(\d{2})-')
-SRC_LINE = re.compile(r'^\s*(?:-\s*)?(?:Sources?|Источник(?:и)?|来源)\s*[:：]')
+SRC_LINE = re.compile(r'^\s*(?:-\s*)?(?:Sources?|Источник(?:и)?|来源|Fuentes)\s*[:：]')
 # RU docs keep the CN citation bullet format (CJK author first) — see TRANSLATION.md
 SRC_BULLET = re.compile(r'^\s*-\s*[\u4e00-\u9fff]')
 FENCE = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)
