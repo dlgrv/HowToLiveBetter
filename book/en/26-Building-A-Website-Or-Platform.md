@@ -1,8 +1,8 @@
-[← Back to the main table of contents](../README.md)
+[← Back to the main table of contents](../../README.md)
 
 # 26. Building a Website or Platform: Licenses, Filing, and Servers
 
-This section answers one question: what kind of business, in legal terms, the website or app you want to build actually is, which license it needs, where the servers should be hosted, and who is responsible for what users post on it and the money it collects. The yardstick throughout is personal freedom and money: first the things that can run into criminal red lines, then those that require administrative licenses, then the platform's day-to-day obligations, and finally experience-based items — such as choosing a server — where only judgment, not rules, can be offered. The red lines for salaried technical staff are covered in Section 11, and how to register a company and file taxes in Section 12; this section does not repeat them. For a comparison table of the various licenses and a decision table for choosing a server, see [docs/做平台要办哪些证.md](../docs/做平台要办哪些证.md).
+This section answers one question: what kind of business, in legal terms, the website or app you want to build actually is, which license it needs, where the servers should be hosted, and who is responsible for what users post on it and the money it collects. The yardstick throughout is personal freedom and money: first the things that can run into criminal red lines, then those that require administrative licenses, then the platform's day-to-day obligations, and finally experience-based items — such as choosing a server — where only judgment, not rules, can be offered. The red lines for salaried technical staff are covered in Section 11, and how to register a company and file taxes in Section 12; this section does not repeat them. For a comparison table of the various licenses and a decision table for choosing a server, see [which licenses a platform needs](../../docs/en/做平台要办哪些证.md).
 ### 1. Don't collect money yourself and pass it on to sellers; route payments through a licensed payment institution that settles directly
 
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=自由 -->
@@ -115,4 +115,4 @@ This section answers one question: what kind of business, in legal terms, the we
 
 ## License
 
-[Unlicense](../LICENSE), public domain.
+[Unlicense](../../LICENSE), public domain.
