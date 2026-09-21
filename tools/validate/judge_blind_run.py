@@ -91,7 +91,15 @@ def main():
     for pid in subset["ids"]:
         for order in ("AB", "BA"):
             path = os.path.join(args.out, f"{pid}_{order}.json")
-            if not (os.path.exists(path) and os.path.getsize(path) > 100):
+            done = False
+            if os.path.exists(path):
+                try:
+                    prev = json.load(open(path, encoding="utf-8"))
+                except (json.JSONDecodeError, OSError):
+                    prev = None
+                # a valid completed call has a decode; error files are retried
+                done = bool(prev) and "error" not in prev and "decoded" in prev
+            if not done:
                 jobs.append((pid, order, path))
 
     print(f"todo {len(jobs)} calls (of {2*len(subset['ids'])})", flush=True)
