@@ -41,7 +41,7 @@
    Light: white / ink. Dark: #111 / #d0d0d0. One accent: link hover blue.
    ============================================================ */
 :root{
-  --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#6f6f6f;
+  --bg:#ffffff; --ink:#111111; --text:#333333; --mut:#666666; --faint:#767676;
   --line:#e3e3e3; --line-soft:#d5d5d5; --hover:#1a6aa8; --hover-2:#135a8c; --pop-bg:#ffffff;
   --serif:Georgia,"Noto Serif SC","Source Han Serif SC","Times New Roman",serif;
   --sans:Georgia,"Noto Serif SC","Source Han Serif SC","Times New Roman",serif; /* единый шрифт; CJK-серики закрывают zh-глифы вне Georgia */
@@ -70,7 +70,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
 .nav-in{max-width:1200px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 24px;position:relative}
 .icon-btn.menu-btn{display:none}
-.title{display:flex;align-items:center;gap:8px;font:500 var(--fs-1)/1.3 var(--sans);color:var(--text);white-space:nowrap}
+.title{display:flex;align-items:center;gap:8px;font:500 var(--fs-1)/1.3 var(--sans);color:var(--text);white-space:nowrap;padding:8px;margin:-8px}
 .title:hover{color:var(--ink)}
 .title .logo{display:none}
 /* на десктопе титул стоит ровно над сайдбаром-оглавлением (x=24), как в VitePress/GitBook */
@@ -137,10 +137,10 @@ html.v2 .ver-btn{display:grid}
 .chip{border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);padding:10px 0;cursor:pointer;transition:color .15s;text-align:left}
 .chip:hover{color:var(--ink)}
 .chip[aria-pressed="true"]{color:var(--ink);font-weight:600}
-.toggle{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer}
+.toggle{display:flex;align-items:center;gap:8px;padding:8px 0;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer}
 .toggle:hover{color:var(--ink)}
 .toggle input{accent-color:var(--ink);margin:0}
-.reset{display:inline-block;margin-top:10px;padding:0;border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer;transition:color .15s}
+.reset{display:inline-block;margin-top:0;padding:10px 0;border:0;background:none;color:var(--mut);font:var(--fs-1)/1.5 var(--sans);cursor:pointer;transition:color .15s}
 .reset:hover{color:var(--ink)}
 .hint{margin-top:26px}
 .hint p{margin:0 0 8px;font:var(--fs-0)/1.6 var(--sans);color:var(--faint)}
@@ -179,9 +179,9 @@ html.v2 .ver-btn{display:grid}
 .rows .v{font:var(--fs-2)/1.65 var(--serif);color:var(--text);min-width:0;overflow-wrap:anywhere}
 .rows .v.gain{color:var(--ink)}
 .src{margin:0 0 0 0}
-.src summary{display:inline-block;cursor:pointer;font:var(--fs-0)/1.6 var(--sans);color:var(--faint);transition:color .15s}
+.src summary{display:inline-block;cursor:pointer;font:var(--fs-0)/1.6 var(--sans);color:var(--faint);transition:color .15s;padding:10px 0;margin:-10px 0}
 .src summary:hover{color:var(--ink)}
-.src .body{margin-top:8px;font:var(--fs-2)/1.7 var(--serif);color:var(--mut)}
+.src .body{margin-top:8px;font:var(--fs-2)/1.7 var(--serif);color:var(--mut);overflow-wrap:anywhere}
 .src .body ul{margin:6px 0 0;padding-left:16px}
 .src .body p{margin:0 0 .6em}
 .src .body a{color:var(--hover)}
