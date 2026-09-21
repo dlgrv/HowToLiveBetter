@@ -44,6 +44,9 @@ DEGRADE_RECIPES = [
 ]
 
 CLEAN_GREEN = set(GREEN_CHAPTERS)
+# 36 decoys: with N=36 zero FP bounds judge FP rate at <=0.083 (95% one-sided,
+# rule of three): decoy gate becomes decisive for the kappa-gate decision.
+DECOY_TARGET = 36
 
 
 def read_chapter(root, nn, lang):
@@ -108,7 +111,7 @@ def select_pairs(root=REPO):
                 seen_excerpts.add(excerpt_key(excerpt))
     # fresh random pairs to reach 60 total, 10 of them decoys
     need = 60 - len(pairs)
-    decoy_slots = set(rng.sample(range(need), min(10, need)))  # relative indices
+    decoy_slots = set(rng.sample(range(need), min(DECOY_TARGET, need)))  # relative indices
     placed, guard = 0, 0
     while placed < need and guard < 1000:
         guard += 1
@@ -160,8 +163,8 @@ def validate_manifest():
     problems = []
     if len(m["pairs"]) != 60:
         problems.append(f"pairs {len(m['pairs'])} != 60")
-    if sum(p["decoy"] for p in m["pairs"]) != 10:
-        problems.append("decoys != 10")
+    if sum(p["decoy"] for p in m["pairs"]) != DECOY_TARGET:
+        problems.append(f"decoys != {DECOY_TARGET}")
     for p in m["pairs"]:
         if not p["decoy"] and p["variant_b"] and p["variant_b"] == p["variant_a"]:
             problems.append(f"pair {p['id']}: B == A")
@@ -175,7 +178,7 @@ def validate_manifest():
         for x in problems:
             print("  -", x)
         return 1
-    print(f"manifest valid: 60 pairs, 10 decoys, gen_ref={m['gen_ref'][:12]}")
+    print(f"manifest valid: {len(m['pairs'])} pairs, {DECOY_TARGET} decoys, gen_ref={m['gen_ref'][:12]}")
     return 0
 
 
