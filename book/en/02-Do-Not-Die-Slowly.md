@@ -1,4 +1,4 @@
-[← Back to the master table of contents](../README.md)
+[← Back to the master table of contents](../../README.md)
 
 # 2. Don't Die Slowly
 

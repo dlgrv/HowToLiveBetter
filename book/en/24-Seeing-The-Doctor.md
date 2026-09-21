@@ -1,4 +1,4 @@
-[← Back to master table of contents](../README.md)
+[← Back to master table of contents](../../README.md)
 
 # 24. Seeing a doctor: how to spend less and take fewer detours
 

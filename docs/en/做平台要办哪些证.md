@@ -1,0 +1,71 @@
+> Unofficial English translation of [docs/做平台要办哪些证.md](../做平台要办哪些证.md). In case of discrepancies the Chinese original takes precedence.
+
+# What Licenses a Platform Needs: A Comparison Table and a Server-Choice Decision Table
+
+This corresponds to Section 26 of the README. This page holds only two tables and a few notes on points that are easy to get wrong; the entry text and sources live in the README. How to register a company and how to file taxes is covered in Section 12; the red lines for employed tech workers are in Section 11.
+
+## 1. First, work out which kind of business you are running
+
+A single site often falls into several of these categories at once. The licenses stack; it is not either/or.
+
+| What you are doing | Corresponding business category | What you need | Primary legal basis |
+|---|---|---|---|
+| Free information sites, personal blogs, company official websites | 非经营性互联网信息服务 — non-commercial internet information services | ICP 备案 — ICP filing with MIIT | 互联网信息服务管理办法 — Internet Information Services Administrative Measures, Article 4 |
+| Paid memberships, value-added services, or paid content charged to users | 经营性互联网信息服务 — commercial internet information services | 增值电信业务经营许可 — value-added telecom business license (information services business) | Same measures, Articles 3, 4, and 7 |
+| Matching buyers and sellers, handling transactions and orders | 在线数据处理与交易处理业务 — online data processing and transaction processing business | 增值电信业务经营许可 — value-added telecom business license (B21) | 电信业务分类目录 — Telecommunications Business Classification Catalogue (2015 edition), B21 |
+| Livestreams with hosts on camera, game livestreams | 网络表演 — online performance | 网络文化经营许可证 — Network Culture Business License, with online performance included in the business scope | 网络表演经营活动管理办法 — Measures for the Administration of Online Performance Business Activities, Article 4 |
+| Producing or aggregating video programs, or providing a service that lets others upload audio-visual programs | 互联网视听节目服务 — internet audio-visual program services | 信息网络传播视听节目许可证 — License for the Dissemination of Audio-Visual Programs through Information Networks | 互联网视听节目服务管理规定 — Provisions on the Administration of Internet Audio-Visual Program Services, Articles 7 and 8 |
+| Selling goods during livestreams | 网络直播营销 — livestream marketing | On top of the licenses above, fulfill the verification and retention obligations | 网络直播营销管理办法（试行） — Measures for the Administration of Livestream Marketing (Trial), Article 8 |
+| Providing news and information | 互联网新闻信息服务 — internet news information services | 互联网新闻信息服务许可证 — Internet News Information Service License | 互联网直播服务管理规定 — Provisions on the Administration of Internet Live-Streaming Services, Article 5 |
+| Building your own data center to sell hosting or bandwidth | 互联网数据中心业务 — internet data center (IDC) business; 互联网接入服务业务 — internet access service (ISP) business | 增值电信业务经营许可 — value-added telecom business license (B11, B14) | 电信业务分类目录 — Telecommunications Business Classification Catalogue (2015 edition), B11, B14 |
+
+The mapping of the three licenses is stated most plainly in the 2021 guidance opinion (指导意见) issued by seven departments: "A livestream platform carrying out commercial online performance activities must hold the 《网络文化经营许可证》 — Network Culture Business License and complete ICP 备案 — ICP filing with MIIT; a livestream platform carrying out internet audio-visual program services must hold the 《信息网络传播视听节目许可证》 — License for the Dissemination of Audio-Visual Programs through Information Networks (or complete registration in the 全国网络视听平台信息登记管理系统 — National Network Audio-Visual Platform Information Registration Management System) and complete ICP 备案 — ICP filing with MIIT; a livestream platform carrying out internet news information services must hold the 《互联网新闻信息服务许可证》 — Internet News Information Service License."
+
+### Three points that are easy to get wrong
+
+**An individual cannot obtain a value-added telecom license.** The first eligibility condition is "the operator is a company established in accordance with the law"; registered capital must be no less than 1,000,000 yuan for operations within a single province and no less than 10,000,000 yuan for cross-province operations, the review period is 60 days, and the license is valid for 5 years. To run a paid business you need a company first; that step is in Section 12.
+
+**Private operators can essentially never get the audio-visual program license.** The application conditions state "possesses legal-person status and is a wholly state-owned or state-controlled entity". So the long-video and original-program route is closed to individual founders; livestreaming instead runs through the 网络文化经营许可证 — Network Culture Business License track.
+
+**No official document explicitly states that "e-commerce platforms must obtain EDI".** MIIT's service guide only says "apply for the corresponding telecommunications business license according to the business definition", and has answered elsewhere that "ride-hailing platforms only need a website filing" and "equity-type and bulk-commodity trading platforms only need a website filing". So this book only quotes the original definition of B21 and leaves the judgment to you and your local 通信管理局 — communications administration; ask the communications administration with jurisdiction over your location once before applying.
+
+## 2. The platform's own day-to-day obligations
+
+Getting the license only opens the door. The items below are what you do every day; the fines are in the individual entries of Section 26.
+
+| Obligation | Hard requirement | Source |
+|---|---|---|
+| Verify and register on-platform merchants | Verify and update at least once every six months | 网络交易监督管理办法 — Measures for the Supervision and Administration of Online Transactions, Article 24 |
+| Report identity information | Report to the market regulation authorities in January and July each year | Same measures, Article 25 |
+| Report tax-related information | Report to the tax authorities within the month after each quarter ends | 互联网平台企业涉税信息报送规定 — Provisions on the Reporting of Tax-Related Information by Internet Platform Enterprises, Article 4 |
+| Retain transaction information | No less than three years from the date the transaction is completed | 电子商务法 — E-Commerce Law, Article 31 |
+| Retain livestream content and logs | Sixty days | 互联网直播服务管理规定 — Provisions on the Administration of Internet Live-Streaming Services, Article 16 |
+| Retain online performance videos | No less than sixty days | 网络表演经营活动管理办法 — Measures for the Administration of Online Performance Business Activities, Article 13 |
+| Retain network logs | No less than six months | 网络安全法 — Cybersecurity Law, Article 23, Item 3 |
+| Handle infringement notices | If nothing happens within fifteen days after the statement is forwarded, restore the listing | 电子商务法 — E-Commerce Law, Article 43 |
+| Complaint and report channel | Conspicuous placement, convenient to use | 网络信息内容生态治理规定 — Provisions on the Governance of the Online Information Content Ecosystem, Article 16 |
+
+The retention periods are four different clocks: three years for transactions, sixty days for livestreams, six months for logs, and three years for the identity information of on-platform merchants, counted from when they leave the platform. Design your storage for the longest of these, not the shortest.
+
+## 3. Choosing a server: how to pick among the three tiers
+
+Answer the questions first, then look at prices.
+
+| Question | If the answer is | Then |
+|---|---|---|
+| Can you tolerate a day of downtime | Yes | The cheapest VPS is enough |
+| Do you have user registration, transactions, or uploads | Yes | A cloud host from a mainstream cloud provider, with snapshots and elastic scaling |
+| Do you have someone dedicated to operations | No | Stay away from dedicated server colocation |
+| Are bandwidth or hardware costs your main expense | Yes, and you have someone for operations | Only then consider dedicated server colocation |
+
+**Small providers are not unusable; you have to verify them first.** Data-center colocation and access services are themselves value-added telecom businesses that require a license. Check the provider once by its full company name on MIIT's 电信业务市场综合管理信息系统 — Telecom Business Market Comprehensive Management Information System at tsm.miit.gov.cn, and exclude anyone without a license outright. The ones that can be half the price usually carry risks in overselling, the operator disappearing, and their upstream being blocked. When any of these three happens, with a licensed provider you can still complain to the communications administration; with an unlicensed one you have no one to appeal to at all.
+
+**Inside China or outside.** If the servers are inside China you must complete a filing (备案), and access providers may not provide access to unfiled sites. Hosting abroad lets you bypass the filing, but your users are in China and your money is in China, so not one of the obligations in items 5 through 10 of Section 26 goes away, and you add a layer of cross-border data transfer compliance cost: transmitting the personal information of users inside China to a machine outside China is a cross-border transfer, which must satisfy one of the four conditions in Article 38 of the 个人信息保护法 — Personal Information Protection Law and obtain the individual's separate consent. The headcount thresholds are counted "cumulatively from January 1 of the current year": under 100,000 people, none of the three pathways applies; 100,000 to 1,000,000 people, a standard contract or certification is required; over 1,000,000 people, a security assessment must be filed.
+
+**Backups.** Keep backups in at least two places, and do not put them all in the same region of the same provider. This one has no legal basis behind it; it is experience.
+
+## 4. The limits of this document
+
+- For all provisions, the source column in Section 26 of the book's README is authoritative; it has the document numbers, article numbers, and links.
+- Regulations are updated quickly; this section was verified in September 2026. Before quoting anything, open the original page yourself once more — especially the 网络安全法 — Cybersecurity Law (article numbers were adjusted starting January 1, 2026) and the rules on minors and livestream tipping (changed in April 2026 to age-based tiers).
+- The few points where the original text could not be obtained are listed in the [verification notes](../核实记录/追加-第26节做平台.md), including any official wording on whether e-commerce platforms must obtain EDI, and a judicial interpretation that would directly make unlicensed operation of online-culture or audio-visual services the crime of illegal business operations (非法经营罪).

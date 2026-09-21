@@ -1,4 +1,4 @@
-[← Back to master table of contents](../README.md)
+[← Back to master table of contents](../../README.md)
 
 # 29. After a Major Life Blow
 
