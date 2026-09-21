@@ -1,0 +1,9 @@
+{
+  "pair_id": "g24",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 1 uses direct, active, naturally worded Russian, while Variant 2 is riddled with stiff канцелярит and impersonal passives («прослушивание свидания не производится», «должны быть исключены», «Пунктом не производится различение») that read as unnatural bureaucratic calques.\"}",
+  "latency_s": 16.3,
+  "model": "glm-5.3-flash"
+}

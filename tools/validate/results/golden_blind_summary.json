@@ -18,15 +18,15 @@
     "content_ties": 0
   },
   "per_recipe": {
-    "passive_chain": {
-      "picked_original": 14,
-      "answered": 14,
-      "ties": 0,
-      "rate": 1.0
-    },
     "bureaucratese": {
       "picked_original": 11,
       "answered": 11,
+      "ties": 0,
+      "rate": 1.0
+    },
+    "impersonal_calque": {
+      "picked_original": 12,
+      "answered": 12,
       "ties": 0,
       "rate": 1.0
     },
@@ -36,9 +36,9 @@
       "ties": 0,
       "rate": 1.0
     },
-    "impersonal_calque": {
-      "picked_original": 12,
-      "answered": 12,
+    "passive_chain": {
+      "picked_original": 14,
+      "answered": 14,
       "ties": 0,
       "rate": 1.0
     }

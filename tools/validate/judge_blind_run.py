@@ -87,6 +87,17 @@ def main():
     by_id = {p["id"]: p for p in manifest["pairs"]}
 
     os.makedirs(args.out, exist_ok=True)
+    # single-writer guard: two concurrent runs into one outdir race on the
+    # per-call files (seen in practice) — second run aborts immediately
+    lock_path = os.path.join(args.out, ".lock")
+    lock_fd = os.open(lock_path, os.O_CREAT | os.O_RDWR)
+    try:
+        import fcntl
+        fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        print(json.dumps({"status": "aborted",
+                          "reason": f"another run holds {lock_path}"}))
+        return 1
     jobs = []
     for pid in subset["ids"]:
         for order in ("AB", "BA"):

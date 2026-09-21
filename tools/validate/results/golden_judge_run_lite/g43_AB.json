@@ -1,0 +1,9 @@
+{
+  "pair_id": "g43",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 1 reads naturally with active verbs and direct imperatives, while Variant 2 is riddled with stilted bureaucratic passives ('должен быть произведён выход', 'отнесено быть не может', 'ему должно быть дано поплакать').\"}",
+  "latency_s": 12.7,
+  "model": "glm-5.3-flash"
+}

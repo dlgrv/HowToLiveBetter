@@ -1,0 +1,9 @@
+{
+  "pair_id": "g35",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 1 is burdened with unnatural passives and nominalizations ('the trying of a supplement is wanted,' 'is to be told,' 'interactions... are had,' 'the affecting of'), while Variant 2 renders the same content in direct, idiomatic English phrasing.\"\n}\n```",
+  "latency_s": 11.3,
+  "model": "glm-5.3-flash"
+}

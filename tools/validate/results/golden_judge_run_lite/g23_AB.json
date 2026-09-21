@@ -1,0 +1,9 @@
+{
+  "pair_id": "g23",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 uses natural infinitive and active constructions, while Variant 2 systematically converts them into stilted bureaucratic passives and nominalizations («производится перезвон», «должны быть взяты», «разглядывание... обходится дешевле», «возвращение денег»), which is textbook канцелярит.\"\n}\n```",
+  "latency_s": 37.3,
+  "model": "glm-5.3-flash"
+}

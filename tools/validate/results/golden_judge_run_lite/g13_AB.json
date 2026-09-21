@@ -1,0 +1,9 @@
+{
+  "pair_id": "g13",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 1 uses natural idiomatic Russian («Бросить не поздно никогда», «вредит так же», «нет известной безопасной дозы»), while Variant 2 swamps the same content in канцелярит constructions like «является более высоким», «самым простым… является вовсе не пить» and «находится в разделе».\"}",
+  "latency_s": 23.8,
+  "model": "glm-5.3-flash"
+}

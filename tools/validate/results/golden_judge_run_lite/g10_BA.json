@@ -1,0 +1,9 @@
+{
+  "pair_id": "g10",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads as idiomatic English, while Variant 1 is weighed down by passive, bureaucratic constructions ('free provision is had', 'with respect to', 'a direct application cannot be made') that feel like calque rather than natural prose.\"\n}\n```",
+  "latency_s": 11.1,
+  "model": "glm-5.3-flash"
+}
