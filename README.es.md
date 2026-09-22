@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og-en.png" alt="HowToLiveBetter — trade the least money, time, and effort for the most lifespan, money, and personal freedom" width="820">
+<img src="og-es.png" alt="HowToLiveBetter — cambia menos dinero, tiempo y esfuerzo por más vida, dinero y libertad personal" width="820">
 
 # HowToLiveBetter: Guía de la vida al mejor precio — traducción española
 
