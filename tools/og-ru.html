@@ -1,42 +1,39 @@
 <!-- Исходник og-ru.png (баннер README.ru.md). Перевод tools/og.html; цифры те же: 528 советов, 347 класса A, 1066 ссылок.
-     Пересъёмка: chromium --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+     Пересъёмка (macOS):
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+       --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 \
+       --screenshot=og-ru.png "file://$PWD/tools/og-ru.html"
+     Fallback: chromium --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
        --window-size=1200,630 --screenshot=og-ru.png tools/og-ru.html -->
 <!doctype html><meta charset="utf-8">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1200px;height:630px;font-family:"Liberation Sans","DejaVu Sans",sans-serif;
-  background:#fff;position:relative;overflow:hidden}
-.bg{position:absolute;inset:0;
-  background:radial-gradient(700px 420px at 88% 8%, rgba(100,108,255,.16), transparent 70%),
-             radial-gradient(560px 380px at 4% 100%, rgba(16,185,129,.12), transparent 70%)}
-.grid{position:absolute;inset:0;opacity:.5;
-  background-image:linear-gradient(#eceded 1px,transparent 1px),linear-gradient(90deg,#eceded 1px,transparent 1px);
-  background-size:48px 48px;
-  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 78%)}
-.in{position:relative;padding:76px 84px;height:100%;display:flex;flex-direction:column}
-.brand{display:flex;align-items:center;gap:14px;font-size:23px;color:#3c3c43b8;font-weight:600;letter-spacing:.02em}
-.logo{width:44px;height:44px;border-radius:11px;background:#3451b2;color:#fff;font-size:26px;font-weight:700;
-  display:flex;align-items:center;justify-content:center}
-.logo svg{width:28px;height:28px}
-h1{margin-top:56px;font-size:64px;line-height:1.14;letter-spacing:-.02em;color:#1b1b1f;font-weight:700}
-h1 em{font-style:normal;color:#3451b2}
-p{margin-top:26px;font-size:30px;white-space:nowrap;line-height:1.6;color:#3c3c43c7;max-width:960px}
-.chips{margin-top:auto;margin-bottom:8px;display:flex;gap:14px;flex-wrap:wrap}
-.c{font-size:24px;font-weight:600;padding:12px 22px;border-radius:999px;background:#f6f6f7;color:#3c3c43c7;border:1px solid #e2e2e3}
-.c b{color:#1b1b1f}
-.c.a{background:rgba(16,185,129,.12);border-color:transparent;color:#18794e}
-.c.u{background:rgba(100,108,255,.14);border-color:transparent;color:#3451b2}
-.bar{position:absolute;left:0;top:0;width:100%;height:8px;background:linear-gradient(90deg,#3451b2,#5672cd 45%,#18794e)}
+body{
+  width:1200px;height:630px;overflow:hidden;background:#ffffff;
+  font-family:Georgia,"Times New Roman","Noto Serif",serif;
+  color:#111111;
+}
+.in{position:relative;padding:72px 84px;height:100%;display:flex;flex-direction:column}
+.brand{font-size:20px;line-height:1.4;color:#666666;font-weight:400;letter-spacing:.01em}
+h1{margin-top:44px;font-size:52px;line-height:1.22;letter-spacing:-.015em;color:#111111;font-weight:700}
+.topics{margin-top:28px;font-size:22px;line-height:1.55;color:#333333;max-width:1030px}
+.stats{
+  margin-top:auto;padding-top:28px;border-top:1px solid #e3e3e3;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 0;
+  font-size:18px;line-height:1.45;color:#666666;
+}
+.stats span{padding-right:28px;margin-right:28px;border-right:1px solid #e3e3e3}
+.stats span:last-child{border-right:0;margin-right:0;padding-right:0}
+.stats b{color:#111111;font-weight:700}
 </style>
-<div class="bg"></div><div class="grid"></div><div class="bar"></div>
 <div class="in">
-  <div class="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Гид по жизни с лучшим соотношением цены и результата</div>
-  <h1>Меньше денег, времени и сил —<br>больше <em>жизни, денег и свободы</em></h1>
-  <p>Долголетие · Первая помощь · Деньги · Право · Семья · Навыки</p>
-  <div class="chips">
-    <div class="c u"><b>528</b> советов</div>
-    <div class="c a">Доказательства класса A — <b>347</b></div>
-    <div class="c"><b>1066</b> ссылок на первоисточники</div>
-    <div class="c">фильтр по выгодности</div>
+  <div class="brand">Гид по жизни с лучшим соотношением цены и результата</div>
+  <h1>Меньше денег, времени и сил —<br>больше жизни, денег и свободы</h1>
+  <p class="topics">Долголетие · Первая помощь · Деньги · Право · Семья · Навыки</p>
+  <div class="stats">
+    <span><b>528</b> советов</span>
+    <span>Доказательства класса A — <b>347</b></span>
+    <span><b>1066</b> ссылок на первоисточники</span>
+    <span>фильтр по выгодности</span>
   </div>
 </div>
