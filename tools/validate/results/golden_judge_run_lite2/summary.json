@@ -63,12 +63,12 @@
     "g60"
   ],
   "failed_calls": 0,
-  "unparsed": 9,
+  "unparsed": 8,
   "native_preference": {
-    "rate_a": 0.633,
-    "n": 30,
+    "rate_a": 0.613,
+    "n": 31,
     "a": 19,
-    "b": 6,
+    "b": 7,
     "tie": 5
   },
   "decoy": {
@@ -87,19 +87,21 @@
       "tie": 3
     },
     "BA": {
-      "rate_a": 0.625,
-      "n": 16,
+      "rate_a": 0.588,
+      "n": 17,
       "a": 10,
-      "b": 4,
+      "b": 5,
       "tie": 2
     }
   },
   "length_bias": {
     "picked_longer": 1,
-    "decided": 25
+    "decided": 26
   },
   "per_pair": {
-    "g01": [],
+    "g01": [
+      "b"
+    ],
     "g02": [
       "a",
       "a"

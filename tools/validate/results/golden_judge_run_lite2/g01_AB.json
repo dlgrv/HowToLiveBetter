@@ -1,9 +1,9 @@
 {
-  "pair_id": "g01",
-  "order": "AB",
-  "winner_raw": null,
-  "decoded": "unparsed",
-  "reply": "",
-  "latency_s": 39.3,
-  "model": "glm-5.3-flash"
+ "pair_id": "g01",
+ "order": "AB",
+ "winner_raw": "2",
+ "decoded": "b",
+ "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 1's added sentences introduce clunky stacked clauses («он о том, что то, что можно завершить...», «с тем, что можно оформить»), while Variant 2 keeps only the smooth shared phrasing.\"\n}\n```",
+ "latency_s": 37.8,
+ "model": "glm-5.3-flash"
 }

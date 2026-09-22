@@ -1,513 +1,513 @@
 {
-  "seed_ref": "f0c2674f729c6af1ef33c4575c30cbb3e2be5f13e7626090a5e16144790d1ef9",
-  "chapters": [
+ "seed_ref": "f0c2674f729c6af1ef33c4575c30cbb3e2be5f13e7626090a5e16144790d1ef9",
+ "chapters": [
+  "02",
+  "04",
+  "05",
+  "06",
+  "07",
+  "09",
+  "12",
+  "14",
+  "16",
+  "17",
+  "20",
+  "22",
+  "23",
+  "25",
+  "27",
+  "32"
+ ],
+ "taxonomy": [
+  "dropped_condition",
+  "reversed_logic",
+  "softened_claim",
+  "added_advice",
+  "subject_swapped",
+  "cross_unit_contradiction"
+ ],
+ "mutations": [
+  {
+   "target": [
     "02",
+    "ru"
+   ],
+   "issue_type": "dropped_condition",
+   "original_excerpt": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить до 40 лет, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь.",
+   "mutant_text": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь."
+  },
+  {
+   "target": [
+    "02",
+    "en"
+   ],
+   "issue_type": "reversed_logic",
+   "original_excerpt": "- In plain terms: people who chronically sleep under 7 hours are about 10% more likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration.",
+   "mutant_text": "- In plain terms: people who chronically sleep under 7 hours are about 10% less likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration."
+  },
+  {
+   "target": [
     "04",
+    "ru"
+   ],
+   "issue_type": "softened_claim",
+   "original_excerpt": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши оказались самым быстрым из трёх способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь.",
+   "mutant_text": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши, возможно, оказались одним из сравнительно быстрых способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь."
+  },
+  {
+   "target": [
+    "04",
+    "en"
+   ],
+   "issue_type": "added_advice",
+   "original_excerpt": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality.",
+   "mutant_text": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality. For best results, hold stand-up meetings before 10 a.m., when decisions are sharpest."
+  },
+  {
+   "target": [
     "05",
+    "ru"
+   ],
+   "issue_type": "subject_swapped",
+   "original_excerpt": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто подоходный и так не платит, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя.",
+   "mutant_text": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто платит подоходный по максимальной ставке, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя."
+  },
+  {
+   "target": [
+    "05",
+    "en"
+   ],
+   "issue_type": "cross_unit_contradiction",
+   "original_excerpt": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 400-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it.",
+   "mutant_text": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 40-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it."
+  },
+  {
+   "target": [
     "06",
+    "ru"
+   ],
+   "issue_type": "dropped_condition",
+   "original_excerpt": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год. Тем, у кого подтверждён дефицит питательных веществ, и беременным, принимающим фолиевую кислоту, это не касается.",
+   "mutant_text": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год."
+  },
+  {
+   "target": [
+    "06",
+    "en"
+   ],
+   "issue_type": "reversed_logic",
+   "original_excerpt": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does not help with weight loss — the exercise itself is what works.",
+   "mutant_text": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does help with weight loss — the exercise itself is not what works."
+  },
+  {
+   "target": [
     "07",
+    "ru"
+   ],
+   "issue_type": "softened_claim",
+   "original_excerpt": "Центры скорой помощи и больницы не вправе отказывать, отмахиваться или тянуть с лечением тяжёлых и критических пострадавших из-за денег; за нарушение виновных накажут и обяжут исправиться.",
+   "mutant_text": "Центры скорой помощи и больницы в большинстве случаев не отказывают тяжёлым и критическим пострадавшим из-за денег, хотя гарантии этого закон не даёт."
+  },
+  {
+   "target": [
+    "07",
+    "en"
+   ],
+   "issue_type": "added_advice",
+   "original_excerpt": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure.",
+   "mutant_text": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure. Apply for the replacement during off-peak morning hours to get same-day pickup."
+  },
+  {
+   "target": [
     "09",
+    "ru"
+   ],
+   "issue_type": "subject_swapped",
+   "original_excerpt": "И это дело публичного обвинения: полиция заводит его сама, владельцу не нужно идти в суд.",
+   "mutant_text": "И это дело публичного обвинения: владелец заводит его сам, полиции не нужно идти в суд."
+  },
+  {
+   "target": [
+    "09",
+    "en"
+   ],
+   "issue_type": "cross_unit_contradiction",
+   "original_excerpt": "Whichever name the loan is in, that person owns the debt and the credit record.",
+   "mutant_text": "Whichever name the loan is in, that person owns the debt and the credit record — but unlike the card-cashing jobs in item 5, fronting a loan carries no personal liability at all; only the gang answers."
+  },
+  {
+   "target": [
     "12",
+    "ru"
+   ],
+   "issue_type": "dropped_condition",
+   "original_excerpt": "не подписывайте, а если без подписи не обойтись — подписывайте только поручительство общего типа и вписывайте верхний предел суммы",
+   "mutant_text": "не подписывайте, а если без подписи не обойтись — подписывайте и вписывайте верхний предел суммы"
+  },
+  {
+   "target": [
+    "12",
+    "en"
+   ],
+   "issue_type": "reversed_logic",
+   "original_excerpt": "It comes down to one line: if nobody will prepay and nobody will place a small order, don't believe \"once it's built, buyers will come.\"",
+   "mutant_text": "It comes down to one line: if nobody will prepay and nobody will place a small order, scale up production anyway — once it's built, buyers will come."
+  },
+  {
+   "target": [
     "14",
+    "ru"
+   ],
+   "issue_type": "softened_claim",
+   "original_excerpt": "пароль, утёкший с какого-нибудь сайта, первым делом подставляют к вашей почте",
+   "mutant_text": "пароль, утёкший с какого-нибудь сайта, изредка кто-то подставляет к вашей почте, и почти всегда это ничем не заканчивается"
+  },
+  {
+   "target": [
+    "14",
+    "en"
+   ],
+   "issue_type": "added_advice",
+   "original_excerpt": "and three wrong entries require a PUK code to unlock — write it down right after you set it",
+   "mutant_text": "and three wrong entries require a PUK code to unlock — write it down right after you set it and keep the note taped to the back of the phone so it is always at hand"
+  },
+  {
+   "target": [
     "16",
+    "ru"
+   ],
+   "issue_type": "subject_swapped",
+   "original_excerpt": "При диабете 2 типа первый осмотр глазного дна с каплями, расширяющими зрачок, делают сразу, как поставили диагноз. При 1 типе — с 5-го года болезни.",
+   "mutant_text": "При диабете 1 типа первый осмотр глазного дна с каплями, расширяющими зрачок, делают сразу, как поставили диагноз. При 2 типе — с 5-го года болезни."
+  },
+  {
+   "target": [
+    "16",
+    "en"
+   ],
+   "issue_type": "cross_unit_contradiction",
+   "original_excerpt": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" But the harm of stopping the drug itself is certain, especially for blood pressure medication, anticoagulants, and anti-rejection drugs.",
+   "mutant_text": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" Once your blood pressure or blood sugar is back to normal you can safely stop, and the same applies to the urate-lowering drug recommended later in this section."
+  },
+  {
+   "target": [
     "17",
+    "ru"
+   ],
+   "issue_type": "dropped_condition",
+   "original_excerpt": "если пожилой человек тяжело утратил способность к самообслуживанию и это состояние длится полгода и дольше, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят.",
+   "mutant_text": "если пожилой человек тяжело утратил способность к самообслуживанию, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят."
+  },
+  {
+   "target": [
+    "17",
+    "en"
+   ],
+   "issue_type": "reversed_logic",
+   "original_excerpt": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and do not leave the person lying face down for long — the face-down position produces more sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day.",
+   "mutant_text": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and leave the person lying face down for long — the face-down position produces fewer sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day."
+  },
+  {
+   "target": [
     "20",
+    "ru"
+   ],
+   "issue_type": "softened_claim",
+   "original_excerpt": "ребёнку меньше 3 месяцев и температура 38 ℃ — идите в больницу сразу, не наблюдайте дома и не давайте сначала жаропонижающее, чтобы «подождать и посмотреть». В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно.",
+   "mutant_text": "ребёнку меньше 3 месяцев и температура 38 ℃ — если ребёнок выглядит бодрым, можно сначала понаблюдать дома и дать жаропонижающее, а в больницу идти, только если температура не спадает. В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно."
+  },
+  {
+   "target": [
+    "20",
+    "en"
+   ],
+   "issue_type": "added_advice",
+   "original_excerpt": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one.",
+   "mutant_text": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water, though on hot days offer a few sips of cooled boiled water between feeds to prevent dehydration — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one."
+  },
+  {
+   "target": [
     "22",
+    "ru"
+   ],
+   "issue_type": "subject_swapped",
+   "original_excerpt": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф от 1000 до 5000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф до 3000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый.",
+   "mutant_text": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф до 3000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф от 1000 до 5000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый."
+  },
+  {
+   "target": [
+    "22",
+    "en"
+   ],
+   "issue_type": "cross_unit_contradiction",
+   "original_excerpt": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. For what to do when someone produces unknown powder, pills, or a cartridge in a venue, see item 3 of this section; for carrying things for other people, see item 27 of section 8.",
+   "mutant_text": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. If someone produces unknown powder, pills, or a cartridge in a venue, there is no need to leave the way item 3 tells you — just take the item and hand it to the venue staff or the police afterwards; briefly carrying things for other people, despite what item 27 of section 8 says, is harmless in practice."
+  },
+  {
+   "target": [
     "23",
+    "ru"
+   ],
+   "issue_type": "dropped_condition",
+   "original_excerpt": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом, занятых в основном обработкой информации, риск максимальный.",
+   "mutant_text": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом риск максимальный."
+  },
+  {
+   "target": [
+    "23",
+    "en"
+   ],
+   "issue_type": "reversed_logic",
+   "original_excerpt": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently higher than for men.",
+   "mutant_text": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently lower than for men."
+  },
+  {
+   "target": [
     "25",
+    "ru"
+   ],
+   "issue_type": "softened_claim",
+   "original_excerpt": "После кремации возможность вскрытия исчезает навсегда, поэтому этот вопрос нужно решить до обращения в похоронное бюро.",
+   "mutant_text": "После кремации возможность вскрытия, как правило, исчезает, поэтому этот вопрос лучше решить до обращения в похоронное бюро."
+  },
+  {
+   "target": [
+    "25",
+    "en"
+   ],
+   "issue_type": "added_advice",
+   "original_excerpt": "As soon as you have it, make several photocopies, and apply for the electronic version too where the institution can issue one.",
+   "mutant_text": "As soon as you have it, make several photocopies, have one copy notarised for the inheritance windows, and apply for the electronic version too where the institution can issue one."
+  },
+  {
+   "target": [
     "27",
-    "32"
-  ],
-  "taxonomy": [
-    "dropped_condition",
-    "reversed_logic",
-    "softened_claim",
-    "added_advice",
-    "subject_swapped",
-    "cross_unit_contradiction"
-  ],
-  "mutations": [
-    {
-      "target": [
-        "02",
-        "ru"
-      ],
-      "issue_type": "dropped_condition",
-      "original_excerpt": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить до 40 лет, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь.",
-      "mutant_text": "- Простыми словами: курильщики в среднем живут на десять с лишним лет меньше некурящих; если бросить, можно стереть около 90% того риска смерти, который добавляет дальнейшее курение, — чем раньше бросишь, тем больше вернёшь."
-    },
-    {
-      "target": [
-        "02",
-        "en"
-      ],
-      "issue_type": "reversed_logic",
-      "original_excerpt": "- In plain terms: people who chronically sleep under 7 hours are about 10% more likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration.",
-      "mutant_text": "- In plain terms: people who chronically sleep under 7 hours are about 10% less likely to die over the same period; the more chaotic your schedule, the higher the risk — the most regular sleepers are 20% to nearly 50% less likely to die than the least regular, so regularity matters more than duration."
-    },
-    {
-      "target": [
-        "04",
-        "ru"
-      ],
-      "issue_type": "softened_claim",
-      "original_excerpt": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши оказались самым быстрым из трёх способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь.",
-      "mutant_text": "- Простыми словами: большинство тех, кто много лет пользуется Word, всё ещё тыкает в панель инструментов, тогда как в сравнительном эксперименте горячие клавиши, возможно, оказались одним из сравнительно быстрых способов. Обучение — разовая стоимость, а окупается каждая операция каждого дня: чем дольше делаешь одну и ту же работу, тем больше с этого получаешь."
-    },
-    {
-      "target": [
-        "04",
-        "en"
-      ],
-      "issue_type": "added_advice",
-      "original_excerpt": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality.",
-      "mutant_text": "- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality. For best results, hold stand-up meetings before 10 a.m., when decisions are sharpest."
-    },
-    {
-      "target": [
-        "05",
-        "ru"
-      ],
-      "issue_type": "subject_swapped",
-      "original_excerpt": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто подоходный и так не платит, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя.",
-      "mutant_text": "- Простыми словами: Экономия равна «вашей предельной ставке минус 3%», умноженной на реально внесённую сумму: при ставке 10% — максимум 840 юаней в год, при 20% — 2040, при 30% — 3240. Тот, кто платит подоходный по максимальной ставке, не сэкономит ни копейки, а при выплате ещё заплатит 3% — чистый убыток. Деньги заперты до пенсии, забрать на ходу нельзя."
-    },
-    {
-      "target": [
-        "05",
-        "en"
-      ],
-      "issue_type": "cross_unit_contradiction",
-      "original_excerpt": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 400-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it.",
-      "mutant_text": "- In plain terms: Beijing's first-tier water price works out to 0.005 yuan per liter; bottled water at 1 yuan per 500 ml comes to 2 yuan per liter — a 40-fold difference. Tap water is governed by a mandatory national standard, so boiling it before drinking is enough day to day; if a water source really fails and the water turns smelly or cloudy, that isn't solved by boiling a few more minutes — stop using it and report it."
-    },
-    {
-      "target": [
-        "06",
-        "ru"
-      ],
-      "issue_type": "dropped_condition",
-      "original_excerpt": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год. Тем, у кого подтверждён дефицит питательных веществ, и беременным, принимающим фолиевую кислоту, это не касается.",
-      "mutant_text": "- Простыми словами: 14 тысяч врачей-мужчин одиннадцать лет принимали поливитамины — ни по сердечно-сосудистым событиям, ни по смертности разницы не вышло; если сложить 9 испытаний и больше 50 тысяч участников, влияния на смертность тоже не видно. Экономия — двести–семьсот юаней в год."
-    },
-    {
-      "target": [
-        "06",
-        "en"
-      ],
-      "issue_type": "reversed_logic",
-      "original_excerpt": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does not help with weight loss — the exercise itself is what works.",
-      "mutant_text": "- In plain terms: 471 overweight adults did the same lifestyle intervention; the group wearing devices lost 3.5 kg over two years, while the group without them lost 5.9 kg. The device does help with weight loss — the exercise itself is not what works."
-    },
-    {
-      "target": [
-        "07",
-        "ru"
-      ],
-      "issue_type": "softened_claim",
-      "original_excerpt": "Центры скорой помощи и больницы не вправе отказывать, отмахиваться или тянуть с лечением тяжёлых и критических пострадавших из-за денег; за нарушение виновных накажут и обяжут исправиться.",
-      "mutant_text": "Центры скорой помощи и больницы в большинстве случаев не отказывают тяжёлым и критическим пострадавшим из-за денег, хотя гарантии этого закон не даёт."
-    },
-    {
-      "target": [
-        "07",
-        "en"
-      ],
-      "issue_type": "added_advice",
-      "original_excerpt": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure.",
-      "mutant_text": "Without an ID card you cannot find a job, book lodging, open a bank account, or collect subsidies — it is the prerequisite for every procedure. Apply for the replacement during off-peak morning hours to get same-day pickup."
-    },
-    {
-      "target": [
-        "09",
-        "ru"
-      ],
-      "issue_type": "subject_swapped",
-      "original_excerpt": "И это дело публичного обвинения: полиция заводит его сама, владельцу не нужно идти в суд.",
-      "mutant_text": "И это дело публичного обвинения: владелец заводит его сам, полиции не нужно идти в суд."
-    },
-    {
-      "target": [
-        "09",
-        "en"
-      ],
-      "issue_type": "cross_unit_contradiction",
-      "original_excerpt": "Whichever name the loan is in, that person owns the debt and the credit record.",
-      "mutant_text": "Whichever name the loan is in, that person owns the debt and the credit record — but unlike the card-cashing jobs in item 5, fronting a loan carries no personal liability at all; only the gang answers."
-    },
-    {
-      "target": [
-        "12",
-        "ru"
-      ],
-      "issue_type": "dropped_condition",
-      "original_excerpt": "не подписывайте, а если без подписи не обойтись — подписывайте только поручительство общего типа и вписывайте верхний предел суммы",
-      "mutant_text": "не подписывайте, а если без подписи не обойтись — подписывайте и вписывайте верхний предел суммы"
-    },
-    {
-      "target": [
-        "12",
-        "en"
-      ],
-      "issue_type": "reversed_logic",
-      "original_excerpt": "It comes down to one line: if nobody will prepay and nobody will place a small order, don't believe \"once it's built, buyers will come.\"",
-      "mutant_text": "It comes down to one line: if nobody will prepay and nobody will place a small order, scale up production anyway — once it's built, buyers will come."
-    },
-    {
-      "target": [
-        "14",
-        "ru"
-      ],
-      "issue_type": "softened_claim",
-      "original_excerpt": "пароль, утёкший с какого-нибудь сайта, первым делом подставляют к вашей почте",
-      "mutant_text": "пароль, утёкший с какого-нибудь сайта, изредка кто-то подставляет к вашей почте, и почти всегда это ничем не заканчивается"
-    },
-    {
-      "target": [
-        "14",
-        "en"
-      ],
-      "issue_type": "added_advice",
-      "original_excerpt": "and three wrong entries require a PUK code to unlock — write it down right after you set it",
-      "mutant_text": "and three wrong entries require a PUK code to unlock — write it down right after you set it and keep the note taped to the back of the phone so it is always at hand"
-    },
-    {
-      "target": [
-        "16",
-        "ru"
-      ],
-      "issue_type": "subject_swapped",
-      "original_excerpt": "При диабете 2 типа первый осмотр глазного дна с каплями, расширяющими зрачок, делают сразу, как поставили диагноз. При 1 типе — с 5-го года болезни.",
-      "mutant_text": "При диабете 1 типа первый осмотр глазного дна с каплями, расширяющими зрачок, делают сразу, как поставили диагноз. При 2 типе — с 5-го года болезни."
-    },
-    {
-      "target": [
-        "16",
-        "en"
-      ],
-      "issue_type": "cross_unit_contradiction",
-      "original_excerpt": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" But the harm of stopping the drug itself is certain, especially for blood pressure medication, anticoagulants, and anti-rejection drugs.",
-      "mutant_text": "people who take their medication as prescribed have roughly a little over half the probability of dying in the same period as people who take it on and off. Discount this number: people who diligently take a placebo also have lower mortality, which means a fair share of the benefit comes from \"people willing to stick with medication were already more health-conscious.\" Once your blood pressure or blood sugar is back to normal you can safely stop, and the same applies to the urate-lowering drug recommended later in this section."
-    },
-    {
-      "target": [
-        "17",
-        "ru"
-      ],
-      "issue_type": "dropped_condition",
-      "original_excerpt": "если пожилой человек тяжело утратил способность к самообслуживанию и это состояние длится полгода и дольше, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят.",
-      "mutant_text": "если пожилой человек тяжело утратил способность к самообслуживанию, подавайте по месту страхования в ведомство медицинской страховки заявление на страхование долгосрочного ухода: расходы на уход по правилам компенсируют без минимального порога, застрахованным как работающие по найму возвращают около 70%, застрахованным как городские и сельские жители без найма — около 50%, а потолок за год — половина располагаемого дохода на жителя за прошлый год по вашей местности. За первую успешно пройденную оценку платит фонд; плата за койку и питание в компенсацию не входят."
-    },
-    {
-      "target": [
-        "17",
-        "en"
-      ],
-      "issue_type": "reversed_logic",
-      "original_excerpt": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and do not leave the person lying face down for long — the face-down position produces more sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day.",
-      "mutant_text": "a pressure sore is not just one more skin wound. In the medical records of 19,520 hip-fracture surgeries, people who already had a pressure sore before surgery were about 20% more likely to die within 30 days, about 60% more likely to get deep vein thrombosis, about 40% more likely to get pneumonia, and about 40% more likely to be readmitted unplanned; among 324 hospitalized elderly people followed for a year and a half, those with pressure sores had about 50% higher risk of death. The three things you can do all have evidence: electric air mattresses cut new pressure sores by about 60% compared with ordinary hospital-bed mattresses; actually carrying out the turning (that trial used wearable sensors as reminders) cut them by about 70% compared with routine care; and leave the person lying face down for long — the face-down position produces fewer sores than lying on the back. As for \"turn every two hours or every four,\" a review of 11 trials in 4,462 people concluded it is very uncertain — what matters is whether the turning actually happens, not the clock. Check the tailbone, heels, hips, and shoulder blades once a day; if you find redness that does not fade under pressure, broken skin, or darkening, get a nurse or doctor the same day."
-    },
-    {
-      "target": [
-        "20",
-        "ru"
-      ],
-      "issue_type": "softened_claim",
-      "original_excerpt": "ребёнку меньше 3 месяцев и температура 38 ℃ — идите в больницу сразу, не наблюдайте дома и не давайте сначала жаропонижающее, чтобы «подождать и посмотреть». В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно.",
-      "mutant_text": "ребёнку меньше 3 месяцев и температура 38 ℃ — если ребёнок выглядит бодрым, можно сначала понаблюдать дома и дать жаропонижающее, а в больницу идти, только если температура не спадает. В этом возрасте даже серьёзная бактериальная инфекция может проявляться одной только температурой, «выглядит бодрым» — не аргумент ждать дома; а для детей младше 8 дней специального руководства вообще нет, к врачу тем более нужно немедленно."
-    },
-    {
-      "target": [
-        "20",
-        "en"
-      ],
-      "issue_type": "added_advice",
-      "original_excerpt": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one.",
-      "mutant_text": "start breastfeeding within the first hour after birth, feed only breast milk for the first 6 months — not even water, though on hot days offer a few sips of cooled boiled water between feeds to prevent dehydration — start complementary foods at 6 months and keep breastfeeding until age 2 or beyond, and make sure complementary foods include iron-rich animal foods every day. If breast milk is insufficient or breastfeeding is not possible, use formula; the gap this item makes is far smaller than the safe-sleep one."
-    },
-    {
-      "target": [
-        "22",
-        "ru"
-      ],
-      "issue_type": "subject_swapped",
-      "original_excerpt": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф от 1000 до 5000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф до 3000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый.",
-      "mutant_text": "сегодняшние наркотики не выглядят как наркотики — электронные сигареты с синтетическими каннабиноидами, от которых «накрывает голову», можно окрасить в любой цвет и вкус, снаружи они почти не отличаются от обычной электронной сигареты, и их специально протягивают попробовать в барах, караоке (KTV) и гостиницах. За обман с потреблением — задержание на 10–15 суток и штраф до 3000 юаней; тот, кого обманули и кто покурил, сам получает задержание на 10–15 суток и штраф от 1000 до 5000 юаней, а при сформировавшейся зависимости — ещё и три года общинного отказа от наркотиков. Напиток, побывавший вне поля зрения, меняйте на новый."
-    },
-    {
-      "target": [
-        "22",
-        "en"
-      ],
-      "issue_type": "cross_unit_contradiction",
-      "original_excerpt": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. For what to do when someone produces unknown powder, pills, or a cartridge in a venue, see item 3 of this section; for carrying things for other people, see item 27 of section 8.",
-      "mutant_text": "This is not only for entertainment venues: the same logic applies at school gates, at friends' gatherings, and on long-distance buses, whether the item handed over is candy, a drink, or a vape cartridge. Drugging is often followed by robbery, sexual assault, and extortion; there are no published official statistics on that part — it is experiential judgment. Swapping a drink that has left your sight costs far less than pursuing it afterwards. If someone produces unknown powder, pills, or a cartridge in a venue, there is no need to leave the way item 3 tells you — just take the item and hand it to the venue staff or the police afterwards; briefly carrying things for other people, despite what item 27 of section 8 says, is harmless in practice."
-    },
-    {
-      "target": [
-        "23",
-        "ru"
-      ],
-      "issue_type": "dropped_condition",
-      "original_excerpt": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом, занятых в основном обработкой информации, риск максимальный.",
-      "mutant_text": "Поэтому работа на выезде, в нестандартной среде и с решениями на месте вытесняется тяжелее, а у позиций с фиксированным процессом риск максимальный."
-    },
-    {
-      "target": [
-        "23",
-        "en"
-      ],
-      "issue_type": "reversed_logic",
-      "original_excerpt": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently higher than for men.",
-      "mutant_text": "each additional year of schooling means personal income about 9% higher on average per year, and the return for women is consistently lower than for men."
-    },
-    {
-      "target": [
-        "25",
-        "ru"
-      ],
-      "issue_type": "softened_claim",
-      "original_excerpt": "После кремации возможность вскрытия исчезает навсегда, поэтому этот вопрос нужно решить до обращения в похоронное бюро.",
-      "mutant_text": "После кремации возможность вскрытия, как правило, исчезает, поэтому этот вопрос лучше решить до обращения в похоронное бюро."
-    },
-    {
-      "target": [
-        "25",
-        "en"
-      ],
-      "issue_type": "added_advice",
-      "original_excerpt": "As soon as you have it, make several photocopies, and apply for the electronic version too where the institution can issue one.",
-      "mutant_text": "As soon as you have it, make several photocopies, have one copy notarised for the inheritance windows, and apply for the electronic version too where the institution can issue one."
-    },
-    {
-      "target": [
-        "27",
-        "ru"
-      ],
-      "issue_type": "subject_swapped",
-      "original_excerpt": "Теперь у неё есть отдельная позиция в тарифике, и больницам выгоднее её делать.",
-      "mutant_text": "Теперь у кесарева сечения есть отдельная позиция в тарифике, и больницам выгоднее его делать."
-    },
-    {
-      "target": [
-        "27",
-        "en"
-      ],
-      "issue_type": "cross_unit_contradiction",
-      "original_excerpt": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, and getting an ID card, and the longer you drag it out, the more paperwork you have to make up.",
-      "mutant_text": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, insurance enrollment, and getting an ID card — resident medical insurance for the newborn can only be enrolled after the household registration is completed — and the longer you drag it out, the more paperwork you have to make up."
-    }
-  ],
-  "controls": [
-    {
-      "target": [
-        "02",
-        "ru"
-      ],
-      "original_excerpt": "- Простыми словами: у тех, кто ест больше всего ветчины, бекона и колбасы, вероятность смерти за тот же период примерно на 20% выше, чем у тех, кто ест меньше всего; каждая дополнительная порция обработанного мяса в день добавляет примерно те же 20%."
-    },
-    {
-      "target": [
-        "02",
-        "en"
-      ],
-      "original_excerpt": "- In plain terms: people who cook with coal or wood are about 10% more likely to die over the same period, and those who heat with them about 14%; those who have switched to electricity or gas are 13%–33% less likely to die than those still burning solid fuels."
-    },
-    {
-      "target": [
-        "04",
-        "ru"
-      ],
-      "original_excerpt": "- Простыми словами: в среднем китаец тратит на домашние дела 1 час 17 минут в день, а тот, кто ими реально занимается, — 1 час 59 минут. Люди, покупающие себе время, довольны жизнью больше, и те же деньги, потраченные на время, радуют здесь и сейчас сильнее, чем потраченные на вещи."
-    },
-    {
-      "target": [
-        "04",
-        "en"
-      ],
-      "original_excerpt": "- In plain terms: students estimated 33.9 days to finish a thesis and actually took 55.5 days; only 29.7% finished by their own estimate. The group told to first recall how long their last similar task took saw on-time completion rise from 29.3% to 60.0%."
-    },
-    {
-      "target": [
-        "05",
-        "ru"
-      ],
-      "original_excerpt": "- Простыми словами: Дороговизну мы оцениваем по первой увиденной цифре, и последующие поправки всегда недостаточны — поэтому «было 999, стало 499» систематически завышает вашу оценку выгоды. А по правилам базой для скидки служит лишь минимальная цена сделки этого же продавца за семь дней до акции — зачёркнутая цена вовсе не обязана была существовать."
-    },
-    {
-      "target": [
-        "05",
-        "en"
-      ],
-      "original_excerpt": "- In plain terms: in that three-year US dataset, members on monthly contracts above 70 dollars averaged only 4.3 visits a month — over 17 dollars per visit — while a 10-visit pass cost just 10 dollars a visit; over the life of their membership they paid 600 dollars more on average. Unless you already have a steady record of going for over a year, per-visit or short-term is cheaper."
-    },
-    {
-      "target": [
-        "06",
-        "ru"
-      ],
-      "original_excerpt": "- Простыми словами: 471 взрослый с лишним весом получал одну и ту же программу изменений образа жизни: те, кто носил устройство, за два года сбросили 3.5 кг, а те, кто не носил, — 5.9 кг. Устройство на похудение не влияет — работает само движение."
-    },
-    {
-      "target": [
-        "06",
-        "en"
-      ],
-      "original_excerpt": "- In plain terms: trace the origin of \"8 glasses a day\" and you will not find a single study supporting it; on the contrary, surveys of several thousand people's food and fluid intake suggest that much is not needed, because food and other drinks already bring in a lot of water. Drink when thirsty and check your urine color — that is enough. People working in high heat, exercising hard, with a history of kidney stones, or older adults whose thirst response has dulled need to drink proactively."
-    },
-    {
-      "target": [
-        "07",
-        "ru"
-      ],
-      "original_excerpt": "Станция социальной помощи бесплатно даёт еду и ночлег — сначала туда."
-    },
-    {
-      "target": [
-        "07",
-        "en"
-      ],
-      "original_excerpt": "When job hunting, ask whether the job covers room and board — a job that does wipes out both big items outright."
-    },
-    {
-      "target": [
-        "09",
-        "ru"
-      ],
-      "original_excerpt": "Долг может быть по-настоящему вашим — всё равно нельзя: в статье прямо написано, что задержание и запирание человека «для взыскания долга» — то же незаконное лишение свободы."
-    },
-    {
-      "target": [
-        "09",
-        "en"
-      ],
-      "original_excerpt": "if the other person is under 14, it is treated as rape with heavier punishment regardless of whether she consented, and the base sentence is 3 to 10 years."
-    },
-    {
-      "target": [
-        "12",
-        "ru"
-      ],
-      "original_excerpt": "никто не готов платить вперёд и делать мелкий заказ — не верьте, что «когда сделаем, покупатели придут сами»."
-    },
-    {
-      "target": [
-        "12",
-        "en"
-      ],
-      "original_excerpt": "\"Affordable to lose\" means that a total loss would not force you to sell your home or borrow from relatives to plug the hole."
-    },
-    {
-      "target": [
-        "14",
-        "ru"
-      ],
-      "original_excerpt": "Начинайте с почты: пароль любого другого аккаунта можно восстановить через неё"
-    },
-    {
-      "target": [
-        "14",
-        "en"
-      ],
-      "original_excerpt": "Money you were tricked into transferring yourself is a different path — see Section 8, item 2."
-    },
-    {
-      "target": [
-        "16",
-        "ru"
-      ],
-      "original_excerpt": "при хронической болезни важно смотреть на линию тренда, а не на отдельное значение. Дата, показатель, принимаемые в тот момент лекарства и дозы — всё в одном месте; тогда при смене больницы не придётся заново сдавать анализы и заново за них платить."
-    },
-    {
-      "target": [
-        "16",
-        "en"
-      ],
-      "original_excerpt": "if you want to try a supplement, tell your attending doctor; some interact with prescription drugs, for example by affecting blood concentrations of anticoagulants and anti-rejection drugs"
-    },
-    {
-      "target": [
-        "17",
-        "ru"
-      ],
-      "original_excerpt": "схемы, к которым подталкивают пожилых, — «оздоровительные продукты», коллекционирование, «финансовые продукты» — устроены одинаково: несколько месяцев строят доверие, а потом выкачивают всё за один раз. Договоритесь заранее: о любой трате выше условной суммы сначала сказать такому-то. Это растягивает момент оплаты, и импульс успевает погаснуть. Продать это как «мы ведём семейный бюджет под единым учётом» заметно легче, чем как «я боюсь, тебя обманут»."
-    },
-    {
-      "target": [
-        "17",
-        "en"
-      ],
-      "original_excerpt": "Do not present this as \"we're afraid you'll be scammed\" — framing it as \"unified bookkeeping for household money\" is easier to accept. Do not put all of the elderly person's money into the children's hands either; that invites a different kind of dispute."
-    },
-    {
-      "target": [
-        "20",
-        "ru"
-      ],
-      "original_excerpt": "детям до 1 года мёд не дают вообще — ни медовую воду, ни мёд, размешанный в прикорме, ни выпечку с мёдом. В мёде могут оказаться бактерии, вызывающие ботулизм: кишечная микрофлора взрослого человека их подавляет, а у младенца это не получается. То же относится к домашним соленьям и ферментированным продуктам."
-    },
-    {
-      "target": [
-        "20",
-        "en"
-      ],
-      "original_excerpt": "births in legitimate Chinese hospitals include the injection routinely, so you do not need to worry; those giving birth at home or in unregulated facilities should confirm it themselves. Oral regimens are less effective than the intramuscular shot"
-    },
-    {
-      "target": [
-        "22",
-        "ru"
-      ],
-      "original_excerpt": "в контролируемом испытании — 5 минут в день, целый месяц подряд — все три дыхательных упражнения улучшали настроение и снижали частоту дыхания сильнее, чем равная по времени медитация осознанности (mindfulness), а лучше всего показал себя «циклический вздох», где выдох растянут. Делается так: носом взять один вдох, затем добрать ещё маленький, чтобы наполнить лёгкие до конца, и медленно выдохнуть ртом до отказа. Испытание только одно и результаты — самоотчёт, но цена нулевая."
-    },
-    {
-      "target": [
-        "22",
-        "en"
-      ],
-      "original_excerpt": "9 studies, 7 countries, 8.32 million people: for every 0.1 increase in the vegetation index of greenery within 500 meters of your home, the probability of dying over the same period was about 4% lower. What was measured is the greenery around the home, not how often you visit a park, and people living in greener areas also tend to be wealthier and enjoy better air. So do not read this as \"going to the park extends your life\"; the usable part is to factor nearby green space into where you choose to live."
-    },
-    {
-      "target": [
-        "01",
-        "ru"
-      ],
-      "original_excerpt": "### 1. Пристёгивайтесь, и спереди, и сзади\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->\n- Стоимость: 0 юаней, 2 секунды при каждой поездке\n- Простыми словами: пристёгнутый ремень на переднем сиденье снижает вероятность погибнуть или тяжело пострадать в аварии примерно вдвое (в лёгких грузовиках — на 60%). Среди погибших в автомобилях в США в 2022 году половина из тех, чью пристёгнутость удалось установить, не была пристёгнута.\n- Эффект: по оценке американского NHTSA, ремень снижает риск смертельных травм для передних пассажиров лёгковых автомобилей на 45%, для передних пассажиров лёгких грузовиков — на 60%; среди погибших пассажиров лёгковых автомобилей в США в 2022 году 50% из тех, у кого известен факт пристёгивания, не были пристёгнуты; по оценке ВОЗ, ремень снижает риск гибели людей в салоне максимум на 50%. ВОЗ оценивает число погибших на дорогах Китая в 2021 году в 248 099 человек (17,4 на 100 тыс.)\n- Уровень доказательности: A\n- Источники:NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries> ; WHO GHO RS_196/RS_198 (China, 2021). <https://ghoapi.azureedge.net/api/RS_196?$filter=SpatialDim%20eq%20%27CHN%27>\n- Примечания: цифры NHTSA 45%/60% — официальная оценка по американским базам данных аварий (ссылка на Kahane 2015), а не рандомизированное испытание. Непристёгнутый на заднем сиденье так же опасен: в том же отчёте NHTSA 60% погибших на втором ряду не были пристёгнуты. Китайские данные ВОЗ о смертности — модельная оценка, она в несколько раз выше данных дорожной полиции; определения различаются, здесь используется только оценка ВОЗ."
-    },
-    {
-      "target": [
-        "01",
-        "en"
-      ],
-      "original_excerpt": "### 1. Buckle up — front and rear seats\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->\n- Cost: 0 yuan, 2 seconds each time you get in the car\n- In plain terms: Fasten your seat belt in the front seat and the odds of being killed or seriously hurt in a crash drop by roughly half (60 percent in light trucks). Among vehicle occupants who died in crashes in the United States in 2022, half of those whose belt use could be determined were unbelted.\n- Benefit: US NHTSA estimates seat belts cut the risk of fatal injury for front-seat car occupants by 45% and for front-seat occupants of light trucks by 60%; among passenger-vehicle occupants who died in the US in 2022, 50% of those with known belt use were unrestrained; WHO puts the reduction in death risk for vehicle occupants at up to 50%. WHO estimates 248,099 road traffic deaths in China in 2021 (17.4 per 100,000)\n- Evidence grade: A\n- Sources: NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries> ; WHO GHO RS_196/RS_198 (China, 2021). <https://ghoapi.azureedge.net/api/RS_196?$filter=SpatialDim%20eq%20%27CHN%27>\n- Notes: NHTSA's 45%/60% are official estimates based on US crash databases (citing Kahane 2015), not randomized trials. Riding unbelted in the back is just as deadly: in the same NHTSA report, 60% of second-row occupants killed in crashes were unbelted. WHO's China death count is a model estimate, several times higher than the figure registered by the traffic police; the two use different definitions, and only the WHO figure is used here."
-    },
-    {
-      "target": [
-        "03",
-        "ru"
-      ],
-      "original_excerpt": "### 1. Отключите ненужные уведомления и держите телефон вне поля зрения во время работы\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->\n- Стоимость: несколько минут на настройки; сила воли почти не нужна\n- Простыми словами: Телефон звякнул — и, даже если вы не взглянули и не тронули его, результат в задаче на внимание падает примерно так же, как от настоящего звонка или смс. Не спасает и выдержка: когда телефон просто лежит на столе, рабочего запаса у мозга всё равно меньше, а сильнее всего проседают те, кто от телефона зависит.\n- Эффект: одно лишь получение уведомления (без взгляда и прикосновений) заметно снижает результат в задаче на внимание, величина эффекта сопоставима с реальным ответом на звонок или отправкой смс (лаборатория, студенты); в двух экспериментах даже при успешном удержании от просмотра телефона само присутствие собственного смартфона снижает доступный когнитивный ресурс, сильнее всего у зависимых от смартфона\n- Уровень доказательности: B\n- Источники:Stothart, Mitchum & Yehnert (2015). The attentional cost of receiving a cell phone notification. Journal of Experimental Psychology: Human Perception and Performance. <https://doi.org/10.1037/xhp0000100>；Ward, Duke, Gneezy & Bos (2017). Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity. Journal of the Association for Consumer Research. <https://doi.org/10.1086/691462>\n- Примечания: во всех случаях это разовые лабораторные задачи, накопительный эффект в повседневной работе напрямую не измерялся. На должностях, где действительно нужно быть на связи, можно оставить уведомления только от немногих контактов."
-    },
-    {
-      "target": [
-        "03",
-        "en"
-      ],
-      "original_excerpt": "### 1. Turn off non-essential notifications and keep the phone out of sight while working\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->\n- Cost: A few minutes of setup; almost no willpower required\n- In plain terms: When a phone pings, even if you don't look at it or touch it, your score on an attention task drops — by roughly the same amount as if you had actually answered a call or read a text. Even just having your phone sit on the desk while you resist looking at it leaves your brain less working capacity to spare, and the more attached you are to your phone, the bigger the drop.\n- Benefit: Merely receiving a notification (without looking at or touching the phone) significantly lowers performance on attention tasks, with an effect size comparable to actually taking a call or texting (laboratory study, university students); two experiments show that even when people successfully resist checking their phone, the mere presence of their own phone reduces available cognitive capacity, with the largest decline among the most phone-dependent\n- Evidence grade: B\n- Sources: Stothart, Mitchum & Yehnert (2015). The attentional cost of receiving a cell phone notification. Journal of Experimental Psychology: Human Perception and Performance. <https://doi.org/10.1037/xhp0000100>；Ward, Duke, Gneezy & Bos (2017). Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity. Journal of the Association for Consumer Research. <https://doi.org/10.1086/691462>\n- Notes: These are all single laboratory tasks; the cumulative effect in everyday work has not been directly measured. Jobs that genuinely require being on call can keep notifications for a small number of contacts only"
-    },
-    {
-      "target": [
-        "08",
-        "ru"
-      ],
-      "original_excerpt": "### 1. После ДТП сначала остановитесь, помогите пострадавшим и вызовите полицию, не уезжайте\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->\n- Стоимость: 0 юаней; остановиться, включить аварийную сигнализацию, помочь пострадавшим, позвонить в полицию — в худшем случае час-два ожидания инспектора; в мелкой аварии без пострадавших и без спора о том, что произошло, сфотографируйте и запишите фамилию, телефон и номер автомобиля второй стороны, номер его водительского удостоверения и страхового полиса, место столкновения, после подписей обеих сторон можно разъехаться и договориться между собой\n- Простыми словами: уедете — аварию по умолчанию повесят на вас целиком, права отберут, и вернут их не смогут уже никогда; если дело доходит до уголовного дела о ДТП, побег — это от 3 до 7 лет, а если из-за побега человек погиб — свыше 7 лет. Есть и более приземлённый слой: и каско, и страховка ответственности перед третьими лицами за побег не платят вообще никогда, так что компенсации на сотни тысяч юаней ложатся на вас целиком. Оставаться на месте, спасать людей и звонить в полицию стоит максимум часа два.\n- Эффект: уехавший с места аварии несёт ответственность за неё в полном объёме, смягчить это можно, только доказав вину второй стороны; за побег водительское удостоверение аннулируется без права получить новое; если содеянное образует уголовное преступление — нарушение правил дорожного движения, повлёкшее тяжкие последствия, — побег наказывается лишением свободы от 3 до 7 лет, а гибель человека из-за побега — свыше 7 лет; по коммерческим автостраховым правилам ни каско, ни страхование ответственности перед третьими лицами не покрывают «оставление места ДТП» и «умышленное повреждение, подделку места происшествия, уничтожение доказательств» — компенсация на сотни тысяч юаней ложится на самого водителя (по всему Китаю)\n- Уровень доказательности: A\n- Источники:全国人大常委会 (2021). 道路交通安全法（2021 年修订，第七十、一百零一条）. <https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/fl/205308/index.html>（北京市公安交通管理局转载）；国务院 (2017). 道路交通安全法实施条例（国务院令第 405 号，2017 年修订，第八十六、九十二条）. <http://xzfg.moj.gov.cn/front/law/detail?LawID=75>；全国人大 (1997). 刑法（第一百三十三条）. <https://www.spp.gov.cn/spp/fl/201802/t20180206_364975.shtml>；中国保险行业协会 (2020). 机动车商业保险示范条款（2020 版）（第九、二十二条）. <https://www.iachina.cn/art/2020/9/4/art_24_104621.html>\n- Примечания: если есть пострадавшие, сначала спасайте людей, потом звоните в полицию; если ради спасения пришлось перемещать машины, отметьте их положение. «Задел и не заметил, поэтому уехал» при разборе задним числом тоже могут счесть побегом; сомневаетесь — звоните в полицию. Показанные страховые правила — отраслевой образец договора; у каждой компании действуют условия её полиса."
-    },
-    {
-      "target": [
-        "08",
-        "en"
-      ],
-      "original_excerpt": "### 35. When you are mobbed online: turn on protections and secure evidence first, then choose among the three routes — platform, injunction, police report\n<!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=自由 -->\n- Cost: 0 yuan; a dozen or so minutes on the spot for protection and evidence; going as far as applying for an injunction or a private prosecution means visits to court and possibly a lawyer\n- In plain terms: do three things on the spot first — turn on all of the platform's protective settings (block strangers or specific users, limit who can see what you post, forbid reposts or comments, accept private messages only from friends or none at all), use the platform's quick evidence-capture function to fix the content in place, then report it through the prominent shortcut entry. Then there are three routes: if the attack is ongoing and not stopping it promptly would cause damage hard to make up, you can ask the court for a personality-rights infringement injunction to make them stop first; insults and defamation in principle require you to sue in court yourself, and where gathering evidence is genuinely difficult the court can ask the public security organs to help identify who is behind it and collect evidence of the spreading and the impact — once they have assisted and the case meets the conditions, the court must docket it; at the \"seriously disrupting social order\" tier the case converts to public prosecution and you do not have to carry the burden of proof. Doxxing — putting your personal information out there — is handled as the crime of infringing citizens' personal information when the circumstances are serious.\n- Benefit: (法发〔2023〕14 号 — the SPC's Guideline No. 14 of 2023 on personality-rights protection), article 15: where a rights holder has evidence that a person is committing or is about to commit an unlawful act infringing their personality rights, and failure to stop it promptly would cause irreparable damage to their lawful rights and interests, the people's court may issue a personality-rights infringement injunction upon application under article 997 of the Civil Code; article 11: in private prosecution cases, \"where the victim has genuine difficulty providing evidence, they may request assistance from the public security organs\", which shall promptly identify the perpetrator and collect evidence materials on the spread, diffusion, and impact; network service providers shall provide the necessary technical support, \"where evidence has been gathered with the assistance of the public security organs and the case meets the conditions for accepting a private prosecution, the people's court shall decide to docket it\", and where it cannot be collected they must explain in writing; article 12 lists five situations to be recognized as \"seriously disrupting social order\" under article 246(2) of the Criminal Law: causing the victim or their close relatives mental breakdown, suicide, or other grave consequences with vile social impact; arbitrarily targeting ordinary members of the public with information spreading on a large scale and drawing masses of vulgar malicious comments with vile social impact; insulting or defaming multiple people or repeatedly spreading such content with vile social impact; organizing or directing people to spread it in volume across multiple platforms with vile social impact; and others. Article 4: organizing \"human-flesh searches\" (doxxing), unlawfully collecting and publishing citizens' personal information to an unspecified majority, is convicted and punished as the crime of infringing citizens' personal information where the circumstances are serious. The Provisions on the Governance of Online Violence Information, article 23, requires platforms to offer protective options such as blocking strangers or specific users, limiting the visibility of one's own posts, forbidding reposts or comments, and accepting private messages only from friends or none at all; article 25 requires a quick evidence-capture function; article 26 requires a prominent quick complaint and report entry; article 15 requires platforms to report suspected crimes to the public security organs promptly\n- Evidence grade: A\n- Sources: 最高人民法院、最高人民检察院、公安部 (2023). 关于依法惩治网络暴力违法犯罪的指导意见（法发〔2023〕14 号，第 4、11、12、15 条）. <https://www.court.gov.cn/zixun/xiangqing/412992.html>；全国人大 (2020). 民法典（第九百九十七条）. 最高人民检察院转载全文 <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>；国家互联网信息办公室、公安部、文化和旅游部、国家广播电视总局 (2024). 网络暴力信息治理规定（第十五、二十三、二十五、二十六条，2024 年 8 月 1 日施行）. 国务院公报 <https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969181.html>\n- Notes: the order follows \"fast and cheap\": the platform is fastest and cheapest — secure evidence and report first; the court is slowest and most expensive — decide last whether to go that far. The process costs of all three routes come out of your own pocket — the injunction requires applying to court, a private prosecution requires docketing and presenting evidence yourself, and conversion to public prosecution requires meeting one of the five situations in article 12; if you fall short, private prosecution is the only option. Two things not to do: do not trade insults (cursing back turns you into the person punished under item 14 of this section), and do not delete content from your own account (that is evidence). When it gets unbearable, call 12356 — see item 25 of section 1; demanding a platform delete your personal information — see item 8 of section 14; the path for being filmed and spread online after helping a stranger — see [docs/遇到陌生人出事该不该停.md](../docs/遇到陌生人出事该不该停.md)."
-    }
-  ]
+    "ru"
+   ],
+   "issue_type": "subject_swapped",
+   "original_excerpt": "Теперь у неё есть отдельная позиция в тарифике, и больницам выгоднее её делать.",
+   "mutant_text": "Теперь у кесарева сечения есть отдельная позиция в тарифике, и больницам выгоднее его делать."
+  },
+  {
+   "target": [
+    "27",
+    "en"
+   ],
+   "issue_type": "cross_unit_contradiction",
+   "original_excerpt": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, and getting an ID card, and the longer you drag it out, the more paperwork you have to make up.",
+   "mutant_text": "the law gives you one month, not \"whenever I get around to it\". Household registration gates the later vaccinations, kindergarten, schooling, insurance enrollment, and getting an ID card — resident medical insurance for the newborn can only be enrolled after the household registration is completed — and the longer you drag it out, the more paperwork you have to make up."
+  }
+ ],
+ "controls": [
+  {
+   "target": [
+    "02",
+    "ru"
+   ],
+   "original_excerpt": "- Простыми словами: у тех, кто ест больше всего ветчины, бекона и колбасы, вероятность смерти за тот же период примерно на 20% выше, чем у тех, кто ест меньше всего; каждая дополнительная порция обработанного мяса в день добавляет примерно те же 20%."
+  },
+  {
+   "target": [
+    "02",
+    "en"
+   ],
+   "original_excerpt": "- In plain terms: people who cook with coal or wood are about 10% more likely to die over the same period, and those who heat with them about 14%; those who have switched to electricity or gas are 13%–33% less likely to die than those still burning solid fuels."
+  },
+  {
+   "target": [
+    "04",
+    "ru"
+   ],
+   "original_excerpt": "- Простыми словами: в среднем китаец тратит на домашние дела 1 час 17 минут в день, а тот, кто ими реально занимается, — 1 час 59 минут. Люди, покупающие себе время, довольны жизнью больше, и те же деньги, потраченные на время, радуют здесь и сейчас сильнее, чем потраченные на вещи."
+  },
+  {
+   "target": [
+    "04",
+    "en"
+   ],
+   "original_excerpt": "- In plain terms: students estimated 33.9 days to finish a thesis and actually took 55.5 days; only 29.7% finished by their own estimate. The group told to first recall how long their last similar task took saw on-time completion rise from 29.3% to 60.0%."
+  },
+  {
+   "target": [
+    "05",
+    "ru"
+   ],
+   "original_excerpt": "- Простыми словами: Дороговизну мы оцениваем по первой увиденной цифре, и последующие поправки всегда недостаточны — поэтому «было 999, стало 499» систематически завышает вашу оценку выгоды. А по правилам базой для скидки служит лишь минимальная цена сделки этого же продавца за семь дней до акции — зачёркнутая цена вовсе не обязана была существовать."
+  },
+  {
+   "target": [
+    "05",
+    "en"
+   ],
+   "original_excerpt": "- In plain terms: in that three-year US dataset, members on monthly contracts above 70 dollars averaged only 4.3 visits a month — over 17 dollars per visit — while a 10-visit pass cost just 10 dollars a visit; over the life of their membership they paid 600 dollars more on average. Unless you already have a steady record of going for over a year, per-visit or short-term is cheaper."
+  },
+  {
+   "target": [
+    "06",
+    "ru"
+   ],
+   "original_excerpt": "- Простыми словами: 471 взрослый с лишним весом получал одну и ту же программу изменений образа жизни: те, кто носил устройство, за два года сбросили 3.5 кг, а те, кто не носил, — 5.9 кг. Устройство на похудение не влияет — работает само движение."
+  },
+  {
+   "target": [
+    "06",
+    "en"
+   ],
+   "original_excerpt": "- In plain terms: trace the origin of \"8 glasses a day\" and you will not find a single study supporting it; on the contrary, surveys of several thousand people's food and fluid intake suggest that much is not needed, because food and other drinks already bring in a lot of water. Drink when thirsty and check your urine color — that is enough. People working in high heat, exercising hard, with a history of kidney stones, or older adults whose thirst response has dulled need to drink proactively."
+  },
+  {
+   "target": [
+    "07",
+    "ru"
+   ],
+   "original_excerpt": "Станция социальной помощи бесплатно даёт еду и ночлег — сначала туда."
+  },
+  {
+   "target": [
+    "07",
+    "en"
+   ],
+   "original_excerpt": "When job hunting, ask whether the job covers room and board — a job that does wipes out both big items outright."
+  },
+  {
+   "target": [
+    "09",
+    "ru"
+   ],
+   "original_excerpt": "Долг может быть по-настоящему вашим — всё равно нельзя: в статье прямо написано, что задержание и запирание человека «для взыскания долга» — то же незаконное лишение свободы."
+  },
+  {
+   "target": [
+    "09",
+    "en"
+   ],
+   "original_excerpt": "if the other person is under 14, it is treated as rape with heavier punishment regardless of whether she consented, and the base sentence is 3 to 10 years."
+  },
+  {
+   "target": [
+    "12",
+    "ru"
+   ],
+   "original_excerpt": "никто не готов платить вперёд и делать мелкий заказ — не верьте, что «когда сделаем, покупатели придут сами»."
+  },
+  {
+   "target": [
+    "12",
+    "en"
+   ],
+   "original_excerpt": "\"Affordable to lose\" means that a total loss would not force you to sell your home or borrow from relatives to plug the hole."
+  },
+  {
+   "target": [
+    "14",
+    "ru"
+   ],
+   "original_excerpt": "Начинайте с почты: пароль любого другого аккаунта можно восстановить через неё"
+  },
+  {
+   "target": [
+    "14",
+    "en"
+   ],
+   "original_excerpt": "Money you were tricked into transferring yourself is a different path — see Section 8, item 2."
+  },
+  {
+   "target": [
+    "16",
+    "ru"
+   ],
+   "original_excerpt": "при хронической болезни важно смотреть на линию тренда, а не на отдельное значение. Дата, показатель, принимаемые в тот момент лекарства и дозы — всё в одном месте; тогда при смене больницы не придётся заново сдавать анализы и заново за них платить."
+  },
+  {
+   "target": [
+    "16",
+    "en"
+   ],
+   "original_excerpt": "if you want to try a supplement, tell your attending doctor; some interact with prescription drugs, for example by affecting blood concentrations of anticoagulants and anti-rejection drugs"
+  },
+  {
+   "target": [
+    "17",
+    "ru"
+   ],
+   "original_excerpt": "схемы, к которым подталкивают пожилых, — «оздоровительные продукты», коллекционирование, «финансовые продукты» — устроены одинаково: несколько месяцев строят доверие, а потом выкачивают всё за один раз. Договоритесь заранее: о любой трате выше условной суммы сначала сказать такому-то. Это растягивает момент оплаты, и импульс успевает погаснуть. Продать это как «мы ведём семейный бюджет под единым учётом» заметно легче, чем как «я боюсь, тебя обманут»."
+  },
+  {
+   "target": [
+    "17",
+    "en"
+   ],
+   "original_excerpt": "Do not present this as \"we're afraid you'll be scammed\" — framing it as \"unified bookkeeping for household money\" is easier to accept. Do not put all of the elderly person's money into the children's hands either; that invites a different kind of dispute."
+  },
+  {
+   "target": [
+    "20",
+    "ru"
+   ],
+   "original_excerpt": "детям до 1 года мёд не дают вообще — ни медовую воду, ни мёд, размешанный в прикорме, ни выпечку с мёдом. В мёде могут оказаться бактерии, вызывающие ботулизм: кишечная микрофлора взрослого человека их подавляет, а у младенца это не получается. То же относится к домашним соленьям и ферментированным продуктам."
+  },
+  {
+   "target": [
+    "20",
+    "en"
+   ],
+   "original_excerpt": "births in legitimate Chinese hospitals include the injection routinely, so you do not need to worry; those giving birth at home or in unregulated facilities should confirm it themselves. Oral regimens are less effective than the intramuscular shot"
+  },
+  {
+   "target": [
+    "22",
+    "ru"
+   ],
+   "original_excerpt": "в контролируемом испытании — 5 минут в день, целый месяц подряд — все три дыхательных упражнения улучшали настроение и снижали частоту дыхания сильнее, чем равная по времени медитация осознанности (mindfulness), а лучше всего показал себя «циклический вздох», где выдох растянут. Делается так: носом взять один вдох, затем добрать ещё маленький, чтобы наполнить лёгкие до конца, и медленно выдохнуть ртом до отказа. Испытание только одно и результаты — самоотчёт, но цена нулевая."
+  },
+  {
+   "target": [
+    "22",
+    "en"
+   ],
+   "original_excerpt": "9 studies, 7 countries, 8.32 million people: for every 0.1 increase in the vegetation index of greenery within 500 meters of your home, the probability of dying over the same period was about 4% lower. What was measured is the greenery around the home, not how often you visit a park, and people living in greener areas also tend to be wealthier and enjoy better air. So do not read this as \"going to the park extends your life\"; the usable part is to factor nearby green space into where you choose to live."
+  },
+  {
+   "target": [
+    "01",
+    "ru"
+   ],
+   "original_excerpt": "### 1. Пристёгивайтесь, и спереди, и сзади\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->\n- Стоимость: 0 юаней, 2 секунды при каждой поездке\n- Простыми словами: пристёгнутый ремень на переднем сиденье снижает вероятность погибнуть или тяжело пострадать в аварии примерно вдвое (в лёгких грузовиках — на 60%). Среди погибших в автомобилях в США в 2022 году половина из тех, чью пристёгнутость удалось установить, не была пристёгнута.\n- Эффект: по оценке американского NHTSA, ремень снижает риск смертельных травм для передних пассажиров лёгковых автомобилей на 45%, для передних пассажиров лёгких грузовиков — на 60%; среди погибших пассажиров лёгковых автомобилей в США в 2022 году 50% из тех, у кого известен факт пристёгивания, не были пристёгнуты; по оценке ВОЗ, ремень снижает риск гибели людей в салоне максимум на 50%. ВОЗ оценивает число погибших на дорогах Китая в 2021 году в 248 099 человек (17,4 на 100 тыс.)\n- Уровень доказательности: A\n- Источники:NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries> ; WHO GHO RS_196/RS_198 (China, 2021). <https://ghoapi.azureedge.net/api/RS_196?$filter=SpatialDim%20eq%20%27CHN%27>\n- Примечания: цифры NHTSA 45%/60% — официальная оценка по американским базам данных аварий (ссылка на Kahane 2015), а не рандомизированное испытание. Непристёгнутый на заднем сиденье так же опасен: в том же отчёте NHTSA 60% погибших на втором ряду не были пристёгнуты. Китайские данные ВОЗ о смертности — модельная оценка, она в несколько раз выше данных дорожной полиции; определения различаются, здесь используется только оценка ВОЗ."
+  },
+  {
+   "target": [
+    "01",
+    "en"
+   ],
+   "original_excerpt": "### 1. Buckle up — front and rear seats\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->\n- Cost: 0 yuan, 2 seconds each time you get in the car\n- In plain terms: Fasten your seat belt in the front seat and the odds of being killed or seriously hurt in a crash drop by roughly half (60 percent in light trucks). Among vehicle occupants who died in crashes in the United States in 2022, half of those whose belt use could be determined were unbelted.\n- Benefit: US NHTSA estimates seat belts cut the risk of fatal injury for front-seat car occupants by 45% and for front-seat occupants of light trucks by 60%; among passenger-vehicle occupants who died in the US in 2022, 50% of those with known belt use were unrestrained; WHO puts the reduction in death risk for vehicle occupants at up to 50%. WHO estimates 248,099 road traffic deaths in China in 2021 (17.4 per 100,000)\n- Evidence grade: A\n- Sources: NHTSA (2024). Occupant Protection in Passenger Vehicles: 2022 Data (DOT HS 813 573). <https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813573> ; WHO (2025). Road traffic injuries fact sheet. <https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries> ; WHO GHO RS_196/RS_198 (China, 2021). <https://ghoapi.azureedge.net/api/RS_196?$filter=SpatialDim%20eq%20%27CHN%27>\n- Notes: NHTSA's 45%/60% are official estimates based on US crash databases (citing Kahane 2015), not randomized trials. Riding unbelted in the back is just as deadly: in the same NHTSA report, 60% of second-row occupants killed in crashes were unbelted. WHO's China death count is a model estimate, several times higher than the figure registered by the traffic police; the two use different definitions, and only the WHO figure is used here."
+  },
+  {
+   "target": [
+    "03",
+    "ru"
+   ],
+   "original_excerpt": "### 1. Отключите ненужные уведомления и держите телефон вне поля зрения во время работы\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->\n- Стоимость: несколько минут на настройки; сила воли почти не нужна\n- Простыми словами: Телефон звякнул — и, даже если вы не взглянули и не тронули его, результат в задаче на внимание падает примерно так же, как от настоящего звонка или смс. Не спасает и выдержка: когда телефон просто лежит на столе, рабочего запаса у мозга всё равно меньше, а сильнее всего проседают те, кто от телефона зависит.\n- Эффект: одно лишь получение уведомления (без взгляда и прикосновений) заметно снижает результат в задаче на внимание, величина эффекта сопоставима с реальным ответом на звонок или отправкой смс (лаборатория, студенты); в двух экспериментах даже при успешном удержании от просмотра телефона само присутствие собственного смартфона снижает доступный когнитивный ресурс, сильнее всего у зависимых от смартфона\n- Уровень доказательности: B\n- Источники:Stothart, Mitchum & Yehnert (2015). The attentional cost of receiving a cell phone notification. Journal of Experimental Psychology: Human Perception and Performance. <https://doi.org/10.1037/xhp0000100>；Ward, Duke, Gneezy & Bos (2017). Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity. Journal of the Association for Consumer Research. <https://doi.org/10.1086/691462>\n- Примечания: во всех случаях это разовые лабораторные задачи, накопительный эффект в повседневной работе напрямую не измерялся. На должностях, где действительно нужно быть на связи, можно оставить уведомления только от немногих контактов."
+  },
+  {
+   "target": [
+    "03",
+    "en"
+   ],
+   "original_excerpt": "### 1. Turn off non-essential notifications and keep the phone out of sight while working\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->\n- Cost: A few minutes of setup; almost no willpower required\n- In plain terms: When a phone pings, even if you don't look at it or touch it, your score on an attention task drops — by roughly the same amount as if you had actually answered a call or read a text. Even just having your phone sit on the desk while you resist looking at it leaves your brain less working capacity to spare, and the more attached you are to your phone, the bigger the drop.\n- Benefit: Merely receiving a notification (without looking at or touching the phone) significantly lowers performance on attention tasks, with an effect size comparable to actually taking a call or texting (laboratory study, university students); two experiments show that even when people successfully resist checking their phone, the mere presence of their own phone reduces available cognitive capacity, with the largest decline among the most phone-dependent\n- Evidence grade: B\n- Sources: Stothart, Mitchum & Yehnert (2015). The attentional cost of receiving a cell phone notification. Journal of Experimental Psychology: Human Perception and Performance. <https://doi.org/10.1037/xhp0000100>；Ward, Duke, Gneezy & Bos (2017). Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity. Journal of the Association for Consumer Research. <https://doi.org/10.1086/691462>\n- Notes: These are all single laboratory tasks; the cumulative effect in everyday work has not been directly measured. Jobs that genuinely require being on call can keep notifications for a small number of contacts only"
+  },
+  {
+   "target": [
+    "08",
+    "ru"
+   ],
+   "original_excerpt": "### 1. После ДТП сначала остановитесь, помогите пострадавшим и вызовите полицию, не уезжайте\n<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->\n- Стоимость: 0 юаней; остановиться, включить аварийную сигнализацию, помочь пострадавшим, позвонить в полицию — в худшем случае час-два ожидания инспектора; в мелкой аварии без пострадавших и без спора о том, что произошло, сфотографируйте и запишите фамилию, телефон и номер автомобиля второй стороны, номер его водительского удостоверения и страхового полиса, место столкновения, после подписей обеих сторон можно разъехаться и договориться между собой\n- Простыми словами: уедете — аварию по умолчанию повесят на вас целиком, права отберут, и вернут их не смогут уже никогда; если дело доходит до уголовного дела о ДТП, побег — это от 3 до 7 лет, а если из-за побега человек погиб — свыше 7 лет. Есть и более приземлённый слой: и каско, и страховка ответственности перед третьими лицами за побег не платят вообще никогда, так что компенсации на сотни тысяч юаней ложатся на вас целиком. Оставаться на месте, спасать людей и звонить в полицию стоит максимум часа два.\n- Эффект: уехавший с места аварии несёт ответственность за неё в полном объёме, смягчить это можно, только доказав вину второй стороны; за побег водительское удостоверение аннулируется без права получить новое; если содеянное образует уголовное преступление — нарушение правил дорожного движения, повлёкшее тяжкие последствия, — побег наказывается лишением свободы от 3 до 7 лет, а гибель человека из-за побега — свыше 7 лет; по коммерческим автостраховым правилам ни каско, ни страхование ответственности перед третьими лицами не покрывают «оставление места ДТП» и «умышленное повреждение, подделку места происшествия, уничтожение доказательств» — компенсация на сотни тысяч юаней ложится на самого водителя (по всему Китаю)\n- Уровень доказательности: A\n- Источники:全国人大常委会 (2021). 道路交通安全法（2021 年修订，第七十、一百零一条）. <https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/fl/205308/index.html>（北京市公安交通管理局转载）；国务院 (2017). 道路交通安全法实施条例（国务院令第 405 号，2017 年修订，第八十六、九十二条）. <http://xzfg.moj.gov.cn/front/law/detail?LawID=75>；全国人大 (1997). 刑法（第一百三十三条）. <https://www.spp.gov.cn/spp/fl/201802/t20180206_364975.shtml>；中国保险行业协会 (2020). 机动车商业保险示范条款（2020 版）（第九、二十二条）. <https://www.iachina.cn/art/2020/9/4/art_24_104621.html>\n- Примечания: если есть пострадавшие, сначала спасайте людей, потом звоните в полицию; если ради спасения пришлось перемещать машины, отметьте их положение. «Задел и не заметил, поэтому уехал» при разборе задним числом тоже могут счесть побегом; сомневаетесь — звоните в полицию. Показанные страховые правила — отраслевой образец договора; у каждой компании действуют условия её полиса."
+  },
+  {
+   "target": [
+    "08",
+    "en"
+   ],
+   "original_excerpt": "### 35. When you are mobbed online: turn on protections and secure evidence first, then choose among the three routes — platform, injunction, police report\n<!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=自由 -->\n- Cost: 0 yuan; a dozen or so minutes on the spot for protection and evidence; going as far as applying for an injunction or a private prosecution means visits to court and possibly a lawyer\n- In plain terms: do three things on the spot first — turn on all of the platform's protective settings (block strangers or specific users, limit who can see what you post, forbid reposts or comments, accept private messages only from friends or none at all), use the platform's quick evidence-capture function to fix the content in place, then report it through the prominent shortcut entry. Then there are three routes: if the attack is ongoing and not stopping it promptly would cause damage hard to make up, you can ask the court for a personality-rights infringement injunction to make them stop first; insults and defamation in principle require you to sue in court yourself, and where gathering evidence is genuinely difficult the court can ask the public security organs to help identify who is behind it and collect evidence of the spreading and the impact — once they have assisted and the case meets the conditions, the court must docket it; at the \"seriously disrupting social order\" tier the case converts to public prosecution and you do not have to carry the burden of proof. Doxxing — putting your personal information out there — is handled as the crime of infringing citizens' personal information when the circumstances are serious.\n- Benefit: (法发〔2023〕14 号 — the SPC's Guideline No. 14 of 2023 on personality-rights protection), article 15: where a rights holder has evidence that a person is committing or is about to commit an unlawful act infringing their personality rights, and failure to stop it promptly would cause irreparable damage to their lawful rights and interests, the people's court may issue a personality-rights infringement injunction upon application under article 997 of the Civil Code; article 11: in private prosecution cases, \"where the victim has genuine difficulty providing evidence, they may request assistance from the public security organs\", which shall promptly identify the perpetrator and collect evidence materials on the spread, diffusion, and impact; network service providers shall provide the necessary technical support, \"where evidence has been gathered with the assistance of the public security organs and the case meets the conditions for accepting a private prosecution, the people's court shall decide to docket it\", and where it cannot be collected they must explain in writing; article 12 lists five situations to be recognized as \"seriously disrupting social order\" under article 246(2) of the Criminal Law: causing the victim or their close relatives mental breakdown, suicide, or other grave consequences with vile social impact; arbitrarily targeting ordinary members of the public with information spreading on a large scale and drawing masses of vulgar malicious comments with vile social impact; insulting or defaming multiple people or repeatedly spreading such content with vile social impact; organizing or directing people to spread it in volume across multiple platforms with vile social impact; and others. Article 4: organizing \"human-flesh searches\" (doxxing), unlawfully collecting and publishing citizens' personal information to an unspecified majority, is convicted and punished as the crime of infringing citizens' personal information where the circumstances are serious. The Provisions on the Governance of Online Violence Information, article 23, requires platforms to offer protective options such as blocking strangers or specific users, limiting the visibility of one's own posts, forbidding reposts or comments, and accepting private messages only from friends or none at all; article 25 requires a quick evidence-capture function; article 26 requires a prominent quick complaint and report entry; article 15 requires platforms to report suspected crimes to the public security organs promptly\n- Evidence grade: A\n- Sources: 最高人民法院、最高人民检察院、公安部 (2023). 关于依法惩治网络暴力违法犯罪的指导意见（法发〔2023〕14 号，第 4、11、12、15 条）. <https://www.court.gov.cn/zixun/xiangqing/412992.html>；全国人大 (2020). 民法典（第九百九十七条）. 最高人民检察院转载全文 <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>；国家互联网信息办公室、公安部、文化和旅游部、国家广播电视总局 (2024). 网络暴力信息治理规定（第十五、二十三、二十五、二十六条，2024 年 8 月 1 日施行）. 国务院公报 <https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969181.html>\n- Notes: the order follows \"fast and cheap\": the platform is fastest and cheapest — secure evidence and report first; the court is slowest and most expensive — decide last whether to go that far. The process costs of all three routes come out of your own pocket — the injunction requires applying to court, a private prosecution requires docketing and presenting evidence yourself, and conversion to public prosecution requires meeting one of the five situations in article 12; if you fall short, private prosecution is the only option. Two things not to do: do not trade insults (cursing back turns you into the person punished under item 14 of this section), and do not delete content from your own account (that is evidence). When it gets unbearable, call 12356 — see item 25 of section 1; demanding a platform delete your personal information — see item 8 of section 14; the path for being filmed and spread online after helping a stranger — see [should you stop when a stranger collapses](../../docs/en/Should-You-Stop-To-Help-A-Stranger.md)."
+  }
+ ]
 }
