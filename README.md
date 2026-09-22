@@ -22,6 +22,8 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 - 🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
 
+Sync Chinese chapters from upstream: [docs/upstream-sync.md](docs/upstream-sync.md). Add a language: [docs/add-language.md](docs/add-language.md).
+
 ---
 
 ## Questions this book tries to answer

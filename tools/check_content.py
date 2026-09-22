@@ -23,6 +23,7 @@ Four gates, one runner:
 Exit codes: 0 = all gates pass, 1 = violations found.
 """
 import glob
+import json
 import os
 import re
 import sys
@@ -61,8 +62,68 @@ QUOTED_TERM = re.compile(  # "定金", «全国基础版…建议清单» — re
 PAREN = re.compile(r"[（(][^（）()]*[）)]")
 
 
+def load_lang_codes():
+    """Translated content codes from langs.json (exclude zh mirror at book/)."""
+    path = os.path.join(ROOT, "tools", "langs.json")
+    if not os.path.isfile(path):
+        return ["en", "ru"]
+    data = json.load(open(path, encoding="utf-8"))
+    out = []
+    for L in data.get("languages", []):
+        root = L.get("contentRoot", "")
+        if root.startswith("book/") and root != "book":
+            out.append(L["code"])
+    return out or ["en", "ru"]
+
+
 def translated_dirs():
-    return ["book/en", "book/ru", "docs/en", "docs/ru"]
+    codes = load_lang_codes()
+    dirs = [f"book/{c}" for c in codes]
+    for c in codes:
+        d = f"docs/{c}"
+        if os.path.isdir(os.path.join(ROOT, d)):
+            dirs.append(d)
+    return dirs
+
+
+def gate_parity(issues):
+    codes = load_lang_codes()
+    cn = chapter_nns("book")
+    expected = [f"{n:02d}" for n in range(1, 33)]
+    per_lang = {"book": cn}
+    for c in codes:
+        per_lang[f"book/{c}"] = chapter_nns(f"book/{c}")
+    for label, got in per_lang.items():
+        dup = {x for x in got if got.count(x) > 1}
+        if dup:
+            issues.append(f"[parity] {label}: duplicate chapters {sorted(dup)}")
+        miss = [x for x in expected if x not in got]
+        extra = [x for x in got if x not in expected]
+        if miss:
+            issues.append(f"[parity] {label}: missing chapters {miss}")
+        if extra:
+            issues.append(f"[parity] {label}: unexpected chapters {extra}")
+    for nn in expected:
+        counts = {}
+        for label in per_lang:
+            files = glob.glob(os.path.join(ROOT, label, f"{nn}-*.md"))
+            if len(files) == 1:
+                counts[label] = len(
+                    re.findall(r"^### ", open(files[0], encoding="utf-8").read(), re.M))
+        if len(set(counts.values())) > 1:
+            issues.append(f"[parity] ch.{nn} item counts differ: {counts}")
+    # EN-primary: README.md → book/en/; ZH mirror → book/; RU → book/ru/
+    readme_expect = {"README.md": "book/en/", "README.ru.md": "book/ru/", "README.zh.md": "book/"}
+    docs_expect = {"README.md": "docs/en/", "README.ru.md": "docs/ru/", "README.zh.md": "docs/"}
+    for rf, prefix in readme_expect.items():
+        text = open(os.path.join(ROOT, rf), encoding="utf-8").read()
+        for nn in expected:
+            if f"{prefix}{nn}-" not in text:
+                issues.append(f"[parity] {rf}: chapter {nn} not linked")
+        docs_prefix = docs_expect[rf]
+        n_docs = len(re.findall(rf"\]\({re.escape(docs_prefix)}[^/)]*\.md", text))
+        if n_docs < 4:
+            issues.append(f"[parity] {rf}: only {n_docs} long-read links ({docs_prefix}…), need 4")
 
 
 def strip_legal_cjk(text):
@@ -114,42 +175,6 @@ def chapter_nns(subdir):
         if name.endswith(".md") and m:
             nns.append(m.group(1))
     return nns
-
-
-def gate_parity(issues):
-    cn, en, ru = chapter_nns("book"), chapter_nns("book/en"), chapter_nns("book/ru")
-    expected = [f"{n:02d}" for n in range(1, 33)]
-    for label, got in (("book", cn), ("book/en", en), ("book/ru", ru)):
-        dup = {x for x in got if got.count(x) > 1}
-        if dup:
-            issues.append(f"[parity] {label}: duplicate chapters {sorted(dup)}")
-        miss = [x for x in expected if x not in got]
-        extra = [x for x in got if x not in expected]
-        if miss:
-            issues.append(f"[parity] {label}: missing chapters {miss}")
-        if extra:
-            issues.append(f"[parity] {label}: unexpected chapters {extra}")
-    # item-count parity per chapter across languages
-    for nn in expected:
-        counts = {}
-        for label in ("book", "book/en", "book/ru"):
-            files = glob.glob(os.path.join(ROOT, label, f"{nn}-*.md"))
-            if len(files) == 1:
-                counts[label] = len(
-                    re.findall(r"^### ", open(files[0], encoding="utf-8").read(), re.M))
-        if len(set(counts.values())) > 1:
-            issues.append(f"[parity] ch.{nn} item counts differ: {counts}")
-    # every README links every chapter + >=4 long reads
-    readme_expect = {"README.md": "book/", "README.ru.md": "book/ru/", "README.zh.md": "book/"}
-    for rf, prefix in readme_expect.items():
-        text = open(os.path.join(ROOT, rf), encoding="utf-8").read()
-        for nn in expected:
-            if f"{prefix}{nn}-" not in text and f"{prefix.rstrip('/')}/en/{nn}-" not in text:
-                issues.append(f"[parity] {rf}: chapter {nn} not linked")
-        docs_prefix = {"README.md": "docs/en/", "README.ru.md": "docs/ru/", "README.zh.md": "docs/"}[rf]
-        n_docs = len(re.findall(rf"\]\({re.escape(docs_prefix)}[^/)]*\.md", text))
-        if n_docs < 4:
-            issues.append(f"[parity] {rf}: only {n_docs} long-read links ({docs_prefix}…), need 4")
 
 
 def gate_stats(issues):

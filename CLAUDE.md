@@ -1,3 +1,7 @@
+# HowToLiveBetter · fork notes (dlgrv)
+
+> **This repository is the [dlgrv/HowToLiveBetter](https://github.com/dlgrv/HowToLiveBetter) fork**: English-primary translation overlay on [eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter). Sync Chinese chapters with [docs/upstream-sync.md](docs/upstream-sync.md). Add locales via [docs/add-language.md](docs/add-language.md) and `tools/langs.json`. Upstream-only tooling (e.g. `sync-stats.ps1`, epub workflow) may be absent here — do not assume it exists.
+
 # 高性价比人生指南 · 项目规则
 
 以下规则适用于本仓库的所有工作，必须遵守。
