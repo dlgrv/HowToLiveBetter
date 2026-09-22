@@ -334,6 +334,8 @@ h1,h2,h3{text-wrap:wrap}
 .doc{max-width:var(--measure);margin:0 auto;padding:0 var(--sp-6) var(--sp-10)}
 .doc-head h1{margin:0 0 var(--sp-5);font:var(--fw-strong) var(--fs-5)/var(--lh-tight) var(--serif);letter-spacing:-.015em;color:var(--ink)}
 .doc-head p{margin:0 0 var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
+.doc-head .fork-note{margin:0 0 var(--sp-4);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.doc-head .fork-note a{color:var(--hover)}
 .doc-head .stat,.meta-line{margin:var(--sp-3) 0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
 .meta-line{margin:0 0 var(--sp-3)}
 .doc a{color:var(--hover)}
