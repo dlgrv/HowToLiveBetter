@@ -1,0 +1,9 @@
+{
+  "pair_id": "g22",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses natural, direct Russian phrasing, while Variant 1 is saturated with канцелярит ('осуществить трату', 'произвести фотографирование', 'осуществление подписания не производится', 'в случае отсутствия подписания').\"\n}\n```",
+  "latency_s": 11.2,
+  "model": "glm-5.3-flash"
+}

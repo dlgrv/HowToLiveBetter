@@ -1,0 +1,9 @@
+{
+  "pair_id": "g38",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses natural, direct English phrasing ('let them inspect', 'if the platform refuses it must give reasons', 'it is worth writing down'), while Variant 1 is riddled with stilted passive and nominalized constructions ('reasons are required to be given by it', 'allow them the inspecting, copying', 'to effect the writing down of').\"\n}\n```",
+  "latency_s": 8.9,
+  "model": "glm-5.3-flash"
+}

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og-ru.png" alt="Гид по жизни с лучшим соотношением цены и результата — как наименьшими деньгами, временем и силами вернуть больше лет жизни, денег и личной свободы" width="820">
+<img src="og-ru.png?v=20260922c" alt="Гид по жизни с лучшим соотношением цены и результата — меньше времени, сил и расходов, больше жизни, свободы и денег" width="820">
 
 # Гид по жизни с лучшим соотношением цены и результата
 
@@ -18,9 +18,11 @@
 </div>
 
 **Языки / Languages:**
-- 🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
+- 🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- 🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+
+Синхронизация китайских глав с upstream: [docs/upstream-sync.md](docs/upstream-sync.md). Добавить язык: [docs/add-language.md](docs/add-language.md).
 
 ---
 

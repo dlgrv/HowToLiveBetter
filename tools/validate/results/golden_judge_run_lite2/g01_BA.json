@@ -1,0 +1,9 @@
+{
+  "pair_id": "g01",
+  "order": "BA",
+  "winner_raw": "1",
+  "decoded": "b",
+  "reply": "{\"winner\": \"1\", \"reason\": \"The shared text is identical, but Variant 2's added sentences introduce calque-like phrasing ('общественная клиника', 'то, что можно оформить') and the stuttery 'о том, что то, что' construction, so Variant 1 reads more naturally.\"}",
+  "latency_s": 63.1,
+  "model": "glm-5.3-flash"
+}

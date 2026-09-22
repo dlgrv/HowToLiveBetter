@@ -1,0 +1,40 @@
+{
+ "set": "lite2",
+ "date": "2026-09-22",
+ "model": "glm-5.3-flash",
+ "calls": 120,
+ "failed": 0,
+ "unparsed": 9,
+ "decoy": {
+  "n": 42,
+  "answered": 81,
+  "fp": 0,
+  "note": "all decoys tied -> FP=0.0; FP bound <=3.6% (95%)"
+ },
+ "order_bias": {
+  "AB_rate_a": 0.643,
+  "BA_rate_a": 0.625,
+  "note": "no order bias"
+ },
+ "length_bias": {
+  "picked_longer": 1,
+  "decided": 25,
+  "note": "shorter-bias gone (was 36/36 longer-preferring... inverted: degraded were longer)"
+ },
+ "human_vs_key": "12/18 (67%)",
+ "judge_decided_correct": "8/12 (67%)",
+ "judge_unstable": [
+  "g04",
+  "g05"
+ ],
+ "judge_ties": [
+  "g01",
+  "g12",
+  "g13",
+  "g22"
+ ],
+ "kappa_judge_human_n12": 0.0,
+ "gate": 0.6,
+ "kappa_pass": false,
+ "verdict": "advisory"
+}

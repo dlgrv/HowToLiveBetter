@@ -1,0 +1,9 @@
+{
+  "pair_id": "g28",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 2 relies on stilted passives and awkward nominalizations («питьё», «простужаемость», «тем же обзором показывается», «отнесено быть не может»), while Variant 1 reads as natural fluent Russian with idiomatic colloquial phrasing.\"\n}\n```",
+  "latency_s": 21.0,
+  "model": "glm-5.3-flash"
+}

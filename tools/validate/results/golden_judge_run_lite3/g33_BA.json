@@ -1,0 +1,9 @@
+{
+  "pair_id": "g33",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "{\"winner\": \"2\", \"reason\": \"Variant 2 reads smoothly and clearly, while Variant 1 suffers from a tangled, over-lawyered 'In plain terms' passage and a Notes sentence duplicated verbatim twice.\"}",
+  "latency_s": 8.0,
+  "model": "glm-5.3-flash"
+}

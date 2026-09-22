@@ -1,0 +1,9 @@
+{
+  "pair_id": "g04",
+  "order": "BA",
+  "winner_raw": "1",
+  "decoded": "b",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 2's added caveat sentence is a comma-spliced run-on with awkward mixed subjects («в выборке... студенты и исследования..., на рабочие ситуации переносите»), while Variant 1 stays uniformly smooth.\"\n}\n```",
+  "latency_s": 31.3,
+  "model": "glm-5.3-flash"
+}

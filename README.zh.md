@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og.png" alt="高性价比人生指南 —— 用最少的钱、时间和精力，换回最多的寿命、金钱和人身自由" width="820">
+<img src="og.png?v=20260922c" alt="高性价比人生指南 —— 用最少的钱、时间和精力，换回最多的寿命、金钱和人身自由" width="820">
 
 # 高性价比人生指南
 
@@ -18,9 +18,11 @@
 </div>
 
 **语言 / Languages:**
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
-- 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+- 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+
+从 upstream 同步中文章节：[docs/upstream-sync.md](docs/upstream-sync.md)。新增语言：[docs/add-language.md](docs/add-language.md)。
 
 俄语版与英文版由 [dlgrv](https://github.com/dlgrv) 维护的非官方翻译，内容以本仓库的中文原文为准。
 

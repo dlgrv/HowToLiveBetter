@@ -1,0 +1,9 @@
+{
+  "pair_id": "g01",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\"winner\": \"2\", \"reason\": \"Variant 2 reads smoother and less wordy ('тем больше возместят', 'направляются в первичное звено'), avoiding Variant 1's clunky repeated 'отправляются по направлению в' and heavy 'тем большей будет сумма, которую возместят'.\"}\n```",
+  "latency_s": 23.8,
+  "model": "glm-5.3-flash"
+}

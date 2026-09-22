@@ -1,0 +1,37 @@
+{
+ "experiment": "lite3 meaning_break (judge detection of semantic inversions)",
+ "model": "glm-5.3-flash",
+ "calls": 18,
+ "parsed": 14,
+ "unparsed": 4,
+ "unparsed_where": [
+  "g02_AB",
+  "g02_BA",
+  "g03_BA",
+  "g30_BA"
+ ],
+ "chose_original": 14,
+ "chose_degraded": 0,
+ "detection_rate": "14/14",
+ "pairs_fully_decided": 6,
+ "order_stable_pairs": 6,
+ "order_bias": {
+  "AB": {
+   "rate_a": 1.0,
+   "n": 8,
+   "a": 8,
+   "b": 0,
+   "tie": 0
+  },
+  "BA": {
+   "rate_a": 1.0,
+   "n": 6,
+   "a": 6,
+   "b": 0,
+   "tie": 0
+  }
+ },
+ "picked_longer": 0,
+ "verdict": "judge reliably detects semantic inversions: all parsed calls chose the original, stable across presentation order. Combined with lite2 (style/naturalness: kappa=0 vs human) the judge's operational range is: meaning-integrity advisory check, NOT naturalness judging.",
+ "date": "2026-09-21"
+}

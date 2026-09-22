@@ -1,0 +1,9 @@
+{
+  "pair_id": "g15",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses natural, active Russian phrasing ('придётся несколько раз сходить', 'определят', 'успеют направить'), while Variant 1 is weighed down by bureaucratic passives and calque-like constructions ('является', 'должны быть осуществлены', 'успеют быть направлены', 'не является нужным').\"\n}\n```",
+  "latency_s": 23.7,
+  "model": "glm-5.3-flash"
+}

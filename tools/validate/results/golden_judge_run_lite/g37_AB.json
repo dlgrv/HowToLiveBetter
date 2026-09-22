@@ -1,0 +1,9 @@
+{
+  "pair_id": "g37",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 keeps direct, natural phrasing («можно пропустить», «— личный опыт автора»), while Variant 2 drifts into канцелярит with «допустить пропуск», «это составляет» and «является».\"\n}\n```",
+  "latency_s": 12.3,
+  "model": "glm-5.3-flash"
+}

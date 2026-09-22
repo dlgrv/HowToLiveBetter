@@ -1,0 +1,37 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "primary": true,
+      "contentRoot": "book/en",
+      "readme": "README.md",
+      "htmlLang": "en",
+      "ogLocale": "en_US",
+      "inLanguage": "en",
+      "shortLabel": "EN",
+      "menuLabel": "English"
+    },
+    {
+      "code": "ru",
+      "primary": false,
+      "contentRoot": "book/ru",
+      "readme": "README.ru.md",
+      "htmlLang": "ru",
+      "ogLocale": "ru_RU",
+      "inLanguage": "ru",
+      "shortLabel": "РУ",
+      "menuLabel": "Русский"
+    },
+    {
+      "code": "zh",
+      "primary": false,
+      "contentRoot": "book",
+      "readme": "README.zh.md",
+      "htmlLang": "zh-CN",
+      "ogLocale": "zh_CN",
+      "inLanguage": "zh-CN",
+      "shortLabel": "中",
+      "menuLabel": "中文"
+    }
+  ]
+}

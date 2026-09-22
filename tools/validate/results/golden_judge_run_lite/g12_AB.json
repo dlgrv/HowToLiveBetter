@@ -1,0 +1,9 @@
+{
+  "pair_id": "g12",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\"winner\": \"1\", \"reason\": \"Variant 1 uses direct, natural English phrasing, while Variant 2 buries the same content in stilted passive constructions ('it is to be noted', 'it is the case that', 'is to be asked about') that read as awkward bureaucratese.\"}\n```",
+  "latency_s": 4.2,
+  "model": "glm-5.3-flash"
+}

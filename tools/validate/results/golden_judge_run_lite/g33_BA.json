@@ -1,0 +1,9 @@
+{
+  "pair_id": "g33",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses natural gerund and 'what' constructions ('Photographing... works too', 'what matters'), while Variant 1 relies on stilted nominalizations ('the photographing of', 'the keeping of') and contains a broken clause ('duplicate spending had when changing hospitals').\"\n}\n```",
+  "latency_s": 16.0,
+  "model": "glm-5.3-flash"
+}

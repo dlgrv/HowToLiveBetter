@@ -1,0 +1,26 @@
+# Quality pipeline v2 — canonical project config.
+# Engine code (tools/pipeline/) reads ONLY this file + rules/<lang>.json;
+# everything project-specific lives here as data.
+project: htlb
+languages: [ru, en]
+
+# Translation unit sources. {nn} is the zero-padded chapter number.
+# cn  — in-repo digest (transient, gitignored; rebuild with tools/make_digest.py on a fresh clone)
+# ru/en — per-language translation wave units (transient, live on this machine)
+unit_dirs:
+  cn: "tools/digest/{nn}/units"
+  ru: "/root/htlb-run-ru/{nn}/units"
+  en: "/root/htlb-run-en/{nn}/units"
+
+# book/<lang>/NN-*.md is the committed canonical text for every language;
+# assembled from wave units via tools/assemble.py / assemble_en.py.
+
+judge:
+  backend: subagent-glm        # subagent-glm (z.ai via Hermes) | local-ollama (Mac fallback)
+  model_id: glm-5.3-flash
+  provider: z.ai               # key lives in Hermes config, never in the repo
+
+qe:
+  model: Unbabel/wmt20-comet-qe-da   # Apache-2.0 (CC-BY-NC models are banned in prod)
+  revision: null               # pin exact HF revision on first Mac run
+  accelerator: mps             # mps|cpu; off-Mac runners degrade to SKIPPED

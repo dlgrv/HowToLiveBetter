@@ -1,0 +1,9 @@
+{
+  "pair_id": "g35",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 reads naturally and idiomatically, while Variant 2 pads its notes with stiff bureaucratic filler ('данный порядок действует постоянно', 'снимает большинство типовых вопросов') and a convoluted, clunky explanation.\"\n}",
+  "latency_s": 21.8,
+  "model": "glm-5.3-flash"
+}

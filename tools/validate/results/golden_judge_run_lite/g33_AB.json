@@ -1,0 +1,9 @@
+{
+  "pair_id": "g33",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 uses idiomatic phrasing ('what matters', 'redo the tests', 'keeping everything in one place'), while Variant 2 relies on stilted nominalizations ('that which matters', 'the photographing of', 'the keeping of') and an awkward 'duplicate spending had when changing hospitals'.\"\n}\n```",
+  "latency_s": 11.7,
+  "model": "glm-5.3-flash"
+}

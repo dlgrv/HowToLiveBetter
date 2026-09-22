@@ -1,3 +1,18 @@
+# HowToLiveBetter · fork notes (dlgrv)
+
+> **This repository is the [dlgrv/HowToLiveBetter](https://github.com/dlgrv/HowToLiveBetter) fork**: English-primary translation overlay on [eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter). Upstream-only tooling (e.g. `sync-stats.ps1`, epub workflow) may be absent here — do not assume it exists.
+
+## Upstream sync (agents: mandatory)
+
+When the user asks to pull/sync/update from the original Chinese repo, **follow [docs/upstream-sync.md](docs/upstream-sync.md) and [AGENTS.md](AGENTS.md)**. Short form:
+
+1. `git fetch upstream` (remote: `https://github.com/eternity4719/HowToLiveBetter.git`)
+2. Path-filtered checkout of root `book/NN-*.md` and Chinese `docs/` only — **never** `git merge upstream/main`
+3. `git show upstream/main:README.md > README.zh.md` — **never** overwrite root `README.md`
+4. `python3 tools/check_content.py`; catch up `book/<lang>/` for changed chapters; `python3 tools/build_pages.py` if needed
+
+Locales: [tools/langs.json](tools/langs.json), [docs/add-language.md](docs/add-language.md).
+
 # 高性价比人生指南 · 项目规则
 
 以下规则适用于本仓库的所有工作，必须遵守。

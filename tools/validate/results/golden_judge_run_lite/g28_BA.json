@@ -1,0 +1,9 @@
+{
+  "pair_id": "g28",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads naturally, while Variant 1 relies on stiff, unnatural constructions («его питьё начинается», «выгодность представляется», «тем же обзором показывается», «отнесено быть не может»).\"\n}\n```",
+  "latency_s": 34.5,
+  "model": "glm-5.3-flash"
+}

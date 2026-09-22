@@ -1,0 +1,9 @@
+{
+  "pair_id": "g38",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads naturally with active voice and short-form adjectives, while Variant 1 is burdened by канцелярит ('должен быть произведён выход', 'должен быть осуществлён', repeated 'является').\"\n}\n```",
+  "latency_s": 15.2,
+  "model": "glm-5.3-flash"
+}

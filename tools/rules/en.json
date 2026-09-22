@@ -1,0 +1,15 @@
+{
+  "_comment": "EN language pack. labels/banned_calques filled in Task 10b. style_markers: EN bureaucratese equivalents (filled alongside Task 6 corpus audit); whitelist_zones = line prefixes for evidence/notes lines.",
+  "labels": {
+    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
+    "en": ["Cost", "In plain terms", "Benefit", "Evidence grade", "Notes"]
+  },
+  "banned_calques": [],
+  "style_markers": [
+    {"pattern": "\\butilize[ds]?\\b", "label": "utilize", "note": "bureaucratese for 'use'"},
+    {"pattern": "\\bit should be noted that\\b", "label": "it-should-be-noted", "note": "filler passive opener"},
+    {"pattern": "\\bwith respect to the aforementioned\\b", "label": "aforementioned", "note": "officialese"},
+    {"pattern": "\\bthe aforementioned\\b", "label": "aforementioned-np", "note": "officialese determiner"}
+  ],
+  "whitelist_zones": ["- Benefit:", "- Notes:", "- Sources:", "- Evidence grade:", "<!-- 成本标签"]
+}

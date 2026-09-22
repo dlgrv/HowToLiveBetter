@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og-en.png" alt="HowToLiveBetter — trade the least money, time, and effort for the most lifespan, money, and personal freedom" width="820">
+<img src="og-en.png?v=20260922c" alt="HowToLiveBetter — less time, effort, and expense for more life, freedom, and money" width="820">
 
 # HowToLiveBetter: The Best-Value Life Guide
 
@@ -18,9 +18,11 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 </div>
 
 **Languages / Языки:**
-- 🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
+- 🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+
+Sync Chinese chapters from upstream: [docs/upstream-sync.md](docs/upstream-sync.md). Add a language: [docs/add-language.md](docs/add-language.md).
 
 ---
 

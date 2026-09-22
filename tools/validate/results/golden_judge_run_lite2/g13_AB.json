@@ -1,0 +1,9 @@
+{
+  "pair_id": "g13",
+  "order": "AB",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "```json\n{\n  \"winner\": \"tie\",\n  \"reason\": \"The shared text is word-for-word identical and the few differing sentences in Variant 1 are equally fluent Russian, so neither reads more naturally.\"\n}\n```",
+  "latency_s": 23.5,
+  "model": "glm-5.3-flash"
+}

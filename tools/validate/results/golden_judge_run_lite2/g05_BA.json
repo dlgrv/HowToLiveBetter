@@ -1,0 +1,9 @@
+{
+  "pair_id": "g05",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "{\"winner\": \"2\", \"reason\": \"Variant 2 reads more smoothly, replacing the loose 'тыкает в панель вместо горячих клавиш' with a natural contrast clause and varying the wording ('одну и ту же работу'), which avoids the verbatim repetition of 'однотипную работу' in Variant 1.\"}",
+  "latency_s": 40.5,
+  "model": "glm-5.3-flash"
+}
