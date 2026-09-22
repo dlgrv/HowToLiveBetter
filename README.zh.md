@@ -22,6 +22,8 @@
 - 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
 
+从 upstream 同步中文章节：[docs/upstream-sync.md](docs/upstream-sync.md)。新增语言：[docs/add-language.md](docs/add-language.md)。
+
 俄语版与英文版由 [dlgrv](https://github.com/dlgrv) 维护的非官方翻译，内容以本仓库的中文原文为准。
 
 ---

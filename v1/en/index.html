@@ -3,15 +3,23 @@
 <head>
 <script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../../';</script>
 <script>
-/* Root → /{lang}/ (v2 default). Skip if already under ru|en|zh|v1|v2. */
+/* HTLB_LANGS_BEGIN */
+window.__HTLB_LANGS__={"codes":["en","ru","zh"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN"}};
+/* HTLB_LANGS_END */
+</script>
+<script>
+/* Root → /{lang}/ (v2 default). Skip if already under a known lang or v1|v2. */
 (function(){
   if (window.__HTLB_LANG__) return;
   try {
+    var L = window.__HTLB_LANGS__ || {codes:['en'], primary:'en'};
+    var codes = L.codes || ['en'];
+    var primary = L.primary || 'en';
     var ORIGIN_PAGES = 'https://eternity4719.github.io/HowToLiveBetter/';
     var segs = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
     if (segs.length && segs[segs.length-1] === 'index.html') segs.pop();
     var last = segs[segs.length-1] || '';
-    if (last === 'ru' || last === 'en' || last === 'zh' || last === 'v1' || last === 'v2') return;
+    if (codes.indexOf(last) >= 0 || last === 'v1' || last === 'v2') return;
     if (segs.length >= 2) {
       var prev = segs[segs.length-2];
       if (prev === 'v1' || prev === 'v2') return;
@@ -24,9 +32,13 @@
       location.replace(ORIGIN_PAGES + location.search + location.hash);
       return;
     }
-    var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
-    var lang = p.get('lang') || saved || sys || 'en';
-    if (['ru','zh','en'].indexOf(lang) < 0) lang = 'en';
+    var sys = null;
+    var sorted = codes.slice().sort(function(a,b){ return b.length - a.length; });
+    for (var i = 0; i < sorted.length; i++) {
+      if (nav.startsWith(sorted[i])) { sys = sorted[i]; break; }
+    }
+    var lang = p.get('lang') || saved || sys || primary;
+    if (codes.indexOf(lang) < 0) lang = primary;
     var prefix = segs.length ? '/' + segs.join('/') + '/' : '/';
     location.replace(prefix + lang + '/' + location.search + location.hash);
   } catch (e) {}
@@ -337,9 +349,9 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="lang-menu" role="menu">
-          <button role="menuitem" data-lang="ru">Русский</button>
+                                <div class="lang-menu" role="menu">
           <button role="menuitem" data-lang="en">English</button>
+          <button role="menuitem" data-lang="ru">Русский</button>
           <button role="menuitem" data-lang="zh">中文</button>
         </div>
       </details>
@@ -478,16 +490,22 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 </main>
 
 <script>
-let LANG = 'en';
+const HTLB = window.__HTLB_LANGS__ || {codes:['en'], primary:'en', shortLabels:{}, menuLabels:{}, readmes:{}, ogLocales:{}, inLanguages:{}};
+const HTLB_CODES = HTLB.codes || ['en'];
+const HTLB_PRIMARY = HTLB.primary || 'en';
+const HTLB_CODE_RE = new RegExp('\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?=\\/|$)');
+let LANG = HTLB_PRIMARY;
 try {
   if (window.__HTLB_LANG__) { LANG = window.__HTLB_LANG__; }
   else {
     const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
     const nav=(navigator.language||'').toLowerCase();
-    const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
-    LANG = p.get('lang') || saved || sys || 'en';
+    let sys = null;
+    const sorted = HTLB_CODES.slice().sort((a,b)=>b.length-a.length);
+    for (const c of sorted) { if (nav.startsWith(c)) { sys = c; break; } }
+    LANG = p.get('lang') || saved || sys || HTLB_PRIMARY;
   }
-  if(!['ru','zh','en'].includes(LANG)) LANG='en';
+  if(!HTLB_CODES.includes(LANG)) LANG=HTLB_PRIMARY;
 } catch(e){}
 window.__HTLB_BASE__ = window.__HTLB_BASE__ || '';
 let BOOK_FILES = 0;
@@ -503,7 +521,7 @@ function fileCountPhrase(n){
 if (window.__HTLB_BASE__) { const _f=window.fetch; window.fetch=(u,o)=> _f(typeof u==='string' && !/^([a-z]+:|\/|\.\.\/)/i.test(u) ? window.__HTLB_BASE__+u : u, o); }
 window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){}
   const suffix = location.search + location.hash;
-  let p = location.pathname.replace(/\/(ru|en|zh)(?=\/|$)/, '/' + l);
+  let p = location.pathname.replace(HTLB_CODE_RE, '/' + l);
   if (!p.endsWith('/')) p += '/';
   location.href = p + suffix;
 };
@@ -686,7 +704,7 @@ function applyI18n(){
     });
   }
   document.querySelectorAll('.lang-menu button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===LANG)));
-  document.getElementById('lang-label').textContent={ru:'РУ',en:'EN',zh:'中'}[LANG];
+  document.getElementById('lang-label').textContent=(HTLB.shortLabels&&HTLB.shortLabels[LANG])||LANG.toUpperCase();
   document.getElementById('lang').open=false;
   // nav attributes
   const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
@@ -707,7 +725,7 @@ function applyI18n(){
   setm('meta[name="author"]','content',t.author);
   for(const sel of ['meta[property="og:site_name"]','meta[property="og:title"]','meta[name="twitter:title"]']) setm(sel,'content',t.title);
   for(const sel of ['meta[property="og:description"]','meta[name="twitter:description"]']) setm(sel,'content',t.metaDesc);
-  setm('meta[property="og:locale"]','content',{ru:'ru_RU',en:'en_US',zh:'zh_CN'}[LANG]);
+  setm('meta[property="og:locale"]','content',(HTLB.ogLocales&&HTLB.ogLocales[LANG])||'en_US');
   try{
     const FORK_HOST='https://dlgrv.github.io/HowToLiveBetter';
     const ORIGIN_PAGES='https://eternity4719.github.io/HowToLiveBetter/';
@@ -720,7 +738,7 @@ function applyI18n(){
         if(node.name) node.name=t.title;
         if(node.description) node.description=t.metaDesc;
         if(node.abstract) node.abstract=t.metaDesc;
-        if(node.inLanguage) node.inLanguage={ru:'ru',en:'en',zh:'zh-CN'}[LANG];
+        if(node.inLanguage) node.inLanguage=(HTLB.inLanguages&&HTLB.inLanguages[LANG])||LANG;
         if(node.about) node.about=t.about;
         if(node['@id']) node['@id']=pageUrl+'#'+(node['@type']==='Book'?'book':'website');
         if(node.url) node.url=pageUrl;
@@ -1210,9 +1228,11 @@ function wire(){
   const vb = document.getElementById('ver-switch');
   if (vb) vb.addEventListener('click', () => {
     const q = location.search + location.hash;
-    const lang = (location.pathname.match(/\/(ru|en|zh)(?=\/|$)/) || [])[1] || LANG;
+    const lang = (location.pathname.match(HTLB_CODE_RE) || [])[1] || LANG;
     let root = location.pathname.replace(/\/index\.html$/, '/');
-    root = root.replace(/\/(v1|v2)\/(ru|en|zh)\/?$/, '/').replace(/\/(ru|en|zh)\/?$/, '/');
+    const stripLang = new RegExp('\\/(v1|v2)\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\/?$');
+    const stripLangOnly = new RegExp('\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\/?$');
+    root = root.replace(stripLang, '/').replace(stripLangOnly, '/');
     if (!root.endsWith('/')) root += '/';
     location.href = window.__HTLB_V2__
       ? (root + 'v1/' + lang + '/' + q)
@@ -1232,7 +1252,7 @@ function wire(){
   };
   try {
     if (location.protocol === 'file:') throw new Error('file');
-    const data = {ru:'README.ru.md', en:'README.md', zh:'README.zh.md'}[LANG];
+    const data = (HTLB.readmes && HTLB.readmes[LANG]) || 'README.md';
     const r = await fetch(data, {cache:'no-cache'});
     if (!r.ok) throw new Error('http '+r.status);
     const md = await r.text();

@@ -22,6 +22,8 @@
 - 🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
 - 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
 
+Синхронизация китайских глав с upstream: [docs/upstream-sync.md](docs/upstream-sync.md). Добавить язык: [docs/add-language.md](docs/add-language.md).
+
 ---
 
 ## Вопросы, на которые хочет ответить эта книга

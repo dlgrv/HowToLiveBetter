@@ -1,6 +1,6 @@
-# Translation conventions (EN / RU)
+# Translation conventions (EN / RU / …)
 
-Applies to everything under `book/en/` and `book/ru/`.
+Applies to everything under `book/<lang>/` for non-Chinese locales (see [docs/add-language.md](docs/add-language.md)). Chinese originals live at `book/*.md`.
 
 ## Status line
 First line of every translated file, before the back-link:
@@ -68,11 +68,12 @@ Chinese original (`../01-不要早死.md`) — that link must not change.
 | 30 | 30-Ребёнок-в-школе |
 | 31 | 31-Дороги-после-восемнадцати |
 
-README policy (decided 2026-09-18): in the dlgrv fork the primary README language is English.
-- `README.md` — English (becomes the root README on `translation/en` and fork `main`)
-- `README.zh.md` — Chinese (renamed copy of the original Chinese README, links back to EN + RU)
-- `README.ru.md` — Russian (existing; gets a tri-lingual Languages line)
-Apply when the EN README is ready; keep all three linked via a `Languages:` line.
+README policy (decided 2026-09-18; clarified 2026-09-22): in the dlgrv fork the primary README language is **English**.
+- `README.md` — English (GitHub root face + site default)
+- `README.zh.md` — Chinese mirror of upstream `README.md` (see [docs/upstream-sync.md](docs/upstream-sync.md); never overwrite root `README.md` from upstream)
+- `README.ru.md` — Russian translation
+- Any further locale: `README.<lang>.md` + `book/<lang>/` (see [docs/add-language.md](docs/add-language.md))
+Keep all READMEs linked via a `Languages:` line. Upstream sync ritual: [docs/upstream-sync.md](docs/upstream-sync.md).
 
 EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 2026-09-18):
 
@@ -112,19 +113,14 @@ EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 202
 
 ## Russian README (README.ru.md)
 
-- `README.md` (Chinese) stays byte-identical — `index.html` reads it, upstream owns it.
-  Only addition allowed: one «Языки / Languages» selector line in the header.
-- `README.ru.md` = full Russian translation of `README.md`. First line: status
-  («> Неофициальный перевод файла [README.md](README.md). При расхождениях приоритет у китайского оригинала.»)
-  + link back to the Chinese README.
-- All numbers byte-faithful (528, 347/131/50, 88/248/162, 97.2%, thresholds…). The
+- Root `README.md` is **English** (fork primary). Chinese TOC lives in `README.zh.md`.
+- `README.ru.md` = full Russian translation of the guide front matter / TOC. Status line points at the Chinese original chapter set / `README.zh.md` where appropriate.
+- All numbers byte-faithful (528, 347/131/50, thresholds…). The
   example item block keeps citation lines byte-identical after the label.
 - Badges: recreate with Russian labels (URL-encode programmatically), same colors/numbers,
   same link targets; anchors inside the doc point to translated headings.
-- Chapter links → `book/ru/<Russian slug>.md`. `docs/*` links keep Chinese targets
-  (not translated yet), label = Russian title + «(на китайском)».
-- Back-link in every `book/ru/` file: `[← К общему оглавлению](../../README.ru.md)`
-  (replaces the earlier `../../README.md` rule).
+- Chapter links → `book/ru/<Russian slug>.md`. Long-read links → `docs/ru/` when translated.
+- Back-link in every `book/ru/` file: `[← К общему оглавлению](../../README.ru.md)`.
 
 ## Localization (RU) — no translated-English/epidemiology jargon
 
