@@ -1,0 +1,79 @@
+# 正文一改就重新生成 EPUB，挂到固定的 Release「epub-latest」上，下载链接不变：
+# https://github.com/eternity4719/HowToLiveBetter/releases/download/epub-latest/HowToLiveBetter.epub
+# PR 只生成并校验，不发布，产物在 Actions 页面的 artifact 里。
+name: EPUB
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - og.png
+      - book/**
+      - docs/*.md
+      - tools/epub/**
+      - .github/workflows/epub.yml
+  pull_request:
+    paths:
+      - README.md
+      - og.png
+      - book/**
+      - docs/*.md
+      - tools/epub/**
+      - .github/workflows/epub.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: epub-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/epub/package-lock.json
+
+      - run: npm ci
+        working-directory: tools/epub
+
+      - run: node tools/epub/build.mjs
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: epubcheck
+        run: |
+          curl -sSL -o epubcheck.zip https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip
+          unzip -q epubcheck.zip
+          java -jar epubcheck-5.4.0/epubcheck.jar dist/HowToLiveBetter.epub
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HowToLiveBetter.epub
+          path: dist/HowToLiveBetter.epub
+
+      - name: 发布到 Release epub-latest
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git tag -f epub-latest
+          git push -f origin epub-latest
+          notes="正文提交 ${GITHUB_SHA::7}，生成于 $(date -u +%Y-%m-%d) UTC。正文每次更新后自动重新生成，下载链接固定不变。"
+          if gh release view epub-latest >/dev/null 2>&1; then
+            gh release edit epub-latest --notes "$notes"
+          else
+            gh release create epub-latest --title "电子书（EPUB，自动更新）" --notes "$notes" --latest=false
+          fi
+          gh release upload epub-latest dist/HowToLiveBetter.epub --clobber

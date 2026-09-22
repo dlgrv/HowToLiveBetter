@@ -1,0 +1,32 @@
+<!-- ads/mcyyy-side.webp 的源文件（index.html 左栏底部那张小广告）。改完重新出图（Windows + Chrome）：
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu ^
+       --hide-scrollbars --force-device-scale-factor=2 --window-size=624,312 ^
+       --screenshot=D:\projects\HowToLiveBetter\ads\mcyyy-side.png ^
+       D:\projects\HowToLiveBetter\tools\ad-mcyyy-side.html
+     再按 tools/ad-mcyyy.html 注释里的办法转成 webp 并删掉 png。
+     字号是按「在侧栏里只有 208px 宽」配的，比 ad-mcyyy.html 那张横幅大一圈，缩小后才看得清。
+     device-scale-factor=2 是为了高分屏不糊。README 里那张大横幅见 tools/ad-mcyyy.html。 -->
+<!doctype html><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:624px;height:312px;font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+  position:relative;overflow:hidden;background:#0b1220}
+.bg{position:absolute;inset:0;background:url("ad-mcyyy-bg.webp") 62% 46% / cover no-repeat}
+.scrim{position:absolute;inset:0;
+  background:linear-gradient(103deg, rgba(8,15,32,.95) 0%, rgba(8,15,32,.88) 46%, rgba(8,15,32,.5) 78%, rgba(8,15,32,.2) 100%)}
+.in{position:relative;height:100%;padding:34px 36px;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.kicker{font-size:22px;letter-spacing:.2em;color:#9fc0ff;font-weight:600}
+h1{margin-top:10px;font-size:76px;line-height:1;letter-spacing:.04em;font-weight:700;
+  text-shadow:0 4px 22px rgba(0,0,0,.55)}
+.sub{margin-top:14px;font-size:25px;color:#dbe6ff;font-weight:500}
+.ip{margin-top:22px;align-self:flex-start;font-size:37px;font-weight:700;padding:11px 22px;border-radius:12px;
+  background:#3451b2;box-shadow:0 8px 24px rgba(52,81,178,.45)}
+</style>
+<div class="bg"></div>
+<div class="scrim"></div>
+<div class="in">
+  <div class="kicker">MINECRAFT 生存服</div>
+  <h1>永恒世界</h1>
+  <div class="sub">Folia 内核 · mcMMO 修仙</div>
+  <div class="ip">1.mcyyy.com</div>
+</div>
