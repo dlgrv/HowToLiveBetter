@@ -30,12 +30,12 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 | Question | Where to look |
 | --- | --- |
 | What can you do almost for free that still noticeably lowers your chance of dying early? | [1. Do Not Die Early](book/es/01-No-Mueras-Temprano.md) |
-| How many years of life exactly do smoking, alcohol, a sedentary life, and sleep loss take away? | [2. Don't Die Slowly](book/es/02-Do-Not-Die-Slowly.md) |
-| Not enough energy in a day, constantly interrupted — how do you fix it? | [3. Don't Waste Energy](book/es/03-Do-Not-Waste-Energy.md) |
-| Where does the time go, and how do you do fewer pointless things? | [4. Don't Waste Time](book/es/04-Do-Not-Waste-Time.md) |
-| How should savings be kept so that interest, fees, and scams don't eat them? | [5. Don't Waste Money](book/es/05-Do-Not-Waste-Money.md) |
-| Which supplements, checkup packages, and "IQ taxes" can you simply not buy? | [6. The Negative List](book/es/06-The-Anti-List.md) |
-| You lost your job, your wages are withheld, you have no money — what can you claim and where do you ask for help? | [7. How to Live When You Have No Money](book/es/07-Living-With-No-Money.md) |
+| How many years of life exactly do smoking, alcohol, a sedentary life, and sleep loss take away? | [2. Don't Die Slowly](book/es/02-No-Te-Dejes-Morir-Lentamente.md) |
+| Not enough energy in a day, constantly interrupted — how do you fix it? | [3. Don't Waste Energy](book/es/03-No-Desperdicies-Energia.md) |
+| Where does the time go, and how do you do fewer pointless things? | [4. Don't Waste Time](book/es/04-No-Desperdicies-Tiempo.md) |
+| How should savings be kept so that interest, fees, and scams don't eat them? | [5. Don't Waste Money](book/es/05-No-Desperdicies-Dinero.md) |
+| Which supplements, checkup packages, and "IQ taxes" can you simply not buy? | [6. The Negative List](book/es/06-La-Lista-Negra.md) |
+| You lost your job, your wages are withheld, you have no money — what can you claim and where do you ask for help? | [7. How to Live When You Have No Money](book/es/07-Como-Vivir-Sin-Dinero.md) |
 | Betrothal gifts, premarital property, large transfers during dating — who owns what in law? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-Do-Not-End-Up-Inside.md) |
 | Someone reports you, accuses you, fabricates facts — what is the first step, and can you seek redress and compensation afterwards? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-Do-Not-End-Up-Inside.md) |
 | Which "side jobs" and casual favors turn an ordinary person into a criminal defendant? | [9. Legal Red Lines](book/es/09-Legal-Red-Lines.md) |
@@ -182,12 +182,12 @@ The text tries to speak plainly, but citing research requires a few statistical 
 ## Table of contents
 
 1. [Do Not Die Early](book/es/01-No-Mueras-Temprano.md): external causes of death, gas and poisoning, vaccines, screening, psychological crisis and the timescale of suicidal thoughts, what remains after being rescued, the year after a serious fall, the ledger of selling a kidney, a home emergency kit, visible blood in urine and other signals worth checking. Measure: all-cause mortality or specific causes.
-2. [Don't Die Slowly](book/es/02-Do-Not-Die-Slowly.md): smoking and alcohol, exercise, sleep, diet, sitting. Measure: all-cause mortality or specific causes.
-3. [Don't Waste Energy](book/es/03-Do-Not-Waste-Energy.md): sleep, interruptions, multitasking, decision fatigue, interpersonal debt, what to expect when dealing with agencies and officials. Measure: energy/time.
-4. [Don't Waste Time](book/es/04-Do-Not-Waste-Time.md): zero-return projects, sunk costs, procrastination, meetings, commuting. Measure: time.
-5. [Don't Waste Money](book/es/05-Do-Not-Waste-Money.md): subscriptions, lotteries, interest, insurance, fund fees, the personal pension, car insurance, prepayments, livestream shopping, the medical savings account, children scammed and in-game refunds. Measure: money.
-6. [The Negative List](book/es/06-The-Anti-List.md): things that look like good value but are not.
-7. [How to Live When You Have No Money](book/es/07-Living-With-No-Money.md): relief, subsidies, finding work, lodging and food, medical care, wage-arrears remedies, traps to avoid. Measure: money/protection.
+2. [Don't Die Slowly](book/es/02-No-Te-Dejes-Morir-Lentamente.md): smoking and alcohol, exercise, sleep, diet, sitting. Measure: all-cause mortality or specific causes.
+3. [Don't Waste Energy](book/es/03-No-Desperdicies-Energia.md): sleep, interruptions, multitasking, decision fatigue, interpersonal debt, what to expect when dealing with agencies and officials. Measure: energy/time.
+4. [Don't Waste Time](book/es/04-No-Desperdicies-Tiempo.md): zero-return projects, sunk costs, procrastination, meetings, commuting. Measure: time.
+5. [Don't Waste Money](book/es/05-No-Desperdicies-Dinero.md): subscriptions, lotteries, interest, insurance, fund fees, the personal pension, car insurance, prepayments, livestream shopping, the medical savings account, children scammed and in-game refunds. Measure: money.
+6. [The Negative List](book/es/06-La-Lista-Negra.md): things that look like good value but are not.
+7. [How to Live When You Have No Money](book/es/07-Como-Vivir-Sin-Dinero.md): relief, subsidies, finding work, lodging and food, medical care, wage-arrears remedies, traps to avoid. Measure: money/protection.
 8. [Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-Do-Not-End-Up-Inside.md): traffic accidents, fraud and payment freezes, AI face-swap and voice cloning, remedies after accusation and false report, the line between extortion by reporting and claiming your own compensation, conflict and spite-driven extreme violence, impulsive harm and a family member's right to seek hospitalization, the four legal gates of insuring a family member before harming them, after online mobbing: platform routes and injunctions, betrothal gifts, premarital property, guarantees, anti-fraud, statutes of limitation, enforcement and dishonest-debtor lists, dog-owner liability. Measure: money/personal freedom.
 9. [Legal Red Lines](book/es/09-Legal-Red-Lines.md): rumors, insulting heroes and martyrs, foreign content you may read but not repost, distributing pornography, part-time money laundering, forged documents for loans, staged accidents and exaggerated claims, throwing objects from height, replica guns, drones, covert filming, the line between legal adoption when you cannot raise a child and trafficking or abandonment, gambling, wild-meat, selling organs and brokering donors. Measure: personal freedom/money.
 10. [Are Dating and Marriage Worth It](book/es/10-Is-Love-And-Marriage-Worth-It.md): partner-search strategy, the red line of pestering, signals of interest, relationship quality, long-distance, registration process, premarital checkups, the health ledger, the time ledger, the money ledger, parents funding a home and joint marital debt, exit costs. Long read: [Is marriage worth it (long read)](docs/es/Is-Marriage-Worth-It.md).
