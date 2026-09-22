@@ -18,9 +18,9 @@
 </div>
 
 **语言 / Languages:**
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
-- 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+- 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/en/)
 
 俄语版与英文版由 [dlgrv](https://github.com/dlgrv) 维护的非官方翻译，内容以本仓库的中文原文为准。
 
