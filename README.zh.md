@@ -21,6 +21,7 @@
 - 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
 - 🇷🇺 [Русский（俄语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - 🇬🇧 [English（英语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+- 🇪🇸 [Español（西班牙语）](https://github.com/dlgrv/HowToLiveBetter/blob/main/README.es.md) → [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
 
 从 upstream 同步中文章节：[docs/upstream-sync.md](docs/upstream-sync.md)。新增语言：[docs/add-language.md](docs/add-language.md)。
 

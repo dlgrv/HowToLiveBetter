@@ -1,16 +1,25 @@
 <!doctype html>
-<html lang="ru">
+<html lang="es">
 <head>
 <script>window.__HTLB_LANG__='es';window.__HTLB_BASE__='../../';</script>
 <script>
-/* Root → /{lang}/ (v2 default). Skip if already under ru|en|zh|v1|v2. */
+/* HTLB_LANGS_BEGIN */
+window.__HTLB_LANGS__={"codes":["en","ru","zh","es"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419"}};
+/* HTLB_LANGS_END */
+</script>
+<script>
+/* Root → /{lang}/ (v2 default). Skip if already under a known lang or v1|v2. */
 (function(){
   if (window.__HTLB_LANG__) return;
   try {
+    var L = window.__HTLB_LANGS__ || {codes:['en'], primary:'en'};
+    var codes = L.codes || ['en'];
+    var primary = L.primary || 'en';
+    var ORIGIN_PAGES = 'https://eternity4719.github.io/HowToLiveBetter/';
     var segs = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
     if (segs.length && segs[segs.length-1] === 'index.html') segs.pop();
     var last = segs[segs.length-1] || '';
-    if (last === 'ru' || last === 'en' || last === 'zh' || last === 'v1' || last === 'v2') return;
+    if (codes.indexOf(last) >= 0 || last === 'v1' || last === 'v2') return;
     if (segs.length >= 2) {
       var prev = segs[segs.length-2];
       if (prev === 'v1' || prev === 'v2') return;
@@ -18,9 +27,18 @@
     var p = new URLSearchParams(location.search);
     var saved = localStorage.getItem('htlb-lang');
     var nav = (navigator.language || '').toLowerCase();
-    var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : null;
-    var lang = p.get('lang') || saved || sys || 'en';
-    if (['ru','zh','en','es'].indexOf(lang) < 0) lang = 'en';
+    /* zh browsers → original site unless ?lang= or saved htlb-lang (#23) */
+    if (!p.get('lang') && !saved && nav.startsWith('zh')) {
+      location.replace(ORIGIN_PAGES + location.search + location.hash);
+      return;
+    }
+    var sys = null;
+    var sorted = codes.slice().sort(function(a,b){ return b.length - a.length; });
+    for (var i = 0; i < sorted.length; i++) {
+      if (nav.startsWith(sorted[i])) { sys = sorted[i]; break; }
+    }
+    var lang = p.get('lang') || saved || sys || primary;
+    if (codes.indexOf(lang) < 0) lang = primary;
     var prefix = segs.length ? '/' + segs.join('/') + '/' : '/';
     location.replace(prefix + lang + '/' + location.search + location.hash);
   } catch (e) {}
@@ -28,33 +46,80 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
-<meta name="description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta name="keywords" content="здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,пособия,бизнес,выгода">
-<meta name="author" content="Как жить выгодно (перевод HowToLiveBetter)">
+<title>Guía de la vida al mejor precio</title>
+<meta name="description" content="Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.">
+<meta name="keywords" content="salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología">
+<meta name="author" content="HowToLiveBetter (traducción al español)">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#3451b2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1b1b1f" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://dlgrv.github.io/HowToLiveBetter/v1/es/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Пособие по выгодной жизни">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Guía de la vida al mejor precio">
+<meta property="og:locale" content="es_419">
 <meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/v1/es/">
-<meta property="og:title" content="Пособие по выгодной жизни">
-<meta property="og:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta property="og:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<meta property="og:title" content="Guía de la vida al mejor precio">
+<meta property="og:description" content="Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.">
+<meta property="og:image" content="https://dlgrv.github.io/HowToLiveBetter/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Пособие по выгодной жизни">
-<meta name="twitter:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta name="twitter:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<meta name="twitter:title" content="Guía de la vida al mejor precio">
+<meta name="twitter:description" content="Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.">
+<meta name="twitter:image" content="https://dlgrv.github.io/HowToLiveBetter/og.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"WebSite","@id":"https://eternity4719.github.io/HowToLiveBetter/#website","url":"https://eternity4719.github.io/HowToLiveBetter/","name":"Пособие по выгодной жизни","description":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://eternity4719.github.io/HowToLiveBetter/?q={search_term_string}"},"query-input":"required name=search_term_string"}},
-{"@type":"Book","@id":"https://eternity4719.github.io/HowToLiveBetter/#book","name":"Пособие по выгодной жизни","url":"https://eternity4719.github.io/HowToLiveBetter/","inLanguage":"zh-CN","bookFormat":"https://schema.org/EBook","numberOfPages":528,"license":"https://unlicense.org/","abstract":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","about":["здоровье","долголетие","личные финансы","первая помощь","право","защита прав потребителей"],"isAccessibleForFree":true}
-]}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://dlgrv.github.io/HowToLiveBetter/v1/es/#website",
+   "url": "https://dlgrv.github.io/HowToLiveBetter/v1/es/",
+   "name": "Guía de la vida al mejor precio",
+   "description": "Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.",
+   "inLanguage": "es-419",
+   "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+     "@type": "EntryPoint",
+     "urlTemplate": "https://dlgrv.github.io/HowToLiveBetter/v1/es/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+   },
+   "isBasedOn": "https://eternity4719.github.io/HowToLiveBetter/",
+   "sameAs": [
+    "https://eternity4719.github.io/HowToLiveBetter/",
+    "https://github.com/eternity4719/HowToLiveBetter"
+   ]
+  },
+  {
+   "@type": "Book",
+   "@id": "https://dlgrv.github.io/HowToLiveBetter/v1/es/#book",
+   "name": "Guía de la vida al mejor precio",
+   "url": "https://dlgrv.github.io/HowToLiveBetter/v1/es/",
+   "inLanguage": "es-419",
+   "bookFormat": "https://schema.org/EBook",
+   "numberOfPages": 981,
+   "license": "https://unlicense.org/",
+   "abstract": "Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.",
+   "about": [
+    "salud",
+    "longevidad",
+    "finanzas personales",
+    "primeros auxilios",
+    "ley",
+    "protección del consumidor"
+   ],
+   "isAccessibleForFree": true,
+   "isBasedOn": "https://eternity4719.github.io/HowToLiveBetter/",
+   "sameAs": [
+    "https://eternity4719.github.io/HowToLiveBetter/",
+    "https://github.com/eternity4719/HowToLiveBetter"
+   ]
+  }
+ ]
+}
 </script>
 <script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){};try{if(localStorage.getItem('htlb-side')==='collapsed')document.documentElement.classList.add('side-collapsed')}catch(e){}})();</script>
 <style>
@@ -161,6 +226,8 @@ html.dark .theme-btn .moon{display:none}
 .doc-head .stat{color:var(--t3);font-size:14px;margin-top:6px}
 .doc-head .meta-line{margin-top:10px;font-size:14px;color:var(--t3)}
 .doc-head .meta-line a{white-space:nowrap;margin:0 6px}
+.doc-head .fork-note{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--t3)}
+.doc-head .fork-note a{color:var(--brand-1)}
 #feedback-line-star{margin-top:6px}
 .meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
 .meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
@@ -201,6 +268,9 @@ html.dark .theme-btn .moon{display:none}
 .src summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(-45deg);transition:transform .2s;margin-right:2px}
 .src[open] summary::before{transform:rotate(45deg)}
 .src .body{padding-top:8px;font-size:13px;line-height:1.75;color:var(--t2);overflow-wrap:anywhere}
+.src .body ul{margin:6px 0 0;padding-left:1.25em;list-style:disc}
+.src .body li{margin:0 0 6px}
+.src .body li:last-child{margin-bottom:0}
 
 abbr.term{text-decoration:none;border-bottom:1px dotted var(--t3);cursor:help}
 abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
@@ -211,6 +281,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .empty button:hover{border-color:var(--brand-1);color:var(--brand-1)}
 .status{color:var(--t3);padding:40px 0;text-align:center}
 .status code{font-family:var(--mono);font-size:13px;background:var(--bg-mute);padding:2px 6px;border-radius:4px}
+.skel,.skel-bar{display:none}
 .foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--divider);color:var(--t3);font-size:13px;line-height:1.7}
 
 @media (max-width:960px){
@@ -243,6 +314,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 .lang-dd{position:relative}
 .lang-dd>summary{list-style:none;cursor:pointer;display:grid;place-items:center;gap:5px;height:36px;border-radius:8px;border:0;background:none;grid-auto-flow:column;grid-template-columns:auto auto;column-gap:4px;align-items:center;padding:0 8px;width:auto;min-width:32px;transition:background .25s,color .25s}
 .lang-dd>summary::-webkit-details-marker{display:none}
+.lang-dd>summary:hover{background:var(--bg-soft);color:var(--t1)}
 .lang-dd>summary svg{width:12px;height:12px;color:var(--t3)}
 #lang-label{font:600 12px/1 var(--sans);letter-spacing:.08em}
 .lang-dd[open]>summary{background:var(--bg-soft);color:var(--t1)}
@@ -276,12 +348,12 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     </label>
     <div class="nav-r">
       <details class="lang-dd" id="lang">
-        <summary class="icon-btn" title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="lang-menu" role="menu">
-          <button role="menuitem" data-lang="ru">Русский</button>
+        <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+                                                <div class="lang-menu" role="menu">
           <button role="menuitem" data-lang="en">English</button>
-          <button role="menuitem" data-lang="es">Español</button>
+          <button role="menuitem" data-lang="ru">Русский</button>
           <button role="menuitem" data-lang="zh">中文</button>
+          <button role="menuitem" data-lang="es">Español</button>
         </div>
       </details>
       <a class="icon-btn ic-doc" href="../../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
@@ -364,6 +436,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   <div class="doc">
     <div class="doc-head">
       <h1>Пособие по выгодной жизни</h1>
+      <p class="fork-note" id="fork-note"></p>
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
       <p class="meta-line" id="feedback-line">
@@ -374,10 +447,40 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
         <span id="fb-star-t">Понравился перевод —</span>
         <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
       </p>
-      <div class="stat" aria-live="polite">Показано <span id="cnt">–</span> из <span id="tot">–</span></div>
+      <div class="stat" aria-live="polite">Показано <span id="cnt"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span> из <span id="tot"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span></div>
     </div>
-    <div id="list">
-      <div class="status" id="status"></div>
+    <div id="list" aria-busy="true">
+      <div class="skel" id="skel" aria-hidden="true"></div>
+      <script>
+      (function(){
+        var sk=document.getElementById('skel'); if(!sk) return;
+        var H=[[42,3],[48,3],[36,3],[55,3],[40,3],[50,3]];
+        var C=[
+          [72,100,88,92,78],[64,96,70,85,60],[68,100,82,90,74],
+          [58,94,76,88,66],[75,98,84,91,71],[61,95,68,80,55],
+          [70,100,80,86,72],[66,97,73,89,63],[77,99,85,93,69]
+        ];
+        function card(a){
+          return '<div class="skel-card">'
+            +'<i class="skel-bar" style="width:'+a[0]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[1]+'%"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[2]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[3]+'%"></i>'
+            +'<i class="skel-bar skel-bar-sm" style="width:4.5rem;margin-top:var(--sp-3)"></i>'
+            +'<i class="skel-bar skel-bar-body" style="width:'+a[4]+'%"></i>'
+            +'</div>';
+        }
+        var html='', i, j;
+        for(i=0;i<H.length;i++){
+          html+='<div class="skel-sec"><div class="skel-h"><i class="skel-bar" style="width:'+H[i][0]+'%"></i><i class="skel-bar skel-bar-sm" style="width:3.5rem"></i></div>';
+          for(j=0;j<3;j++) html+=card(C[(i*3+j)%C.length]);
+          html+='</div>';
+        }
+        sk.innerHTML=html;
+      })();
+      </script>
+      <div class="status" id="status" hidden></div>
       <div class="empty" id="empty" hidden>
         Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.
         <div><button id="reset2">Сбросить</button></div>
@@ -388,16 +491,22 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 </main>
 
 <script>
-let LANG = 'en';
+const HTLB = window.__HTLB_LANGS__ || {codes:['en'], primary:'en', shortLabels:{}, menuLabels:{}, readmes:{}, ogLocales:{}, inLanguages:{}};
+const HTLB_CODES = HTLB.codes || ['en'];
+const HTLB_PRIMARY = HTLB.primary || 'en';
+const HTLB_CODE_RE = new RegExp('\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?=\\/|$)');
+let LANG = HTLB_PRIMARY;
 try {
   if (window.__HTLB_LANG__) { LANG = window.__HTLB_LANG__; }
   else {
     const p=new URLSearchParams(location.search); const saved=localStorage.getItem('htlb-lang');
     const nav=(navigator.language||'').toLowerCase();
-    const sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : null;
-    LANG = p.get('lang') || saved || sys || 'en';
+    let sys = null;
+    const sorted = HTLB_CODES.slice().sort((a,b)=>b.length-a.length);
+    for (const c of sorted) { if (nav.startsWith(c)) { sys = c; break; } }
+    LANG = p.get('lang') || saved || sys || HTLB_PRIMARY;
   }
-  if(!['ru','zh','en','es'].includes(LANG)) LANG='en';
+  if(!HTLB_CODES.includes(LANG)) LANG=HTLB_PRIMARY;
 } catch(e){}
 window.__HTLB_BASE__ = window.__HTLB_BASE__ || '';
 let BOOK_FILES = 0;
@@ -413,7 +522,7 @@ function fileCountPhrase(n){
 if (window.__HTLB_BASE__) { const _f=window.fetch; window.fetch=(u,o)=> _f(typeof u==='string' && !/^([a-z]+:|\/|\.\.\/)/i.test(u) ? window.__HTLB_BASE__+u : u, o); }
 window.__setLang = function(l){ try{localStorage.setItem('htlb-lang',l);}catch(e){}
   const suffix = location.search + location.hash;
-  let p = location.pathname.replace(/\/(ru|en|zh|es)(?=\/|$)/, '/' + l);
+  let p = location.pathname.replace(HTLB_CODE_RE, '/' + l);
   if (!p.endsWith('/')) p += '/';
   location.href = p + suffix;
 };
@@ -456,7 +565,9 @@ const I18N = {
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
-   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
+   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'],
+   forkNote:'Неофициальный перевод. Авторитет — <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">китайский оригинал</a>.',
+   snapshotNote:'' },
  en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations', searchShort:'Search',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
@@ -493,11 +604,13 @@ const I18N = {
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
-   about:['health','longevity','personal finance','first aid','law','consumer protection'] },
-   es:{ htmlLang:'es', title:'Guía de la vida al mejor precio', search:'Busca en las recomendaciones', searchShort:'Buscar',
+   about:['health','longevity','personal finance','first aid','law','consumer protection'],
+   forkNote:'Unofficial translation. The <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">Chinese original</a> is authoritative.',
+   snapshotNote:'' },
+ es:{ htmlLang:'es', title:'Guía de la vida al mejor precio', search:'Busca en las recomendaciones', searchShort:'Buscar',
    noscriptH:'Guía de la vida al mejor precio',
    noscriptP:'Traducción al español de HowToLiveBetter (高性价比人生指南): 31 secciones; cada recomendación indica su costo, beneficio, nivel de evidencia y fuente primaria.',
-   noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../../README.es.md">README.es.md</a> (índice) y el directorio <a href="../../book/es/">book/es/</a>.',
+   noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../README.es.md">README.es.md</a> (índice) y el directorio <a href="../book/es/">book/es/</a>.',
    docHead:'Cada recomendación responde a dos preguntas: qué cuesta — y qué devuelve.',
    docHead2:'A quién llega el beneficio también está por niveles: primero tú mismo, luego tu cónyuge y la familia directa, después amigos y colegas; los extraños van al final. «Final» no significa «cero»: la probabilidad de retorno es menor y hay que sopesar los riesgos junto con el beneficio.',
    fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta la traducción —', fbStar:'dale una estrella al repositorio',
@@ -511,7 +624,7 @@ const I18N = {
    fDispute:'solo controvertidas', fTodo:'solo sin verificar',
    hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
    hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
-   hint3:'Los datos vienen del directorio <a href="../../book/es/">book/es/</a> ({n}); edita el texto allí.',
+   hint3:'Los datos vienen del directorio <a href="../book/es/">book/es/</a> ({n}); edita el texto allí.',
    foot:'La categoría del beneficio se indica en cada entrada (mortalidad / tiempo y energía / dinero / protección y libertad personal); las categorías no se comparan entre sí. Verificación de fuentes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (en chino)</a>. El texto es de dominio público (Unlicense).',
    kCost:'Costo', kGain:'Beneficio', kNote:'Notas', src:'Fuentes', anchor:'Enlace a esta entrada',
    ratioBadge:'Beneficio/costos', ratioTitle:'Juicio del autor: a partir del nivel del efecto', gradeBadge:'Evidencia', dispute:'En disputa', todo:'Tiene sin verificar',
@@ -529,9 +642,11 @@ const I18N = {
    menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma', verTitle:'Versión antigua del sitio', verTitle2:'Versión nueva del sitio',
    metaDesc:'Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
    keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
+   about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
    author:'HowToLiveBetter (traducción al español)',
-   about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'] },
-   zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
+   forkNote:'Traducción no oficial. El <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original chino</a> es el autorizado.',
+   snapshotNote:'' },
+ zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../../README.zh.md">README.zh.md</a>（目录）与 <a href="../../book/">book/</a> 目录。',
@@ -567,7 +682,9 @@ const I18N = {
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
-   about:['健康','长寿','个人理财','急救','法律','消费者权益'] }
+   about:['健康','长寿','个人理财','急救','法律','消费者权益'],
+   forkNote:'非官方翻译。请以<a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">中文原文</a>为准。',
+   snapshotNote:'本页是翻译时的快照，原文仍在更新。' }
 };
 function T(){ return I18N[LANG]; }
 function applyI18n(){
@@ -575,17 +692,21 @@ function applyI18n(){
   document.title=t.title;
   document.querySelectorAll('a.title span:last-child').forEach(el=>{ el.textContent=t.title; });
   const qEl=document.getElementById('q');
-  const shortPh=window.matchMedia('(max-width:960px)').matches;
-  qEl.placeholder=shortPh?(t.searchShort||t.search):t.search;
+  qEl.placeholder=t.searchShort||t.search;
   qEl.setAttribute('aria-label',t.search);
   if(!window.__htlbPhMql){ // attach once, not per applyI18n call
-    window.__htlbPhMql=window.matchMedia('(max-width:960px)');
-    window.__htlbPhMql.addEventListener('change',e=>{ const tt=T(); qEl.placeholder=e.matches?(tt.searchShort||tt.search):tt.search; });
+    window.__htlbPhMql=window.matchMedia('(max-width:960px)'); // kept for compat; short placeholder is now universal
+    window.__htlbPhMql.addEventListener('change',()=>{ const tt=T(); qEl.placeholder=tt.searchShort||tt.search; });
   }
   const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
   const dh=document.querySelector('.doc-head');
   dh.querySelector('h1').textContent=t.title;
-  const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
+  const fn=document.getElementById('fork-note');
+  if(fn){
+    const extra=(LANG==='zh' && t.snapshotNote) ? ' '+t.snapshotNote : '';
+    fn.innerHTML=(t.forkNote||'')+extra;
+  }
+  const dhp=dh.querySelectorAll(':scope > p:not(.fork-note):not(.meta-line)'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
   const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
@@ -623,7 +744,7 @@ function applyI18n(){
     });
   }
   document.querySelectorAll('.lang-menu button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===LANG)));
-  document.getElementById('lang-label').textContent={ru:'РУ',en:'EN',zh:'中'}[LANG];
+  document.getElementById('lang-label').textContent=(HTLB.shortLabels&&HTLB.shortLabels[LANG])||LANG.toUpperCase();
   document.getElementById('lang').open=false;
   // nav attributes
   const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
@@ -644,8 +765,12 @@ function applyI18n(){
   setm('meta[name="author"]','content',t.author);
   for(const sel of ['meta[property="og:site_name"]','meta[property="og:title"]','meta[name="twitter:title"]']) setm(sel,'content',t.title);
   for(const sel of ['meta[property="og:description"]','meta[name="twitter:description"]']) setm(sel,'content',t.metaDesc);
-  setm('meta[property="og:locale"]','content',{ru:'ru_RU',en:'en_US',zh:'zh_CN'}[LANG]);
+  setm('meta[property="og:locale"]','content',(HTLB.ogLocales&&HTLB.ogLocales[LANG])||'en_US');
   try{
+    const FORK_HOST='https://dlgrv.github.io/HowToLiveBetter';
+    const ORIGIN_PAGES='https://eternity4719.github.io/HowToLiveBetter/';
+    const ORIGIN_REPO='https://github.com/eternity4719/HowToLiveBetter';
+    const pageUrl=FORK_HOST+'/'+LANG+'/';
     const jl=document.querySelector('script[type="application/ld+json"]');
     if(jl){
       const data=JSON.parse(jl.textContent);
@@ -653,8 +778,17 @@ function applyI18n(){
         if(node.name) node.name=t.title;
         if(node.description) node.description=t.metaDesc;
         if(node.abstract) node.abstract=t.metaDesc;
-        if(node.inLanguage) node.inLanguage={ru:'ru-RU',en:'en-US',zh:'zh-CN'}[LANG];
+        if(node.inLanguage) node.inLanguage=(HTLB.inLanguages&&HTLB.inLanguages[LANG])||LANG;
         if(node.about) node.about=t.about;
+        if(node['@id']) node['@id']=pageUrl+'#'+(node['@type']==='Book'?'book':'website');
+        if(node.url) node.url=pageUrl;
+        if(node.potentialAction && node.potentialAction.target){
+          const tgt=node.potentialAction.target;
+          if(typeof tgt==='object' && tgt.urlTemplate) tgt.urlTemplate=pageUrl+'?q={search_term_string}';
+        }
+        if(node['@type']==='Book' && typeof CARDS!=='undefined' && CARDS.length) node.numberOfPages=CARDS.length;
+        node.isBasedOn=ORIGIN_PAGES;
+        node.sameAs=[ORIGIN_PAGES, ORIGIN_REPO];
       }
       jl.textContent=JSON.stringify(data,null,1);
     }
@@ -718,20 +852,20 @@ function parseReadme(md){
       continue;
     }
     if (entry){
-      if ((m = /^- (?:成本|Стоимость|Cost|Costo)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами|In plain terms|En términos sencillos)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:收益|Эффект|Benefit|Beneficio)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade|Nivel de evidencia)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
-      else if ((m = /^- (?:来源|Источники|Sources|Fuentes)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания|Notes|Notas)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      if ((m = /^- (?:成本|Стоимость|Cost)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|In plain terms)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Benefit)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Evidence grade)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Sources)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notes)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
   }
   flush();
   for (const s of sections) for (const e of s.entries){
-    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : LANG==='es' ? /^\s*(争议|En disputa|Controvertido)/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
-    e.todo = /待核实|TODO|to be verified|por verificar/i.test(e.src + e.gain + e.note + e.cost);
+    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note) : /^\s*(争议|[Сс]порно)/.test(e.note);
+    e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
     e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);
     e.ratio = e.level === '大' ? (e.cs === 0 ? '极高' : (e.cs <= 2 ? '高' : '一般'))
             : e.level === '中' ? (e.cs === 0 ? '高' : '一般') : '一般';
@@ -957,7 +1091,22 @@ function syncControls(){
 function srcCount(s){
   const n = ((s || '').match(/https?:\/\//g) || []).length;
   if (n) return n;
-  return (s || '').trim() ? 1 : 0;
+  return splitSources(s).length;
+}
+function splitSources(s){
+  return (s || '').split(/\s*[；;]\s*/).map(x => x.trim()).filter(Boolean);
+}
+function renderSources(el, text, terms){
+  el.textContent = '';
+  const parts = splitSources(text);
+  if (!parts.length) return;
+  const ul = document.createElement('ul');
+  for (const p of parts){
+    const li = document.createElement('li');
+    renderText(li, p, terms);
+    ul.appendChild(li);
+  }
+  el.appendChild(ul);
 }
 function renderCard(card, terms, key){
   const {e, f} = card;
@@ -976,7 +1125,7 @@ function renderCard(card, terms, key){
     mg.hidden = !hasNote;
     if (hasNote){ mg.querySelector('.k').textContent = T().kNote; renderText(mg.querySelector('.mt'), e.note, terms); }
   }
-  renderText(f.src, e.src, terms);
+  renderSources(f.src, e.src, terms);
   if (f.srcSum) f.srcSum.textContent = T().src + ' (' + srcCount(e.src) + ')';
   const inBody = (e.title+e.human+e.cost+e.gain+e.note).toLowerCase();
   f.details.open = terms.length > 0 && terms.some(t => e.src.toLowerCase().includes(t)) && !terms.some(t => inBody.includes(t));
@@ -1035,8 +1184,31 @@ function spyTick(){
 /* ---------- 事件 ---------- */
 function wire(){
   const sb = document.getElementById('sidebar'), bd = document.getElementById('backdrop'), mb = document.getElementById('menu');
-  const setMenu = (on) => { sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on)); };
+  const setMenu = (on) => {
+    sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on));
+    if (on) document.documentElement.classList.remove('nav-hidden');
+  };
   const toTop = () => { setMenu(false); scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  /* mobile: hide topbar on scroll down, show on scroll up */
+  {
+    const mq = matchMedia('(max-width:1099px)');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let lastY = scrollY, ticking = false;
+    const showNav = () => document.documentElement.classList.remove('nav-hidden');
+    addEventListener('scroll', () => {
+      if (!window.__HTLB_V2__ || !mq.matches || reduce.matches) { showNav(); return; }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = scrollY, dy = y - lastY;
+        if (y < 12 || sb.classList.contains('open')) showNav();
+        else if (dy > 6) document.documentElement.classList.add('nav-hidden');
+        else if (dy < -6) showNav();
+        lastY = y; ticking = false;
+      });
+    }, {passive:true});
+    mq.addEventListener('change', () => { if (!mq.matches) showNav(); });
+  }
   document.querySelectorAll('[data-dim]').forEach(g => g.addEventListener('click', ev => {
     const b = ev.target.closest('[data-v]'); if (!b) return;
     const dim = g.dataset.dim, v = b.dataset.v, set = state[dim];
@@ -1096,9 +1268,11 @@ function wire(){
   const vb = document.getElementById('ver-switch');
   if (vb) vb.addEventListener('click', () => {
     const q = location.search + location.hash;
-    const lang = (location.pathname.match(/\/(ru|en|zh|es)(?=\/|$)/) || [])[1] || LANG;
+    const lang = (location.pathname.match(HTLB_CODE_RE) || [])[1] || LANG;
     let root = location.pathname.replace(/\/index\.html$/, '/');
-    root = root.replace(/\/(v1|v2)\/(ru|en|zh|es)\/?$/, '/').replace(/\/(ru|en|zh|es)\/?$/, '/');
+    const stripLang = new RegExp('\\/(v1|v2)\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\/?$');
+    const stripLangOnly = new RegExp('\\/(' + HTLB_CODES.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\/?$');
+    root = root.replace(stripLang, '/').replace(stripLangOnly, '/');
     if (!root.endsWith('/')) root += '/';
     location.href = window.__HTLB_V2__
       ? (root + 'v1/' + lang + '/' + q)
@@ -1109,11 +1283,16 @@ function wire(){
 /* ---------- 启动 ---------- */
 (async function init(){
   applyI18n();
+  const list = document.getElementById('list');
   const status = document.getElementById('status');
-  status.textContent = T().loading;
+  const skel = document.getElementById('skel');
+  const clearSkel = () => {
+    skel?.remove();
+    list.removeAttribute('aria-busy');
+  };
   try {
     if (location.protocol === 'file:') throw new Error('file');
-    const data = {ru:'README.ru.md', en:'README.md', es:'README.es.md', zh:'README.zh.md'}[LANG];
+    const data = (HTLB.readmes && HTLB.readmes[LANG]) || 'README.md';
     const r = await fetch(data, {cache:'no-cache'});
     if (!r.ok) throw new Error('http '+r.status);
     const md = await r.text();
@@ -1130,6 +1309,7 @@ function wire(){
     if (!sections.length) throw new Error('empty');
     GLOSS = parseGlossary(md);
     PERF.log('парсинг текста', t1, files.length + ' файлов');
+    clearSkel();
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
     buildGlossary(); readUrl(); wire(); applyI18n(); apply();
@@ -1150,6 +1330,11 @@ function wire(){
       if (target) requestAnimationFrame(() => target.scrollIntoView());
     }
   } catch (err) {
+    clearSkel();
+    const c = document.getElementById('cnt'), t = document.getElementById('tot');
+    if (c) c.textContent = '–';
+    if (t) t.textContent = '–';
+    status.hidden = false;
     status.innerHTML = err.message === 'file'
       ? T().errFile
       : T().errLoad(esc(String(err.message)));
