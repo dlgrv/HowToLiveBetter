@@ -4,7 +4,7 @@
 
 # 26. Crear un sitio web o una plataforma: permisos, registro (备案) y servidores
 
-Esta sección responde a una sola pregunta: qué tipo de actividad es, ante la ley, el sitio web o la App que quieres crear, qué permiso necesita, dónde conviene alojar el servidor y quién responde por lo que los usuarios publican y por el dinero que se recauda. El criterio es la libertad personal y el dinero: primero se trata lo que puede chocar con las líneas rojas penales, después lo que exige permisos administrativos, luego las obligaciones cotidianas de una plataforma y, al final, los apartados de experiencia —como la elección del servidor— donde solo cabe ofrecer un criterio. Las líneas rojas para los técnicos asalariados están en la sección 11, y cómo constituir la empresa y declarar impuestos, en la sección 12; aquí no se repiten. La tabla comparativa de los distintos permisos y la tabla de decisión para elegir servidor están en [docs/做平台要办哪些证.md](../docs/做平台要办哪些证.md).
+Esta sección responde a una sola pregunta: qué tipo de actividad es, ante la ley, el sitio web o la App que quieres crear, qué permiso necesita, dónde conviene alojar el servidor y quién responde por lo que los usuarios publican y por el dinero que se recauda. El criterio es la libertad personal y el dinero: primero se trata lo que puede chocar con las líneas rojas penales, después lo que exige permisos administrativos, luego las obligaciones cotidianas de una plataforma y, al final, los apartados de experiencia —como la elección del servidor— donde solo cabe ofrecer un criterio. Las líneas rojas para los técnicos asalariados están en la sección 11, y cómo constituir la empresa y declarar impuestos, en la sección 12; aquí no se repiten. La tabla comparativa de los distintos permisos y la tabla de decisión para elegir servidor están en [docs/做平台要办哪些证.md](../../docs/es/What-Licenses-A-Platform-Needs.md).
 ### 1. La plataforma no debe cobrar el dinero y reenviarlo al vendedor: deja que el dinero pase por una institución de pago con licencia y se liquide directamente
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=自由 -->
 - Costo: 0 yuanes; incorporar el producto de liquidación dividida o de transacción en garantía de una institución de pago con licencia, de modo que el dinero del comprador se liquide directamente al vendedor y no pase por la cuenta de la propia plataforma
@@ -106,4 +106,4 @@ Esta sección responde a una sola pregunta: qué tipo de actividad es, ante la l
 
 ## Licencia
 
-[Unlicense](../LICENSE), dominio público.
+[Unlicense](../../LICENSE), dominio público.

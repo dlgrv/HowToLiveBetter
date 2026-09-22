@@ -1,4 +1,4 @@
-> Unofficial translation of [docs/做平台要办哪些证.md](../../做平台要办哪些证.md). In case of discrepancies the Chinese original takes precedence.
+> Unofficial translation of [docs/做平台要办哪些证.md](../做平台要办哪些证.md). In case of discrepancies the Chinese original takes precedence.
 
 # Qué licencias necesita una plataforma: tabla comparativa y tabla de decisión para elegir servidor
 
@@ -68,4 +68,4 @@ Responda primero las preguntas y luego mire los precios.
 
 - Para todas las disposiciones, manda la columna de fuentes de la sección 26 del README del libro; allí están los números de documento, los números de artículo y los enlaces.
 - La normativa se actualiza rápido; esta sección se verificó en septiembre de 2026. Antes de citar nada, vuelva a abrir usted mismo la página original una vez más, en especial la Ley de Ciberseguridad (网络安全法; los números de artículo se ajustaron a partir del 1 de enero de 2026) y las reglas sobre menores y propinas en las retransmisiones en directo (cambiadas en abril de 2026 a tramos por edad).
-- Los pocos puntos en los que no se pudo obtener el texto original están enumerados en las [notas de verificación](../../核实记录/追加-第26节做平台.md), incluida cualquier redacción oficial sobre si las plataformas de comercio electrónico deben obtener EDI, y una interpretación judicial que convertiría directamente en el delito de operaciones comerciales ilegales (非法经营罪) la explotación sin licencia de servicios de cultura en línea o audiovisuales.
+- Los pocos puntos en los que no se pudo obtener el texto original están enumerados en las [notas de verificación](../核实记录/追加-第26节做平台.md), incluida cualquier redacción oficial sobre si las plataformas de comercio electrónico deben obtener EDI, y una interpretación judicial que convertiría directamente en el delito de operaciones comerciales ilegales (非法经营罪) la explotación sin licencia de servicios de cultura en línea o audiovisuales.

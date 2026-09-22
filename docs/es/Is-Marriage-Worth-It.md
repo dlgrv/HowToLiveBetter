@@ -1,4 +1,4 @@
-> Unofficial translation of [docs/结婚划不划算.md](../../结婚划不划算.md). In case of discrepancies the Chinese original takes precedence.
+> Unofficial translation of [docs/结婚划不划算.md](../结婚划不划算.md). In case of discrepancies the Chinese original takes precedence.
 
 # ¿Vale la pena casarse?: desmenuzar una cuenta confusa en cinco cuentas claras
 

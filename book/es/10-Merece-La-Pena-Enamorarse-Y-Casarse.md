@@ -4,7 +4,7 @@
 
 # 10. ¿Vale la pena enamorarse y casarse?
 
-Esta sección desglosa la pregunta «¿conviene casarse?» en varias cuentas que se pueden calcular por separado: dinero, tiempo, salud, riesgos legales y calidad de la relación. Cada cuenta incluye únicamente cifras que se pueden encontrar en estadísticas oficiales o metaanálisis, sin juicios morales ni conclusiones en lugar del lector; las cifras de salud se expresan en términos de riesgo de muerte, las de tiempo en minutos por día y las legales en términos de disposiciones normativas, y las tres no se convierten entre sí. El método de desglose, la lista para completar y los errores comunes están en [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+Esta sección desglosa la pregunta «¿conviene casarse?» en varias cuentas que se pueden calcular por separado: dinero, tiempo, salud, riesgos legales y calidad de la relación. Cada cuenta incluye únicamente cifras que se pueden encontrar en estadísticas oficiales o metaanálisis, sin juicios morales ni conclusiones en lugar del lector; las cifras de salud se expresan en términos de riesgo de muerte, las de tiempo en minutos por día y las legales en términos de disposiciones normativas, y las tres no se convierten entre sí. El método de desglose, la lista para completar y los errores comunes están en [docs/结婚划不划算.md](../../docs/es/Is-Marriage-Worth-It.md).
 ### 1. Conocer a más gente en vez de obsesionarse con una sola persona: la compatibilidad entre dos personas no se puede predecir antes de conocerse
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
 - Costo: 0 yuanes; dedicar el tiempo a ampliar el círculo de conocidos en lugar de darle vueltas una y otra vez a la misma persona
@@ -156,4 +156,4 @@ Esta sección desglosa la pregunta «¿conviene casarse?» en varias cuentas que
 - Beneficio: el beneficio de los mayores es real, pero no se convierte automáticamente en beneficio de salud (punto 8) ni en calidad de relación (punto 15), mientras que la cuenta del tiempo (punto 9), la del dinero (puntos 10 a 12) y el costo de salida (punto 16) las asume por entero el propio implicado; al separar las cuentas, la relación costo-beneficio de «casarse como tarea cumplida» se ve de un vistazo, sin necesidad de que otro juzgue por ti.
 - Nivel de evidencia: C
 - Fuentes: 作者经验，方法类建议；数据部分见本节前面各条
-- Notas: este punto no saca conclusiones por el lector; la cuenta de los mayores también puede valorarse como una partida muy pesada; la lista para completar está en [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+- Notas: este punto no saca conclusiones por el lector; la cuenta de los mayores también puede valorarse como una partida muy pesada; la lista para completar está en [docs/结婚划不划算.md](../../docs/es/Is-Marriage-Worth-It.md).
