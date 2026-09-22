@@ -4,7 +4,7 @@
 <script>window.__HTLB_LANG__='ru';window.__HTLB_BASE__='../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <script>
 /* HTLB_LANGS_BEGIN */
-window.__HTLB_LANGS__={"codes":["en","ru","zh"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN"}};
+window.__HTLB_LANGS__={"codes":["en","ru","zh","es"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419"}};
 /* HTLB_LANGS_END */
 </script>
 <script>
@@ -527,10 +527,11 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                <div class="lang-menu" role="menu">
+                                                <div class="lang-menu" role="menu">
           <button role="menuitem" data-lang="en">English</button>
           <button role="menuitem" data-lang="ru">Русский</button>
           <button role="menuitem" data-lang="zh">中文</button>
+          <button role="menuitem" data-lang="es">Español</button>
         </div>
       </details>
       <a class="icon-btn ic-doc" href="../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
@@ -783,6 +784,45 @@ const I18N = {
    author:'HowToLiveBetter (English translation)',
    about:['health','longevity','personal finance','first aid','law','consumer protection'],
    forkNote:'Unofficial translation. The <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">Chinese original</a> is authoritative.',
+   snapshotNote:'' },
+ es:{ htmlLang:'es', title:'Guía de la vida al mejor precio', search:'Busca en las recomendaciones', searchShort:'Buscar',
+   noscriptH:'Guía de la vida al mejor precio',
+   noscriptP:'Traducción al español de HowToLiveBetter (高性价比人生指南): 31 secciones; cada recomendación indica su costo, beneficio, nivel de evidencia y fuente primaria.',
+   noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../README.es.md">README.es.md</a> (índice) y el directorio <a href="../book/es/">book/es/</a>.',
+   docHead:'Cada recomendación responde a dos preguntas: qué cuesta — y qué devuelve.',
+   docHead2:'A quién llega el beneficio también está por niveles: primero tú mismo, luego tu cónyuge y la familia directa, después amigos y colegas; los extraños van al final. «Final» no significa «cero»: la probabilidad de retorno es menor y hay que sopesar los riesgos junto con el beneficio.',
+   fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta la traducción —', fbStar:'dale una estrella al repositorio',
+   shown:'Mostrando', of:'de', loading:'Cargando el texto…',
+   empty:'No se encontró nada. Quita uno de los filtros o prueba con una búsqueda más corta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
+   sections:'Secciones', ratioH:'Beneficio / costos', ratioS:'Juicio del autor, comparable solo dentro de una misma categoría',
+   lensH:'Qué obtienes', lensS:'Las categorías no se comparan entre sí',
+   gradeH:'Evidencia', gradeS:'Metanálisis/ECR · hay estudios · consenso', gradeA:'Nivel A', gradeB:'Nivel B', gradeC:'Nivel C',
+   moneyH:'Dinero', timeH:'Tiempo', willH:'Voluntad',
+   money0:'Gratis', moneyL:'Poco', moneyM:'Mucho', timeL:'Al momento', timeM:'Unas horas', timeH2:'A diario', willN:'No hace falta', willS:'Un poco', willB:'Bastante',
+   fDispute:'solo controvertidas', fTodo:'solo sin verificar',
+   hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
+   hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
+   hint3:'Los datos vienen del directorio <a href="../book/es/">book/es/</a> ({n}); edita el texto allí.',
+   foot:'La categoría del beneficio se indica en cada entrada (mortalidad / tiempo y energía / dinero / protección y libertad personal); las categorías no se comparan entre sí. Verificación de fuentes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (en chino)</a>. El texto es de dominio público (Unlicense).',
+   kCost:'Costo', kGain:'Beneficio', kNote:'Notas', src:'Fuentes', anchor:'Enlace a esta entrada',
+   ratioBadge:'Beneficio/costos', ratioTitle:'Juicio del autor: a partir del nivel del efecto', gradeBadge:'Evidencia', dispute:'En disputa', todo:'Tiene sin verificar',
+   ratio:{'极高':'Muy alta','高':'Alta','一般':'Normal'},
+   lens:{'死亡率':'Vida','金钱':'Dinero','时间':'Tiempo y energía','自由':'Libertad'},
+   moneyL2:{'0':'Gratis','少':'Gasto pequeño','多':'Gasto notable'},
+   timeL2:{'少':'Al momento','中':'Unas horas','多':'A diario'},
+   willL2:{'否':'Sin esfuerzo','些':'Un poco de esfuerzo','是':'Esfuerzo serio'},
+   ratioFull:'Beneficio/costos: ', gradeFull:'Evidencia: ',
+   errFile:'Esta página solo se abre por http. Ejecuta <code>python -m http.server</code> en el directorio del repositorio y abre <code>http://localhost:8000/</code>, o usa la dirección de GitHub Pages.',
+   errLoad:(m)=>`No se pudo cargar el texto (${m}). Asegúrate de que el README y el directorio book/ estén junto a index.html.`,
+   cap:true,
+   allSections:'Secciones',
+   readmeHref:'README.es.md', readmeTitle:'Abrir README',
+   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma', verTitle:'Versión antigua del sitio', verTitle2:'Versión nueva del sitio',
+   metaDesc:'Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
+   keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
+   about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
+   author:'HowToLiveBetter (traducción al español)',
+   forkNote:'Traducción no oficial. El <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original chino</a> es el autorizado.',
    snapshotNote:'' },
  zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',

@@ -1,5 +1,7 @@
 .idea/
 .junie/
+node_modules/
+dist/
 
 # translation pipeline transient state
 tools/digest/

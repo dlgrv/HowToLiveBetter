@@ -32,8 +32,9 @@ LABELS = {
     "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
     "ru": ["Стоимость", "Простыми словами", "Эффект", "Уровень доказательности", "Примечания"],
     "en": ["Cost", "In plain terms", "Benefit", "Evidence grade", "Notes"],
+    "es": ["Costo", "En términos sencillos", "Beneficio", "Nivel de evidencia", "Notas"],
 }
-SRC_LABEL = {"cn": "- 来源：", "ru": "- Источники:", "en": "- Sources:"}
+SRC_LABEL = {"cn": "- 来源：", "ru": "- Источники:", "en": "- Sources:", "es": "- Fuentes:"}
 CJK = re.compile(r"[\u4e00-\u9fff]")
 FULLWIDTH = re.compile(r"[，。：；！？「」『』（）]")
 NUM = re.compile(r"\d+(?:\.\d+)?")
@@ -95,13 +96,14 @@ def fold_words(text):
     return WORD_RX.sub(rep, text)
 
 
-def norm_numbers(text, ru=False):
+def norm_numbers(text, ru=False, es=False):
     """Multiset of ABSOLUTE numeric values: scale-words (万/亿/тыс./млн/млрд/
-    thousand/million/billion) are folded into the value, so «65.4 万» == «654
-    тыс.» == «654,000». Comma handling is language-dependent: RU uses the comma
-    as the decimal separator and a space as the thousands separator; CN/EN use
-    the dot as decimal and the comma as thousands separator."""
+    thousand/million/billion/mil/millones) are folded into the value, so «65.4 万»
+    == «654 тыс.» == «654,000» == «654 000». Comma handling is language-dependent:
+    RU/ES use the comma as the decimal separator and a space as the thousands
+    separator; CN/EN use the dot as decimal and the comma as thousands separator."""
     text = text.replace("\u00a0", " ")
+    text = text.replace("\u202f", " ")   # ES narrow no-break space thousands
     if ru:
         # «4,257 млрд» — a comma directly before a scale word is DECIMAL
         text = re.sub(r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"
@@ -112,6 +114,13 @@ def norm_numbers(text, ru=False):
         text = re.sub(r"(?<![0.,]),(?=\d{3}(?!\d))", "", text)
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)          # RU decimal comma
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)  # RU space thousands
+    elif es:
+        # ES: space thousands «25 871», decimal comma «0,001»; a comma before
+        # a scale word is decimal («4,257 millones»)
+        text = re.sub(r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
+                      r"mil millones|billones|trillones))", r"\1.\2", text, flags=re.I)
+        text = re.sub(r"(?<=\d),(?=\d)", ".", text)          # ES decimal comma
+        text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)  # ES space thousands
     else:
         text = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", text)  # EN/CN comma thousands
     text = fold_words(text)
@@ -124,12 +133,15 @@ def norm_numbers(text, ru=False):
     scale = [("тысяч", 1e3), ("тыс", 1e3), ("миллион", 1e6), ("млн", 1e6),
              ("миллиард", 1e9), ("млрд", 1e9), ("трлн", 1e12), ("триллион", 1e12),
              ("trillion", 1e12), ("万亿", 1e12), ("万", 1e4), ("亿", 1e8), ("千", 1e3),
-             ("thousand", 1e3), ("million", 1e6), ("billion", 1e9)]
+             ("thousand", 1e3), ("million", 1e6), ("billion", 1e9),
+             ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil ", 1e3),
+             ("billones", 1e12), ("billón", 1e12), ("trillones", 1e12)]
     out = []
     for m in re.finditer(
             r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|万|亿|千)\s*[多余]?|"
             r"(\d+(?:\.\d+)?)\s*(万亿|万|亿|千|тысяч\w*|тыс\.?|миллион\w*|млн|"
-            r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion)?",
+            r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
+            r"millones|millón\b|billones|billón\b|trillones|mil\b)?",
             text, flags=re.I):
         g_num, g_scale = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
         v = float(g_num)
@@ -144,7 +156,7 @@ def norm_numbers(text, ru=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("chapter")
-    ap.add_argument("--lang", required=True, choices=["ru", "en"])
+    ap.add_argument("--lang", required=True, choices=["ru", "en", "es"])
     ap.add_argument("--file", help="explicit translated-file path (default: book/<lang>/NN-*)")
     args = ap.parse_args()
     n, lang = args.chapter, args.lang
@@ -230,7 +242,7 @@ def main():
 
     # 5. numbers ----------------------------------------------------------------
     cn_nums = norm_numbers("\n".join(cn_body))
-    tr_nums = norm_numbers("\n".join(tr_body), ru=(lang == "ru"))
+    tr_nums = norm_numbers("\n".join(tr_body), ru=(lang == "ru"), es=(lang == "es"))
     from collections import Counter
     missing = Counter(cn_nums) - Counter(tr_nums)   # in CN, not in translation
     extra = Counter(tr_nums) - Counter(cn_nums)     # added by translation/localization

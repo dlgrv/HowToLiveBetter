@@ -32,6 +32,17 @@
       "inLanguage": "zh-CN",
       "shortLabel": "中",
       "menuLabel": "中文"
+    },
+    {
+      "code": "es",
+      "primary": false,
+      "contentRoot": "book/es",
+      "readme": "README.es.md",
+      "htmlLang": "es",
+      "ogLocale": "es_419",
+      "inLanguage": "es-419",
+      "shortLabel": "ES",
+      "menuLabel": "Español"
     }
   ]
 }

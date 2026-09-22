@@ -1,0 +1,48 @@
+<!-- ads/mcyyy.webp 的源文件（README 底部「广告位」里那张横幅）。改完重新出图（Windows + Chrome）：
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu ^
+       --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,400 ^
+       --screenshot=D:\projects\HowToLiveBetter\ads\mcyyy.png ^
+       D:\projects\HowToLiveBetter\tools\ad-mcyyy.html
+     Chrome 只能出 png（约 540KB），再转成 webp（约 55KB）后删掉 png，转换借 mcyyy-next 里的 sharp：
+       cd D:\projects\mcyyy-next
+       node -e "require('sharp')('D:/projects/HowToLiveBetter/ads/mcyyy.png').webp({quality:84}).toFile('D:/projects/HowToLiveBetter/ads/mcyyy.webp')"
+     截图必须用绝对路径，相对路径 headless 会报「系统找不到指定的路径」。
+     背景图 tools/ad-mcyyy-bg.webp 来自服务器官网自己的主视觉，换广告主就整份复制一份改。 -->
+<!doctype html><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:400px;font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+  position:relative;overflow:hidden;background:#0b1220}
+.bg{position:absolute;inset:0;background:url("ad-mcyyy-bg.webp") center 42% / cover no-repeat}
+.scrim{position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(8,15,32,.94) 0%, rgba(8,15,32,.86) 38%, rgba(8,15,32,.45) 64%, rgba(8,15,32,.15) 100%)}
+.in{position:relative;height:100%;padding:44px 56px;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.kicker{font-size:19px;letter-spacing:.34em;color:#9fc0ff;font-weight:600}
+h1{margin-top:14px;font-size:76px;line-height:1;letter-spacing:.04em;font-weight:700;
+  text-shadow:0 4px 26px rgba(0,0,0,.55)}
+.sub{margin-top:16px;font-size:25px;color:#dbe6ff;font-weight:500}
+.chips{margin-top:24px;display:flex;gap:11px}
+.c{font-size:18px;font-weight:600;padding:9px 17px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#eaf1ff}
+.addr{margin-top:28px;display:flex;align-items:center;gap:18px}
+.ip{font-size:32px;font-weight:700;letter-spacing:.02em;padding:11px 24px;border-radius:12px;
+  background:#3451b2;box-shadow:0 8px 28px rgba(52,81,178,.45)}
+.ip span{font-size:19px;font-weight:600;opacity:.82;margin-right:12px;letter-spacing:.06em}
+.site{font-size:21px;color:#c3d4f5;font-weight:500}
+</style>
+<div class="bg"></div>
+<div class="scrim"></div>
+<div class="in">
+  <div class="kicker">MINECRAFT JAVA 版生存服务器</div>
+  <h1>永恒世界</h1>
+  <div class="sub">Folia 多线程内核，人多也不卡；mcMMO 修仙玩法</div>
+  <div class="chips">
+    <div class="c">领地 · 经济 · 传送</div>
+    <div class="c">每小时全服备份</div>
+    <div class="c">纯净生存</div>
+  </div>
+  <div class="addr">
+    <div class="ip"><span>游戏地址</span>1.mcyyy.com</div>
+    <div class="site">官网 4.mcyyy.com</div>
+  </div>
+</div>
