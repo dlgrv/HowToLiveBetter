@@ -1,0 +1,9 @@
+{
+  "pair_id": "g33",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 2 is bloated with stilted legalese and filler ('in the event that', 'aforementioned', 'it is to be noted', 'is constituted by', 'the inspecting, the copying'), while Variant 1 reads as plain, idiomatic English.\"\n}\n```",
+  "latency_s": 16.1,
+  "model": "glm-5.3-flash"
+}

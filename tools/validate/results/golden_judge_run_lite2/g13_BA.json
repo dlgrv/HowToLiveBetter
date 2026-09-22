@@ -1,0 +1,9 @@
+{
+  "pair_id": "g13",
+  "order": "BA",
+  "winner_raw": null,
+  "decoded": "unparsed",
+  "reply": "",
+  "latency_s": 40.5,
+  "model": "glm-5.3-flash"
+}

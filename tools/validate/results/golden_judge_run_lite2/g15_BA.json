@@ -1,0 +1,9 @@
+{
+  "pair_id": "g15",
+  "order": "BA",
+  "winner_raw": "1",
+  "decoded": "b",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"The shared text is identical, but Variant 2's added sentences contain a case-agreement error («тем… успеют направить» should be accusative «тех») and slightly clunkier phrasing, so Variant 1 reads more cleanly.\"\n}\n```",
+  "latency_s": 35.9,
+  "model": "glm-5.3-flash"
+}

@@ -1,0 +1,9 @@
+{
+  "pair_id": "g32",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "{\"winner\": \"2\", \"reason\": \"Variant 1 is weighed down by канцелярит ('необходимо отметить', 'допускается, что', 'является', 'не имеется'), while Variant 2 expresses the same content in direct, natural Russian phrasing.\"}",
+  "latency_s": 19.0,
+  "model": "glm-5.3-flash"
+}

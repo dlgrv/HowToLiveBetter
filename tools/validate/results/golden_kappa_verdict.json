@@ -1,0 +1,15 @@
+{
+  "n_pairs": 10,
+  "n_content": 8,
+  "note": "batch-1 labels withdrawn by user; this verdict is batch-2 only",
+  "po_human_vs_judge": 0.6,
+  "kappa_human_vs_judge": 0.375,
+  "kappa_gate": 0.6,
+  "gate_passed": false,
+  "human_orig_rate": "4/8",
+  "human_longer_rate": "4/8",
+  "judge_orig_rate": "36/36",
+  "judge_longer_rate": "0/36",
+  "verdict": "judge NOT approved for auto-gate: kappa 0.25 << 0.6; shorter-bias confound unresolved (inflation recipe required)",
+  "at": "2026-09-21T18:15:20"
+}

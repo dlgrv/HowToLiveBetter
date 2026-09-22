@@ -1,0 +1,1192 @@
+{
+  "ts": "2026-09-19T09:42:51Z",
+  "chapters": [
+    "10",
+    "11",
+    "13",
+    "28",
+    "30"
+  ],
+  "known_defects": {
+    "10": [
+      "numbers: verify domain (not E)"
+    ],
+    "11": [
+      "numbers: verify domain (not E)"
+    ],
+    "13": [
+      "calque когорт: style domain (not E)"
+    ],
+    "28": [
+      "calque когорт: style domain (not E)"
+    ],
+    "30": [
+      "calque когорт: style domain (not E)"
+    ]
+  },
+  "totals": {
+    "verdicts": 98,
+    "assertions": 594,
+    "grounded_issues": 3,
+    "ungrounded_dropped": 5,
+    "gates": {
+      "fail": 2,
+      "warn": 1,
+      "pass": 95
+    }
+  },
+  "per_chapter": {
+    "10": {
+      "units": [
+        {
+          "unit": "00",
+          "verdict_file": "tools/judge/factcheck/10-ru-00.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "01",
+          "verdict_file": "tools/judge/factcheck/10-ru-01.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "02",
+          "verdict_file": "tools/judge/factcheck/10-ru-02.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "03",
+          "verdict_file": "tools/judge/factcheck/10-ru-03.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "04",
+          "verdict_file": "tools/judge/factcheck/10-ru-04.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "05",
+          "verdict_file": "tools/judge/factcheck/10-ru-05.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "06",
+          "verdict_file": "tools/judge/factcheck/10-ru-06.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "07",
+          "verdict_file": "tools/judge/factcheck/10-ru-07.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "08",
+          "verdict_file": "tools/judge/factcheck/10-ru-08.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "09",
+          "verdict_file": "tools/judge/factcheck/10-ru-09.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "10",
+          "verdict_file": "tools/judge/factcheck/10-ru-10.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "11",
+          "verdict_file": "tools/judge/factcheck/10-ru-11.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "12",
+          "verdict_file": "tools/judge/factcheck/10-ru-12.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "13",
+          "verdict_file": "tools/judge/factcheck/10-ru-13.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "14",
+          "verdict_file": "tools/judge/factcheck/10-ru-14.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "15",
+          "verdict_file": "tools/judge/factcheck/10-ru-15.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "16",
+          "verdict_file": "tools/judge/factcheck/10-ru-16.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "17",
+          "verdict_file": "tools/judge/factcheck/10-ru-17.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        }
+      ],
+      "gates": {
+        "fail": 0,
+        "warn": 0,
+        "pass": 18
+      }
+    },
+    "11": {
+      "units": [
+        {
+          "unit": "00",
+          "verdict_file": "tools/judge/factcheck/11-ru-00.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "warn",
+          "issues": [
+            {
+              "claim": "В RU-интро добавлен абзац-дисклеймер «Глава 11 ссылается на китайские законы и учреждения; для читателей вне Китая это справочный материал, а не действующее право» — предупреждение, отсутствующее в CN-интро.",
+              "cn_span": "每条给出法条里的数字和最高检、最高法官网公布的案例",
+              "issue_type": "added_advice"
+            }
+          ],
+          "unverifiable": []
+        },
+        {
+          "unit": "01",
+          "verdict_file": "tools/judge/factcheck/11-ru-01.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "02",
+          "verdict_file": "tools/judge/factcheck/11-ru-02.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "03",
+          "verdict_file": "tools/judge/factcheck/11-ru-03.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": [
+            "Глосс переводчика «(единый сервис железнодорожных билетов КНР)» при 12306 — пояснение, отсутствующее в CN"
+          ]
+        },
+        {
+          "unit": "04",
+          "verdict_file": "tools/judge/factcheck/11-ru-04.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "05",
+          "verdict_file": "tools/judge/factcheck/11-ru-05.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": [
+            "Глосс переводчика «(QQ — мессенджер, китайский аналог ICQ)» — пояснение, отсутствующее в CN"
+          ]
+        },
+        {
+          "unit": "06",
+          "verdict_file": "tools/judge/factcheck/11-ru-06.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "07",
+          "verdict_file": "tools/judge/factcheck/11-ru-07.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "08",
+          "verdict_file": "tools/judge/factcheck/11-ru-08.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "09",
+          "verdict_file": "tools/judge/factcheck/11-ru-09.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "10",
+          "verdict_file": "tools/judge/factcheck/11-ru-10.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "fail",
+          "issues": [
+            {
+              "claim": "ПРОБЛЕМА: RU-«说人话» утверждает, что фармацевтическая компания «отсудила» у технического директора 7,1 млн юаней неустойки; в CN компания лишь предъявила требование (索赔), а суд отклонил иск целиком. «Отсудила» означает выигрыш дела — это утверждение без основы в CN и противоречит концу того же RU-предложения («отклонила иск целиком»).",
+              "cn_span": "有家医药公司告首席技术官索赔 710 万元违约金，法院认定竞业范围只能限于他实际知道的秘密，全部驳回",
+              "issue_type": "invented"
+            }
+          ],
+          "unverifiable": [
+            "Глосс переводчика «(竞业限制 — соглашение с работодателем: после ухода нельзя работать у конкурента или уводить клиентов…)» — пояснение, отсутствующее в CN, содержание согласуется с разделом"
+          ]
+        },
+        {
+          "unit": "11",
+          "verdict_file": "tools/judge/factcheck/11-ru-11.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "12",
+          "verdict_file": "tools/judge/factcheck/11-ru-12.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "13",
+          "verdict_file": "tools/judge/factcheck/11-ru-13.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "14",
+          "verdict_file": "tools/judge/factcheck/11-ru-14.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "15",
+          "verdict_file": "tools/judge/factcheck/11-ru-15.json",
+          "grounding": {
+            "grounded": false,
+            "dropped": 2
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        }
+      ],
+      "gates": {
+        "fail": 1,
+        "warn": 1,
+        "pass": 14
+      }
+    },
+    "13": {
+      "units": [
+        {
+          "unit": "00",
+          "verdict_file": "tools/judge/factcheck/13-ru-00.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "01",
+          "verdict_file": "tools/judge/factcheck/13-ru-01.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "02",
+          "verdict_file": "tools/judge/factcheck/13-ru-02.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "03",
+          "verdict_file": "tools/judge/factcheck/13-ru-03.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "04",
+          "verdict_file": "tools/judge/factcheck/13-ru-04.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "05",
+          "verdict_file": "tools/judge/factcheck/13-ru-05.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "06",
+          "verdict_file": "tools/judge/factcheck/13-ru-06.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "07",
+          "verdict_file": "tools/judge/factcheck/13-ru-07.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "08",
+          "verdict_file": "tools/judge/factcheck/13-ru-08.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "09",
+          "verdict_file": "tools/judge/factcheck/13-ru-09.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "10",
+          "verdict_file": "tools/judge/factcheck/13-ru-10.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "11",
+          "verdict_file": "tools/judge/factcheck/13-ru-11.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "12",
+          "verdict_file": "tools/judge/factcheck/13-ru-12.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "13",
+          "verdict_file": "tools/judge/factcheck/13-ru-13.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "14",
+          "verdict_file": "tools/judge/factcheck/13-ru-14.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "15",
+          "verdict_file": "tools/judge/factcheck/13-ru-15.json",
+          "grounding": {
+            "grounded": false,
+            "dropped": 1
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "16",
+          "verdict_file": "tools/judge/factcheck/13-ru-16.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "17",
+          "verdict_file": "tools/judge/factcheck/13-ru-17.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "18",
+          "verdict_file": "tools/judge/factcheck/13-ru-18.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "19",
+          "verdict_file": "tools/judge/factcheck/13-ru-19.json",
+          "grounding": {
+            "grounded": false,
+            "dropped": 1
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "20",
+          "verdict_file": "tools/judge/factcheck/13-ru-20.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "21",
+          "verdict_file": "tools/judge/factcheck/13-ru-21.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "22",
+          "verdict_file": "tools/judge/factcheck/13-ru-22.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "23",
+          "verdict_file": "tools/judge/factcheck/13-ru-23.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "24",
+          "verdict_file": "tools/judge/factcheck/13-ru-24.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "25",
+          "verdict_file": "tools/judge/factcheck/13-ru-25.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "26",
+          "verdict_file": "tools/judge/factcheck/13-ru-26.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "27",
+          "verdict_file": "tools/judge/factcheck/13-ru-27.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "28",
+          "verdict_file": "tools/judge/factcheck/13-ru-28.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "29",
+          "verdict_file": "tools/judge/factcheck/13-ru-29.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "30",
+          "verdict_file": "tools/judge/factcheck/13-ru-30.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "31",
+          "verdict_file": "tools/judge/factcheck/13-ru-31.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "32",
+          "verdict_file": "tools/judge/factcheck/13-ru-32.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "33",
+          "verdict_file": "tools/judge/factcheck/13-ru-33.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "34",
+          "verdict_file": "tools/judge/factcheck/13-ru-34.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "35",
+          "verdict_file": "tools/judge/factcheck/13-ru-35.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "36",
+          "verdict_file": "tools/judge/factcheck/13-ru-36.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "37",
+          "verdict_file": "tools/judge/factcheck/13-ru-37.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "38",
+          "verdict_file": "tools/judge/factcheck/13-ru-38.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "39",
+          "verdict_file": "tools/judge/factcheck/13-ru-39.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "40",
+          "verdict_file": "tools/judge/factcheck/13-ru-40.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "41",
+          "verdict_file": "tools/judge/factcheck/13-ru-41.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "42",
+          "verdict_file": "tools/judge/factcheck/13-ru-42.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        }
+      ],
+      "gates": {
+        "fail": 0,
+        "warn": 0,
+        "pass": 43
+      }
+    },
+    "28": {
+      "units": [
+        {
+          "unit": "00",
+          "verdict_file": "tools/judge/factcheck/28-ru-00.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": [
+            "RU adds a translator's preface (glosses for 医美 and 主诊医师资格) and a standalone line that the chapter references Chinese laws and is reference-only outside China; both are translator/edition meta-notes without a CN counterpart, not judged as added_advice."
+          ]
+        },
+        {
+          "unit": "01",
+          "verdict_file": "tools/judge/factcheck/28-ru-01.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "02",
+          "verdict_file": "tools/judge/factcheck/28-ru-02.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "03",
+          "verdict_file": "tools/judge/factcheck/28-ru-03.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "04",
+          "verdict_file": "tools/judge/factcheck/28-ru-04.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": [
+            "Translator's aside that the regulator page hosting 国食药监办〔2010〕432 号 'стабильно возвращает 412' on this machine — machine-specific access claim, not re-verified."
+          ]
+        },
+        {
+          "unit": "05",
+          "verdict_file": "tools/judge/factcheck/28-ru-05.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "06",
+          "verdict_file": "tools/judge/factcheck/28-ru-06.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "07",
+          "verdict_file": "tools/judge/factcheck/28-ru-07.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "08",
+          "verdict_file": "tools/judge/factcheck/28-ru-08.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        }
+      ],
+      "gates": {
+        "fail": 0,
+        "warn": 0,
+        "pass": 9
+      }
+    },
+    "30": {
+      "units": [
+        {
+          "unit": "00",
+          "verdict_file": "tools/judge/factcheck/30-ru-00.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "01",
+          "verdict_file": "tools/judge/factcheck/30-ru-01.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "02",
+          "verdict_file": "tools/judge/factcheck/30-ru-02.json",
+          "grounding": {
+            "grounded": false,
+            "dropped": 1
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "03",
+          "verdict_file": "tools/judge/factcheck/30-ru-03.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "04",
+          "verdict_file": "tools/judge/factcheck/30-ru-04.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "05",
+          "verdict_file": "tools/judge/factcheck/30-ru-05.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "06",
+          "verdict_file": "tools/judge/factcheck/30-ru-06.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "fail",
+          "issues": [
+            {
+              "claim": "«Десять мер» 2025: трёхуровневая система (классные руководители, штатные/совместители педагоги-психологи, психиатры); механизм направления к врачу и возвращения к учёбе после лечения; задействовать 12355 и 12356 (по всей стране, октябрь 2025).",
+              "cn_span": "要求构建班主任、专兼职心理健康教师、精神科医师三级服务体系，每名学生每学年接受心理测评一般不超过 1 次，推进精神疾病转介就医和愈后复学机制，发挥 12355 青少年服务台和 12356 心理援助热线作用（全国，2025 年 10 月印发）",
+              "issue_type": "dropped_condition"
+            }
+          ],
+          "unverifiable": []
+        },
+        {
+          "unit": "07",
+          "verdict_file": "tools/judge/factcheck/30-ru-07.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "08",
+          "verdict_file": "tools/judge/factcheck/30-ru-08.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "09",
+          "verdict_file": "tools/judge/factcheck/30-ru-09.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "10",
+          "verdict_file": "tools/judge/factcheck/30-ru-10.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        },
+        {
+          "unit": "11",
+          "verdict_file": "tools/judge/factcheck/30-ru-11.json",
+          "grounding": {
+            "grounded": true,
+            "dropped": 0
+          },
+          "gate": "pass",
+          "issues": [],
+          "unverifiable": []
+        }
+      ],
+      "gates": {
+        "fail": 1,
+        "warn": 0,
+        "pass": 11
+      }
+    }
+  },
+  "note": "expected: pass E finds logic/condition/additions issues; numbers (10/11) and calques (13/28/30) belong to verify/style"
+}

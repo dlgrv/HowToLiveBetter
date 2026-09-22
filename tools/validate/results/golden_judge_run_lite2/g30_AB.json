@@ -1,0 +1,9 @@
+{
+  "pair_id": "g30",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 reads as direct, idiomatic English, while Variant 2 pads every sentence with bureaucratic filler ('in the event that', 'it is to be noted', 'with respect to some of them, they affect') that obscures the same content.\"\n}",
+  "latency_s": 3.6,
+  "model": "glm-5.3-flash"
+}

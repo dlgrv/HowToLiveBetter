@@ -1,0 +1,83 @@
+{
+  "model": "glm-5.3-flash",
+  "subset": [
+    "g02",
+    "g03",
+    "g23",
+    "g24",
+    "g30",
+    "g32",
+    "g33",
+    "g35",
+    "g38"
+  ],
+  "failed_calls": 0,
+  "unparsed": 4,
+  "native_preference": {
+    "rate_a": 1.0,
+    "n": 14,
+    "a": 14,
+    "b": 0,
+    "tie": 0
+  },
+  "decoy": {
+    "rate_a": null,
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "tie": 0
+  },
+  "order_bias": {
+    "AB": {
+      "rate_a": 1.0,
+      "n": 8,
+      "a": 8,
+      "b": 0,
+      "tie": 0
+    },
+    "BA": {
+      "rate_a": 1.0,
+      "n": 6,
+      "a": 6,
+      "b": 0,
+      "tie": 0
+    }
+  },
+  "length_bias": {
+    "picked_longer": 0,
+    "decided": 14
+  },
+  "per_pair": {
+    "g02": [],
+    "g03": [
+      "a"
+    ],
+    "g23": [
+      "a",
+      "a"
+    ],
+    "g24": [
+      "a",
+      "a"
+    ],
+    "g30": [
+      "a"
+    ],
+    "g32": [
+      "a",
+      "a"
+    ],
+    "g33": [
+      "a",
+      "a"
+    ],
+    "g35": [
+      "a",
+      "a"
+    ],
+    "g38": [
+      "a",
+      "a"
+    ]
+  }
+}

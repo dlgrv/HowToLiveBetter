@@ -1,0 +1,9 @@
+{
+  "pair_id": "g38",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 1 uses direct, natural phrasing ('if the platform does not cooperate', 'sue in court', 'it is worth writing down'), while Variant 2 is marred by stilted bureaucratese ('in the event that cooperation is not forthcoming', 'reasons are required to be given by it', 'utilize the court to sue', 'to effect the writing down of', 'with respect to each other').\"\n}\n```",
+  "latency_s": 7.9,
+  "model": "glm-5.3-flash"
+}

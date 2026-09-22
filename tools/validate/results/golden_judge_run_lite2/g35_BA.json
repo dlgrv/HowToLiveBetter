@@ -1,0 +1,9 @@
+{
+  "pair_id": "g35",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses natural active Russian phrasing (звоните, линия приняла, найдите), while Variant 1 is weighed down by канцелярит and passive calques like «осуществить сохранение» and «должен быть найден».\"\n}",
+  "latency_s": 8.8,
+  "model": "glm-5.3-flash"
+}

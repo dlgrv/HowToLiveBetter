@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "ids": [
+    "g24",
+    "g28",
+    "g30",
+    "g33",
+    "g35",
+    "g37",
+    "g38",
+    "g40",
+    "g43",
+    "g48"
+  ],
+  "ref": "2ede9559d1630d8190bfe18d59e4b993ca16a5c943b51f5e8d3fbe1aaafbe521",
+  "note": "lite subset batch 2 only (batch 1 withdrawn by user)"
+}

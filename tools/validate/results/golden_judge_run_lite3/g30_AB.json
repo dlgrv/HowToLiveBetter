@@ -1,0 +1,9 @@
+{
+  "pair_id": "g30",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 1 reads smoothly and consistently, while Variant 2 stumbles with a run-on missing punctuation ('...the dose has to be higher It is worth stressing...'), an internally contradictory 'In plain terms' line, and a vague, tacked-on closing sentence.\"}",
+  "latency_s": 64.5,
+  "model": "glm-5.3-flash"
+}

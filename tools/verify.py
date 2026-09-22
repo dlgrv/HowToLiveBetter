@@ -40,6 +40,23 @@ NUM = re.compile(r"\d+(?:\.\d+)?")
 BANNED_RU = ["когорт", "экспозици", "квартил", "квинтил", "конфаунд", "популяц"]
 
 
+def _lang_pack(lang):
+    """Load tools/rules/<lang>.json (labels/banned_calques); None if absent/empty.
+
+    Fallback contract (plan Task 10b): while the language pack is not yet
+    filled, verify.py keeps its built-in LABELS/BANNED_RU — zero behavior
+    change until Task 10b lands in full.
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rules", f"{lang}.json")
+    try:
+        pack = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if not pack or (not pack.get("labels") and not pack.get("banned_calques")):
+        return None
+    return pack
+
+
 WORD_VALUES = [
     # compound first
     (r"двадцать[\s-]?четыре", "24"), (r"twenty-four", "24"),
@@ -139,11 +156,13 @@ def main():
     src_path = os.path.join(root, "book", srcs[0])
     if args.file:
         tr_path = args.file
+        explicit_file = True
     else:
         cand = glob.glob(os.path.join(root, "book", lang, f"{n}-*.md"))
         if len(cand) != 1:
             sys.exit(f"expected exactly 1 book/{lang}/{n}-*.md, got {len(cand)}")
         tr_path = cand[0]
+        explicit_file = False
     if not os.path.exists(tr_path):
         sys.exit(f"translated file not found: {tr_path}")
 
@@ -183,17 +202,26 @@ def main():
             if a != b:
                 fails.append("source line mismatch: " + a[:60])
 
-    # 4. field labels ----------------------------------------------------------
+    # 4. field labels (labels from language pack, fallback to built-ins) ---------
     cn_body = body(sl, "- 来源：")
     tr_body = body(tl, SRC_LABEL[lang])
-    for i, cn_lab in enumerate(LABELS["cn"]):
+    pack = _lang_pack(lang)
+    if pack and pack.get("labels"):
+        labels = pack["labels"]
+    else:
+        labels = LABELS
+    if pack and pack.get("banned_calques"):
+        banned = pack["banned_calques"]
+    else:
+        banned = BANNED_RU if lang == "ru" else []
+    for i, cn_lab in enumerate(labels["cn"]):
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
-        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + LABELS[lang][i]))
+        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))
         if want != got:
-            fails.append(f'field {LABELS[lang][i]}: {got} != {want} ("-{cn_lab}")')
+            fails.append(f'field {labels[lang][i]}: {got} != {want} ("- {cn_lab}")')
 
     # 4.5 plain-terms lines must stay jargon-free (CLAUDE.md: 说人话 bans HR/RR/OR/CI)
-    plain = LABELS[lang][1]
+    plain = labels[lang][1]
     for idx, l in enumerate(tl, 1):
         if l.lstrip().startswith("- " + plain):
             hits = re.findall(r"\b(?:HR|RR|OR|CI)\b", l)
@@ -246,11 +274,11 @@ def main():
         fails.append(f"CJK outside allowed zones: {len(zh_lines)} line(s), " +
                      "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]))
 
-    # 7. RU banned calques -------------------------------------------------------
-    if lang == "ru":
-        allru = "\n".join(tl).lower()
-        for stem in BANNED_RU:
-            cnt = len(re.findall(stem, allru))
+    # 7. banned calques (stems from language pack) -------------------------------
+    if banned:
+        alltr = "\n".join(tl).lower()
+        for stem in banned:
+            cnt = len(re.findall(stem, alltr))
             if cnt > 1:
                 fails.append(f'banned calque "{stem}": {cnt} occurrences (max 1, first-use gloss)')
             elif cnt == 1:
@@ -268,6 +296,11 @@ def main():
     print(f"OK: headings={len(th)} tags={tt} sources={len(ts)} "
           f"numbers={len(cn_nums)} (lost=0, extra={sum(extra.values())})")
     os.makedirs(os.path.join(root, "tools", ".status"), exist_ok=True)
+    if explicit_file:
+        # a candidate file is not the committed book: do not refresh the
+        # chapter's freshness stamp (mutation harness/tests pass --file)
+        print("stamp skipped (--file mode)")
+        return
     mark = os.path.join(root, "tools", ".status", f"{n}-{lang}.ok")
     json.dump({"chapter": n, "lang": lang, "file": os.path.basename(tr_path),
                "ts": time.time(), "nums": len(cn_nums)},

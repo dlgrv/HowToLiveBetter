@@ -1,0 +1,8 @@
+### 10. For the deceased's accounts and personal information, close relatives may demand to inspect, copy, correct, and delete
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=自由 -->
+- Cost: 0 yuan; a complaint or a lawsuit is needed only if the platform does not cooperate
+- In plain terms: after a person dies, close relatives may, for their own lawful and legitimate interests, demand that platforms let them inspect, copy, correct, and delete the deceased's personal information; if the platform refuses it must give reasons, and the relatives can also sue in court. The exception is where the deceased made other arrangements in life — if an account heir was designated or clear wishes were left, those take precedence.
+- Benefit: the law states expressly: where a natural person dies, close relatives may, for their own lawful and legitimate interests, exercise rights such as inspecting, copying, correcting, and deleting the deceased's relevant personal information
+- Evidence grade: A
+- Sources: 全国人大常委会 (2021). 个人信息保护法. 中国人大网. <http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html> 第四十九条：「自然人死亡的，其近亲属为了自身的合法、正当利益，可以对死者的相关个人信息行使本章规定的查阅、复制、更正、删除等权利；死者生前另有安排的除外。」；第五十条「个人信息处理者应当建立便捷的个人行使权利的申请受理和处理机制。拒绝个人行使权利的请求的，应当说明理由」「个人可以依法向人民法院提起诉讼」
+- Notes: "except where the deceased made other arrangements in life" — if an account heir was designated or clear wishes were recorded, those take precedence. This is also why it is worth writing down, while still of sound mind, where the accounts and passwords are kept; see Section 17. Closing an account and deleting personal information are two different matters; see Section 14.

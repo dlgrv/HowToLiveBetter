@@ -1,0 +1,9 @@
+{
+  "pair_id": "g37",
+  "order": "BA",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "{\"winner\": \"tie\", \"reason\": \"Оба варианта текстуально идентичны, различий в естественности, порядке слов или ритме нет.\"}",
+  "latency_s": 12.5,
+  "model": "glm-5.3-flash"
+}

@@ -5,5 +5,22 @@
 tools/digest/
 tools/.status/
 
+# quality pipeline v2 transient state (verdicts and QE caches are machine-local)
+tools/judge/
+tools/.qe/
+tools/validate/results/_batch*.json
+
+# python
+__pycache__/
+*.pyc
+
 # hermes local artifacts
 .hermes/
+_build_batch4.py
+tools/validate/results/_build_batch4.py
+tools/validate/results/_ru_work/
+tools/validate/results/_golden_b_*.json
+tools/validate/results/golden_session/
+tools/validate/results/golden_verdicts_batch*.json
+tools/validate/results/factcheck/
+tools/validate/results/style_fp_session*.json

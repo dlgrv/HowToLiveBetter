@@ -1,0 +1,9 @@
+{
+  "pair_id": "g35",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 1 reads as natural, direct Russian, while Variant 2 is bogged down in канцелярит ('осуществить сохранение', 'следует отметить', 'является одним', 'он должен быть найден') and stilted passive constructions.\"}",
+  "latency_s": 8.6,
+  "model": "glm-5.3-flash"
+}

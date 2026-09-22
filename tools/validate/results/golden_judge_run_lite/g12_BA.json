@@ -1,0 +1,9 @@
+{
+  "pair_id": "g12",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 reads as direct, idiomatic English, while Variant 1 is riddled with stilted passive circumlocutions ('is what is paid', 'it is to be noted that', 'is achieved by', 'was had') that mimic translationese and bury the message.\"\n}\n```",
+  "latency_s": 11.0,
+  "model": "glm-5.3-flash"
+}

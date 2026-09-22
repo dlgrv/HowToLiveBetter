@@ -1,0 +1,9 @@
+{
+  "pair_id": "g03",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"1\",\n  \"reason\": \"Variant 2 suffers from a verbatim repeated sentence and stiff bureaucratese («данный порядок», «описанного правила», «типовых вопросов»), while Variant 1 reads cleaner and more idiomatic throughout.\"\n}\n```",
+  "latency_s": 34.5,
+  "model": "glm-5.3-flash"
+}

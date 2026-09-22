@@ -1,0 +1,9 @@
+{
+  "pair_id": "g05",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"VARIANT 2 reads more naturally, replacing stiff calques and канцелярит («вложения, сделанные один раз», «траты времени, которая является пустой», «время, которое было сэкономлено») with idiomatic, rhythmic phrasing («разовые вложения», «тыкает в панель инструментов», «сэкономленное время»).\"\n}\n```",
+  "latency_s": 27.3,
+  "model": "glm-5.3-flash"
+}

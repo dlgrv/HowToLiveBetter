@@ -1,0 +1,9 @@
+{
+  "pair_id": "g35",
+  "order": "AB",
+  "winner_raw": "1",
+  "decoded": "a",
+  "reply": "{\"winner\": \"1\", \"reason\": \"Variant 2 relies on stilted passive and nominalized calques ('is to be told', 'interactions are had', 'in the affecting of'), while Variant 1 uses direct, idiomatic native phrasing throughout.\"}",
+  "latency_s": 15.7,
+  "model": "glm-5.3-flash"
+}

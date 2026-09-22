@@ -1,0 +1,9 @@
+{
+  "pair_id": "g05",
+  "order": "AB",
+  "winner_raw": "2",
+  "decoded": "b",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 phrasetighter and more naturally, avoiding the clunky repeated 'сравнительный эксперимент' insertion and heavy 'тогда как' construction that slow Variant 1 down.\"\n}\n```",
+  "latency_s": 26.5,
+  "model": "glm-5.3-flash"
+}

@@ -1,0 +1,9 @@
+{
+  "pair_id": "g12",
+  "order": "BA",
+  "winner_raw": "tie",
+  "decoded": "tie",
+  "reply": "```json\n{\"winner\": \"tie\", \"reason\": \"The shared prose is identical, and the extra sentences in Variant 2 are equally natural and fluent, so neither variant reads better as prose.\"}\n```",
+  "latency_s": 30.2,
+  "model": "glm-5.3-flash"
+}

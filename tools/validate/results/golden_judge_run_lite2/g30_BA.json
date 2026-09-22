@@ -1,0 +1,9 @@
+{
+  "pair_id": "g30",
+  "order": "BA",
+  "winner_raw": "2",
+  "decoded": "a",
+  "reply": "```json\n{\n  \"winner\": \"2\",\n  \"reason\": \"Variant 2 uses direct, natural English phrasing, while Variant 1 is weighed down by translationese like 'it is to be noted that', 'in the event that', 'with respect to', and awkward passive constructions.\"\n}\n```",
+  "latency_s": 10.0,
+  "model": "glm-5.3-flash"
+}
