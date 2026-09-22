@@ -1,5 +1,7 @@
 # Syncing Chinese content from upstream
 
+> **Agents:** this file is mandatory for any upstream pull. Also mirrored in [AGENTS.md](../AGENTS.md) and the fork banner in [CLAUDE.md](../CLAUDE.md).
+
 This fork (`dlgrv/HowToLiveBetter`) is an **English-primary translation overlay** on [eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter). Chinese chapter files stay at `book/*.md` (same paths as upstream). Do **not** merge upstream wholesale.
 
 ## One-time setup
