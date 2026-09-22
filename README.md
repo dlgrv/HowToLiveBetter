@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="og-en.png?v=20260922" alt="HowToLiveBetter — less time, effort, and expense for more life, freedom, and money" width="820">
+<img src="og-en.png?v=20260922c" alt="HowToLiveBetter — less time, effort, and expense for more life, freedom, and money" width="820">
 
 # HowToLiveBetter: The Best-Value Life Guide
 
