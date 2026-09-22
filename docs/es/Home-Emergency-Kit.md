@@ -1,4 +1,4 @@
-> Unofficial translation of [docs/家庭应急装备清单.md](../家庭应急装备清单.md). In case of discrepancies the Chinese original takes precedence.
+> Unofficial translation of [docs/家庭应急装备清单.md](../../家庭应急装备清单.md). In case of discrepancies the Chinese original takes precedence.
 
 # Lista de suministros de emergencia para el hogar: qué comprar, dónde guardarlo y con qué frecuencia revisarlo
 

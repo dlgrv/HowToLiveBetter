@@ -1,4 +1,4 @@
-> Unofficial translation of [docs/遇到陌生人出事该不该停.md](../遇到陌生人出事该不该停.md). In case of discrepancies the Chinese original takes precedence.
+> Unofficial translation of [docs/遇到陌生人出事该不该停.md](../../遇到陌生人出事该不该停.md). In case of discrepancies the Chinese original takes precedence.
 
 [← Volver al índice general](../../README.md)
 
