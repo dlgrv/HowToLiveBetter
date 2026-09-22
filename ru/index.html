@@ -7,6 +7,7 @@
 (function(){
   if (window.__HTLB_LANG__) return;
   try {
+    var ORIGIN_PAGES = 'https://eternity4719.github.io/HowToLiveBetter/';
     var segs = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
     if (segs.length && segs[segs.length-1] === 'index.html') segs.pop();
     var last = segs[segs.length-1] || '';
@@ -18,6 +19,11 @@
     var p = new URLSearchParams(location.search);
     var saved = localStorage.getItem('htlb-lang');
     var nav = (navigator.language || '').toLowerCase();
+    /* zh browsers → original site unless ?lang= or saved htlb-lang (#23) */
+    if (!p.get('lang') && !saved && nav.startsWith('zh')) {
+      location.replace(ORIGIN_PAGES + location.search + location.hash);
+      return;
+    }
     var sys = nav.startsWith('ru') ? 'ru' : nav.startsWith('zh') ? 'zh' : nav.startsWith('en') ? 'en' : null;
     var lang = p.get('lang') || saved || sys || 'en';
     if (['ru','zh','en'].indexOf(lang) < 0) lang = 'en';
@@ -28,9 +34,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Пособие по выгодной жизни · Меньше денег, времени и сил — больше жизни, денег и свободы</title>
+<title>Пособие по выгодной жизни</title>
 <meta name="description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta name="keywords" content="здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,пособия,бизнес,выгода">
+<meta name="keywords" content="здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология">
 <meta name="author" content="Как жить выгодно (перевод HowToLiveBetter)">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#3451b2" media="(prefers-color-scheme: light)">
@@ -39,22 +45,69 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Пособие по выгодной жизни">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="ru_RU">
 <meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/ru/">
 <meta property="og:title" content="Пособие по выгодной жизни">
 <meta property="og:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta property="og:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<meta property="og:image" content="https://dlgrv.github.io/HowToLiveBetter/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Пособие по выгодной жизни">
 <meta name="twitter:description" content="Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.">
-<meta name="twitter:image" content="https://eternity4719.github.io/HowToLiveBetter/og.png">
+<meta name="twitter:image" content="https://dlgrv.github.io/HowToLiveBetter/og.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"WebSite","@id":"https://eternity4719.github.io/HowToLiveBetter/#website","url":"https://eternity4719.github.io/HowToLiveBetter/","name":"Пособие по выгодной жизни","description":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://eternity4719.github.io/HowToLiveBetter/?q={search_term_string}"},"query-input":"required name=search_term_string"}},
-{"@type":"Book","@id":"https://eternity4719.github.io/HowToLiveBetter/#book","name":"Пособие по выгодной жизни","url":"https://eternity4719.github.io/HowToLiveBetter/","inLanguage":"zh-CN","bookFormat":"https://schema.org/EBook","numberOfPages":528,"license":"https://unlicense.org/","abstract":"Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.","about":["здоровье","долголетие","личные финансы","первая помощь","право","защита прав потребителей"],"isAccessibleForFree":true}
-]}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://dlgrv.github.io/HowToLiveBetter/ru/#website",
+   "url": "https://dlgrv.github.io/HowToLiveBetter/ru/",
+   "name": "Пособие по выгодной жизни",
+   "description": "Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.",
+   "inLanguage": "ru",
+   "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+     "@type": "EntryPoint",
+     "urlTemplate": "https://dlgrv.github.io/HowToLiveBetter/ru/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+   },
+   "isBasedOn": "https://eternity4719.github.io/HowToLiveBetter/",
+   "sameAs": [
+    "https://eternity4719.github.io/HowToLiveBetter/",
+    "https://github.com/eternity4719/HowToLiveBetter"
+   ]
+  },
+  {
+   "@type": "Book",
+   "@id": "https://dlgrv.github.io/HowToLiveBetter/ru/#book",
+   "name": "Пособие по выгодной жизни",
+   "url": "https://dlgrv.github.io/HowToLiveBetter/ru/",
+   "inLanguage": "ru",
+   "bookFormat": "https://schema.org/EBook",
+   "numberOfPages": 528,
+   "license": "https://unlicense.org/",
+   "abstract": "Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.",
+   "about": [
+    "здоровье",
+    "долголетие",
+    "личные финансы",
+    "первая помощь",
+    "право",
+    "защита прав потребителей"
+   ],
+   "isAccessibleForFree": true,
+   "isBasedOn": "https://eternity4719.github.io/HowToLiveBetter/",
+   "sameAs": [
+    "https://eternity4719.github.io/HowToLiveBetter/",
+    "https://github.com/eternity4719/HowToLiveBetter"
+   ]
+  }
+ ]
+}
 </script>
 <script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){};try{if(localStorage.getItem('htlb-side')==='collapsed')document.documentElement.classList.add('side-collapsed')}catch(e){}})();</script>
 <style>
@@ -394,6 +447,8 @@ h1,h2,h3{text-wrap:wrap}
 .doc{max-width:var(--measure);margin:0 auto;padding:0 var(--sp-6) var(--sp-10)}
 .doc-head h1{margin:0 0 var(--sp-5);font:var(--fw-strong) var(--fs-5)/var(--lh-tight) var(--serif);letter-spacing:-.015em;color:var(--ink)}
 .doc-head p{margin:0 0 var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
+.doc-head .fork-note{margin:0 0 var(--sp-4);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.doc-head .fork-note a{color:var(--hover)}
 .doc-head .stat,.meta-line{margin:var(--sp-3) 0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
 .meta-line{margin:0 0 var(--sp-3)}
 .doc a{color:var(--hover)}
@@ -546,6 +601,7 @@ h1,h2,h3{text-wrap:wrap}
   <div class="doc">
     <div class="doc-head">
       <h1>Пособие по выгодной жизни</h1>
+      <p class="fork-note" id="fork-note"></p>
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
       <p class="meta-line" id="feedback-line">
@@ -668,7 +724,9 @@ const I18N = {
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
-   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'] },
+   about:['здоровье','долголетие','личные финансы','первая помощь','право','защита прав потребителей'],
+   forkNote:'Неофициальный перевод. Авторитет — <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">китайский оригинал</a>.',
+   snapshotNote:'' },
  en:{ htmlLang:'en', title:'The Best-Value Life Guide', search:'Search the recommendations', searchShort:'Search',
    noscriptH:'The Best-Value Life Guide',
    noscriptP:'English translation of HowToLiveBetter (高性价比人生指南): 31 sections; every recommendation states its cost, benefit, evidence grade, and primary source.',
@@ -705,8 +763,10 @@ const I18N = {
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
-   about:['health','longevity','personal finance','first aid','law','consumer protection'] },
- zh:{ htmlLang:'zh', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
+   about:['health','longevity','personal finance','first aid','law','consumer protection'],
+   forkNote:'Unofficial translation. The <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">Chinese original</a> is authoritative.',
+   snapshotNote:'' },
+ zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../README.zh.md">README.zh.md</a>（目录）与 <a href="../book/">book/</a> 目录。',
@@ -742,7 +802,9 @@ const I18N = {
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
-   about:['健康','长寿','个人理财','急救','法律','消费者权益'] }
+   about:['健康','长寿','个人理财','急救','法律','消费者权益'],
+   forkNote:'非官方翻译。请以<a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">中文原文</a>为准。',
+   snapshotNote:'本页是翻译时的快照，原文仍在更新。' }
 };
 function T(){ return I18N[LANG]; }
 function applyI18n(){
@@ -759,7 +821,12 @@ function applyI18n(){
   const ns=document.querySelector('noscript .doc-head'); if(ns){ ns.querySelector('h1').textContent=t.noscriptH; ns.querySelectorAll('p')[0].textContent=t.noscriptP; ns.querySelectorAll('p')[1].innerHTML=t.noscriptLink; }
   const dh=document.querySelector('.doc-head');
   dh.querySelector('h1').textContent=t.title;
-  const dhp=dh.querySelectorAll(':scope > p'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
+  const fn=document.getElementById('fork-note');
+  if(fn){
+    const extra=(LANG==='zh' && t.snapshotNote) ? ' '+t.snapshotNote : '';
+    fn.innerHTML=(t.forkNote||'')+extra;
+  }
+  const dhp=dh.querySelectorAll(':scope > p:not(.fork-note):not(.meta-line)'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
   const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
@@ -820,6 +887,10 @@ function applyI18n(){
   for(const sel of ['meta[property="og:description"]','meta[name="twitter:description"]']) setm(sel,'content',t.metaDesc);
   setm('meta[property="og:locale"]','content',{ru:'ru_RU',en:'en_US',zh:'zh_CN'}[LANG]);
   try{
+    const FORK_HOST='https://dlgrv.github.io/HowToLiveBetter';
+    const ORIGIN_PAGES='https://eternity4719.github.io/HowToLiveBetter/';
+    const ORIGIN_REPO='https://github.com/eternity4719/HowToLiveBetter';
+    const pageUrl=FORK_HOST+'/'+LANG+'/';
     const jl=document.querySelector('script[type="application/ld+json"]');
     if(jl){
       const data=JSON.parse(jl.textContent);
@@ -827,8 +898,17 @@ function applyI18n(){
         if(node.name) node.name=t.title;
         if(node.description) node.description=t.metaDesc;
         if(node.abstract) node.abstract=t.metaDesc;
-        if(node.inLanguage) node.inLanguage={ru:'ru-RU',en:'en-US',zh:'zh-CN'}[LANG];
+        if(node.inLanguage) node.inLanguage={ru:'ru',en:'en',zh:'zh-CN'}[LANG];
         if(node.about) node.about=t.about;
+        if(node['@id']) node['@id']=pageUrl+'#'+(node['@type']==='Book'?'book':'website');
+        if(node.url) node.url=pageUrl;
+        if(node.potentialAction && node.potentialAction.target){
+          const tgt=node.potentialAction.target;
+          if(typeof tgt==='object' && tgt.urlTemplate) tgt.urlTemplate=pageUrl+'?q={search_term_string}';
+        }
+        if(node['@type']==='Book' && typeof CARDS!=='undefined' && CARDS.length) node.numberOfPages=CARDS.length;
+        node.isBasedOn=ORIGIN_PAGES;
+        node.sameAs=[ORIGIN_PAGES, ORIGIN_REPO];
       }
       jl.textContent=JSON.stringify(data,null,1);
     }
