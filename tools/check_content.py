@@ -89,7 +89,7 @@ def translated_dirs():
 def gate_parity(issues):
     codes = load_lang_codes()
     cn = chapter_nns("book")
-    expected = [f"{n:02d}" for n in range(1, 33)]
+    expected = [f"{n:02d}" for n in range(1, 34)]
     per_lang = {"book": cn}
     for c in codes:
         per_lang[f"book/{c}"] = chapter_nns(f"book/{c}")
