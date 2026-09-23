@@ -22,6 +22,9 @@ git checkout upstream/main -- $(git ls-tree -r --name-only upstream/main book | 
 # Chinese long reads at docs root + verification notes (exclude docs/en|ru|…)
 git checkout upstream/main -- $(git ls-tree -r --name-only upstream/main docs | grep -E '^docs/[^/]+\.md$' ; git ls-tree -r --name-only upstream/main docs/核实记录)
 
+# Upstream AI skill (zh product content; see "One-time history anchor" note)
+git checkout upstream/main -- skills/
+
 # Optional
 # git checkout upstream/main -- LICENSE
 
@@ -35,9 +38,28 @@ Review `git status` / `git diff --stat` before committing. Then:
 2. `python3 tools/check_content.py` (parity / stats).
 3. If site template or counts changed: `python3 tools/build_pages.py`.
 
+## One-time history anchor (2026-09-23)
+
+A single exception was made: `git merge -s ours upstream/main --allow-unrelated-histories` recorded
+the upstream lineage through `dfebc18` as an ancestor of fork `main` **without changing any file**
+(tree of a `-s ours` merge equals HEAD). This zeroes the GitHub "behind" counter so it becomes a
+meaningful "new upstream commits since last sync" indicator.
+
+- This does **not** legalize wholesale merges. On the contrary: after the anchor the merge base is
+  `dfebc18`, so a bare `git merge upstream/main` no longer fails loudly on unrelated histories —
+  it would silently 3-way-merge upstream changes into fork-owned files. The Never auto-merge rule
+  below is now enforced by discipline + the dry-run check, not by git.
+- The anchor is tied to the upstream lineage (`dfebc18`). If upstream ever rewrites history, the
+  anchor drifts and "behind" reappears — repeat the anchor merge then. The sync ritual itself stays
+  **content-based** (diff `book/*.md` between snapshots, never SHA comparison).
+- Sync/anchor commits are pushed directly to `main` (no MR/squash): squashing the anchor would
+  destroy the recorded lineage and the counter reset. The MR+squash rule applies to content PRs.
+- Upstream's `skills/` directory is Chinese product content (AI skill for the book): include it in
+  the path-filtered checkout. `.claude/skills/` mirror is optional and not needed by the gates.
+
 ## Never auto-merge
 
-These are fork-owned. A broad `git merge upstream/main` or `checkout upstream/main -- .` will damage the product:
+These are fork-owned. A broad `git merge upstream/main` or `checkout upstream/main -- .` will damage the product (and after the 2026-09-23 history anchor it would no longer fail loudly — see above):
 
 - `README.md`, `README.ru.md` (and any `README.<lang>.md` except the explicit `README.zh.md` ritual above)
 - `index.html`
