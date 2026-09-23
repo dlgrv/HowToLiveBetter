@@ -269,7 +269,7 @@ def main():
     for idx, l in enumerate(tl, 1):
         # translator's note block (TRANSLATION.md insertion convention) is allowed
         # to mention CJK terms — track the whole "> …" block after its marker
-        if l.startswith("> Примечание переводчика"):
+        if l.startswith("> Примечание переводчика") or l.startswith("> Translator's note") or l.startswith("> Nota del traductor"):
             in_note = True
         elif not l.startswith(">"):
             in_note = False
