@@ -32,7 +32,7 @@ This section deals with money and personal freedom; a few entries touch on perso
 
 ### 4. Buy a policy that covers overseas medical care and medical evacuation, not just flight delay cover
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=金钱 -->
-- Cost: tens to a few hundred yuan for short-term overseas travel insurance
+- Cost: Tens to a few hundred yuan for short-term overseas travel insurance
 - In plain terms: Medical bills abroad come out of your own pocket — domestic health insurance basically does not reimburse them, and the embassy or consulate will not front the money either. What really breaks a family is not the clinic fee but the hospital stay after a serious injury and getting the person back home — that takes a chartered flight or medical escort. When buying travel insurance, look mainly at two limits: overseas medical expenses, and emergency medical evacuation and repatriation.
 - Benefit: Medical costs abroad are your own to pay; domestic health insurance largely does not reimburse care received abroad, and consular protection does not front the money either (see the previous entry on what consular protection can and cannot do; the basis is Article 26 of the regulations). What can genuinely drag a family down is not the outpatient bill but the hospital stay after a serious injury and the medical evacuation — moving a person from a hospital abroad back home requires a chartered aircraft or medical escort, among the most expensive of self-paid items. When buying insurance, check two limits first: the overseas medical expenses limit, and the emergency medical evacuation and repatriation limit — that is, the most it will pay toward moving you to another hospital after something happens and getting you back home
 - Evidence grade: C

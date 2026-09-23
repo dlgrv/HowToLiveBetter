@@ -72,7 +72,7 @@ La primera mitad de la sección trata de las trampas de dinero y de las salidas 
 
 ### 8. Cuando la ansiedad afecta tu vida, un curso de reducción del estrés basado en mindfulness no es inferior al fármaco ansiolítico de uso habitual
 <!-- 成本标签: 钱=少 时间=多 毅力=是 收益=大 口径=死亡率 -->
-- Costo: curso de 8 semanas, una sesión semanal más práctica diaria en casa
+- Costo: Curso de 8 semanas, una sesión semanal más práctica diaria en casa
 - En términos sencillos: 276 adultos con diagnóstico de trastorno de ansiedad se asignaron al azar a dos grupos: uno tomó un curso de 8 semanas de reducción del estrés basado en mindfulness y el otro tomó escitalopram; al final, la mejora de los síntomas fue casi la misma. La diferencia está en los efectos adversos: en el grupo del fármaco casi el 80 % tuvo al menos un efecto adverso y 10 personas lo abandonaron por eso; en el del curso, alrededor del 15 %, y nadie lo abandonó. Se usó el curso estandarizado de 8 semanas, no cualquier app de meditación.
 - Beneficio: Ensayo controlado aleatorizado de no inferioridad en 3 centros médicos académicos urbanos de EE. UU.: 276 adultos con diagnóstico de trastorno de ansiedad, asignados al azar en proporción 1:1 a un curso de 8 semanas de reducción del estrés basado en mindfulness (MBSR) o a escitalopram (dosis flexible de 10 a 20 mg); 208 personas completaron. En la escala de impresión clínica global de gravedad al finalizar, el grupo de mindfulness bajó 1,35 y el de fármaco 1,43; diferencia entre grupos de −0,07 (IC del 95 %: −0,38 a 0,23, P=0,65), con el límite inferior del intervalo dentro del umbral de no inferioridad prefijado de −0,495. Los eventos adversos difirieron mucho: el 78,6 % del grupo del fármaco tuvo al menos un evento adverso relacionado con el estudio y 10 personas lo abandonaron por ellos; en el grupo de mindfulness fue 15,4 % y nadie lo abandonó
 - Nivel de evidencia: A
@@ -90,7 +90,7 @@ La primera mitad de la sección trata de las trampas de dinero y de las salidas 
 
 ### 10. Trata «quedar con gente con regularidad» como un gasto de salud; no busques compañía solo cuando estés mal
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=大 口径=死亡率 -->
-- Costo: tiempo para verse y algo de dinero
+- Costo: Tiempo para verse y algo de dinero
 - En términos sencillos: 70 estudios, 3 400 000 personas y seguimiento promedio de 7 años: en el mismo período, las personas aisladas socialmente tuvieron alrededor de un 30 % más de probabilidad de morir que las no aisladas; quienes se sentían solas, alrededor de un 25 % más; quienes vivían solas, alrededor de un 30 % más; los tres órdenes de magnitud son comparables y el efecto es más marcado por debajo de los 65 años. Son datos observacionales: no se elimina la explicación inversa de que quien ya está enfermo tiende más a vivir aislado.
 - Beneficio: Metaanálisis de 70 estudios prospectivos, 3 400 000 participantes y seguimiento promedio de 7 años: el aislamiento social, la soledad percibida y el vivir solo se asocian con mayor mortalidad; las odds ratios promedio ponderadas tras ajustar por confusores fueron 1,29 para el aislamiento social, 1,26 para la soledad y 1,32 para vivir solo; los tres tamaños de efecto son comparables y mayores en el grupo menor de 65 años que en el de personas mayores
 - Nivel de evidencia: A

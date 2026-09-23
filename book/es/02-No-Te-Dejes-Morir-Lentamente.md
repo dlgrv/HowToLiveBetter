@@ -210,7 +210,7 @@ Esta sección reúne únicamente los factores de riesgo crónicos con un efecto 
 - Beneficio: Dos estudios estadounidenses de seguimiento, con 119 000 personas y más de 3 millones de años-persona. Un año-persona es el número de personas multiplicado por los años que cada una estuvo en el estudio. Comparados con quienes no comen frutos secos: quienes los comen menos de 1 vez por semana tienen un riesgo de muerte un 7 % más bajo (razón de riesgos 0,93; IC del 95 %: 0,90–0,96, que es el rango de confianza). Con 1 vez por semana, un 11 % más bajo (0,89; 0,86–0,93). Con 2–4 veces, un 13 % más bajo (0,87; 0,83–0,90). Con 5–6 veces, un 15 % más bajo (0,85; 0,79–0,91). Con 7 o más, un 20 % más bajo (0,80; 0,73–0,86).
 - Nivel de evidencia: A
 - Fuentes: Bao Y, Han J, Hu FB, et al. (2013). Association of nut consumption with total and cause-specific mortality. New England Journal of Medicine, 369(21), 2001-2011. <https://doi.org/10.1056/NEJMoa1307352>
-- Notas: cómprelos naturales y sin sal. Los frutos secos no son precisamente ligeros de calorías, así que no los use como aperitivo sin medida. Tenga presente que estos estudios solo siguen a un grupo de personas a largo plazo, y quienes comen frutos secos llevan por lo general un estilo de vida más sano; a las cifras hay que aplicarles un descuento.
+- Notas: Cómprelos naturales y sin sal. Los frutos secos no son precisamente ligeros de calorías, así que no los use como aperitivo sin medida. Tenga presente que estos estudios solo siguen a un grupo de personas a largo plazo, y quienes comen frutos secos llevan por lo general un estilo de vida más sano; a las cifras hay que aplicarles un descuento.
 
 ### 24. Cambia parte de la carne roja por pescado y aves de corral
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->

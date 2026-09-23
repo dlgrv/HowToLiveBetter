@@ -68,7 +68,7 @@ The first half of this chapter covers the money pits and safe exits of entertain
 
 ### 8. When anxiety disrupts your life, a mindfulness-based stress reduction course works no worse than the commonly prescribed anxiety medication
 <!-- 成本标签: 钱=少 时间=多 毅力=是 收益=大 口径=死亡率 -->
-- Cost: an 8-week course, one session per week plus daily practice at home
+- Cost: An 8-week course, one session per week plus daily practice at home
 - In plain terms: 276 adults diagnosed with an anxiety disorder were randomized into two groups, one taking an 8-week mindfulness-based stress reduction course and one taking escitalopram; at the end, symptom improvement was nearly identical. The difference was in side effects: nearly eighty percent of the medication group had at least one adverse reaction and 10 people dropped out because of it; in the course group it was about fifteen percent, with no dropouts from adverse effects. This used the standardized 8-week curriculum, which is not the same as just any meditation app.
 - Benefit: A non-inferiority randomized controlled trial at 3 urban academic medical centers in the United States, in which 276 adults diagnosed with an anxiety disorder were randomized 1:1 to an 8-week mindfulness-based stress reduction course or escitalopram (flexible dose 10 to 20 mg), with 208 completing. On the Clinical Global Impression of Severity scale at the endpoint, the mindfulness group dropped 1.35 and the medication group 1.43, a between-group difference of −0.07 (95% CI −0.38 to 0.23, P=0.65), with the lower bound of the credible interval inside the pre-set non-inferiority margin of −0.495. Adverse events differed sharply: 78.6% of the medication group had at least one study-related adverse event and 10 withdrew because of them; 15.4% of the mindfulness group, with no withdrawals from adverse events
 - Evidence grade: A
@@ -86,7 +86,7 @@ The first half of this chapter covers the money pits and safe exits of entertain
 
 ### 10. Treat "regularly seeing people" as a health expense; do not reach out only when your mood is low
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=大 口径=死亡率 -->
-- Cost: time to meet and a little money
+- Cost: Time to meet and a little money
 - In plain terms: 70 studies, 3.4 million people, an average follow-up of 7 years: socially isolated people were about thirty percent more likely to die over the same period than non-isolated people, those who felt lonely about a quarter more, and those living alone about thirty percent more — all three of similar magnitude, and the effect was more pronounced in people under 65. These are observational data, so the reverse explanation that "people in worse health to begin with are more likely to live alone" cannot be removed.
 - Benefit: A meta-analysis of 70 prospective studies, 3.4 million participants, and an average follow-up of 7 years: social isolation, loneliness, and living alone were all associated with higher mortality, with adjusted weighted average odds ratios of 1.29 for social isolation, 1.26 for loneliness, and 1.32 for living alone after controlling for confounders; the three effect sizes were comparable, and larger in populations under 65 than in older populations
 - Evidence grade: A

@@ -9,7 +9,7 @@ Las métricas van mezcladas: la primera mitad de la sección trata de mortalidad
 Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 260 000 mujeres por causas relacionadas con el embarazo y el parto; cerca del 75% de esas muertes se concentra en cinco categorías: hemorragia posparto masiva, infecciones, trastornos hipertensivos del embarazo (preeclampsia y eclampsia), complicaciones del parto y aborto en condiciones inseguras. Y «la mayoría de las muertes maternas son prevenibles, porque los medios médicos para prevenir y tratar esas complicaciones ya se conocen». Los puntos de esta sección con el mayor tamaño de efecto consisten precisamente en interceptar ese grupo de problemas por adelantado.
 ### 1. Toma 0,4 mg de ácido fólico al día desde antes de buscar el embarazo y sigue hasta completar 3 meses de gestación
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
-- Costo: unas decenas de yuanes el frasco; para las mujeres rurales lo reparte gratuitamente el programa estatal de suplementación con ácido fólico. Una pastilla al día; hay que acordarse.
+- Costo: Unas decenas de yuanes el frasco; para las mujeres rurales lo reparte gratuitamente el programa estatal de suplementación con ácido fólico. Una pastilla al día; hay que acordarse.
 - En términos sencillos: Tomar una pastilla de ácido fólico al día antes y al inicio del embarazo baja alrededor de 70% la probabilidad de que el bebé nazca con un defecto del tubo neural (anencefalia, espina bífida y similares); quien ya tuvo un hijo con ese defecto reduce la probabilidad de que se repita a alrededor de 1/3 de la original.
 - Beneficio: Revisión sistemática Cochrane (5 ensayos, 6708 partos, evidencia de alta calidad): la suplementación diaria con ácido fólico antes y al inicio del embarazo reduce el riesgo de defecto del tubo neural con RR 0,31 (IC del 95%: 0,17 a 0,58), es decir, cerca de 70% menos; en quienes ya tuvieron un hijo afectado, el riesgo de recurrencia es RR 0,34 (IC del 95%: 0,18 a 0,64). Los análisis de subgrupos muestran que 0,4 mg y dosis mayores no difieren en efecto, y tampoco hay diferencia entre ácido fólico solo y multivitamínicos.
 - Nivel de evidencia: A
@@ -45,7 +45,7 @@ Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 2
 
 ### 5. Con factores de alto riesgo de preeclampsia, toma una pastilla diaria de aspirina en dosis baja a partir de la semana 12 de gestación
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=死亡率 -->
-- Costo: unas decenas de yuanes; una pastilla al día, que hay que seguir tomando hasta el parto.
+- Costo: Unas decenas de yuanes; una pastilla al día, que hay que seguir tomando hasta el parto.
 - En términos sencillos: Si perteneces a los grupos de alto riesgo, tomar una pastilla diaria de aspirina en dosis baja desde la semana 12 reduce la probabilidad de preeclampsia alrededor de 15%, la de parto prematuro alrededor de 20% y la de muerte del bebé alrededor del parto alrededor de 20%. Si no estás en esos grupos, no la tomes por tu cuenta.
 - Beneficio: Recomendación de grado B del Grupo de Trabajo de Servicios Preventivos de Estados Unidos: en personas con alto riesgo de preeclampsia, iniciar aspirina en dosis baja (81 mg/día) como profilaxis a partir de la semana 12 de gestación. Efectos agrupados: preeclampsia RR 0,85 (IC del 95%: 0,75 a 0,95; 16 estudios), parto prematuro RR 0,80 (IC del 95%: 0,67 a 0,95; 13 estudios), muerte perinatal RR 0,79 (IC del 95%: 0,66 a 0,96; 11 estudios), recién nacido pequeño para la edad gestacional o restricción del crecimiento intrauterino RR 0,82 (IC del 95%: 0,68 a 0,99; 16 estudios).
 - Nivel de evidencia: A
@@ -54,7 +54,7 @@ Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 2
 
 ### 6. Desde la semana 24 de gestación, hazte la prueba de detección de la diabetes gestacional; no te perezas por beber el agua azucarada
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=死亡率 -->
-- Costo: desde unas decenas hasta algo más de 100 yuanes; varias extracciones de sangre en ayunas y media mañana perdida.
+- Costo: Desde unas decenas hasta algo más de 100 yuanes; varias extracciones de sangre en ayunas y media mañana perdida.
 - En términos sencillos: Pasada la semana 24, dedicar media mañana a beber una vez el agua azucarada y hacerse extraer sangre permite detectar la diabetes gestacional. Sin prueba ni tratamiento, suben los riesgos de bebé demasiado grande, parto difícil, cesárea, preeclampsia e hipoglucemia del recién nacido.
 - Beneficio: Recomendación de grado B del Grupo de Trabajo de Servicios Preventivos de Estados Unidos: en embarazadas sin síntomas, tamizar la diabetes gestacional a partir de la semana 24, y el tamizaje de una sola etapa debe hacerse en la semana 24 o después. Sobre tamizar antes de la semana 24, la conclusión del grupo de trabajo es que la evidencia actual no basta para juzgar beneficios y daños (grado I). La diabetes gestacional sin tratar aumenta el riesgo de bebé demasiado grande, parto difícil, cesárea, preeclampsia e hipoglucemia neonatal.
 - Nivel de evidencia: A
@@ -81,7 +81,7 @@ Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 2
 
 ### 9. Si quieres la analgesia epidural para el parto, pídela sin rodeos: no aumenta el riesgo de cesárea
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=时间 -->
-- Costo: desde unos cientos hasta más de 1000 yuanes, según la localidad; conviene confirmar de antemano con el hospital y el servicio de anestesia si se puede hacer.
+- Costo: Desde unos cientos hasta más de 1000 yuanes, según la localidad; conviene confirmar de antemano con el hospital y el servicio de anestesia si se puede hacer.
 - En términos sencillos: La epidural funciona mejor que los otros métodos de alivio del dolor y no hace más probable que termines en cesárea; y lo de «la epidural te deja con dolor de espalda toda la vida» tampoco tiene fundamento. Hoy cuenta con su propio ítem de facturación y los hospitales están más dispuestos a practicarla.
 - Beneficio: Una revisión sistemática Cochrane concluye que la analgesia epidural es más eficaz que los métodos no epidurales para aliviar el dolor del parto y para la satisfacción de la madre con la analgesia, y que «la analgesia epidural no tiene efecto sobre el riesgo de cesárea ni sobre el dolor lumbar a largo plazo»; el aumento de partos instrumentales que se observaba ya no aparece en los estudios posteriores a 2005. Desde 2024, la guía de la Administración Nacional de Seguro Médico para la creación de ítems tarifarios de servicios médicos obstétricos establece la «analgesia para el parto», el «parto con doula» y el «acompañamiento de un familiar en el parto» como ítems independientes, precisamente porque antes no existía un ítem de precio propio y eso frenaba la disposición de los hospitales a ofrecer la analgesia del parto.
 - Nivel de evidencia: A
@@ -117,7 +117,7 @@ Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 2
 
 ### 13. No rechaces ninguna de las dos pruebas del recién nacido: la sangre del talón y la auditiva
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
-- Costo: gratis o unas decenas de yuanes en la mayoría de las regiones; algunas pruebas ampliadas corren por cuenta propia. Un solo pinchazo en el talón tras el nacimiento.
+- Costo: Gratis o unas decenas de yuanes en la mayoría de las regiones; algunas pruebas ampliadas corren por cuenta propia. Un solo pinchazo en el talón tras el nacimiento.
 - En términos sencillos: Un pinchazo de talón para la sangre y una prueba de audición permiten detectar el hipotiroidismo congénito, la fenilcetonuria y la hipoacusia cuando el niño aparenta estar completamente normal. Cuando los síntomas aparecen, el daño intelectual ya no se recupera.
 - Beneficio: Artículo 3 de las «Medidas de Administración del Tamizaje Neonatal»: «las enfermedades del tamizaje neonatal a escala nacional incluyen las enfermedades metabólicas hereditarias del recién nacido, como el hipotiroidismo congénito y la fenilcetonuria, así como la hipoacusia». El punto común de estas enfermedades es que al principio no se ve ninguna anomalía; cuando los síntomas se hacen evidentes, el daño intelectual ya es irreversible, y la detección e intervención tempranas (aportación de hormona tiroidea, leches de fórmula especiales, audífonos o implante coclear) funcionan muy bien. El artículo 10 establece que, ante un resultado positivo del tamizaje, el establecimiento debe avisar sin demora a los tutores para que acudan al diagnóstico.
 - Nivel de evidencia: A
@@ -126,7 +126,7 @@ Según la Organización Mundial de la Salud, en 2023 murieron en el mundo unas 2
 
 ### 14. En cuanto tengas el certificado de nacimiento, afilia al bebé al seguro médico de residentes; no esperes a terminar el registro de hogar
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=金钱 -->
-- Costo: la prima anual del seguro médico de residentes, según la tarifa; unos cientos de yuanes.
+- Costo: La prima anual del seguro médico de residentes, según la tarifa; unos cientos de yuanes.
 - En términos sencillos: Con el certificado de nacimiento en mano ya se puede afiliar al bebé en línea, sin esperar el registro de hogar. Afiliado, los gastos de hospitalización se reembolsan en el momento del alta: una sola hospitalización de un recién nacido ronda fácilmente los 10 000 yuanes.
 - Beneficio: Criterio publicado en 2024 por el portal del Gobierno chino: «los recién nacidos pueden afiliarse al seguro en línea con solo el certificado médico de nacimiento», sin necesidad de registrar primero el hogar; «tras el alta, el recién nacido puede reembolsar directamente los gastos médicos». Antes se exigía el registro de hogar para afiliar, y los gastos de hospitalización había que pagarlos íntegros por adelantado y reclamar después; además, el tiempo medio de tramitación de la afiliación y el pago pasó de 28,7 días hábiles a comienzos de año a 6,4 días hábiles.
 - Nivel de evidencia: A
