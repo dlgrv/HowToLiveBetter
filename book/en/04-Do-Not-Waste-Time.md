@@ -3,132 +3,164 @@
 # 4. Don't Waste Time
 
 This section only runs the numbers on time: how many hours can be saved per day, per week, or per year, or how much task completion rates improve. Nothing is converted into lifespan or into money; where money comes up, only the calculation method is given, not conclusions. For most entries the evidence is a single study or time-use statistics, and the grades are mostly B or C.
-### 1. Turn "planning to do" into "at what time, where, doing what when X happens"
-
+### 1. Turn "planning to do it" into "at what time, where, doing what when X happens"
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=时间 -->
-- Cost: for each task, spend 1 to 2 minutes writing one "if...then..." sentence (e.g. "if I sit down at my desk at 8 a.m. Tuesday, I start with the introduction"), no money
-- In plain terms: rewrite "I will do it" as "if I sit down at my desk at 8 a.m. Tuesday, I start with the introduction". Across 94 tests, goal attainment rates rose noticeably — a medium-to-large effect. All you change is how one sentence is written; it costs no money and no effort.
-- Benefit: a meta-analysis of 94 independent tests found that people who form implementation intentions reach their goals more often, effect size d = 0.65 (medium to large), covering getting started, resisting distractions, and withdrawing from failing routes
+- Cost: Free. Each task takes 1 to 2 minutes to write one "if...then..." sentence. For example: "If I sit down at my desk at 8 a.m. on Tuesday, I start with the introduction."
+- In plain terms: Rewrite "I am going to do this" as "If I sit down at my desk at 8 a.m. on Tuesday, I start with the introduction." Pooled across 94 tests, people who write it this way reach their goals at a noticeably higher rate — a medium-to-large effect. The only thing that changes is how one sentence is written; it costs no money and takes no effort.
+- Benefit: Pooling 94 independent tests, people who first write their plan as an "if...then..." sentence reach their goals more often. In psychology this way of writing is called an implementation intention. The effect size is d = 0.65, medium to large. The parts where it works are three: getting started, holding firm when something interrupts you, and pulling out of things that are never going to work.
 - Evidence grade: A
 - Sources: Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69–119. <https://doi.org/10.1016/S0065-2601(06)38002-1>
-- Notes: it only works for things you genuinely want to do — if you don't actually want the goal, no amount of writing helps; the samples are mostly students and health-behavior studies, so extrapolating to work settings needs caution
+- Notes: This trick only works for things you genuinely want to do. If you do not want the goal in the first place, no amount of sentences will help. Also, these studies mostly recruited students and mostly looked at health habits, so carrying them into work settings may not work the same way.
 
-### 2. Write down exit conditions before starting
-
+### 2. Write down your exit conditions before you start
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=时间 -->
-- Cost: 5 minutes at project kickoff to write down "if by such-and-such date the metric hasn't been reached, stop", no money; a bit of pride at stake when executing
-- In plain terms: before starting, write down "if by such-and-such date I haven't hit this metric, I stop". Studies of the same kind show that writing it this way also helps people pull out of things that are headed for failure. What you save is all the time you would otherwise keep pouring in.
-- Benefit: the implementation-intentions meta-analysis shows that pre-set "if...then..." plans also promote disengagement from failing courses of action; what you save is all the time that would otherwise keep going in
+- Cost: Free. Spend 5 minutes at the start of the project writing down "if by such-and-such a date the metric has not been reached, stop." The hard part is owning it when the day comes; stopping in front of other people costs a bit of face.
+- In plain terms: Before you start, write one sentence: if by such-and-such a date I have not reached this metric, I stop. Pooled across several studies, writing it this way really does help people pull out of things that are never going to work. What you save is all the time you would otherwise have kept pouring in.
+- Benefit: Pooling several implementation-intention studies, the result is: an "if...then..." plan set in advance also helps people pull out of things that are never going to work — the original paper's wording is disengagement from failing courses of action. The time you save is the time you would otherwise have kept investing.
 - Evidence grade: B
 - Sources: Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69–119. <https://doi.org/10.1016/S0065-2601(06)38002-1>
-- Notes: the disengagement effect is a sub-result within the meta-analysis, with no separate time-savings figure; set exit conditions during the calm planning phase — deciding after the fact gets skewed by what you've already sunk in (see next entry)
+- Notes: Set the exit condition right when you start, while your emotions are still calm. Set it afterwards and it gets skewed by what you have already sunk in; what you should count is only future costs and future returns, see unit 3. Also, "willingness to pull out" is only one sub-result within a pooled set of studies; nobody has separately calculated how much time it saves.
 
-### 3. When deciding whether to continue, look only at future costs and future returns, not at what's already been invested
-
+### 3. When deciding whether to continue, count only future costs and future returns, not what has already been invested
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
-- Cost: no money; requires accepting the fact that "the time already spent is gone"
-- In plain terms: money and time already sunk make people want to keep going, and that shows up consistently across 98 datasets. So when judging whether to continue, count only "how much more I'd have to put in and what I could still get back" — leave out what's already spent.
-- Benefit: money, effort, and time already invested make people more inclined to continue (the sunk-cost effect); a meta-analysis of 98 effect sizes confirms the effect is robust; avoiding it saves the follow-on time that would otherwise be chained by "not wanting to waste it"
+- Cost: Free. The hard part is accepting one thing: the time you put in earlier is gone and will not come back.
+- In plain terms: Money and time already sunk in make people want to keep going. Pooled across 98 datasets, this tendency is stably there. So when judging whether to continue, count only how much more you would have to put in and how much you could still get back. Leave out everything already spent.
+- Benefit: Money, effort, and time already invested make people more inclined to keep going. In psychology this is called the sunk-cost effect. Pooling 98 datasets, the analysis confirms the tendency is stably present. Avoiding it saves the stretch of follow-on time that would have been chained up by "not wanting to waste it."
 - Evidence grade: B
 - Sources: Arkes, H. R., & Blumer, C. (1985). The psychology of sunk cost. Organizational Behavior and Human Decision Processes, 35, 124–140. <https://doi.org/10.1016/0749-5978(85)90049-4>；Roth, S., Robbert, T., & Straus, L. (2015). On the sunk-cost effect in economic decision-making: A meta-analytic review. Business Research, 8(1), 99–138. <https://doi.org/10.1007/s40685-014-0014-8>
-- Notes: Arkes & Blumer's theater experiments could only be verified to a qualitative conclusion (people who paid more for season tickets attended more performances over six months); the per-group attendance figures remain unverified; Roth et al. found the effect weakens over time and that older people are less affected
+- Notes: For Arkes and Blumer's theater experiment we verified only the direction: people who paid more for their tickets attended more performances over six months. How many performances each group attended, we have not verified against the original (to be verified). Roth and colleagues found the effect fades over time, and older people are less affected.
 
-### 4. Estimate task duration from actual time spent on past similar tasks, not from the plan
-
+### 4. Estimate how long a task will take from the actual time spent on past similar tasks, not by projecting from the plan
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=时间 -->
-- Cost: no money; a few minutes before estimating to check how long the last similar task actually took
-- In plain terms: students estimated 33.9 days to finish a thesis and actually took 55.5 days; only 29.7% finished by their own estimate. The group told to first recall how long their last similar task took saw on-time completion rise from 29.3% to 60.0%.
-- Benefit: students predicted 33.9 days to finish a thesis, took 55.5 days, and only 29.7% finished on their own schedule; once asked to link past experience to the current task, on-time completion rose from 29.3% in the control group to 60.0%, and the optimism bias disappeared
+- Cost: Free. A few minutes before estimating to look up how long the last similar task actually took.
+- In plain terms: Students estimated they would finish a thesis in 33.9 days and actually took 55.5 days; only 29.7% finished within the time they had estimated. Another group was asked to first recall how long their last similar task took before estimating, and their on-time completion rate rose from 29.3% to 60.0%.
+- Benefit: Students predicted 33.9 days to finish a thesis and actually took 55.5 days. Only 29.7% finished on time by their own estimate. The researchers asked another group to first connect past experience to the task at hand, then estimate. That group's on-time completion rate rose from 29.3% in the control group to 60.0%. The optimism that shrinks the schedule no longer showed up in this group.
 - Evidence grade: B
 - Sources: Buehler, R., Griffin, D., & Ross, M. (1994). Exploring the "planning fallacy": Why people underestimate their task completion times. Journal of Personality and Social Psychology, 67(3), 366–381. <https://doi.org/10.1037/0022-3514.67.3.366>；Flyvbjerg, B. (2006). From Nobel Prize to project management: Getting risks right. Project Management Journal, 37(3), 5–15. <https://doi.org/10.1177/875697280603700302>；Halkjelsvik, T., & Jørgensen, M. (2012). From origami to software development: A review of studies on judgment-based predictions of performance time. Psychological Bulletin, 138(2), 238–271. <https://doi.org/10.1037/a0025996>
-- Notes: Buehler's sample was Canadian university students, a single study with small samples (37 people, and about 40 per group); reference-class forecasting for engineering projects is described in Flyvbjerg; the Halkjelsvik review notes underestimation is more common than overestimation, but effect sizes vary widely with the task and the research method
+- Notes: Buehler's study recruited only Canadian university students; it is a single study with few people, 37 and about 40 per group. Estimating from historical data on similar projects is called reference-class forecasting; for how it is done in engineering, see Flyvbjerg. Summing up several studies, Halkjelsvik points out that underestimating is more common than overestimating, but the size of the gap varies a lot with the task and the research method.
 
 ### 5. Send an agenda before the meeting; no agenda, no meeting; stand up when you can
-
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
-- Cost: 5 to 10 minutes before the meeting for the organizer to write an agenda; stand-up meetings need participants to go along
-- In plain terms: participants rate meetings with an agenda as more effective; in the experiment, meetings held sitting down ran 34% longer than stand-ups, with no difference in decision quality.
-- Benefit: in two surveys (958 people and 292 people), using an agenda was a significant predictor of perceived meeting effectiveness; in the experiment, 55 groups meeting seated ran 34% longer than 56 groups standing, with no difference in decision quality
+- Cost: Free. The organizer spends 5 to 10 minutes before the meeting writing an agenda. Standing meetings need the participants to go along.
+- In plain terms: When an agenda was sent before the meeting, participants found the meeting more useful more easily. In the experiment, meetings held sitting down ran 34% longer than stand-up meetings, and the decisions the two formats produced were no different in quality.
+- Benefit: Two surveys with 958 and 292 people respectively. The result: meetings with an agenda sent beforehand were more likely to be rated by participants as effective, and this relationship held up statistically. In another experiment, 55 groups met sitting and 56 groups met standing, and the sitting ones ran 34% longer. The decisions the two formats produced did not differ in quality.
 - Evidence grade: B
 - Sources: Leach, D. J., Rogelberg, S. G., Warr, P. B., & Burnfield, J. L. (2009). Perceived meeting effectiveness: The role of design characteristics. Journal of Business and Psychology, 24(1), 65–76. <https://doi.org/10.1007/s10869-009-9092-6>；Bluedorn, A. C., Turban, D. B., & Love, M. S. (1999). The effects of stand-up and sit-down meeting formats on meeting outcomes. Journal of Applied Psychology, 84(2). <https://doi.org/10.1037/0021-9010.84.2.277>
-- Notes: the stand-up experiment used 5-person groups on lab tasks, so don't extrapolate directly to long or large meetings; Leach's finding is about "perceived effectiveness", not objective output
+- Notes: The standing-meeting experiment used 5-person groups on lab tasks. Long meetings and large meetings cannot take this conclusion as-is. Leach measured how effective participants themselves felt the meeting was, not how much actual work got done.
 
-### 6. Cut the number of meetings; if it can be settled in writing asynchronously, don't meet
-
+### 6. Cut the number of meetings; if a thing can be settled in writing asynchronously, do not meet
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=时间 -->
-- Cost: needs coworkers and your manager to go along; writing a clear paragraph takes a bit more effort than speaking
-- In plain terms: the more meetings you have in a day, the more worn out you are and the higher your perceived workload. The time saved by cutting a meeting is simply the length of that meeting itself, at full value.
-- Benefit: among employees working 35+ hours a week (two surveys, 676 people and 304 people), how meeting time relates to work attitudes and well-being is moderated by meeting quality and task interdependence; a week-long diary study showed the more meetings in a day, the higher fatigue and perceived workload. Time saved equals the duration of the meetings cut, one for one
+- Cost: Free. It needs coworkers and your manager to go along. The hard part is that writing a clear paragraph takes more energy than saying one sentence out loud.
+- In plain terms: The more meetings in a day, the more worn out a person is and the heavier their own sense of the workload on their hands. Cutting one meeting saves exactly the length of that meeting, no discount.
+- Benefit: Two surveys of employees working more than 35 hours a week, with 676 and 304 people. How much of your time meetings take up does not have a fixed effect on work attitudes and well-being; it depends on two things: how well the meetings are run, and how much the role depends on other people to get work done. In another study people kept a diary for a week straight, and the result was: the more meetings in a day, the higher the fatigue and the perceived workload. The time saved equals the duration of the meetings you cut.
 - Evidence grade: B
 - Sources: Rogelberg, S. G., Leach, D. J., Warr, P. B., & Burnfield, J. L. (2006). "Not another meeting!" Are meeting time demands related to employee well-being? Journal of Applied Psychology, 91(1). <https://doi.org/10.1037/0021-9010.91.1.83>；Luong, A., & Rogelberg, S. G. (2005). Meetings and more meetings: The relationship between meeting load and the daily well-being of employees. Group Dynamics: Theory, Research, and Practice, 9(1). <https://doi.org/10.1037/1089-2699.9.1.58>
-- Notes: controversy: Rogelberg 2006 found the relationship between meeting load and well-being is not one-directional — in roles highly dependent on others, many meetings are not actually bad; no study has directly compared asynchronous replacement against meetings; the async-replacement claim is the author's inference
+- Notes: A point of controversy: Rogelberg 2006 found the link between how many meetings there are and well-being is not one-sided. In roles highly dependent on others, many meetings are not a bad thing. Also, no study has directly compared "switching to written asynchronous communication" with meeting; this entry is the author's own inference.
 
-### 7. Break big tasks into subtasks before estimating and starting
-
+### 7. Break a big task into subtasks, then estimate the time, then start
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
-- Cost: 5 to 15 minutes to do the breakdown itself, no money
-- In plain terms: people don't automatically split a task into parts when estimating how long it will take; listing the subtasks first cuts a chunk off the underestimation. And once it's split, every small step can start immediately, which makes it harder to put off.
-- Benefit: people do not spontaneously break multi-faceted tasks into subparts when estimating (writing the literature review, writing the discussion, organizing references, etc.); listing subtasks before estimating reduces the planning fallacy; once broken down, each small step becomes an action that can start immediately, which also lowers procrastination (strong predictors of procrastination include task aversiveness and task delay)
+- Cost: Free. The breakdown itself takes 5 to 15 minutes.
+- In plain terms: When people estimate a schedule, they do not automatically split a task into pieces and work through them one by one. List the subtasks first and then estimate, and you undercut by a whole chunk less. Once it is split up, every small step can be started right away, and that makes it much harder to put off.
+- Benefit: When people estimate a schedule, they do not split a task with several heads into pieces on their own. Writing the literature review, writing the discussion, and organizing the references are, after all, several separate things. Listing the subtasks first and then estimating cuts down the habit of underestimating the schedule, a habit called the planning fallacy. Once broken up, every small step becomes an action that can begin immediately, and procrastination falls with it. The factors that predicted procrastination best in the research include how much the task put you off, and the task itself being pushed back.
 - Evidence grade: B
 - Sources: Kruger, J., & Evans, M. (2004). If you don't want to be late, enumerate: Unpacking reduces the planning fallacy. Journal of Experimental Social Psychology, 40(5), 586–598. <https://doi.org/10.1016/j.jesp.2003.11.001>；Steel, P. (2007). The nature of procrastination: A meta-analytic and theoretical review of quintessential self-regulatory failure. Psychological Bulletin, 133(1). <https://doi.org/10.1037/0033-2909.133.1.65>
-- Notes: Kruger & Evans was verified only to the abstract's qualitative conclusion, not to specific percentages; over-fragmenting itself eats time — aim for "each subtask finishable in one sitting"
+- Notes: How fine to split: use "each subtask can be finished in one sitting" as the standard; splitting too fine itself eats time. Also, Kruger and Evans's study was verified only to the direction from the abstract; the specific percentages were not verified against the original.
 
-### 8. Set your own deadline for tasks that have no external one
-
+### 8. Set your own date for things that have no external deadline
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=时间 -->
-- Cost: no money; once set, you have to honor it — otherwise it's as if you never set it
-- In plain terms: students with an external deadline, 80.6% finished in time; those working to their own predicted time, only 38.7%. Completion time is almost dictated by the deadline and only weakly tied to one's own estimate — so for anything without a deadline, set one yourself and hold yourself to it.
-- Benefit: 80.6% of students with an external deadline finished before it, while only 38.7% finished within their own predicted time; completion time correlated strongly with the deadline (r = 0.82) and only weakly with one's own prediction
+- Cost: Free. The hard part is owning the date once it is set. Ignore it when the day comes and it is the same as never setting it.
+- In plain terms: When there is a deadline set by someone else, 80.6% of students finished before it. Finished within their own predicted time: only 38.7%. When the work gets done is decided almost by the deadline and has little to do with one's own estimate. So for anything without a deadline, set one yourself, and own it.
+- Benefit: Among students with an external deadline, 80.6% finished before it. Finished within the time they themselves had predicted: only 38.7%. When the work gets done follows the deadline almost entirely, with a correlation coefficient of r = 0.82; the closer this number is to 1, the tighter the following. With one's own prediction it has only a very weak relationship.
 - Evidence grade: B
 - Sources: Buehler, R., Griffin, D., & Ross, M. (1994). Exploring the "planning fallacy": Why people underestimate their task completion times. Journal of Personality and Social Psychology, 67(3), 366–381. <https://doi.org/10.1037/0022-3514.67.3.366>
-- Notes: what the research confirms is the effect of external deadlines; self-set deadlines (timeboxes, pomodoros and the like) have not been directly tested — that's an analogy; telling other people your self-set deadline makes it behave more like an external one
+- Notes: Tell other people the date you set for yourself, and it becomes closer to the other-person kind. To be clear: what the research verified is that deadlines set by others work. The self-set kind, like timeboxes and pomodoros, nobody has tested directly; here it is carried over by inference.
 
-### 9. Use your hourly wage to decide which chores to outsource
+### 9. Treat procrastination as dodging something unpleasant, not as not trying hard enough
+<!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
+- Cost: Free. The only thing that changes is the direction of your judgment: first ask what it is about the task that puts you off, then work out a fix.
+- In plain terms: Procrastination has little to do with laziness or with character. What shows best whether a person puts things off is how much the task itself puts them off, whether they feel they can do it, and how easily whatever is right in front of them pulls them away. So what helps is making the task less unpleasant and making the first step smaller, not scolding yourself and then grinding on anyway.
+- Benefit: A meta-analysis pooling 691 correlation coefficients found several things strongly and stably tied to procrastination: how aversive the task is, how far away the deadline is, self-efficacy (the sense that you can do it), impulsiveness, and conscientiousness with its facets of self-control, distractibility, orderliness, and achievement motivation. Neuroticism, rebelliousness, and sensation-seeking, by contrast, have only a very weak link with procrastination. The authors explain the pattern with temporal motivation theory: how attractive a thing feels right now shrinks fast as the reward moves further away.
+- Evidence grade: A
+- Sources: Steel P (2007). The nature of procrastination: a meta-analytic and theoretical review of quintessential self-regulatory failure. Psychological Bulletin, 133(1), 65–94. <https://doi.org/10.1037/0033-2909.133.1.65>
+- Notes: This entry gives direction only, no action, so the benefit magnitude is recorded as "medium" — it never measured how many hours it saves. For concrete actions see unit 1 of this section (write it as "at what time, where, doing what when X happens"), unit 7 (break big tasks into subtasks), and unit 8 (set your own date for things with no external deadline). Note this is a pooling of correlational studies and cannot be read as who causes whom.
 
+### 10. Put what you need within reach, move what you want to avoid out of the way, and do not count on resisting in the moment
+<!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
+- Cost: Free, a few minutes at a time. Put the phone in another room; spread the books and the computer out on the desk.
+- In plain terms: The further away a thing sits, the less a person takes it. Move the same snacks further away and the amount eaten clearly drops — a medium-sized effect. Lay out fewer options and people take less too, clearly. None of these tricks ask you to resist in the moment; a few minutes is all it takes to set them up.
+- Benefit: A Cochrane review including 24 randomized trials. Placing food further away lowers the amount eaten, standardized mean difference −0.60 (95% CI −0.84 to −0.36, this is the credible range; 12 studies, 1098 people, low-certainty evidence), a medium effect. Reducing the number of options lowers the share choosing that food even more clearly, standardized mean difference −1.13 (95% CI −1.90 to −0.37, 3 studies, 154 people, low-certainty evidence). Regression analysis showed: the further away it is placed and the fewer the options, the stronger the effect.
+- Evidence grade: B
+- Sources: Hollands GJ, Carter P, Anwer S, et al. (2019). Altering the availability or proximity of food, alcohol, and tobacco products to change their selection and consumption. Cochrane Database of Systematic Reviews, 9, CD012573. <https://doi.org/10.1002/14651858.CD012573.pub3>
+- Notes: Why B: all 24 studies the review included were about food — not one about alcohol or tobacco; 14 were done in the lab, and all came from high-income countries. So carrying "move it away and you touch it less" over to phones and games is an extrapolation, with no direct trials. The one thing about the phone that someone did test directly: see unit 1 of section 3 (turn off non-essential notifications and put the phone out of sight while working).
+
+### 11. To make yourself do it, put money on the line — but first ask whether you would actually stake it
+<!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=时间 -->
+- Cost: Deposit-style schemes ask you to put up some of your own money first, forfeited if you fail. In the trial the deposit was 150 US dollars.
+- In plain terms: A randomized trial with 2538 people compared two schemes: a bonus for succeeding, and a deposit you get back plus a bonus only if you succeed. Among people willing to take part in either one, the deposit scheme's success rate was 13 percentage points higher. But only 13.7% were willing to put down a deposit, while 90% were willing to take the bonus. The deposit works best for people willing to stake it; for those who are not, it amounts to nothing.
+- Benefit: A randomized trial in the United States with 2538 people assigned employees and their family and friends at random to one of four incentive schemes or usual care. The bonus type (about 800 US dollars for succeeding) had an acceptance rate of 90.0%; the deposit type (150 US dollars down, plus a 650 US dollar reward) 13.7%. Six-month sustained quit rates: the four incentive schemes ranged from 9.4% to 16.0%, usual care 6.0%. Bonus type 15.7%, deposit type 10.2%. But counting only the 13.7% willing to take part in both, the deposit scheme's six-month quit rate beat the bonus scheme by 13.2 percentage points (95% CI 3.1 to 22.8, this is the credible range).
+- Evidence grade: A
+- Sources: Halpern SD, French B, Small DS, et al. (2015). Randomized trial of four financial-incentive programs for smoking cessation. New England Journal of Medicine, 372(22), 2108–2117. <https://doi.org/10.1056/NEJMoa1414293>
+- Notes: The trial tested quitting smoking; carrying it over to writing a thesis or working out is an extrapolation, so the benefit magnitude is recorded as "medium". The point is not "which works better" but "whether you will actually use it": a strong method most people refuse is zero for most people. So first pick the one you would accept; a small deposit beats no deposit. For how to quit smoking itself, see unit 3 of section 2 (smoking-cessation medication).
+
+### 12. Count new habits in months, not in "21 days"
+<!-- 成本标签: 钱=0 时间=少 毅力=是 收益=中 口径=时间 -->
+- Cost: Free. What it takes is repeating the same action every day in the same setting, for several months.
+- In plain terms: "It takes 21 days to form a habit" has no basis. One study that tracked people for 12 weeks worked it out: for an action to become something you do without thinking took 18 days at the fastest and 254 at the slowest. It is normal for it not to feel easy after two or three weeks. Missing a day along the way does not wipe the progress back to zero.
+- Benefit: 96 volunteers each picked one eating, drinking, or activity behavior and did it every day in a fixed setting (say, "after breakfast") for 12 weeks, rating each day how automatic the action felt. The data from 82 people were usable for analysis, and the model fit successfully for 62. The days needed to reach 95% of each person's automaticity ceiling ranged from 18 to 254. The study also found that missing one execution opportunity had no substantive effect on the habit-forming process.
+- Evidence grade: B
+- Sources: Lally P, van Jaarsveld CHM, Potts HWW, Wardle J (2010). How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology, 40(6), 998–1009. <https://doi.org/10.1002/ejsp.674>
+- Notes: This is a single study, 96 people, all doing simple actions (say, eating a piece of fruit after a meal). How long complicated things take — running three times a week, writing every day — nobody has tested. The use of this entry is to give yourself a realistic expectation: do not treat "still a struggle after two weeks" as proof of failure. To make the repetition actually happen, tie the action to a fixed setting, see unit 1 of this section (write it as "at what time, where, doing what when X happens").
+
+### 13. When procrastination is already affecting your life, use self-help materials backed by randomized trials; you do not have to find a therapist
+<!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
+- Cost: A self-help book costs a few dozen yuan, some are free. It takes about ten weeks, one chapter and one exercise a week.
+- In plain terms: Procrastination severe enough to cause distress can be treated. A randomized trial with 150 people used ten weeks of cognitive-behavioral self-help material, with a guide and fully on your own; both groups did clearly better than a control group that did nothing. No difference showed up between the two groups, which means working through it on your own works too.
+- Benefit: 150 people were randomized into three groups: guided self-help with a therapist, unguided self-help, and a waitlist control. After ten weeks, the between-group effect sizes on the pure procrastination scale were d = 0.70 for the guided group (95% CI 0.29–1.10, this is the credible range) and d = 0.50 for the unguided group (0.10–0.90); on the irrational procrastination scale, 0.81 (0.40–1.22) and 0.69 (0.29–1.09) respectively. The shares reaching a clinically meaningful improvement: guided 31.3% to 40.0%, unguided 24.0% to 36.0%. The two groups showed no significant difference on any outcome.
+- Evidence grade: A
+- Sources: Rozental A, Forsell E, Svensson A, Andersson G, Carlbring P (2015). Internet-based cognitive-behavior therapy for procrastination: A randomized controlled trial. Journal of Consulting and Clinical Psychology, 83(4), 808–824. <https://doi.org/10.1037/ccp0000023>
+- Notes: The participants were Swedish adults using Swedish-language materials, and there is no ready-made equivalent in Chinese, so the benefit magnitude is recorded as "medium". The ingredients of the materials are the usual few: behavioral activation, behavioral experiments, stimulus control, and teaching about motivation and work methods. Stimulus control is covered in unit 10 of this section (move what you want to avoid out of the way). When the procrastination comes with marked low mood or anxiety, start with unit 19 of section 3 (get moving, get sunlight, sleep on schedule, talk to someone, call 12356).
+
+### 14. Use your hourly wage to decide which chores to outsource
 <!-- 成本标签: 钱=多 时间=少 毅力=否 收益=大 口径=时间 -->
-- Cost: outsourcing fees; you need to run the calculation once first
-- In plain terms: on average people in China spend 1 hour 17 minutes a day on housework, and among those who actually do it, 1 hour 59 minutes. People who spend money to buy time report higher life satisfaction, and the same amount of money spent buying time feels better in the moment than buying things.
-- Benefit: Chinese residents average 1 hour 17 minutes of housework per day; those who do housework average 1 hour 59 minutes (2024 survey, 38,500 households and 107,000 people); in a four-country sample of 6,271 people, people who spend money to save time report higher life satisfaction, and in a field experiment buying time brought higher moment-to-moment happiness than buying material goods
+- Cost: outsourcing costs money, and how much depends on what service you buy. You also need to spend time once to work out your own hourly wage.
+- In plain terms: people in China spend an average of 1 hour 17 minutes a day on housework. Among those who actually did hands-on housework on the day, it was 1 hour 59 minutes. People who spend money to buy time report higher life satisfaction. The same amount of money spent on buying time feels better in the moment than spending it on things.
+- Benefit: Chinese residents spend an average of 1 hour 17 minutes a day on housework. Counting only people who did housework, the average is 1 hour 59 minutes. This comes from a 2024 survey covering 38,500 households and 107,000 people. Another study took a sample of 6,271 people from four countries and found that people who spend money to save time report higher life satisfaction. The researchers also ran an experiment in real life: the same amount of money spent on buying time brought higher in-the-moment happiness than spending it on physical things.
 - Evidence grade: B
 - Sources: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). Buying time promotes happiness. Proceedings of the National Academy of Sciences. <https://doi.org/10.1073/pnas.1706541114>；国家统计局 (2024). 第三次全国时间利用调查公报（第二号）. <https://www.stats.gov.cn/sj/zxfb/202410/t20241031_1957216.html>
-- Notes: the calculation: hourly wage = monthly after-tax income ÷ monthly actual working hours; if the price of outsourcing a chore is below your hourly wage and you would genuinely spend the saved time on income or rest, outsource it. Method only, no conclusions, since everyone's hourly wage and outsourcing prices differ; Whillans's result is on the happiness dimension, not the time dimension
+- Notes: work out your hourly wage first; the formula is monthly after-tax income ÷ monthly actual working hours. Then check how much it costs to outsource a given chore. If the outsourcing price is below your hourly wage and you would genuinely spend the saved time on earning money or resting, outsource it. This is method only, no conclusions, because everyone's hourly wage and outsourcing prices are different. Also, Whillans measured how happy people are after spending money to save time, not how many hours they saved.
 
-### 10. Set hard caps on short videos and aimless scrolling
-
+### 15. Set hard caps on short videos and aimless scrolling
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=时间 -->
-- Cost: a lot of willpower; requires turning off notifications, deleting apps, or setting app time limits
-- In plain terms: people in China average 5 hours 37 minutes online per day, and among internet users it's 6 hours 3 minutes; in 2018 the same measure was only 2 hours 42 minutes. This is the biggest number in the whole book's time accounting — cut one hour from it and you gain 365 hours a year.
-- Benefit: Chinese residents average 5 hours 37 minutes of internet use per day, users average 6 hours 3 minutes, participation rate 92.9% (2024); in 2018 the same measure was 2 hours 42 minutes. This is the largest figure in this section; cutting one hour of it equals 365 extra hours a year
+- Cost: no money. The actions take only a few minutes: turn off notifications, delete the app, or set a daily time limit on the app. The hard part is keeping your hands off and not tapping it open.
+- In plain terms: people in China spend an average of 5 hours 37 minutes a day online. Among those who actually went online on the day, it is 6 hours 3 minutes. In 2018, by the same measure, it was only 2 hours 42 minutes. This is the biggest number in this section. Cut one hour a day and you gain 365 hours a year.
+- Benefit: Chinese residents spend an average of 5 hours 37 minutes a day online. Counting only those who actually went online on the day, the average is 6 hours 3 minutes. 92.9% of people used the internet on the day. These are 2024 figures. In 2018, by the same measure, it was only 2 hours 42 minutes. This is the biggest number in this section. Cutting one hour of it a day equals 365 extra hours a year. Separately, according to the China Internet Network Information Center, by June 2025 internet users averaged 30.6 hours online per week, 1.9 hours more than six months earlier. Short-video users numbered 1.068 billion people, 95.1% of all internet users.
 - Evidence grade: C
-- Sources: 国家统计局 (2024). 第三次全国时间利用调查公报（第二号）. <https://www.stats.gov.cn/sj/zxfb/202410/t20241031_1957216.html>；国家统计局 (2019). 2018年全国时间利用调查公报. <https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900224.html>；TODO（待核实：CNNIC 第55次/第56次《中国互联网络发展状况统计报告》中的网民人均每周上网时长与短视频用户规模，官方 PDF 无法提取文本，数字未核实）
-- Notes: internet use time includes work, study, and socializing — it is not all waste; the C grade is because no study has quantified "how much time is clawed back after restricting use and where it goes" — there are only aggregate statistics
+- Sources: 国家统计局 (2024). 第三次全国时间利用调查公报（第二号）. <https://www.stats.gov.cn/sj/zxfb/202410/t20241031_1957216.html>；国家统计局 (2019). 2018年全国时间利用调查公报. <https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900224.html>；中国互联网络信息中心 (2025). 第 56 次《中国互联网络发展状况统计报告》. <https://www.cnnic.net.cn/NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf>
+- Notes: internet time includes work, study, and socializing — it is not all waste. It is graded C because no study has calculated "how much time is clawed back after restricting it and where that time goes"; there are only aggregate statistics. One category within it, "scrolling through how other people are doing," has had a randomized trial measure how much time it claws back and how much mood changes — see section 3, item 21.
 
-### 11. Skip TV and rolling news; check needed information at set times in batches
-
+### 16. Skip TV and rolling news; check needed information at set times in batches
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=时间 -->
-- Cost: moderate willpower; you may miss some breaking news
-- In plain terms: Americans aged 15 and over watch 2.6 hours of TV a day, half of all their leisure time; people in China average 1 hour 40 minutes, and adults aged 75 to 84 watch 3 hours 16 minutes. Batch the information you need at set times, and what you save is this entire block.
-- Benefit: Americans aged 15 and over watch 2.6 hours of TV per day, half of all leisure time (5.2 hours) (2025); Chinese residents average 1 hour 40 minutes of TV per day, with the 75-to-84 age group at 3 hours 16 minutes (2018)
+- Cost: no money. The hard part is breaking the habit of turning it on without thinking, and you may miss some breaking news.
+- In plain terms: Americans aged 15 and over watch 2.6 hours of TV a day, half of all their leisure time. People in China watch an average of 1 hour 40 minutes a day, and adults aged 75 to 84 watch 3 hours 16 minutes. Switch the information you need to checking it at set times in batches, and what you save is this entire block.
+- Benefit: Americans aged 15 and over watch 2.6 hours of TV a day. Their total leisure time is 5.2 hours, and TV takes up half of it. These are 2025 figures. Chinese residents watch an average of 1 hour 40 minutes of TV a day, with people aged 75 to 84 at 3 hours 16 minutes. These are 2018 figures.
 - Evidence grade: C
 - Sources: U.S. Bureau of Labor Statistics (2026). American Time Use Survey — 2025 Results. <https://www.bls.gov/news.release/atus.nr0.htm>；国家统计局 (2019). 2018年全国时间利用调查公报. <https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900224.html>
-- Notes: only aggregate statistics exist; no study has quantified where time goes after cutting TV/news; the "batching" approach is the author's own practice
+- Notes: there are only aggregate statistics on hand. No study has calculated where the saved time goes after people watch less TV and news. The "batching" approach is the author's own practice.
 
-### 12. Spend time once to learn keyboard shortcuts and automation in your everyday software
-
+### 17. Spend time once to learn keyboard shortcuts and automation in your everyday software
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
-- Cost: a one-time investment of a few hours to a few dozen hours; slower than the mouse at first
-- In plain terms: most people who have used Word for years are still clicking the toolbar, while in a controlled experiment shortcuts were the fastest of three input methods. Learning is a one-time cost; after that, every operation pays it back a little every day — the longer you do the same kind of work, the more you come out ahead.
-- Benefit: among 251 experienced Word users, most rarely used the more efficient shortcuts and still relied mainly on the icon toolbar; a controlled experiment confirmed shortcuts were the fastest of the three methods. Time saved accumulates with the number of daily operations; people who do the same kind of work for years gain the most
+- Cost: no money. It takes a one-time investment of a few hours to a few dozen hours to learn. The hard part is that at first you are slower than you were with the mouse.
+- In plain terms: most people who have used Word for years are still clicking toolbar icons. In an experiment that compared groups, shortcuts were faster than both menus and icons. This one round of learning is a one-time cost; after that, every operation pays it back a little every day. The longer you do the same kind of work, the more you earn back.
+- Benefit: the study looked at 251 experienced Word users; most rarely used the faster shortcuts and still relied mainly on clicking the icon toolbar. An experiment that compared groups confirmed that of the three methods — menus, icons, and shortcuts — shortcuts are the fastest. The time saved builds up bit by bit with the number of operations you do each day. People who do the same kind of work for years gain the most.
 - Evidence grade: B
 - Sources: Lane, D. M., Napier, H. A., Peres, S. C., & Sándor, A. (2005). Hidden costs of graphical user interfaces: Failure to make the transition from menus and icon toolbars to keyboard shortcuts. International Journal of Human-Computer Interaction. <https://doi.org/10.1207/s15327590ijhc1802_1>
-- Notes: the efficiency experiment had only 6 participants, and the abstract gives no seconds saved per operation; learn only operations you use more than ten times a day — learning everything is another form of waste
+- Notes: learn only the operations you use more than ten times a day — learning everything is another form of waste. To be clear, that efficiency experiment had only 6 participants, and the abstract gives no seconds saved per operation.
 
-### 13. When choosing where to live, put commute length first; shorten the one-way commute
-
+### 18. When choosing where to live, put commute length first; shorten the one-way commute
 <!-- 成本标签: 钱=多 时间=中 毅力=否 收益=大 口径=时间 -->
-- Cost: high — possibly higher rent or a smaller place, and moving itself takes time
-- In plain terms: the longer the commute, the lower people's subjective well-being, and this loss is not paid back in wages or housing. Shave 30 minutes off each one-way trip and you free up 5 hours a week.
-- Benefit: Chinese residents average 50 minutes of daily travel activity, participants 1 hour 2 minutes (2024); German panel data show that longer commutes systematically lower subjective well-being, with no compensation in income or housing; a review confirms commuting satisfaction falls with duration, regardless of mode. Shaving 30 minutes off the one-way commute saves about 5 hours a week
+- Cost: high. You may have to pay more rent, or move to a smaller place. Moving itself also takes time.
+- In plain terms: the longer the commute, the worse people feel their life is going. This loss is not paid back in wages or housing. Shave 30 minutes off the one-way trip and you free up 5 hours a week.
+- Benefit: Chinese residents spend an average of 50 minutes a day on travel. Counting only people who made trips on the day, it is 1 hour 2 minutes. These are 2024 figures. German data that follow the same people over the long run show that the longer the commute, the steadily lower people's subjective well-being — that is, the worse they feel their life is going. And this loss is not compensated in income or housing. A review that pooled multiple studies also confirms that the longer the commute, the less satisfied people are with it, regardless of the mode of transport. Shaving 30 minutes off the one-way commute saves about 5 hours a week.
 - Evidence grade: B
 - Sources: Stutzer, A., & Frey, B. S. (2008). Stress that doesn't pay: The commuting paradox. Scandinavian Journal of Economics, 110(2), 339–366. <https://doi.org/10.1111/j.1467-9442.2008.00542.x>；Chatterjee, K., et al. (2020). Commuting and wellbeing: A critical overview of the literature with implications for policy and future research. Transport Reviews, 40(1), 5–34. <https://doi.org/10.1080/01441647.2019.1649317>；国家统计局 (2024). 第三次全国时间利用调查公报（第二号）. <https://www.stats.gov.cn/sj/zxfb/202410/t20241031_1957216.html>
-- Notes: controversy: the review by Chatterjee et al. points out that a consistent link between commuting and overall life satisfaction has not been established, and people can generally trade better jobs or housing for the loss a long commute imposes; travel-activity statistics include all trips, not just commuting; shifting your commute off peak hours also compresses the same route
+- Notes: controversy: after pooling multiple studies, Chatterjee et al. pointed out that no stable link between commute length and overall life satisfaction can be seen yet. They argue that people can mostly trade the loss of a long commute back with a better job or better housing. Also note that the travel-activity statistics count all trips, not just commuting. And if you can shift your commute off peak hours, the same route also gets shorter.
