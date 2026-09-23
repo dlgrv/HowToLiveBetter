@@ -81,7 +81,7 @@ Scope: infant mortality and money. This section only covers a few measures with 
 - In plain terms: a baby's head is disproportionately large and the neck muscles are weak; violent shaking causes intracranial and retinal bleeding and can kill or leave lifelong disability. The gentle rocking used to soothe a baby to sleep does not count — what is dangerous is the out-of-control kind of shaking. When you are about to lose it, put the baby back in the crib and walk away for a few minutes; letting him cry for a while is far safer than holding and shaking him.
 - Benefit: a baby's head is disproportionately large and the neck muscles are weak; violent shaking causes intracranial and retinal bleeding and can be fatal or leave lifelong disability. Gentle rocking to soothe a baby to sleep is different; what is dangerous is violent, out-of-control shaking
 - Evidence grade: C
-- Sources: 作者经验与普遍共识，本轮未取得可直接引用的原始文献
+- Sources: Spies EL, Klevens J (2016). Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014. MMWR 65(20):505-509. <https://doi.org/10.15585/mmwr.mm6520a1>；Choudhary AK 等 (2018). Consensus statement on abusive head trauma in infants and young children. Pediatric Radiology 48(8):1048-1065. <https://doi.org/10.1007/s00247-018-4149-1>
 - Notes: when you truly feel yourself about to lose control, put the baby back in the crib and walk away for a few minutes; letting him cry for a while is far safer than holding and shaking him. This matters most for those caring for a baby alone and chronically short of sleep; handling emotions is covered in Section 3
 
 ### 10. Judge diapers not by brand but by three things: fit, how often they are changed, and whether they have ever been flagged in quality spot checks
@@ -101,3 +101,12 @@ Scope: infant mortality and money. This section only covers a few measures with 
 - Evidence grade: C
 - Sources: 作者经验，无直接文献；安全座椅的证据见第 1 节，冲动消费见第 5 节
 - Notes: for postpartum care centers, early-education classes, baby swimming pools and the like, this book neither recommends nor rules them out, but they are large non-essential expenses and the 24-hour cooling-off period in Section 5 applies
+
+### 12. 孩子有严重湿疹或鸡蛋过敏，别躲着花生，按医生指导早点加上，但绝不能喂整粒
+<!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
+- 成本：一罐花生酱几十元。每周喂几次，顺手就做。加之前要带孩子看一次医生，做个评估。
+- 说人话：640 名高危婴儿的随机试验。从 4 到 11 个月起定期吃花生的那组，到 5 岁时花生过敏率 1.9%；完全躲开的那组是 13.7%。入组时皮试已经弱阳性的孩子里，是 10.6% 对 35.3%。躲反而更容易过敏。但绝不能喂整粒花生，会噎住气管。
+- 收益：英国 LEAP 随机试验。640 名婴儿入组，条件是有重度湿疹、鸡蛋过敏，或者两样都有。入组时 4 到 11 个月大。随机分成两组，一组定期吃花生制品，一组完全回避，到 60 个月大时看花生过敏率。入组时花生皮试阴性的 530 人里，回避组 13.7% 过敏，吃的组 1.9%（P<0.001）。入组时皮试已经弱阳性的 98 人里，回避组 35.3%，吃的组 10.6%（P=0.004）。两组的严重不良事件没有差别。
+- 证据等级：A
+- 备注：**形式只能是花生酱调稀或者花生粉拌进辅食，绝不能给整粒花生。**卫健委的喂养核心信息写得很明白：「整粒花生、坚果、果冻等食物易吸入气管，引起窒息，婴幼儿应当避免食用」。噎住了怎么办见第 13 节第 26 条（有人噎住说不出话）。这条只针对高危孩子，就是有重度湿疹或者已经对鸡蛋过敏的那些。**加之前必须先看医生做评估，不要自己在家试**：LEAP 试验入组前给每个孩子做了皮试，皮试反应大于 4 毫米的孩子被排除在试验之外，没让他们吃。一般孩子的证据弱得多。另一项 1162 名普通母乳喂养婴儿的试验里，按分组算，早引入组食物过敏 5.6%、常规组 7.1%，差别不显著（P=0.32）；只有在真正做到了的那部分孩子里才显著（2.4% 对 7.3%）。这种算法容易把效果说大，作者自己说按分组算没能证出效力，但也说明早引入是安全的。中国的官方喂养文件目前对「该早引入还是该回避易过敏食物」没有说法，所以这条按国际试验证据写。时间点上也要注意：LEAP 从 4 月龄起，而中国是满 6 月龄开始加辅食，见本节第 4 条（前 6 个月只喂母乳）。高危孩子几月龄开始、怎么开始，听医生的。
+- Sources: Du Toit G, Roberts G, Sayre PH, 等 (2015). Randomized trial of peanut consumption in infants at risk for peanut allergy. New England Journal of Medicine, 372(9), 803-813. <https://doi.org/10.1056/NEJMoa1414850>；国家卫生健康委办公厅 (2020). 婴幼儿喂养健康教育核心信息. <https://www.gov.cn/zhengce/zhengceku/2020-08/01/content_5531915.htm>；Perkin MR 等 (2016). Randomized Trial of Introduction of Allergenic Foods in Breast-Fed Infants. New England Journal of Medicine, 374(18), 1733-1743. <https://doi.org/10.1056/NEJMoa1514210>（备注里那项一般婴儿试验 EAT）
