@@ -7,13 +7,13 @@
 Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
 528 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
-[![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://eternity4719.github.io/HowToLiveBetter/)
+[![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/es/)
 [![Items](https://img.shields.io/badge/Items-528-18794e?style=flat-square)](#table-of-contents)
 [![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20347%20%C2%B7%20B%20131%20%C2%B7%20C%2050-915930?style=flat-square)](#evidence-grades)
 [![Primary sources](https://img.shields.io/badge/Primary%20sources-1066%20links-565a5f?style=flat-square)](docs/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Open the online search page](https://eternity4719.github.io/HowToLiveBetter/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/核实记录/) · [Is marriage worth it (long read)](docs/es/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/es/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/es/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/es/What-Licenses-A-Platform-Needs.md)
+**[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/es/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/核实记录/) · [Is marriage worth it (long read)](docs/es/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/es/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/es/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/es/What-Licenses-A-Platform-Needs.md)
 
 </div>
 
@@ -65,7 +65,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 
 ## How to read this
 
-- **To filter by conditions**: open the [online search page](https://eternity4719.github.io/HowToLiveBetter/); you can filter by keyword, chapter, and evidence grade, and combine three cost dimensions: whether it costs money, whether it takes time, whether it takes willpower. The data is read directly from the book/ text; fix the text and the search page changes with it.
+- **To filter by conditions**: open the [online search page](https://dlgrv.github.io/HowToLiveBetter/es/); you can filter by keyword, chapter, and evidence grade, and combine three cost dimensions: whether it costs money, whether it takes time, whether it takes willpower. The data is read directly from the book/ text; fix the text and the search page changes with it.
 - **To read in order**: items inside each section are ordered from highest to lowest value for the money; start with the first few items of each section.
 - **If you can't read that string of numbers**: every item has an "In plain terms" line that translates the risk ratios and confidence intervals in the Benefit field into everyday statements like "about 20% lower chance of dying in the same period" or "a few days of detention, a fine of so much" — using only facts already in the original, without adding new numbers. That line alone is enough to decide; the Benefit field keeps all the raw numbers and confidence intervals so you can check for yourself.
 - **Only the hardest conclusions**: on the search page check evidence grade A to keep only the 347 items with concrete numbers from meta-analyses or large trials.
@@ -220,4 +220,4 @@ Items inside each section are ordered from highest to lowest value for money. Se
 
 ## The book itself
 
-The text is split into 32 section files under [book/en/](book/es/); click a section title in the table of contents above to open it. It is split because a single file would exceed GitHub's 512 KB Markdown rendering limit and later sections would not display; the [online search page](https://eternity4719.github.io/HowToLiveBetter/) reads these files combined and works the same way.
+The text is split into 32 section files under [book/en/](book/es/); click a section title in the table of contents above to open it. It is split because a single file would exceed GitHub's 512 KB Markdown rendering limit and later sections would not display; the [online search page](https://dlgrv.github.io/HowToLiveBetter/es/) reads these files combined and works the same way.
