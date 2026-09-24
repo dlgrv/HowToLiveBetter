@@ -5,6 +5,9 @@ Usage:
   python3 tools/verify.py <NN> --lang ru          # book/ru/NN-*.md
   python3 tools/verify.py <NN> --lang en          # book/en/NN-*.md
   python3 tools/verify.py <NN> --lang ru --file /tmp/candidate.md
+  python3 tools/verify.py <NN> --lang ru --file /tmp/candidate.md --json
+    # --json: after human lines, emit one JSON object on stdout (also on FAIL,
+    # before sys.exit(1)) for tools/llm/repair_wave.py
 
 Checks (fail = exit 1, warn = printed only):
   1. heading (### N.) count == original
@@ -158,6 +161,11 @@ def main():
     ap.add_argument("chapter")
     ap.add_argument("--lang", required=True, choices=["ru", "en", "es"])
     ap.add_argument("--file", help="explicit translated-file path (default: book/<lang>/NN-*)")
+    ap.add_argument(
+        "--json",
+        action="store_true",
+        help="emit machine JSON report on stdout (before exit on FAIL)",
+    )
     args = ap.parse_args()
     n, lang = args.chapter, args.lang
 
@@ -185,18 +193,33 @@ def main():
         return [l for l in lines if not l.startswith(src_label) and "成本标签" not in l]
 
     fails, warns = [], []
+    fail_objs, warn_objs = [], []
+
+    def add_fail(msg, obj):
+        fails.append(msg)
+        fail_objs.append(obj)
+
+    def add_warn(msg, obj):
+        warns.append(msg)
+        warn_objs.append(obj)
 
     # 1. headings ------------------------------------------------------------
     sh = [x for x in sl if x.startswith("### ")]
     th = [x for x in tl if x.startswith("### ")]
     if len(sh) != len(th):
-        fails.append(f"headings {len(sh)} != {len(th)}")
+        add_fail(
+            f"headings {len(sh)} != {len(th)}",
+            {"kind": "headings_mismatch", "got": len(th), "want": len(sh)},
+        )
 
     # 2. cost tags -------------------------------------------------------------
     st = sum(1 for x in sl if "成本标签" in x)
     tt = sum(1 for x in tl if "成本标签" in x)
     if st != tt:
-        fails.append(f"cost tags {st} != {tt}")
+        add_fail(
+            f"cost tags {st} != {tt}",
+            {"kind": "cost_tags_mismatch", "got": tt, "want": st},
+        )
 
     # 3. sources: count + byte-identity after label ---------------------------
     ss = [x.split("：", 1)[1].strip() for x in sl if x.startswith("- 来源：")]
@@ -208,11 +231,17 @@ def main():
     ss = [retrofit.sub("", x) for x in ss]
     ts = [retrofit.sub("", x) for x in ts]
     if len(ss) != len(ts):
-        fails.append(f"sources {len(ss)} != {len(ts)}")
+        add_fail(
+            f"sources {len(ss)} != {len(ts)}",
+            {"kind": "sources_mismatch", "got": len(ts), "want": len(ss)},
+        )
     else:
         for a, b in zip(ss, ts):
             if a != b:
-                fails.append("source line mismatch: " + a[:60])
+                add_fail(
+                    "source line mismatch: " + a[:60],
+                    {"kind": "source_line_mismatch", "preview": a[:60]},
+                )
 
     # 4. field labels (labels from language pack, fallback to built-ins) ---------
     cn_body = body(sl, "- 来源：")
@@ -230,7 +259,16 @@ def main():
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
         got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))
         if want != got:
-            fails.append(f'field {labels[lang][i]}: {got} != {want} ("- {cn_lab}")')
+            add_fail(
+                f'field {labels[lang][i]}: {got} != {want} ("- {cn_lab}")',
+                {
+                    "kind": "field_count",
+                    "label": labels[lang][i],
+                    "got": got,
+                    "want": want,
+                    "cn_label": cn_lab,
+                },
+            )
 
     # 4.5 plain-terms lines must stay jargon-free (CLAUDE.md: 说人话 bans HR/RR/OR/CI)
     plain = labels[lang][1]
@@ -238,7 +276,14 @@ def main():
         if l.lstrip().startswith("- " + plain):
             hits = re.findall(r"\b(?:HR|RR|OR|CI)\b", l)
             if hits:
-                warns.append(f"line {idx}: jargon in '{plain}' line: {', '.join(sorted(set(hits)))}")
+                add_warn(
+                    f"line {idx}: jargon in '{plain}' line: {', '.join(sorted(set(hits)))}",
+                    {
+                        "kind": "jargon_in_plain",
+                        "line": idx,
+                        "hits": sorted(set(hits)),
+                    },
+                )
 
     # 5. numbers ----------------------------------------------------------------
     cn_nums = norm_numbers("\n".join(cn_body))
@@ -255,13 +300,25 @@ def main():
         top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_soft.items(),
                          key=lambda x: -x[1])[:10])
         warns.append(f"numbers less frequent (prose economy, check): {top}")
+        for v, c in lost_soft.items():
+            warn_objs.append(
+                {"kind": "number_less_frequent", "value": str(v), "count": int(c)}
+            )
     if lost_hard:
         top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_hard.items(),
                         key=lambda x: -x[1])[:12])
         fails.append(f"numbers absent from translation: {top}")
+        for v, c in lost_hard.items():
+            fail_objs.append(
+                {"kind": "number_absent", "value": str(v), "count": int(c)}
+            )
     if extra:
         top = ", ".join(f"{v}×{c}" for v, c in extra.most_common(12))
         warns.append(f"numbers added (check they are marked inserts): {top}")
+        for v, c in extra.items():
+            warn_objs.append(
+                {"kind": "number_added", "value": str(v), "count": int(c)}
+            )
 
     # 6. CJK / fullwidth outside allowed zones ---------------------------------
     zh_lines = []
@@ -281,10 +338,20 @@ def main():
         if CJK.search(s):
             zh_lines.append((idx, l.strip()[:70]))
         elif FULLWIDTH.search(s):
-            warns.append(f"line {idx}: fullwidth punctuation: {l.strip()[:60]}")
+            add_warn(
+                f"line {idx}: fullwidth punctuation: {l.strip()[:60]}",
+                {"kind": "fullwidth", "line": idx},
+            )
     if zh_lines:
-        fails.append(f"CJK outside allowed zones: {len(zh_lines)} line(s), " +
-                     "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]))
+        add_fail(
+            f"CJK outside allowed zones: {len(zh_lines)} line(s), " +
+            "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]),
+            {
+                "kind": "cjk_outside",
+                "count": len(zh_lines),
+                "samples": [{"line": i, "text": t} for i, t in zh_lines[:5]],
+            },
+        )
 
     # 7. banned calques (stems from language pack) -------------------------------
     if banned:
@@ -292,18 +359,37 @@ def main():
         for stem in banned:
             cnt = len(re.findall(stem, alltr))
             if cnt > 1:
-                fails.append(f'banned calque "{stem}": {cnt} occurrences (max 1, first-use gloss)')
+                add_fail(
+                    f'banned calque "{stem}": {cnt} occurrences (max 1, first-use gloss)',
+                    {"kind": "banned_calque", "stem": stem, "count": cnt},
+                )
             elif cnt == 1:
-                warns.append(f'calque stem "{stem}" occurs once — must be a parenthetical first-use gloss')
+                add_warn(
+                    f'calque stem "{stem}" occurs once — must be a parenthetical first-use gloss',
+                    {"kind": "calque_once", "stem": stem, "count": 1},
+                )
 
     # report --------------------------------------------------------------------
     print(f"verify {os.path.basename(tr_path)} vs {srcs[0]}")
     for w in warns:
         print("  WARN:", w)
+    report = {
+        "ok": not fails,
+        "chapter": n,
+        "lang": lang,
+        "file": tr_path,
+        "fails": fail_objs,
+        "warns": warn_objs,
+    }
+    # JSON must be the LAST stdout line (also on FAIL) so consumers can parse
+    # `stdout[stdout.rfind("{"):]` without hitting "Extra data" from human text.
     if fails:
         print("FAIL")
         for f in fails:
             print("  -", f)
+    if args.json:
+        print(json.dumps(report, ensure_ascii=False))
+    if fails:
         sys.exit(1)
     print(f"OK: headings={len(th)} tags={tt} sources={len(ts)} "
           f"numbers={len(cn_nums)} (lost=0, extra={sum(extra.values())})")
