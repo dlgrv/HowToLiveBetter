@@ -83,9 +83,6 @@ def normalize_assertions(verdict):
 
 
 def cn_body(cn_text):
-    """CN unit minus service lines (positional rule: a LINE that starts a
-    service block — sources/evidence/tag-comments/§SRC§ — is removed; body
-    text merely CONTAINING e.g. 出资来源 stays)."""
     keep = []
     for line in cn_text.splitlines():
         s = line.strip()
@@ -97,18 +94,51 @@ def cn_body(cn_text):
     return "\n".join(keep)
 
 
-def _locate(span, cn_text):
-    """Ground a cn_span in the CN text; return (line_starts, fragments) or None.
+def tr_body(tr_text):
+    keep = []
+    for line in tr_text.splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if s in ("§TAG§", "§SRC§") or s.startswith("§TAG§") or s.startswith("§SRC§"):
+            continue
+        if s.startswith("<!--"):
+            continue
+        keep.append(s)
+    return "\n".join(keep)
 
-    Three passes, strictest first:
-      1. verbatim contiguous match (all lines the span touches);
-      2. whitespace-collapsed match (drift tolerance);
-      3. ellipsis-tolerant match: the judge may quote two verbatim fragments
-         joined by …/.../…… — each fragment must ground, in order.
-    Fragments are the text pieces that actually matched; the body-membership
-    gate checks these (an ellipsis span as a whole is not expected to sit in
-    the body verbatim).
-    """
+
+def build_judge_prompt(cn_text, tr_text, lang):
+    template = load_prompt()
+    return (
+        f"{template.strip()}\n\n"
+        f"## CHINESE SOURCE\n\n{cn_body(cn_text)}\n\n"
+        f"## TRANSLATION ({lang})\n\n{tr_body(tr_text)}\n"
+    )
+
+
+def open_live_judge(root=None):
+    root = root or REPO
+    from tools.pipeline import judges
+
+    api_key = judges.resolve_api_key()
+    try:
+        name = judges.backend_name(root)
+        model_id = judges.configured_model_id(root)
+    except Exception:
+        name = "subagent-glm"
+        model_id = "glm-5.3-flash"
+    if name != "local-ollama" and not api_key:
+        return None
+    try:
+        backend_cls = judges.get_backend(name)
+    except Exception:
+        return None
+    client = backend_cls(model_id=model_id, api_key=api_key)
+    return client, name, model_id
+
+
+def _locate(span, cn_text):
     pos = cn_text.find(span)
     if pos >= 0:
         end = pos + len(span)
@@ -254,6 +284,61 @@ def load_prompt():
     return open(PROMPT_PATH, encoding="utf-8").read()
 
 
+def run_factcheck_cli(
+    *,
+    chapter,
+    lang,
+    cn_unit,
+    tr_unit,
+    outdir,
+    stdin_verdict=None,
+):
+    cn_text = open(cn_unit, encoding="utf-8").read()
+    tr_text = open(tr_unit, encoding="utf-8").read()
+    backend = "inline"
+    model_id = "mock-1"
+    if stdin_verdict is not None:
+        verdict = parse_verdict(stdin_verdict)
+    else:
+        opened = open_live_judge()
+        if opened is None:
+            print(json.dumps({
+                "status": "judge_unavailable",
+                "reason": "pass --stdin-verdict (mock) or set ZAI_API_KEY "
+                          "(or judge.backend local-ollama); "
+                          "exit 2 so pipelines do not treat this as clean",
+            }, ensure_ascii=False))
+            return 2
+        client, backend, model_id = opened
+        prompt = build_judge_prompt(cn_text, tr_text, lang)
+        try:
+            reply = client.complete(prompt)
+        except Exception as e:
+            print(json.dumps({
+                "status": "judge_unavailable",
+                "reason": f"live judge failed: {e}",
+            }, ensure_ascii=False))
+            return 2
+        verdict = parse_verdict(reply)
+
+    path = write_result(
+        outdir, chapter, lang, verdict, cn_text, tr_text, backend, model_id
+    )
+    gate = gate_major(verdict)["gate"]
+    grounding = check_grounding(verdict, cn_text)
+    grounded = grounding["grounded"]
+    print(json.dumps({
+        "written": path,
+        "gate": gate,
+        "grounded": grounded,
+        "backend": backend,
+        "model_id": model_id,
+    }, ensure_ascii=False))
+    if gate in ("fail", "error") or not grounded:
+        return 1
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="factcheck single unit (pass E)")
     ap.add_argument("--chapter", required=True)
@@ -263,19 +348,14 @@ def main():
     ap.add_argument("--stdin-verdict", help="inline verdict JSON (mock/tests)")
     ap.add_argument("--outdir", default=os.path.join(RESULTS, "factcheck"))
     args = ap.parse_args()
-    cn_text = open(args.cn_unit, encoding="utf-8").read()
-    tr_text = open(args.tr_unit, encoding="utf-8").read()
-    if not args.stdin_verdict:
-        print(json.dumps({"status": "judge_unavailable",
-                          "reason": "live waves run via Task 9 wave runner"}))
-        return 0
-    verdict = parse_verdict(args.stdin_verdict)
-    path = write_result(args.outdir, args.chapter, args.lang, verdict,
-                        cn_text, tr_text, backend="inline", model_id="mock-1")
-    print(json.dumps({"written": path,
-                      "grounded": check_grounding(verdict, cn_text)["grounded"]},
-                     ensure_ascii=False))
-    return 0
+    return run_factcheck_cli(
+        chapter=args.chapter,
+        lang=args.lang,
+        cn_unit=args.cn_unit,
+        tr_unit=args.tr_unit,
+        outdir=args.outdir,
+        stdin_verdict=args.stdin_verdict,
+    )
 
 
 if __name__ == "__main__":

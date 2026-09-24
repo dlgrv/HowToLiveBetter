@@ -41,6 +41,8 @@
 
 7. Factcheck vs ZH (pass E) — AFTER re-verify, BEFORE style/LT
      # Live judge often unavailable; for smoke/tests use --stdin-verdict mock.
+     # No --stdin-verdict → exit 2 (judge_unavailable).
+     # gate=fail|error or grounded=false → exit 1.
      # --lang choices today: ru|en only (es: N/A until factcheck extended).
      python3 tools/validate/factcheck.py \
        --chapter <NN> --lang ru \
@@ -239,7 +241,7 @@ Exit always 0 (WARN).
 **Files:**
 - Modify: `docs/translation-playbook.md` — replace pipeline diagram with CORRECT ORDER (assemble names fixed; factcheck before style)  
 - Modify: spec — same  
-- Note in playbook: factcheck `--lang` ∈ {ru,en}; es N/A; without `--stdin-verdict` prints `judge_unavailable` and exits 0  
+- Note in playbook: factcheck `--lang` ∈ {ru,en}; es N/A; without `--stdin-verdict` prints `judge_unavailable` and exits **2**; `gate=fail|error` or `grounded=false` → exit **1**  
 
 Mock smoke:
 
@@ -311,14 +313,27 @@ Lang map: `ru`→`ru-RU`, `en`→`en-US`, `es`→`es`.
 #   book/en/01-Do-Not-Die-Early.md
 #   book/ru/01-Не-умирайте-рано.md
 #   book/es/01-No-Mueras-Temprano.md
+# (translate/simplify still unit-scoped via digest — never whole chapter to LLM)
 
 python3 tools/verify.py 01 --lang en
 python3 tools/verify.py 01 --lang ru
 python3 tools/verify.py 01 --lang es
 
-# factcheck ru (and en if units available) with --stdin-verdict or live judge
+# factcheck BEFORE style/LT (ru|en). Exit 1 on gate=fail|error.
+python3 tools/validate/factcheck.py \
+  --chapter 01 --lang ru \
+  --cn-unit tools/digest/01/units/33.md \
+  --tr-unit /path/to/ru-unit-33.md \
+  --stdin-verdict '{"unit":"33","assertions":[],"issues":[]}'
+python3 tools/validate/factcheck.py \
+  --chapter 01 --lang en \
+  --cn-unit tools/digest/01/units/33.md \
+  --tr-unit /path/to/en-unit-33.md \
+  --stdin-verdict '{"unit":"33","assertions":[],"issues":[]}'
+
 python3 tools/style_check.py book/ru/01-Не-умирайте-рано.md --lang ru --plain-only
 python3 tools/style_check.py book/en/01-Do-Not-Die-Early.md --lang en --plain-only
+# es: skip until rules/es.json (CLI soft-skips)
 
 python3 tools/lt_check.py --file book/ru/01-Не-умирайте-рано.md --lang ru
 python3 tools/lt_check.py --file book/en/01-Do-Not-Die-Early.md --lang en

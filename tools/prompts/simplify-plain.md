@@ -1,13 +1,14 @@
 # Simplify plain-terms only (one item or unit)
 
 You rewrite **only** the plain-language field of an existing translation
-(RU «Простыми словами», EN «In plain terms», ES «Términos sencillos»).
+(RU «Простыми словами», EN «In plain terms», ES «En términos sencillos»).
 **Chinese (ZH) is the meaning anchor** — read the CN unit if provided.
 Do **not** change Benefit, Cost, Sources, notes, tags, or URLs.
 
 ## Scope
 
-- Input: assembled chapter text or a single item excerpt.
+- Input: **one digest unit** (or a single-item excerpt). Never feed a whole
+  chapter markdown file into the model — use `tools/digest/<NN>/units/NN.md`.
 - Output: the same structure with **only** plain-terms lines edited.
 - Numbers in plain-terms must remain a **subset** of Benefit (no new stats).
 

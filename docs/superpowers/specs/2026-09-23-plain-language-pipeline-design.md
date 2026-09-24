@@ -28,7 +28,8 @@ Same numbering as [implementation plan](../plans/2026-09-23-plain-language-pipel
 6. verify.py — MUST re-run after any plain rewrite
 7. factcheck.py — AFTER re-verify, BEFORE style/LT
      --lang ru|en only (es N/A until extended)
-     without --stdin-verdict → stdout judge_unavailable, exit 0
+     without --stdin-verdict → stdout judge_unavailable, exit 2
+     gate fail|error or grounded=false → exit 1
      mock: --stdin-verdict '{"unit":"…","assertions":[],"issues":[]}'
 8. style_check.py (WARN)
 9. lt_check.py (self-host; down → WARN skip)

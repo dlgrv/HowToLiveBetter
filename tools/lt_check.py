@@ -19,10 +19,9 @@ import urllib.request
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-DEFAULT_BASE_URL = "http://127.0.0.1:8010"
+DEFAULT_BASE_URL = os.environ.get("HTLB_LT_BASE_URL", "http://127.0.0.1:8010")
 DEFAULT_TIMEOUT = 30.0
 
-# Plain-terms field labels — same as tools/style_check.py PLAIN_FIELD.
 PLAIN_FIELD = {
     "ru": "Простыми словами",
     "en": "In plain terms",
@@ -117,10 +116,15 @@ def check_text(text, lang, base_url=DEFAULT_BASE_URL, timeout=DEFAULT_TIMEOUT):
         return []
 
     findings = []
+    saw_ok = False
     for seg in segments:
         raw = _post_check(seg["text"], lang, base_url, timeout)
         if raw is None:
-            return [{"status": "skip", "reason": "server_down"}]
+            reason = "skip_partial" if saw_ok else "server_down"
+            findings.append({"status": "skip", "reason": reason,
+                             "line_no": seg["line_no"]})
+            continue
+        saw_ok = True
         for hit in parse_response(raw):
             hit["line_no"] = seg["line_no"]
             hit["plain_text"] = seg["text"]
@@ -169,8 +173,13 @@ def main():
                     + (f" «{span_hint}»" if span_hint else "")
                 )
         n = len([x for x in findings if x.get("status") != "skip"])
-        if any(x.get("status") == "skip" for x in findings):
-            print("lt_check: skip (server down, advisory, exit 0)")
+        skips = [x for x in findings if x.get("status") == "skip"]
+        if skips and n == 0:
+            reasons = sorted({x.get("reason", "unknown") for x in skips})
+            print(f"lt_check: skip ({', '.join(reasons)}, advisory, exit 0)")
+        elif skips:
+            print(f"lt_check: {n} warnings + {len(skips)} skip "
+                  f"(advisory, exit 0)")
         else:
             print(f"lt_check: {n} warnings (advisory, exit 0)")
     return 0

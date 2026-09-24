@@ -70,6 +70,35 @@ class TestLtCheckText(unittest.TestCase):
         self.assertEqual(result[0]["status"], "skip")
         self.assertEqual(result[0]["reason"], "server_down")
 
+    def test_partial_failure_keeps_prior_hits(self):
+        from tools import lt_check as lt
+
+        md = (
+            "- Простыми словами: первая строка.\n"
+            "- Простыми словами: вторая строка.\n"
+        )
+        calls = {"n": 0}
+
+        def fake_post(text, lang, base_url, timeout):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                return {"matches": [{
+                    "message": "hit",
+                    "offset": 0,
+                    "length": 3,
+                    "rule": {"id": "TEST"},
+                }]}
+            return None
+
+        old = lt._post_check
+        lt._post_check = fake_post
+        try:
+            result = lt.check_text(md, "ru", base_url="http://example.invalid")
+        finally:
+            lt._post_check = old
+        self.assertTrue(any(r.get("rule_id") == "TEST" for r in result))
+        self.assertTrue(any(r.get("reason") == "skip_partial" for r in result))
+
     def test_lt_lang_map(self):
         from tools.lt_check import lt_language_code
 

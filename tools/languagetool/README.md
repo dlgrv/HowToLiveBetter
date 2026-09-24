@@ -1,16 +1,16 @@
 # LanguageTool (self-hosted, $0)
 
-Grammar and spelling hints for **plain-terms lines only** via `tools/lt_check.py`.
-Runs in the translation pipeline **after factcheck** and **after** `style_check.py`.
-Output is WARN-only; a down server never fails a chapter.
+Grammar/spelling hints for **plain-terms lines only** via `tools/lt_check.py`.
+Pipeline order: **after factcheck** and **after** `style_check.py`.
+WARN-only: a down server never fails a chapter (exit 0) — read the skip line.
 
-## Docker image (pinned tag)
+## Docker image
 
 ```text
 erikvl87/languagetool:latest
 ```
 
-To pin by digest, replace `latest` with the digest from [Docker Hub](https://hub.docker.com/r/erikvl87/languagetool/tags) and update this file when you bump.
+Pin by digest from [Docker Hub](https://hub.docker.com/r/erikvl87/languagetool/tags) when you need reproducibility.
 
 ## Start
 
@@ -18,15 +18,34 @@ To pin by digest, replace `latest` with the digest from [Docker Hub](https://hub
 docker run --rm -d --name htlb-lt -p 8010:8010 erikvl87/languagetool:latest
 ```
 
-API base URL: `http://127.0.0.1:8010` (endpoint `/v2/check`).
+API: `http://127.0.0.1:8010` (`/v2/check`). Override with `HTLB_LT_BASE_URL` or `--base-url`.
+
+## Language packs (HTLB → LanguageTool)
+
+| `--lang` | LT code |
+|---|---|
+| `ru` | `ru-RU` |
+| `en` | `en-US` |
+| `es` | `es` |
+
+## Healthcheck
+
+```bash
+curl -sf -X POST "http://127.0.0.1:8010/v2/check" \
+  -d "language=en-US&text=Hello" | head -c 200
+```
+
+Empty / connection refused → start container (or expect `lt_check` skip / exit 0).
+
+## RAM note (Mac + local Hy-MT2 Q8)
+
+`htlb-lt` plus Q8 (~32 GB weights) on 48 GB unified memory is tight. Prefer LT checks **after** translate waves, or stop the container while loading/serving Q8 if swap spikes.
 
 ## Stop
 
 ```bash
 docker stop htlb-lt
 ```
-
-If the container was started without `--name htlb-lt`, use `docker ps` and `docker stop <container_id>`.
 
 ## Check a chapter
 
@@ -36,19 +55,12 @@ python3 tools/lt_check.py --file book/en/01-Do-Not-Die-Early.md --lang en
 python3 tools/lt_check.py --file book/es/01-No-Mueras-Temprano.md --lang es
 ```
 
-JSON output:
+JSON:
 
 ```bash
 python3 tools/lt_check.py --file book/ru/01-Не-умирайте-рано.md --lang ru --json
 ```
 
-Language map: `ru` → `ru-RU`, `en` → `en-US`, `es` → `es`.
+If nothing listens on 8010, `lt_check.py` prints skip (`server_down` or mid-run `skip_partial`) and exits **0**. Do not treat exit 0 as “LT ran clean” without reading stdout.
 
-## Server down
-
-If nothing listens on port 8010, `lt_check.py` prints one skip warning and exits **0**.
-This is intentional — LT is advisory and not a CI hard gate.
-
-## License / cost
-
-Uses the community Docker image (LanguageTool is LGPL). No LanguageTool Premium subscription required.
+Uses the community Docker image (LanguageTool LGPL). No Premium.

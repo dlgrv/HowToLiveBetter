@@ -177,15 +177,15 @@
       "Español claro y sobrio; sin signos de exclamación; títulos de ítem con verbo.",
       "Conceptos propios de China: transliteración + glosa breve la primera vez en el archivo, p. ej. dibao (低保 — ayuda mínima según renta).",
       "万 = ×10 000 (2 万 = 20 000 yuanes). Números idénticos al original; decimales con coma (43,2 %).",
-      "En «Términos sencillos»: sin jerga epidemiológica (HR, RR, IC); cifras solo las de «Beneficio».",
-      "En «Términos sencillos»: veneno para malas hierbas (paraquat); no herbicida solo ni paraquat a secas.",
+      "En el campo «En términos sencillos»: sin jerga epidemiológica (HR, RR, IC); cifras solo las de «Beneficio».",
+      "En el campo «En términos sencillos»: veneno para malas hierbas (paraquat); no herbicida solo ni paraquat a secas.",
       "Nombres geográficos: gramática española natural (en Bangladés), no calco del inglés.",
       "Procedimientos médicos detallados van en «Beneficio»; en términos sencillos solo el mensaje para el lector.",
-      "En «Términos sencillos»: dos % en una frase — verbos paralelos completos (baja la probabilidad de morir… y la de lesión en la cabeza…); no elipsis telegráfica.",
+      "En el campo «En términos sencillos»: dos % en una frase — verbos paralelos completos (baja la probabilidad de morir… y la de lesión en la cabeza…); no elipsis telegráfica.",
       "Cierre de advertencia: preferir el tipo de afirmación del chino (no cuenta como llevarlo); «no ayuda» solo si no endurece el sentido.",
-      "En «Términos sencillos»: no comprimir de más cifras ya claras (mejor «hubo 828 intoxicaciones por setas» que un telegrama). Corta jerga legal, no el ritmo natural.",
+      "En el campo «En términos sencillos»: no comprimir de más cifras ya claras (mejor «hubo 828 intoxicaciones por setas» que un telegrama). Corta jerga legal, no el ritmo natural.",
       "Pase simplify: si ya pasa el neighbor test, corrige solo defectos — no reescribas solo para acortar.",
-      "En «Términos sencillos»: unidades y abreviaturas médicas — glosa la primera vez (ver abbrev_gloss_examples): mmHg (milímetros de mercurio); IMC (índice de masa corporal); TAC/TC (tomografía computarizada); RM (resonancia magnética); ecografía; VPH (virus del papiloma humano); mmol/L (milimoles por litro); mg/dL (miligramos por decilitro). Opcional omitir: ml, °C, SIM/PIN si el contexto basta."
+      "En el campo «En términos sencillos»: unidades y abreviaturas médicas — glosa la primera vez (ver abbrev_gloss_examples): mmHg (milímetros de mercurio); IMC (índice de masa corporal); TAC/TC (tomografía computarizada); RM (resonancia magnética); ecografía; VPH (virus del papiloma humano); mmol/L (milimoles por litro); mg/dL (miligramos por decilitro). Opcional omitir: ml, °C, SIM/PIN si el contexto basta."
     ]
   },
   "name_forms": [

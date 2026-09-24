@@ -10,17 +10,16 @@ import os
 import urllib.error
 import urllib.request
 
-from . import config as _config
-
 DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434/v1/chat/completions"
 
 
 def backend_name(root):
-    """Configured default backend name from project.yaml."""
+    from . import config as _config
     return _config.load_config(root).get("judge", {}).get("backend", "subagent-glm")
 
 
 def configured_model_id(root):
+    from . import config as _config
     return _config.load_config(root).get("judge", {}).get("model_id", "glm-5.3-flash")
 
 

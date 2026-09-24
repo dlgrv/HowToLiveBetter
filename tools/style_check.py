@@ -143,13 +143,31 @@ def check_text(text, lang, root=REPO, plain_only=False):
 def main():
     ap = argparse.ArgumentParser(description="WARN-only style check (pass A)")
     ap.add_argument("file")
-    ap.add_argument("--lang", required=True, help="language pack key (ru|en|es)")
+    ap.add_argument("--lang", required=True,
+                    help="language pack key (ru|en|es)")
     ap.add_argument("--plain-only", action="store_true",
                     help="scan only plain-terms field lines")
     ap.add_argument("--json", action="store_true", help="emit findings as JSON")
     args = ap.parse_args()
-    text = open(args.file, encoding="utf-8").read()
-    findings = check_text(text, args.lang, plain_only=args.plain_only)
+    try:
+        text = open(args.file, encoding="utf-8").read()
+    except OSError as e:
+        print(f"ERROR: style_check cannot read {args.file}: {e}",
+              file=sys.stderr)
+        return 2
+    try:
+        findings = check_text(text, args.lang, plain_only=args.plain_only)
+    except ValueError as e:
+        msg = f"style_check skip: {e}"
+        if args.json:
+            print(json.dumps({"file": args.file, "lang": args.lang,
+                              "plain_only": args.plain_only,
+                              "status": "skip", "reason": str(e),
+                              "warnings": []}, ensure_ascii=False, indent=2))
+        else:
+            print(f"WARN: {msg}")
+            print("style_check: 0 warnings (skip, exit 0)")
+        return 0
     if args.json:
         print(json.dumps({"file": args.file, "lang": args.lang,
                           "plain_only": args.plain_only,

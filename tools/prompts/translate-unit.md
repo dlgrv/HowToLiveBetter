@@ -4,6 +4,15 @@ You translate **one work unit** from the Chinese (ZH) digest into **one**
 target locale: `ru`, `en`, or `es`. The attached `[СПРАВКА]` gloss block
 and `tools/glossary.json` are authoritative for terms and style.
 
+## Hard limit: one unit per model call
+
+- **Never** paste a whole `book/*.md` chapter into the model.
+- Feed exactly one file from `tools/digest/<NN>/units/` (plus its
+  `NN.gloss.md` if present). Large chapters → many sequential/parallel
+  unit calls, then `assemble*.py`.
+- API / Gemini / any LLM batch: same rule — chunk by digest unit, not by
+  chapter file.
+
 ## Source of truth
 
 - **Chinese (ZH) only** — never treat EN/RU/ES book files as the master.
@@ -11,6 +20,8 @@ and `tools/glossary.json` are authoritative for terms and style.
 - Do **not** invent numbers, conditions, or advice absent from ZH.
 - Leave `§TAG§`, `§SRC§`, cost-tag HTML comments, and source/notes lines
   untouched — they are injected verbatim by `assemble*.py`.
+- ES plain-terms field label is exactly: `- En términos sencillos:`
+  (not «Términos sencillos» alone).
 
 ## Quality pack (apply on every unit)
 

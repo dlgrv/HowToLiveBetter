@@ -33,7 +33,8 @@ class TestProjectConfig(unittest.TestCase):
         self.assertTrue(os.path.isdir(pconfig.unit_dir(ROOT, "cn", 1)))
 
     def test_wave_units_dir_ru_ch01(self):
-        self.assertEqual(pconfig.unit_dir(ROOT, "ru", 1), "/root/htlb-run-ru/01/units")
+        expected = os.path.join(ROOT, "tools", "runs", "active", "ru", "01", "units")
+        self.assertEqual(pconfig.unit_dir(ROOT, "ru", 1), expected)
 
     def test_unknown_lang_raises(self):
         with self.assertRaises(ValueError):

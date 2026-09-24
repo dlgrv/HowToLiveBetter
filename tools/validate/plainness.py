@@ -118,12 +118,23 @@ def main():
     ap.add_argument("--lang", default="ru")
     ap.add_argument("--book-dir", default=os.path.join(REPO, "book"))
     args = ap.parse_args()
+    if args.lang not in PLAIN_FIELD:
+        print(f"WARN: plainness skip: no plain-field label for lang={args.lang!r} "
+              f"(supported: {', '.join(sorted(PLAIN_FIELD))})",
+              file=sys.stderr)
+        return 0
     pack = _pack(args.lang)
     pack.setdefault("lang", args.lang)
     lang_dir = os.path.join(args.book_dir, args.lang)
     base = lang_dir if os.path.isdir(lang_dir) else args.book_dir
+    ch = str(args.chapter).strip()
+    prefixes = [f"{ch}-"]
+    if ch.isdigit():
+        prefixes.append(f"{int(ch):02d}-")
+        prefixes.append(f"{int(ch)}-")
+    prefixes = list(dict.fromkeys(prefixes))
     files = [p for p in os.listdir(base)
-             if p.startswith(f"{int(args.chapter)}-") and p.endswith(".md")]
+             if p.endswith(".md") and any(p.startswith(pref) for pref in prefixes)]
     if not files:
         print(f"chapter {args.chapter}: not found", file=sys.stderr)
         return 2

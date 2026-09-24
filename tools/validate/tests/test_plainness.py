@@ -78,5 +78,36 @@ class TestChapter(unittest.TestCase):
         self.assertEqual(report[1]["warns"], [])
 
 
+class TestChapterFileGlob(unittest.TestCase):
+    """CLI must find zero-padded chapter files (01-*.md), not int('01')→1-."""
+
+    def test_cli_finds_01_padded(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            lang_dir = os.path.join(td, "en")
+            os.makedirs(lang_dir)
+            path = os.path.join(lang_dir, "01-Do-Not-Die-Early.md")
+            with open(path, "w", encoding="utf-8") as f:
+                f.write("### 1. Title\n- In plain terms: Short and clear.\n")
+            proc = subprocess.run(
+                [sys.executable, "-m", "tools.validate.plainness", "01",
+                 "--lang", "en", "--book-dir", td],
+                capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            self.assertIn("units with plain field:", proc.stdout)
+            self.assertNotIn("not found", proc.stderr)
+
+    def test_cli_es_skips_not_false_clean(self):
+        import subprocess
+        proc = subprocess.run(
+            [sys.executable, "-m", "tools.validate.plainness", "01",
+             "--lang", "es"],
+            capture_output=True, text=True, cwd=ROOT)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertIn("skip", proc.stderr.lower())
+        self.assertNotIn("units with plain field:", proc.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

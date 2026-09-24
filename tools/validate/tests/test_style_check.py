@@ -201,6 +201,22 @@ class TestCliAlwaysZero(unittest.TestCase):
         finally:
             os.unlink(path)
 
+    def test_cli_es_missing_pack_soft_skips(self):
+        import subprocess, tempfile
+        fd, path = tempfile.mkstemp(suffix=".md")
+        with os.fdopen(fd, "w") as f:
+            f.write("- En términos sencillos: hola.\n")
+        try:
+            proc = subprocess.run(
+                [sys.executable, os.path.join(ROOT, "tools", "style_check.py"),
+                 path, "--lang", "es", "--plain-only"],
+                capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(proc.returncode, 0, proc.stderr + proc.stdout)
+            self.assertIn("skip", proc.stdout.lower())
+            self.assertNotIn("Traceback", proc.stderr)
+        finally:
+            os.unlink(path)
+
 
 if __name__ == "__main__":
     unittest.main()
