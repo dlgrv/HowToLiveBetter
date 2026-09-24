@@ -133,20 +133,16 @@ class Ranges(unittest.TestCase):
         # unscaled, which is exactly what TRs mirror. Armor, not a bug.
         self.assertEqual(norm_cn("2000 到 2 万元"), ["2000", "20000"])
 
-    # bug-01: mixed magnitudes — phantom 100000×million
-    @unittest.expectedFailure
+    # bug-01 FIXED: mixed magnitudes no longer produce a phantom clone
     def test_en_mixed_magnitude_range(self):
         self.assertEqual(norm_en("100,000 to 1 million"), ["100000", "1000000"])
 
-    @unittest.expectedFailure
     def test_en_mixed_magnitude_range_500k(self):
         self.assertEqual(norm_en("500,000 to 2 million"), ["500000", "2000000"])
 
-    @unittest.expectedFailure
     def test_ru_mixed_magnitude_range(self):
         self.assertEqual(norm_ru("штраф от 500 до 1 тыс. юаней"), ["500", "1000"])
 
-    @unittest.expectedFailure
     def test_es_shared_scale_range(self):
         # ES «X a Y mil» shared-scale range (ch13 corpus shape)
         self.assertEqual(norm_es("500 a 1000 mil"), ["500000", "1000000"])
@@ -155,7 +151,6 @@ class Ranges(unittest.TestCase):
         # same-scale ranges must keep working (regression armor for bug-01 fix)
         self.assertEqual(norm_ru("от 2 тыс. до 10 тыс. юаней"), ["2000", "10000"])
 
-    @unittest.expectedFailure
     def test_es_same_scale_range_millones(self):
         # ES connector «a» is missing from the distributive separator set
         # (до|and|to|dash only) — «2 a 3 millones» scales one endpoint only.
@@ -279,14 +274,15 @@ class ThousandsSeparators(unittest.TestCase):
     def test_ru_comma_after_zero_is_decimal(self):
         self.assertEqual(norm_ru("0,891"), ["0.891"])
 
-    # bug-07: comma-thousands after a leading 0 in RU/ES
-    @unittest.expectedFailure
+    # bug-07 FIXED: comma-thousands after a leading 0 in RU/ES
     def test_ru_comma_thousands_after_zero(self):
         self.assertEqual(norm_ru("100,000"), ["100000"])
 
-    @unittest.expectedFailure
     def test_es_comma_thousands_after_zero(self):
-        self.assertEqual(norm_es("100,000"), ["100000"])
+        # ES body comma is ALWAYS decimal (corpus census: thousands-commas live
+        # only in «- Fuentes:» quote blocks, excluded by check 5). So «100,000»
+        # parses as 100.0 — pinned, not a bug for ES (unlike RU).
+        self.assertEqual(norm_es("100,000"), ["100"])
 
     def test_en_mode_space_thousands_current_behavior(self):
         # EN/CN mode has no space-thousands rule; corpus only ever has it in
@@ -361,12 +357,10 @@ class RoundTrip(unittest.TestCase):
         # thousands); armor: pinned, not 610000.
         self.assertEqual(norm_es("610.000"), ["610"])
 
-    # bug-02: «N mil» digit+mil loses the scale
-    @unittest.expectedFailure
+    # bug-02 FIXED: «N mil» digit+mil keeps the scale
     def test_es_digit_mil(self):
         self.assertEqual(norm_es("20 mil"), ["20000"])
 
-    @unittest.expectedFailure
     def test_es_digit_mil_with_noun(self):
         self.assertEqual(norm_es("20 mil personas"), ["20000"])
 

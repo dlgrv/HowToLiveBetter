@@ -119,9 +119,17 @@ def norm_numbers(text, ru=False, es=False):
         text = re.sub(r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"
                       r"миллиард|thousand|million|billion|trillion)\b)",
                       r"\1.\2", text, flags=re.I)
-        # EN-style comma thousands may survive in RU prose («25,871 человек»),
-        # but a comma right after a lone 0 is decimal («0,001»)
-        text = re.sub(r"(?<![0.,]),(?=\d{3}(?!\d))", "", text)
+        # EN-style comma thousands may survive in RU prose («25,871 человек»).
+        # A comma after a LONE leading zero starts a decimal («0,001»),
+        # but «100,000» / «112,000» are thousands even though the group
+        # before the comma ends in 0 — so anchor the zero rule to the
+        # number's first digit, not to any digit before the comma.
+        # thousands-strip: a comma followed by exactly 3 digits is thousands
+        # UNLESS the whole number is a lone leading zero («0,891» is decimal).
+        # «100,000»/«112,000» strip even though the group ends in 0.
+        text = re.sub(r"(?<![\d.])0,(?=\d{3}(?!\d))", lambda m: "0\x00", text)  # mark decimal comma
+        text = re.sub(r",(?=\d{3}(?!\d))", "", text)                 # strip thousands commas
+        text = text.replace("\x00", ".")                             # restore decimal
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)          # RU decimal comma
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)  # RU space thousands
     elif es:
@@ -129,6 +137,11 @@ def norm_numbers(text, ru=False, es=False):
         # a scale word is decimal («4,257 millones»)
         text = re.sub(r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
                       r"mil millones|billones|trillones))", r"\1.\2", text, flags=re.I)
+        # ES: comma is DECIMAL in body prose (ratios «1,134», «0,891»); thousands
+        # use space («25 871»). Comma-thousands occur only inside «- Fuentes:»
+        # quote blocks, which check 5 excludes from number counting — so no
+        # thousands-strip here (unlike RU, where body comma-groups are
+        # thousands: «1,040 человек», «44,573»).
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)          # ES decimal comma
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)  # ES space thousands
     else:
@@ -136,10 +149,36 @@ def norm_numbers(text, ru=False, es=False):
     text = fold_words(text)
     # distributive scale: «от 81 до 138 тыс.» == «8.1 万 到 13.8 万» — the scale
     # word applies to BOTH endpoints in Russian prose; duplicate it backwards.
-    text = re.sub(r"(\d+(?:\.\d+)?)((?:\s+(?:до|and|to)\s*|\s*[–—-]\s*)\d+(?:\.\d+)?)"
-                  r"\s*(тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion)",
-                  lambda m: f"{m.group(1)} {m.group(3)}{m.group(2)} {m.group(3)}",
-                  text, flags=re.I)
+    # ONLY when the endpoints are magnitude-compatible (same order, ratio
+    # 1e-3..1e3): «100,000 to 1 million» is NOT distributive (the first
+    # endpoint carries its own full value) — cloning the scale there creates a
+    # phantom 1e11. Mixed magnitudes keep the scale on the last endpoint only.
+    _distrib = re.compile(
+        r"(\d+(?:\.\d+)?)((?:\s+(?:до|and|to|a|de)\s*|\s*[–—-]\s*)\d+(?:\.\d+)?)"
+        r"\s*(тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion|тысяч|"
+        r"миллион|миллиард|триллион|trillion|millones|millón|billones|mil)\b",
+        flags=re.I)
+
+    def _distribute(m: "re.Match") -> str:
+        first, mid, scale = m.group(1), m.group(2), m.group(3)
+        second = re.search(r"\d+(?:\.\d+)?", mid).group(0)
+        key = scale.lower().rstrip(".")
+        factor = {"тыс": 1e3, "тысяч": 1e3, "млн": 1e6, "миллион": 1e6,
+                  "млрд": 1e9, "миллиард": 1e9, "трлн": 1e12, "триллион": 1e12,
+                  "thousand": 1e3, "million": 1e6, "billion": 1e9,
+                  "trillion": 1e12, "mil": 1e3}.get(key, 1)
+        # Distributive ONLY when the two BARE endpoints are magnitude peers
+        # (ratio 1e-2..1e2): «от 81 до 138 тыс.», «de 2 a 3 millones» — the
+        # scale word naturally reads onto both ends. «100,000 to 1 million»
+        # (first is a complete value on its own) and «от 2000 до 10 тыс»
+        # (first is absolute) must NOT clone — the scale stays on the last
+        # endpoint only.
+        a, b = float(first), float(second)
+        if a > 0 and b > 0 and 1e-2 <= (a / b) <= 1e2:
+            return f"{first} {scale}{mid} {scale}"
+        return m.group(0)   # mixed magnitudes: leave as-is (no phantom clone)
+
+    text = _distrib.sub(_distribute, text)
     # scale list: order matters — next() takes the FIRST key the captured
     # token startswith(), so longer/compound keys must precede their prefixes
     # («mil millones» before «mil », «千万» before «千», «миллиард» before «млн»-
@@ -151,7 +190,7 @@ def norm_numbers(text, ru=False, es=False):
              ("trillion", 1e12), ("万亿", 1e12), ("千万", 1e7), ("百万", 1e6),
              ("万", 1e4), ("亿", 1e8), ("千", 1e3),
              ("thousand", 1e3), ("million", 1e6), ("billion", 1e9),
-             ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil ", 1e3),
+             ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil", 1e3),
              ("billones", 1e12), ("billón", 1e12), ("trillones", 1e12)]
     out = []
     for m in re.finditer(
