@@ -55,6 +55,27 @@ python3 tools/llm/translate_unit.py --nn 01 --unit 01 --lang ru \
 
 python3 tools/assemble.py 01 tools/runs/active/ru/01 /tmp/htlb-01-ru.md
 python3 tools/verify.py 01 --lang ru --file /tmp/htlb-01-ru.md
+
+## Repair wave (verify FAIL → auto-fix → re-verify)
+
+When `verify.py` HARD-fails on `number_absent` / `banned_calque`, run the
+repair loop instead of hand-editing units:
+
+```bash
+python3 tools/llm/repair_wave.py --nn 01 --lang ru \
+  --workdir tools/runs/active/ru/01 \
+  --assembled tools/runs/active/ru/01/assembled.md \
+  --max-rounds 3            # --fallback-retranslate is ON by default
+```
+
+Per round: assemble → `verify --json` → locate fails to digest/TR units
+(`tools/llm/verify_issues.py`) → `repair_unit.py` (constrained prompt,
+`tools/prompts/repair-unit.md`) → post-repair assert (value in
+`norm_numbers` / stem count down) → fallback to full `translate_unit.py`
+only if the assert still fails → re-assemble → re-verify. ≤ 8 dirty units
+per round; never writes `tools/digest/` or `book/`; no style/LT inside the
+loop. Exit codes: 0 = verify OK, 1 = exhausted/unrepairable/unlocated,
+2 = LLM/infra. Preview the located map without LLM: add `--dry-locate`.
 ```
 
 Assemble workdir = parent of `units/`. RU → `assemble.py`; EN → `assemble_en.py`; ES → `assemble_es.py`.
