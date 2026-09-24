@@ -36,6 +36,14 @@
 
 4. python3 tools/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
 
+4b. При FAIL по числам/калькам (number_absent / banned_calque) — волна
+    авторемонта (LLM чинит только грязные units, ≤8 за раунд):
+     python3 tools/llm/repair_wave.py --nn <NN> --lang <lang> \
+       --workdir tools/runs/active/<lang>/<NN> \
+       --assembled tools/runs/active/<lang>/<NN>/assembled.md \
+       --max-rounds 3            # fallback-retranslate включён по умолчанию
+    Затем повторить шаг 4 (HARD). Style/LT не запускать до OK.
+
 5. [опционально] упростить только plain-terms (LLM + tools/prompts/simplify-plain.md)
 
 6. python3 tools/verify.py <NN> --lang <lang>         # обязательно после любого rewrite
