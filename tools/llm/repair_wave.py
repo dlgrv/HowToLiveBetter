@@ -118,6 +118,7 @@ def main(argv: list[str] | None = None) -> int:
     if str(workdir).startswith(str(_ROOT / "tools" / "digest")):
         raise SystemExit("refusing workdir under tools/digest/")
 
+    prev_fail_keys = None  # Task 4: round-over-round regression detection
     for round_no in range(1, args.max_rounds + 1):
         a = _run(assemble_cmd(nn, lang, workdir, assembled))
         if a.returncode != 0:
@@ -128,6 +129,17 @@ def main(argv: list[str] | None = None) -> int:
         if report.get("ok"):
             print(f"VERIFY_OK round={round_no}")
             return 0
+        # print-only regression signal (review A3/R2, minimal form): did this
+        # round INTRODUCE a fail (kind, value|stem) the previous round did not
+        # have? Human-monitored; no blocking, no ledger file (deferred).
+        fail_keys = {(f.get("kind"), f.get("value") or f.get("stem"))
+                     for f in report.get("fails", [])}
+        if prev_fail_keys is not None:
+            new_fails = fail_keys - prev_fail_keys
+            if new_fails:
+                print(f"round={round_no} REGRESSION new fails: {sorted(new_fails)}",
+                      file=sys.stderr)
+        prev_fail_keys = fail_keys
         unrepairable = [f for f in report["fails"]
                         if f.get("kind") not in REPAIRABLE_KINDS]
         if unrepairable:
