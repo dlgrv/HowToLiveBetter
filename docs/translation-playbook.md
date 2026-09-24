@@ -19,20 +19,68 @@
 
 ## 2. Пайплайн
 
+**Порядок шагов зафиксирован** (plain-language pipeline, 2026-09): после упрощения «说人话» сначала повторная `verify`, затем **factcheck**, и только потом style / LanguageTool — иначе можно отполировать текст с перевёрнутой логикой.
+
+```text
+1. python3 tools/make_digest.py <NN>
+
+2. LLM: перевод юнитов ZH → ru|en|es (+ quality pack + name_forms)
+        → units/*.md с §TAG§ / §SRC§
+
+3. Сборка (имена скриптов НЕ симметричны — выбрать один):
+     RU: python3 tools/assemble.py <NN> <workdir> book/ru/<slug>.md
+     EN: python3 tools/assemble_en.py <NN> <workdir> book/en/<slug>.md
+     ES: python3 tools/assemble_es.py <NN> <workdir> book/es/<slug>.md
+
+4. python3 tools/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
+
+5. [опционально] упростить только plain-terms (LLM + tools/prompts/simplify-plain.md)
+
+6. python3 tools/verify.py <NN> --lang <lang>         # обязательно после любого rewrite
+
+7. Factcheck vs китайский (pass E) — после re-verify, ДО style/LT:
+     python3 tools/validate/factcheck.py \
+       --chapter <NN> --lang <ru|en> \
+       --cn-unit <path-to-cn-unit.md> \
+       --tr-unit <path-to-tr-unit.md> \
+       [--stdin-verdict '{...}']   # mock/тесты, если live judge недоступен
+
+8. python3 tools/style_check.py book/<lang>/<file>.md --lang <ru|en>   # WARN
+
+9. python3 tools/lt_check.py --file book/<lang>/<file>.md --lang <lang>
+     # self-host LT; сервер недоступен → WARN skip, не FAIL главы
+
+10. python3 -m tools.validate.plainness <NN> --lang <ru|en>   # WARN (ES поля пока нет)
+
+11. Human pass — тон, заголовки/Cost, ES parity на глаз
 ```
-книга (book/*.md, ~30КБ/глава)
-   │  make_digest.py <NN>
-   ▼
-юниты 1–2КБ (units/NN.md) + blocks.json (теги+источники, LLM их НЕ видит)
-   │  сабагенты: перевод юнитов, запись файла сразу
-   ▼
-units/*.md (переведённые, с заполнителями §TAG§/§SRC§)
-   │  assemble.py <NN> <workdir> <out.md>
-   ▼
-сборка главы: инъекция источников байт-в-байт + сверка (items/tags/sources/hanzi)
-   │  git commit (1 глава = 1 коммит)
-   ▼
-пост-волны: локализационный обзор → естественность → ретрофит названий → QA юнитами → reconciliation
+
+После шага 11 (или после первой успешной сборки + verify, если волны качества идут отдельно): **git commit (1 глава = 1 коммит)**. Волны из §5 (локализация, естественность, …) — поверх уже проверенной главы, с повторным `verify` после каждой волны.
+
+**Только упрощение plain (без нового перевода):** patch plain-terms → verify → factcheck → style_check → lt_check → plainness → human.
+
+### Factcheck (`tools/validate/factcheck.py`)
+
+- `--lang`: только **ru** или **en** (испанский **N/A**, пока factcheck не расширят).
+- Без `--stdin-verdict` live judge не вызывается: на stdout печатается JSON и exit **0** (не «всё чисто», а «судья недоступен»):
+
+```json
+{"status": "judge_unavailable", "reason": "live waves run via Task 9 wave runner"}
+```
+
+- С mock-вердиктом (smoke/CI) пишет результат в `tools/validate/results/factcheck/` и печатает, например:
+
+```json
+{"written": ".../01-ru.json", "grounded": true}
+```
+
+Пример smoke (минимальные unit-файлы):
+
+```bash
+python3 tools/validate/factcheck.py \
+  --chapter 01 --lang ru \
+  --cn-unit /path/unit_cn.md --tr-unit /path/unit_ru.md \
+  --stdin-verdict '{"unit":"33","assertions":[],"issues":[]}'
 ```
 
 ### Почему юниты, а не главы
@@ -44,7 +92,10 @@ units/*.md (переведённые, с заполнителями §TAG§/§SR
 | Скрипт | Что делает |
 |---|---|
 | `make_digest.py <NN>` | режет главу на юниты; теги и источники уходят в `blocks.json`, в юните — заполнители `§TAG§`/`§SRC§` |
-| `assemble.py <NN> <workdir> <out.md>` | собирает главу, инъектирует блоки байт-в-байт, проверяет счётчики и источники, WARN по непереведённым строкам; exit ≠ 0 при FAIL |
+| `assemble.py` / `assemble_en.py` / `assemble_es.py` | сборка RU / EN / ES; инъекция блоков байт-в-байт, счётчики и источники; exit ≠ 0 при FAIL |
+| `verify.py <NN> --lang …` | жёсткая сверка главы с оригиналом (пункты, теги, источники, иероглифы) |
+| `validate/factcheck.py` | pass E: вердикт судьи + grounding по CN unit; см. выше |
+| `style_check.py`, `lt_check.py`, `validate/plainness` | WARN-слой после factcheck |
 | `watchdog.py <run-dir>` | монитор: недостающие юниты + стагнация (нет записей 25+ мин); для cron-периода |
 
 ## 3. Сабагенты: как использовать
@@ -107,6 +158,8 @@ units/*.md (переведённые, с заполнителями §TAG§/§SR
 - Деплой: push в main → Pages пересобирается; проверка живого сайта через 50+ сек: `curl -s <url> | grep -o 'фрагмент'`.
 
 ## 7. Работа с автором (upstream)
+
+После подтягивания CN из upstream в форке — чек-лист drift и очередь глав: [docs/upstream-sync.md § Translation catch-up](upstream-sync.md#translation-catch-up-after-cn-sync).
 
 1. **Первый контакт — issue на языке автора** с предложением перевода, до начала работы.
 2. Лицензия: проверять LICENSE до всего (Unlicense = можно всё).

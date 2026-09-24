@@ -26,3 +26,6 @@ tools/validate/results/golden_session/
 tools/validate/results/golden_verdicts_batch*.json
 tools/validate/results/factcheck/
 tools/validate/results/style_fp_session*.json
+
+.worktrees/
+.superpowers/

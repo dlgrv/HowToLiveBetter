@@ -34,9 +34,63 @@ git show upstream/main:README.md > README.zh.md
 
 Review `git status` / `git diff --stat` before committing. Then:
 
-1. Diff new/changed `book/NN-*.md` → catch up each `book/<lang>/` (and docs translations if needed).
+1. Run the [Translation catch-up](#translation-catch-up-after-cn-sync) checklist below (changed chapters → queue `en` / `ru` / `es`).
 2. `python3 tools/check_content.py` (parity / stats).
 3. If site template or counts changed: `python3 tools/build_pages.py`.
+
+## Translation catch-up (after CN sync)
+
+Chinese files at `book/NN-*.md` are the source of truth. After every path-filtered pull, list what moved and re-run locales through the **locked pipeline order** in [docs/translation-playbook.md §2](translation-playbook.md#2-пайплайн) (same as plan paths **A** / **B** in [plain-language pipeline plan](superpowers/plans/2026-09-23-plain-language-pipeline.md#correct-pipeline-order-commands)).
+
+### 1. Inventory CN changes
+
+Before committing the sync (or immediately after), list touched chapter files and root Chinese docs:
+
+```bash
+# Unstaged + staged CN chapters (adjust comparison if you already committed sync)
+git diff --name-only HEAD -- 'book/[0-9][0-9]-*.md'
+git diff --cached --name-only -- 'book/[0-9][0-9]-*.md'
+
+# Long reads at docs root (not docs/en|ru|es|…)
+git diff --name-only HEAD -- docs/*.md
+git diff --cached --name-only -- docs/*.md
+```
+
+Extract `<NN>` from each `book/NN-*.md` filename. If `README.zh.md` changed, queue README work for each non-`zh` locale (`README.md`, `README.ru.md`, `README.es.md`, … — see [tools/langs.json](../tools/langs.json)).
+
+### 2. Queue locales
+
+For each changed `<NN>`, catch up **every shipped translation locale** (today: `en`, `ru`, `es`). Skip `zh` (live mirror at `book/*.md`). Match slugs under `book/<lang>/` to the Chinese chapter; conventions in [TRANSLATION.md](../TRANSLATION.md).
+
+### 3. Choose path A or B
+
+| Situation | Path | Start at |
+|-----------|------|----------|
+| No `book/<lang>/` file yet, or CN added/removed/reordered items, or edits outside plain-terms (Benefit, Sources, tags, titles) | **A** — new / full chapter | `make_digest.py` → LLM unit translate → assemble |
+| Chapter already passes `verify.py`; CN drift is **说人话 / plain-terms only** and structure/counts unchanged | **B** — simplify-only | Patch plain-terms in existing `book/<lang>/` file |
+
+When in doubt, use **A** for the affected units (re-digest and re-translate only changed units if the chapter is large).
+
+### 4. Locked step order (do not reorder)
+
+```text
+digest → translate → assemble → verify → [simplify] → verify → factcheck → style_check → lt_check → plainness → human
+```
+
+- **Path A:** all steps from `python3 tools/make_digest.py <NN>` through human pass (see playbook §2 for exact commands: `assemble` / `assemble_en` / `assemble_es`, two `verify` runs if you simplify, then `factcheck`, `style_check`, `lt_check`, `plainness`).
+- **Path B:** omit digest/translate/assemble; run: patch plain-terms → `verify` → `factcheck` → `style_check` → `lt_check` → `plainness` → human.
+
+Hard stop on first `verify.py` FAIL. Do not run style / LanguageTool / plainness before the post-simplify `verify` and **factcheck** (see playbook §2).
+
+Notes:
+
+- `factcheck.py` today: `--lang ru|en` only (Spanish N/A until extended); use `--stdin-verdict` for smoke when live judge is unavailable.
+- `plainness`: `ru|en` only today (no ES plain field yet).
+- One chapter per commit when the user asks to commit (fork policy).
+
+### 5. Docs and site
+
+If root Chinese `docs/*.md` (or `docs/核实记录`) changed, catch up matching files under `docs/en/`, `docs/ru/`, `docs/es/` using the same byte-verification rules as chapters. After all queued chapters verify, re-run step 2–3 in [Pull](#pull-path-filtered) (`check_content.py`, `build_pages.py` if needed).
 
 ## One-time history anchor (2026-09-23)
 
