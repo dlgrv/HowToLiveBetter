@@ -65,13 +65,20 @@ WORD_VALUES = [
     # compound first
     (r"двадцать[\s-]?четыре", "24"), (r"twenty-four", "24"),
     (r"круглосуточн\w*", "24"), (r"(a?round|around)-the-clock", "24"),
-    # months (stems) — «11 月 1 日» legitimately becomes «1 ноября»
+    # months (stems) — «11 月 1 日» legitimately becomes «1 ноября».
+    # Boundary rules: a bare month stem must never match inside a longer word
+    # («маяк» is not «мая»), so every stem carries a trailing (?!\w). The RU
+    # genitive «мая» additionally requires a digit date context («1 мая») —
+    # «мая» is a highly productive word-ending in RU prose («видимая»,
+    # «самая», «в начале мая»), and only genuine digit dates pair with the
+    # CN «5 月 …» original. EN month names get the same (?!\w) word-end guard.
     (r"январ\w*", "1"), (r"феврал\w*", "2"), (r"март\w*", "3"), (r"апрел\w*", "4"),
-    (r"мая", "5"), (r"июн\w*", "6"), (r"июл\w*", "7"), (r"август\w*", "8"),
+    (r"(?<=\d\s)мая(?!\w)", "5"), (r"июн\w*", "6"), (r"июл\w*", "7"), (r"август\w*", "8"),
     (r"сентябр\w*", "9"), (r"октябр\w*", "10"), (r"ноябр\w*", "11"), (r"декабр\w*", "12"),
-    (r"january", "1"), (r"february", "2"), (r"march", "3"), (r"april", "4"),
-    (r"june", "6"), (r"july", "7"), (r"august", "8"), (r"september", "9"),
-    (r"october", "10"), (r"november", "11"), (r"december", "12"),
+    (r"january(?!\w)", "1"), (r"february(?!\w)", "2"), (r"march(?!\w)", "3"),
+    (r"april(?!\w)", "4"), (r"june(?!\w)", "6"), (r"july(?!\w)", "7"),
+    (r"august(?!\w)", "8"), (r"september(?!\w)", "9"), (r"october(?!\w)", "10"),
+    (r"november(?!\w)", "11"), (r"december(?!\w)", "12"),
     # spelled-out numerals the translations legitimately use in prose
     (r"одиннадцат\w*", "11"), (r"двенадцат\w*", "12"),
     (r"один(?!\w)", "1"), (r"одна(?!\w)", "1"), (r"одного", "1"), (r"одной", "1"),
@@ -133,18 +140,26 @@ def norm_numbers(text, ru=False, es=False):
                   r"\s*(тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion)",
                   lambda m: f"{m.group(1)} {m.group(3)}{m.group(2)} {m.group(3)}",
                   text, flags=re.I)
-    scale = [("тысяч", 1e3), ("тыс", 1e3), ("миллион", 1e6), ("млн", 1e6),
+    # scale list: order matters — next() takes the FIRST key the captured
+    # token startswith(), so longer/compound keys must precede their prefixes
+    # («mil millones» before «mil », «千万» before «千», «миллиард» before «млн»-
+    # family). Compound «mil millones» (=1e9) must also be one regex token,
+    # else «mil» (1e3) and the orphaned «millones» get counted separately.
+    scale = [("mil millones", 1e9), ("mil millón", 1e9), ("mil millon", 1e9),
+             ("тысяч", 1e3), ("тыс", 1e3), ("миллион", 1e6), ("млн", 1e6),
              ("миллиард", 1e9), ("млрд", 1e9), ("трлн", 1e12), ("триллион", 1e12),
-             ("trillion", 1e12), ("万亿", 1e12), ("万", 1e4), ("亿", 1e8), ("千", 1e3),
+             ("trillion", 1e12), ("万亿", 1e12), ("千万", 1e7), ("百万", 1e6),
+             ("万", 1e4), ("亿", 1e8), ("千", 1e3),
              ("thousand", 1e3), ("million", 1e6), ("billion", 1e9),
              ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil ", 1e3),
              ("billones", 1e12), ("billón", 1e12), ("trillones", 1e12)]
     out = []
     for m in re.finditer(
-            r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|万|亿|千)\s*[多余]?|"
-            r"(\d+(?:\.\d+)?)\s*(万亿|万|亿|千|тысяч\w*|тыс\.?|миллион\w*|млн|"
+            r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千)\s*[多余]?|"
+            r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千|тысяч\w*|тыс\.?|миллион\w*|млн|"
             r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
-            r"millones|millón\b|billones|billón\b|trillones|mil\b)?",
+            r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
+            r"billones|billón\b|trillones|mil\b)?",
             text, flags=re.I):
         g_num, g_scale = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
         v = float(g_num)
