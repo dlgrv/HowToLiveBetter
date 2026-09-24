@@ -5,6 +5,7 @@ dist/
 
 # translation pipeline transient state
 tools/digest/
+tools/runs/
 tools/.status/
 
 # quality pipeline v2 transient state (verdicts and QE caches are machine-local)
@@ -26,3 +27,19 @@ tools/validate/results/golden_session/
 tools/validate/results/golden_verdicts_batch*.json
 tools/validate/results/factcheck/
 tools/validate/results/style_fp_session*.json
+
+.worktrees/
+.superpowers/
+
+# LLM / API secrets — never commit real keys
+.env
+.env.*
+!.env.example
+
+# local Python envs / model weights (never in-repo)
+.venv/
+.venvs/
+venv/
+*.gguf
+
+.DS_Store

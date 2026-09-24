@@ -39,7 +39,7 @@
 
 ```bash
 # одна юнит-карточка (source-grounded фактчек CN↔перевод):
-export $(grep -E "^ZAI_API_KEY=" /root/.hermes/.env | head -1)
+export $(grep -E "^ZAI_API_KEY=" ~/.hermes/.env | head -1)
 python3 tools/validate/judge.py --file book/ru/08-Не-подставляйтесь.md --mode factcheck --json
 
 # слепая проверка на деградациях (валидация судьи, не для книги):

@@ -1,26 +1,146 @@
 {
   "_comment": "Закреплённая терминология CN→RU/EN для пайплайна HowToLiveBetter. Термины проверены по book/*.md (тела, не источники); RU/EN эквиваленты сняты с устоявшихся переводов book/ru/ и book/en/ (2026-09-18). make_digest.py инжектит термины юнита в units/NN.gloss.md. НИЧЕГО не добавлять без grep-проверки по book/ — см. skill htlb-translation §Localization.",
   "terms": [
-    {"cn": "低保", "ru": "дибао", "ru_gloss": "дибао (低保 — пособие малоимущим)", "en": "dibao", "en_gloss": "dibao (低保 — means-tested minimum subsistence allowance)"},
-    {"cn": "户口", "ru": "хукоу", "ru_gloss": "хукоу (户口 — регистрация, привязанная к месту жительства)", "en": "hukou", "en_gloss": "hukou (户口 — household registration tied to place)"},
-    {"cn": "户口簿", "ru": "домовая книга (хукоу)", "ru_gloss": "домовая книга (户口簿 — семейный регистрационный журнал)", "en": "household register", "en_gloss": "household register (户口簿 — family hukou booklet)"},
-    {"cn": "医保", "ru": "медстраховка (ибао)", "ru_gloss": "медстраховка ибао (医保 — базовая медицинская страховка)", "en": "yibao (basic medical insurance)", "en_gloss": "yibao (医保 — basic medical insurance)"},
-    {"cn": "社保", "ru": "соцстрах", "ru_gloss": "соцстрах (社保 — социальное страхование)", "en": "social insurance", "en_gloss": "social insurance (社保)"},
-    {"cn": "公积金", "ru": "жилищный накопительный фонд (гунцзицзинь)", "ru_gloss": "жилищный накопительный фонд (公积金, гунцзицзинь)", "en": "housing provident fund", "en_gloss": "housing provident fund (公积金)"},
-    {"cn": "民政", "ru": "органы гражданской администрации", "ru_gloss": "органы гражданской администрации (民政 — гражданские дела: соцзащита, брак, похороны)", "en": "civil affairs bureau", "en_gloss": "civil affairs bureau (民政)"},
-    {"cn": "派出所", "ru": "отделение полиции", "ru_gloss": "отделение полиции (派出所)", "en": "police station", "en_gloss": "local police station (派出所)"},
-    {"cn": "疾控中心", "ru": "Центр по контролю заболеваний", "ru_gloss": "Центр по контролю заболеваний (疾控中心, аналог ЦЗЗ/СПИД-центра)", "en": "Chinese CDC", "en_gloss": "Chinese CDC (疾控中心 — Center for Disease Control)"},
-    {"cn": "卫健委", "ru": "комитет здравоохранения", "ru_gloss": "комитет здравоохранения (卫健委)", "en": "health commission", "en_gloss": "health commission (卫健委)"},
-    {"cn": "人社局", "ru": "управление по труду и соцстраху", "ru_gloss": "управление по труду и соцстраху (人社局)", "en": "human resources and social security bureau", "en_gloss": "human resources and social security bureau (人社局)"},
-    {"cn": "营业执照", "ru": "бизнес-лицензия", "ru_gloss": "бизнес-лицензия (营业执照)", "en": "business license", "en_gloss": "business license (营业执照)"},
-    {"cn": "认缴出资", "ru": "заявленный уставный капитал", "ru_gloss": "заявленный уставный капитал (认缴出资 — подписочный, не обязательно оплаченный)", "en": "subscribed registered capital", "en_gloss": "subscribed registered capital (认缴出资 — pledged, not necessarily paid in)"},
-    {"cn": "一裁终局", "ru": "арбитраж в одну инстанцию, решение окончательно", "ru_gloss": "арбитраж в одну инстанцию, окончательный для сторон (一裁终局)", "en": "final and binding one-instance arbitration", "en_gloss": "one-instance arbitration, final and binding (一裁终局)"},
-    {"cn": "居委会", "ru": "комитет жителей", "ru_gloss": "комитет жителей (居委会 — квартальный комитет самоуправления)", "en": "residents' committee", "en_gloss": "residents' committee (居委会)"},
-    {"cn": "村委会", "ru": "комитет деревни", "ru_gloss": "комитет деревни (村委会)", "en": "villagers' committee", "en_gloss": "villagers' committee (村委会)"},
-    {"cn": "市场监管局", "ru": "управление по надзору за рынком", "ru_gloss": "управление по надзору за рынком (市场监管局)", "en": "market supervision administration", "en_gloss": "market supervision administration (市场监管局)"},
-    {"cn": "街道办", "ru": "администрация подрайона города", "ru_gloss": "администрация подрайона города (街道办 — уличная администрация)", "en": "subdistrict office", "en_gloss": "subdistrict office (街道办)"},
-    {"cn": "荟萃分析", "ru": "метаанализ", "ru_gloss": null, "en": "meta-analysis", "en_gloss": null},
-    {"cn": "观察性", "ru": "наблюдательное исследование", "ru_gloss": null, "en": "observational study", "en_gloss": null}
+    {
+      "cn": "低保",
+      "ru": "дибао",
+      "ru_gloss": "дибао (低保 — пособие малоимущим)",
+      "en": "dibao",
+      "en_gloss": "dibao (低保 — means-tested minimum subsistence allowance)"
+    },
+    {
+      "cn": "户口",
+      "ru": "хукоу",
+      "ru_gloss": "хукоу (户口 — регистрация, привязанная к месту жительства)",
+      "en": "hukou",
+      "en_gloss": "hukou (户口 — household registration tied to place)"
+    },
+    {
+      "cn": "户口簿",
+      "ru": "домовая книга (хукоу)",
+      "ru_gloss": "домовая книга (户口簿 — семейный регистрационный журнал)",
+      "en": "household register",
+      "en_gloss": "household register (户口簿 — family hukou booklet)"
+    },
+    {
+      "cn": "医保",
+      "ru": "медстраховка (ибао)",
+      "ru_gloss": "медстраховка ибао (医保 — базовая медицинская страховка)",
+      "en": "yibao (basic medical insurance)",
+      "en_gloss": "yibao (医保 — basic medical insurance)"
+    },
+    {
+      "cn": "社保",
+      "ru": "соцстрах",
+      "ru_gloss": "соцстрах (社保 — социальное страхование)",
+      "en": "social insurance",
+      "en_gloss": "social insurance (社保)"
+    },
+    {
+      "cn": "公积金",
+      "ru": "жилищный накопительный фонд (гунцзицзинь)",
+      "ru_gloss": "жилищный накопительный фонд (公积金, гунцзицзинь)",
+      "en": "housing provident fund",
+      "en_gloss": "housing provident fund (公积金)"
+    },
+    {
+      "cn": "民政",
+      "ru": "органы гражданской администрации",
+      "ru_gloss": "органы гражданской администрации (民政 — гражданские дела: соцзащита, брак, похороны)",
+      "en": "civil affairs bureau",
+      "en_gloss": "civil affairs bureau (民政)"
+    },
+    {
+      "cn": "派出所",
+      "ru": "отделение полиции",
+      "ru_gloss": "отделение полиции (派出所)",
+      "en": "police station",
+      "en_gloss": "local police station (派出所)"
+    },
+    {
+      "cn": "疾控中心",
+      "ru": "Центр по контролю заболеваний",
+      "ru_gloss": "Центр по контролю заболеваний (疾控中心, аналог ЦЗЗ/СПИД-центра)",
+      "en": "Chinese CDC",
+      "en_gloss": "Chinese CDC (疾控中心 — Center for Disease Control)"
+    },
+    {
+      "cn": "卫健委",
+      "ru": "комитет здравоохранения",
+      "ru_gloss": "комитет здравоохранения (卫健委)",
+      "en": "health commission",
+      "en_gloss": "health commission (卫健委)"
+    },
+    {
+      "cn": "人社局",
+      "ru": "управление по труду и соцстраху",
+      "ru_gloss": "управление по труду и соцстраху (人社局)",
+      "en": "human resources and social security bureau",
+      "en_gloss": "human resources and social security bureau (人社局)"
+    },
+    {
+      "cn": "营业执照",
+      "ru": "бизнес-лицензия",
+      "ru_gloss": "бизнес-лицензия (营业执照)",
+      "en": "business license",
+      "en_gloss": "business license (营业执照)"
+    },
+    {
+      "cn": "认缴出资",
+      "ru": "заявленный уставный капитал",
+      "ru_gloss": "заявленный уставный капитал (认缴出资 — подписочный, не обязательно оплаченный)",
+      "en": "subscribed registered capital",
+      "en_gloss": "subscribed registered capital (认缴出资 — pledged, not necessarily paid in)"
+    },
+    {
+      "cn": "一裁终局",
+      "ru": "арбитраж в одну инстанцию, решение окончательно",
+      "ru_gloss": "арбитраж в одну инстанцию, окончательный для сторон (一裁终局)",
+      "en": "final and binding one-instance arbitration",
+      "en_gloss": "one-instance arbitration, final and binding (一裁终局)"
+    },
+    {
+      "cn": "居委会",
+      "ru": "комитет жителей",
+      "ru_gloss": "комитет жителей (居委会 — квартальный комитет самоуправления)",
+      "en": "residents' committee",
+      "en_gloss": "residents' committee (居委会)"
+    },
+    {
+      "cn": "村委会",
+      "ru": "комитет деревни",
+      "ru_gloss": "комитет деревни (村委会)",
+      "en": "villagers' committee",
+      "en_gloss": "villagers' committee (村委会)"
+    },
+    {
+      "cn": "市场监管局",
+      "ru": "управление по надзору за рынком",
+      "ru_gloss": "управление по надзору за рынком (市场监管局)",
+      "en": "market supervision administration",
+      "en_gloss": "market supervision administration (市场监管局)"
+    },
+    {
+      "cn": "街道办",
+      "ru": "администрация подрайона города",
+      "ru_gloss": "администрация подрайона города (街道办 — уличная администрация)",
+      "en": "subdistrict office",
+      "en_gloss": "subdistrict office (街道办)"
+    },
+    {
+      "cn": "荟萃分析",
+      "ru": "метаанализ",
+      "ru_gloss": null,
+      "en": "meta-analysis",
+      "en_gloss": null
+    },
+    {
+      "cn": "观察性",
+      "ru": "наблюдательное исследование",
+      "ru_gloss": null,
+      "en": "observational study",
+      "en_gloss": null
+    }
   ],
   "style_rules": {
     "ru": [
@@ -29,13 +149,204 @@
       "Сохранить: метаанализ, доверительный интервал, отношение рисков/шансов, наблюдательное исследование, человеко-лет (+краткий глосс 1 раз на файл).",
       "«Простыми словами» — строго разговорно, без цифр, которых нет в «Эффекте»; без восклицательных знаков; заголовки с глаголами.",
       "Все числа байт-в-байт; 万 = ×10000 (2 万 = 20 000 юаней).",
-      "Китайские термины при первом употреблении: эквивалент + (иероглифы — короткое пояснение)."
+      "Китайские термины при первом употреблении: эквивалент + (иероглифы — короткое пояснение).",
+      "«Простыми словами»: географические имена — правильный падеж русского, не калька с английского (в Бангладеше, в больницах Бангладеша; не «в Бангладеш»).",
+      "«Простыми словами»: химикаты — бытовое описание + (термин); не голое «паракват» и не одно слово «гербицид» — пиши «ядовитое средство от сорняков (паракват)».",
+      "Кальки с английского в plain-terms запрещены: не «против параквата», не «на ход болезни»; процедуры (промывание, гемосорбция…) — в «Эффекте», в plain-terms только итог для читателя.",
+      "«Простыми словами»: два процента в одном дыхании — полная параллель сказуемых («шанс погибнуть ниже…, а вероятность получить травму — ниже…»), не телеграф («травмы головы — на 70%»).",
+      "«Простыми словами»: оговорка в конце держит тип китайского утверждения («не считается / не считается надетым» ближе к 不算); живое «не поможет» можно, если смысл не ужесточается.",
+      "«Простыми словами»: не сжимай уже понятный текст. Счётчики событий — полной фразой («было 828 случаев отравления грибами»), не телеграфом («828 отравлений»). Режь канцелярит и длинные названия законов (§4), не нормальный ритм (§5).",
+      "Simplify: если neighbor test уже пройден — правь только брак (жаргон, калька, «примерно примерно», голый химикат, сломанная параллель %); не переписывай ради краткости.",
+      "«Простыми словами»: единицы и мед. сокращения при первом упоминании — в скобках (см. abbrev_gloss_examples): mmHg / мм рт. ст. (миллиметры ртутного столба); ИМТ (индекс массы тела); КТ (компьютерная томография); МРТ (магнитно-резонансная томография); УЗИ (ультразвуковое исследование); HPV (вирус папилломы человека); ммоль/л (миллимоли на литр); mg/dL (миллиграммы на децилитр). Не обязательно: мл, °C, SIM/PIN в понятном контексте."
     ],
     "en": [
       "Plain, restrained English; no exclamation marks; verb-first item titles.",
       "China-specific concepts on first use per file: transliteration + short gloss, e.g. dibao (低保 — means-tested minimum subsistence allowance).",
       "万 = ×10,000 (2 万 = 20,000 yuan). All numbers byte-for-byte.",
-      "No translated-English epidemiology jargon in 'In plain terms' — keep it colloquial; numbers only from the 'Benefit' line."
+      "No translated-English epidemiology jargon in 'In plain terms' — keep it colloquial; numbers only from the 'Benefit' line.",
+      "In plain terms: neighbor test — would a teenager without specialist training understand it?",
+      "In plain terms: chemicals — everyday gloss + (name); no bare paraquat or lone herbicide; use toxic weedkiller (paraquat).",
+      "Place names: natural English grammar (in Bangladesh), not a calque from Chinese or Russian.",
+      "In plain terms: two % outcomes in one breath — keep full parallel verbs (chance of dying drops…, and chance of head injury drops…); do not telegraph-delete the second verb.",
+      "Closing caution: match ZH claim type (does not count as wearing) before vivid won't help, and never harden the claim.",
+      "In plain terms: do not over-compress already-clear stats (prefer 'there were 828 mushroom poisonings' over a bare '828 poisonings' list). Cut legalese, not natural rhythm.",
+      "Simplify pass: if neighbor test already passes, fix defects only — do not rewrite for shortness.",
+      "In plain terms: units and medical abbrevs — gloss on first use (see abbrev_gloss_examples): mmHg (millimeters of mercury); BMI (body mass index); CT (computed tomography); MRI (magnetic resonance imaging); ultrasound spelled out or (ultrasound); HPV (human papillomavirus); mmol/L (millimoles per liter); mg/dL (milligrams per deciliter). Optional skip: ml, °C, SIM/PIN when context is clear."
+    ],
+    "es": [
+      "Español claro y sobrio; sin signos de exclamación; títulos de ítem con verbo.",
+      "Conceptos propios de China: transliteración + glosa breve la primera vez en el archivo, p. ej. dibao (低保 — ayuda mínima según renta).",
+      "万 = ×10 000 (2 万 = 20 000 yuanes). Números idénticos al original; decimales con coma (43,2 %).",
+      "En el campo «En términos sencillos»: sin jerga epidemiológica (HR, RR, IC); cifras solo las de «Beneficio».",
+      "En el campo «En términos sencillos»: veneno para malas hierbas (paraquat); no herbicida solo ni paraquat a secas.",
+      "Nombres geográficos: gramática española natural (en Bangladés), no calco del inglés.",
+      "Procedimientos médicos detallados van en «Beneficio»; en términos sencillos solo el mensaje para el lector.",
+      "En el campo «En términos sencillos»: dos % en una frase — verbos paralelos completos (baja la probabilidad de morir… y la de lesión en la cabeza…); no elipsis telegráfica.",
+      "Cierre de advertencia: preferir el tipo de afirmación del chino (no cuenta como llevarlo); «no ayuda» solo si no endurece el sentido.",
+      "En el campo «En términos sencillos»: no comprimir de más cifras ya claras (mejor «hubo 828 intoxicaciones por setas» que un telegrama). Corta jerga legal, no el ritmo natural.",
+      "Pase simplify: si ya pasa el neighbor test, corrige solo defectos — no reescribas solo para acortar.",
+      "En el campo «En términos sencillos»: unidades y abreviaturas médicas — glosa la primera vez (ver abbrev_gloss_examples): mmHg (milímetros de mercurio); IMC (índice de masa corporal); TAC/TC (tomografía computarizada); RM (resonancia magnética); ecografía; VPH (virus del papiloma humano); mmol/L (milimoles por litro); mg/dL (miligramos por decilitro). Opcional omitir: ml, °C, SIM/PIN si el contexto basta."
     ]
-  }
+  },
+  "name_forms": [
+    {
+      "lemma": "Бангладеш",
+      "lang": "ru",
+      "gov": "в+prep",
+      "form": "в Бангладеше"
+    },
+    {
+      "lemma": "Бангладеш",
+      "lang": "ru",
+      "gov": "gen",
+      "form": "Бангладеша"
+    },
+    {
+      "lemma": "Китай",
+      "lang": "ru",
+      "gov": "в+prep",
+      "form": "в Китае"
+    }
+  ],
+  "banned_calques": {
+    "ru": [
+      "когорт",
+      "экспозици",
+      "квартил",
+      "квинтил",
+      "конфаунд",
+      "популяц",
+      "гербицид",
+      "против параквата",
+      "на ход болезни"
+    ],
+    "en": [
+      "cohort",
+      "exposure",
+      "quartile",
+      "confound",
+      "herbicide"
+    ],
+    "es": [
+      "cohorte",
+      "herbicida",
+      "paraquat no tiene"
+    ]
+  },
+  "abbrev_gloss_examples": [
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "на 10 mmHg",
+      "good": "на 10 mmHg (миллиметры ртутного столба) — при первом упоминании в plain-terms"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "на 10 мм рт. ст.",
+      "good": "на 10 мм рт. ст. (миллиметры ртутного столба)"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "коридор ИМТ 20–25",
+      "good": "коридор ИМТ (индекс массы тела) 20–25"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "низкодозовая КТ",
+      "good": "низкодозовая КТ (компьютерная томография)"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "сделайте УЗИ вен",
+      "good": "сделайте УЗИ (ультразвуковое исследование) вен"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "привитых от HPV",
+      "good": "привитых от HPV (вирус папилломы человека)"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "ниже 3.9 ммоль/л",
+      "good": "ниже 3.9 ммоль/л (миллимоли на литр)"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "ниже 6 mg/dL",
+      "good": "ниже 6 mg/dL (миллиграммы на децилитр)"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "10 mmHg",
+      "good": "10 mmHg (millimeters of mercury) — spell out on first plain-terms use"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "BMI 20–25",
+      "good": "BMI (body mass index) 20–25"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "low-dose CT",
+      "good": "low-dose CT (computed tomography)"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "Get an MRI",
+      "good": "Get an MRI (magnetic resonance imaging) — spell out on first plain-terms use"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "HPV vaccine",
+      "good": "HPV (human papillomavirus) vaccine"
+    },
+    {
+      "lang": "en",
+      "field": "plain-terms",
+      "bad": "below 3.9 mmol/L",
+      "good": "below 3.9 mmol/L (millimoles per liter)"
+    },
+    {
+      "lang": "es",
+      "field": "plain-terms",
+      "bad": "10 mmHg",
+      "good": "10 mmHg (milímetros de mercurio) — explicar la primera vez en términos sencillos"
+    },
+    {
+      "lang": "es",
+      "field": "plain-terms",
+      "bad": "IMC 20–25",
+      "good": "IMC (índice de masa corporal) 20–25"
+    },
+    {
+      "lang": "es",
+      "field": "plain-terms",
+      "bad": "Hazte una TAC",
+      "good": "Hazte una TAC (tomografía computarizada) — explicar la primera vez"
+    },
+    {
+      "lang": "es",
+      "field": "plain-terms",
+      "bad": "vacuna VPH",
+      "good": "vacuna VPH (virus del papiloma humano) — o glosar HPV la primera vez"
+    },
+    {
+      "lang": "ru",
+      "field": "plain-terms",
+      "bad": "Сделайте УЗИ",
+      "good": "Сделайте УЗИ (ультразвуковое исследование) — при первом упоминании в plain-terms"
+    }
+  ]
 }

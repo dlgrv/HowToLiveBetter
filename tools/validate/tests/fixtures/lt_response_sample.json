@@ -1,0 +1,50 @@
+{
+  "software": {
+    "name": "LanguageTool",
+    "version": "6.5",
+    "buildDate": "2024-01-01 00:00:00 +0000",
+    "apiVersion": 1,
+    "premium": false,
+    "premiumHint": "",
+    "status": ""
+  },
+  "language": {
+    "name": "Russian (Russia)",
+    "code": "ru-RU",
+    "detectedLanguage": {
+      "name": "Russian (Russia)",
+      "code": "ru-RU",
+      "confidence": 0.99
+    }
+  },
+  "matches": [
+    {
+      "message": "Возможная орфографическая ошибка.",
+      "shortMessage": "Орфография",
+      "offset": 0,
+      "length": 6,
+      "replacements": [
+        {"value": "текст"}
+      ],
+      "rule": {
+        "id": "MORFOLOGIK_RULE_RU_RU",
+        "description": "Возможная орфографическая ошибка",
+        "issueType": "misspelling",
+        "category": {"id": "TYPOS", "name": "Possible Typo"}
+      }
+    },
+    {
+      "message": "Проверьте согласование.",
+      "shortMessage": "",
+      "offset": 20,
+      "length": 4,
+      "replacements": [],
+      "rule": {
+        "id": "AGREEMENT_NN",
+        "description": "Согласование",
+        "issueType": "grammar",
+        "category": {"id": "GRAMMAR", "name": "Grammar"}
+      }
+    }
+  ]
+}

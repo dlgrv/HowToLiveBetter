@@ -1,0 +1,19 @@
+{
+  "labels": {
+    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
+    "es": ["Costo", "En términos sencillos", "Beneficio", "Nivel de evidencia", "Notas"]
+  },
+  "banned_calques": [],
+  "style_markers": [
+    {"pattern": "\\ben el marco de\\b", "label": "en-el-marco", "note": "calque / officialese"},
+    {"pattern": "\\bse debe señalar que\\b", "label": "se-debe-senalar", "note": "filler opener"},
+    {"pattern": "\\butilizar\\b", "label": "utilizar", "note": "preferir 'usar' en plain-terms"}
+  ],
+  "whitelist_zones": [
+    "- Beneficio:",
+    "- Notas:",
+    "- Fuentes:",
+    "- Nivel de evidencia:",
+    "<!-- 成本标签"
+  ]
+}

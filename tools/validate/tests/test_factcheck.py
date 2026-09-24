@@ -202,5 +202,162 @@ class TestGateRobustness(unittest.TestCase):
         self.assertEqual(report["dropped"][0]["reason"], "span_does_not_support_claim")
 
 
+class TestFactcheckCliExit(unittest.TestCase):
+    def test_gate_fail_exits_nonzero(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            cn = os.path.join(td, "cn.md")
+            tr = os.path.join(td, "tr.md")
+            with open(cn, "w", encoding="utf-8") as f:
+                f.write("说人话：测试\n")
+            with open(tr, "w", encoding="utf-8") as f:
+                f.write("Простыми словами: тест\n")
+            fail_verdict = json.dumps({
+                "unit": "1",
+                "assertions": [{
+                    "claim": "flipped",
+                    "cn_span": "测试",
+                    "status": "issue",
+                    "issue_type": "reversed_logic",
+                }],
+            })
+            proc = subprocess.run(
+                [sys.executable, "-m", "tools.validate.factcheck",
+                 "--chapter", "01", "--lang", "ru",
+                 "--cn-unit", cn, "--tr-unit", tr,
+                 "--stdin-verdict", fail_verdict,
+                 "--outdir", td],
+                capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(proc.returncode, 1, proc.stdout + proc.stderr)
+            self.assertIn('"gate": "fail"', proc.stdout)
+
+    def test_clean_mock_exits_zero(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            cn = os.path.join(td, "cn.md")
+            tr = os.path.join(td, "tr.md")
+            with open(cn, "w", encoding="utf-8") as f:
+                f.write("说人话：测试\n")
+            with open(tr, "w", encoding="utf-8") as f:
+                f.write("Простыми словами: тест\n")
+            ok = json.dumps({"unit": "1", "assertions": [], "issues": []})
+            proc = subprocess.run(
+                [sys.executable, "-m", "tools.validate.factcheck",
+                 "--chapter", "01", "--lang", "ru",
+                 "--cn-unit", cn, "--tr-unit", tr,
+                 "--stdin-verdict", ok,
+                 "--outdir", td],
+                capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+            self.assertIn('"gate": "pass"', proc.stdout)
+            self.assertIn('"grounded": true', proc.stdout)
+
+    def test_ungrounded_exits_nonzero(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            cn = os.path.join(td, "cn.md")
+            tr = os.path.join(td, "tr.md")
+            with open(cn, "w", encoding="utf-8") as f:
+                f.write("说人话：测试\n")
+            with open(tr, "w", encoding="utf-8") as f:
+                f.write("Простыми словами: тест\n")
+            bad = json.dumps({
+                "unit": "1",
+                "assertions": [{
+                    "claim": "fake",
+                    "cn_span": "этого текста нет в китайском юните",
+                    "status": "ok",
+                }],
+            })
+            proc = subprocess.run(
+                [sys.executable, "-m", "tools.validate.factcheck",
+                 "--chapter", "01", "--lang", "ru",
+                 "--cn-unit", cn, "--tr-unit", tr,
+                 "--stdin-verdict", bad,
+                 "--outdir", td],
+                capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(proc.returncode, 1, proc.stdout + proc.stderr)
+            self.assertIn('"grounded": false', proc.stdout)
+
+    def test_no_verdict_exits_2(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            cn = os.path.join(td, "cn.md")
+            tr = os.path.join(td, "tr.md")
+            with open(cn, "w", encoding="utf-8") as f:
+                f.write("说人话：测试\n")
+            with open(tr, "w", encoding="utf-8") as f:
+                f.write("Простыми словами: тест\n")
+            env = os.environ.copy()
+            for k in ("ZAI_API_KEY", "Z_AI_API_KEY", "ZHIPUAI_API_KEY"):
+                env.pop(k, None)
+            proc = subprocess.run(
+                [sys.executable, "-m", "tools.validate.factcheck",
+                 "--chapter", "01", "--lang", "ru",
+                 "--cn-unit", cn, "--tr-unit", tr,
+                 "--outdir", td],
+                capture_output=True, text=True, cwd=ROOT, env=env)
+            self.assertEqual(proc.returncode, 2, proc.stdout + proc.stderr)
+            self.assertIn("judge_unavailable", proc.stdout)
+
+
+class TestLiveJudgeWiring(unittest.TestCase):
+    def test_build_judge_prompt_includes_cn_and_tr(self):
+        prompt = fc.build_judge_prompt(
+            "说人话：四十岁前戒烟。\n- 来源：ignore\n",
+            "- Простыми словами: бросить курить.\n§TAG§\n",
+            "ru",
+        )
+        self.assertIn("CHINESE SOURCE", prompt)
+        self.assertIn("四十岁前戒烟", prompt)
+        self.assertIn("бросить курить", prompt)
+        tr_part = prompt.split("## TRANSLATION", 1)[-1]
+        self.assertNotIn("§TAG§", tr_part)
+        self.assertNotIn("- 来源：", prompt.split("## CHINESE SOURCE", 1)[-1].split("## TRANSLATION")[0])
+
+    def test_live_judge_mocked_writes_and_exits_0(self):
+        import subprocess
+        import tempfile
+        from unittest import mock
+
+        ok = {"assertions": [], "issues": []}
+        with tempfile.TemporaryDirectory() as td:
+            cn = os.path.join(td, "cn.md")
+            tr = os.path.join(td, "tr.md")
+            with open(cn, "w", encoding="utf-8") as f:
+                f.write("说人话：测试\n")
+            with open(tr, "w", encoding="utf-8") as f:
+                f.write("Простыми словами: тест\n")
+
+            seen = []
+
+            class FakeClient:
+                def complete(self, prompt, system=None, temperature=0.0, max_tokens=2048):
+                    seen.append(prompt)
+                    return json.dumps(ok)
+
+            fake = FakeClient()
+            with mock.patch.object(fc, "open_live_judge", return_value=(fake, "subagent-glm", "mock-glm")):
+                code = fc.run_factcheck_cli(
+                    chapter="01",
+                    lang="ru",
+                    cn_unit=cn,
+                    tr_unit=tr,
+                    outdir=td,
+                    stdin_verdict=None,
+                )
+            self.assertEqual(code, 0)
+            self.assertTrue(seen and "测试" in seen[0])
+            written = os.path.join(td, "01-ru.json")
+            self.assertTrue(os.path.isfile(written))
+            data = json.load(open(written, encoding="utf-8"))
+            self.assertEqual(data["backend"], "subagent-glm")
+            self.assertEqual(data["model_id"], "mock-glm")
+
+
 if __name__ == "__main__":
     unittest.main()
