@@ -20,6 +20,7 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from tools.llm.client import LLMError, chat, repo_root  # noqa: E402
+from tools.llm.verify_issues import issues_still_present  # noqa: E402
 from tools.llm.translate_unit import (  # noqa: E402
     LOCALE_FIELD_HINTS,
     atomic_write,
@@ -83,23 +84,6 @@ def build_repair_messages(
         {"role": "system", "content": prompt_template.strip()},
         {"role": "user", "content": "\n".join(user_parts)},
     ]
-
-
-def issues_still_present(unit_tr_text: str, issues: list[dict], lang: str) -> list[str]:
-    """Post-repair assert: value ∈ norm_numbers / stem count dropped. Returns leftovers."""
-    from tools.verify import norm_numbers
-
-    leftovers: list[str] = []
-    vals = set(norm_numbers(unit_tr_text, ru=(lang == "ru"), es=(lang == "es")))
-    for iss in issues:
-        kind = iss.get("kind")
-        if kind == "number_absent" and str(iss["value"]) not in vals:
-            leftovers.append(f"number {iss['value']} still absent")
-        if kind == "banned_calque":
-            n = len(re.findall(iss["stem"], unit_tr_text, re.I))
-            if n > 1:
-                leftovers.append(f"stem «{iss['stem']}» still {n}x")
-    return leftovers
 
 
 def main(argv: list[str] | None = None) -> int:

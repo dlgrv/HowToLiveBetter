@@ -25,8 +25,12 @@ _ROOT = Path(__file__).resolve().parents[2]
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from tools.llm.verify_issues import REPAIRABLE_KINDS, locate_issues, parse_verify_json  # noqa: E402
-from tools.verify import norm_numbers  # noqa: E402
+from tools.llm.verify_issues import (  # noqa: E402
+    REPAIRABLE_KINDS,
+    issues_still_present,
+    locate_issues,
+    parse_verify_json,
+)
 
 DIRTY_UNIT_CAP = 8  # locked: ≤8 dirty units repaired per round
 
@@ -50,18 +54,6 @@ def run_verify_json(nn: str, lang: str, assembled: Path) -> tuple[int, dict]:
               "--lang", lang, "--file", assembled, "--json"])
     report = parse_verify_json(r.stdout)
     return r.returncode, report
-
-
-def unit_still_needs(unit: str, issues: list[dict], tr_path: Path, lang: str) -> bool:
-    """Post-repair assert: does the unit text still miss a value / carry the stem?"""
-    text = tr_path.read_text(encoding="utf-8")
-    vals = set(norm_numbers(text, ru=(lang == "ru"), es=(lang == "es")))
-    for iss in issues:
-        if iss["kind"] == "number_absent" and str(iss["value"]) not in vals:
-            return True
-        if iss["kind"] == "banned_calque" and len(re.findall(iss["stem"], text, re.I)) > 1:
-            return True
-    return False
 
 
 def repair_unit(nn: str, unit: str, lang: str, workdir: Path,
@@ -159,7 +151,8 @@ def main(argv: list[str] | None = None) -> int:
             rc = repair_unit(nn, unit, lang, workdir, issues)
             tr_path = workdir / "units" / f"{unit}.md"
             still = (rc == 0 and tr_path.is_file()
-                     and unit_still_needs(unit, issues, tr_path, lang))
+                     and issues_still_present(tr_path.read_text(encoding="utf-8"),
+                                              issues, lang))
             if rc != 0 or still:
                 if still and rc == 0:
                     print(f"round={round_no} post-repair assert FAILED unit={unit} "

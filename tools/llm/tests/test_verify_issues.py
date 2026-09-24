@@ -54,6 +54,50 @@ class Locate(unittest.TestCase):
             self.assertNotIn("07", located)
             self.assertNotIn("_unlocated", located)
 
+    def test_number_absent_duplicate_in_cn_locates_correctly(self):
+        """CN has the value twice, TR has it once → per-unit deficit (cn>tr);
+        locator must attach the unit — the set-based comparison silently
+        swallowed this deficit (review A1 false-UNLOCATED bug)."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            dig = Path(d) / "digest"
+            tr = Path(d) / "tr"
+            dig.mkdir()
+            tr.mkdir()
+            (dig / "07.md").write_text(
+                "### 7. x\n- 收益：61万人受益，另一组也有61万人\n", encoding="utf-8")
+            (tr / "07.md").write_text(
+                "### 7. x\n- Эффект: 610 000 человек\n", encoding="utf-8")
+            located = locate_issues(
+                root=Path(d), nn="01", lang="ru",
+                digest_units_dir=dig, tr_units_dir=tr,
+                fails=[{"kind": "number_absent", "value": "610000", "count": 1}],
+            )
+            self.assertIn("07", located)
+            self.assertEqual(located["07"][0]["value"], "610000")
+
+    def test_calque_over_attach_only_offender_units(self):
+        """count=3 with 2 occurrences in unit 14 and a legit single gloss in
+        unit 15 → only the offending unit (own stem count > 1) is attached."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            dig = Path(d) / "digest"
+            tr = Path(d) / "tr"
+            dig.mkdir()
+            tr.mkdir()
+            (dig / "14.md").write_text("### 14.\n", encoding="utf-8")
+            (tr / "14.md").write_text("популяция растёт, популяция стареет\n",
+                                      encoding="utf-8")
+            (tr / "15.md").write_text("в популяции (population) вирус\n",
+                                      encoding="utf-8")
+            located = locate_issues(
+                root=Path(d), nn="01", lang="ru",
+                digest_units_dir=dig, tr_units_dir=tr,
+                fails=[{"kind": "banned_calque", "stem": "популяц", "count": 3}],
+            )
+            self.assertIn("14", located)
+            self.assertNotIn("15", located)
+
     def test_unlocated_when_no_cn_unit_matches(self):
         import tempfile
         with tempfile.TemporaryDirectory() as d:
