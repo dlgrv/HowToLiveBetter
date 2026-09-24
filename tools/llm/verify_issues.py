@@ -43,6 +43,16 @@ def parse_verify_json(stdout: str) -> dict:
     raise ValueError("no JSON object found in verify --json output")
 
 
+def _cn_context_for_value(cn_text: str, value: str) -> str:
+    """First line in cn_text whose norm_numbers include value (per-unit CN
+    anchor for the repair prompt, review H4: disambiguates which sentence the
+    value must land in when a CN unit carries several similar numbers)."""
+    for line in cn_text.splitlines():
+        if value in set(norm_numbers(line)):
+            return line.strip()[:200]
+    return ""
+
+
 def locate_issues(
     *,
     root: Path,
@@ -99,7 +109,13 @@ def locate_issues(
                 # value absent chapter-wide and no CN unit maps it → unlocatable
                 located.setdefault("_unlocated", []).append(fail)
             for u in matched:
-                located.setdefault(u, []).append(fail)
+                # cn_context is attached PER UNIT on a copy — the shared fail
+                # dict must stay unmutated: different units can map the same
+                # value to different CN lines (and repair_unit's prompt needs
+                # the line from ITS unit, not another unit's).
+                enriched = dict(fail,
+                                cn_context=_cn_context_for_value(cn_texts[u], value))
+                located.setdefault(u, []).append(enriched)
         else:  # banned_calque
             stem = fail["stem"]
             # attach only to units whose OWN tr text carries the stem more

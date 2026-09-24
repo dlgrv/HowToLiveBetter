@@ -80,6 +80,11 @@ def translate_unit(nn: str, unit: str, lang: str, workdir: Path) -> int:
 
 def dry_locate(nn: str, lang: str, workdir: Path, assembled: Path) -> int:
     code, report = run_verify_json(nn, lang, assembled)
+    if report.get("ok"):
+        # review H6: an empty map {} is indistinguishable from "located
+        # nothing" — when verify already passes, say so explicitly.
+        print(json.dumps({"_verify_ok": True}, ensure_ascii=False))
+        return 0
     located = locate_issues(
         root=_ROOT, nn=nn, lang=lang,
         digest_units_dir=_ROOT / "tools" / "digest" / nn / "units",

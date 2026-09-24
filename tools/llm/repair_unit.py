@@ -39,6 +39,9 @@ ISSUE_LINES = {
     "number_absent": lambda iss: (
         f"- number_absent: must include the absolute value {iss['value']} "
         f"somewhere in the unit (count needed: {iss.get('count', 1)})"
+        # CN anchor (review H4): when the CN unit has several similar numbers,
+        # the anchor line tells the model WHICH sentence the value belongs to.
+        + (f"\n  CN source line: {iss['cn_context']}" if iss.get("cn_context") else "")
     ),
     "banned_calque": lambda iss: (
         f"- banned_calque: replace the stem «{iss['stem']}» everywhere except "

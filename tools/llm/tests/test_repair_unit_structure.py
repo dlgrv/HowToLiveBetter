@@ -73,6 +73,25 @@ class IssueAssert(unittest.TestCase):
         self.assertEqual(leftovers, ["stem «популяц» still 2x"])
 
 
+class IssueLines(unittest.TestCase):
+    def test_number_absent_issue_line_includes_cn_context(self):
+        issues = [{"kind": "number_absent", "value": "11500", "count": 1,
+                   "cn_context": "月收入达到 11500 元的受访者仅占 3%"}]
+        msgs = ru.build_repair_messages(
+            "ru", "### 03. ...", "current tr text", issues,
+            "SYSTEM PROMPT", uu="03")
+        user_content = msgs[1]["content"]
+        self.assertIn("11500", user_content)
+        self.assertIn("月收入达到 11500 元的受访者仅占 3%", user_content)
+
+    def test_number_absent_issue_line_without_cn_context(self):
+        issues = [{"kind": "number_absent", "value": "11500", "count": 1}]
+        msgs = ru.build_repair_messages(
+            "ru", "### 03. ...", "current tr text", issues,
+            "SYSTEM PROMPT", uu="03")
+        self.assertNotIn("CN source line", msgs[1]["content"])
+
+
 class IssuesJsonValidation(unittest.TestCase):
     def _run(self, argv):
         try:
