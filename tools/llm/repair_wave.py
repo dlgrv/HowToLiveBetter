@@ -11,6 +11,14 @@ Exit codes: 0 = verify OK; 1 = exhausted rounds / unrepairable / unlocated;
 
 Never writes under tools/digest/ (workdir is the run dir; digest units are
 read-only inputs). No style/LT/factcheck inside the loop.
+
+CONCURRENCY INVARIANT (locked decision, do not "optimize" away): units within
+a round are repaired SEQUENTIALLY — a plain for-loop, no threadpool, no async.
+This matches the locked `-np 1` llama-server config (see
+tools/llm/start-llama-server.sh): the server slot count is what enforces the
+concurrency limit, and the Python side must stay strictly serial to respect
+it. Do not parallelize this loop without first raising server concurrency to
+match (and re-validating the whole pipeline).
 """
 from __future__ import annotations
 

@@ -270,6 +270,13 @@ def main():
         banned = pack["banned_calques"]
     else:
         banned = BANNED_RU if lang == "ru" else []
+    if not banned:
+        # maintainer signal, NOT a translation-quality WARN: an empty calque
+        # list makes check 7 a silent no-op for this language. Goes to stderr
+        # so the --json stdout contract (parse_verify_json scans stdout only)
+        # stays safe.
+        print(f"  (note: no banned_calques configured for lang={lang} — "
+              f"calque check is a no-op for this run)", file=sys.stderr)
     for i, cn_lab in enumerate(labels["cn"]):
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
         got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))

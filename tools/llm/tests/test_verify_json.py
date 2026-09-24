@@ -60,6 +60,49 @@ class VerifyJson(unittest.TestCase):
                     self.assertIn("stem", f)
                     self.assertIn("count", f)
 
+    def test_es_banned_calques_empty_prints_stderr_note(self):
+        # H1/H3: ES pack has banned_calques: [] → calque check is a silent
+        # no-op; verify must print a maintainer note to STDERR (never stdout —
+        # parse_verify_json scans stdout only).
+        tmpmd = ROOT / "tools" / "llm" / "tests" / "_tmp_es_note_fixture.md"
+        try:
+            tmpmd.write_text(
+                "### 1. titulo\n"
+                "- Costo: 100\n"
+                "- En términos sencillos: algo\n"
+                "- Beneficio: 610 000 personas\n"
+                "- Nivel de evidencia: A\n"
+                "- Notas: algo mas\n",
+                encoding="utf-8",
+            )
+            r = subprocess.run(
+                [sys.executable, str(ROOT / "tools" / "verify.py"), "01",
+                 "--lang", "es", "--file", str(tmpmd), "--json"],
+                cwd=ROOT, capture_output=True, text=True,
+            )
+            self.assertIn("no banned_calques configured", r.stderr)
+            js_line = next(
+                (l for l in reversed(r.stdout.splitlines()) if l.startswith("{")),
+                None,
+            )
+            self.assertIsNotNone(js_line, r.stdout[:500])
+            data = json.loads(js_line)
+            self.assertIn("ok", data)
+        finally:
+            tmpmd.unlink(missing_ok=True)
+
+    def test_ru_pack_calques_no_note(self):
+        # RU falls back to built-in BANNED_RU (non-empty) → no note expected
+        cand = ROOT / "book" / "ru" / "01-Не-умирайте-рано.md"
+        if not cand.is_file():
+            self.skipTest("no ru ch01")
+        r = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / "verify.py"), "01",
+             "--lang", "ru", "--file", str(cand), "--json"],
+            cwd=ROOT, capture_output=True, text=True,
+        )
+        self.assertNotIn("no banned_calques configured", r.stderr)
+
     def test_help_lists_json(self):
         r = subprocess.run(
             [sys.executable, str(ROOT / "tools" / "verify.py"), "--help"],
