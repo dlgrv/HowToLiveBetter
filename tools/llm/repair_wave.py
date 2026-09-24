@@ -98,6 +98,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--workdir", required=True, help="run dir (parent of units/)")
     p.add_argument("--assembled", required=True)
     p.add_argument("--max-rounds", type=int, default=3)
+    p.add_argument("--max-dirty", type=int, default=DIRTY_UNIT_CAP,
+                   help="max dirty units repaired per round (default 8)")
     p.add_argument("--fallback-retranslate", dest="fallback", action="store_true",
                    default=True, help="retranslate unit when post-repair assert fails (default ON)")
     p.add_argument("--no-fallback-retranslate", dest="fallback", action="store_false")
@@ -141,11 +143,11 @@ def main(argv: list[str] | None = None) -> int:
             print("UNLOCATED " + json.dumps(located.get("_unlocated", []), ensure_ascii=False))
             return 1
         dirty = sorted(located)
-        deferred = dirty[DIRTY_UNIT_CAP:]
+        deferred = dirty[args.max_dirty:]
         if deferred:
             print(f"DIRTY_CAP deferred to next round: {', '.join(deferred)}",
                   file=sys.stderr)
-        for unit in dirty[:DIRTY_UNIT_CAP]:
+        for unit in dirty[:args.max_dirty]:
             issues = located[unit]
             print(f"round={round_no} repair unit={unit} issues={issues}")
             rc = repair_unit(nn, unit, lang, workdir, issues)
@@ -165,6 +167,14 @@ def main(argv: list[str] | None = None) -> int:
                 rc = translate_unit(nn, unit, lang, workdir)
                 if rc != 0:
                     return 2
+                # Post-fallback assert (review R3): don't wait a full round to
+                # notice the fallback didn't fix the unit. Print-only for now —
+                # exit-code semantics are unchanged; the next verify --json
+                # re-surfaces the issue either way.
+                if tr_path.is_file() and issues_still_present(
+                        tr_path.read_text(encoding="utf-8"), issues, lang):
+                    print(f"round={round_no} POST-FALLBACK STILL DIRTY unit={unit}",
+                          file=sys.stderr)
         # else: loop back to assemble + verify
     print("EXHAUSTED")
     return 1
