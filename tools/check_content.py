@@ -177,6 +177,24 @@ def gate_cjk_leaks(issues):
                     issues.append(f"[cjk-leak] {rel}:{ln} '{m.group(0)}' :: {ctx}")
 
 
+def gate_empty_fields(issues):
+    """Field labels (Стоимость/Эффект/...) must carry their text on the same line.
+    The site parser matches '- Field: value' on one line; a bare '- Field:' line
+    renders an empty card in the sidebar/entry view."""
+    pat = re.compile(
+        r"^- (?:Стоимость|Эффект|Простыми словами|Источники|Примечания"
+        r"|Cost|Effect|In plain words|Sources|Notes):\s*$")
+    for d in translated_dirs():
+        for path in sorted(glob.glob(os.path.join(ROOT, d, "*.md"))):
+            rel = os.path.relpath(path, ROOT)
+            for ln, line in enumerate(
+                    open(path, encoding="utf-8").read().splitlines(), 1):
+                if pat.match(line):
+                    issues.append(
+                        f"[empty-field] {rel}:{ln} '{line.strip()}' "
+                        f"(field text must be on the same line)")
+
+
 def gate_filenames(issues):
     for d in translated_dirs():
         for name in sorted(os.listdir(os.path.join(ROOT, d))):
@@ -224,9 +242,10 @@ def main():
     issues = []
     gate_filenames(issues)
     gate_cjk_leaks(issues)
+    gate_empty_fields(issues)
     gate_parity(issues)
     gate_stats(issues)
-    print(f"content gates: filenames, cjk-leaks, parity, stats")
+    print(f"content gates: filenames, cjk-leaks, empty-fields, parity, stats")
     if issues:
         print(f"VIOLATIONS: {len(issues)}")
         for i in issues:
