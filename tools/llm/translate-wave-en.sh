@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Translate a batch of chapters sequentially, but units WITHIN a chapter
+# 2-at-a-time (llama-server runs -np 2 slots). Usage: ./translate-wave.sh 16 17 18
+set -uo pipefail
+cd "$(dirname "$0")/../.."   # repo root
+
+WAVE_JOBS="${WAVE_JOBS:-2}"
+
+for nn in "$@"; do
+  echo "===== chapter $nn ====="
+  rm -rf "tools/runs/active/en/$nn"
+  mkdir -p "tools/runs/active/en/$nn"
+  cp -R "tools/digest/$nn/units" "tools/runs/active/en/$nn/"
+
+  units=($(ls tools/digest/$nn/units/ | grep -v gloss | sed 's/.md//' | sort))
+  i=0
+  # 2-at-a-time loop (WAVE_JOBS parallel translate_unit.py processes)
+  while [ $i -lt ${#units[@]} ]; do
+    batch=("${units[@]:$i:2}")
+    pids=()
+    for u in "${batch[@]}"; do
+      python3 tools/llm/translate_unit.py --nn "$nn" --unit "$u" --lang en \
+        --out-dir "tools/runs/active/en/$nn" > "/tmp/tu_${nn}_${u}.log" 2>&1 &
+      pids+=($!)
+    done
+    for p in "${pids[@]}"; do wait "$p" || echo "unit failed (see /tmp/tu_${nn}_*.log)"; done
+    i=$((i+2))
+  done
+
+  python3 tools/assemble.py "$nn" "tools/runs/active/en/$nn" \
+    "tools/runs/active/en/$nn/assembled.md" 2>&1 | tail -1
+  # H1 must keep the chapter number (CN '# NN. …'): the model often drops it,
+  # which creates a phantom number_absent. Prepend if missing.
+  python3 - "$nn" <<'PYFIX'
+import glob, re, sys
+nn = sys.argv[1]
+p = f'tools/runs/active/en/{nn}/assembled.md'
+s = open(p, encoding='utf-8').read()
+first = s.splitlines()[0]
+if first.startswith('# ') and not re.match(r'^# \d+\.', first):
+    s = s.replace(first, f'# {int(nn)}. {first[2:]}', 1)
+    open(p, 'w', encoding='utf-8').write(s)
+    print(f'h1 fixed: {int(nn)}.')
+PYFIX
+  python3 tools/llm/repair_wave.py --nn "$nn" --lang en \
+    --workdir "tools/runs/active/en/$nn" \
+    --assembled "tools/runs/active/en/$nn/assembled.md" \
+    --max-rounds 3 2>&1 | tail -1
+  echo "== ch$nn done"
+done
