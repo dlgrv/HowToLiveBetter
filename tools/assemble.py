@@ -11,6 +11,9 @@ import json, os, re, sys
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 n, work, out = sys.argv[1], sys.argv[2], sys.argv[3]
+lang = sys.argv[4] if len(sys.argv) > 4 else "ru"
+
+SOURCE_LABELS = {"ru": "Источники", "en": "Sources", "es": "Fuentes"}
 
 meta = json.load(open(os.path.join(root, "tools", "digest", n, "blocks.json"),
                       encoding="utf-8"))
@@ -27,7 +30,8 @@ for i in range(1, meta["items"] + 1):
     src = meta["blocks"][str(i)]["src"]
     txt = txt.replace("§TAG§", tag)
     # Russian label + byte-identical content after the label
-    src_ru = ["- Источники:" + l.split("：", 1)[1] if l.startswith("- 来源：") else l
+    src_ru = ["- " + SOURCE_LABELS[lang] + ":" + l.split("：", 1)[1]
+              if l.startswith("- 来源：") else l
               for l in src]
     # In the original, 来源 sits between 证据等级 and 备注 in most items;
     # splice each source line in at the position of its §SRC§ marker only if
@@ -76,7 +80,7 @@ if len(si) != len(ti):
     fails.append(f"items {len(si)} != {len(ti)}")
 
 ss = [x.split("：", 1)[1] for x in sl if x.startswith("- 来源：")]
-ts = [x.split(":", 1)[1].strip() for x in tl if re.match(r"^- Источники:", x)]
+ts = [x.split(":", 1)[1].strip() for x in tl if re.match(r"^- " + SOURCE_LABELS[lang] + ":", x)]
 if len(ss) != len(ts):
     fails.append(f"sources {len(ss)} != {len(ts)}")
 else:
@@ -96,7 +100,7 @@ if st != tt:
 def hanzi(s): return re.search(r"[\u4e00-\u9fff]", s)
 zh_lines_out = 0
 for idx, l in enumerate(tl, 1):
-    if hanzi(l) and not (l.startswith("- Источники:") or "成本标签" in l
+    if hanzi(l) and not (l.startswith("- " + SOURCE_LABELS[lang] + ":") or "成本标签" in l
                          or "](../" in l or idx <= 4):
         zh_lines_out += 1
 

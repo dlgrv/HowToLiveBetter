@@ -28,7 +28,7 @@ for nn in "$@"; do
   done
 
   python3 tools/assemble.py "$nn" "tools/runs/active/en/$nn" \
-    "tools/runs/active/en/$nn/assembled.md" 2>&1 | tail -1
+    "tools/runs/active/en/$nn/assembled.md" en 2>&1 | tail -1
   # H1 must keep the chapter number (CN '# NN. …'): the model often drops it,
   # which creates a phantom number_absent. Prepend if missing.
   python3 - "$nn" <<'PYFIX'
