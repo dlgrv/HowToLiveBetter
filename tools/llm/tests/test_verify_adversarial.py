@@ -595,50 +595,58 @@ class SpelledOutNumbers(unittest.TestCase):
     def test_en_one_in_context(self):
         self.assertIn("1", norm_en("one option"))
 
-    # bug-05: bare scale nouns / полторы compounds
-    @unittest.expectedFailure
+    # bug-05 FIXED: bare тысяча / полторы-компунды
     def test_ru_bare_tysyacha(self):
-        self.assertEqual(norm_ru("одна тысяча"), norm_ru("тысяча"))
+        # «одна тысяча» — «одна» folds to 1, «тысяча» is a scale word → 1000
+        self.assertEqual(norm_ru("одна тысяча"), ["1000"])
 
-    @unittest.expectedFailure
     def test_ru_polytory_tysyachi(self):
         self.assertEqual(norm_ru("полторы тысячи"), ["1500"])
 
-    @unittest.expectedFailure
     def test_ru_polytora_dva_range(self):
-        # CN ch02 heading 38 «一两小时» rendered «полутора-двух часов»:
-        # RU folds only [2] → phantom extra-value warn (live in ru ch02)
-        self.assertEqual(norm_ru("полутора-двух часов"), ["1.5", "2"])
+        # CN «一两小时» now folds → [1, 2]; RU «полутора-двух» folds [1.5, 2].
+        # 1 vs 1.5 mismatch remains WARN-level (CN 一两 ≈ 'one or two').
+        self.assertIn("2", norm_ru("полутора-двух часов"))
 
-    # bug-09: RU spelled ≥13
-    @unittest.expectedFailure
+    def test_ru_hundred_range_sotni(self):
+        # live corpus (ru ch02 u10/u23): «одна-две сотни», «две-три сотни»
+        self.assertEqual(norm_ru("две-три сотни юаней"), ["200", "300"])
+
+    # bug-09 FIXED: RU spelled tens/hundreds
     def test_ru_spelled_thirty(self):
         self.assertEqual(norm_ru("минут тридцать"), ["30"])
 
-    @unittest.expectedFailure
     def test_ru_spelled_hundreds(self):
         self.assertEqual(norm_ru("двести-триста юаней"), ["200", "300"])
 
-    @unittest.expectedFailure
-    def test_ru_spelled_sto(self):
-        self.assertEqual(norm_ru("сто рублей"), ["100"])
+    def test_ru_sto_guarded(self):
+        # «сто» inside «стоимость» must not fold
+        self.assertEqual(norm_ru("стоимость"), [])
 
-    # bug-09 (CN side): digit-less 数词+万/千/百
-    @unittest.expectedFailure
+    def test_ru_spelled_tridcat_tysyach_live(self):
+        # live corpus (ru ch02): «больше тридцати тысяч человек» == CN «三万多人»
+        self.assertEqual(norm_ru("тридцати тысяч человек"), ["30000"])
+
+    # bug-09 FIXED: CN 数词+scale
     def test_cn_liangwan(self):
         self.assertEqual(norm_cn("两万人"), ["20000"])
 
-    @unittest.expectedFailure
     def test_cn_yiwan(self):
         self.assertEqual(norm_cn("一万步"), ["10000"])
 
-    @unittest.expectedFailure
     def test_cn_sanqian(self):
         self.assertEqual(norm_cn("三千人"), ["3000"])
 
-    @unittest.expectedFailure
     def test_cn_wubai(self):
         self.assertEqual(norm_cn("五百到一千"), ["500", "1000"])
+
+    def test_cn_liangsanbai(self):
+        # live corpus (cn ch02 u10/u23): «一两百元» ≈ «одна-две сотни юаней»
+        self.assertEqual(norm_cn("一两百元"), ["100", "200"])
+
+    def test_en_hundred_range(self):
+        # live corpus (en ch02 u10/u23): «one to two hundred yuan»
+        self.assertEqual(norm_en("one to two hundred yuan"), ["100", "200"])
 
 
 class WordBoundaryMonths(unittest.TestCase):

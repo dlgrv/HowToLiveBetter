@@ -65,6 +65,65 @@ WORD_VALUES = [
     # compound first
     (r"двадцать[\s-]?четыре", "24"), (r"twenty-four", "24"),
     (r"круглосуточн\w*", "24"), (r"(a?round|around)-the-clock", "24"),
+    # Range + hundreds compounds — «一两百元» ≈ «одна-две сотни юаней» ≈ «one to
+    # two hundred yuan». Expand BOTH endpoints ×100 so the multisets match.
+    # MUST precede every bare-numeral rule («две» alone would otherwise fire
+    # on «две-три сотни» before the compound is seen — regex alternation is
+    # first-match-wins across the whole list, not longest-match).
+    (r"(?<!几)[一二两三四五六七八九十][一二两三四五六七八九十万亿千百零]*"
+     r"[万亿千百][一二两三四五六七八九十万亿千百零]*",
+     lambda raw: _cn_compound(raw)),
+    # RU tens-chain × scale: «тридцати шести ... тысячам» = 36×1000 = 36000 —
+    # one value, matching CN 三万六千. Chain of 1-2 spelled tens/units + тысяч.
+    # Bare scale after «до/несколько»: «до тысячи с лишним» = 1000+ — single
+    # scale word with no numeral head still yields the scale value.
+    (r"(?:одной|одна|одного|одну|две|два|три|четыре|пять|шесть|семь|восемь|девять|десять|"
+     r"сто|ста|сот|двести|двухсот|двест|триста|тр[её]хсот|четыреста|четыр[её]хсот|"
+     r"четырехсот|пятьсот|пятисот|шестьсот|шестисот|семьсот|семисот|восемьсот|"
+     r"восьмисот|девятьсот|девятисот|двадцат\w*|тридцат\w*|сорока|пятидесят\w*|"
+     r"шестьдесят\w*|семидесят\w*|восьмидесят\w*|девяносто)"
+     r"(?:[\s-]+(?:одн[ао]го?|два|две|двух|три|тр[её]х|четыре|четыр[её]х|пяти|пять|"
+     r"шести|шесть|семи|семь|восьми|восемь|девяти|девять|десять|сто|ста|сорока|"
+     r"девяносто|двадцат\w*|тридцат\w*|пятидесят\w*|шестьдесят\w*|семидесят\w*|"
+     r"восьмидесят\w*))*"
+     r"(?:\s+(?:с\s+лишним|с\s+половиной))?\s*"
+     r"(?:тысяч\w*|миллион\w*|млн)",
+     lambda raw: _ru_numeral_chain(raw)),
+    # «полторы тысячи» = 1500, «полутора миллионами» = 1500000.
+    (r"полторы(?:\s*(?:тысяч\w*|миллион\w*|млн))?"
+     r"|полутора(?:\s*(?:тысяч\w*|миллион\w*|млн))?",
+     lambda raw: "1500" if "тысяч" in raw.lower() else
+                 "1500000" if ("миллион" in raw.lower() or "млн" in raw.lower()) else "1.5"),
+    # Range ellipsis: «от 2 до 20 тысяч» — the scale attaches to BOTH ends
+    # (2 тыс и 20 тыс); fold head digit too when a range до/–/or precedes.
+    (r"(\d+(?:[.,]\d+)?)\s*(?:до|—|–|-|или|or)\s*(\d+(?:[.,]\d+)?)\s*"
+     r"(тысяч\w*|миллион\w*|млн)",
+     lambda raw: _ru_range_scale(raw)),
+    (r"(\d+(?:[.,]\d+)?)\s*(?:тысяч\w*|миллион\w*|млн)",
+     lambda raw: str(round(float(re.match(r"[\d.,]+", raw.replace(",", ".")).group(0)
+                             .rstrip(".")) * (1000000 if ("миллион" in raw or "млн" in raw) else 1000)))),
+    (r"(?<![\d,.])тысяч(?:и|а|е|ам|ами|ах)?(?=\s+(?:с\s+)?(?:лишним|половиной)|\s*$|[,.])",
+     "1000"),
+    (r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*[–—-]\s*"
+     r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*сот\w*",
+     lambda raw: _hundred_pair(_RU_NUM, raw)),
+    (r"(?:one|two|three|four|five|six|seven|eight|nine)\s+(?:to|or|-)\s+"
+     r"(?:two|three|four|five|six|seven|eight|nine)\s+hundred\b",
+     lambda raw: _hundred_pair(_EN_NUM, raw)),
+    # RU dozens/hundreds («в течение тридцати дней», «двести-триста юаней») —
+    # mirror the CN digit-less 数词+百/千/万 shapes («两三百元», «三万多人»).
+    # Stem with (?!\w) guard: «сто» must not fire inside «стоимость» etc.
+    (r"двести(?!\w)", "200"), (r"триста(?!\w)", "300"),
+    (r"четыреста(?!\w)", "400"), (r"пятьсот(?!\w)", "500"),
+    (r"шестьсот(?!\w)", "600"), (r"семьсот(?!\w)", "700"),
+    (r"восемьсот(?!\w)", "800"), (r"девятьсот(?!\w)", "900"),
+    (r"столетн\w*", "100"),  # «столетней давности» == 一百年前
+    # genitive plural after «более/около»: «более восьмисот» == 八百多
+    (r"двухсот(?!\w)", "200"), (r"трёхсот|трехсот(?!\w)", "300"),
+    (r"четырёхсот|четырехсот(?!\w)", "400"), (r"пятисот(?!\w)", "500"),
+    (r"шестисот(?!\w)", "600"), (r"семисот(?!\w)", "700"),
+    (r"восьмисот(?!\w)", "800"), (r"девятисот(?!\w)", "900"),
+    (r"тридцат(?:и|ь|е)(?!\w)", "30"), (r"пятидесят(?:и|ь|е)(?!\w)", "50"),
     # months (stems) — «11 月 1 日» legitimately becomes «1 ноября».
     # Boundary rules: a bare month stem must never match inside a longer word
     # («маяк» is not «мая»), so every stem carries a trailing (?!\w). The RU
@@ -79,6 +138,10 @@ WORD_VALUES = [
     (r"april(?!\w)", "4"), (r"june(?!\w)", "6"), (r"july(?!\w)", "7"),
     (r"august(?!\w)", "8"), (r"september(?!\w)", "9"), (r"october(?!\w)", "10"),
     (r"november(?!\w)", "11"), (r"december(?!\w)", "12"),
+    # EN hundreds: «two to three hundred» == CN «两三百» == RU «двести-триста».
+    # Compound BEFORE bare 'two'/'three' so the bare rules don't fire first.
+    (r"two[\s-]hundred(?!\w)", "200"), (r"three[\s-]hundred(?!\w)", "300"),
+    (r"four[\s-]hundred(?!\w)", "400"), (r"five[\s-]hundred(?!\w)", "500"),
     # spelled-out numerals the translations legitimately use in prose
     (r"одиннадцат\w*", "11"), (r"двенадцат\w*", "12"),
     (r"один(?!\w)", "1"), (r"одна(?!\w)", "1"), (r"одного", "1"), (r"одной", "1"),
@@ -86,8 +149,27 @@ WORD_VALUES = [
     (r"двум", "2"), (r"обеих", "2"), (r"обоих", "2"), (r"трёх", "3"), (r"трем", "3"),
     (r"четырёх", "4"), (r"четыре(?!\w)", "4"), (r"пяти", "5"), (r"пять(?!\w)", "5"),
     (r"шести", "6"), (r"семи", "7"), (r"восьми", "8"), (r"девяти", "9"),
-    (r"полтора", "1.5"),
+    (r"полтора", "1.5"), (r"полторы(?!\w)", "1.5"),
+    (r"сто шестьдесят пять(?!\w)", "165"),
+    (r"сто шестьдесят пят(?:ой|ая|ый|ом)(?!\w)", "165"),
+    (r"двести шестьдесят шесть(?!\w)", "266"),
+    (r"сто шестьдесят(?!\w)", "160"),
     (r"нулю|ноль", "0"),
+    # CN digit-less 数词+scale — corpus census: 三万多人, 一两百元, 两三百元,
+    # 两万人的随机, 一万步, 几百元→(几 not folded: 'несколько сотен' stays blind
+    # on ALL sides). Compounds before bare; guard (?!\w) so 三百元 keeps 百
+    # available for the scale fold? No — 数词 folds to digits, then the scale
+    # regex folds «3 百» → 300 via the normal scale path.
+    # 几十/几百万 = vague 'tens/hundreds of' — blind on all sides; (?<!几) keeps
+    # 几十万 from becoming a phantom 100000.
+    # 千卡/千克 are UNITS (kcal/kg), not scale: 两百多千卡 = 200+ kcal — guard
+    # (?<!几) sides and exclude unit-composites via lookahead on the digit rule.
+    (r"(?<!几)十(?=[万亿千百])", "10"), (r"两(?=[万亿千百](?![卡克瓦赫]))", "2"),
+    (r"(?<!几)一(?=[万亿千百](?![卡克瓦赫]))", "1"), (r"(?<!几)二(?=[万亿千百](?![卡克瓦赫]))", "2"),
+    (r"(?<!几)三(?=[万亿千百](?![卡克瓦赫]))", "3"), (r"(?<!几)四(?=[万亿千百](?![卡克瓦赫]))", "4"),
+    (r"(?<!几)五(?=[万亿千百](?![卡克瓦赫]))", "5"), (r"(?<!几)六(?=[万亿千百](?![卡克瓦赫]))", "6"),
+    (r"(?<!几)七(?=[万亿千百](?![卡克瓦赫]))", "7"), (r"(?<!几)八(?=[万亿千百](?![卡克瓦赫]))", "8"),
+    (r"(?<!几)九(?=[万亿千百](?![卡克瓦赫]))", "9"),
     (r"\bzero\b", "0"),
     (r"\bone\b", "1"), (r"\btwo\b", "2"), (r"\bthree\b", "3"), (r"\bfour\b", "4"),
     (r"\bfive\b", "5"), (r"\bsix\b", "6"), (r"\bseven\b", "7"), (r"\beight\b", "8"),
@@ -97,12 +179,152 @@ WORD_RX = re.compile("|".join(f"(?P<w{i}>{p})" for i, (p, _) in enumerate(WORD_V
                      flags=re.I)
 
 
+_CN_NUM = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5,
+           "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
+_EN_NUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+           "six": 6, "seven": 7, "eight": 8, "nine": 9}
+_RU_NUM = {"одна": 1, "два": 2, "две": 2, "три": 3, "четыре": 4, "пять": 5,
+           "шесть": 6, "семь": 7, "восемь": 8, "девять": 9}
+
+
+def _hundred_pair(table, raw):
+    """«一两百» / «две-три сотни» / «two to three hundred» → '200 300'."""
+    nums = []
+    for w in re.findall(r"[一二两三四五六七八九十]|[a-zA-Zа-яА-Я]+", raw):
+        key = w if w in table else w.lower()
+        if key in table:
+            nums.append(int(table[key]))
+    return " ".join(str(n * 100) for n in nums[:2])
+
+
+_CN_DIG = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5,
+           "六": 6, "七": 7, "八": 8, "九": 9}
+
+
+def _ru_range_scale(raw):
+    """«от 2 до 20 тысяч» → '2000 20000' (range ellipsis: scale applies to both)."""
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*.{1,3}?\s*(\d+(?:[.,]\d+)?)\s*"
+                  r"(тысяч|миллион|млн)", raw)
+    lo, hi = float(m.group(1).replace(",", ".")), float(m.group(2).replace(",", "."))
+    scale = 1000000 if m.group(3).startswith(("миллион", "млн")) else 1000
+    return f"{round(lo * scale)} {round(hi * scale)}"
+
+
+def _cn_compound(raw):
+    """CN compound numeral run → one value: 一百二十=120, 一千二百五十四=1254,
+    一百零三=103, 三万六千=36000. Standard positional parsing of 千/百/十.
+    Exception: bare «X两三百»-shape (two plain digits + 百, no 万/千) is the
+    approx-range reading → pair (200, 300)."""
+    if re.fullmatch(r"[一二两三四五六七八九十][一二两三四五六七八九十]百", raw):
+        return _hundred_pair(_CN_NUM, raw[:-1])
+    total, section, cur = 0, 0, 0
+    prev_scale = None
+    for idx, ch in enumerate(raw):
+        if ch in _CN_DIG:
+            nxt = raw[idx + 1:]
+            if prev_scale is not None and (not nxt or nxt[0] not in "十百千万亿零"):
+                # Colloquial ellipsis: 一千八 = 1800, 一百五 = 150 — digit right
+                # after a scale, at end of the run, means the next-lower scale.
+                section += _CN_DIG[ch] * (prev_scale // 10)
+            else:
+                cur = _CN_DIG[ch]
+        elif ch == "十":
+            section += (cur or 1) * 10
+            cur = 0
+            prev_scale = 10
+        elif ch == "百":
+            section += (cur or 1) * 100
+            cur = 0
+            prev_scale = 100
+        elif ch == "千":
+            section += (cur or 1) * 1000
+            cur = 0
+            prev_scale = 1000
+        elif ch == "万":
+            total = (total + section + cur) * 10000
+            section, cur = 0, 0
+            prev_scale = 10000
+        elif ch == "亿":
+            total = (total + section + cur) * 100000000
+            section, cur = 0, 0
+            prev_scale = 100000000
+        else:
+            prev_scale = None  # 零 / trailing units reset ellipsis mode
+    return str(total + section + cur)
+
+
+_RU_TENS = {"двадцати": 20, "двадцать": 20, "тридцати": 30, "тридцать": 30,
+            "сорока": 40, "пятидесяти": 50, "пятьдесят": 50,
+            "шестидесяти": 60, "шестьдесят": 60, "семидесяти": 70,
+            "семьдесят": 70, "восьмидесяти": 80, "восемьдесят": 80,
+            "девяносто": 90, "одной": 1, "одна": 1, "двух": 2, "двум": 2,
+            "две": 2, "трёх": 3, "трех": 3, "трём": 3, "четырёх": 4,
+            "четырех": 4, "четырём": 4, "пяти": 5, "шести": 6, "семи": 7,
+            "восьми": 8, "девяти": 9}
+
+
+def _ru_tens_scale(raw):
+    """«тридцати шести тысячам» → 36×1000 = '36000' (spelled tens+units chain
+    sharing one scale word)."""
+    nums = [_RU_TENS[w.lower()] for w in re.findall(r"[а-яА-ЯёЁ]+", raw)
+            if w.lower() in _RU_TENS]
+    return str(sum(nums) * 1000)
+
+
+_RU_UNITS = {"один": 1, "одна": 1, "одно": 1, "два": 2, "две": 2, "три": 3,
+             "четыре": 4, "пять": 5, "шесть": 6, "семь": 7, "восемь": 8,
+             "девять": 9, "десять": 10, "одиннадцать": 11, "двенадцать": 12,
+             "тринадцать": 13, "четырнадцать": 14, "четырнадцать": 14,
+             "пятнадцать": 15, "шестнадцать": 16, "семнадцать": 17,
+             "восемнадцать": 18, "девятнадцать": 19}
+
+
+_RU_HUNDREDS = {"сто": 100, "ста": 100, "сот": 100, "двести": 200,
+                "двухсот": 200, "двест": 200, "триста": 300, "трёхсот": 300,
+                "трехсот": 300, "четыреста": 400, "четырёхсот": 400,
+                "четырехсот": 400, "пятьсот": 500, "пятисот": 500,
+                "шестьсот": 600, "шестисот": 600, "семьсот": 700,
+                "семисот": 700, "восемьсот": 800, "восьмисот": 800,
+                "девятьсот": 900, "девятисот": 900}
+
+
+def _ru_numeral_chain(raw):
+    """Full RU spelled chain + scale: «сто шестьдесят пять тысяч» = 165000,
+    «шесть тысяч» = 6000, «тридцати шести с лишним тысячам» = 36000,
+    «двести тысяч» = 200000."""
+    words = [w.lower() for w in re.findall(r"[а-яА-ЯёЁ]+", raw)]
+    scale = 1
+    if any(w.startswith("тысяч") for w in words):
+        scale = 1000
+    elif any(w.startswith("миллион") or w == "млн" for w in words):
+        scale = 1000000
+    seen = set()
+    nums = []
+    for w in words:
+        if w in seen:
+            continue
+        v = _RU_TENS.get(w)
+        if v is None:
+            v = _RU_UNITS.get(w)
+        if v is None:
+            v = _RU_HUNDREDS.get(w)
+        if v is not None:
+            nums.append(v)
+            seen.add(w)
+    # Additive semantics for corpus shapes: сто+шестьдесят+пять=165,
+    # тридцати+шести=36; hundreds×scale handled by the multiply below.
+    return str(sum(nums) * scale)
+
+
 def fold_words(text):
     """Replace spelled-out numerals / month names with their digit values so the
     value-space comparison treats «1 ноября» == «11 月 1 日» == «November 1»."""
     def rep(m):
         idx = next(i for i in range(len(WORD_VALUES)) if m.group(f"w{i}") is not None)
-        return f" {WORD_VALUES[idx][1]} "
+        val = WORD_VALUES[idx][1]
+        if callable(val):
+            return f" {val(m.group(f'w{idx}'))} "
+        return f" {val} "
     return WORD_RX.sub(rep, text)
 
 
@@ -188,14 +410,14 @@ def norm_numbers(text, ru=False, es=False):
              ("тысяч", 1e3), ("тыс", 1e3), ("миллион", 1e6), ("млн", 1e6),
              ("миллиард", 1e9), ("млрд", 1e9), ("трлн", 1e12), ("триллион", 1e12),
              ("trillion", 1e12), ("万亿", 1e12), ("千万", 1e7), ("百万", 1e6),
-             ("万", 1e4), ("亿", 1e8), ("千", 1e3),
+             ("万", 1e4), ("亿", 1e8), ("千", 1e3), ("百", 1e2),
              ("thousand", 1e3), ("million", 1e6), ("billion", 1e9),
              ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil", 1e3),
              ("billones", 1e12), ("billón", 1e12), ("trillones", 1e12)]
     out = []
     for m in re.finditer(
-            r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千)\s*[多余]?|"
-            r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千|тысяч\w*|тыс\.?|миллион\w*|млн|"
+            r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百)\s*[多余]?|"
+            r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百|тысяч\w*|тыс\.?|миллион\w*|млн|"
             r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
             r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
             r"billones|billón\b|trillones|mil\b)?",
