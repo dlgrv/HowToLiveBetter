@@ -90,6 +90,17 @@ WORD_VALUES = [
      r"(?:тысяч\w*|миллион\w*|млн)",
      lambda raw: _ru_numeral_chain(raw)),
     # «полторы тысячи» = 1500, «полутора миллионами» = 1500000.
+    # Clausal ellipsis: «на двух тысячах …, другой на трёх» — the second
+    # clause's bare numeral inherits the scale word of the first (mirrors
+    # CN 两千…三千). fires when the SAME spelled unit digit reappears
+    # with «на/в» + bare numeral up to 60 chars after a «N тысячах».
+    (r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*"
+     r"тысяч\w*(?:(?:\s+\w+){0,6}),?\s+(?:а\s+)?(?:другой|вторая|второй|"
+     r"другие)?\s*(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\b(?!\s*тысяч)",
+     lambda raw: (lambda g1, g2: str(_RU_UNITS.get(g1, _RU_TENS.get(g1, 0)) * 1000)
+               + " " + str(_RU_UNITS.get(g2, _RU_TENS.get(g2, 0)) * 1000))(
+         re.search(r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*тысяч", raw).group(1),
+         re.search(r"(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)$", raw).group(1))),
     (r"полторы(?:\s*(?:тысяч\w*|миллион\w*|млн))?"
      r"|полутора(?:\s*(?:тысяч\w*|миллион\w*|млн))?",
      lambda raw: "1500" if "тысяч" in raw.lower() else
@@ -347,9 +358,23 @@ def norm_numbers(text, ru=False, es=False):
         # before the comma ends in 0 — so anchor the zero rule to the
         # number's first digit, not to any digit before the comma.
         # thousands-strip: a comma followed by exactly 3 digits is thousands
-        # UNLESS the whole number is a lone leading zero («0,891» is decimal).
+        # UNLESS the whole number is a lone leading zero («0,891» is decimal)
+        # OR the comma-group sits in a ratio/CI context: «отношение рисков —
+        # 1,134», «95% CI 1,065–1,207» — HR values < 10 with 3-digit decimal
+        # tails. Discriminators for decimal (not thousands): a dot-notation
+        # twin nearby («1.134»), a CI dash between two comma-groups of the
+        # same shape, or a «(95% CI» / «рисков» cue within ~40 chars.
         # «100,000»/«112,000» strip even though the group ends in 0.
         text = re.sub(r"(?<![\d.])0,(?=\d{3}(?!\d))", lambda m: "0\x00", text)  # mark decimal comma
+        _hr = re.compile(r"(?<![\d.,])([1-9]\d?),(\d{3})(?!\d)")
+        _marks = []  # collect first, then apply right-to-left (offsets stay valid)
+        for m in _hr.finditer(text):
+            ctx = text[max(0, m.start() - 60):m.end() + 60]
+            if (re.search(r"[\d.],\d{3}\s*(?:[–—-]|до\b|to\b|and\b)\s*[\d.]*,?\d{3}", ctx)
+                    or re.search(r"(?:95\s*%\s*CI|риско|CI\s|доверительн)", ctx, re.I)):
+                _marks.append((m.start(), m.end(), m.group(1) + "\x00" + m.group(2)))
+        for a, b, rep in reversed(_marks):
+            text = text[:a] + rep + text[b:]
         text = re.sub(r",(?=\d{3}(?!\d))", "", text)                 # strip thousands commas
         text = text.replace("\x00", ".")                             # restore decimal
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)          # RU decimal comma
@@ -427,8 +452,16 @@ def norm_numbers(text, ru=False, es=False):
         if g_scale:
             key = g_scale.lower().rstrip(".")
             v *= next((f for k, f in scale if key.startswith(k)), 1)
-        v = round(v, 3)   # kill float dust: 8.1万 -> 81000.00000000001
-        out.append(str(int(v)) if v == int(v) else str(v))
+        # kill float dust (65,4 тыс. -> 65400.00000000001) WITHOUT truncating
+        # meaningful small decimals (p-value 0.0093 must stay 0.0093);
+        # round(v, 3) here broke it to 0.009. Trailing-9/0 run cleanup:
+        # a ≥6-digit junk tail (dust) collapses to 15 significant digits.
+        s = f"{v:.15g}"
+        if re.search(r"\.(\d*?)((?:0{6}|9{6})\d*)$", s):
+            s = f"{round(v, 10 - (len(str(int(v))) if v >= 1 else 0))!r}"
+            if s.endswith(".0"):
+                s = s[:-2]
+        out.append(s)
     return out
 
 

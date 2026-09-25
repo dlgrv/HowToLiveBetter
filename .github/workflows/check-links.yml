@@ -14,6 +14,20 @@ jobs:
         run: python3 tools/check_links.py
       - name: Content gates (CJK leaks, filename language, parity, badge stats)
         run: python3 tools/check_content.py
+      - name: Verify gate for retranslated chapters (book/ru vs CN)
+        run: |
+          pending=$(grep -vE '^\s*(#|$)' docs/.retranslate-pending | tr -d ' ')
+          failed=0
+          for nn in $pending; do
+            f=$(ls book/ru/${nn}-*.md 2>/dev/null | head -1)
+            [ -z "$f" ] && continue
+            if ! python3 tools/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
+              echo "ch.$nn FAILED:"; tail -5 /tmp/v_$nn.log; failed=1
+            else
+              echo "ch.$nn OK"
+            fi
+          done
+          exit $failed
 
   tests:
     runs-on: ubuntu-latest

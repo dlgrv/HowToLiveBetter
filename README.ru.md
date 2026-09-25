@@ -8,9 +8,9 @@
 528 пунктов, в каждом написано, что тратится, что взамен и насколько твёрдые доказательства; источники — только журнальные статьи и официальные документы.
 
 [![Онлайн-поиск](https://img.shields.io/badge/%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD--%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B7%D0%B4%D0%B5%D1%81%D1%8C-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/ru/)
-[![Пунктов](https://img.shields.io/badge/%D0%9F%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D0%B2-601-18794e?style=flat-square)](#оглавление)
-[![Уровни доказательности](https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%20%D0%B4%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-A%20407%20%C2%B7%20B%20146%20%C2%B7%20C%2048-915930?style=flat-square)](#уровни-доказательности)
-[![Первоисточники](https://img.shields.io/badge/%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8-1253%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0-565a5f?style=flat-square)](docs/核实记录/)
+[![Пунктов](https://img.shields.io/badge/%D0%9F%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D0%B2-603-18794e?style=flat-square)](#оглавление)
+[![Уровни доказательности](https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%20%D0%B4%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-A%20408%20%C2%B7%20B%20146%20%C2%B7%20C%2049-915930?style=flat-square)](#уровни-доказательности)
+[![Первоисточники](https://img.shields.io/badge/%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8-1261%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0-565a5f?style=flat-square)](docs/核实记录/)
 [![Лицензия](https://img.shields.io/badge/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Открыть страницу онлайн-поиска](https://dlgrv.github.io/HowToLiveBetter/ru/)** · [Оглавление](#оглавление) · [Глоссарий](#как-читать-цифры-глоссарий) · [Записи проверки](docs/核实记录/) · [Выгоден ли брак](docs/ru/Выгоден-ли-брак.md) · [Домашний аварийный комплект](docs/ru/Домашний-аварийный-комплект.md) · [Стоит ли останавливаться, если с незнакомцем случилась беда](docs/ru/Стоит-ли-помогать-незнакомцу.md) · [Какие документы нужны для запуска площадки](docs/ru/Какие-документы-нужны-для-запуска-площадки.md)

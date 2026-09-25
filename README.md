@@ -8,9 +8,9 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 528 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/en/)
-[![Items](https://img.shields.io/badge/Items-601-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20407%20%C2%B7%20B%20146%20%C2%B7%20C%2048-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1253%20links-565a5f?style=flat-square)](docs/核实记录/)
+[![Items](https://img.shields.io/badge/Items-603-18794e?style=flat-square)](#table-of-contents)
+[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20408%20%C2%B7%20B%20146%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
+[![Primary sources](https://img.shields.io/badge/Primary%20sources-1261%20links-565a5f?style=flat-square)](docs/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/核实记录/) · [Is marriage worth it (long read)](docs/en/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/en/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/en/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/en/What-Licenses-A-Platform-Needs.md)
