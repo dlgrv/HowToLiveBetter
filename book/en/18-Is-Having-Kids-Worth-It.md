@@ -1,58 +1,58 @@
-[← Back to main contents](../../README.md)
+# 18. Is raising a child worth it?
 
-# 18. Does Raising a Child Pay Off
-
-Scope: money and time. As in Section 10, this chapter only breaks down the accounts and draws no conclusion. If you are already pregnant and need to follow the official procedures, see Section 27.
-### 1. Count the benefits you can claim first: the national childcare subsidy is 3600 yuan per child per year, paid until age 3
+This section breaks down the financial and time costs involved. Much like Section 10, which examined the costs of marriage, we’re simply laying out the numbers here — without offering any definitive conclusions. If you’re already pregnant and need to follow the necessary steps, please refer to Section 27.
+There are 18 key considerations to keep in mind when deciding whether raising a child is worthwhile.
+### 1. Start by claiming what you’re entitled to: the national dibao program gives 3,600 yuan per child per year until the child turns 3.
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
-- Cost: 0 yuan; apply in the child's place of household registration
-- In plain terms: For a child born on or after January 1, 2025 who is under 3 years old, one parent applies where the child's hukou is registered, and each child brings in 3600 yuan a year, 10800 yuan over three years. This money is not subject to personal income tax, and it does not count as family income when your eligibility for dibao (低保 — means-tested subsistence allowance) and similar assistance is assessed.
-- Benefit: Under the plan issued by the General Offices of the CPC Central Committee and the State Council, infants and toddlers born on or after January 1, 2025 who are under 3 years old receive "3600 yuan per child per year", claimed by one of the child's parents or another guardian; the subsidy is "exempt from personal income tax" and "not counted as household or individual income" when eligibility for dibao and similar assistance is assessed
+- Cost: Zero out-of-pocket expense. Simply apply at the local hukou office where your child is registered — one visit is all it takes.
+- In plain terms: If your child was born after January 1, 2025, and is under 3 years old, you qualify for this payment. One parent or legal guardian can submit the application at the child’s hukou office. The allowance is 3,600 yuan per year per child, paid out until the child reaches age 3. No personal income tax applies to this money, and it does not count toward any dibao or similar assistance calculations.
+- Benefit: As stipulated in the policy issued by the General Offices of the CPC Central Committee and the State Council, infants and toddlers born after January 1, 2025, and under 3 years of age are eligible for a yearly payment of 3,600 yuan per child. This amount is exempt from personal income tax and is excluded from calculations of household or individual income when determining eligibility for dibao or similar programs.
 - Evidence grade: A
-- Sources: 中共中央办公厅、国务院办公厅 (2025). 育儿补贴制度实施方案. <https://www.gov.cn/gongbao/2025/issue_12206/202508/content_7035435.html>
-- Notes: This is the nationwide uniform minimum; some provinces and cities have additional local subsidies that can be stacked on top. The 10800-yuan three-year total is a small slice of child-rearing costs, not a basis for decisions
+- Notes: This is a nationwide baseline benefit. Certain provinces and municipalities also offer their own local subsidies, which can be claimed alongside this national payment. Over three years, the total comes to 10,800 yuan — a modest contribution toward raising a child. Do not let this amount influence your decision about whether or not to have a child.
+- Sources:中共中央办公厅、国务院办公厅 (2025). 育儿补贴制度实施方案. <https://www.gov.cn/gongbao/2025/issue_12206/202508/content_7035435.html>
 
-### 2. Maternity leave is 98 days, with the maternity allowance paid by the maternity insurance fund at the employer's average monthly wage of the previous year
+### 2. Maternity leave lasts 98 days; maternity benefits are paid by the maternity insurance fund based on the employer’s average monthly wage from the prior year.
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
-- Cost: 0 yuan; filed by the employer
-- In plain terms: You get at least 98 days of maternity leave for a birth, with 15 days available before delivery, plus 15 more days each for a difficult delivery and for every additional baby in a multiple birth. The pay during this time is called the maternity allowance, paid by the maternity insurance fund at the employer's average monthly employee wage for the previous year; if the employer never enrolled you in the insurance, the employer pays it at your pre-leave wage. With the extra incentive leave each province adds, the total is usually 158 days or more.
-- Benefit: Under the State Council's regulations: "Female employees are entitled to 98 days of maternity leave, of which 15 days may be taken before the birth; for a difficult delivery, maternity leave is extended by 15 days; for a multiple birth, maternity leave is extended by 15 days for each additional infant." The maternity allowance during leave, for those enrolled in maternity insurance, "is paid by the maternity insurance fund at the standard of the employer's average monthly employee wage for the previous year"; those not enrolled are paid by the employer at the pre-leave wage standard
+- Cost: There is no cost to you. Your employer handles all the paperwork — you don’t need to do anything.
+- In plain terms: You’re entitled to at least 98 days of maternity leave, including up to 15 days you can take before the birth. If the delivery is difficult, you get an extra 15 days. For each additional child born, you receive another 15 days of leave. The money paid during this time is called maternity benefits and comes from the maternity insurance fund. If your employer hasn’t enrolled in this insurance, they must pay the benefits themselves.
+- Benefit: The length of maternity leave is set by the State Council: “Female employees are entitled to 98 days of maternity leave, including 15 days before delivery; an extra 15 days are added for difficult deliveries; for each additional child born, an additional 15 days of leave are granted.” The payments received during this period are known as maternity benefits. For employees covered by maternity insurance, these benefits are paid by the insurance fund at the rate of the employer’s average monthly wage from the prior year. Employees not covered by insurance receive benefits from their employer at the same wage level they earned before taking leave.
 - Evidence grade: A
-- Sources: 国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第七条、第八条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
-- Notes: 98 days is the national minimum; provincial population and family planning regulations generally add 60 days or more of incentive leave on top, for a total that usually starts at 158 days. Which party pays wages during the incentive leave differs by province
+- Notes: 98 days is the minimum standard mandated by the state. Most provincial regulations on family planning add at least 60 days of additional “reward leave” for childbirth, bringing the total to at least 158 days in most regions. The party responsible for paying wages during this reward leave varies by province.
+- Sources:国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第七条、第八条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
 
-### 3. Know this rule: no wage cuts or dismissal because of pregnancy, childbirth, or breastfeeding
+### 3. Important to know: Employers cannot cut pay or fire workers due to pregnancy, childbirth, or breastfeeding
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
-- Cost: 0 yuan
-- In plain terms: It is illegal for an employer to cut your pay or dismiss you while you are pregnant, on maternity leave, or breastfeeding, and employers caught doing it face a fine of 1000 to 5000 yuan per person. If your baby is under one year old, you get 1 hour a day for breastfeeding, and the employer cannot make you work overtime or night shifts. Keep the written notice of any reassignment or pay cut and your chat records; how to claim compensation is covered in Section 19.
-- Benefit: Under the State Council's regulations: "An employer may not, because a female employee is pregnant, has given birth, or is breastfeeding, reduce her wages, dismiss her, or terminate her labor or employment contract." Those breastfeeding an infant under 1 year old are entitled to 1 hour of breastfeeding time per day and may not be assigned extended working hours or night shifts; violations carry a fine of 1000 yuan or more but not more than 5000 yuan per person
+- Cost: No cost at all
+- In plain terms: During pregnancy, after giving birth, or while breastfeeding, it is illegal for employers to cut your pay or fire you. Violators face fines ranging from 1,000 to 5,000 yuan per employee. For infants under one year old, you are entitled to one hour of breastfeeding time each day, and employers cannot assign you overtime or night shifts. Instructions on how to file a claim can be found in Section 19.
+- Benefit: As stipulated by the State Council, “Employers must not reduce the wages of female employees, fire them, or terminate their labor or employment contracts due to pregnancy, childbirth, or breastfeeding.” In other words, during these periods, employers cannot lower your pay, fire you, or end your contract. Mothers of infants under one year old are entitled to one hour of breastfeeding time daily, and employers must not require them to work extra hours or night shifts. Any violations result in fines of at least 1,000 yuan and up to 5,000 yuan per employee.
 - Evidence grade: A
-- Sources: 国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
-- Notes: If you are actually dismissed unlawfully, how to claim compensation is covered in Section 19. The key evidence is the written notice of reassignment or pay cut and chat records
+- Notes: If you are illegally fired, refer to Section 19 for steps on filing a claim. Key evidence includes any written notices or messages regarding job reassignment or pay cuts — be sure to keep these records safe.
+- Sources:国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
 
-### 4. Run the time account by whose time gets used up, not by how exhausting it feels
+### 4. The time-cost calculation is based on “whose time is being used,” not on “how hard it is”
 <!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=时间 -->
-- Cost: Essentially all day, every day before age 3
-- In plain terms: Take the daily hours of child care and the number of night wake-ups as time, multiply by the hourly rate of whoever carries these tasks, and the resulting figure is usually far larger than what you spend on formula and diapers. Before age 3 it is essentially all day, every day, so it is worth settling the division of labor against the same table before the child is born, rather than arguing after the fact.
-- Benefit: Convert daily care time and the number of nighttime interruptions into hours, then multiply by the carrier's hourly rate, and the resulting figure usually far exceeds formula and diaper costs. The unpaid-labor framework from Section 10 applies here as well; agree on the division of labor before deciding
-- Evidence grade: C
-- Sources: 作者经验，无直接文献；口径见第 10 节
-- Notes: The point is not to compute an exact number but to get both partners to negotiate the division of labor against the same table before the birth, instead of arguing after it
 
-### 5. Split the money account into three stages: 0 to 3, compulsory education, and after compulsory education
+- Cost: There’s no monetary expense — only time is spent. For children under 3, that time is essentially taken up around the clock. The difficulty lies in the fact that this happens daily, not just for a few tough days.
+- In plain terms: Count up all the hours spent caring for the child each day, plus every nighttime wake-up call. Then multiply that total by the hourly wage of the person doing the work. The resulting figure is usually far higher than the cost of formula and diapers. That’s why it’s best to discuss how responsibilities will be divided before having a child.
+- Benefit: By converting daily childcare time and nighttime interruptions into hours, then multiplying by the caregiver’s hourly wage, you arrive at a number that typically exceeds the cost of formula and diapers. Even unpaid tasks like childcare, cooking, and nightly wake-ups should be treated the same way — converted to hours and multiplied by a wage figure to be included in the total cost. The calculation method mirrors that used in Section 10 for household chores. Having a clear division of labor agreed upon beforehand makes it easier to decide whether to have a child.
+- Evidence grade: C
+- Notes: The goal isn’t to produce a perfectly accurate figure. Rather, it’s to ensure both partners discuss responsibilities using the same calculation framework prior to having a child, rather than arguing about it afterward.
+- Sources:作者经验，无直接文献；口径见第 10 节
+
+### 5. Breaking down costs into three periods: ages 0–3, compulsory education, and post‑compulsory education
 <!-- 成本标签: 钱=多 时间=中 毅力=些 收益=大 口径=金钱 -->
-- Cost: Varies enormously by city and by choices
-- In plain terms: The money from 0 to 3 goes mainly to how the child is cared for (yourself, grandparents, or a hired caregiver); during compulsory education it goes mainly to housing and extracurriculars; after that it goes mainly to the education pathway. The three stages are spent completely differently, and lumping them together only produces one scary total. First count the money that definitely comes in — the childcare subsidy, the maternity allowance, medical insurance reimbursements — then look at how big the gap is.
-- Benefit: The biggest cost from 0 to 3 is the care arrangement (yourself, grandparents, or a hired caregiver); during compulsory education it is housing and extracurricular spending; afterwards it is the education pathway. The cost structure of the three stages is entirely different; lumping them together yields nothing but one scary total
+- Cost: There’s no single fixed figure for total expenses; they vary widely depending on the city and the approach families take. The real challenge is to carefully separate the costs into these three periods instead of guessing a rough total.
+- In plain terms: For ages 0–3, most spending goes toward childcare arrangements — whether parents care for the child themselves, grandparents help out, or a professional is hired. During primary and middle school, the main expenses are housing and extracurricular activities. After that, costs center on further education pathways. Since spending patterns differ so much in each phase, lumping them together yields only an intimidating overall figure.
+- Benefit: The bulk of expenses in the 0–3 age range relate to childcare methods; for compulsory education, housing and after‑school programs dominate; later on, costs shift toward higher‑level schooling. Because these categories are distinct, mixing them obscures the true financial picture.
 - Evidence grade: C
-- Sources: 作者经验，无直接文献
-- Notes: First count the inflows you can be sure of — subsidies, maternity allowance, medical insurance reimbursements — then compute the gap. Do not base decisions on the "raising a child costs X tens of thousands" figures circulating online; their methodology is unclear
+- Notes: First, factor in any guaranteed financial support such as parental subsidies, maternity allowances, and yibao reimbursements; then determine what additional funds are still needed. Avoid basing decisions on widely circulated online estimates like “it costs X million to raise a child,” as their calculation methods are unclear and may omit or overstate certain items.
+- Sources:作者经验，无直接文献
 
-### 6. Having a child for your parents, for the marriage, or for old age — keep a separate account for each
+### 6. Keep separate accounts for having kids for your elders, for marriage, and for old-age security
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
-- Cost: 0 yuan; one serious conversation
-- In plain terms: Other people wanting you to have a child can be one factor you weigh, but the time and the money are booked on your own account. "Raise children as old-age insurance" (养儿防老) has to be accounted for separately, because it bets on another person's financial capacity and willingness twenty years from now. Write down the consequences of not having a child as well and compare the two columns; a ledger with only one side is not accounting.
-- Benefit: Same logic as in Section 10: other people's expectations can be one of your considerations, but the costs are booked on your own account. "Raise children as old-age insurance" (养儿防老) especially must be accounted for separately, because it assumes another person's financial capacity and willingness twenty years from now
+- Cost: There’s no monetary cost — only the cost of having a sincere conversation. The real challenge is speaking openly about these topics without dodging them.
+- In plain terms: Others may expect you to have children, and that can certainly be one factor to consider. Yet the time and money involved are expenses you personally bear. “Relying on kids for old-age support” deserves its own separate calculation, since it hinges on another person’s financial capacity and willingness two decades down the line. Be sure to also write down the consequences of choosing not to have kids, so you can compare both sides fairly.
+- Benefit: The reasoning here mirrors that in Section 10. External expectations are valid considerations, but their associated costs must be recorded on your own ledger, not someone else’s. This is especially true for “relying on kids for old-age support,” which depends entirely on another individual’s future financial situation and willingness to help.
 - Evidence grade: C
-- Sources: 作者经验，无直接文献；同类分析见第 10 节
-- Notes: Write down the consequences of not having a child as well and compare the two sides. A ledger with only one side is not accounting
+- Notes: Make sure to list both the consequences of having kids and those of not having them, then compare them side by side. Recording only one side of the equation doesn’t truly qualify as keeping accounts at all.
+- Sources:作者经验，无直接文献；同类分析见第 10 节
