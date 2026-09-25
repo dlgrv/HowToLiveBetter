@@ -29,6 +29,19 @@ for nn in "$@"; do
 
   python3 tools/assemble.py "$nn" "tools/runs/active/ru/$nn" \
     "tools/runs/active/ru/$nn/assembled.md" 2>&1 | tail -1
+  # H1 must keep the chapter number (CN '# NN. …'): the model often drops it,
+  # which creates a phantom number_absent. Prepend if missing.
+  python3 - "$nn" <<'PYFIX'
+import glob, re, sys
+nn = sys.argv[1]
+p = f'tools/runs/active/ru/{nn}/assembled.md'
+s = open(p, encoding='utf-8').read()
+first = s.splitlines()[0]
+if first.startswith('# ') and not re.match(r'^# \d+\.', first):
+    s = s.replace(first, f'# {int(nn)}. {first[2:]}', 1)
+    open(p, 'w', encoding='utf-8').write(s)
+    print(f'h1 fixed: {int(nn)}.')
+PYFIX
   python3 tools/llm/repair_wave.py --nn "$nn" --lang ru \
     --workdir "tools/runs/active/ru/$nn" \
     --assembled "tools/runs/active/ru/$nn/assembled.md" \
