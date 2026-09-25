@@ -1,4 +1,4 @@
-# How to care for a newborn baby
+# 20. How to care for a newborn baby
 
 This section focuses on two main topics: what it takes to keep a newborn alive and how much it will cost you. Only differences that are substantial and backed by solid evidence are included here. Detailed advice on soothing or raising a baby is beyond the scope of this book. For tasks to handle before birth and on the day of discharge, please refer to Section 27.
 ### 1. Keep infants sleeping on their backs on a firm surface; share a room but not a bed; and do not place any soft items in the crib or bed.

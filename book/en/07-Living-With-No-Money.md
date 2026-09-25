@@ -1,4 +1,4 @@
-# How to get by when you have little money
+# 7. How to get by when you have little money
 
 This section covers money and social safeguards. It lists how much you might receive, what costs could be waived, which services may be available, and what eligibility criteria apply — but it does not translate these figures into any health impact. Policies change yearly and vary by region, so always refer to the official figures released for your local area. Items are ordered from those requiring no spending, minimal paperwork, and quick results at the top, while those demanding long-term qualification periods or carrying large regional differences appear toward the end. Suggestions based purely on personal experience without any official documentation are placed last.
 ### 1. Apply for unemployment benefits online after losing a job

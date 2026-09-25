@@ -498,8 +498,12 @@ def main():
     sl = open(src_path, encoding="utf-8").read().splitlines()
     tl = open(tr_path, encoding="utf-8").read().splitlines()
 
+    src_labels = ("- 来源：", "- Sources:", "- Fuentes:", "- Источники:")
+
     def body(lines, src_label):
-        return [l for l in lines if not l.startswith(src_label) and "成本标签" not in l]
+        return [l for l in lines
+                if not any(l.startswith(s) for s in src_labels)
+                and "成本标签" not in l]
 
     fails, warns = [], []
     fail_objs, warn_objs = [], []
