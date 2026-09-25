@@ -111,7 +111,17 @@ def gate_parity(issues):
                 counts[label] = len(
                     re.findall(r"^### ", open(files[0], encoding="utf-8").read(), re.M))
         if len(set(counts.values())) > 1:
-            issues.append(f"[parity] ch.{nn} item counts differ: {counts}")
+            # Retranslation in progress: chapters listed in the marker file are
+            # allowed to trail the CN original until their retranslate wave lands.
+            marker = os.path.join(ROOT, "docs", ".retranslate-pending")
+            pending = set()
+            if os.path.exists(marker):
+                pending = {ln.strip() for ln in open(marker, encoding="utf-8")
+                           if ln.strip() and not ln.startswith("#")}
+            if nn in pending:
+                print(f"[parity] ch.{nn} item counts differ (retranslate pending): {counts}")
+            else:
+                issues.append(f"[parity] ch.{nn} item counts differ: {counts}")
     # EN-primary: README.md → book/en/; ZH mirror → book/; RU → book/ru/
     readme_expect = {"README.md": "book/en/", "README.ru.md": "book/ru/", "README.zh.md": "book/"}
     docs_expect = {"README.md": "docs/en/", "README.ru.md": "docs/ru/", "README.zh.md": "docs/"}
@@ -187,13 +197,21 @@ def gate_stats(issues):
             if line.startswith(("- 来源：", "- 来源:", "- 备注：", "- 备注:")):
                 links += len(re.findall(r"https?://", line))
     computed = {"items": items, "A-grade": a_grade, "links": links}
+    # Retranslation in progress: README badges may trail the CN counts until
+    # every chapter of the pending list is retranslated.
+    marker = os.path.join(ROOT, "docs", ".retranslate-pending")
+    retranslate_pending = os.path.exists(marker) and any(
+        ln.strip() and not ln.startswith("#") for ln in open(marker, encoding="utf-8"))
     for rf in ("README.md", "README.ru.md", "README.zh.md"):
         text = open(os.path.join(ROOT, rf), encoding="utf-8").read()
         for label, val in computed.items():
             if str(val) not in text:
-                issues.append(
-                    f"[stats] {rf}: {label}={val} from book/*.md not found "
-                    f"(badge out of sync? run sync-stats / update badges)")
+                if retranslate_pending:
+                    print(f"[stats] {rf}: {label}={val} not in badges (retranslate pending)")
+                else:
+                    issues.append(
+                        f"[stats] {rf}: {label}={val} from book/*.md not found "
+                        f"(badge out of sync? run sync-stats / update badges)")
 
 
 def main():

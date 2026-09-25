@@ -1,4 +1,4 @@
-name: check-links
+name: ci
 
 on:
   pull_request:
@@ -14,3 +14,13 @@ jobs:
         run: python3 tools/check_links.py
       - name: Content gates (CJK leaks, filename language, parity, badge stats)
         run: python3 tools/check_content.py
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run pipeline unit tests
+        run: python3 -m unittest discover -s tools/llm/tests -v
