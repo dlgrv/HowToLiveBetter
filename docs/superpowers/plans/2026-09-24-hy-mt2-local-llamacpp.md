@@ -6,7 +6,8 @@
 
 **Locked choice (user 2026-09-24):**  
 `tencent/Hy-MT2-30B-A3B-GGUF` → **`Hy-MT2-30B-A3B-Q8_0.gguf` (~32 GB)** — max local fidelity.  
-**Fallback ladder (in order):** (1) drop `-c` 4096→2048; (2) official `Q4_K_M` from same HF repo if listed; (3) **stop and ask** before any community quant (APEX etc. = break-glass only).
+**Locked `-c` (user 2026-09-24):** **16384** — see `tools/llm/start-llama-server.sh`.  
+**Fallback ladder (in order):** (1) drop `-c` 16384→8192→4096; (2) official `Q4_K_M` from same HF repo if listed; (3) **stop and ask** before any community quant (APEX etc. = break-glass only).
 
 **Architecture:**
 
@@ -35,7 +36,7 @@ Never whole chapters. Never write into `tools/digest/`.
 | Piece | Approx |
 |---|---|
 | Q8_0 weights | ~32 GB |
-| KV cache (`-c 4096`, q8_0 K/V, `-np 1`) | ~1–3 GB |
+| KV cache (`-c 16384`, q8_0 K/V, `-np 1`) | ~4–8 GB (approx; watch Activity Monitor) |
 | macOS + Cursor/Chrome/Docker LT | ~8–12 GB |
 | **Headroom** | **tight (~3–7 GB)** — close heavy apps |
 
@@ -154,12 +155,13 @@ Tencent card default `temperature=0.7` is for general/creative use — **do not*
 # Not required for Done. Revert: sudo sysctl iogpu.wired_limit_mb=<previous or omit>.
 # sudo sysctl iogpu.wired_limit_mb=33600
 
+# Prefer: tools/llm/start-llama-server.sh  (default -c 16384)
 ./build/bin/llama-server \
   -m ~/models/Hy-MT2-30B-A3B-GGUF/Hy-MT2-30B-A3B-Q8_0.gguf \
   --host 127.0.0.1 --port 8080 \
   -ngl 99 \
   -fa on \
-  -c 4096 \
+  -c 16384 \
   -b 512 -ub 512 \
   -np 1 \
   --cache-type-k q8_0 --cache-type-v q8_0 \
@@ -170,14 +172,14 @@ Tencent card default `temperature=0.7` is for general/creative use — **do not*
 |---|---|
 | `-ngl 99` | All layers on Metal GPU (unified memory) |
 | `-fa on` | Flash attention — less KV RAM, faster |
-| `-c 4096` | Unit prompts are small; huge `-c` wastes RAM on Q8 |
+| `-c 16384` | **Locked.** Unit-00 + full glossary gloss ≈4.4k prompt tokens; 4096 fails; 8192 is minimum, 16384 is comfort for retries/longer units |
 | `-np 1` | One slot only — parallel slots multiply KV |
 | `-b/-ub 512` | Modest batches; bump if prompt-eval is slow and RAM free |
 | `--cache-type-k/v q8_0` | Smaller KV than f16 — **quality tradeoff** for RAM; keep on 48 GB |
 | **Avoid** `--mlock` on Q8@48GB | Can starve macOS → swap |
 | **Avoid** `-np >1` / multi-agent translate | Until Q4 or cloud |
 
-**KV / OOM ladder:** drop `-c` 4096→2048 → official Q4 file → only then consider f16 KV if headroom appears (unlikely on Q8@48GB).
+**KV / OOM ladder:** drop `-c` 16384→8192→4096 → official Q4 file → only then consider f16 KV if headroom appears (unlikely on Q8@48GB).
 
 ```bash
 # Sync model id with server

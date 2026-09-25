@@ -18,10 +18,13 @@ and `tools/glossary.json` are authoritative for terms and style.
 - **Chinese (ZH) only** — never treat EN/RU/ES book files as the master.
   EN is a **tone reference** for plain language, not structure or numbers.
 - Do **not** invent numbers, conditions, or advice absent from ZH.
-- Leave `§TAG§`, `§SRC§`, cost-tag HTML comments, and source/notes lines
-  untouched — they are injected verbatim by `assemble*.py`.
-- ES plain-terms field label is exactly: `- En términos sencillos:`
-  (not «Términos sencillos» alone).
+- **Do not output `§TAG§` or `§SRC§`** — `translate_unit.py` strips them from
+  the ZH digest before the call and reinjects them after your draft.
+  Cost-tag HTML and `来源` / Sources lines are injected by `assemble*.py`.
+- Field labels must be Markdown list lines (`- Label:`), never bold
+  (`**Label:**`). ES plain-terms label is exactly: `- En términos sencillos:`.
+- **Unit 00 (intro):** back-link (if present) + one `# …` title + prose only.
+  No `###` item heading, no field blocks, no placeholders.
 
 ## Quality pack (apply on every unit)
 
@@ -131,7 +134,9 @@ using EN as structural master for RU/ES.
 
 ## Output
 
-- Return the full translated unit markdown (same `§TAG§` / `§SRC§` layout).
-- Preserve field labels expected by assemble for the target locale.
+- Return translated unit markdown only (no fences, no preamble).
+- Items: `### N. …` then locale dashed fields (`- Стоимость:` / `- Cost:` / …).
+  Pipeline adds `§TAG§` / `§SRC§` after you.
+- Intro (`00`): `# …` + prose; no item scaffolding.
 - Plain-terms digits must be a subset of Benefit (same values; locale
   punctuation may differ, e.g. `43,2` vs `43.2`).

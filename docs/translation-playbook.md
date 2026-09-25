@@ -121,7 +121,7 @@ python3 tools/validate/factcheck.py \
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
-| **Hy-MT2-30B-A3B** (official GGUF Q8 → `llama-server` `:8080`) | [план](superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md), [tools/llm/README.md](../tools/llm/README.md), [.env.example](../.env.example) | Metal `llama-server` + `.env` `HTLB_LLM_*`; юниты только последовательно на Q8@48GB |
+| **Hy-MT2-30B-A3B** (official GGUF Q8 → `llama-server` `:8080`) | [план](superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md), [tools/llm/README.md](../tools/llm/README.md), [start-llama-server.sh](../tools/llm/start-llama-server.sh), [.env.example](../.env.example) | Metal `llama-server` **`-c 16384`** + `.env` `HTLB_LLM_*`; юниты только последовательно на Q8@48GB |
 | **LanguageTool** Docker `htlb-lt` `:8010` | [tools/languagetool/README.md](../tools/languagetool/README.md) | `docker run --rm -d --name htlb-lt -p 8010:8010 erikvl87/languagetool:latest` → healthcheck curl → `lt_check.py` |
 
 **Канонический workdir волны:** `tools/runs/active/<lang>/<NN>/` (родитель `units/`).  
