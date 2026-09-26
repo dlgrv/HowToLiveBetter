@@ -6,7 +6,7 @@
 check-content:  ## CJK-leak, parity, readme-badge checks
 	python3 tools/check_content.py
 
-ci:  ## Full CI pipeline: test + lint + links + content + build
+ci:  ## Full CI pipeline: test + lint + links + content + build + plainness
 	@echo "=== Running tests ==="
 	python3 -m pytest tools/validate/tests/ tools/llm/tests/ -v
 	@echo "=== Lint ==="
@@ -15,6 +15,10 @@ ci:  ## Full CI pipeline: test + lint + links + content + build
 	python3 tools/check_links.py
 	@echo "=== Content ==="
 	python3 tools/check_content.py
+	@echo "=== Readability ==="
+	python3 tools/readability.py ru
+	@echo "=== Bureaucratese ==="
+	python3 tools/bureaucratese.py ru
 	@echo "=== Build pages ==="
 	python3 tools/build_pages.py
 	@echo "=== CI OK ==="
