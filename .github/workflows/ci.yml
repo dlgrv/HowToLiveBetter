@@ -1,6 +1,6 @@
-name: test
-# Lightweight test-only workflow. Full CI (links, content, verify)
-# lives in check-links.yml as "ci".
+name: pytest
+# pytest-тесты пайплайна (30 тестов). Основной CI (links, content, verify,
+# unittest) — в check-links.yml как "ci".
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install deps
-        run: pip install pytest pyyaml
+        run: pip install -r requirements-dev.txt
       - name: Generate digest fixtures
         run: python3 tools/make_digest.py 01
       - name: Run tests
