@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="v2.css">
+<style>
+#htlb-langbar{position:fixed;top:0;left:0;right:0;z-index:9999;display:flex;gap:12px;justify-content:center;padding:6px 0;font:13px/1.4 system-ui,-apple-system,sans-serif;background:var(--ink);color:var(--bg)}
+#htlb-langbar a{color:var(--bg);text-decoration:none;opacity:.7;padding:2px 8px;border-radius:4px}
+#htlb-langbar a:hover{opacity:1;background:rgba(255,255,255,.1)}
+#htlb-langbar a.active{opacity:1;font-weight:600}
+html{padding-top:36px!important}
+</style>
 <title>高性价比人生指南 · 用最少的钱、时间和精力换回寿命、金钱和人身自由</title>
 <meta name="description" content="按性价比排序的人生指南：608 条建议，覆盖长寿防病、意外急救、省钱理财、防骗与法律红线、失业兜底、创业风险、恋爱婚育、出国与技能。每条写明成本、收益、证据等级和原始出处，可按钱、时间、毅力三个成本维度检索。">
 <meta name="keywords" content="长寿,健康,循证,总死亡率,省钱,理财,防骗,急救,法律常识,失业救助,劳动仲裁,创业风险,性价比">
@@ -301,8 +309,10 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   gtag('config', 'G-NTPGXCLMP6');
 </script>
 <!-- ga:end -->
+<script>(function(){var l=(navigator.language||'').split('-')[0];var m={ru:'/ru/',en:'/en/',es:'/es/'};if(m[l])location.replace(m[l])})();</script>
 </head>
 <body>
+<div id="htlb-langbar"><a href="/" class="active">中文</a><a href="/ru/">Русский</a><a href="/en/">English</a><a href="/es/">Español</a></div>
 
 <noscript>
   <div style="max-width:760px;margin:0 auto;padding:32px 20px;line-height:1.7">
