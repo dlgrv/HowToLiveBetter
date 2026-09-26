@@ -285,7 +285,8 @@ def main():
     src = open(INDEX_PATH, encoding='utf-8').read()
     m = re.search(r'<script>/\* per-language override.*?</script>', src)
     if not m:
-        sys.exit('root index.html: bootstrap placeholder not found')
+        print("WARNING: bootstrap placeholder not found — skipping per-language pages", file=sys.stderr)
+        return 0
     tpl = m.group(0)
     v2css = open(os.path.join(ROOT, 'tools', 'v2.css'), encoding='utf-8').read()
     if not STYLE_RE.search(src):

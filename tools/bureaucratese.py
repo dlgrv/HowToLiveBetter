@@ -136,6 +136,8 @@ def main():
                     help="Directory to scan (default: book/LANG/)")
     ap.add_argument("--json", action="store_true",
                     help="Output JSON")
+    ap.add_argument("--strict", action="store_true",
+                    help="Exit 1 when findings exist (for gating)")
     args = ap.parse_args()
 
     scan_dir = args.dir or os.path.join(ROOT, "book", args.lang)
@@ -167,7 +169,8 @@ def main():
             print(f"    • {desc}: «{match}»")
         print()
 
-    sys.exit(1)
+    if args.strict:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

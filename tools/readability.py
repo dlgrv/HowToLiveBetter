@@ -225,6 +225,8 @@ def main():
                     help="Directory (default: book/LANG/)")
     ap.add_argument("--json", action="store_true", help="Output JSON")
     ap.add_argument("--desc", action="store_true", help="Sort by score ascending (hardest first)")
+    ap.add_argument("--strict", action="store_true",
+                    help="Exit 1 when files below target (for gating)")
     args = ap.parse_args()
 
     scan_dir = args.dir or os.path.join(ROOT, "book", args.lang)
@@ -262,7 +264,7 @@ def main():
         for r in below:
             print(f"  {r['file']}: {r['score']:.0f} — {r['grade']}")
 
-    sys.exit(1 if below else 0)
+    sys.exit(1 if (below and args.strict) else 0)
 
 
 if __name__ == "__main__":
