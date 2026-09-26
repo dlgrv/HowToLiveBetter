@@ -1,7 +1,23 @@
 # HowToLiveBetter translation pipeline
 # All commands run from repo root.
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave status lint test
+.PHONY: help sync-upstream digest assemble verify verify-all wave status lint test ci
+
+check-content:  ## CJK-leak, parity, readme-badge checks
+	python3 tools/check_content.py
+
+ci:  ## Full CI pipeline: test + lint + links + content + build
+	@echo "=== Running tests ==="
+	python3 -m pytest tools/validate/tests/ tools/llm/tests/ -v
+	@echo "=== Lint ==="
+	ruff check tools/ --select E,F --ignore E501 || echo "→ ruff not installed"
+	@echo "=== Links ==="
+	python3 tools/check_links.py
+	@echo "=== Content ==="
+	python3 tools/check_content.py
+	@echo "=== Build pages ==="
+	python3 tools/build_pages.py
+	@echo "=== CI OK ==="
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

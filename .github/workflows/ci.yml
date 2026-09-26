@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main, quality/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest pyyaml
+
+      - name: Run tests
+        run: python3 -m pytest tools/validate/tests/ tools/llm/tests/ -v
+
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Links
+        run: python3 tools/check_links.py
+
+      - name: Content
+        run: python3 tools/check_content.py
+
+      - name: Build pages
+        run: python3 tools/build_pages.py
