@@ -2,7 +2,6 @@
 """Generate language pages from tools/langs.json + root index.html.
 
 Default (v2 editorial skin):  {lang}/index.html
-Legacy (v1 skin):             v1/{lang}/index.html
 Back-compat redirects:        v2/{lang}/index.html → ../../{lang}/
 
 Also patches the committed root index.html HTLB_LANGS marker from langs.json
@@ -309,15 +308,6 @@ def main():
         d = STYLE_RE.sub(lambda _: '<style>\n' + v2css + '\n</style>', d, count=1)
         d = apply_lang_head(d, src, meta[lang], lang + '/')
         write(os.path.join(ROOT, lang, 'index.html'), d)
-
-    # ---------- legacy v1 under /v1/{lang}/ ----------
-    for lang in codes:
-        d = src.replace(
-            tpl,
-            "<script>window.__HTLB_LANG__='%s';window.__HTLB_BASE__='../../';</script>" % lang)
-        d = d.replace('href="README', 'href="../../README').replace('href="book/', 'href="../../book/')
-        d = apply_lang_head(d, src, meta[lang], 'v1/%s/' % lang)
-        write(os.path.join(ROOT, 'v1', lang, 'index.html'), d)
 
     # ---------- back-compat: /v2/{lang}/ → /{lang}/ ----------
     for lang in codes:
