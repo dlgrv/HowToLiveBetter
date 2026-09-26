@@ -1,0 +1,71 @@
+# Declarative pipeline topology for AI agents.
+# Read by agents to understand the flow without reading code.
+
+pipeline:
+  sync:
+    tool: docs/upstream-sync.md
+    input: "upstream/main (git)"
+    output: "updated book/*.md + README.zh.md"
+
+  digest:
+    tool: tools/make_digest.py
+    input: "book/{chapter}.md"
+    output: "tools/digest/{chapter}/units/"
+    args: ["NN"]
+
+  translate:
+    tool: "manual (agent or subagent via delegation)"
+    input: "tools/digest/{chapter}/units/"
+    output: "run/{lang}/{chapter}/units/"
+    contract: "write-first: immediate write_file per unit"
+
+  assemble:
+    tool: tools/assemble.py
+    input: "run/{lang}/{chapter}/units/"
+    output: "book/{lang}/{chapter}-*.md"
+    args: ["chapter", "--lang"]
+    depends: ["translate"]
+
+  verify:
+    tool: tools/verify.py
+    input: "book/{lang}/{chapter}-*.md + book/{chapter}.md"
+    output: "tools/.status/{chapter}-{lang}.ok"
+    args: ["NN", "--lang", "ru|en|es"]
+    exit_codes: {0: "pass", 1: "FAIL", 2: "WARN"}
+    depends: ["assemble"]
+
+  factcheck:
+    tool: tools/validate/factcheck.py
+    input: "run/{lang}/{chapter}/units/ + run/cn/{chapter}/units/"
+    output: "tools/.status/{chapter}-{lang}.factcheck.json"
+    depends: ["translate"]
+
+  style:
+    tool: tools/style_check.py
+    input: "run/{lang}/{chapter}/units/"
+    output: "stdout"
+    depends: ["translate"]
+
+  wave:
+    tool: tools/wave_pipeline.py
+    input: "chapter list + --lang flag"
+    output: "summary JSON"
+    depends: ["assemble", "verify"]
+
+  web:
+    tool: tools/build_pages.py
+    input: "index.html + tools/v2.css"
+    output: "{ru,en,zh,v1,v2}/index.html"
+
+  status:
+    tool: tools/status.py
+    input: "book/{ru,en,es}/ + tools/langs.json"
+    output: "terminal dashboard"
+
+paths:
+  source: "book/"
+  target: "book/{lang}/"
+  run_cn: "run/cn/{chapter}/units/"
+  run_lang: "run/{lang}/{chapter}/units/"
+  digest: "tools/digest/"
+  status: "tools/.status/"

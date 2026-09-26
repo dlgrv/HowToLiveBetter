@@ -18,17 +18,17 @@
     "content_ties": 1
   },
   "per_recipe": {
-    "abridgement": {
-      "picked_original": 9,
-      "answered": 9,
-      "ties": 0,
-      "rate": 1.0
-    },
     "bloat": {
       "picked_original": 6,
       "answered": 8,
       "ties": 1,
       "rate": 0.75
+    },
+    "abridgement": {
+      "picked_original": 9,
+      "answered": 9,
+      "ties": 0,
+      "rate": 1.0
     }
   },
   "unanswered": []

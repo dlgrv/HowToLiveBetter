@@ -140,6 +140,83 @@
       "ru_gloss": null,
       "en": "observational study",
       "en_gloss": null
+    },
+    {
+      "cn": "死亡率",
+      "ru": "смертность",
+      "ru_gloss": "смертность (死亡率 — death rate / mortality)",
+      "en": "mortality",
+      "en_gloss": "mortality (死亡率)"
+    },
+    {
+      "cn": "高血压",
+      "ru": "гипертония",
+      "ru_gloss": "гипертония (高血压 — повышенное артериальное давление)",
+      "en": "hypertension",
+      "en_gloss": "hypertension (高血压 — high blood pressure)"
+    },
+    {
+      "cn": "糖尿病",
+      "ru": "диабет",
+      "ru_gloss": "диабет (糖尿病 — сахарный диабет)",
+      "en": "diabetes",
+      "en_gloss": "diabetes (糖尿病)"
+    },
+    {
+      "cn": "维生素",
+      "ru": "витамины",
+      "ru_gloss": "витамины (维生素)",
+      "en": "vitamins",
+      "en_gloss": "vitamins (维生素)"
+    },
+    {
+      "cn": "疫苗",
+      "ru": "вакцина",
+      "ru_gloss": "вакцина (疫苗)",
+      "en": "vaccine",
+      "en_gloss": "vaccine (疫苗)"
+    },
+    {
+      "cn": "世界卫生组织",
+      "ru": "ВОЗ",
+      "ru_gloss": "ВОЗ (世界卫生组织 — Всемирная организация здравоохранения)",
+      "en": "WHO",
+      "en_gloss": "WHO (世界卫生组织 — World Health Organization)"
+    },
+    {
+      "cn": "农药",
+      "ru": "пестициды",
+      "ru_gloss": "пестициды (农药 — ядохимикаты для сельского хозяйства)",
+      "en": "pesticides",
+      "en_gloss": "pesticides (农药)"
+    },
+    {
+      "cn": "人身自由",
+      "ru": "личная свобода",
+      "ru_gloss": "личная свобода (人身自由)",
+      "en": "personal liberty",
+      "en_gloss": "personal liberty (人身自由)"
+    },
+    {
+      "cn": "精神障碍",
+      "ru": "психическое расстройство",
+      "ru_gloss": "психическое расстройство (精神障碍)",
+      "en": "mental disorder",
+      "en_gloss": "mental disorder (精神障碍)"
+    },
+    {
+      "cn": "怀孕",
+      "ru": "беременность",
+      "ru_gloss": "беременность (怀孕)",
+      "en": "pregnancy",
+      "en_gloss": "pregnancy (怀孕)"
+    },
+    {
+      "cn": "月工资",
+      "ru": "месячная зарплата",
+      "ru_gloss": "месячная зарплата (月工资)",
+      "en": "monthly wage",
+      "en_gloss": "monthly wage (月工资)"
     }
   ],
   "style_rules": {
