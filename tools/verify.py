@@ -347,6 +347,9 @@ def norm_numbers(text, ru=False, es=False):
     separator; CN/EN use the dot as decimal and the comma as thousands separator."""
     text = text.replace("\u00a0", " ")
     text = text.replace("\u202f", " ")   # ES narrow no-break space thousands
+    # leading-dot decimal «r = .075» (statistical convention) == «0.075»:
+    # normalize so the bare-digit scan doesn't read it as 75.
+    text = re.sub(r"(?<![\d.])\.(\d+)", r"0.\1", text)
     if ru:
         # «4,257 млрд» — a comma directly before a scale word is DECIMAL
         text = re.sub(r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"

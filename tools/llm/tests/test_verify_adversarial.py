@@ -685,7 +685,8 @@ class TrickyFalseMatches(unittest.TestCase):
         self.assertEqual(norm_en("v2.6"), ["2.6"])
 
     def test_dot_five_wan(self):
-        self.assertEqual(norm_cn(".5 万"), ["50000"])
+        # leading-dot decimal: ".5 万" = 0.5万 = 5000 (not 5万)
+        self.assertEqual(norm_cn(".5 万"), ["5000"])
 
     def test_negative_dash_wan_is_range(self):
         # «30-50万» — dash is a range separator, not a minus: pinned

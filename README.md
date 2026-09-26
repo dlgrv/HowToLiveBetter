@@ -5,12 +5,12 @@
 # HowToLiveBetter: The Best-Value Life Guide
 
 Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
-603 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
+608 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/en/)
-[![Items](https://img.shields.io/badge/Items-603-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20408%20%C2%B7%20B%20146%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1261%20links-565a5f?style=flat-square)](docs/核实记录/)
+[![Items](https://img.shields.io/badge/Items-608-18794e?style=flat-square)](#table-of-contents)
+[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20410%20%C2%B7%20B%20149%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
+[![Primary sources](https://img.shields.io/badge/Primary%20sources-1281%20links-565a5f?style=flat-square)](docs/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/核实记录/) · [Is marriage worth it (long read)](docs/en/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/en/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/en/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/en/What-Licenses-A-Platform-Needs.md)
@@ -68,7 +68,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 - **To filter by conditions**: open the [online search page](https://dlgrv.github.io/HowToLiveBetter/en/); you can filter by keyword, chapter, and evidence grade, and combine three cost dimensions: whether it costs money, whether it takes time, whether it takes willpower. The data is read directly from the book/ text; fix the text and the search page changes with it.
 - **To read in order**: items inside each section are ordered from highest to lowest value for the money; start with the first few items of each section.
 - **If you can't read that string of numbers**: every item has an "In plain terms" line that translates the risk ratios and confidence intervals in the Benefit field into everyday statements like "about 20% lower chance of dying in the same period" or "a few days of detention, a fine of so much" — using only facts already in the original, without adding new numbers. That line alone is enough to decide; the Benefit field keeps all the raw numbers and confidence intervals so you can check for yourself.
-- **Only the hardest conclusions**: on the search page check evidence grade A to keep only the 408 items with concrete numbers from meta-analyses or large trials.
+- **Only the hardest conclusions**: on the search page check evidence grade A to keep only the 410 items with concrete numbers from meta-analyses or large trials.
 - **Only the most worthwhile**: check "very high" value-for-money to get the 99 items that cost no money, no time, no willpower, and whose benefit lands in the largest tier. Stack one more "what it buys back" filter on top and you have the priority list under that measure.
 - **Don't be alarmed by section titles that start with "Don't"**: a section title names the outcome that section tries to prevent (don't die early, don't waste time), not a blanket ban on every item under it. Item titles are the actual actions, always starting with a verb, each carrying its own "do this" or "don't do this" — both kinds live in the same section. For example, section 4 has both "Turn 'planning to do it' into 'at such an hour, in such a place, when X happens, do it'" and "Skip TV and rolling news". Read by item title, not by the tone of the section title.
 
@@ -111,7 +111,7 @@ Every piece of advice carries an evidence grade:
 | B | Research-backed but hard to quantify, or evidence from small samples / a single study |
 | C | Author experience or general consensus, no direct literature |
 
-Of the 603 items in the book, 408 are grade A, 146 grade B, and 49 grade C; 55 items are marked as contested and 35 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
+Of the 608 items in the book, 410 are grade A, 149 grade B, and 49 grade C; 56 items are marked as contested and 29 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
 
 ## Value-for-money tiers
 
@@ -123,7 +123,7 @@ The evidence grade answers "can this number be trusted", not "is it worth doing"
 | Benefit magnitude | Large / medium / small | Mechanically applied from thresholds in the item's own Benefit field where possible: for lifespan, relative reduction (≥20% large, 10–20% medium, <10% or only surrogate endpoints small); for money, the amount (tens of thousands large, hundreds to thousands medium, tens of yuan small); for personal freedom, the consequence (avoiding criminal liability large, avoiding detention or administrative punishment medium, avoiding a civil dispute small); for time-energy, the saving (hours a day large, hours a week medium, one-off small) |
 | Value for money | Very high / high / ordinary | Large benefit with all three costs zero = very high; large benefit with low costs, or medium benefit with zero costs = high; the rest = ordinary |
 
-Of the 603 items in the book, 104 (17%) are very high, 276 (46%) high, and 223 (37%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
+Of the 608 items in the book, 104 (17%) are very high, 276 (45%) high, and 228 (38%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
 
 **This tier is the author's judgment, not evidence** — essentially grade C, and orthogonal to the evidence grade. An item can be grade A but ordinary value (the shingles vaccine has a phase-III RCT at 97.2% efficacy, but two doses cost three to four thousand yuan and shingles is rarely fatal), and it can be grade C but very high value (sending your itinerary to family before going abroad). "Ordinary" does not mean "shouldn't be done" — every item in the book is advice worth taking; it only means you should weigh that spend yourself.
 
