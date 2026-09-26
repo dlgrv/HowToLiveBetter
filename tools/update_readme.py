@@ -89,8 +89,14 @@ def readme_section(readme_path, lang):
 
 
 def check_readme(lang, chapters):
-    """Check if README_{LANG}.md has correct chapter count and order."""
-    readme_name = f"README_{lang.upper()}.md"
+    """Check if README has correct chapter count and order."""
+    readme_map = {
+        "en": "README.md",
+        "ru": "README.ru.md",
+        "es": "README.es.md",
+        "zh": "README.zh.md",
+    }
+    readme_name = readme_map.get(lang, f"README.{lang}.md")
     readme_path = os.path.join(ROOT, readme_name)
     if not os.path.isfile(readme_path):
         return f"{readme_name} not found", []
