@@ -32,7 +32,7 @@ After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
 
 ## Never overwrite (fork-owned)
 
-`README.md`, `README.ru.md`, `index.html`, `og*`, `tools/v2*`, `tools/build_pages.py`, `tools/langs.json`, generated `en|ru|zh|v1|v2/`, `.github/workflows/`, `CLAUDE.md`, `TRANSLATION.md`, `sitemap.xml`, `book/en|ru/`, `docs/en|ru/`.
+`README.md`, `README.ru.md`, `index.html`, `og*`, `tools/v2*`, `tools/build_pages.py`, `tools/langs.json`, generated `en|ru|zh|v2/`, `.github/workflows/`, `CLAUDE.md`, `TRANSLATION.md`, `sitemap.xml`, `book/en|ru/`, `docs/en|ru/`.", "file_path" string="true">/Users/dlgrv/github/HowToLiveBetter/AGENTS.md
 
 ## Pipeline (for AI agents)
 
