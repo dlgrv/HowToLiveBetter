@@ -264,6 +264,14 @@ html.side-collapsed .content{padding-left:var(--content-pad-x)}
 .skel-card > .skel-bar:first-child{height:1.15em;margin-bottom:var(--sp-1)}
 .skel-stat{display:inline-block;width:2.4em;height:.75em;vertical-align:-0.05em;margin:0 .12em}
 .stat-fallback{display:none}
+.skel-nav{display:flex;flex-direction:column;align-items:stretch}
+.skel-nav-row{
+  display:flex;align-items:center;gap:var(--sp-2);
+  padding:var(--ui-row-pad);
+}
+.skel-nav-row .skel-bar{flex:none;height:.75em}
+.skel-nav-row .skel-bar:first-child{flex:1}
+.skel-nav-row .skel-bar-sm{margin-left:auto;flex:none}
 @keyframes skel-pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){.skel-bar{animation:none}}
 

@@ -296,7 +296,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                        <div class="lang-menu" role="menu">
+                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -316,7 +316,20 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
 <aside class="sidebar" id="sidebar">
   <a class="title side-title" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Пособие по выгодной жизни</span></a>
   <div class="group">
-    <div class="sec-links" id="f-sec" data-dim="sec"></div>
+    <div class="sec-links" id="f-sec" data-dim="sec" aria-busy="true">
+      <div class="skel-nav" id="skel-nav" aria-hidden="true"></div>
+      <script>
+      (function(){
+        var sk=document.getElementById('skel-nav'); if(!sk) return;
+        var W=[42,88,62,74,55,70,48,81,66,58,76,44,69,83,51,72,60,77,53,64,79,47,71,56,85,50,68,73,59,80,46,65,78,54];
+        var html='', i;
+        for(i=0;i<W.length;i++){
+          html+='<div class="skel-nav-row"><i class="skel-bar" style="width:'+W[i]+'%"></i><i class="skel-bar skel-bar-sm" style="width:1.4rem"></i></div>';
+        }
+        sk.innerHTML=html;
+      })();
+      </script>
+    </div>
   </div>
   <div class="group">
     <div class="gt">Выгода/затраты <small>Оценка автора, сравнима в рамках одной категории</small></div>
@@ -953,6 +966,8 @@ function esc(s){ return s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':
 function build(sections){
   const list = document.getElementById('list');
   const fsec = document.getElementById('f-sec');
+  fsec.replaceChildren();
+  fsec.removeAttribute('aria-busy');
   const allBtn = document.createElement('button');
   allBtn.className = 'sec-link all'; allBtn.dataset.v = ''; allBtn.setAttribute('aria-pressed','true');
   allBtn.innerHTML = `<span>${T().allSections}</span><i>${sections.reduce((n,s)=>n+s.entries.length,0)}</i>`;
