@@ -16,11 +16,9 @@ This section deals with both financial matters and personal freedom, and several
 
 - Cost: No cost at all. Saving two numbers and writing one copy down takes just a few minutes.
 
-- In plain terms:  
-  There is only one main hotline to call for help in an emergency. Inside China, dial 12308; abroad, call +86-10-12308. Since this hotline launched, it has handled over 3 million calls. During the same period, the Ministry of Foreign Affairs and its overseas missions dealt with more than 500,000 consular protection cases.
+- In plain terms: There is only one main hotline to call for help in an emergency. Inside China, dial 12308; abroad, call +86-10-12308. Since this hotline launched, it has handled over 3 million calls. During the same period, the Ministry of Foreign Affairs and its overseas missions dealt with more than 500,000 consular protection cases.
 
-- Benefit:  
-  The Ministry of Foreign Affairs operates a 24-hour global emergency hotline for consular protection and services. Inside China, call 12308; abroad, call +86-10-12308 or +86-10-65612308. Since its launch in 2014, this hotline has answered over 3 million calls, while the Ministry and its overseas missions have resolved more than 500,000 consular protection incidents.
+- Benefit: The Ministry of Foreign Affairs operates a 24-hour global emergency hotline for consular protection and services. Inside China, call 12308; abroad, call +86-10-12308 or +86-10-65612308. Since its launch in 2014, this hotline has answered over 3 million calls, while the Ministry and its overseas missions have resolved more than 500,000 consular protection incidents.
 
 - Evidence grade: A
 
