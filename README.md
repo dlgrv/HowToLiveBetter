@@ -14,13 +14,12 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/research/核实记录/) · [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md)
 
-[🇬🇧 English](README.md) ([read on the site](https://dlgrv.github.io/HowToLiveBetter/en/))
+Languages:
 
-[🇷🇺 Русский](README.ru.md) ([читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/))
-
-[🇨🇳 中文](README.zh.md) ([在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/))
-
-[🇪🇸 Español](README.es.md) ([leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/))
+- [🇬🇧 English](README.md) - [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+- [🇷🇺 Русский](README.ru.md) - [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+- [🇨🇳 中文](README.zh.md) - [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+- [🇪🇸 Español](README.es.md) - [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
 
 ---
 
