@@ -9,10 +9,12 @@ import json
 import os
 import unittest
 
-from tools.test_paths import ROOT
+import pytest
+from tools.pipeline.paths import load_chapter_text
+from tools.test_paths import REPO_ROOT
 from tools.validate import golden_pairs as gp
 
-MANIFEST = os.path.join(ROOT, "tools", "validate", "results", "golden_manifest.json")
+MANIFEST = os.path.join(REPO_ROOT, "tools", "validate", "results", "golden_manifest.json")
 
 
 def load_manifest():
@@ -31,7 +33,7 @@ def manifest_matches_books(m):
     """False when book/ drifted away from golden_manifest excerpts."""
     for p in m.get("pairs", []):
         nn, lang = p["chapter"], p["lang"]
-        book = gp.read_chapter(ROOT, nn, lang)
+        book = load_chapter_text(REPO_ROOT, nn, lang)
         if p["variant_a"][:80] not in book:
             return False
     return True
@@ -52,8 +54,8 @@ class TestSelection(unittest.TestCase):
         self.assertLessEqual(strata, {"short", "medium", "long", "fresh"})
 
     def test_deterministic_selection(self):
-        m1 = gp.select_pairs(ROOT)
-        m2 = gp.select_pairs(ROOT)
+        m1 = gp.select_pairs(REPO_ROOT)
+        m2 = gp.select_pairs(REPO_ROOT)
         self.assertEqual(m1, m2)
 
     def test_mapping_not_in_pair_public_fields(self):
@@ -79,7 +81,7 @@ class TestSession(unittest.TestCase):
             raise unittest.SkipTest("golden_manifest.json not yet generated")
 
     def test_build_session_batches(self):
-        session = gp.build_session(ROOT)
+        session = gp.build_session()
         self.assertEqual(len(session["batches"]), 6)  # 60 pairs / 10
         for batch in session["batches"]:
             self.assertEqual(len(batch["pairs"]), 10)
@@ -88,7 +90,7 @@ class TestSession(unittest.TestCase):
                 self.assertIn("VARIANT 2", item["rendered"])
 
     def test_session_leaks_no_mapping(self):
-        session = gp.build_session(ROOT)
+        session = gp.build_session()
         dumped = json.dumps(session, ensure_ascii=False)
         self.assertNotIn('"variant_a"', dumped)
         self.assertNotIn('"decoy"', dumped)
@@ -96,21 +98,25 @@ class TestSession(unittest.TestCase):
         self.assertNotIn("is_decoy", dumped)
 
 
+@pytest.mark.xfail(
+    strict=True,
+    reason="golden_manifest.json excerpts drifted; regenerate fixtures",
+)
 class TestManifestBookConsistency(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         if not manifest_ready():
             raise unittest.SkipTest("golden_manifest.json not yet generated")
-        if not manifest_matches_books(load_manifest()):
-            raise unittest.SkipTest(
-                "golden_manifest.json excerpts no longer match book/; regenerate fixtures"
-            )
 
     def test_variant_a_lives_in_its_chapter(self):
         m = load_manifest()
+        self.assertTrue(
+            manifest_matches_books(m),
+            "golden_manifest.json excerpts no longer match book/; regenerate fixtures",
+        )
         for p in m["pairs"]:
             nn, lang = p["chapter"], p["lang"]
-            book = gp.read_chapter(ROOT, nn, lang)
+            book = load_chapter_text(REPO_ROOT, nn, lang)
             self.assertIn(
                 p["variant_a"][:80], book, f"pair {p['id']} excerpt not in book/{lang}/{nn}"
             )

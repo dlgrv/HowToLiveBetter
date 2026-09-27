@@ -1,16 +1,42 @@
-"""Project config: tools/rules/project.yaml + per-language packs rules/<lang>.json."""
+"""Project config: tools/rules/project.json + per-language packs rules/<lang>.json."""
 
 import json
 import os
 
 
 def load_config(root):
-    """Load tools/rules/project.yaml (languages, unit paths, judge/QE backends)."""
-    import yaml  # optional dep for YAML configs; JSON packs must not require it
-
-    path = os.path.join(root, "tools", "rules", "project.yaml")
+    """Load tools/rules/project.json (unit paths, judge/QE backends)."""
+    path = os.path.join(root, "tools", "rules", "project.json")
     with open(path, encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        return json.load(f)
+
+
+def load_langs(root=None):
+    """Site locale entries from tools/langs.json."""
+    if root is None:
+        root = default_root()
+    path = os.path.join(root, "tools", "langs.json")
+    if not os.path.isfile(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return list((data or {}).get("languages") or [])
+
+
+def site_langs(root=None):
+    """All published locale codes, including zh (CN site pages)."""
+    return [e["code"] for e in load_langs(root) if e.get("code")]
+
+
+def translation_langs(root=None):
+    """Overlay translation codes (book/<code>/), not the zh mirror at book/."""
+    out = []
+    for entry in load_langs(root):
+        code = entry.get("code")
+        content_root = entry.get("contentRoot", "")
+        if code and content_root.startswith("book/") and content_root != "book":
+            out.append(code)
+    return out
 
 
 def load_lang_rules(lang, root=None):
@@ -29,7 +55,7 @@ def unit_dir(root, lang, chapter):
     absolute templates (wave dirs) pass through unchanged.
     """
     cfg = load_config(root)
-    known = [*list(cfg.get("languages", [])), "cn"]
+    known = [*translation_langs(root), "cn"]
     if lang not in known:
         raise ValueError(f"unknown language {lang!r}; available: {known}")
     tmpl = cfg.get("unit_dirs", {}).get(lang)

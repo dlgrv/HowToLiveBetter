@@ -96,6 +96,16 @@ def _setup_tmp_repo(tmp, chapter_n, cn_content, glossary=None):
         os.path.join(tools_dir, "pipeline"),
         ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
     )
+    rules_dst = os.path.join(tools_dir, "rules")
+    os.makedirs(rules_dst, exist_ok=True)
+    shutil.copy2(
+        os.path.join(REPO_ROOT, "tools", "rules", "project.json"),
+        os.path.join(rules_dst, "project.json"),
+    )
+    shutil.copy2(
+        os.path.join(REPO_ROOT, "tools", "langs.json"),
+        os.path.join(tools_dir, "langs.json"),
+    )
 
     book_dir = os.path.join(tmp, "book")
     os.makedirs(book_dir)
@@ -110,7 +120,11 @@ def _setup_tmp_repo(tmp, chapter_n, cn_content, glossary=None):
 def _run_digest(tmp, n):
     digest_py = os.path.join(tmp, "tools", "make_digest.py")
     return subprocess.run(
-        [sys.executable, digest_py, str(n)], capture_output=True, text=True, timeout=10
+        [sys.executable, digest_py, str(n)],
+        capture_output=True,
+        text=True,
+        timeout=10,
+        env={**os.environ, "PYTHONPATH": tmp},
     )
 
 

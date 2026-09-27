@@ -10,9 +10,9 @@ import re
 import unittest
 from typing import ClassVar
 
-from tools.test_paths import REPO
+from tools.test_paths import REPO_ROOT
 
-PROMPTS = os.path.join(REPO, "tools", "prompts")
+PROMPTS = os.path.join(REPO_ROOT, "tools", "prompts")
 
 ISSUE_TYPES = [
     "dropped_condition",

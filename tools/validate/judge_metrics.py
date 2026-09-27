@@ -15,7 +15,9 @@ import json
 import os
 import sys
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+from tools.pipeline.config import default_root
+
+REPO = default_root()
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 MANIFEST = os.path.join(RESULTS, "golden_manifest.json")
 LABELS = os.path.join(RESULTS, "golden_labels.json")
@@ -45,52 +47,6 @@ def cohens_kappa(a, b):
     return (po - pe) / (1 - pe)
 
 
-def screening_metrics(gold, pred, _positive=0):
-    """Confusion matrix with calque (positive=0... here positive=1 default).
-
-    Encoding: gold/pred use 1 = native, 0 = calque/degraded.
-    positive class = 1 (native).
-    """
-    if len(gold) != len(pred):
-        raise ValueError("lists must have equal length")
-    tp = sum(1 for g, p in zip(gold, pred, strict=True) if g == 1 and p == 1)
-    fp = sum(1 for g, p in zip(gold, pred, strict=True) if g == 0 and p == 1)
-    fn = sum(1 for g, p in zip(gold, pred, strict=True) if g == 1 and p == 0)
-    tn = sum(1 for g, p in zip(gold, pred, strict=True) if g == 0 and p == 0)
-    precision = tp / (tp + fp) if tp + fp else None
-    recall = tp / (tp + fn) if tp + fn else None
-    fpr = fp / (fp + tn) if fp + tn else None
-    fnr = fn / (fn + tp) if fn + tp else None
-    f1 = (
-        2 * precision * recall / (precision + recall)
-        if precision is not None and recall is not None and precision + recall
-        else None
-    )
-    return {
-        "tp": tp,
-        "fp": fp,
-        "fn": fn,
-        "tn": tn,
-        "precision": precision,
-        "recall": recall,
-        "fpr": fpr,
-        "fnr": fnr,
-        "f1": f1,
-    }
-
-
-def gate_fnr(metrics, threshold=0.2):
-    """Pass C/D utility gate: judge must MISS at most `threshold` of natives."""
-    return metrics["fnr"] is not None and metrics["fnr"] <= threshold
-
-
-def load_pair_verdicts(path):
-    """Load judge answers for native-first and degraded-first sessions."""
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
-    return data.get("native", []), data.get("degraded", [])
-
-
 def nativeness_rate(verdicts):
     """Per-group share of 'native is more natural' answers (decoys excluded)."""
     out = {}
@@ -107,7 +63,6 @@ def main():
     ap.add_argument("--labels", default=LABELS)
     ap.add_argument("--verdicts", default=VERDICTS)
     ap.add_argument("--manifest", default=MANIFEST)
-    ap.add_argument("--fnr-gate", type=float, default=0.2)
     args = ap.parse_args()
     if not (os.path.isfile(args.labels) and os.path.isfile(args.verdicts)):
         print(
@@ -169,7 +124,6 @@ def main():
             "gap_required": 0.25,
             "passed": bool(nr.get("gap") is not None and nr["gap"] >= 0.25),
         },
-        "fnr_gate": {"threshold": args.fnr_gate},
     }
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0

@@ -29,19 +29,16 @@ import subprocess
 import sys
 from pathlib import Path
 
-_ROOT = Path(__file__).resolve().parents[2]
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
-
-from tools.llm.verify_issues import (  # noqa: E402
+from tools.llm.verify_issues import (
     REPAIRABLE_KINDS,
     issues_still_present,
     locate_issues,
     parse_verify_json,
 )
-from tools.pipeline.paths import digest_units_dir as digest_units_path  # noqa: E402
+from tools.pipeline.config import default_root, translation_langs, unit_dir
 
 DIRTY_UNIT_CAP = 8
+ROOT = Path(default_root())
 
 
 def _run(cmd: list, **kw) -> subprocess.CompletedProcess:
@@ -50,14 +47,14 @@ def _run(cmd: list, **kw) -> subprocess.CompletedProcess:
 
 
 def assemble_cmd(nn: str, lang: str, workdir: Path, assembled: Path) -> list:
-    return [sys.executable, _ROOT / "tools" / "assemble.py", nn, workdir, assembled, lang]
+    return [sys.executable, ROOT / "tools" / "assemble.py", nn, workdir, assembled, lang]
 
 
 def run_verify_json(nn: str, lang: str, assembled: Path) -> tuple[int, dict]:
     r = _run(
         [
             sys.executable,
-            _ROOT / "tools" / "verify.py",
+            ROOT / "tools" / "verify.py",
             nn,
             "--lang",
             lang,
@@ -74,7 +71,7 @@ def repair_unit(nn: str, unit: str, lang: str, workdir: Path, issues: list[dict]
     r = _run(
         [
             sys.executable,
-            _ROOT / "tools" / "llm" / "repair_unit.py",
+            ROOT / "tools" / "llm" / "repair_unit.py",
             "--nn",
             nn,
             "--unit",
@@ -95,7 +92,7 @@ def translate_unit(nn: str, unit: str, lang: str, workdir: Path) -> int:
     r = _run(
         [
             sys.executable,
-            _ROOT / "tools" / "llm" / "translate_unit.py",
+            ROOT / "tools" / "llm" / "translate_unit.py",
             "--nn",
             nn,
             "--unit",
@@ -116,10 +113,8 @@ def dry_locate(nn: str, lang: str, workdir: Path, assembled: Path) -> int:
         print(json.dumps({"_verify_ok": True}, ensure_ascii=False))
         return 0
     located = locate_issues(
-        _root=_ROOT,
-        _nn=nn,
         lang=lang,
-        digest_units_dir=Path(digest_units_path(str(_ROOT), nn)),
+        digest_units_dir=Path(unit_dir(str(ROOT), "cn", nn)),
         tr_units_dir=workdir / "units",
         fails=[f for f in report.get("fails", []) if f.get("kind") in REPAIRABLE_KINDS],
     )
@@ -130,7 +125,7 @@ def dry_locate(nn: str, lang: str, workdir: Path, assembled: Path) -> int:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="assemble→verify→repair loop.")
     p.add_argument("--nn", required=True)
-    p.add_argument("--lang", required=True, choices=["ru", "en", "es"])
+    p.add_argument("--lang", required=True, choices=translation_langs())
     p.add_argument("--workdir", required=True, help="run dir (parent of units/)")
     p.add_argument("--assembled", required=True)
     p.add_argument("--max-rounds", type=int, default=3)
@@ -163,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.dry_locate:
         return dry_locate(nn, lang, workdir, assembled)
 
-    if str(workdir).startswith(str(_ROOT / "tools" / "digest")):
+    if str(workdir).startswith(str(ROOT / "tools" / "digest")):
         raise SystemExit("refusing workdir under tools/digest/")
 
     prev_fail_keys = None
@@ -192,10 +187,8 @@ def main(argv: list[str] | None = None) -> int:
             print("UNREPAIRABLE " + json.dumps(unrepairable, ensure_ascii=False))
             return 1
         located = locate_issues(
-            _root=_ROOT,
-            _nn=nn,
             lang=lang,
-            digest_units_dir=Path(digest_units_path(str(_ROOT), nn)),
+            digest_units_dir=Path(unit_dir(str(ROOT), "cn", nn)),
             tr_units_dir=workdir / "units",
             fails=report["fails"],
         )

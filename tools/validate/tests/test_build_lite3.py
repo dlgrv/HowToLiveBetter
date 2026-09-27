@@ -4,7 +4,7 @@ import importlib.util
 import json
 import os
 
-from tools.test_paths import REPO
+from tools.test_paths import REPO_ROOT
 
 _VALIDATE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -19,7 +19,9 @@ spec.loader.exec_module(bl3)
 
 def _manifest():
     return json.load(
-        open(os.path.join(REPO, "tools/validate/results/golden_manifest.json"), encoding="utf-8")
+        open(
+            os.path.join(REPO_ROOT, "tools/validate/results/golden_manifest.json"), encoding="utf-8"
+        )
     )
 
 
@@ -59,7 +61,7 @@ def test_generated_variants_pass_all_gates():
 
 
 def test_saved_results_file_matches_gates():
-    path = os.path.join(REPO, "tools/validate/results/_lite3_degrade_meaning_break.json")
+    path = os.path.join(REPO_ROOT, "tools/validate/results/_lite3_degrade_meaning_break.json")
     if not os.path.exists(path):
         return  # built artifact not committed yet
     d = json.load(open(path, encoding="utf-8"))

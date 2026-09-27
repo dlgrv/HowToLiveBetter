@@ -17,17 +17,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from tools.pipeline.labels import PLAIN_FIELD_INDEX, field_labels
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DEFAULT_BASE_URL = os.environ.get("HTLB_LT_BASE_URL", "http://127.0.0.1:8010")
 DEFAULT_TIMEOUT = 30.0
-
-PLAIN_FIELD = {
-    "ru": "Простыми словами",
-    "en": "In plain terms",
-    "es": "En términos sencillos",
-}
 
 LT_LANG = {
     "ru": "ru-RU",
@@ -46,10 +39,9 @@ def lt_language_code(lang):
 
 def extract_plain_segments(text, lang):
     """Return [{line_no, text}] for plain-terms field bodies only."""
-    label = PLAIN_FIELD.get(lang)
-    if not label:
+    if lang not in LT_LANG:
         return []
-    prefix = f"- {label}:"
+    prefix = f"- {field_labels(lang)[PLAIN_FIELD_INDEX]}:"
     out = []
     for line_no, line in enumerate(text.splitlines(), 1):
         stripped = line.lstrip()

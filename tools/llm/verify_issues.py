@@ -14,12 +14,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-_ROOT = Path(__file__).resolve().parents[2]
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
-
-from tools.pipeline.paths import _nn, digest_units_dir  # noqa: E402
-from tools.verify import norm_numbers  # noqa: E402
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.paths import _nn
+from tools.verify import norm_numbers
 
 REPAIRABLE_KINDS = frozenset({"number_absent", "banned_calque"})
 
@@ -57,8 +54,6 @@ def _cn_context_for_value(cn_text: str, value: str) -> str:
 
 def locate_issues(
     *,
-    _root: Path,
-    _nn: str,
     lang: str,
     digest_units_dir: Path,
     tr_units_dir: Path,
@@ -159,10 +154,8 @@ if __name__ == "__main__":
     report = parse_verify_json(raw)
     nn = _nn(args.nn)
     out = locate_issues(
-        _root=_ROOT,
-        _nn=nn,
         lang=args.lang,
-        digest_units_dir=Path(digest_units_dir(str(_ROOT), nn)),
+        digest_units_dir=Path(unit_dir(default_root(), "cn", nn)),
         tr_units_dir=workdir / "units",
         fails=[f for f in report.get("fails", []) if f.get("kind") in REPAIRABLE_KINDS],
     )

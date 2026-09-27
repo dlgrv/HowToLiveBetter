@@ -13,20 +13,20 @@ import os
 import re
 import sys
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
+from tools.pipeline import labels
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.paths import _nn, cn_chapter_path
 
-from tools.pipeline import labels as field_labels  # noqa: E402
-from tools.pipeline.paths import _nn, cn_chapter_path, digest_dir  # noqa: E402
-
+root = default_root()
 n, work, out = _nn(sys.argv[1]), sys.argv[2], sys.argv[3]
 lang = sys.argv[4] if len(sys.argv) > 4 else "ru"
 
-source_word = field_labels.source_label(lang, root=root)
-evidence_word = field_labels.evidence_grade_label(lang, root=root)
+source_word = labels.source_label(lang, root=root)
+evidence_word = labels.evidence_grade_label(lang, root=root)
 
-meta = json.load(open(os.path.join(digest_dir(root, n), "blocks.json"), encoding="utf-8"))
+meta = json.load(
+    open(os.path.join(os.path.dirname(unit_dir(root, "cn", n)), "blocks.json"), encoding="utf-8")
+)
 fails = []
 
 parts = [

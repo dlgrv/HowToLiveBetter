@@ -1,14 +1,13 @@
-"""COMET QE wrapper (reusable core): model from project.yaml, SKIPPED without venv.
+"""COMET QE wrapper (reusable core): model from project.json, SKIPPED without venv.
 
 Heavy weights (unbabel-comet + torch) live in a dedicated venv (~/.venvs/qe on
-the Mac). Everywhere else this module degrades gracefully: `available()` is
-False and `run_scores` raises QeUnavailable — callers emit an explicit
+the Mac). Everywhere else this module degrades gracefully: `venv_python()` is
+None and `run_scores` raises QeUnavailableError — callers emit an explicit
 SKIPPED status instead of failing the pipeline (pass B is advisory-only).
 """
 
 import json
 import os
-import re
 import subprocess
 
 from . import config as _config
@@ -19,9 +18,6 @@ DEFAULT_TAU_FLOOR = 0.01
 
 class QeUnavailableError(RuntimeError):
     """COMET stack (venv/model) not available on this machine."""
-
-
-QeUnavailable = QeUnavailableError  # backwards-compatible alias
 
 
 def load_qe_config(root):
@@ -37,10 +33,6 @@ def venv_python(root):
     venv = os.path.expanduser(venv)
     exe = os.path.join(venv, "bin", "python")
     return exe if os.path.isfile(exe) else None
-
-
-def available(root):
-    return venv_python(root) is not None
 
 
 def _runner_source():
@@ -60,7 +52,7 @@ print(json.dumps({"scores": list(out.scores)}))
 def run_scores(segments, root=None):
     """Score (src, mt) pairs with the configured COMET QE model.
 
-    Returns list of floats. Raises QeUnavailable when the venv is absent
+    Returns list of floats. Raises QeUnavailableError when the venv is absent
     (VPS/CI); the caller converts this into an explicit SKIPPED status.
     """
     root = root or _config.default_root()
@@ -105,12 +97,6 @@ def parse_scores(stdout):
             except (json.JSONDecodeError, KeyError):
                 return None
     return None
-
-
-def parse_comet_cli(stdout):
-    """Parse `comet-score ...: 0.8123` style CLI output (fallback path)."""
-    m = re.findall(r"([+-]?\d+\.\d+)\s*$", stdout.strip(), re.MULTILINE)
-    return float(m[-1]) if m else None
 
 
 def compute_tau(sigma):

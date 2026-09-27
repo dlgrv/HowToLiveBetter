@@ -35,16 +35,14 @@ import re
 import sys
 import time
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
+from tools.pipeline import labels
+from tools.pipeline.config import default_root, translation_langs
+from tools.pipeline.paths import cn_chapter_path, tr_chapter_path
 
-from tools.pipeline import labels as field_labels  # noqa: E402
-from tools.pipeline.paths import cn_chapter_path, tr_chapter_path  # noqa: E402
+root = default_root()
 
 CJK = re.compile(r"[\u4e00-\u9fff]")
 FULLWIDTH = re.compile(r"[，。：；！？「」『』（）]")
-NUM = re.compile(r"\d+(?:\.\d+)?")
 
 WORD_VALUES = [
     (r"двадцать[\s-]?четыре", "24"),
@@ -369,13 +367,6 @@ _RU_TENS = {
 }
 
 
-def _ru_tens_scale(raw):
-    """«тридцати шести тысячам» → 36×1000 = '36000' (spelled tens+units chain
-    sharing one scale word)."""
-    nums = [_RU_TENS[w.lower()] for w in re.findall(r"[а-яА-ЯёЁ]+", raw) if w.lower() in _RU_TENS]
-    return str(sum(nums) * 1000)
-
-
 _RU_UNITS = {
     "один": 1,
     "одна": 1,
@@ -602,7 +593,7 @@ def norm_numbers(text, ru=False, es=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("chapter")
-    ap.add_argument("--lang", required=True, choices=["ru", "en", "es"])
+    ap.add_argument("--lang", required=True, choices=translation_langs())
     ap.add_argument("--file", help="explicit translated-file path (default: book/<lang>/NN-*)")
     ap.add_argument(
         "--json",
@@ -631,9 +622,11 @@ def main():
     sl = open(src_path, encoding="utf-8").read().splitlines()
     tl = open(tr_path, encoding="utf-8").read().splitlines()
 
-    src_labels = ("- 来源：", "- Sources:", "- Fuentes:", "- Источники:")
+    src_labels = tuple(
+        labels.source_bullet(code, root=root) for code in ("cn", *translation_langs(root))
+    )
 
-    def body(lines, _src_label):
+    def body(lines):
         return [
             ln
             for ln in lines
@@ -667,8 +660,8 @@ def main():
             {"kind": "cost_tags_mismatch", "got": tt, "want": st},
         )
 
-    src_cn = field_labels.source_bullet("cn", root=root)
-    src_tr = field_labels.source_bullet(lang, root=root)
+    src_cn = labels.source_bullet("cn", root=root)
+    src_tr = labels.source_bullet(lang, root=root)
     ss = [x.split("：", 1)[1].strip() for x in sl if x.startswith(src_cn)]
     ts = [x.split(":", 1)[1].strip() for x in tl if x.startswith(src_tr)]
     retrofit = re.compile(r"\s*\[(?:рус\.|eng\.)\s*[«\"](?:[^«»\"]|[«\"][^»\"]*[»\"])*[»\"]\]")
@@ -687,35 +680,35 @@ def main():
                     {"kind": "source_line_mismatch", "preview": a[:60]},
                 )
 
-    cn_body = body(sl, src_cn)
-    tr_body = body(tl, src_tr)
-    labels = {
-        "cn": field_labels.field_labels("cn", root=root),
-        lang: field_labels.field_labels(lang, root=root),
+    cn_body = body(sl)
+    tr_body = body(tl)
+    item_labels = {
+        "cn": labels.field_labels("cn", root=root),
+        lang: labels.field_labels(lang, root=root),
     }
-    banned = field_labels.banned_calques(lang, root=root)
+    banned = labels.banned_calques(lang, root=root)
     if not banned:
         print(
             f"  (note: no banned_calques configured for lang={lang} — "
             f"calque check is a no-op for this run)",
             file=sys.stderr,
         )
-    for i, cn_lab in enumerate(labels["cn"]):
+    for i, cn_lab in enumerate(item_labels["cn"]):
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
-        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))
+        got = sum(1 for x in tr_body if x.lstrip().startswith("- " + item_labels[lang][i]))
         if want != got:
             add_fail(
-                f'field {labels[lang][i]}: {got} != {want} ("- {cn_lab}")',
+                f'field {item_labels[lang][i]}: {got} != {want} ("- {cn_lab}")',
                 {
                     "kind": "field_count",
-                    "label": labels[lang][i],
+                    "label": item_labels[lang][i],
                     "got": got,
                     "want": want,
                     "cn_label": cn_lab,
                 },
             )
 
-    plain = labels[lang][1]
+    plain = item_labels[lang][1]
     for idx, ln in enumerate(tl, 1):
         if ln.lstrip().startswith("- " + plain):
             hits = re.findall(r"\b(?:HR|RR|OR|CI)\b", ln)

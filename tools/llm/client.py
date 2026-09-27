@@ -9,6 +9,8 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from tools.pipeline.config import default_root
+
 TIMEOUT_SEC = 300
 MAX_RETRIES = 2
 
@@ -17,13 +19,9 @@ class LLMError(Exception):
     pass
 
 
-def repo_root() -> Path:
-    return Path(__file__).resolve().parents[2]
-
-
 def load_dotenv(path: Path | None = None) -> None:
     if path is None:
-        path = repo_root() / ".env"
+        path = Path(default_root()) / ".env"
     if not path.is_file():
         return
     for raw in path.read_text(encoding="utf-8").splitlines():
@@ -58,34 +56,58 @@ def _temperature() -> float:
         raise LLMError(f"HTLB_LLM_TEMPERATURE must be a number, got {raw!r}") from e
 
 
-def chat(messages: list[dict[str, str]], *, max_tokens: int = 4096) -> str:
+def _completions_url(base_url: str) -> str:
+    base = base_url.rstrip("/")
+    if base.endswith("/chat/completions"):
+        return base
+    return f"{base}/chat/completions"
+
+
+def chat(
+    messages: list[dict[str, str]],
+    *,
+    max_tokens: int = 4096,
+    base_url: str | None = None,
+    model: str | None = None,
+    api_key: str | None = None,
+    temperature: float | None = None,
+    timeout: float | None = None,
+) -> str:
     load_dotenv()
-    base = _require_env("HTLB_LLM_BASE_URL").rstrip("/")
-    model = _require_env("HTLB_LLM_MODEL")
-    api_key = _require_env("HTLB_LLM_API_KEY")
-    url = f"{base}/chat/completions"
+    explicit = base_url is not None or model is not None
+    if base_url is None:
+        base_url = _require_env("HTLB_LLM_BASE_URL")
+    if model is None:
+        model = _require_env("HTLB_LLM_MODEL")
+    if temperature is None:
+        temperature = _temperature()
+    if timeout is None:
+        timeout = TIMEOUT_SEC
+    if api_key is None and not explicit:
+        api_key = _require_env("HTLB_LLM_API_KEY")
+    key = (api_key or "").strip()
+    url = _completions_url(base_url)
 
     body = json.dumps(
         {
             "model": model,
             "messages": messages,
-            "temperature": _temperature(),
+            "temperature": temperature,
             "top_p": 1.0,
             "max_tokens": max_tokens,
         },
         ensure_ascii=False,
     ).encode("utf-8")
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}",
-    }
+    headers = {"Content-Type": "application/json"}
+    if key:
+        headers["Authorization"] = f"Bearer {key}"
 
     last_err: Exception | None = None
     for attempt in range(MAX_RETRIES + 1):
         req = urllib.request.Request(url, data=body, headers=headers, method="POST")  # noqa: S310
         try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT_SEC) as resp:  # noqa: S310
+            with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310
                 status = resp.getcode()
                 raw = resp.read().decode("utf-8")
         except (TimeoutError, urllib.error.URLError) as e:

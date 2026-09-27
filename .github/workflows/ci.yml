@@ -10,6 +10,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,9 +37,6 @@ jobs:
             fi
           done
           exit $failed
-      # Smoke: make_digest still runs (output is gitignored; tests use temp mirrors).
-      - name: Generate digest fixtures
-        run: .venv/bin/python3 tools/make_digest.py 01
       - name: Run unit tests
         run: make test
       - name: Run integration tests
@@ -88,22 +87,17 @@ jobs:
 
   quality:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Readability gate
+      - name: Install deps
         run: |
-          for lang in ru en es; do
-            echo "=== $$lang ==="
-            python3 tools/readability.py "$$lang" --strict
-          done
-        continue-on-error: true
-      - name: Bureaucratese gate
-        run: |
-          for lang in ru en es; do
-            echo "=== $$lang ==="
-            python3 tools/bureaucratese.py "$$lang" --strict
-          done
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements-dev.txt
+      - name: Content quality gates
+        run: make quality
         continue-on-error: true

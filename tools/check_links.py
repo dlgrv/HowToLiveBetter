@@ -19,7 +19,9 @@ import re
 import sys
 import urllib.parse
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root
+
+ROOT = default_root()
 
 LINK = re.compile(r'\]\(([^)\s]+)(?:\s+"[^"]*")?\)')
 FENCE = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)

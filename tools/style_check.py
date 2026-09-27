@@ -18,18 +18,12 @@ import os
 import re
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
 from tools.pipeline import config as pconfig
+from tools.pipeline.config import default_root
+from tools.pipeline.labels import PLAIN_FIELD_INDEX, field_labels
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+REPO = default_root()
 MAX_PER_CATEGORY = 5
-
-PLAIN_FIELD = {
-    "ru": "Простыми словами",
-    "en": "In plain terms",
-    "es": "En términos sencillos",
-}
 
 
 def _compile_markers(raw_markers):
@@ -77,12 +71,7 @@ def load_glossary_marker_dicts(lang, root=REPO):
     return markers
 
 
-def load_glossary_markers(lang, root=REPO):
-    """Compiled glossary markers."""
-    return _compile_markers(load_glossary_marker_dicts(lang, root=root))
-
-
-def load_markers(lang, root=REPO):
+def load_markers(lang, root=REPO, include_glossary=True):
     """Style markers for a language from its language pack + glossary."""
     try:
         rules = pconfig.load_lang_rules(lang, root=root)
@@ -92,38 +81,44 @@ def load_markers(lang, root=REPO):
         ) from None
     raw = list(rules.get("style_markers", []))
     seen = {m["pattern"] for m in raw}
-    for gm in load_glossary_marker_dicts(lang, root=root):
-        if gm["pattern"] not in seen:
-            seen.add(gm["pattern"])
-            raw.append(gm)
+    if include_glossary:
+        for gm in load_glossary_marker_dicts(lang, root=root):
+            if gm["pattern"] not in seen:
+                seen.add(gm["pattern"])
+                raw.append(gm)
     return _compile_markers(raw)
 
 
-def load_zones(lang, root=REPO):
-    try:
-        rules = pconfig.load_lang_rules(lang, root=root)
-    except FileNotFoundError:
-        raise ValueError(f"unknown language {lang!r}") from None
-    return tuple(rules.get("whitelist_zones", []))
-
-
 def _is_plain_terms_line(line, lang):
-    label = PLAIN_FIELD.get(lang)
-    if not label:
+    try:
+        label = field_labels(lang)[PLAIN_FIELD_INDEX]
+    except (KeyError, FileNotFoundError):
         return False
     stripped = line.lstrip()
     return stripped.startswith(f"- {label}:")
 
 
-def check_text(text, lang, root=REPO, plain_only=False):
+def check_text(
+    text,
+    lang,
+    root=REPO,
+    plain_only=False,
+    include_glossary=True,
+    max_per_category=MAX_PER_CATEGORY,
+):
     """Return [{label, line_no, span, zone}] for style-marker hits.
 
     Whitelisted lines (evidence/notes/sources prefixes) are skipped entirely
     unless plain_only is set (then only plain-terms lines are scanned).
-    Per-category cap = MAX_PER_CATEGORY (mirrors verify.py calque mechanism).
+    Per-category cap defaults to MAX_PER_CATEGORY; pass None for no cap
+    (book-wide quality gate).
     """
-    markers = load_markers(lang, root=root)
-    zones = load_zones(lang, root=root)
+    markers = load_markers(lang, root=root, include_glossary=include_glossary)
+    try:
+        rules = pconfig.load_lang_rules(lang, root=root)
+    except FileNotFoundError:
+        raise ValueError(f"unknown language {lang!r}") from None
+    zones = tuple(rules.get("whitelist_zones", []))
     findings = []
     per_label = {}
     for line_no, line in enumerate(text.splitlines(), 1):
@@ -135,7 +130,7 @@ def check_text(text, lang, root=REPO, plain_only=False):
         for m in markers:
             for match in m["_re"].finditer(line):
                 label = m["label"]
-                if per_label.get(label, 0) >= MAX_PER_CATEGORY:
+                if max_per_category is not None and per_label.get(label, 0) >= max_per_category:
                     break
                 per_label[label] = per_label.get(label, 0) + 1
                 findings.append(

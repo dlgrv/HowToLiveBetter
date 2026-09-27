@@ -9,9 +9,9 @@ import json
 import os
 import unittest
 
-from tools.test_paths import ROOT
+from tools.test_paths import REPO_ROOT
 
-MANIFEST = os.path.join(ROOT, "tools", "validate", "results", "golden_manifest.json")
+MANIFEST = os.path.join(REPO_ROOT, "tools", "validate", "results", "golden_manifest.json")
 
 
 def _merge_skip_line(xa: str) -> bool:

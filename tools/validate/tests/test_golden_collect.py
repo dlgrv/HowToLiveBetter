@@ -8,10 +8,10 @@ without ever leaking that mapping into output files consumed by humans.
 import os
 import unittest
 
-from tools.test_paths import ROOT
+from tools.test_paths import REPO_ROOT
 from tools.validate import golden_collect as gc
 
-RESULTS = os.path.join(ROOT, "tools", "validate", "results")
+RESULTS = os.path.join(REPO_ROOT, "tools", "validate", "results")
 
 
 def blind_done():

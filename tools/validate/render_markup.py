@@ -16,12 +16,11 @@ import argparse
 import html
 import json
 import os
-import sys
 from difflib import SequenceMatcher
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-if REPO not in sys.path:
-    sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root
+
+REPO = default_root()
 
 LINE_RATIO_FLOOR = 0.3
 

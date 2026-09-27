@@ -1,115 +1,29 @@
 #!/usr/bin/env python3
-"""Bureaucratese detector — flags канцелярит in translations.
+"""Book-wide канцелярит gate — same markers as style_check, two CLIs.
 
-North Star: перевод должен быть безумно понятным для носителя.
-Uses a seeded list of bureaucratic patterns (RU / EN / ES) plus
-generalisations: passive-voice chains, nominalisations, long genitive
-chains, and verbosity heuristics.
+Per-file review: tools/style_check.py (WARN, exit 0).
+This script walks book/{lang}/ and can --strict fail for make quality.
+Glossary calques stay on the style/verify path, not here.
 """
 
 import json
 import os
-import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root
+from tools.style_check import check_text
 
-
-PROFILES = {
-    "ru": {
-        "patterns": [
-            (
-                r"(?:производить|произвести|осуществлять|осуществить|произвести)\s+[а-яё]+(?:ие|ие|ку)",
-                "действие → глагол",
-            ),
-            (
-                r"(?:подвергать|подвергаться|подвергнуть|подвергнуться)\s+[а-яё]+(?:ию|ию)",
-                "подвергать → глагол",
-            ),
-            (r"являться\s+\S+ным", "являться → опустить"),
-            (r"носить\s+\S+ный\s+характер", "носить … характер → опустить"),
-            (r"иметь место\s", "иметь место → происходить"),
-            (r"принимать участие\b", "принимать участие → участвовать"),
-            (r"оказывать помощь\b", "оказывать помощь → помогать"),
-            (r"оказывать влияние\b", "оказывать влияние → влиять"),
-            (r"проводить анализ\b", "проводить анализ → анализировать"),
-            (r"\b\w+ого\s+\w+ой\s+\w+ого\s", "цепочка родительных падежей"),
-            (r"\b\w+ия\s+\w+ого\s+\w+ия\s", "цепочка родительных падежей"),
-            (r"(?:является|было|будет)\s+сделан[аоы]", "пассив: было сделано → сделали"),
-            (r"(?:является|считается)\s+\S+ным", "пассив: является … → глагол"),
-            (r"в целях\s", "в целях → чтобы"),
-            (r"в рамках\s", "в рамках → в/при"),
-            (r"в соответствии с\b", "в соответствии с → по / согласно"),
-            (r"на основании\b", "на основании → из-за / на основе"),
-            (r"в связи с тем, что\b", "в связи с тем, что → потому что"),
-            (r"в случае, если\b", "в случае, если → если"),
-            (r"в том числе\b", "в том числе → включая / например"),
-            (r"\bв данном\b", "в данном → в этом"),
-            (r"\bданн(?:ый|ая|ое|ом)\b", "данный → этот (искл. данные как data)"),
-            (r"вышеуказанн|нижеуказанн|вышеописанн", "вышеуказанный → этот"),
-            (r"посредством\b", "посредством → через / с помощью"),
-            (r"необходимо отметить\b", "необходимо отметить → важно / опустить"),
-            (r"вместе с тем\b", "вместе с тем → однако / но"),
-        ],
-    },
-    "en": {
-        "patterns": [
-            (r"it should be noted that\b", "it should be noted that → note that / omit"),
-            (r"it is important to note that\b", "→ note that"),
-            (r"in order to\b", "in order to → to"),
-            (r"in the event that\b", "in the event that → if"),
-            (r"in accordance with\b", "in accordance with → under / per"),
-            (r"for the purpose of\b", "for the purpose of → for / to"),
-            (r"with regard to\b", "with regard to → about / on"),
-            (r"in respect of\b", "in respect of → about"),
-            (r"in relation to\b", "in relation to → about / on"),
-            (r"by means of\b", "by means of → by / using"),
-            (r"on the basis of\b", "on the basis of → based on / because"),
-            (r"with the exception of\b", "with the exception of → except"),
-            (r"as a consequence of\b", "as a consequence of → because of"),
-            (r"prior to\b", "prior to → before"),
-            (r"subsequent to\b", "subsequent to → after"),
-            (r"in the course of\b", "in the course of → during"),
-            (r"a number of\b", "a number of → several / some"),
-        ],
-    },
-    "es": {
-        "patterns": [
-            (r"cabe señalar que\b", "cabe señalar que → omitir"),
-            (r"es importante señalar que\b", "→ señalar que"),
-            (r"con el fin de\b", "con el fin de → para"),
-            (r"a fin de\b", "a fin de → para"),
-            (r"de conformidad con\b", "de conformidad con → según"),
-            (r"en relación con\b", "en relación con → sobre"),
-            (r"por medio de\b", "por medio de → con / mediante"),
-            (r"con respecto a\b", "con respecto a → sobre"),
-            (r"por parte de\b", "por parte de → de"),
-            (r"en caso de que\b", "en caso de que → si"),
-            (r"antes de que\b", "antes de que → si no es necesario, reducir"),
-        ],
-    },
-}
-
-
-def check_text(text, lang):
-    """Return list of (pattern_desc, match_text) for each violation."""
-    profile = PROFILES.get(lang)
-    if not profile:
-        return []
-    issues = []
-    for pattern, desc in profile["patterns"]:
-        for m in re.finditer(pattern, text, re.IGNORECASE):
-            match_text = m.group(0)
-            if re.search(r"\d", match_text):
-                continue
-            issues.append((desc, match_text.strip()))
-    return issues
+ROOT = default_root()
 
 
 def check_file(path, lang):
     with open(path, encoding="utf-8") as f:
         text = f.read()
-    return check_text(text, lang)
+    try:
+        findings = check_text(text, lang, include_glossary=False, max_per_category=None)
+    except ValueError:
+        return []
+    return [(f.get("note") or f["label"], f["span"]) for f in findings]
 
 
 def check_dir(root_dir, lang):

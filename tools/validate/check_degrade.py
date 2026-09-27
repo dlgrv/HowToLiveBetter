@@ -20,12 +20,21 @@ import re
 import sys
 from collections import Counter
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from tools.pipeline.config import default_root
+from tools.pipeline.labels import evidence_grade_label, source_bullet
 
-PROTECTED = re.compile(
-    r"^(### |<!--|- Уровень доказательности|- Источники|"
-    r"- Evidence level|- Sources)"
+REPO = default_root()
+
+_PROTECTED_PREFIXES = (
+    "### ",
+    "<!--",
+    *(
+        prefix
+        for lang in ("ru", "en")
+        for prefix in (f"- {evidence_grade_label(lang, root=REPO)}", source_bullet(lang, root=REPO))
+    ),
 )
+PROTECTED = re.compile("^(" + "|".join(re.escape(p) for p in _PROTECTED_PREFIXES) + ")")
 DIGITS = re.compile(r"\d+")
 RATIO_BANDS = {"abridgement": (0.55, 0.90), "bloat": (1.15, 1.70)}
 LEAK = re.compile(r"variant_a|variant_b|decoy|recipe|placeholder|TODO|lorem", re.IGNORECASE)

@@ -20,11 +20,10 @@ import os
 import random
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
+from tools.pipeline.config import default_root
 from tools.pipeline.paths import load_chapter_text
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO = default_root()
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 MANIFEST = os.path.join(RESULTS, "golden_manifest.json")
 SEED = 42
@@ -88,12 +87,7 @@ DEGRADE_RECIPES = [
     },
 ]
 
-CLEAN_GREEN = set(GREEN_CHAPTERS)
 DECOY_TARGET = 42
-
-
-def read_chapter(root, nn, lang):
-    return load_chapter_text(root, nn, lang)
 
 
 def excerpt_pool(root, nn, lang):
@@ -103,7 +97,7 @@ def excerpt_pool(root, nn, lang):
     they are byte-identical in both variants and do not affect fluency
     comparison. Blocks span from '### ' heading to the next heading/blank.
     """
-    text = read_chapter(root, nn, lang)
+    text = load_chapter_text(root, nn, lang)
     blocks, cur = [], []
     for line in text.splitlines():
         if line.startswith("### ") or line.strip() == "":
@@ -196,7 +190,7 @@ def load_manifest(path=MANIFEST):
         return json.load(f)
 
 
-def build_session(_root=REPO):
+def build_session():
     """Markup session: 6 batches x 10 pairs, no mapping leakage."""
     m = load_manifest()
     batches = []
@@ -234,7 +228,7 @@ def validate_manifest():
             problems.append(f"pair {p['id']}: B == A")
         if not p["decoy"] and p.get("variant_b") and not p.get("recipe"):
             problems.append(f"pair {p['id']}: B filled without recipe")
-        book = read_chapter(REPO, p["chapter"], p["lang"])
+        book = load_chapter_text(REPO, p["chapter"], p["lang"])
         if p["variant_a"][:80] not in book:
             problems.append(f"pair {p['id']}: variant_a not in book")
     if problems:

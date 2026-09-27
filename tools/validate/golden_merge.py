@@ -12,11 +12,18 @@ import os
 import re
 import sys
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+from tools.pipeline.config import default_root
+from tools.pipeline.labels import source_bullet
+
+REPO = default_root()
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 MANIFEST = os.path.join(RESULTS, "golden_manifest.json")
 
-IMMUTABLE_PREFIXES = ("### ", "<!--", "- Источники:", "- Sources:")
+IMMUTABLE_PREFIXES = (
+    "### ",
+    "<!--",
+    *(source_bullet(lang, root=REPO) for lang in ("ru", "en")),
+)
 NUM_RE = re.compile(r"\d+(?:[.,]\d+)?")
 
 

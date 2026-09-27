@@ -1,12 +1,15 @@
 # HowToLiveBetter translation pipeline
 # All commands run from repo root.
+# Raw `python3 tools/…` needs PYTHONPATH=. (or use these targets).
+
+export PYTHONPATH := $(CURDIR)
 
 PY = .venv/bin/python3
 RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build
+.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality factcheck style check-content check-links
 
 OG_HTML = tools/og/en.html tools/og/ru.html tools/og/es.html tools/og/zh.html
 
@@ -44,7 +47,7 @@ check-commit-msg:  ## Validate a message: make check-commit-msg MSG='fix: …'
 ifeq ($(origin LANG),command line)
 QUALITY_LANGS := $(LANG)
 else
-QUALITY_LANGS := ru en es
+QUALITY_LANGS := $(shell $(PY) -c 'from tools.pipeline.config import translation_langs; print(" ".join(translation_langs()))')
 endif
 
 quality:  ## Content quality (readability + bureaucratese). Usage: make quality [LANG=ru]
@@ -99,13 +102,14 @@ assemble:  ## Assemble units → book chapter. Usage: make assemble CH=02 LANG=r
 verify:  ## Verify one translated chapter. Usage: make verify CH=01 LANG=ru
 	@[ -n "$(CH)" ] || (echo "Usage: make verify CH=NN LANG=ru|en|es" && exit 1)
 	@[ -n "$(LANG)" ] || (echo "Usage: make verify CH=NN LANG=ru|en|es" && exit 1)
-	$(PY) tools/verify.py $(CH) --lang $(LANG) --json
+	$(PY) tools/verify.py $(CH_PAD) --lang $(LANG) --json
 
 verify-all:  ## Verify all chapters for a language. Usage: make verify-all LANG=ru
 	@[ -n "$(LANG)" ] || (echo "Usage: make verify-all LANG=ru|en|es" && exit 1)
 	@for ch in $$(ls book/$(LANG)/ | grep -oE '^[0-9]+' | sort -n | uniq); do \
-		echo "=== Chapter $$ch ($(LANG)) ==="; \
-		$(PY) tools/verify.py $$ch --lang $(LANG) --json; \
+		nn=$$(printf '%02d' $$ch); \
+		echo "=== Chapter $$nn ($(LANG)) ==="; \
+		$(PY) tools/verify.py $$nn --lang $(LANG) --json; \
 	done
 
 # ── Wave pipeline ───────────────────────────────────────────────
@@ -163,7 +167,7 @@ lint:  ## All code linters (must match CI)
 	$(RUFF) check tools/
 	$(DJLINT) $(OG_HTML) --check
 	$(DJLINT) site/index.html --lint
-	$(YAMLLINT) .github/workflows/ pipeline.yaml tools/rules/
+	$(YAMLLINT) .github/workflows/
 	shellcheck tools/llm/*.sh
 
 test:  ## Run unit tests (excludes integration)

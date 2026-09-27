@@ -19,7 +19,9 @@ import os
 import shutil
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root
+
+ROOT = default_root()
 SITE = os.path.join(ROOT, "site")
 OUT = os.path.join(ROOT, ".publish")
 

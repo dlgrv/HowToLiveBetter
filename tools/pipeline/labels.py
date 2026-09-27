@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
-from tools.pipeline.config import default_root, load_lang_rules
+from tools.pipeline.config import load_lang_rules
 
 # CN source bullet uses fullwidth colon; translations use ASCII.
 _CN_COLON = "："
 _TR_COLON = ":"
+
+# Position of the plain-terms field (说人话 / In plain terms / Простыми словами)
+# inside field_labels(lang).
+PLAIN_FIELD_INDEX = 1
 
 
 def field_labels(lang: str, root: str | None = None) -> list[str]:
@@ -16,11 +20,6 @@ def field_labels(lang: str, root: str | None = None) -> list[str]:
     if lang not in labels:
         raise KeyError(f"rules/{lang if lang != 'cn' else 'cn'}.json missing labels[{lang!r}]")
     return list(labels[lang])
-
-
-def cn_field_labels(root: str | None = None) -> list[str]:
-    """Chinese source field names (always from rules/cn.json or pack labels.cn)."""
-    return field_labels("cn", root=root)
 
 
 def source_label(lang: str, root: str | None = None) -> str:
@@ -56,9 +55,3 @@ def banned_calques(lang: str, root: str | None = None) -> list[str]:
         return []
     pack = load_lang_rules(lang, root=root)
     return list(pack.get("banned_calques") or [])
-
-
-def all_field_labels(langs: tuple[str, ...] = ("cn", "ru", "en", "es"), root: str | None = None):
-    """Map lang → field label list (verify-style LABELS dict)."""
-    root = root or default_root()
-    return {lang: field_labels(lang, root=root) for lang in langs}

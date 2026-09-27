@@ -1,4 +1,7 @@
-"""Canonical chapter file resolution under book/ and book/<lang>/."""
+"""Canonical chapter file resolution under book/ and book/<lang>/.
+
+Unit directories are not resolved here — see tools/pipeline/config.unit_dir.
+"""
 
 from __future__ import annotations
 
@@ -10,16 +13,6 @@ import re
 def _nn(chapter) -> str:
     """Normalize chapter id to two-digit form ('2' / 2 / '02' → '02')."""
     return f"{int(chapter):02d}"
-
-
-def digest_dir(root: str, chapter) -> str:
-    """Absolute path of tools/digest/<NN>/ (always zero-padded)."""
-    return os.path.join(root, "tools", "digest", _nn(chapter))
-
-
-def digest_units_dir(root: str, chapter) -> str:
-    """CN digest units directory: tools/digest/<NN>/units/."""
-    return os.path.join(digest_dir(root, chapter), "units")
 
 
 def cn_chapter_path(root: str, chapter) -> str:
@@ -55,15 +48,3 @@ def load_chapter_text(root: str, chapter, lang: str | None = None) -> str:
     path = cn_chapter_path(root, chapter) if lang is None else tr_chapter_path(root, chapter, lang)
     with open(path, encoding="utf-8") as f:
         return f.read()
-
-
-def active_units_dir(root: str, lang: str, chapter) -> str:
-    """Translated units dir from project.yaml unit_dirs (SSOT via config.unit_dir)."""
-    from tools.pipeline.config import unit_dir
-
-    return unit_dir(root, lang, chapter)
-
-
-def active_run_dir(root: str, lang: str, chapter) -> str:
-    """Canonical wave workdir (parent of units/)."""
-    return os.path.dirname(active_units_dir(root, lang, chapter))

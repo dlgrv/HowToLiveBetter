@@ -40,6 +40,7 @@ tools/validate/results/mutations_cases.json
 tools/validate/results/qe_noise.json
 tools/validate/results/golden_labels.json
 tools/validate/results/golden_verdicts.json
+tools/validate/results/retro_e_findings.json
 
 .worktrees/
 .superpowers/

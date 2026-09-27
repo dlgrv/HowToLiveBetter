@@ -18,16 +18,14 @@ Checks (all WARN):
                      in parentheses right after first use
 """
 
-import json
 import os
 import re
 import sys
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-if REPO not in sys.path:
-    sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root, load_lang_rules, translation_langs
+from tools.pipeline.labels import PLAIN_FIELD_INDEX, field_labels
 
-RULES_DIR = os.path.join(REPO, "tools", "rules")
+REPO = default_root()
 
 SENT_SPLIT_RE = re.compile(r"(?<=[.!?;])\s+")
 WORD_RE = re.compile(r"[\w}-]+", re.UNICODE)
@@ -77,20 +75,13 @@ DEFAULT_OK = {
     },
 }
 
-PLAIN_FIELD = {"ru": "Простыми словами", "en": "In plain terms", "cn": "说人话"}
-
-
-def _pack(lang):
-    path = os.path.join(RULES_DIR, f"{lang}.json")
-    if os.path.isfile(path):
-        return json.load(open(path, encoding="utf-8"))
-    return {}
+PLAIN_LANGS = ("cn", *translation_langs())
 
 
 def plain_fields(body, pack):
     """Extract (unit_header, plain_field_text) pairs from a chapter body."""
     lang = pack.get("lang", "ru")
-    field = PLAIN_FIELD.get(lang, "Простыми словами")
+    field = field_labels(lang if lang in PLAIN_LANGS else "ru", root=REPO)[PLAIN_FIELD_INDEX]
     out = []
     for block in re.split(r"\n(?=### )", body):
         m = re.search(rf"^- {re.escape(field)}:\s*(.+)$", block, re.MULTILINE)
@@ -155,14 +146,14 @@ def main():
     ap.add_argument("--lang", default="ru")
     ap.add_argument("--book-dir", default=os.path.join(REPO, "book"))
     args = ap.parse_args()
-    if args.lang not in PLAIN_FIELD:
+    if args.lang not in PLAIN_LANGS:
         print(
             f"WARN: plainness skip: no plain-field label for lang={args.lang!r} "
-            f"(supported: {', '.join(sorted(PLAIN_FIELD))})",
+            f"(supported: {', '.join(sorted(PLAIN_LANGS))})",
             file=sys.stderr,
         )
         return 0
-    pack = _pack(args.lang)
+    pack = load_lang_rules(args.lang, root=REPO)
     pack.setdefault("lang", args.lang)
     lang_dir = os.path.join(args.book_dir, args.lang)
     base = lang_dir if os.path.isdir(lang_dir) else args.book_dir

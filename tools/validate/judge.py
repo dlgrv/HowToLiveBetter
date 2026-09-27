@@ -18,15 +18,17 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
+from tools.pipeline import (
+    config as pipeline_config,
+)
 from tools.pipeline import (
     judges,
     store,
 )
+from tools.pipeline.config import default_root
 from tools.validate.factcheck import parse_verdict
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO = default_root()
 PROMPTS_DIR = os.path.join(REPO, "tools", "prompts")
 
 
@@ -61,7 +63,8 @@ def main():
     prompt_template = load_prompt(args.mode)
     prompt = f"{prompt_template}\n\n---\n\n{unit_text}"
 
-    model_id = judges.configured_model_id(REPO)
+    judge_cfg = pipeline_config.load_config(REPO).get("judge", {})
+    model_id = judge_cfg.get("model_id", "glm-5.3-flash")
     if args.stdin_response:
         reply = args.stdin_response
     else:
@@ -78,9 +81,8 @@ def main():
                 )
             )
             return 2
-        backend_cls = judges.get_backend(judges.backend_name(REPO))
-        client = backend_cls(model_id=model_id, api_key=api_key)
-        reply = client.complete(prompt)
+        judges.get_backend(judge_cfg.get("backend", "subagent-glm"))
+        reply = judges.complete(prompt, model_id=model_id, api_key=api_key)
 
     try:
         verdict = json.loads(reply)

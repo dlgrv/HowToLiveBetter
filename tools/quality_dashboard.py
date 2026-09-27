@@ -11,7 +11,9 @@ import os
 import subprocess
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root, load_langs, translation_langs
+
+ROOT = default_root()
 
 
 def run(argv):
@@ -23,6 +25,7 @@ def run(argv):
         timeout=30,
         cwd=ROOT,
         check=False,
+        env={**os.environ, "PYTHONPATH": ROOT},
     )
     return r.returncode, (r.stdout + r.stderr)
 
@@ -35,7 +38,7 @@ def count_chapters(lang_dir):
 
 
 def main():
-    langs = ["ru", "en", "es"]
+    langs = translation_langs(ROOT)
 
     rows = []
     issues = 0
@@ -70,19 +73,20 @@ def main():
         if bur_hits > 0:
             issues += 1
 
-        og_dir = os.path.join(ROOT, "og", lang)
-        og_ok = n_ch
-        og_missing = 0
-        if os.path.isdir(og_dir):
-            og_missing = n_ch - len([f for f in os.listdir(og_dir) if f.endswith(".png")])
-            og_ok = n_ch - og_missing
+        # One OG preview per language: authored HTML + rendered PNG.
+        og_html = os.path.join(ROOT, "tools", "og", f"{lang}.html")
+        og_png = os.path.join(ROOT, "site", "assets", "og", f"{lang}.png")
+        og_have = [
+            name for name, path in (("html", og_html), ("png", og_png)) if os.path.isfile(path)
+        ]
+        og_status = "OK" if len(og_have) == 2 else ("+".join(og_have) or "MISSING")
+        if og_status != "OK":
+            issues += 1
 
-        readme_files = {
-            "ru": "README.ru.md",
-            "en": "README.md",
-            "es": "README.es.md",
-        }
-        rm_file = readme_files.get(lang, f"README.{lang}.md")
+        rm_file = next(
+            (e["readme"] for e in load_langs(ROOT) if e.get("code") == lang),
+            f"README.{lang}.md",
+        )
         rm_path = os.path.join(ROOT, rm_file)
         rm_ok = "OK" if os.path.isfile(rm_path) else "MISSING"
         if rm_ok == "MISSING":
@@ -95,7 +99,7 @@ def main():
                 "readability": f"{readability['score']}",
                 "below60": readability["below_target"],
                 "bureaucratese": bur_hits,
-                "og": f"{og_ok}/{n_ch}",
+                "og": og_status,
                 "readme": rm_ok,
             }
         )
@@ -108,9 +112,10 @@ def main():
     for r in rows:
         bur_flag = f"⚠{r['bureaucratese']}" if r["bureaucratese"] > 100 else str(r["bureaucratese"])
         readme_flag = f"⚠ {r['readme']}" if r["readme"] != "OK" else r["readme"]
+        og_flag = f"⚠ {r['og']}" if r["og"] != "OK" else r["og"]
         print(
             f"{r['lang']:>6} {r['chapters']:>3} {r['readability']:>5} "
-            f"{r['below60']:>4} {bur_flag:>5} {r['og']:>8} {readme_flag:>8}"
+            f"{r['below60']:>4} {bur_flag:>5} {og_flag:>8} {readme_flag:>8}"
         )
     print(sep)
 

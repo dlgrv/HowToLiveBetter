@@ -13,7 +13,9 @@ import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root
+
+ROOT = default_root()
 
 
 def count_syllables_ru(word):

@@ -13,11 +13,10 @@ import json
 import os
 import sys
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.paths import _nn, cn_chapter_path
 
-from tools.pipeline.paths import _nn, cn_chapter_path, digest_dir  # noqa: E402
+root = default_root()
 
 n = _nn(sys.argv[1])
 try:
@@ -40,7 +39,7 @@ for ln in lines:
     else:
         cur["body"].append(ln)
 
-d = digest_dir(root, n)
+d = os.path.dirname(unit_dir(root, "cn", n))
 os.makedirs(os.path.join(d, "units"), exist_ok=True)
 
 open(os.path.join(d, "units", "00.md"), "w", encoding="utf-8").write(

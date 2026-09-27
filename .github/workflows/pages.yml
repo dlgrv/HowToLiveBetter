@@ -1,8 +1,10 @@
 name: pages
-# Build flat site artifact and deploy to GitHub Pages.
+# Deploy to GitHub Pages only after workflow "test" succeeds on main.
 
 on:
-  push:
+  workflow_run:
+    workflows: [test]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -17,9 +19,19 @@ concurrency:
 
 jobs:
   build:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # workflow_run checkout defaults to default branch tip; pin to the
+          # commit that passed tests when triggered by workflow_run.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

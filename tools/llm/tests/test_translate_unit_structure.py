@@ -6,6 +6,21 @@ from __future__ import annotations
 import unittest
 
 from tools.llm import translate_unit as tu
+from tools.pipeline.labels import field_labels
+
+
+class RequiredFieldsSSOT(unittest.TestCase):
+    """REQUIRED_FIELDS is derived from tools/rules/<lang>.json, not hand-copied."""
+
+    def test_ru_plain_terms_label(self):
+        self.assertEqual(tu.REQUIRED_FIELDS["ru"][1], "- Простыми словами:")
+
+    def test_parity_with_field_labels(self):
+        for lang in tu.LANGS:
+            self.assertEqual(
+                tu.REQUIRED_FIELDS[lang],
+                tuple(f"- {name}:" for name in field_labels(lang)),
+            )
 
 
 class StripInject(unittest.TestCase):

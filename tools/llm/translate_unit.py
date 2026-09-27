@@ -7,67 +7,32 @@ import re
 import sys
 from pathlib import Path
 
-_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-if _ROOT not in sys.path:
-    sys.path.insert(0, _ROOT)
+from tools.llm.client import LLMError, chat
+from tools.pipeline.config import default_root, translation_langs
+from tools.pipeline.labels import field_labels
 
-from tools.llm.client import LLMError, chat, repo_root  # noqa: E402
+LANGS = tuple(translation_langs())
 
-LANGS = ("ru", "en", "es")
-
+# Single source of truth for field labels: tools/rules/<lang>.json.
 REQUIRED_FIELDS: dict[str, tuple[str, ...]] = {
-    "ru": (
-        "- Стоимость:",
-        "- Простыми словами:",
-        "- Эффект:",
-        "- Уровень доказательности:",
-        "- Примечания:",
-    ),
-    "en": (
-        "- Cost:",
-        "- In plain terms:",
-        "- Benefit:",
-        "- Evidence grade:",
-        "- Notes:",
-    ),
-    "es": (
-        "- Costo:",
-        "- En términos sencillos:",
-        "- Beneficio:",
-        "- Nivel de evidencia:",
-        "- Notas:",
-    ),
+    lang: tuple(f"- {name}:" for name in field_labels(lang)) for lang in LANGS
 }
+
+_LANG_NAMES = {"ru": "Russian", "en": "English", "es": "Spanish"}
 
 LOCALE_FIELD_HINTS = {
-    "ru": (
-        "Russian field labels (exact list syntax, as in book/ru):\n"
-        + "\n".join(REQUIRED_FIELDS["ru"])
-        + "\nDo NOT use bold labels like **Стоимость:** — only `- Стоимость:`.\n"
+    lang: (
+        f"{_LANG_NAMES[lang]} field labels (exact list syntax, as in book/{lang}):\n"
+        + "\n".join(REQUIRED_FIELDS[lang])
+        + f"\nDo NOT use bold labels like **{field_labels(lang)[0]}:** — "
+        f"only `{REQUIRED_FIELDS[lang][0]}`.\n"
         "Do NOT output §TAG§ or §SRC§ — the pipeline injects them after you translate.\n"
         "Do not translate 来源 lines (they are stripped from the source you see)."
-    ),
-    "en": (
-        "English field labels (exact list syntax, as in book/en):\n"
-        + "\n".join(REQUIRED_FIELDS["en"])
-        + "\nDo NOT use bold labels like **Cost:** — only `- Cost:`.\n"
-        "Do NOT output §TAG§ or §SRC§ — the pipeline injects them after you translate.\n"
-        "Do not translate 来源 lines (they are stripped from the source you see)."
-    ),
-    "es": (
-        "Spanish field labels (exact list syntax, as in book/es):\n"
-        + "\n".join(REQUIRED_FIELDS["es"])
-        + "\nDo NOT use bold labels like **Costo:** — only `- Costo:`.\n"
-        "Do NOT output §TAG§ or §SRC§ — the pipeline injects them after you translate.\n"
-        "Do not translate 来源 lines (they are stripped from the source you see)."
-    ),
+    )
+    for lang in LANGS
 }
 
-RETRY_FIELD_EXAMPLES = {
-    "ru": "- Стоимость: / - Простыми словами:",
-    "en": "- Cost: / - In plain terms:",
-    "es": "- Costo: / - En términos sencillos:",
-}
+RETRY_FIELD_EXAMPLES = {lang: " / ".join(REQUIRED_FIELDS[lang][:2]) for lang in LANGS}
 
 _MARKER_LINE = re.compile(r"^§(?:TAG|SRC)§\s*$")
 _BOLD_FIELD = re.compile(r"^\*\*[^*:\n]+:\*\*", re.MULTILINE)
@@ -89,13 +54,9 @@ def normalize_unit(unit: str) -> str:
     return f"{int(unit):02d}"
 
 
-def digest_root(root: Path) -> Path:
-    return (root / "tools" / "digest").resolve()
-
-
 def out_dir_is_under_digest(out_dir: Path, root: Path | None = None) -> bool:
-    root = root or repo_root()
-    digest = digest_root(root)
+    root = root or Path(default_root())
+    digest = (root / "tools" / "digest").resolve()
     try:
         out_dir.resolve().relative_to(digest)
     except ValueError:
@@ -267,7 +228,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = p.parse_args(argv)
 
-    root = repo_root()
+    root = Path(default_root())
     nn = normalize_nn(args.nn)
     uu = normalize_unit(args.unit)
     out_work = Path(args.out_dir)
@@ -278,9 +239,9 @@ def main(argv: list[str] | None = None) -> int:
 
     refuse_digest_outdir(out_work, root)
 
-    from tools.pipeline.paths import digest_units_dir
+    from tools.pipeline.config import unit_dir
 
-    digest_unit = Path(digest_units_dir(str(root), nn)) / f"{uu}.md"
+    digest_unit = Path(unit_dir(str(root), "cn", nn)) / f"{uu}.md"
     if not digest_unit.is_file():
         raise SystemExit(f"digest unit missing: {digest_unit}")
 

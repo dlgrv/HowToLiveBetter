@@ -10,10 +10,10 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from check_degrade import check
+from tools.pipeline.config import default_root
+from tools.validate.check_degrade import check
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REPO = default_root()
 MANIFEST = os.path.join(REPO, "tools/validate/results/golden_manifest.json")
 OUT = os.path.join(REPO, "tools/validate/results/_lite3_degrade_meaning_break.json")
 

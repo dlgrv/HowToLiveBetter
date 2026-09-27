@@ -49,7 +49,7 @@
 6. python3 tools/verify.py <NN> --lang <lang>         # обязательно после любого rewrite
 
 7. Factcheck vs китайский (pass E) — после re-verify, ДО style/LT:
-     # live: ZAI_API_KEY in env (or judge.backend local-ollama in project.yaml)
+     # live: ZAI_API_KEY in env (or judge.backend local-ollama in project.json)
      python3 tools/validate/factcheck.py \
        --chapter <NN> --lang <ru|en> \
        --cn-unit <path-to-cn-unit.md> \
@@ -125,7 +125,7 @@ python3 tools/validate/factcheck.py \
 | **LanguageTool** Docker `htlb-lt` `:8010` | [tools/languagetool/README.md](../../tools/languagetool/README.md) | `docker run --rm -d --name htlb-lt -p 8010:8010 erikvl87/languagetool:latest` → healthcheck curl → `lt_check.py` |
 
 **Канонический workdir волны:** `tools/runs/active/<lang>/<NN>/` (родитель `units/`).  
-`wave_pipeline.py` / `status.py` / `tools/rules/project.yaml` смотрят сюда — **не** `/root/htlb-run-*`.
+`wave_pipeline.py` / `status.py` / `tools/rules/project.json` смотрят сюда — **не** `/root/htlb-run-*`.
 
 Cloud LLM позже — тот же `.env` / `tools/llm` client (например CometAPI), без смены digest→assemble→verify→factcheck→style→LT.
 

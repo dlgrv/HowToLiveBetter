@@ -12,23 +12,24 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
 from tools.pipeline import qe as pqe
-from tools.validate import common as vc
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.store import norm_text
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO = default_root()
 
 
 def baseline_for_chapter(root, lang, nn):
-    cn_dir = vc.unit_dir(root, "cn", nn)
+    cn_dir = unit_dir(root, "cn", nn)
     units = sorted(os.path.basename(p) for p in glob.glob(os.path.join(cn_dir, "[0-9][0-9].md")))
     segs, ids = [], []
     for uf in units:
         unit = os.path.splitext(uf)[0]
-        cn_text = vc.norm_text(open(os.path.join(cn_dir, uf), encoding="utf-8").read())
+        cn_text = norm_text(open(os.path.join(cn_dir, uf), encoding="utf-8").read())
+        mt_path = os.path.join(unit_dir(root, lang, nn), f"{unit}.md")
         try:
-            mt_text = vc.norm_text(vc.load_unit(root, nn, lang, unit))
+            with open(mt_path, encoding="utf-8") as f:
+                mt_text = norm_text(f.read())
         except FileNotFoundError:
             continue
         segs.append({"src": cn_text, "mt": mt_text})
@@ -45,7 +46,7 @@ def main():
     ap.add_argument("--chapters", default="all", help="comma list like 01,13 or 'all'")
     args = ap.parse_args()
     root = REPO
-    if not pqe.available(root):
+    if pqe.venv_python(root) is None:
         print(
             json.dumps(
                 {"status": "skipped", "reason": "QE venv not available (needs Mac ~/.venvs/qe)"}
@@ -61,7 +62,7 @@ def main():
     for nn in chapters:
         try:
             per_unit = baseline_for_chapter(root, args.lang, int(nn))
-        except pqe.QeUnavailable as e:
+        except pqe.QeUnavailableError as e:
             print(json.dumps({"status": "skipped", "reason": str(e)}))
             return 0
         if per_unit is None:

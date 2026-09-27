@@ -16,43 +16,53 @@ ROOT = Path(REPO_ROOT)
 
 class VerifyJson(unittest.TestCase):
     def test_json_flag_emits_object_with_fails(self):
-        # Use existing ch01 candidate if present; else skip
-        cand = ROOT / "tools" / "runs" / "active" / "ru" / "01" / "assembled.md"
-        if not cand.is_file():
-            self.skipTest("no assembled candidate")
-        r = run_cli(
-            [
-                sys.executable,
-                str(ROOT / "tools" / "verify.py"),
-                "01",
-                "--lang",
-                "ru",
-                "--file",
-                str(cand),
-                "--json",
-            ],
-        )
-        # May be exit 0 or 1; JSON is the LAST stdout line (also on FAIL) —
-        # rfind("{") alone would land inside the object, so parse by line.
-        data = parse_verify_json(r.stdout)
-        self.assertIn("ok", data)
-        self.assertIn("fails", data)
-        self.assertIn("warns", data)
-        self.assertEqual(data["chapter"], "01")
-        self.assertEqual(data["lang"], "ru")
-        self.assertIsInstance(data["fails"], list)
-        if data["fails"]:
-            self.assertIn("kind", data["fails"][0])
-        if r.returncode == 1:
-            self.assertFalse(data["ok"])
-            self.assertGreater(len(data["fails"]), 0)
-            for f in data["fails"]:
-                if f.get("kind") == "number_absent":
-                    self.assertIn("value", f)
-                    self.assertIn("count", f)
-                if f.get("kind") == "banned_calque":
-                    self.assertIn("stem", f)
-                    self.assertIn("count", f)
+        # Hermetic: temp file (do not depend on gitignored runs/active).
+        tmpmd = ROOT / "tools" / "llm" / "tests" / "_tmp_verify_json_fixture.md"
+        try:
+            tmpmd.write_text(
+                "### 1. заголовок\n"
+                "- Стоимость: 100\n"
+                "- Простыми словами: что-то\n"
+                "- Эффект: 610 000 человек\n"
+                "- Уровень доказательности: A\n"
+                "- Примечания: ещё\n",
+                encoding="utf-8",
+            )
+            r = run_cli(
+                [
+                    sys.executable,
+                    str(ROOT / "tools" / "verify.py"),
+                    "01",
+                    "--lang",
+                    "ru",
+                    "--file",
+                    str(tmpmd),
+                    "--json",
+                ],
+            )
+            # May be exit 0 or 1; JSON is the LAST stdout line (also on FAIL) —
+            # rfind("{") alone would land inside the object, so parse by line.
+            data = parse_verify_json(r.stdout)
+            self.assertIn("ok", data)
+            self.assertIn("fails", data)
+            self.assertIn("warns", data)
+            self.assertEqual(data["chapter"], "01")
+            self.assertEqual(data["lang"], "ru")
+            self.assertIsInstance(data["fails"], list)
+            if data["fails"]:
+                self.assertIn("kind", data["fails"][0])
+            if r.returncode == 1:
+                self.assertFalse(data["ok"])
+                self.assertGreater(len(data["fails"]), 0)
+                for f in data["fails"]:
+                    if f.get("kind") == "number_absent":
+                        self.assertIn("value", f)
+                        self.assertIn("count", f)
+                    if f.get("kind") == "banned_calque":
+                        self.assertIn("stem", f)
+                        self.assertIn("count", f)
+        finally:
+            tmpmd.unlink(missing_ok=True)
 
     def test_es_banned_calques_empty_prints_stderr_note(self):
         # H1/H3: ES pack has banned_calques: [] → calque check is a silent

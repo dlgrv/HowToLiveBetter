@@ -15,12 +15,8 @@ import json
 import sys
 from pathlib import Path
 
-_ROOT = Path(__file__).resolve().parents[2]
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
-
-from tools.llm.client import LLMError, chat, repo_root  # noqa: E402
-from tools.llm.translate_unit import (  # noqa: E402
+from tools.llm.client import LLMError, chat
+from tools.llm.translate_unit import (
     LOCALE_FIELD_HINTS,
     atomic_write,
     inject_mechanical_markers,
@@ -31,9 +27,8 @@ from tools.llm.translate_unit import (  # noqa: E402
     strip_mechanical_markers,
     validate_unit,
 )
-from tools.llm.verify_issues import issues_still_present  # noqa: E402
-
-REPAIRABLE_KINDS = frozenset({"number_absent", "banned_calque"})
+from tools.llm.verify_issues import REPAIRABLE_KINDS, issues_still_present
+from tools.pipeline.config import default_root, translation_langs
 
 ISSUE_LINES = {
     "number_absent": lambda iss: (
@@ -91,7 +86,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Repair one translated unit (verify fails).")
     p.add_argument("--nn", required=True)
     p.add_argument("--unit", required=True)
-    p.add_argument("--lang", required=True, choices=["ru", "en", "es"])
+    p.add_argument("--lang", required=True, choices=translation_langs())
     p.add_argument("--out-dir", required=True, help="workdir (parent of units/)")
     p.add_argument(
         "--issues-json",
@@ -110,15 +105,15 @@ def main(argv: list[str] | None = None) -> int:
     if bad:
         raise SystemExit(f"unrepairable kinds in --issues-json: {bad}")
 
-    root = Path(repo_root())
+    root = Path(default_root())
     nn = normalize_nn(args.nn)
     uu = normalize_unit(args.unit)
     out_work = Path(args.out_dir).resolve()
     refuse_digest_outdir(out_work, root)
 
-    from tools.pipeline.paths import digest_units_dir
+    from tools.pipeline.config import unit_dir
 
-    digest_unit = Path(digest_units_dir(str(root), nn)) / f"{uu}.md"
+    digest_unit = Path(unit_dir(str(root), "cn", nn)) / f"{uu}.md"
     if not digest_unit.is_file():
         raise SystemExit(f"digest unit missing: {digest_unit}")
     unit_text = strip_mechanical_markers(digest_unit.read_text(encoding="utf-8"))

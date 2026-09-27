@@ -33,12 +33,16 @@ After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
 |---|---|
 | `book/NN-*.md` | CN source (upstream paths — frozen) |
 | `book/{en,ru,es}/` | translations |
-| `site/` | Pages UI (`index.html`, `{lang}/`, `assets/`) |
+| `site/` | authored Pages UI (`index.html`, `{lang}/`, `assets/`) |
+| `.publish/` | Pages deploy artifact (`make serve` / `pages_artifact.py`) |
 | `tools/` | pipeline + `tools/og/*.html` screenshot sources |
+| `tools/llm/` | machine translate / repair (LLM CLIs) |
+| `tools/validate/` | research / golden / judge — **not** required to publish |
 | `README*.md` | stay at repo root (GitHub UI + Pages artifact) |
 
-Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Actions (`.github/workflows/pages.yml`).
+**Publish path:** digest → `tools/runs/active/<lang>/<NN>/` → assemble → verify → `book/<lang>/`.
 
+Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Actions Pages job after workflow `test` succeeds on `main`.
 ## Locales
 
 - Registry: [tools/langs.json](tools/langs.json)
@@ -51,7 +55,7 @@ Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Action
 
 ## Pipeline (for AI agents)
 
-Entry point: `make help` lists all commands. Topology: `pipeline.yaml`.
+Entry point: `make help` lists all commands. Raw `python3 tools/…` from the repo root needs `PYTHONPATH=.` (Make exports it).
 
 ### Adding a chapter
 
@@ -68,7 +72,7 @@ Full checklist: [docs/pipeline/add-chapter.md](docs/pipeline/add-chapter.md). Su
 - **Commit policy:** publication only through MR + squash-merge to `main`. No direct pushes.
 - **Commit messages:** English Conventional Commits only — enforced by `.githooks/commit-msg` and CI on PRs. Run `make hooks` once after clone.
 - **Code quality stack** (config in `pyproject.toml` / `.yamllint.yaml`): **Ruff** (Python lint+format), **djlint** (`tools/og/*.html`, lint `site/index.html`), **yamllint**, **shellcheck** (`tools/llm/*.sh`). Commands: `make format`, `make lint`. Requires Python **≥3.11** venv and `shellcheck` on PATH. `.githooks/pre-commit` runs `make lint`.
-
+- **Repair issue locator:** `tools/llm/verify_issues.py` maps verify HARD fails to unit IDs (used by `repair_wave --dry-locate`); not the chapter verify gate (`tools/verify.py`).
 ### Commit messages
 
 Format: `type(optional-scope): description`
@@ -103,7 +107,6 @@ Local check: `make check-commit-msg MSG='fix: restore templates'` or `make hooks
 # 1. Orient
 make help
 cat translations.json    # what's done?
-cat pipeline.yaml        # what tools exist?
 
 # 2. Sync upstream (if needed)
 make sync-upstream       # pulls CN changes

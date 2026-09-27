@@ -13,12 +13,11 @@ import os
 import statistics
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
 from tools.pipeline import qe as pqe
-from tools.validate import common as vc
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.store import norm_text
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO = default_root()
 ANCHORS = [("ru", 1), ("ru", 13), ("ru", 24), ("en", 13)]
 RUNS = 5
 
@@ -27,14 +26,16 @@ def anchor_segments(root, lang, nn, max_units=3):
     """First N (cn, translation) segment pairs of an anchor chapter."""
     import glob
 
-    cn_dir = vc.unit_dir(root, "cn", nn)
+    cn_dir = unit_dir(root, "cn", nn)
     cn_files = sorted(glob.glob(os.path.join(cn_dir, "[0-9][0-9].md")))[:max_units]
     segs = []
     for cf in cn_files:
         unit = os.path.splitext(os.path.basename(cf))[0]
-        cn_text = vc.norm_text(open(cf, encoding="utf-8").read())
+        cn_text = norm_text(open(cf, encoding="utf-8").read())
+        mt_path = os.path.join(unit_dir(root, lang, nn), f"{unit}.md")
         try:
-            mt_text = vc.norm_text(vc.load_unit(root, nn, lang, unit))
+            with open(mt_path, encoding="utf-8") as f:
+                mt_text = norm_text(f.read())
         except FileNotFoundError:
             continue
         segs.append({"src": cn_text, "mt": mt_text})
@@ -42,7 +43,7 @@ def anchor_segments(root, lang, nn, max_units=3):
 
 
 def build_report(root=REPO, force_skip=False):
-    if force_skip or not pqe.available(root):
+    if force_skip or pqe.venv_python(root) is None:
         return {
             "status": "skipped",
             "reason": "QE venv not available on this machine (needs Mac ~/.venvs/qe)",

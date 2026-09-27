@@ -129,6 +129,10 @@ def _setup_tmp_fixtures(tmp):
         os.path.join(tools_dir, "rules"),
         ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
     )
+    shutil.copy2(
+        os.path.join(REPO_ROOT, "tools", "langs.json"),
+        os.path.join(tools_dir, "langs.json"),
+    )
 
     # CN original
     book_dir = os.path.join(tmp, "book")
@@ -164,6 +168,7 @@ def _run_assemble(tmp, workdir, out_md, lang="ru"):
         capture_output=True,
         text=True,
         timeout=10,
+        env={**os.environ, "PYTHONPATH": tmp},
     )
 
 

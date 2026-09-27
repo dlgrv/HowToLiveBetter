@@ -14,15 +14,19 @@ import sys
 import unittest
 
 from tools.llm import repair_wave
-from tools.test_paths import ROOT
+from tools.test_paths import REPO_ROOT
 
-_SCRIPT = os.path.join(ROOT, "tools", "llm", "repair_wave.py")
+_SCRIPT = os.path.join(REPO_ROOT, "tools", "llm", "repair_wave.py")
 
 
 class CliFlags(unittest.TestCase):
     def test_max_dirty_flag_accepted(self):
         r = subprocess.run(
-            [sys.executable, _SCRIPT, "--help"], capture_output=True, text=True, check=False
+            [sys.executable, _SCRIPT, "--help"],
+            capture_output=True,
+            text=True,
+            check=False,
+            env={**os.environ, "PYTHONPATH": REPO_ROOT},
         )
         assert r.returncode == 0
         assert "--max-dirty" in r.stdout

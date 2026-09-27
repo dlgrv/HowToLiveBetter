@@ -2,9 +2,9 @@ import json
 import os
 import unittest
 
-from tools.test_paths import REPO
+from tools.test_paths import REPO_ROOT
 
-GLOSS = os.path.join(REPO, "tools", "glossary.json")
+GLOSS = os.path.join(REPO_ROOT, "tools", "glossary.json")
 
 
 class TestNameForms(unittest.TestCase):

@@ -16,12 +16,11 @@ import json
 import os
 import sys
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root
+
+REPO = default_root()
 
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
-MANIFEST = os.path.join(RESULTS, "golden_manifest.json")
-OUT = os.path.join(RESULTS, "golden_blind_summary.json")
 
 
 def load_answers(results_dir=RESULTS):

@@ -26,8 +26,6 @@ class Locate(unittest.TestCase):
                 "### 7. x\n- Эффект: 123 испытания, 61 тысяча человек\n", encoding="utf-8"
             )
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -47,8 +45,6 @@ class Locate(unittest.TestCase):
             (dig / "07.md").write_text("### 7.\n- 收益：61 万人\n", encoding="utf-8")
             (tr / "07.md").write_text("### 7.\n- Эффект: 610 000 человек\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -73,8 +69,6 @@ class Locate(unittest.TestCase):
             )
             (tr / "07.md").write_text("### 7. x\n- Эффект: 610 000 человек\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -97,8 +91,6 @@ class Locate(unittest.TestCase):
             (tr / "14.md").write_text("популяция растёт, популяция стареет\n", encoding="utf-8")
             (tr / "15.md").write_text("в популяции (population) вирус\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -118,8 +110,6 @@ class Locate(unittest.TestCase):
             (dig / "07.md").write_text("### 7.\n- 收益：61 万人\n", encoding="utf-8")
             (tr / "07.md").write_text("### 7.\n- Эффект: много людей\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -139,8 +129,6 @@ class Locate(unittest.TestCase):
             (tr / "14.md").write_text("в популяции вирус\n", encoding="utf-8")
             (tr / "15.md").write_text("Популяция растёт\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -168,8 +156,6 @@ class Locate(unittest.TestCase):
             (tr / "08.md").write_text("### 8.\n- Эффект: нет\n", encoding="utf-8")
             fail = {"kind": "number_absent", "value": "610000", "count": 2}
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -195,8 +181,6 @@ class Locate(unittest.TestCase):
             (tr / "07.md").write_text("### 7.\n- Эффект: много людей\n", encoding="utf-8")
             (tr / "08.md").write_text("### 8.\n- Эффект: 610 000 человек\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -218,8 +202,6 @@ class Locate(unittest.TestCase):
             tr.mkdir()
             (dig / "07.md").write_text("### 7.\n- 收益：61万人\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -246,8 +228,6 @@ class Locate(unittest.TestCase):
             (tr / "15.md").write_text("популяция две\n", encoding="utf-8")
             (tr / "16.md").write_text("популяция три\n", encoding="utf-8")
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -303,8 +283,6 @@ class IssuesStillPresent(unittest.TestCase):
             (tr / "07.md").write_text("### 7.\n- Эффект: много людей\n", encoding="utf-8")
             fail = {"kind": "number_absent", "value": "999", "count": 1}
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,
@@ -322,8 +300,6 @@ class IssuesStillPresent(unittest.TestCase):
             dig.mkdir()
             tr.mkdir()
             located = locate_issues(
-                _root=Path(d),
-                _nn="01",
                 lang="ru",
                 digest_units_dir=dig,
                 tr_units_dir=tr,

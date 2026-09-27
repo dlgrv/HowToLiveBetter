@@ -7,13 +7,14 @@
 - --fix mode regenerates README chapter lists from actual files
 """
 
-import hashlib
 import json
 import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root, load_langs, site_langs
+
+ROOT = default_root()
 
 
 def chapter_id(filename):
@@ -35,16 +36,8 @@ def chapter_title(path):
     return os.path.splitext(os.path.basename(path))[0]
 
 
-def file_hash(path):
-    """SHA256 of file contents."""
-    if not os.path.isfile(path):
-        return None
-    with open(path, "rb") as f:
-        return hashlib.sha256(f.read()).hexdigest()[:16]
-
-
 def scan_chapters(lang_dir):
-    """Return sorted list of (id, filename, title, hash) for chapters in lang_dir."""
+    """Return sorted list of (id, filename, title) for chapters in lang_dir."""
     chapters = []
     if not os.path.isdir(lang_dir):
         return chapters
@@ -56,8 +49,7 @@ def scan_chapters(lang_dir):
             continue
         path = os.path.join(lang_dir, fn)
         title = chapter_title(path)
-        h = file_hash(path)
-        chapters.append((cid, fn, title, h))
+        chapters.append((cid, fn, title))
     chapters.sort()
     return chapters
 
@@ -70,34 +62,19 @@ def check_og_preview(lang):
     return []
 
 
-def readme_section(readme_path, _lang):
-    """Find the chapter list section in a README file."""
-    if not os.path.isfile(readme_path):
-        return None, 0, 0
-    with open(readme_path, encoding="utf-8") as f:
-        content = f.read()
-    return content, 0, len(content)
-
-
-def check_readme(lang, chapters):
+def check_readme(chapters, readme_name):
     """Check if README has correct chapter count and order."""
-    readme_map = {
-        "en": "README.md",
-        "ru": "README.ru.md",
-        "es": "README.es.md",
-        "zh": "README.zh.md",
-    }
-    readme_name = readme_map.get(lang, f"README.{lang}.md")
     readme_path = os.path.join(ROOT, readme_name)
     if not os.path.isfile(readme_path):
         return f"{readme_name} not found", []
 
-    content, _, _ = readme_section(readme_path, lang)
+    with open(readme_path, encoding="utf-8") as f:
+        content = f.read()
 
     issues = []
     entries = re.findall(r"^\s*(\d{1,2})\.?\s+(.+)", content, re.MULTILINE)
     readme_ids = [int(n) for n, _ in entries]
-    chapter_ids = [cid for cid, _, _, _ in chapters]
+    chapter_ids = [cid for cid, _, _ in chapters]
 
     missing_in_readme = set(chapter_ids) - set(readme_ids)
     extra_in_readme = set(readme_ids) - set(chapter_ids)
@@ -123,23 +100,28 @@ def main():
     ap.add_argument("--json", action="store_true", help="Output JSON")
     args = ap.parse_args()
 
-    langs = [args.lang] if args.lang else ["ru", "en", "es", "zh"]
+    by_code = {e["code"]: e for e in load_langs(ROOT) if e.get("code")}
+    langs = [args.lang] if args.lang else site_langs()
     results = {}
 
     for lang in langs:
-        lang_dir = os.path.join(ROOT, "book", lang)
+        entry = by_code.get(lang)
+        if not entry:
+            print(f"Unknown language: {lang}", file=sys.stderr)
+            continue
+        lang_dir = os.path.join(ROOT, entry["contentRoot"])
         if not os.path.isdir(lang_dir):
-            print(f"Directory not found: book/{lang}/", file=sys.stderr)
+            print(f"Directory not found: {entry['contentRoot']}/", file=sys.stderr)
             continue
 
         chapters = scan_chapters(lang_dir)
         og_missing = check_og_preview(lang)
-        rm_issue, _ = check_readme(lang, chapters)
+        rm_issue, _ = check_readme(chapters, entry["readme"])
         has_missing_og = [(cid, title) for cid, title in og_missing]
 
         results[lang] = {
             "chapters": len(chapters),
-            "titles": {cid: title for cid, _, title, _ in chapters},
+            "titles": {cid: title for cid, _, title in chapters},
             "og_missing": has_missing_og,
             "readme_issue": rm_issue,
         }

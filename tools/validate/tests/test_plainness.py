@@ -14,10 +14,10 @@ import os
 import sys
 import unittest
 
-from tools.test_paths import ROOT
+from tools.test_paths import REPO_ROOT
 from tools.validate import plainness as pl
 
-PACK = json.load(open(os.path.join(ROOT, "tools", "rules", "ru.json"), encoding="utf-8"))
+PACK = json.load(open(os.path.join(REPO_ROOT, "tools", "rules", "ru.json"), encoding="utf-8"))
 
 
 def ru_field(text):
@@ -102,20 +102,33 @@ class TestChapterFileGlob(unittest.TestCase):
                 ],
                 capture_output=True,
                 text=True,
-                cwd=ROOT,
+                cwd=REPO_ROOT,
             )
             self.assertEqual(proc.returncode, 0, proc.stderr)
             self.assertIn("units with plain field:", proc.stdout)
             self.assertNotIn("not found", proc.stderr)
 
-    def test_cli_es_skips_not_false_clean(self):
+    def test_cli_es_supported(self):
         import subprocess
 
         proc = subprocess.run(
             [sys.executable, "-m", "tools.validate.plainness", "01", "--lang", "es"],
             capture_output=True,
             text=True,
-            cwd=ROOT,
+            cwd=REPO_ROOT,
+        )
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertNotIn("skip", proc.stderr.lower())
+        self.assertIn("units with plain field:", proc.stdout)
+
+    def test_cli_unknown_lang_skips_not_false_clean(self):
+        import subprocess
+
+        proc = subprocess.run(
+            [sys.executable, "-m", "tools.validate.plainness", "01", "--lang", "de"],
+            capture_output=True,
+            text=True,
+            cwd=REPO_ROOT,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertIn("skip", proc.stderr.lower())

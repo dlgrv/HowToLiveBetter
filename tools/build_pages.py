@@ -24,9 +24,11 @@ import re
 import shutil
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root
+from tools.pipeline.config import load_langs as load_langs_registry
+
+ROOT = default_root()
 SITE = os.path.join(ROOT, "site")
-LANGS_PATH = os.path.join(ROOT, "tools", "langs.json")
 INDEX_PATH = os.path.join(SITE, "index.html")
 V2_CSS_SRC = os.path.join(ROOT, "tools", "v2.css")
 V2_CSS_DST = os.path.join(SITE, "assets", "v2.css")
@@ -97,8 +99,7 @@ def sync_v2_css() -> str:
 
 
 def load_langs():
-    data = json.load(open(LANGS_PATH, encoding="utf-8"))
-    langs = data.get("languages")
+    langs = load_langs_registry(ROOT)
     if not isinstance(langs, list) or not langs:
         sys.exit("tools/langs.json: languages[] required")
     primary = None

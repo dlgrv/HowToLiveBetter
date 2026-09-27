@@ -18,6 +18,12 @@ def _setup_repo(tmp):
         os.path.join(REPO_ROOT, "tools", "check_links.py"),
         os.path.join(tools_dir, "check_links.py"),
     )
+    # check_links imports tools.pipeline.config for default_root()
+    shutil.copytree(
+        os.path.join(REPO_ROOT, "tools", "pipeline"),
+        os.path.join(tools_dir, "pipeline"),
+        ignore=shutil.ignore_patterns("__pycache__"),
+    )
 
     # Root-level README
     with open(os.path.join(tmp, "README.md"), "w", encoding="utf-8") as f:
@@ -62,7 +68,13 @@ More real: [also works](../docs/guide.md)
 
 def _run(tmp):
     check_py = os.path.join(tmp, "tools", "check_links.py")
-    return subprocess.run([sys.executable, check_py], capture_output=True, text=True, timeout=10)
+    return subprocess.run(
+        [sys.executable, check_py],
+        capture_output=True,
+        text=True,
+        timeout=10,
+        env={**os.environ, "PYTHONPATH": tmp},
+    )
 
 
 class TestCheckLinks(unittest.TestCase):

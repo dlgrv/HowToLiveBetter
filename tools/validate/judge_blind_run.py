@@ -23,10 +23,10 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from tools.pipeline import judges
+from tools.pipeline.config import default_root
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+REPO = default_root()
 PROMPT_PATH = os.path.join(REPO, "tools", "prompts", "judge-ab.md")
 
 
@@ -61,9 +61,9 @@ def parse_reply(reply):
 
 
 def call_judge(cfg, api_key, rendered):
-    client = judges.get_backend(cfg["backend"])(model_id=cfg["model_id"], api_key=api_key)
+    judges.get_backend(cfg["backend"])
     prompt = open(PROMPT_PATH, encoding="utf-8").read()
-    return client.complete(prompt + "\n\n" + rendered)
+    return judges.complete(prompt + "\n\n" + rendered, model_id=cfg["model_id"], api_key=api_key)
 
 
 def main():
@@ -82,8 +82,8 @@ def main():
     from tools.pipeline import config as pipeline_config
 
     cfg = pipeline_config.load_config(REPO).get("judge", {})
-    cfg.setdefault("backend", judges.backend_name(REPO))
-    cfg.setdefault("model_id", judges.configured_model_id(REPO))
+    cfg.setdefault("backend", "subagent-glm")
+    cfg.setdefault("model_id", "glm-5.3-flash")
     api_key = judges.resolve_api_key()
     if not api_key:
         print(json.dumps({"status": "no_api_key"}))

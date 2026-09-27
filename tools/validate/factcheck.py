@@ -16,12 +16,12 @@ import re
 import sys
 import time
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root
+
+REPO = default_root()
 
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 PROMPT_PATH = os.path.join(REPO, "tools", "prompts", "judge-factcheck.md")
-JUDGE_DIR = os.path.join(REPO, "tools", "judge", "factcheck")
 
 MAJOR_ISSUE_TYPES = ("reversed_logic", "invented", "dropped_condition", "hardened_claim")
 
@@ -108,7 +108,7 @@ def tr_body(tr_text):
 
 
 def build_judge_prompt(cn_text, tr_text, lang):
-    template = load_prompt()
+    template = open(PROMPT_PATH, encoding="utf-8").read()
     return (
         f"{template.strip()}\n\n"
         f"## CHINESE SOURCE\n\n{cn_body(cn_text)}\n\n"
@@ -118,23 +118,24 @@ def build_judge_prompt(cn_text, tr_text, lang):
 
 def open_live_judge(root=None):
     root = root or REPO
+    from tools.pipeline import config as pipeline_config
     from tools.pipeline import judges
 
     api_key = judges.resolve_api_key()
     try:
-        name = judges.backend_name(root)
-        model_id = judges.configured_model_id(root)
+        judge_cfg = pipeline_config.load_config(root).get("judge", {})
+        name = judge_cfg.get("backend", "subagent-glm")
+        model_id = judge_cfg.get("model_id", "glm-5.3-flash")
     except (KeyError, TypeError, ValueError):
         name = "subagent-glm"
         model_id = "glm-5.3-flash"
     if name != "local-ollama" and not api_key:
         return None
     try:
-        backend_cls = judges.get_backend(name)
-    except KeyError:
+        judges.get_backend(name)
+    except ValueError:
         return None
-    client = backend_cls(model_id=model_id, api_key=api_key)
-    return client, name, model_id
+    return name, model_id, api_key
 
 
 def _locate(span, cn_text):
@@ -224,14 +225,6 @@ def _line_of_collapsed(cn_text, collapsed_pos):
     return 0
 
 
-def grounded_rate(verdicts, cn_text):
-    """Share of verdicts that survive grounding unmodified."""
-    if not verdicts:
-        return 0.0
-    ok = sum(1 for v in verdicts if check_grounding(v, cn_text)["grounded"])
-    return ok / len(verdicts)
-
-
 def gate_major(verdict):
     """Chapter-gate: any major finding -> FAIL ('fail'), else 'pass'/'warn'.
 
@@ -287,10 +280,6 @@ def write_result(outdir, nn, lang, verdict, cn_text, tr_text, backend, model_id)
     return path
 
 
-def load_prompt():
-    return open(PROMPT_PATH, encoding="utf-8").read()
-
-
 def run_factcheck_cli(
     *,
     chapter,
@@ -321,11 +310,14 @@ def run_factcheck_cli(
                 )
             )
             return 2
-        client, backend, model_id = opened
+        from tools.llm.client import LLMError
+        from tools.pipeline import judges
+
+        backend, model_id, api_key = opened
         prompt = build_judge_prompt(cn_text, tr_text, lang)
         try:
-            reply = client.complete(prompt)
-        except (OSError, RuntimeError, ValueError, TypeError) as e:
+            reply = judges.complete(prompt, model_id=model_id, api_key=api_key)
+        except (OSError, RuntimeError, ValueError, TypeError, LLMError) as e:
             print(
                 json.dumps(
                     {

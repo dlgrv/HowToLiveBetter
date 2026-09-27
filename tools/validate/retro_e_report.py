@@ -16,10 +16,10 @@ import json
 import os
 import sys
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root
+from tools.validate import factcheck as fc
 
-from tools.validate import factcheck as fc  # noqa: E402
+REPO = default_root()
 
 JUDGE_DIR = os.path.join(REPO, "tools", "judge", "factcheck")
 DIGEST = os.path.join(REPO, "tools", "digest")

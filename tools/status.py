@@ -6,14 +6,12 @@ import re
 import sys
 import time
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
+from tools.pipeline.config import default_root, unit_dir
+from tools.pipeline.paths import cn_chapter_path, tr_chapter_path
 
-from tools.pipeline.paths import cn_chapter_path, tr_chapter_path  # noqa: E402
+root = default_root()
 
 CJK = re.compile(r"[\u4e00-\u9fff]")
-RUNS = os.path.join(root, "tools", "runs")
 
 
 def chapter_nums(argv):
@@ -48,16 +46,6 @@ def unit_progress(units_dir):
         return None
     done = sum(1 for f in units if not CJK.search(open(f, encoding="utf-8").readline()))
     return done, len(units)
-
-
-def run_units_dir(n, lang="ru"):
-    preferred = os.path.join(RUNS, "active", lang, n, "units")
-    if os.path.isdir(preferred):
-        return preferred
-    if not os.path.isdir(RUNS):
-        return preferred
-    matches = sorted(glob.glob(os.path.join(RUNS, "*", lang, n, "units")))
-    return matches[-1] if matches else preferred
 
 
 def pass_columns(n, lang):
@@ -106,7 +94,7 @@ def main():
                 tr_name = "—"
             row[lang] = (tr_name, stamp, ts)
             row[lang + "-passes"] = pass_columns(n, lang)
-        row["run"] = unit_progress(run_units_dir(n, "ru"))
+        row["run"] = unit_progress(unit_dir(root, "ru", n))
         rows.append(row)
 
     print(

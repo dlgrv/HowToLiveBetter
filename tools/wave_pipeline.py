@@ -3,24 +3,17 @@ import os
 import subprocess
 import sys
 
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if REPO not in sys.path:
-    sys.path.insert(0, REPO)
+from tools.pipeline.config import default_root, translation_langs, unit_dir
+from tools.pipeline.paths import tr_chapter_path
 
-from tools.pipeline.paths import active_run_dir, tr_chapter_path  # noqa: E402
-
-SCRIPTS = {"ru": "assemble.py", "en": "assemble.py", "es": "assemble.py"}
-
-
-def workdir(lang, nn):
-    return active_run_dir(REPO, lang, nn)
+REPO = default_root()
 
 
 def main(chapters):
     rows, fails = [], 0
     py = sys.executable
     for nn in chapters:
-        for lang in ("ru", "en", "es"):
+        for lang in translation_langs(REPO):
             try:
                 out = tr_chapter_path(REPO, nn, lang)
             except FileNotFoundError as e:
@@ -28,13 +21,13 @@ def main(chapters):
                 fails += 1
                 continue
             bk = os.path.basename(out)
-            wd = workdir(lang, nn)
+            wd = os.path.dirname(unit_dir(REPO, lang, nn))
             if not os.path.isdir(os.path.join(wd, "units")):
                 rows.append((lang, nn, f"ASSEMBLE FAIL: missing {wd}/units"))
                 fails += 1
                 continue
             r = subprocess.run(
-                [py, f"tools/{SCRIPTS[lang]}", nn, wd, out, lang],
+                [py, "tools/assemble.py", nn, wd, out, lang],
                 cwd=REPO,
                 capture_output=True,
                 text=True,

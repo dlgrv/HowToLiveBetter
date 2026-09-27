@@ -24,15 +24,16 @@ Exit codes: 0 = all gates pass, 1 = violations found.
 """
 
 import glob
-import json
 import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from tools.pipeline.config import default_root, load_langs, translation_langs
+from tools.pipeline.labels import field_labels, source_label
+
+ROOT = default_root()
 CJK = re.compile(r"[\u4e00-\u9fff]")
 NN = re.compile(r"^(\d{2})-")
-SRC_LINE = re.compile(r"^\s*(?:-\s*)?(?:Sources?|Fuentes|Источник(?:и)?|来源)\s*[:：]")
 SRC_BULLET = re.compile(r"^\s*-\s*[\u4e00-\u9fff]")
 FENCE = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)
 HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
@@ -57,22 +58,25 @@ QUOTED_TERM = re.compile(r"[\"«“][\u4e00-\u9fff][\u4e00-\u9fff0-9·—－\s�
 PAREN = re.compile(r"[（(][^（）()]*[）)]")
 
 
-def load_lang_codes():
-    """Translated content codes from langs.json (exclude zh mirror at book/)."""
-    path = os.path.join(ROOT, "tools", "langs.json")
-    if not os.path.isfile(path):
-        return ["en", "ru"]
-    data = json.load(open(path, encoding="utf-8"))
-    out = []
-    for lang_entry in data.get("languages", []):
-        root = lang_entry.get("contentRoot", "")
-        if root.startswith("book/") and root != "book":
-            out.append(lang_entry["code"])
-    return out or ["en", "ru"]
+FIELD_LANGS = tuple(translation_langs(ROOT))
+
+
+def _src_line_pattern():
+    names = set()
+    for lang in ("cn", *FIELD_LANGS):
+        try:
+            names.add(source_label(lang, root=ROOT))
+        except (FileNotFoundError, KeyError):
+            continue
+    alt = "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True))
+    return re.compile(rf"^\s*(?:-\s*)?(?:{alt})\s*[:：]")
+
+
+SRC_LINE = _src_line_pattern()
 
 
 def translated_dirs():
-    codes = load_lang_codes()
+    codes = translation_langs(ROOT)
     dirs = [f"book/{c}" for c in codes]
     for c in codes:
         d = f"docs/{c}"
@@ -82,7 +86,7 @@ def translated_dirs():
 
 
 def gate_parity(issues):
-    codes = load_lang_codes()
+    codes = translation_langs(ROOT)
     cn = chapter_nns("book")
     expected = [f"{n:02d}" for n in range(1, 34)]
     per_lang = {"book": cn}
@@ -121,12 +125,15 @@ def gate_parity(issues):
                 print(f"[parity] ch.{nn} item counts differ (non-RU trailing CN): {counts}")
             else:
                 issues.append(f"[parity] ch.{nn} item counts differ: {counts}")
-    readme_expect = {"README.md": "book/en/", "README.ru.md": "book/ru/", "README.zh.md": "book/"}
-    docs_expect = {
-        "README.md": "docs/research/en/",
-        "README.ru.md": "docs/research/ru/",
-        "README.zh.md": "docs/research/",
-    }
+    readme_expect = {}
+    docs_expect = {}
+    for entry in load_langs(ROOT):
+        readme = entry["readme"]
+        readme_expect[readme] = entry["contentRoot"].rstrip("/") + "/"
+        if entry["contentRoot"] == "book":
+            docs_expect[readme] = "docs/research/"
+        else:
+            docs_expect[readme] = f"docs/research/{entry['code']}/"
     for rf, prefix in readme_expect.items():
         text = open(os.path.join(ROOT, rf), encoding="utf-8").read()
         for nn in expected:
@@ -171,14 +178,24 @@ def gate_cjk_leaks(issues):
                     issues.append(f"[cjk-leak] {rel}:{ln} '{m.group(0)}' :: {ctx}")
 
 
+def _empty_field_pattern():
+    """'- Field:' with nothing after it, for every label in the language packs."""
+    names = set()
+    for lang in FIELD_LANGS:
+        try:
+            names.update(field_labels(lang, root=ROOT))
+            names.add(source_label(lang, root=ROOT))
+        except (FileNotFoundError, KeyError):
+            continue
+    alt = "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True))
+    return re.compile(rf"^- (?:{alt}):\s*$")
+
+
 def gate_empty_fields(issues):
     """Field labels (Стоимость/Эффект/...) must carry their text on the same line.
     The site parser matches '- Field: value' on one line; a bare '- Field:' line
     renders an empty card in the sidebar/entry view."""
-    pat = re.compile(
-        r"^- (?:Стоимость|Эффект|Простыми словами|Источники|Примечания"
-        r"|Cost|Effect|In plain words|Sources|Notes):\s*$"
-    )
+    pat = _empty_field_pattern()
     for d in translated_dirs():
         for path in sorted(glob.glob(os.path.join(ROOT, d, "*.md"))):
             rel = os.path.relpath(path, ROOT)
@@ -220,7 +237,7 @@ def gate_stats(issues):
     retranslate_pending = os.path.exists(marker) and any(
         ln.strip() and not ln.startswith("#") for ln in open(marker, encoding="utf-8")
     )
-    for rf in ("README.md", "README.ru.md", "README.zh.md"):
+    for rf in (entry["readme"] for entry in load_langs(ROOT)):
         text = open(os.path.join(ROOT, rf), encoding="utf-8").read()
         for label, val in computed.items():
             if str(val) not in text:

@@ -18,11 +18,10 @@ import random
 import re
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
+from tools.pipeline.config import default_root
 from tools.style_check import check_text
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO = default_root()
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 SESSION = os.path.join(RESULTS, "style_fp_session.json")
 LABELS = os.path.join(RESULTS, "style_fp_labels.json")

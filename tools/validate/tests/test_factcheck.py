@@ -12,12 +12,9 @@ import sys
 import tempfile
 import unittest
 
-import pytest
 from tools.llm.tests.helpers import run_cli
 from tools.test_paths import REPO_ROOT
 from tools.validate import factcheck as fc
-
-ROOT = REPO_ROOT
 
 CN_UNIT = """# 第 1 章 立即停止这些行为
 
@@ -114,10 +111,6 @@ class TestGrounding(unittest.TestCase):
         report = fc.check_grounding(verdict, unit)
         self.assertTrue(report["grounded"], report["dropped"])
 
-    def test_grounded_rate(self):
-        verdicts = [GOOD_VERDICT, GOOD_VERDICT, FAKE_SPAN_VERDICT]
-        assert fc.grounded_rate(verdicts, CN_UNIT) == pytest.approx(2 / 3)
-
 
 class TestMajorGate(unittest.TestCase):
     def test_major_class_fails(self):
@@ -152,7 +145,7 @@ class TestMutationEndToEnd(unittest.TestCase):
     def test_spec_mutations_classify(self):
         spec = json.load(
             open(
-                os.path.join(ROOT, "tools", "validate", "results", "mutations_seed42.json"),
+                os.path.join(REPO_ROOT, "tools", "validate", "results", "mutations_seed42.json"),
                 encoding="utf-8",
             )
         )
@@ -484,14 +477,15 @@ class TestLiveJudgeWiring(unittest.TestCase):
 
             seen = []
 
-            class FakeClient:
-                def complete(self, prompt, _system=None, _temperature=0.0, _max_tokens=2048):
-                    seen.append(prompt)
-                    return json.dumps(ok)
+            def fake_complete(prompt, **_kwargs):
+                seen.append(prompt)
+                return json.dumps(ok)
 
-            fake = FakeClient()
-            with mock.patch.object(
-                fc, "open_live_judge", return_value=(fake, "subagent-glm", "mock-glm")
+            with (
+                mock.patch.object(
+                    fc, "open_live_judge", return_value=("subagent-glm", "mock-glm", "k")
+                ),
+                mock.patch("tools.pipeline.judges.complete", fake_complete),
             ):
                 code = fc.run_factcheck_cli(
                     chapter="01",

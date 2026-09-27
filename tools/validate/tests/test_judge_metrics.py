@@ -1,10 +1,8 @@
-"""Task 7 tests: Cohen's kappa, screening metrics, gate logic.
+"""Task 7 tests: Cohen's kappa and nativeness rates.
 
-Pure-math module (no I/O beyond verdict JSON loading).
+Pure-math module.
 """
 
-import json
-import os
 import unittest
 
 import pytest
@@ -36,41 +34,7 @@ class TestKappa(unittest.TestCase):
         assert jm.cohens_kappa([1, 0, 1, 0], [1, 0, 1, 0]) == 1.0
 
 
-class TestScreening(unittest.TestCase):
-    def test_confusion_and_metrics(self):
-        gold = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
-        pred = [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
-        m = jm.screening_metrics(gold, pred)
-        assert m["tp"] == 4
-        assert m["fp"] == 2
-        assert m["fn"] == 2
-        assert m["tn"] == 2
-        assert m["precision"] == pytest.approx(4 / 6)
-        assert m["recall"] == pytest.approx(4 / 6)
-        assert m["fpr"] == pytest.approx(2 / 4)
-
-    def test_fnr_gate(self):
-        gold = [1] * 10 + [0] * 5
-        pred = [1] * 7 + [0] * 3 + [1] * 2 + [0] * 3
-        m = jm.screening_metrics(gold, pred)
-        assert m["fnr"] == pytest.approx(0.3)
-        assert not jm.gate_fnr(m, threshold=0.2)
-        assert jm.gate_fnr(m, threshold=0.5)
-
-
-class TestLoadPairVerdicts(unittest.TestCase):
-    def test_loads_and_pads(self):
-        path = os.path.join(os.path.dirname(__file__), "_tmp_verdicts.json")
-        data = {"native": [1, 0], "degraded": [0, 0]}
-        with open(path, "w") as f:
-            json.dump(data, f)
-        try:
-            native, degraded = jm.load_pair_verdicts(path)
-            assert native == [1, 0]
-            assert degraded == [0, 0]
-        finally:
-            os.unlink(path)
-
+class TestNativenessRate(unittest.TestCase):
     def test_weighted_nativeness(self):
         verdicts = {"native": [1] * 24 + [0] * 6, "degraded": [1] * 9 + [0] * 21}
         nr = jm.nativeness_rate(verdicts)

@@ -14,8 +14,6 @@ case "$lang" in
     ;;
 esac
 
-WAVE_JOBS="${WAVE_JOBS:-2}"
-
 for raw in "$@"; do
   nn=$(printf '%02d' "$raw")
   echo "===== chapter $nn ($lang) ====="

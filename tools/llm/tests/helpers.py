@@ -12,6 +12,7 @@ from tools.test_paths import REPO_ROOT
 def run_cli(args, *, cwd=REPO_ROOT, env=None, timeout=30):
     """Run argv list; returns CompletedProcess (text, capture_output)."""
     run_env = os.environ.copy()
+    run_env.setdefault("PYTHONPATH", cwd)
     if env:
         run_env.update(env)
     return subprocess.run(

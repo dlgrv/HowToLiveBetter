@@ -3,15 +3,8 @@
 import os
 import unittest
 
-from tools.pipeline.config import unit_dir
-from tools.pipeline.paths import (
-    _nn,
-    active_run_dir,
-    active_units_dir,
-    digest_dir,
-    digest_units_dir,
-)
-from tools.test_paths import ROOT
+from tools.pipeline.paths import _nn, cn_chapter_path, tr_chapter_path
+from tools.test_paths import REPO_ROOT
 
 
 class TestNn(unittest.TestCase):
@@ -21,30 +14,21 @@ class TestNn(unittest.TestCase):
         self.assertEqual(_nn("3"), "03")
 
 
-class TestDigestPaths(unittest.TestCase):
-    def test_digest_dir_pads(self):
-        root = os.path.join("fake", "htlb-root")
-        self.assertEqual(
-            digest_dir(root, 2),
-            os.path.join(root, "tools", "digest", "02"),
-        )
-        self.assertEqual(
-            digest_units_dir(root, "1"),
-            os.path.join(root, "tools", "digest", "01", "units"),
-        )
-
-
-class TestActiveRunPaths(unittest.TestCase):
-    def test_active_delegates_to_unit_dir(self):
-        self.assertEqual(active_units_dir(ROOT, "ru", 2), unit_dir(ROOT, "ru", 2))
-        self.assertEqual(
-            active_run_dir(ROOT, "ru", 2),
-            os.path.dirname(unit_dir(ROOT, "ru", 2)),
-        )
-        self.assertEqual(
-            active_units_dir(ROOT, "es", "3"),
-            os.path.join(ROOT, "tools", "runs", "active", "es", "03", "units"),
-        )
+class TestChapterResolution(unittest.TestCase):
+    def test_cn_and_tr_resolve_one_match(self):
+        cases = [
+            (1, "ru"),
+            ("02", "en"),
+            (3, "es"),
+        ]
+        for chapter, lang in cases:
+            with self.subTest(chapter=chapter, lang=lang):
+                cn = cn_chapter_path(REPO_ROOT, chapter)
+                tr = tr_chapter_path(REPO_ROOT, chapter, lang)
+                self.assertTrue(os.path.isfile(cn))
+                self.assertTrue(os.path.isfile(tr))
+                self.assertTrue(os.path.basename(cn).startswith(_nn(chapter) + "-"))
+                self.assertTrue(os.path.basename(tr).startswith(_nn(chapter) + "-"))
 
 
 if __name__ == "__main__":

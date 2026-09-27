@@ -12,8 +12,6 @@ from tools.llm.tests.helpers import run_cli
 from tools.pipeline import config as pconfig
 from tools.test_paths import REPO_ROOT
 
-ROOT = REPO_ROOT
-
 CLEAN = """# 2. Не умирайте медленно
 
 - **Ходите быстро по 30 минут в день.**
@@ -89,14 +87,14 @@ def _bangladesh_marker_warns(warns):
 
 class TestRulesData(unittest.TestCase):
     def test_ru_markers_filled(self):
-        rules = pconfig.load_lang_rules("ru", root=ROOT)
+        rules = pconfig.load_lang_rules("ru", root=REPO_ROOT)
         self.assertGreaterEqual(len(rules["style_markers"]), 5)
         for m in rules["style_markers"]:
             self.assertIn("pattern", m)
             self.assertIn("label", m)
 
     def test_ru_whitelist_zones(self):
-        rules = pconfig.load_lang_rules("ru", root=ROOT)
+        rules = pconfig.load_lang_rules("ru", root=REPO_ROOT)
         zones = " ".join(rules["whitelist_zones"])
         self.assertIn("Эффект", zones)
         self.assertIn("Примечания", zones)
@@ -106,7 +104,7 @@ class TestStyleCheck(unittest.TestCase):
     def _warns(self, text, lang="ru"):
         from tools.style_check import check_text
 
-        return check_text(text, lang, root=ROOT)
+        return check_text(text, lang, root=REPO_ROOT)
 
     def test_clean_text_zero_warnings(self):
         self.assertEqual(self._warns(CLEAN), [])
@@ -136,15 +134,15 @@ class TestStyleCheck(unittest.TestCase):
     def test_engine_reads_rules_not_hardcoded(self):
         import tools.style_check as sc
 
-        self.assertTrue(sc.load_markers("ru", root=ROOT))
+        self.assertTrue(sc.load_markers("ru", root=REPO_ROOT))
         # engine must fail loudly for unknown language (config-driven)
         with self.assertRaises(ValueError):
-            sc.load_markers("zz", root=ROOT)
+            sc.load_markers("zz", root=REPO_ROOT)
 
     def test_glossary_plain_only_flags_bangladesh_calque(self):
         from tools.style_check import check_text
 
-        warns = check_text(BANGLADESH_PLAIN, "ru", root=ROOT, plain_only=True)
+        warns = check_text(BANGLADESH_PLAIN, "ru", root=REPO_ROOT, plain_only=True)
         spans = " ".join(w["span"] for w in warns)
         self.assertIn("Бангладеш", spans)
         labels = {w["label"] for w in warns}
@@ -154,19 +152,19 @@ class TestStyleCheck(unittest.TestCase):
     def test_bangladesh_correct_prep_plain_only_no_false_positive(self):
         from tools.style_check import check_text
 
-        warns = check_text(BANGLADESH_CORRECT_IN, "ru", root=ROOT, plain_only=True)
+        warns = check_text(BANGLADESH_CORRECT_IN, "ru", root=REPO_ROOT, plain_only=True)
         self.assertEqual(_bangladesh_marker_warns(warns), [])
 
     def test_bangladesh_pilot_genitive_plain_only_clean(self):
         from tools.style_check import check_text
 
-        warns = check_text(BANGLADESH_CORRECT_PREP, "ru", root=ROOT, plain_only=True)
+        warns = check_text(BANGLADESH_CORRECT_PREP, "ru", root=REPO_ROOT, plain_only=True)
         self.assertEqual(_bangladesh_marker_warns(warns), [])
 
     def test_plain_only_scans_plain_line_only(self):
         from tools.style_check import check_text
 
-        plain = check_text(BANGLADESH_PLAIN, "ru", root=ROOT, plain_only=True)
+        plain = check_text(BANGLADESH_PLAIN, "ru", root=REPO_ROOT, plain_only=True)
         self.assertTrue(plain)
         plain_line_no = next(
             i
@@ -187,7 +185,7 @@ class TestCliAlwaysZero(unittest.TestCase):
             proc = run_cli(
                 [
                     sys.executable,
-                    os.path.join(ROOT, "tools", "style_check.py"),
+                    os.path.join(REPO_ROOT, "tools", "style_check.py"),
                     path,
                     "--lang",
                     "ru",
@@ -210,7 +208,7 @@ class TestCliAlwaysZero(unittest.TestCase):
             proc = run_cli(
                 [
                     sys.executable,
-                    os.path.join(ROOT, "tools", "style_check.py"),
+                    os.path.join(REPO_ROOT, "tools", "style_check.py"),
                     path,
                     "--lang",
                     "ru",
@@ -231,7 +229,7 @@ class TestCliAlwaysZero(unittest.TestCase):
             proc = run_cli(
                 [
                     sys.executable,
-                    os.path.join(ROOT, "tools", "style_check.py"),
+                    os.path.join(REPO_ROOT, "tools", "style_check.py"),
                     path,
                     "--lang",
                     "es",
