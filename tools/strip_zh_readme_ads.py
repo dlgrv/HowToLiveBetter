@@ -5,6 +5,7 @@ Upstream README.md ends with a 「广告位」 section linking ads/. This fork d
 not carry ads/; strip that section whenever README.zh.md is refreshed from
 upstream so the next sync does not reintroduce it.
 """
+
 from __future__ import annotations
 
 import re
@@ -12,7 +13,7 @@ import sys
 
 ADS_SECTION_RE = re.compile(
     r"\n## 广告位\n.*\Z",
-    re.S,
+    re.DOTALL,
 )
 
 

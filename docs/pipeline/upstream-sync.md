@@ -43,7 +43,7 @@ Review `git status` / `git diff --stat` before committing. Then:
 
 ## Translation catch-up (after CN sync)
 
-Chinese files at `book/NN-*.md` are the source of truth. After every path-filtered pull, list what moved and re-run locales through the **locked pipeline order** in [docs/translation-playbook.md §2](translation-playbook.md#2-пайплайн) (same as plan paths **A** / **B** in [plain-language pipeline plan](../agent-sessions/superpowers/plans/2026-09-23-plain-language-pipeline.md#correct-pipeline-order-commands)).
+Chinese files at `book/NN-*.md` are the source of truth. After every path-filtered pull, list what moved and re-run locales through the **locked pipeline order** in [translation-playbook.md §2](translation-playbook.md#2-пайплайн) (paths **A** / **B** in that section).
 
 ### 1. Inventory CN changes
 
@@ -80,7 +80,7 @@ When in doubt, use **A** for the affected units (re-digest and re-translate only
 digest → translate → assemble → verify → [simplify] → verify → factcheck → style_check → lt_check → plainness → human
 ```
 
-- **Path A:** all steps from `python3 tools/make_digest.py <NN>` through human pass (see playbook §2 for exact commands: `assemble` / `assemble_en` / `assemble_es`, two `verify` runs if you simplify, then `factcheck`, `style_check`, `lt_check`, `plainness`).
+- **Path A:** all steps from `python3 tools/make_digest.py <NN>` through human pass (see playbook §2 for exact commands: `assemble.py … [lang]`, two `verify` runs if you simplify, then `factcheck`, `style_check`, `lt_check`, `plainness`).
 - **Path B:** omit digest/translate/assemble; run: patch plain-terms → `verify` → `factcheck` → `style_check` → `lt_check` → `plainness` → human.
 
 Hard stop on first `verify.py` FAIL. Do not run style / LanguageTool / plainness before the post-simplify `verify` and **factcheck** (see playbook §2).

@@ -9,6 +9,7 @@ Verdict encoding everywhere: 1 = first shown variant preferred (VARIANT 1),
 2 = second, 0 = tie. Mapping to native/degraded is done here (never leaked
 into markup files).
 """
+
 import argparse
 import json
 import os
@@ -34,16 +35,17 @@ def cohens_kappa(a, b):
     n = len(a)
     if n == 0:
         raise ValueError("empty lists")
-    po = sum(1 for x, y in zip(a, b) if x == y) / n
+    po = sum(1 for x, y in zip(a, b, strict=True) if x == y) / n
     levels = set(a) | set(b)
-    pe = sum((sum(1 for x in a if x == ln) / n) * (sum(1 for y in b if y == ln) / n)
-             for ln in levels)
+    pe = sum(
+        (sum(1 for x in a if x == ln) / n) * (sum(1 for y in b if y == ln) / n) for ln in levels
+    )
     if pe == 1.0:
         return None
     return (po - pe) / (1 - pe)
 
 
-def screening_metrics(gold, pred, positive=0):
+def screening_metrics(gold, pred, _positive=0):
     """Confusion matrix with calque (positive=0... here positive=1 default).
 
     Encoding: gold/pred use 1 = native, 0 = calque/degraded.
@@ -51,18 +53,30 @@ def screening_metrics(gold, pred, positive=0):
     """
     if len(gold) != len(pred):
         raise ValueError("lists must have equal length")
-    tp = sum(1 for g, p in zip(gold, pred) if g == 1 and p == 1)
-    fp = sum(1 for g, p in zip(gold, pred) if g == 0 and p == 1)
-    fn = sum(1 for g, p in zip(gold, pred) if g == 1 and p == 0)
-    tn = sum(1 for g, p in zip(gold, pred) if g == 0 and p == 0)
+    tp = sum(1 for g, p in zip(gold, pred, strict=True) if g == 1 and p == 1)
+    fp = sum(1 for g, p in zip(gold, pred, strict=True) if g == 0 and p == 1)
+    fn = sum(1 for g, p in zip(gold, pred, strict=True) if g == 1 and p == 0)
+    tn = sum(1 for g, p in zip(gold, pred, strict=True) if g == 0 and p == 0)
     precision = tp / (tp + fp) if tp + fp else None
     recall = tp / (tp + fn) if tp + fn else None
     fpr = fp / (fp + tn) if fp + tn else None
     fnr = fn / (fn + tp) if fn + tp else None
-    f1 = (2 * precision * recall / (precision + recall)
-          if precision is not None and recall is not None and precision + recall else None)
-    return {"tp": tp, "fp": fp, "fn": fn, "tn": tn,
-            "precision": precision, "recall": recall, "fpr": fpr, "fnr": fnr, "f1": f1}
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision is not None and recall is not None and precision + recall
+        else None
+    )
+    return {
+        "tp": tp,
+        "fp": fp,
+        "fn": fn,
+        "tn": tn,
+        "precision": precision,
+        "recall": recall,
+        "fpr": fpr,
+        "fnr": fnr,
+        "f1": f1,
+    }
 
 
 def gate_fnr(metrics, threshold=0.2):
@@ -80,9 +94,9 @@ def load_pair_verdicts(path):
 def nativeness_rate(verdicts):
     """Per-group share of 'native is more natural' answers (decoys excluded)."""
     out = {}
-    for group, marks in verdicts.items():
-        marks = [m for m in marks if m is not None]
-        out[group] = (sum(1 for m in marks if m == 1) / len(marks)) if marks else None
+    for group, group_marks in verdicts.items():
+        scored = [m for m in group_marks if m is not None]
+        out[group] = (sum(1 for m in scored if m == 1) / len(scored)) if scored else None
     if out.get("native") is not None and out.get("degraded") is not None:
         out["gap"] = out["native"] - out["degraded"]
     return out
@@ -96,8 +110,14 @@ def main():
     ap.add_argument("--fnr-gate", type=float, default=0.2)
     args = ap.parse_args()
     if not (os.path.isfile(args.labels) and os.path.isfile(args.verdicts)):
-        print(json.dumps({"status": "pending",
-                          "reason": "golden_labels.json / golden_verdicts.json not yet present"}))
+        print(
+            json.dumps(
+                {
+                    "status": "pending",
+                    "reason": "golden_labels.json / golden_verdicts.json not yet present",
+                }
+            )
+        )
         return 0
     manifest = json.load(open(args.manifest, encoding="utf-8"))
     labels = json.load(open(args.labels, encoding="utf-8"))
@@ -107,13 +127,14 @@ def main():
         """marks (1|2|0 tie) -> 1 if 'native variant chosen' else 0 (ties excluded)."""
         if len(marks) != len(session["pairs"]):
             raise ValueError(
-                f"marks {len(marks)} != pairs {len(session['pairs'])} — answer file misaligned")
+                f"marks {len(marks)} != pairs {len(session['pairs'])} — answer file misaligned"
+            )
         out = []
-        for p, m in zip(session["pairs"], marks):
+        for p, m in zip(session["pairs"], marks, strict=True):
             if m in (None, 0, "="):
                 continue
-            native_shown_first = (p["show_order"] == "AB")
-            chosen_first = (m == 1)
+            native_shown_first = p["show_order"] == "AB"
+            chosen_first = m == 1
             chose_native = chosen_first if native_shown_first else not chosen_first
             out.append(1 if chose_native else 0)
         return out
@@ -129,21 +150,27 @@ def main():
         lenya = labels["marks"]
         k = cohens_kappa(judge_first, lenya)
         if k is None:
-            kappa_note = ("kappa undefined (unanimous marginals): use po and "
-                          "Gwet's AC1 as the prevalence-robust check")
+            kappa_note = (
+                "kappa undefined (unanimous marginals): use po and "
+                "Gwet's AC1 as the prevalence-robust check"
+            )
     po_agreement = None
     if labels.get("marks") and verdicts.get("first"):
-        pairs_ = zip(verdicts["first"], labels["marks"])
+        pairs_ = zip(verdicts["first"], labels["marks"], strict=True)
         po_agreement = round(sum(1 for x, y in pairs_ if x == y) / len(labels["marks"]), 3)
 
-    report = {"status": "ok",
-              "nativeness": nr,
-              "kappa_vs_lenya": (round(k, 3) if k is not None else None),
-              "kappa_note": kappa_note,
-              "po_agreement": po_agreement,
-              "gap_gate": {"gap_required": 0.25,
-                           "passed": bool(nr.get("gap") is not None and nr["gap"] >= 0.25)},
-              "fnr_gate": {"threshold": args.fnr_gate}}
+    report = {
+        "status": "ok",
+        "nativeness": nr,
+        "kappa_vs_lenya": (round(k, 3) if k is not None else None),
+        "kappa_note": kappa_note,
+        "po_agreement": po_agreement,
+        "gap_gate": {
+            "gap_required": 0.25,
+            "passed": bool(nr.get("gap") is not None and nr["gap"] >= 0.25),
+        },
+        "fnr_gate": {"threshold": args.fnr_gate},
+    }
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0
 

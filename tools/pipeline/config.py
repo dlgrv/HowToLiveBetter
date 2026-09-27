@@ -1,12 +1,13 @@
 """Project config: tools/rules/project.yaml + per-language packs rules/<lang>.json."""
+
 import json
 import os
-
-import yaml
 
 
 def load_config(root):
     """Load tools/rules/project.yaml (languages, unit paths, judge/QE backends)."""
+    import yaml  # optional dep for YAML configs; JSON packs must not require it
+
     path = os.path.join(root, "tools", "rules", "project.yaml")
     with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f)
@@ -28,7 +29,7 @@ def unit_dir(root, lang, chapter):
     absolute templates (wave dirs) pass through unchanged.
     """
     cfg = load_config(root)
-    known = list(cfg.get("languages", [])) + ["cn"]
+    known = [*list(cfg.get("languages", [])), "cn"]
     if lang not in known:
         raise ValueError(f"unknown language {lang!r}; available: {known}")
     tmpl = cfg.get("unit_dirs", {}).get(lang)

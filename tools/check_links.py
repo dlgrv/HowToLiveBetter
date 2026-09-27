@@ -13,6 +13,7 @@ inline code spans are skipped: they are examples, not real links.
 
 Exit codes: 0 = clean, 1 = broken links found.
 """
+
 import os
 import re
 import sys
@@ -28,15 +29,16 @@ SCOPE_DIRS = ("book", "docs")
 
 
 def md_files():
-    out = [os.path.join(ROOT, f) for f in sorted(os.listdir(ROOT))
-           if f.endswith(".md") and os.path.isfile(os.path.join(ROOT, f))]
+    out = [
+        os.path.join(ROOT, f)
+        for f in sorted(os.listdir(ROOT))
+        if f.endswith(".md") and os.path.isfile(os.path.join(ROOT, f))
+    ]
     for d in SCOPE_DIRS:
         base = os.path.join(ROOT, d)
         for dirpath, dirnames, filenames in os.walk(base):
             dirnames[:] = [x for x in dirnames if x not in (".git", "node_modules")]
-            for name in filenames:
-                if name.endswith(".md"):
-                    out.append(os.path.join(dirpath, name))
+            out.extend(os.path.join(dirpath, name) for name in filenames if name.endswith(".md"))
     return sorted(out)
 
 
@@ -44,8 +46,7 @@ def effective_text(path):
     """Strip code fences and inline code spans — links there are examples."""
     text = open(path, encoding="utf-8").read()
     text = FENCE.sub("", text)
-    text = INLINE_CODE.sub("", text)
-    return text
+    return INLINE_CODE.sub("", text)
 
 
 def check():
@@ -61,9 +62,7 @@ def check():
             target = target.split("#", 1)[0]
             if not target:
                 continue
-            resolved = urllib.parse.unquote(
-                os.path.normpath(os.path.join(base, target))
-            )
+            resolved = urllib.parse.unquote(os.path.normpath(os.path.join(base, target)))
             if not os.path.exists(resolved):
                 broken.append((rel, target, os.path.relpath(resolved, ROOT)))
     return files, broken

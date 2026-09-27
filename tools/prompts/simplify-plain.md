@@ -70,14 +70,10 @@ If verify fails, fix numbers or revert plain-terms before factcheck.
 
 ## Few-shot targets
 
-1. **Tone / jargon** — ch01 §33 v3  
-   (`docs/superpowers/pilots/2026-09-23-plain-01-item33.md`)
-2. **Parallel %** — ch01 §2 preferred RU  
-   (`docs/superpowers/pilots/2026-09-23-plain-01-item02-03.md`)
-3. **Rewrite vs leave alone** — ch01 §4–§5  
-   (`docs/superpowers/pilots/2026-09-24-plain-01-item04-05.md`):  
-   §4 = good rewrite (legalese → neighbor); §5 RU = **keep book/ shape**
-   («было 828 случаев отравления грибами…»), do not compress.
+1. **Tone / jargon** — ch01 paraquat/CO plain-terms (see `translate-unit.md` few-shot)
+2. **Parallel %** — ch01 helmet item, preferred RU (same few-shot block)
+3. **Rewrite vs leave alone** — ch01: legalese → neighbor OK; keep book/ shape for
+   clear incident counts («было 828 случаев отравления грибами…»), do not compress.
 
 Do not copy unrelated items verbatim; match **density and clarity**.
 Match ZH 说人话 rhythm when the locale draft is already clear.

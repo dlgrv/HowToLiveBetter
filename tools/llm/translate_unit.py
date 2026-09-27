@@ -70,14 +70,16 @@ RETRY_FIELD_EXAMPLES = {
 }
 
 _MARKER_LINE = re.compile(r"^§(?:TAG|SRC)§\s*$")
-_BOLD_FIELD = re.compile(r"^\*\*[^*:\n]+:\*\*", re.M)
+_BOLD_FIELD = re.compile(r"^\*\*[^*:\n]+:\*\*", re.MULTILINE)
 
 
 def normalize_nn(nn: str) -> str:
+    from tools.pipeline.paths import _nn
+
     nn = nn.strip()
     if not re.fullmatch(r"\d{1,2}", nn):
         raise SystemExit(f"invalid --nn: {nn!r}")
-    return f"{int(nn):02d}"
+    return _nn(nn)
 
 
 def normalize_unit(unit: str) -> str:
@@ -96,16 +98,15 @@ def out_dir_is_under_digest(out_dir: Path, root: Path | None = None) -> bool:
     digest = digest_root(root)
     try:
         out_dir.resolve().relative_to(digest)
-        return True
     except ValueError:
         return False
+    else:
+        return True
 
 
 def refuse_digest_outdir(out_dir: Path, root: Path | None = None) -> None:
     if out_dir_is_under_digest(out_dir, root):
-        raise SystemExit(
-            f"refusing --out-dir under tools/digest/: {out_dir.resolve()}"
-        )
+        raise SystemExit(f"refusing --out-dir under tools/digest/: {out_dir.resolve()}")
 
 
 def strip_fence(text: str) -> str:
@@ -123,7 +124,7 @@ def strip_mechanical_markers(text: str) -> str:
         if _MARKER_LINE.match(line.strip()):
             continue
         s = line.strip()
-        if s.startswith("§TAG§") or s.startswith("§SRC§"):
+        if s.startswith(("§TAG§", "§SRC§")):
             continue
         out.append(line)
     return ("\n".join(out).rstrip() + "\n") if out else "\n"
@@ -160,25 +161,27 @@ def validate_unit(text: str, uu: str, lang: str) -> list[str]:
     if uu == "00":
         if "§TAG§" in text or "§SRC§" in text:
             errs.append("intro must not contain §TAG§/§SRC§")
-        if re.search(r"^### ", text, re.M):
+        if re.search(r"^### ", text, re.MULTILINE):
             errs.append("intro must not use ### (item) heading")
-        if not re.search(r"^# ", text, re.M):
+        if not re.search(r"^# ", text, re.MULTILINE):
             errs.append("intro missing # chapter title")
-        for lab in fields:
-            if re.search(rf"^{re.escape(lab)}", text, re.M):
-                errs.append(f"intro must not invent field {lab}")
+        errs.extend(
+            f"intro must not invent field {lab}"
+            for lab in fields
+            if re.search(rf"^{re.escape(lab)}", text, re.MULTILINE)
+        )
         if _BOLD_FIELD.search(text):
             errs.append("intro must not use bold **Label:** fields")
         return errs
 
-    tag_n = len(re.findall(r"^§TAG§\s*$", text, re.M))
-    src_n = len(re.findall(r"^§SRC§\s*$", text, re.M))
+    tag_n = len(re.findall(r"^§TAG§\s*$", text, re.MULTILINE))
+    src_n = len(re.findall(r"^§SRC§\s*$", text, re.MULTILINE))
     if tag_n != 1:
         errs.append(f"need exactly one §TAG§ line (got {tag_n})")
     if src_n != 1:
         errs.append(f"need exactly one §SRC§ line (got {src_n})")
 
-    heads = re.findall(r"^### .+$", text, re.M)
+    heads = re.findall(r"^### .+$", text, re.MULTILINE)
     if len(heads) != 1:
         errs.append(f"need exactly one ### heading (got {len(heads)})")
     else:
@@ -189,9 +192,11 @@ def validate_unit(text: str, uu: str, lang: str) -> list[str]:
     if _BOLD_FIELD.search(text):
         errs.append("bold **Label:** fields forbidden; use - Label:")
 
-    for lab in fields:
-        if not re.search(rf"^{re.escape(lab)}", text, re.M):
-            errs.append(f"missing {lab}")
+    errs.extend(
+        f"missing {lab}"
+        for lab in fields
+        if not re.search(rf"^{re.escape(lab)}", text, re.MULTILINE)
+    )
 
     return errs
 
@@ -223,8 +228,10 @@ def build_messages(
     else:
         user_parts.extend(
             [
-                "Item unit: first line must be `### N. …` (same N as Chinese), then dashed "
-                "field lines with exact locale labels.",
+                (
+                    "Item unit: first line must be `### N. …` (same N as Chinese), then dashed "
+                    "field lines with exact locale labels."
+                ),
                 "Do NOT output §TAG§ or §SRC§ (pipeline injects them).",
                 "Do NOT use bold **Label:** for fields.",
                 "",
@@ -271,7 +278,9 @@ def main(argv: list[str] | None = None) -> int:
 
     refuse_digest_outdir(out_work, root)
 
-    digest_unit = root / "tools" / "digest" / nn / "units" / f"{uu}.md"
+    from tools.pipeline.paths import digest_units_dir
+
+    digest_unit = Path(digest_units_dir(str(root), nn)) / f"{uu}.md"
     if not digest_unit.is_file():
         raise SystemExit(f"digest unit missing: {digest_unit}")
 
@@ -301,8 +310,7 @@ def main(argv: list[str] | None = None) -> int:
         if not last_errs:
             break
         print(
-            f"attempt {attempt}/{max_attempts} structural fail ({uu}): "
-            + ", ".join(last_errs),
+            f"attempt {attempt}/{max_attempts} structural fail ({uu}): " + ", ".join(last_errs),
             file=sys.stderr,
         )
         messages = build_messages(args.lang, unit_text, gloss, prompt_template, uu=uu)

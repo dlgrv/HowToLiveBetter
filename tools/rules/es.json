@@ -3,6 +3,8 @@
     "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
     "es": ["Costo", "En términos sencillos", "Beneficio", "Nivel de evidencia", "Notas"]
   },
+  "source_label": "Fuentes",
+  "evidence_grade_label": "Nivel de evidencia",
   "banned_calques": [],
   "style_markers": [
     {"pattern": "\\ben el marco de\\b", "label": "en-el-marco", "note": "calque / officialese"},

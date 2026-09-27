@@ -63,10 +63,11 @@ Full checklist: [docs/pipeline/add-chapter.md](docs/pipeline/add-chapter.md). Su
 - **Translations live in `book/{ru,en,es}/`** — one chapter = one file.
 - **Status is in `translations.json`** — single source of truth for what's done.
 - **Waves are in `waves.json`** — 1-3 chapters each.
-- **Run state is gitignored** — `run/`, `tools/digest/`, `tools/.status/`, `tools/runs/`.
+- **Run state is gitignored** — `tools/runs/` (canonical wave workdirs under `tools/runs/active/<lang>/<NN>/`), `tools/digest/`, `tools/.status/`; legacy `run/` also ignored if present.
 - **Tool output contracts:** `--json` → structured stdout. Exit codes: 0=pass, 1=FAIL, 2=WARN.
 - **Commit policy:** publication only through MR + squash-merge to `main`. No direct pushes.
 - **Commit messages:** English Conventional Commits only — enforced by `.githooks/commit-msg` and CI on PRs. Run `make hooks` once after clone.
+- **Code quality stack** (config in `pyproject.toml` / `.yamllint.yaml`): **Ruff** (Python lint+format), **djlint** (`tools/og/*.html`, lint `site/index.html`), **yamllint**, **shellcheck** (`tools/llm/*.sh`). Commands: `make format`, `make lint`. Requires Python **≥3.11** venv and `shellcheck` on PATH. `.githooks/pre-commit` runs `make lint`.
 
 ### Commit messages
 
@@ -111,7 +112,8 @@ git diff -- book/        # what changed?
 # 3. Translate a wave
 make digest CH=02        # split CN chapter into units
 # ... translate units manually or via delegation ...
-make assemble CH=02 LANG=ru WORKDIR=run/ru/02
+# Canonical workdir: tools/runs/active/<lang>/<NN>/ (parent of units/)
+make assemble CH=02 LANG=ru
 make verify CH=02 LANG=ru
 
 # 4. Full wave

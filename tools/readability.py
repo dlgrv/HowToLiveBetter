@@ -72,13 +72,13 @@ def count_syllables_es(word):
 
 def split_sentences(text):
     """Split text into sentences (language-agnostic)."""
-    sentences = re.split(r'(?<=[.!?])\s+(?=[A-ZА-ЯЁ])', text)
+    sentences = re.split(r"(?<=[.!?])\s+(?=[A-ZА-ЯЁ])", text)
     return [s.strip() for s in sentences if len(s.strip().split()) >= 3]
 
 
 def split_words(text):
     """Split text into words (language-agnostic)."""
-    return [w for w in re.findall(r'[A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+', text)]
+    return list(re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿА-Яа-яЁё]+", text))
 
 
 def flesch_ru(text):
@@ -214,15 +214,15 @@ def score_file(path, lang):
 
 def main():
     import argparse
+
     ap = argparse.ArgumentParser(description="Readability scorer")
-    ap.add_argument("lang", nargs="?", default="ru",
-                    help="Target language (ru/en/es)")
-    ap.add_argument("--dir", default=None,
-                    help="Directory (default: book/LANG/)")
+    ap.add_argument("lang", nargs="?", default="ru", help="Target language (ru/en/es)")
+    ap.add_argument("--dir", default=None, help="Directory (default: book/LANG/)")
     ap.add_argument("--json", action="store_true", help="Output JSON")
     ap.add_argument("--desc", action="store_true", help="Sort by score ascending (hardest first)")
-    ap.add_argument("--strict", action="store_true",
-                    help="Exit 1 when files below target (for gating)")
+    ap.add_argument(
+        "--strict", action="store_true", help="Exit 1 when files below target (for gating)"
+    )
     args = ap.parse_args()
 
     scan_dir = args.dir or os.path.join(ROOT, "book", args.lang)

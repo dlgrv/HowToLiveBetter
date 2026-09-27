@@ -14,16 +14,16 @@ pipeline:
     args: ["NN"]
 
   translate:
-    tool: "manual (agent or subagent via delegation)"
+    tool: "manual (agent or subagent via delegation) or tools/llm/translate-wave.sh"
     input: "tools/digest/{chapter}/units/"
-    output: "run/{lang}/{chapter}/units/"
+    output: "tools/runs/active/{lang}/{chapter}/units/"
     contract: "write-first: immediate write_file per unit"
 
   assemble:
     tool: tools/assemble.py
-    input: "run/{lang}/{chapter}/units/"
+    input: "tools/runs/active/{lang}/{chapter}/units/"
     output: "book/{lang}/{chapter}-*.md"
-    args: ["chapter", "--lang"]
+    args: ["NN", "workdir", "out.md", "lang?"]
     depends: ["translate"]
 
   verify:
@@ -36,26 +36,27 @@ pipeline:
 
   factcheck:
     tool: tools/validate/factcheck.py
-    input: "run/{lang}/{chapter}/units/ + run/cn/{chapter}/units/"
-    output: "tools/.status/{chapter}-{lang}.factcheck.json"
+    input: "one CN unit + one TR unit (unit-scoped)"
+    output: "tools/validate/results/factcheck/{nn}-{lang}.json"
+    args: ["--chapter", "NN", "--lang", "ru|en", "--cn-unit", "path", "--tr-unit", "path"]
     depends: ["translate"]
 
   style:
     tool: tools/style_check.py
-    input: "run/{lang}/{chapter}/units/"
+    input: "tools/runs/active/{lang}/{chapter}/units/ or book/{lang}/…"
     output: "stdout"
     depends: ["translate"]
 
   wave:
     tool: tools/wave_pipeline.py
-    input: "chapter list + --lang flag"
-    output: "summary JSON"
+    input: "chapter list (positional NN…); always ru+en+es"
+    output: "summary on stdout"
     depends: ["assemble", "verify"]
 
   web:
     tool: tools/build_pages.py
-    input: "index.html + tools/v2.css"
-    output: "{ru,en,zh,v1,v2}/index.html"
+    input: "book/ + tools/v2.css + tools/langs.json"
+    output: "site/{lang}/index.html + site/assets/"
 
   status:
     tool: tools/status.py
@@ -65,7 +66,7 @@ pipeline:
 paths:
   source: "book/"
   target: "book/{lang}/"
-  run_cn: "run/cn/{chapter}/units/"
-  run_lang: "run/{lang}/{chapter}/units/"
+  run_cn: "tools/digest/{chapter}/units/"
+  run_lang: "tools/runs/active/{lang}/{chapter}/"
   digest: "tools/digest/"
   status: "tools/.status/"

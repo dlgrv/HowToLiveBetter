@@ -3,11 +3,12 @@
 Thin re-exports of the reusable core (tools/pipeline/) plus the two
 unit/book loaders used by every validation script.
 """
-import glob
+
 import os
 
 from tools.pipeline import config as _config
 from tools.pipeline import store as _store
+from tools.pipeline.paths import load_chapter_text
 
 load_config = _config.load_config
 load_lang_rules = _config.load_lang_rules
@@ -31,8 +32,4 @@ def load_unit(root, chapter, lang, unit):
 
 def load_book(root, chapter, lang):
     """Read the assembled chapter book/<lang>/NN-*.md (committed canonical text)."""
-    hits = sorted(glob.glob(os.path.join(root, "book", lang, f"{int(chapter):02d}-*.md")))
-    if not hits:
-        raise FileNotFoundError(f"no book/{lang}/{int(chapter):02d}-*.md under {root}")
-    with open(hits[0], encoding="utf-8") as f:
-        return f.read()
+    return load_chapter_text(root, chapter, lang)

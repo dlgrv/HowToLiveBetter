@@ -83,9 +83,9 @@ def chat(messages: list[dict[str, str]], *, max_tokens: int = 4096) -> str:
 
     last_err: Exception | None = None
     for attempt in range(MAX_RETRIES + 1):
-        req = urllib.request.Request(url, data=body, headers=headers, method="POST")
+        req = urllib.request.Request(url, data=body, headers=headers, method="POST")  # noqa: S310
         try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT_SEC) as resp:
+            with urllib.request.urlopen(req, timeout=TIMEOUT_SEC) as resp:  # noqa: S310
                 status = resp.getcode()
                 raw = resp.read().decode("utf-8")
         except (TimeoutError, urllib.error.URLError) as e:

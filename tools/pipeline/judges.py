@@ -5,6 +5,7 @@ OpenAI-compatible endpoint. The z.ai API key is resolved at call time
 (`resolve_api_key`) and is NEVER stored in the repo. A local-ollama backend
 (Mac fallback) speaks the same protocol against localhost:11434.
 """
+
 import json
 import os
 import urllib.error
@@ -15,11 +16,13 @@ DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434/v1/chat/completions"
 
 def backend_name(root):
     from . import config as _config
+
     return _config.load_config(root).get("judge", {}).get("backend", "subagent-glm")
 
 
 def configured_model_id(root):
     from . import config as _config
+
     return _config.load_config(root).get("judge", {}).get("model_id", "glm-5.3-flash")
 
 
@@ -28,7 +31,9 @@ def get_backend(name):
     try:
         return _BACKENDS[name]
     except KeyError:
-        raise ValueError(f"unknown judge backend {name!r}; available: {sorted(_BACKENDS)}") from None
+        raise ValueError(
+            f"unknown judge backend {name!r}; available: {sorted(_BACKENDS)}"
+        ) from None
 
 
 def resolve_api_key(env=None):
@@ -83,11 +88,12 @@ class OpenAICompatClient:
     def complete(self, prompt, system=None, temperature=0.0, max_tokens=2048):
         """Send the prompt and return the assistant message text."""
         url, headers, body = self.build_request(
-            prompt, system=system, temperature=temperature, max_tokens=max_tokens)
+            prompt, system=system, temperature=temperature, max_tokens=max_tokens
+        )
         data = json.dumps(body).encode("utf-8")
-        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+        req = urllib.request.Request(url, data=data, headers=headers, method="POST")  # noqa: S310
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:  # noqa: S310
                 payload = json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             raise RuntimeError(f"judge API HTTP {e.code}: {e.reason}") from e

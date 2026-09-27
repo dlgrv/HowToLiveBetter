@@ -39,7 +39,7 @@ Swap models by changing `-m` and `HTLB_LLM_MODEL`, then restart (Q8 ↔ official
 
 ## Sequential units on Q8
 
-On 48 GB Mac with Q8, **one** translate worker (`-np 1`). Parallel waves = cloud / Q4 only — see [docs/translation-playbook.md](../../docs/translation-playbook.md).
+On 48 GB Mac with Q8, **one** translate worker (`-np 1`). Parallel waves = cloud / Q4 only — see [translation-playbook.md](../../docs/pipeline/translation-playbook.md).
 
 Do not run heavy Docker LT + browser thrash during Q8 waves if Activity Monitor shows sustained swap.
 
@@ -78,6 +78,6 @@ loop. Exit codes: 0 = verify OK, 1 = exhausted/unrepairable/unlocated,
 2 = LLM/infra. Preview the located map without LLM: add `--dry-locate`.
 ```
 
-Assemble workdir = parent of `units/`. RU → `assemble.py`; EN → `assemble_en.py`; ES → `assemble_es.py`.
+Assemble workdir = parent of `units/`. One script for all langs: `assemble.py <NN> <workdir> <out.md> [lang]` (`lang` defaults to `ru`).
 
-Full plan: [docs/superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md](../../docs/superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md).
+Ops detail: this README + [start-llama-server.sh](start-llama-server.sh) + [translation-playbook.md](../../docs/pipeline/translation-playbook.md) (§ Ops).

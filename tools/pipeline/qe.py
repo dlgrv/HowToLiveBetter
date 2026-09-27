@@ -5,6 +5,7 @@ the Mac). Everywhere else this module degrades gracefully: `available()` is
 False and `run_scores` raises QeUnavailable — callers emit an explicit
 SKIPPED status instead of failing the pipeline (pass B is advisory-only).
 """
+
 import json
 import os
 import re
@@ -16,8 +17,11 @@ DEFAULT_CONFIG_PATH = os.path.join("tools", "validate", "qe_config.json")
 DEFAULT_TAU_FLOOR = 0.01
 
 
-class QeUnavailable(RuntimeError):
+class QeUnavailableError(RuntimeError):
     """COMET stack (venv/model) not available on this machine."""
+
+
+QeUnavailable = QeUnavailableError  # backwards-compatible alias
 
 
 def load_qe_config(root):
@@ -41,7 +45,7 @@ def available(root):
 
 def _runner_source():
     """Inline runner executed by the venv python (imports comet there only)."""
-    return r'''
+    return r"""
 import json, sys
 from comet import download_model, load_from_checkpoint
 cfg = json.load(sys.stdin)
@@ -50,7 +54,7 @@ model = load_from_checkpoint(model_path)
 data = [{"src": d["src"], "mt": d["mt"]} for d in cfg["segments"]]
 out = model.predict(data, batch_size=cfg.get("batch_size", 32), gpus=0)
 print(json.dumps({"scores": list(out.scores)}))
-'''
+"""
 
 
 def run_scores(segments, root=None):
@@ -62,31 +66,39 @@ def run_scores(segments, root=None):
     root = root or _config.default_root()
     exe = venv_python(root)
     if not exe:
-        raise QeUnavailable("qe venv not found (~/.venvs/qe); COMET scoring unavailable")
+        raise QeUnavailableError("qe venv not found (~/.venvs/qe); COMET scoring unavailable")
     cfg = load_qe_config(root)
     check_model_license(cfg["model"])
-    payload = json.dumps({
-        "model": cfg["model"],
-        "revision": cfg.get("revision"),
-        "batch_size": cfg.get("batch_size", 32),
-        "segments": segments,
-    })
+    payload = json.dumps(
+        {
+            "model": cfg["model"],
+            "revision": cfg.get("revision"),
+            "batch_size": cfg.get("batch_size", 32),
+            "segments": segments,
+        }
+    )
     proc = subprocess.run(
-        [exe, "-c", _runner_source()], input=payload,
-        capture_output=True, text=True, encoding="utf-8", errors="replace",
-        timeout=cfg.get("timeout_s", 1800))
+        [exe, "-c", _runner_source()],
+        input=payload,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=cfg.get("timeout_s", 1800),
+        check=False,
+    )
     if proc.returncode != 0:
-        raise QeUnavailable(f"comet runner failed: {proc.stderr.strip()[-400:]}")
+        raise QeUnavailableError(f"comet runner failed: {proc.stderr.strip()[-400:]}")
     scores = parse_scores(proc.stdout)
     if scores is None:
-        raise QeUnavailable("comet runner produced unparseable output")
+        raise QeUnavailableError("comet runner produced unparseable output")
     return scores
 
 
 def parse_scores(stdout):
     """Extract the JSON {"scores": [...]} line from runner output."""
-    for line in reversed(stdout.splitlines()):
-        line = line.strip()
+    for raw_line in reversed(stdout.splitlines()):
+        line = raw_line.strip()
         if line.startswith("{") and '"scores"' in line:
             try:
                 return json.loads(line)["scores"]
@@ -111,5 +123,7 @@ def check_model_license(model_name):
     banned = ("cometkiwi", "xcomet")
     lowered = model_name.lower()
     if any(b in lowered for b in banned):
-        raise ValueError(f"model {model_name} is CC-BY-NC — banned in prod; use wmt20-comet-qe-da / wmt22-comet-da / MetricX")
+        raise ValueError(
+            f"model {model_name} is CC-BY-NC — banned in prod; use wmt20-comet-qe-da / wmt22-comet-da / MetricX"
+        )
     return True

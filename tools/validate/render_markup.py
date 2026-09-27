@@ -11,6 +11,7 @@ Usage:
       --subset tools/validate/results/golden_lite_subset.json \
       --out /tmp/htlb-markup-lite.html [--title "..."]
 """
+
 import argparse
 import html
 import json
@@ -62,26 +63,20 @@ def diff_texts(t1, t2):
     out1, out2 = [], []
     for op, i1, i2, j1, j2 in sm.get_opcodes():
         if op == "equal":
-            for ln in lines1[i1:i2]:
-                out1.append(_esc(ln))
-            for ln in lines2[j1:j2]:
-                out2.append(_esc(ln))
+            out1.extend(_esc(ln) for ln in lines1[i1:i2])
+            out2.extend(_esc(ln) for ln in lines2[j1:j2])
         elif op == "replace":
             n = min(i2 - i1, j2 - j1)
             for k in range(n):
                 h1, h2 = diff_words(lines1[i1 + k], lines2[j1 + k])
                 out1.append(h1)
                 out2.append(h2)
-            for ln in lines1[i1 + n:i2]:
-                out1.append(f"<mark>{_esc(ln)}</mark>")
-            for ln in lines2[j1 + n:j2]:
-                out2.append(f"<mark>{_esc(ln)}</mark>")
+            out1.extend(f"<mark>{_esc(ln)}</mark>" for ln in lines1[i1 + n : i2])
+            out2.extend(f"<mark>{_esc(ln)}</mark>" for ln in lines2[j1 + n : j2])
         elif op == "delete":
-            for ln in lines1[i1:i2]:
-                out1.append(f"<mark>{_esc(ln)}</mark>")
+            out1.extend(f"<mark>{_esc(ln)}</mark>" for ln in lines1[i1:i2])
         elif op == "insert":
-            for ln in lines2[j1:j2]:
-                out2.append(f"<mark>{_esc(ln)}</mark>")
+            out2.extend(f"<mark>{_esc(ln)}</mark>" for ln in lines2[j1:j2])
     return "\n".join(out1), "\n".join(out2)
 
 
@@ -105,14 +100,16 @@ def diff_line_pairs(t1, t2):
                 if l1 is not None and l2 is not None:
                     pairs.append(diff_words(l1, l2))
                 else:
-                    pairs.append((f"<mark>{_esc(l1)}</mark>" if l1 else None,
-                                  f"<mark>{_esc(l2)}</mark>" if l2 else None))
+                    pairs.append(
+                        (
+                            f"<mark>{_esc(l1)}</mark>" if l1 else None,
+                            f"<mark>{_esc(l2)}</mark>" if l2 else None,
+                        )
+                    )
         elif op == "delete":
-            for ln in lines1[i1:i2]:
-                pairs.append((f"<mark>{_esc(ln)}</mark>", None))
+            pairs.extend((f"<mark>{_esc(ln)}</mark>", None) for ln in lines1[i1:i2])
         elif op == "insert":
-            for ln in lines2[j1:j2]:
-                pairs.append((None, f"<mark>{_esc(ln)}</mark>"))
+            pairs.extend((None, f"<mark>{_esc(ln)}</mark>") for ln in lines2[j1:j2])
     return pairs
 
 
@@ -157,13 +154,15 @@ def main():
     ap.add_argument("--subset", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--title", default="Золотой сет ЛАЙТ — 20 пар")
-    ap.add_argument("--diff-only", action="store_true",
-                    help="show only the differing lines (compact mode)")
+    ap.add_argument(
+        "--diff-only", action="store_true", help="show only the differing lines (compact mode)"
+    )
     args = ap.parse_args()
 
     subset = json.load(open(args.subset, encoding="utf-8"))
-    manifest = json.load(open(os.path.join(REPO, "tools/validate/results/golden_manifest.json"),
-                              encoding="utf-8"))
+    manifest = json.load(
+        open(os.path.join(REPO, "tools/validate/results/golden_manifest.json"), encoding="utf-8")
+    )
     by_id = {p["id"]: p for p in manifest["pairs"]}
     pairs = [by_id[pid] for pid in subset["ids"]]
 
@@ -173,8 +172,7 @@ def main():
         if compact:
             rows = diff_line_pairs(first, second)
             if not rows:
-                rows = [("<i>(варианты идентичны)</i>",
-                         "<i>(варианты идентичны)</i>")]
+                rows = [("<i>(варианты идентичны)</i>", "<i>(варианты идентичны)</i>")]
             body1, body2 = [], []
             for h1, h2 in rows:
                 body1.append(h1 if h1 is not None else "<i>—</i>")
@@ -182,27 +180,33 @@ def main():
             d1, d2 = "\n".join(body1), "\n".join(body2)
         else:
             d1, d2 = diff_texts(first, second)
-        return f'''<div class="pair">
+        return f"""<div class="pair">
 <h3>{p["id"]}</h3>
 <div class="var"><div class="lab">ВАРИАНТ 1</div><div class="txt">{d1}</div></div>
 <div class="var v2"><div class="lab">ВАРИАНТ 2</div><div class="txt">{d2}</div></div>
-</div>'''
+</div>"""
 
-    batches = [pairs[i:i+10] for i in range(0, len(pairs), 10)] or [[]]
+    batches = [pairs[i : i + 10] for i in range(0, len(pairs), 10)] or [[]]
     cards = []
     for bi, batch in enumerate(batches, 1):
         cards.append(f'<h2 id="b{bi}">Батч {bi} из {len(batches)}</h2>')
-        for p in batch:
-            cards.append(pair_card(p, args.diff_only))
+        cards.extend(pair_card(p, args.diff_only) for p in batch)
     navlinks = " ".join(f'<a href="#b{i}">{i}</a>' for i in range(1, len(batches) + 1))
-    doc = PAGE.format(title=html.escape(args.title), navlinks=navlinks,
-                      cards="\n".join(cards))
+    doc = PAGE.format(title=html.escape(args.title), navlinks=navlinks, cards="\n".join(cards))
     with open(args.out, "w", encoding="utf-8") as f:
         f.write(doc)
     n_marked = sum(1 for p in pairs if "<mark>" in render(p)[0])
-    print(json.dumps({"out": args.out, "pairs": len(pairs),
-                      "pairs_with_diff": n_marked,
-                      "identical": len(pairs) - n_marked}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "out": args.out,
+                "pairs": len(pairs),
+                "pairs_with_diff": n_marked,
+                "identical": len(pairs) - n_marked,
+            },
+            ensure_ascii=False,
+        )
+    )
 
 
 if __name__ == "__main__":

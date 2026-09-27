@@ -8,18 +8,28 @@ Exit codes: 0 = healthy (progress < STALL_MIN), 1 = stalled, 2 = dead/incomplete
 
 Usage: python3 tools/watchdog.py <run-dir> [--stall-min 25]
 """
+
+import json
 import os
 import sys
 import time
-import json
 
 run = sys.argv[1]
 stall_min = 25
 if "--stall-min" in sys.argv:
     stall_min = int(sys.argv[sys.argv.index("--stall-min") + 1])
 
-meta = json.load(open(os.path.join(os.path.dirname(os.path.dirname(
-    os.path.abspath(__file__))), "tools", "digest", "index.json"), encoding="utf-8"))
+meta = json.load(
+    open(
+        os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "tools",
+            "digest",
+            "index.json",
+        ),
+        encoding="utf-8",
+    )
+)
 
 now = time.time()
 worst = 0.0

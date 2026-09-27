@@ -3,6 +3,7 @@
 Every verdict written here carries the reproducibility audit fields
 (model_id, ts, prompt_hash, unit_sha256) required by the validation protocol.
 """
+
 import hashlib
 import json
 import os

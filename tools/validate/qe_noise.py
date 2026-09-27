@@ -6,6 +6,7 @@ per anchor; sigma = mean of per-anchor std-devs; tau = max(3*sigma, 0.01).
 Writes tools/validate/results/qe_noise.json. Without the QE venv this
 prints an explicit SKIPPED report (exit 0) so pipelines degrade cleanly.
 """
+
 import argparse
 import json
 import os
@@ -14,8 +15,8 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
-from tools.pipeline import qe as pqe      # noqa: E402
-from tools.validate import common as vc   # noqa: E402
+from tools.pipeline import qe as pqe
+from tools.validate import common as vc
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 ANCHORS = [("ru", 1), ("ru", 13), ("ru", 24), ("en", 13)]
@@ -25,6 +26,7 @@ RUNS = 5
 def anchor_segments(root, lang, nn, max_units=3):
     """First N (cn, translation) segment pairs of an anchor chapter."""
     import glob
+
     cn_dir = vc.unit_dir(root, "cn", nn)
     cn_files = sorted(glob.glob(os.path.join(cn_dir, "[0-9][0-9].md")))[:max_units]
     segs = []
@@ -41,9 +43,11 @@ def anchor_segments(root, lang, nn, max_units=3):
 
 def build_report(root=REPO, force_skip=False):
     if force_skip or not pqe.available(root):
-        return {"status": "skipped",
-                "reason": "QE venv not available on this machine (needs Mac ~/.venvs/qe)",
-                "anchors": [f"{lang}{nn:02d}" for lang, nn in ANCHORS]}
+        return {
+            "status": "skipped",
+            "reason": "QE venv not available on this machine (needs Mac ~/.venvs/qe)",
+            "anchors": [f"{lang}{nn:02d}" for lang, nn in ANCHORS],
+        }
     per_anchor_sigma = []
     anchor_details = {}
     for lang, nn in ANCHORS:
@@ -61,14 +65,21 @@ def build_report(root=REPO, force_skip=False):
     if not per_anchor_sigma:
         return {"status": "error", "reason": "no anchor produced scores"}
     sigma = statistics.fmean(per_anchor_sigma)
-    return {"status": "ok", "runs": RUNS, "sigma": sigma,
-            "tau": pqe.compute_tau(sigma), "anchors": anchor_details}
+    return {
+        "status": "ok",
+        "runs": RUNS,
+        "sigma": sigma,
+        "tau": pqe.compute_tau(sigma),
+        "anchors": anchor_details,
+    }
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force-skip", action="store_true", help="emit SKIPPED report without probing")
-    ap.add_argument("--out", default=os.path.join(REPO, "tools", "validate", "results", "qe_noise.json"))
+    ap.add_argument(
+        "--out", default=os.path.join(REPO, "tools", "validate", "results", "qe_noise.json")
+    )
     args = ap.parse_args()
     report = build_report(force_skip=args.force_skip)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)

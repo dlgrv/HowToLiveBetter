@@ -11,6 +11,7 @@ anti-patterns (e.g. «в Бангладеш» instead of «в Бангладеш
 CLI: python3 tools/style_check.py <file.md> --lang ru [--plain-only]
 Exit code is ALWAYS 0 (advisory pass); findings go to stdout as WARN lines.
 """
+
 import argparse
 import json
 import os
@@ -19,7 +20,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from tools.pipeline import config as pconfig  # noqa: E402
+from tools.pipeline import config as pconfig
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MAX_PER_CATEGORY = 5
@@ -54,21 +55,25 @@ def load_glossary_marker_dicts(lang, root=REPO):
         pat = re.escape(ban)
         if " " not in ban and not ban.startswith("в "):
             pat = rf"\b{pat}"
-        markers.append({
-            "pattern": pat,
-            "label": f"calque:{ban[:24]}",
-            "note": "glossary banned_calques",
-        })
+        markers.append(
+            {
+                "pattern": pat,
+                "label": f"calque:{ban[:24]}",
+                "note": "glossary banned_calques",
+            }
+        )
     for nf in data.get("name_forms", []):
         if nf.get("lang") != lang:
             continue
         if nf.get("gov") == "в+prep":
             lemma = nf["lemma"]
-            markers.append({
-                "pattern": rf"\bв\s+{re.escape(lemma)}\b",
-                "label": f"name_form:{lemma}",
-                "note": f"use {nf.get('form', lemma)}, not в {lemma}",
-            })
+            markers.append(
+                {
+                    "pattern": rf"\bв\s+{re.escape(lemma)}\b",
+                    "label": f"name_form:{lemma}",
+                    "note": f"use {nf.get('form', lemma)}, not в {lemma}",
+                }
+            )
     return markers
 
 
@@ -83,7 +88,8 @@ def load_markers(lang, root=REPO):
         rules = pconfig.load_lang_rules(lang, root=root)
     except FileNotFoundError:
         raise ValueError(
-            f"unknown language {lang!r}; no language pack tools/rules/{lang}.json") from None
+            f"unknown language {lang!r}; no language pack tools/rules/{lang}.json"
+        ) from None
     raw = list(rules.get("style_markers", []))
     seen = {m["pattern"] for m in raw}
     for gm in load_glossary_marker_dicts(lang, root=root):
@@ -132,45 +138,65 @@ def check_text(text, lang, root=REPO, plain_only=False):
                 if per_label.get(label, 0) >= MAX_PER_CATEGORY:
                     break
                 per_label[label] = per_label.get(label, 0) + 1
-                findings.append({
-                    "label": label, "line_no": line_no,
-                    "span": match.group(0), "note": m.get("note", ""),
-                })
+                findings.append(
+                    {
+                        "label": label,
+                        "line_no": line_no,
+                        "span": match.group(0),
+                        "note": m.get("note", ""),
+                    }
+                )
     return findings
 
 
 def main():
     ap = argparse.ArgumentParser(description="WARN-only style check (pass A)")
     ap.add_argument("file")
-    ap.add_argument("--lang", required=True,
-                    help="language pack key (ru|en|es)")
-    ap.add_argument("--plain-only", action="store_true",
-                    help="scan only plain-terms field lines")
+    ap.add_argument("--lang", required=True, help="language pack key (ru|en|es)")
+    ap.add_argument("--plain-only", action="store_true", help="scan only plain-terms field lines")
     ap.add_argument("--json", action="store_true", help="emit findings as JSON")
     args = ap.parse_args()
     try:
         text = open(args.file, encoding="utf-8").read()
     except OSError as e:
-        print(f"ERROR: style_check cannot read {args.file}: {e}",
-              file=sys.stderr)
+        print(f"ERROR: style_check cannot read {args.file}: {e}", file=sys.stderr)
         return 2
     try:
         findings = check_text(text, args.lang, plain_only=args.plain_only)
     except ValueError as e:
         msg = f"style_check skip: {e}"
         if args.json:
-            print(json.dumps({"file": args.file, "lang": args.lang,
-                              "plain_only": args.plain_only,
-                              "status": "skip", "reason": str(e),
-                              "warnings": []}, ensure_ascii=False, indent=2))
+            print(
+                json.dumps(
+                    {
+                        "file": args.file,
+                        "lang": args.lang,
+                        "plain_only": args.plain_only,
+                        "status": "skip",
+                        "reason": str(e),
+                        "warnings": [],
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
         else:
             print(f"WARN: {msg}")
             print("style_check: 0 warnings (skip, exit 0)")
         return 0
     if args.json:
-        print(json.dumps({"file": args.file, "lang": args.lang,
-                          "plain_only": args.plain_only,
-                          "warnings": findings}, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "file": args.file,
+                    "lang": args.lang,
+                    "plain_only": args.plain_only,
+                    "warnings": findings,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
     else:
         for f in findings:
             print(f"WARN: line {f['line_no']}: [{f['label']}] {f['span']}")

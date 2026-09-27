@@ -9,6 +9,7 @@ fragments (seed-fixed sampling). After Task 11 labeling
   recall    = caught known-bad / 20 known-bad (calque history fragments)
   rule with FP > 40% -> DROPPED (not tuned), per plan.
 """
+
 import argparse
 import glob
 import json
@@ -19,7 +20,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
-from tools.style_check import check_text  # noqa: E402
+from tools.style_check import check_text
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
@@ -48,18 +49,28 @@ def build_session(lang="ru", clean_per_warn=1):
         if check_text(f["text"], lang):
             warned.append(f)
             warned_ids.add((f["file"], f["line_no"]))
-    rng = random.Random(SEED)
+    rng = random.Random(SEED)  # noqa: S311 — deterministic audit sampling, not crypto
     clean_pool = [f for f in frags if (f["file"], f["line_no"]) not in warned_ids]
     clean = rng.sample(clean_pool, min(len(warned) * clean_per_warn + 100, len(clean_pool)))
-    known_bad = [f for f in frags
-                 if any(re.search(p, f["text"], re.IGNORECASE) for p in KNOWN_BAD_PATTERNS)]
-    session = {"lang": lang, "seed": SEED, "warned": warned, "clean_sample": clean,
-               "known_bad": known_bad[:40]}
+    known_bad = [
+        f for f in frags if any(re.search(p, f["text"], re.IGNORECASE) for p in KNOWN_BAD_PATTERNS)
+    ]
+    session = {
+        "lang": lang,
+        "seed": SEED,
+        "warned": warned,
+        "clean_sample": clean,
+        "known_bad": known_bad[:40],
+    }
     os.makedirs(RESULTS, exist_ok=True)
     with open(SESSION, "w", encoding="utf-8") as fh:
         json.dump(session, fh, ensure_ascii=False, indent=2)
-    return {"warned": len(warned), "clean": len(clean), "known_bad": len(known_bad[:40]),
-            "total": len(warned) + len(clean)}
+    return {
+        "warned": len(warned),
+        "clean": len(clean),
+        "known_bad": len(known_bad[:40]),
+        "total": len(warned) + len(clean),
+    }
 
 
 def report():
@@ -81,20 +92,35 @@ def report():
     for label in set(per_rule_tp) | set(per_rule_fp):
         tp, fp = per_rule_tp.get(label, 0), per_rule_fp.get(label, 0)
         precision = tp / (tp + fp) if tp + fp else None
-        rules[label] = {"tp": tp, "fp": fp, "precision": round(precision, 3) if precision is not None else None,
-                        "dropped": bool(precision is not None and precision < 0.6)}
+        rules[label] = {
+            "tp": tp,
+            "fp": fp,
+            "precision": round(precision, 3) if precision is not None else None,
+            "dropped": bool(precision is not None and precision < 0.6),
+        }
     kb = session["known_bad"]
-    caught = sum(1 for idx, f in enumerate(kb)
-                 if check_text(f["text"], session["lang"]) or labels.get("known_bad", {}).get(str(idx), False))
+    caught = sum(
+        1
+        for idx, f in enumerate(kb)
+        if check_text(f["text"], session["lang"])
+        or labels.get("known_bad", {}).get(str(idx), False)
+    )
     clean_n = len(session["clean_sample"])
-    clean_flagged = sum(1 for f in session["clean_sample"] if check_text(f["text"], session["lang"]))
-    return {"status": "ok", "rules": rules,
-            "precision_overall": round(
-                sum(r["tp"] for r in rules.values()) /
-                max(1, sum(r["tp"] + r["fp"] for r in rules.values())), 3),
-            "recall_known_bad": round(caught / max(1, len(kb)), 3),
-            "clean_fp_rate": round(clean_flagged / max(1, clean_n), 3),
-            "n_fragments": len(session["warned"]) + clean_n}
+    clean_flagged = sum(
+        1 for f in session["clean_sample"] if check_text(f["text"], session["lang"])
+    )
+    return {
+        "status": "ok",
+        "rules": rules,
+        "precision_overall": round(
+            sum(r["tp"] for r in rules.values())
+            / max(1, sum(r["tp"] + r["fp"] for r in rules.values())),
+            3,
+        ),
+        "recall_known_bad": round(caught / max(1, len(kb)), 3),
+        "clean_fp_rate": round(clean_flagged / max(1, clean_n), 3),
+        "n_fragments": len(session["warned"]) + clean_n,
+    }
 
 
 def main():

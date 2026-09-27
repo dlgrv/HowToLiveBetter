@@ -29,10 +29,10 @@
         **Запрещено** скармливать целый `book/*.md` в модель.
         → записать переведённые units/*.md с §TAG§ / §SRC§
 
-3. Сборка (имена скриптов НЕ симметричны — выбрать один):
-     RU: python3 tools/assemble.py <NN> <workdir> book/ru/<slug>.md
-     EN: python3 tools/assemble_en.py <NN> <workdir> book/en/<slug>.md
-     ES: python3 tools/assemble_es.py <NN> <workdir> book/es/<slug>.md
+3. Сборка (один скрипт для всех языков; `lang` по умолчанию `ru`):
+     python3 tools/assemble.py <NN> <workdir> book/<lang>/<slug>.md <lang>
+     # workdir канонически: tools/runs/active/<lang>/<NN>
+     # или: make assemble CH=<NN> LANG=<lang>
 
 4. python3 tools/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
 
@@ -104,14 +104,14 @@ python3 tools/validate/factcheck.py \
   `book/*.md`**. Только `tools/digest/<NN>/units/*.md` (+ gloss).
 - Юнит 1–2КБ = один пункт или два. Риск потери = один пункт, а не глава.
 - Крупные главы: волны по 5–6 юнитов параллельно, потом `assemble*.py`.
-  **Исключение — локальный Hy-MT2 Q8 на 48 GB Mac:** только **последовательные** юниты (`-np 1`, один worker). Параллель 5–6 — для cloud / после перехода на Q4. См. [план llama.cpp](../agent-sessions/superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md).
+  **Исключение — локальный Hy-MT2 Q8 на 48 GB Mac:** только **последовательные** юниты (`-np 1`, один worker). Параллель 5–6 — для cloud / после перехода на Q4. См. [tools/llm/README.md](../../tools/llm/README.md).
 - Сборка и проверка централизованы: LLM физически не может испортить источники — они не входят в его контекст.
 
 ### Скрипты (в `tools/`)
 | Скрипт | Что делает |
 |---|---|
 | `make_digest.py <NN>` | режет главу на юниты; теги и источники уходят в `blocks.json`, в юните — заполнители `§TAG§`/`§SRC§` |
-| `assemble.py` / `assemble_en.py` / `assemble_es.py` | сборка RU / EN / ES; инъекция блоков байт-в-байт, счётчики и источники; exit ≠ 0 при FAIL |
+| `assemble.py <NN> <workdir> <out.md> [lang]` | сборка RU/EN/ES; инъекция блоков байт-в-байт, счётчики и источники; exit ≠ 0 при FAIL |
 | `verify.py <NN> --lang …` | жёсткая сверка главы с оригиналом (пункты, теги, источники, иероглифы) |
 | `validate/factcheck.py` | pass E: вердикт судьи + grounding по CN unit; см. выше |
 | `style_check.py`, `lt_check.py`, `validate/plainness` | WARN-слой после factcheck |
@@ -121,7 +121,7 @@ python3 tools/validate/factcheck.py \
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
-| **Hy-MT2-30B-A3B** (official GGUF Q8 → `llama-server` `:8080`) | [план](../agent-sessions/superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md), [tools/llm/README.md](../../tools/llm/README.md), [start-llama-server.sh](../../tools/llm/start-llama-server.sh), [.env.example](../../.env.example) | Metal `llama-server` **`-c 16384`** + `.env` `HTLB_LLM_*`; юниты только последовательно на Q8@48GB |
+| **Hy-MT2-30B-A3B** (official GGUF Q8 → `llama-server` `:8080`) | [tools/llm/README.md](../../tools/llm/README.md), [start-llama-server.sh](../../tools/llm/start-llama-server.sh), [.env.example](../../.env.example) | Metal `llama-server` **`-c 16384`** + `.env` `HTLB_LLM_*`; юниты только последовательно на Q8@48GB |
 | **LanguageTool** Docker `htlb-lt` `:8010` | [tools/languagetool/README.md](../../tools/languagetool/README.md) | `docker run --rm -d --name htlb-lt -p 8010:8010 erikvl87/languagetool:latest` → healthcheck curl → `lt_check.py` |
 
 **Канонический workdir волны:** `tools/runs/active/<lang>/<NN>/` (родитель `units/`).  
@@ -143,9 +143,8 @@ Cloud LLM позже — тот же `.env` / `tools/llm` client (наприме
 ### Reading order (новый агент)
 
 1. Этот playbook §2 (порядок) + Ops выше  
-2. [tools/llm/README.md](../../tools/llm/README.md) — Hy-MT2 / `.env`  
+2. [tools/llm/README.md](../../tools/llm/README.md) — Hy-MT2 / `.env` / local server  
 3. [tools/languagetool/README.md](../../tools/languagetool/README.md) — `htlb-lt`  
-4. [план Hy-MT2](../agent-sessions/superpowers/plans/2026-09-24-hy-mt2-local-llamacpp.md) — только если поднимаешь локальную модель с нуля  
 
 Перед mass retranslate: `ZAI_API_KEY` (или `judge.backend: local-ollama`) для live factcheck; иначе `--stdin-verdict` на каждый юнит или STOP на exit 2.
 | `watchdog.py <run-dir>` | монитор: недостающие юниты + стагнация (нет записей 25+ мин); для cron-периода |

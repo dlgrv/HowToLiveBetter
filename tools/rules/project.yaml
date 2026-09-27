@@ -1,10 +1,11 @@
 project: htlb
-languages: [ru, en]
+languages: [ru, en, es]
 
 unit_dirs:
   cn: "tools/digest/{nn}/units"
   ru: "tools/runs/active/ru/{nn}/units"
   en: "tools/runs/active/en/{nn}/units"
+  es: "tools/runs/active/es/{nn}/units"
 
 judge:
   backend: subagent-glm

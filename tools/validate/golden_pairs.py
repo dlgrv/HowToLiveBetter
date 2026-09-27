@@ -12,8 +12,8 @@ prompt list is pinned in the manifest (gen_ref). variant_a IS the original
 text; the mapping variant->original lives ONLY here (never in the markup
 session). Numbers inside excerpts are excluded from degradation scope.
 """
+
 import argparse
-import glob
 import hashlib
 import json
 import os
@@ -22,28 +22,70 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from tools.pipeline.paths import load_chapter_text
+
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RESULTS = os.path.join(REPO, "tools", "validate", "results")
 MANIFEST = os.path.join(RESULTS, "golden_manifest.json")
 SEED = 42
-GREEN_CHAPTERS = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "12",
-                  "14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-                  "24", "25", "26", "27", "29", "31", "32"]
+GREEN_CHAPTERS = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "12",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "29",
+    "31",
+    "32",
+]
 DEGRADE_RECIPES = [
-    {"name": "abridgement",
-     "instruction": "Remove clarifications, practical notes, and caveat sentences; keep all field labels, protected lines, and the heading. May only REMOVE digit-bearing text, never alter surviving numbers."},
-    {"name": "bloat",
-     "instruction": "Inflate with officialese filler, repeated theses, and puffy connectives; keep meaning identical. May only ADD text: every original number must survive byte-identical."},
-    {"name": "impersonal_calque",
-     "instruction": "Replace active personal constructions with impersonal/agentless passive phrasing (RU: 'следует осуществлять', 'производится'; EN: 'it is recommended that', 'is to be performed'). Keep every number byte-identical."},
-    {"name": "literalisation",
-     "instruction": "Make idiomatic phrasing literal/word-by-word while staying grammatical. Keep every number byte-identical."},
-    {"name": "bureaucratese",
-     "instruction": "Insert officialese: 'является', 'данного', 'в рамках', 'осуществля' (RU) / 'utilize', 'with respect to', 'aforementioned' (EN). Keep every number byte-identical."},
-    {"name": "passive_chain",
-     "instruction": "Chain two or more passive participle constructions into heavy stacked phrases. Keep every number byte-identical."},
-    {"name": "jargonize",
-     "instruction": "Swap common words for professional jargon/terminology WITHOUT explanation (medical, legal, financial register), keeping meaning identical and all numbers byte-identical. The variant must stay grammatical — it should read as 'expert-speak' a layperson cannot follow."},
+    {
+        "name": "abridgement",
+        "instruction": "Remove clarifications, practical notes, and caveat sentences; keep all field labels, protected lines, and the heading. May only REMOVE digit-bearing text, never alter surviving numbers.",
+    },
+    {
+        "name": "bloat",
+        "instruction": "Inflate with officialese filler, repeated theses, and puffy connectives; keep meaning identical. May only ADD text: every original number must survive byte-identical.",
+    },
+    {
+        "name": "impersonal_calque",
+        "instruction": "Replace active personal constructions with impersonal/agentless passive phrasing (RU: 'следует осуществлять', 'производится'; EN: 'it is recommended that', 'is to be performed'). Keep every number byte-identical.",
+    },
+    {
+        "name": "literalisation",
+        "instruction": "Make idiomatic phrasing literal/word-by-word while staying grammatical. Keep every number byte-identical.",
+    },
+    {
+        "name": "bureaucratese",
+        "instruction": "Insert officialese: 'является', 'данного', 'в рамках', 'осуществля' (RU) / 'utilize', 'with respect to', 'aforementioned' (EN). Keep every number byte-identical.",
+    },
+    {
+        "name": "passive_chain",
+        "instruction": "Chain two or more passive participle constructions into heavy stacked phrases. Keep every number byte-identical.",
+    },
+    {
+        "name": "jargonize",
+        "instruction": "Swap common words for professional jargon/terminology WITHOUT explanation (medical, legal, financial register), keeping meaning identical and all numbers byte-identical. The variant must stay grammatical — it should read as 'expert-speak' a layperson cannot follow.",
+    },
 ]
 
 CLEAN_GREEN = set(GREEN_CHAPTERS)
@@ -51,10 +93,7 @@ DECOY_TARGET = 42
 
 
 def read_chapter(root, nn, lang):
-    hits = glob.glob(os.path.join(root, "book", lang, f"{int(nn):02d}-*.md"))
-    if not hits:
-        raise FileNotFoundError(f"book/{lang}/{int(nn):02d}-*.md")
-    return open(hits[0], encoding="utf-8").read()
+    return load_chapter_text(root, nn, lang)
 
 
 def excerpt_pool(root, nn, lang):
@@ -80,20 +119,26 @@ def excerpt_pool(root, nn, lang):
 
 def select_pairs(root=REPO):
     """Deterministic 60-pair selection. Returns manifest dict (B empty)."""
-    rng = random.Random(SEED)
+    rng = random.Random(SEED)  # noqa: S311  # seeded sampling, not crypto
     chapters = rng.sample(GREEN_CHAPTERS, 6)
     pairs, pid = [], 0
 
     def add(nn, lang, excerpt, stratum, decoy):
         nonlocal pid
         pid += 1
-        pairs.append({
-            "id": f"g{pid:02d}", "chapter": nn, "lang": lang,
-            "stratum": stratum, "decoy": decoy,
-            "variant_a": excerpt, "variant_b": "" if not decoy else excerpt,
-            "recipe": None if decoy else DEGRADE_RECIPES[pid % len(DEGRADE_RECIPES)]["name"],
-            "show_order": "BA" if rng.random() < 0.5 else "AB",
-        })
+        pairs.append(
+            {
+                "id": f"g{pid:02d}",
+                "chapter": nn,
+                "lang": lang,
+                "stratum": stratum,
+                "decoy": decoy,
+                "variant_a": excerpt,
+                "variant_b": "" if not decoy else excerpt,
+                "recipe": None if decoy else DEGRADE_RECIPES[pid % len(DEGRADE_RECIPES)]["name"],
+                "show_order": "BA" if rng.random() < 0.5 else "AB",
+            }
+        )
 
     seen_excerpts = set()
 
@@ -106,7 +151,7 @@ def select_pairs(root=REPO):
             if len(pool) < 3:
                 continue
             chosen = sorted(rng.sample(pool, 3), key=len)
-            for excerpt, stratum in zip(chosen, ("short", "medium", "long")):
+            for excerpt, stratum in zip(chosen, ("short", "medium", "long"), strict=True):
                 add(nn, lang, excerpt, stratum, decoy=False)
                 seen_excerpts.add(excerpt_key(excerpt))
     need = 60 - len(pairs)
@@ -126,16 +171,20 @@ def select_pairs(root=REPO):
         placed += 1
     fresh_decoys = sum(1 for p in pairs if p["decoy"])
     if fresh_decoys < DECOY_TARGET:
-        anchor_ids = [p["id"] for p in pairs
-                      if p["stratum"] in ("short", "medium", "long") and not p["decoy"]]
+        anchor_ids = [
+            p["id"] for p in pairs if p["stratum"] in ("short", "medium", "long") and not p["decoy"]
+        ]
         for pid_ in rng.sample(anchor_ids, DECOY_TARGET - fresh_decoys):
             p = next(x for x in pairs if x["id"] == pid_)
             p["decoy"] = True
             p["variant_b"] = p["variant_a"]
             p["recipe"] = None
-    manifest = {"seed": SEED, "green_chapters": GREEN_CHAPTERS,
-                "recipes": DEGRADE_RECIPES,
-                "counts": {"pairs": len(pairs), "decoys": sum(p["decoy"] for p in pairs)}}
+    manifest = {
+        "seed": SEED,
+        "green_chapters": GREEN_CHAPTERS,
+        "recipes": DEGRADE_RECIPES,
+        "counts": {"pairs": len(pairs), "decoys": sum(p["decoy"] for p in pairs)},
+    }
     gen_payload = json.dumps({"chapters": chapters, "recipes": DEGRADE_RECIPES}, sort_keys=True)
     manifest["gen_ref"] = hashlib.sha256(gen_payload.encode()).hexdigest()
     manifest["pairs"] = pairs
@@ -147,23 +196,30 @@ def load_manifest(path=MANIFEST):
         return json.load(f)
 
 
-def build_session(root=REPO):
+def build_session(_root=REPO):
     """Markup session: 6 batches x 10 pairs, no mapping leakage."""
     m = load_manifest()
     batches = []
     for b in range(6):
-        chunk = m["pairs"][b * 10:(b + 1) * 10]
+        chunk = m["pairs"][b * 10 : (b + 1) * 10]
         items = []
         for p in chunk:
-            first, second = (p["variant_a"], p["variant_b"]) if p["show_order"] == "AB" \
+            first, second = (
+                (p["variant_a"], p["variant_b"])
+                if p["show_order"] == "AB"
                 else (p["variant_b"], p["variant_a"])
-            items.append({
-                "pair_id": p["id"],
-                "rendered": f"VARIANT 1:\n{first}\n\nVARIANT 2:\n{second}",
-            })
+            )
+            items.append(
+                {
+                    "pair_id": p["id"],
+                    "rendered": f"VARIANT 1:\n{first}\n\nVARIANT 2:\n{second}",
+                }
+            )
         batches.append({"batch": b + 1, "pairs": items})
-    return {"instruction": "Для каждой пары ответьте 1 / 2 / = (какой вариант написан по-русски/по-английски естественнее). Не ищите «правильный» текст — оценивайте только естественность языка.",
-            "batches": batches}
+    return {
+        "instruction": "Для каждой пары ответьте 1 / 2 / = (какой вариант написан по-русски/по-английски естественнее). Не ищите «правильный» текст — оценивайте только естественность языка.",
+        "batches": batches,
+    }
 
 
 def validate_manifest():
@@ -186,7 +242,9 @@ def validate_manifest():
         for x in problems:
             print("  -", x)
         return 1
-    print(f"manifest valid: {len(m['pairs'])} pairs, {DECOY_TARGET} decoys, gen_ref={m['gen_ref'][:12]}")
+    print(
+        f"manifest valid: {len(m['pairs'])} pairs, {DECOY_TARGET} decoys, gen_ref={m['gen_ref'][:12]}"
+    )
     return 0
 
 
@@ -202,8 +260,10 @@ def main():
         os.makedirs(RESULTS, exist_ok=True)
         with open(MANIFEST, "w", encoding="utf-8") as f:
             json.dump(m, f, ensure_ascii=False, indent=2)
-        print(f"selected {m['counts']['pairs']} pairs "
-              f"({m['counts']['decoys']} decoys), gen_ref={m['gen_ref'][:12]}")
+        print(
+            f"selected {m['counts']['pairs']} pairs "
+            f"({m['counts']['decoys']} decoys), gen_ref={m['gen_ref'][:12]}"
+        )
     elif args.cmd == "validate":
         sys.exit(validate_manifest())
     else:

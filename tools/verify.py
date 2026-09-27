@@ -27,8 +27,8 @@ Checks (fail = exit 1, warn = printed only):
 
 On success writes tools/.status/<NN>-<lang>.ok (mtime-stamped) for status.py.
 """
+
 import argparse
-import glob
 import json
 import os
 import re
@@ -36,132 +36,237 @@ import sys
 import time
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if root not in sys.path:
+    sys.path.insert(0, root)
 
-LABELS = {
-    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
-    "ru": ["Стоимость", "Простыми словами", "Эффект", "Уровень доказательности", "Примечания"],
-    "en": ["Cost", "In plain terms", "Benefit", "Evidence grade", "Notes"],
-    "es": ["Costo", "En términos sencillos", "Beneficio", "Nivel de evidencia", "Notas"],
-}
-SRC_LABEL = {"cn": "- 来源：", "ru": "- Источники:", "en": "- Sources:", "es": "- Fuentes:"}
+from tools.pipeline import labels as field_labels  # noqa: E402
+from tools.pipeline.paths import cn_chapter_path, tr_chapter_path  # noqa: E402
+
 CJK = re.compile(r"[\u4e00-\u9fff]")
 FULLWIDTH = re.compile(r"[，。：；！？「」『』（）]")
 NUM = re.compile(r"\d+(?:\.\d+)?")
-BANNED_RU = ["когорт", "экспозици", "квартил", "квинтил", "конфаунд", "популяц"]
-
-
-def _lang_pack(lang):
-    """Load tools/rules/<lang>.json (labels/banned_calques); None if absent/empty.
-
-    Fallback contract (plan Task 10b): while the language pack is not yet
-    filled, verify.py keeps its built-in LABELS/BANNED_RU — zero behavior
-    change until Task 10b lands in full.
-    """
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rules", f"{lang}.json")
-    try:
-        pack = json.load(open(path, encoding="utf-8"))
-    except (OSError, ValueError):
-        return None
-    if not pack or (not pack.get("labels") and not pack.get("banned_calques")):
-        return None
-    return pack
-
 
 WORD_VALUES = [
-    (r"двадцать[\s-]?четыре", "24"), (r"twenty-four", "24"),
-    (r"круглосуточн\w*", "24"), (r"(a?round|around)-the-clock", "24"),
-    (r"(?<!几)[一二两三四五六七八九十][一二两三四五六七八九十万亿千百零]*"
-     r"[万亿千百][一二两三四五六七八九十万亿千百零]*",
-     lambda raw: _cn_compound(raw)),
-    (r"(?:одной|одна|одного|одну|две|два|три|четыре|пять|шесть|семь|восемь|девять|десять|"
-     r"сто|ста|сот|двести|двухсот|двест|триста|тр[её]хсот|четыреста|четыр[её]хсот|"
-     r"четырехсот|пятьсот|пятисот|шестьсот|шестисот|семьсот|семисот|восемьсот|"
-     r"восьмисот|девятьсот|девятисот|двадцат\w*|тридцат\w*|сорока|пятидесят\w*|"
-     r"шестьдесят\w*|семидесят\w*|восьмидесят\w*|девяносто)"
-     r"(?:[\s-]+(?:одн[ао]го?|два|две|двух|три|тр[её]х|четыре|четыр[её]х|пяти|пять|"
-     r"шести|шесть|семи|семь|восьми|восемь|девяти|девять|десять|сто|ста|сорока|"
-     r"девяносто|двадцат\w*|тридцат\w*|пятидесят\w*|шестьдесят\w*|семидесят\w*|"
-     r"восьмидесят\w*))*"
-     r"(?:\s+(?:с\s+лишним|с\s+половиной))?\s*"
-     r"(?:тысяч\w*|миллион\w*|млн)",
-     lambda raw: _ru_numeral_chain(raw)),
-    (r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*"
-     r"тысяч\w*(?:(?:\s+\w+){0,6}),?\s+(?:а\s+)?(?:другой|вторая|второй|"
-     r"другие)?\s*(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\b(?!\s*тысяч)",
-     lambda raw: (lambda g1, g2: str(_RU_UNITS.get(g1, _RU_TENS.get(g1, 0)) * 1000)
-               + " " + str(_RU_UNITS.get(g2, _RU_TENS.get(g2, 0)) * 1000))(
-         re.search(r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*тысяч", raw).group(1),
-         re.search(r"(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)$", raw).group(1))),
-    (r"полторы(?:\s*(?:тысяч\w*|миллион\w*|млн))?"
-     r"|полутора(?:\s*(?:тысяч\w*|миллион\w*|млн))?",
-     lambda raw: "1500" if "тысяч" in raw.lower() else
-                 "1500000" if ("миллион" in raw.lower() or "млн" in raw.lower()) else "1.5"),
-    (r"(\d+(?:[.,]\d+)?)\s*(?:до|—|–|-|или|or)\s*(\d+(?:[.,]\d+)?)\s*"
-     r"(тысяч\w*|миллион\w*|млн)",
-     lambda raw: _ru_range_scale(raw)),
-    (r"(\d+(?:[.,]\d+)?)\s*(?:тысяч\w*|миллион\w*|млн)",
-     lambda raw: str(round(float(re.match(r"[\d.,]+", raw.replace(",", ".")).group(0)
-                             .rstrip(".")) * (1000000 if ("миллион" in raw or "млн" in raw) else 1000)))),
-    (r"(?<![\d,.])тысяч(?:и|а|е|ам|ами|ах)?(?=\s+(?:с\s+)?(?:лишним|половиной)|\s*$|[,.])",
-     "1000"),
-    (r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*[–—-]\s*"
-     r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*сот\w*",
-     lambda raw: _hundred_pair(_RU_NUM, raw)),
-    (r"(?:one|two|three|four|five|six|seven|eight|nine)\s+(?:to|or|-)\s+"
-     r"(?:two|three|four|five|six|seven|eight|nine)\s+hundred\b",
-     lambda raw: _hundred_pair(_EN_NUM, raw)),
-    (r"двести(?!\w)", "200"), (r"триста(?!\w)", "300"),
-    (r"четыреста(?!\w)", "400"), (r"пятьсот(?!\w)", "500"),
-    (r"шестьсот(?!\w)", "600"), (r"семьсот(?!\w)", "700"),
-    (r"восемьсот(?!\w)", "800"), (r"девятьсот(?!\w)", "900"),
+    (r"двадцать[\s-]?четыре", "24"),
+    (r"twenty-four", "24"),
+    (r"круглосуточн\w*", "24"),
+    (r"(a?round|around)-the-clock", "24"),
+    (
+        r"(?<!几)[一二两三四五六七八九十][一二两三四五六七八九十万亿千百零]*"
+        r"[万亿千百][一二两三四五六七八九十万亿千百零]*",
+        lambda raw: _cn_compound(raw),
+    ),
+    (
+        r"(?:одной|одна|одного|одну|две|два|три|четыре|пять|шесть|семь|восемь|девять|десять|"
+        r"сто|ста|сот|двести|двухсот|двест|триста|тр[её]хсот|четыреста|четыр[её]хсот|"
+        r"четырехсот|пятьсот|пятисот|шестьсот|шестисот|семьсот|семисот|восемьсот|"
+        r"восьмисот|девятьсот|девятисот|двадцат\w*|тридцат\w*|сорока|пятидесят\w*|"
+        r"шестьдесят\w*|семидесят\w*|восьмидесят\w*|девяносто)"
+        r"(?:[\s-]+(?:одн[ао]го?|два|две|двух|три|тр[её]х|четыре|четыр[её]х|пяти|пять|"
+        r"шести|шесть|семи|семь|восьми|восемь|девяти|девять|десять|сто|ста|сорока|"
+        r"девяносто|двадцат\w*|тридцат\w*|пятидесят\w*|шестьдесят\w*|семидесят\w*|"
+        r"восьмидесят\w*))*"
+        r"(?:\s+(?:с\s+лишним|с\s+половиной))?\s*"
+        r"(?:тысяч\w*|миллион\w*|млн)",
+        lambda raw: _ru_numeral_chain(raw),
+    ),
+    (
+        r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*"
+        r"тысяч\w*(?:(?:\s+\w+){0,6}),?\s+(?:а\s+)?(?:другой|вторая|второй|"
+        r"другие)?\s*(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\b(?!\s*тысяч)",
+        lambda raw: (
+            lambda g1, g2: (
+                str(_RU_UNITS.get(g1, _RU_TENS.get(g1, 0)) * 1000)
+                + " "
+                + str(_RU_UNITS.get(g2, _RU_TENS.get(g2, 0)) * 1000)
+            )
+        )(
+            re.search(
+                r"(?:на|в)\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)\s*тысяч", raw
+            ).group(1),
+            re.search(
+                r"(?:на|в)?\s+(два|две|двух|три|тр[её]х|четыре|четыр[её]х|пять|пяти)$", raw
+            ).group(1),
+        ),
+    ),
+    (
+        r"полторы(?:\s*(?:тысяч\w*|миллион\w*|млн))?"
+        r"|полутора(?:\s*(?:тысяч\w*|миллион\w*|млн))?",
+        lambda raw: (
+            "1500"
+            if "тысяч" in raw.lower()
+            else "1500000"
+            if ("миллион" in raw.lower() or "млн" in raw.lower())
+            else "1.5"
+        ),
+    ),
+    (
+        r"(\d+(?:[.,]\d+)?)\s*(?:до|—|–|-|или|or)\s*(\d+(?:[.,]\d+)?)\s*"
+        r"(тысяч\w*|миллион\w*|млн)",
+        lambda raw: _ru_range_scale(raw),
+    ),
+    (
+        r"(\d+(?:[.,]\d+)?)\s*(?:тысяч\w*|миллион\w*|млн)",
+        lambda raw: str(
+            round(
+                float(re.match(r"[\d.,]+", raw.replace(",", ".")).group(0).rstrip("."))
+                * (1000000 if ("миллион" in raw or "млн" in raw) else 1000)
+            )
+        ),
+    ),
+    (r"(?<![\d,.])тысяч(?:и|а|е|ам|ами|ах)?(?=\s+(?:с\s+)?(?:лишним|половиной)|\s*$|[,.])", "1000"),
+    (
+        r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*[–—-]\s*"
+        r"(?:одна|два|две|три|четыре|пять|шесть|семь|восемь|девять)\s*сот\w*",
+        lambda raw: _hundred_pair(_RU_NUM, raw),
+    ),
+    (
+        r"(?:one|two|three|four|five|six|seven|eight|nine)\s+(?:to|or|-)\s+"
+        r"(?:two|three|four|five|six|seven|eight|nine)\s+hundred\b",
+        lambda raw: _hundred_pair(_EN_NUM, raw),
+    ),
+    (r"двести(?!\w)", "200"),
+    (r"триста(?!\w)", "300"),
+    (r"четыреста(?!\w)", "400"),
+    (r"пятьсот(?!\w)", "500"),
+    (r"шестьсот(?!\w)", "600"),
+    (r"семьсот(?!\w)", "700"),
+    (r"восемьсот(?!\w)", "800"),
+    (r"девятьсот(?!\w)", "900"),
     (r"столетн\w*", "100"),
-    (r"двухсот(?!\w)", "200"), (r"трёхсот|трехсот(?!\w)", "300"),
-    (r"четырёхсот|четырехсот(?!\w)", "400"), (r"пятисот(?!\w)", "500"),
-    (r"шестисот(?!\w)", "600"), (r"семисот(?!\w)", "700"),
-    (r"восьмисот(?!\w)", "800"), (r"девятисот(?!\w)", "900"),
-    (r"тридцат(?:и|ь|е)(?!\w)", "30"), (r"пятидесят(?:и|ь|е)(?!\w)", "50"),
-    (r"январ\w*", "1"), (r"феврал\w*", "2"), (r"март\w*", "3"), (r"апрел\w*", "4"),
-    (r"(?<=\d\s)мая(?!\w)", "5"), (r"июн\w*", "6"), (r"июл\w*", "7"), (r"август\w*", "8"),
-    (r"сентябр\w*", "9"), (r"октябр\w*", "10"), (r"ноябр\w*", "11"), (r"декабр\w*", "12"),
-    (r"january(?!\w)", "1"), (r"february(?!\w)", "2"), (r"march(?!\w)", "3"),
-    (r"april(?!\w)", "4"), (r"june(?!\w)", "6"), (r"july(?!\w)", "7"),
-    (r"august(?!\w)", "8"), (r"september(?!\w)", "9"), (r"october(?!\w)", "10"),
-    (r"november(?!\w)", "11"), (r"december(?!\w)", "12"),
-    (r"two[\s-]hundred(?!\w)", "200"), (r"three[\s-]hundred(?!\w)", "300"),
-    (r"four[\s-]hundred(?!\w)", "400"), (r"five[\s-]hundred(?!\w)", "500"),
-    (r"одиннадцат\w*", "11"), (r"двенадцат\w*", "12"),
-    (r"один(?!\w)", "1"), (r"одна(?!\w)", "1"), (r"одного", "1"), (r"одной", "1"),
-    (r"одну", "1"), (r"два(?!\w)", "2"), (r"две(?!\w)", "2"), (r"двух", "2"),
-    (r"двум", "2"), (r"обеих", "2"), (r"обоих", "2"), (r"трёх", "3"), (r"трем", "3"),
-    (r"четырёх", "4"), (r"четыре(?!\w)", "4"), (r"пяти", "5"), (r"пять(?!\w)", "5"),
-    (r"шести", "6"), (r"семи", "7"), (r"восьми", "8"), (r"девяти", "9"),
-    (r"полтора", "1.5"), (r"полторы(?!\w)", "1.5"),
+    (r"двухсот(?!\w)", "200"),
+    (r"трёхсот|трехсот(?!\w)", "300"),
+    (r"четырёхсот|четырехсот(?!\w)", "400"),
+    (r"пятисот(?!\w)", "500"),
+    (r"шестисот(?!\w)", "600"),
+    (r"семисот(?!\w)", "700"),
+    (r"восьмисот(?!\w)", "800"),
+    (r"девятисот(?!\w)", "900"),
+    (r"тридцат(?:и|ь|е)(?!\w)", "30"),
+    (r"пятидесят(?:и|ь|е)(?!\w)", "50"),
+    (r"январ\w*", "1"),
+    (r"феврал\w*", "2"),
+    (r"март\w*", "3"),
+    (r"апрел\w*", "4"),
+    (r"(?<=\d\s)мая(?!\w)", "5"),
+    (r"июн\w*", "6"),
+    (r"июл\w*", "7"),
+    (r"август\w*", "8"),
+    (r"сентябр\w*", "9"),
+    (r"октябр\w*", "10"),
+    (r"ноябр\w*", "11"),
+    (r"декабр\w*", "12"),
+    (r"january(?!\w)", "1"),
+    (r"february(?!\w)", "2"),
+    (r"march(?!\w)", "3"),
+    (r"april(?!\w)", "4"),
+    (r"june(?!\w)", "6"),
+    (r"july(?!\w)", "7"),
+    (r"august(?!\w)", "8"),
+    (r"september(?!\w)", "9"),
+    (r"october(?!\w)", "10"),
+    (r"november(?!\w)", "11"),
+    (r"december(?!\w)", "12"),
+    (r"two[\s-]hundred(?!\w)", "200"),
+    (r"three[\s-]hundred(?!\w)", "300"),
+    (r"four[\s-]hundred(?!\w)", "400"),
+    (r"five[\s-]hundred(?!\w)", "500"),
+    (r"одиннадцат\w*", "11"),
+    (r"двенадцат\w*", "12"),
+    (r"один(?!\w)", "1"),
+    (r"одна(?!\w)", "1"),
+    (r"одного", "1"),
+    (r"одной", "1"),
+    (r"одну", "1"),
+    (r"два(?!\w)", "2"),
+    (r"две(?!\w)", "2"),
+    (r"двух", "2"),
+    (r"двум", "2"),
+    (r"обеих", "2"),
+    (r"обоих", "2"),
+    (r"трёх", "3"),
+    (r"трем", "3"),
+    (r"четырёх", "4"),
+    (r"четыре(?!\w)", "4"),
+    (r"пяти", "5"),
+    (r"пять(?!\w)", "5"),
+    (r"шести", "6"),
+    (r"семи", "7"),
+    (r"восьми", "8"),
+    (r"девяти", "9"),
+    (r"полтора", "1.5"),
+    (r"полторы(?!\w)", "1.5"),
     (r"сто шестьдесят пять(?!\w)", "165"),
     (r"сто шестьдесят пят(?:ой|ая|ый|ом)(?!\w)", "165"),
     (r"двести шестьдесят шесть(?!\w)", "266"),
     (r"сто шестьдесят(?!\w)", "160"),
     (r"нулю|ноль", "0"),
-    (r"(?<!几)十(?=[万亿千百])", "10"), (r"两(?=[万亿千百](?![卡克瓦赫]))", "2"),
-    (r"(?<!几)一(?=[万亿千百](?![卡克瓦赫]))", "1"), (r"(?<!几)二(?=[万亿千百](?![卡克瓦赫]))", "2"),
-    (r"(?<!几)三(?=[万亿千百](?![卡克瓦赫]))", "3"), (r"(?<!几)四(?=[万亿千百](?![卡克瓦赫]))", "4"),
-    (r"(?<!几)五(?=[万亿千百](?![卡克瓦赫]))", "5"), (r"(?<!几)六(?=[万亿千百](?![卡克瓦赫]))", "6"),
-    (r"(?<!几)七(?=[万亿千百](?![卡克瓦赫]))", "7"), (r"(?<!几)八(?=[万亿千百](?![卡克瓦赫]))", "8"),
+    (r"(?<!几)十(?=[万亿千百])", "10"),
+    (r"两(?=[万亿千百](?![卡克瓦赫]))", "2"),
+    (r"(?<!几)一(?=[万亿千百](?![卡克瓦赫]))", "1"),
+    (r"(?<!几)二(?=[万亿千百](?![卡克瓦赫]))", "2"),
+    (r"(?<!几)三(?=[万亿千百](?![卡克瓦赫]))", "3"),
+    (r"(?<!几)四(?=[万亿千百](?![卡克瓦赫]))", "4"),
+    (r"(?<!几)五(?=[万亿千百](?![卡克瓦赫]))", "5"),
+    (r"(?<!几)六(?=[万亿千百](?![卡克瓦赫]))", "6"),
+    (r"(?<!几)七(?=[万亿千百](?![卡克瓦赫]))", "7"),
+    (r"(?<!几)八(?=[万亿千百](?![卡克瓦赫]))", "8"),
     (r"(?<!几)九(?=[万亿千百](?![卡克瓦赫]))", "9"),
     (r"\bzero\b", "0"),
-    (r"\bone\b", "1"), (r"\btwo\b", "2"), (r"\bthree\b", "3"), (r"\bfour\b", "4"),
-    (r"\bfive\b", "5"), (r"\bsix\b", "6"), (r"\bseven\b", "7"), (r"\beight\b", "8"),
-    (r"\bnine\b", "9"), (r"\bten\b", "10"), (r"\beleven\b", "11"), (r"\btwelve\b", "12"),
+    (r"\bone\b", "1"),
+    (r"\btwo\b", "2"),
+    (r"\bthree\b", "3"),
+    (r"\bfour\b", "4"),
+    (r"\bfive\b", "5"),
+    (r"\bsix\b", "6"),
+    (r"\bseven\b", "7"),
+    (r"\beight\b", "8"),
+    (r"\bnine\b", "9"),
+    (r"\bten\b", "10"),
+    (r"\beleven\b", "11"),
+    (r"\btwelve\b", "12"),
 ]
-WORD_RX = re.compile("|".join(f"(?P<w{i}>{p})" for i, (p, _) in enumerate(WORD_VALUES)),
-                     flags=re.I)
+WORD_RX = re.compile(
+    "|".join(f"(?P<w{i}>{p})" for i, (p, _) in enumerate(WORD_VALUES)), flags=re.IGNORECASE
+)
 
 
-_CN_NUM = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5,
-           "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
-_EN_NUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
-           "six": 6, "seven": 7, "eight": 8, "nine": 9}
-_RU_NUM = {"одна": 1, "два": 2, "две": 2, "три": 3, "четыре": 4, "пять": 5,
-           "шесть": 6, "семь": 7, "восемь": 8, "девять": 9}
+_CN_NUM = {
+    "一": 1,
+    "二": 2,
+    "两": 2,
+    "三": 3,
+    "四": 4,
+    "五": 5,
+    "六": 6,
+    "七": 7,
+    "八": 8,
+    "九": 9,
+    "十": 10,
+}
+_EN_NUM = {
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+}
+_RU_NUM = {
+    "одна": 1,
+    "два": 2,
+    "две": 2,
+    "три": 3,
+    "четыре": 4,
+    "пять": 5,
+    "шесть": 6,
+    "семь": 7,
+    "восемь": 8,
+    "девять": 9,
+}
 
 
 def _hundred_pair(table, raw):
@@ -174,14 +279,16 @@ def _hundred_pair(table, raw):
     return " ".join(str(n * 100) for n in nums[:2])
 
 
-_CN_DIG = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5,
-           "六": 6, "七": 7, "八": 8, "九": 9}
+_CN_DIG = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
 
 
 def _ru_range_scale(raw):
     """«от 2 до 20 тысяч» → '2000 20000' (range ellipsis: scale applies to both)."""
-    m = re.search(r"(\d+(?:[.,]\d+)?)\s*.{1,3}?\s*(\d+(?:[.,]\d+)?)\s*"
-                  r"(тысяч|миллион|млн)", raw)
+    m = re.search(
+        r"(\d+(?:[.,]\d+)?)\s*.{1,3}?\s*(\d+(?:[.,]\d+)?)\s*"
+        r"(тысяч|миллион|млн)",
+        raw,
+    )
     lo, hi = float(m.group(1).replace(",", ".")), float(m.group(2).replace(",", "."))
     scale = 1000000 if m.group(3).startswith(("миллион", "млн")) else 1000
     return f"{round(lo * scale)} {round(hi * scale)}"
@@ -198,7 +305,7 @@ def _cn_compound(raw):
     prev_scale = None
     for idx, ch in enumerate(raw):
         if ch in _CN_DIG:
-            nxt = raw[idx + 1:]
+            nxt = raw[idx + 1 :]
             if prev_scale is not None and (not nxt or nxt[0] not in "十百千万亿零"):
                 section += _CN_DIG[ch] * (prev_scale // 10)
             else:
@@ -228,39 +335,97 @@ def _cn_compound(raw):
     return str(total + section + cur)
 
 
-_RU_TENS = {"двадцати": 20, "двадцать": 20, "тридцати": 30, "тридцать": 30,
-            "сорока": 40, "пятидесяти": 50, "пятьдесят": 50,
-            "шестидесяти": 60, "шестьдесят": 60, "семидесяти": 70,
-            "семьдесят": 70, "восьмидесяти": 80, "восемьдесят": 80,
-            "девяносто": 90, "одной": 1, "одна": 1, "двух": 2, "двум": 2,
-            "две": 2, "трёх": 3, "трех": 3, "трём": 3, "четырёх": 4,
-            "четырех": 4, "четырём": 4, "пяти": 5, "шести": 6, "семи": 7,
-            "восьми": 8, "девяти": 9}
+_RU_TENS = {
+    "двадцати": 20,
+    "двадцать": 20,
+    "тридцати": 30,
+    "тридцать": 30,
+    "сорока": 40,
+    "пятидесяти": 50,
+    "пятьдесят": 50,
+    "шестидесяти": 60,
+    "шестьдесят": 60,
+    "семидесяти": 70,
+    "семьдесят": 70,
+    "восьмидесяти": 80,
+    "восемьдесят": 80,
+    "девяносто": 90,
+    "одной": 1,
+    "одна": 1,
+    "двух": 2,
+    "двум": 2,
+    "две": 2,
+    "трёх": 3,
+    "трех": 3,
+    "трём": 3,
+    "четырёх": 4,
+    "четырех": 4,
+    "четырём": 4,
+    "пяти": 5,
+    "шести": 6,
+    "семи": 7,
+    "восьми": 8,
+    "девяти": 9,
+}
 
 
 def _ru_tens_scale(raw):
     """«тридцати шести тысячам» → 36×1000 = '36000' (spelled tens+units chain
     sharing one scale word)."""
-    nums = [_RU_TENS[w.lower()] for w in re.findall(r"[а-яА-ЯёЁ]+", raw)
-            if w.lower() in _RU_TENS]
+    nums = [_RU_TENS[w.lower()] for w in re.findall(r"[а-яА-ЯёЁ]+", raw) if w.lower() in _RU_TENS]
     return str(sum(nums) * 1000)
 
 
-_RU_UNITS = {"один": 1, "одна": 1, "одно": 1, "два": 2, "две": 2, "три": 3,
-             "четыре": 4, "пять": 5, "шесть": 6, "семь": 7, "восемь": 8,
-             "девять": 9, "десять": 10, "одиннадцать": 11, "двенадцать": 12,
-             "тринадцать": 13, "четырнадцать": 14,
-             "пятнадцать": 15, "шестнадцать": 16, "семнадцать": 17,
-             "восемнадцать": 18, "девятнадцать": 19}
+_RU_UNITS = {
+    "один": 1,
+    "одна": 1,
+    "одно": 1,
+    "два": 2,
+    "две": 2,
+    "три": 3,
+    "четыре": 4,
+    "пять": 5,
+    "шесть": 6,
+    "семь": 7,
+    "восемь": 8,
+    "девять": 9,
+    "десять": 10,
+    "одиннадцать": 11,
+    "двенадцать": 12,
+    "тринадцать": 13,
+    "четырнадцать": 14,
+    "пятнадцать": 15,
+    "шестнадцать": 16,
+    "семнадцать": 17,
+    "восемнадцать": 18,
+    "девятнадцать": 19,
+}
 
 
-_RU_HUNDREDS = {"сто": 100, "ста": 100, "сот": 100, "двести": 200,
-                "двухсот": 200, "двест": 200, "триста": 300, "трёхсот": 300,
-                "трехсот": 300, "четыреста": 400, "четырёхсот": 400,
-                "четырехсот": 400, "пятьсот": 500, "пятисот": 500,
-                "шестьсот": 600, "шестисот": 600, "семьсот": 700,
-                "семисот": 700, "восемьсот": 800, "восьмисот": 800,
-                "девятьсот": 900, "девятисот": 900}
+_RU_HUNDREDS = {
+    "сто": 100,
+    "ста": 100,
+    "сот": 100,
+    "двести": 200,
+    "двухсот": 200,
+    "двест": 200,
+    "триста": 300,
+    "трёхсот": 300,
+    "трехсот": 300,
+    "четыреста": 400,
+    "четырёхсот": 400,
+    "четырехсот": 400,
+    "пятьсот": 500,
+    "пятисот": 500,
+    "шестьсот": 600,
+    "шестисот": 600,
+    "семьсот": 700,
+    "семисот": 700,
+    "восемьсот": 800,
+    "восьмисот": 800,
+    "девятьсот": 900,
+    "девятисот": 900,
+}
 
 
 def _ru_numeral_chain(raw):
@@ -292,12 +457,14 @@ def _ru_numeral_chain(raw):
 def fold_words(text):
     """Replace spelled-out numerals / month names with their digit values so the
     value-space comparison treats «1 ноября» == «11 月 1 日» == «November 1»."""
+
     def rep(m):
         idx = next(i for i in range(len(WORD_VALUES)) if m.group(f"w{i}") is not None)
         val = WORD_VALUES[idx][1]
         if callable(val):
             return f" {val(m.group(f'w{idx}'))} "
         return f" {val} "
+
     return WORD_RX.sub(rep, text)
 
 
@@ -311,16 +478,21 @@ def norm_numbers(text, ru=False, es=False):
     text = text.replace("\u202f", " ")
     text = re.sub(r"(?<![\d.])\.(\d+)", r"0.\1", text)
     if ru:
-        text = re.sub(r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"
-                      r"миллиард|thousand|million|billion|trillion)\b)",
-                      r"\1.\2", text, flags=re.I)
-        text = re.sub(r"(?<![\d.])0,(?=\d{3}(?!\d))", lambda m: "0\x00", text)
+        text = re.sub(
+            r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"
+            r"миллиард|thousand|million|billion|trillion)\b)",
+            r"\1.\2",
+            text,
+            flags=re.IGNORECASE,
+        )
+        text = re.sub(r"(?<![\d.])0,(?=\d{3}(?!\d))", lambda _m: "0\x00", text)
         _hr = re.compile(r"(?<![\d.,])([1-9]\d?),(\d{3})(?!\d)")
         _marks = []
         for m in _hr.finditer(text):
-            ctx = text[max(0, m.start() - 60):m.end() + 60]
-            if (re.search(r"[\d.],\d{3}\s*(?:[–—-]|до\b|to\b|and\b)\s*[\d.]*,?\d{3}", ctx)
-                    or re.search(r"(?:95\s*%\s*CI|риско|CI\s|доверительн)", ctx, re.I)):
+            ctx = text[max(0, m.start() - 60) : m.end() + 60]
+            if re.search(
+                r"[\d.],\d{3}\s*(?:[–—-]|до\b|to\b|and\b)\s*[\d.]*,?\d{3}", ctx
+            ) or re.search(r"(?:95\s*%\s*CI|риско|CI\s|доверительн)", ctx, re.IGNORECASE):
                 _marks.append((m.start(), m.end(), m.group(1) + "\x00" + m.group(2)))
         for a, b, rep in reversed(_marks):
             text = text[:a] + rep + text[b:]
@@ -329,8 +501,13 @@ def norm_numbers(text, ru=False, es=False):
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)
     elif es:
-        text = re.sub(r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
-                      r"mil millones|billones|trillones))", r"\1.\2", text, flags=re.I)
+        text = re.sub(
+            r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
+            r"mil millones|billones|trillones))",
+            r"\1.\2",
+            text,
+            flags=re.IGNORECASE,
+        )
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)
     else:
@@ -340,38 +517,75 @@ def norm_numbers(text, ru=False, es=False):
         r"(\d+(?:\.\d+)?)((?:\s+(?:до|and|to|a|de)\s*|\s*[–—-]\s*)\d+(?:\.\d+)?)"
         r"\s*(тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion|тысяч|"
         r"миллион|миллиард|триллион|trillion|millones|millón|billones|mil)\b",
-        flags=re.I)
+        flags=re.IGNORECASE,
+    )
 
     def _distribute(m: "re.Match") -> str:
         first, mid, scale = m.group(1), m.group(2), m.group(3)
         second = re.search(r"\d+(?:\.\d+)?", mid).group(0)
         key = scale.lower().rstrip(".")
-        _scale_map = {"тыс": 1e3, "тысяч": 1e3, "млн": 1e6, "миллион": 1e6,
-                  "млрд": 1e9, "миллиард": 1e9, "трлн": 1e12, "триллион": 1e12,
-                  "thousand": 1e3, "million": 1e6, "billion": 1e9,
-                  "trillion": 1e12, "mil": 1e3}.get(key, 1)
+        _scale_map = {
+            "тыс": 1e3,
+            "тысяч": 1e3,
+            "млн": 1e6,
+            "миллион": 1e6,
+            "млрд": 1e9,
+            "миллиард": 1e9,
+            "трлн": 1e12,
+            "триллион": 1e12,
+            "thousand": 1e3,
+            "million": 1e6,
+            "billion": 1e9,
+            "trillion": 1e12,
+            "mil": 1e3,
+        }.get(key, 1)
         a, b = float(first), float(second)
         if a > 0 and b > 0 and 1e-2 <= (a / b) <= 1e2:
             return f"{first} {scale}{mid} {scale}"
         return m.group(0)
 
     text = _distrib.sub(_distribute, text)
-    scale = [("mil millones", 1e9), ("mil millón", 1e9), ("mil millon", 1e9),
-             ("тысяч", 1e3), ("тыс", 1e3), ("миллион", 1e6), ("млн", 1e6),
-             ("миллиард", 1e9), ("млрд", 1e9), ("трлн", 1e12), ("триллион", 1e12),
-             ("trillion", 1e12), ("万亿", 1e12), ("千万", 1e7), ("百万", 1e6),
-             ("万", 1e4), ("亿", 1e8), ("千", 1e3), ("百", 1e2),
-             ("thousand", 1e3), ("million", 1e6), ("billion", 1e9),
-             ("millones", 1e6), ("millón", 1e6), ("millon", 1e6), ("mil", 1e3),
-             ("billones", 1e12), ("billón", 1e12), ("trillones", 1e12)]
+    scale = [
+        ("mil millones", 1e9),
+        ("mil millón", 1e9),
+        ("mil millon", 1e9),
+        ("тысяч", 1e3),
+        ("тыс", 1e3),
+        ("миллион", 1e6),
+        ("млн", 1e6),
+        ("миллиард", 1e9),
+        ("млрд", 1e9),
+        ("трлн", 1e12),
+        ("триллион", 1e12),
+        ("trillion", 1e12),
+        ("万亿", 1e12),
+        ("千万", 1e7),
+        ("百万", 1e6),
+        ("万", 1e4),
+        ("亿", 1e8),
+        ("千", 1e3),
+        ("百", 1e2),
+        ("thousand", 1e3),
+        ("million", 1e6),
+        ("billion", 1e9),
+        ("millones", 1e6),
+        ("millón", 1e6),
+        ("millon", 1e6),
+        ("mil", 1e3),
+        ("billones", 1e12),
+        ("billón", 1e12),
+        ("trillones", 1e12),
+    ]
     out = []
     for m in re.finditer(
-            r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百)\s*[多余]?|"
-            r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百|тысяч\w*|тыс\.?|миллион\w*|млн|"
-            r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
-            r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
-            r"billones|billón\b|trillones|mil\b)?",
-            text, flags=re.I):
+        r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百)\s*[多余]?|"
+        r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百|тысяч\w*|тыс\.?|миллион\w*|млн|"
+        r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
+        r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
+        r"billones|billón\b|trillones|mil\b)?",
+        text,
+        flags=re.IGNORECASE,
+    ):
         g_num, g_scale = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
         v = float(g_num)
         if g_scale:
@@ -380,8 +594,7 @@ def norm_numbers(text, ru=False, es=False):
         s = f"{v:.15g}"
         if re.search(r"\.(\d*?)((?:0{6}|9{6})\d*)$", s):
             s = f"{round(v, 10 - (len(str(int(v))) if v >= 1 else 0))!r}"
-            if s.endswith(".0"):
-                s = s[:-2]
+            s = s.removesuffix(".0")
         out.append(s)
     return out
 
@@ -399,19 +612,18 @@ def main():
     args = ap.parse_args()
     n, lang = args.chapter, args.lang
 
-    srcs = [f for f in os.listdir(os.path.join(root, "book"))
-            if re.match(rf"{n}-", f) and f.endswith(".md")]
-    if not srcs:
-        sys.exit(f"chapter {n} not found in book/")
-    src_path = os.path.join(root, "book", srcs[0])
+    try:
+        src_path = cn_chapter_path(root, n)
+    except FileNotFoundError as e:
+        sys.exit(str(e))
     if args.file:
         tr_path = args.file
         explicit_file = True
     else:
-        cand = glob.glob(os.path.join(root, "book", lang, f"{n}-*.md"))
-        if len(cand) != 1:
-            sys.exit(f"expected exactly 1 book/{lang}/{n}-*.md, got {len(cand)}")
-        tr_path = cand[0]
+        try:
+            tr_path = tr_chapter_path(root, n, lang)
+        except FileNotFoundError as e:
+            sys.exit(str(e))
         explicit_file = False
     if not os.path.exists(tr_path):
         sys.exit(f"translated file not found: {tr_path}")
@@ -421,10 +633,12 @@ def main():
 
     src_labels = ("- 来源：", "- Sources:", "- Fuentes:", "- Источники:")
 
-    def body(lines, src_label):
-        return [ln for ln in lines
-                if not any(ln.startswith(s) for s in src_labels)
-                and "成本标签" not in ln]
+    def body(lines, _src_label):
+        return [
+            ln
+            for ln in lines
+            if not any(ln.startswith(s) for s in src_labels) and "成本标签" not in ln
+        ]
 
     fails, warns = [], []
     fail_objs, warn_objs = [], []
@@ -453,8 +667,10 @@ def main():
             {"kind": "cost_tags_mismatch", "got": tt, "want": st},
         )
 
-    ss = [x.split("：", 1)[1].strip() for x in sl if x.startswith("- 来源：")]
-    ts = [x.split(":", 1)[1].strip() for x in tl if x.startswith(SRC_LABEL[lang])]
+    src_cn = field_labels.source_bullet("cn", root=root)
+    src_tr = field_labels.source_bullet(lang, root=root)
+    ss = [x.split("：", 1)[1].strip() for x in sl if x.startswith(src_cn)]
+    ts = [x.split(":", 1)[1].strip() for x in tl if x.startswith(src_tr)]
     retrofit = re.compile(r"\s*\[(?:рус\.|eng\.)\s*[«\"](?:[^«»\"]|[«\"][^»\"]*[»\"])*[»\"]\]")
     ss = [retrofit.sub("", x) for x in ss]
     ts = [retrofit.sub("", x) for x in ts]
@@ -464,27 +680,26 @@ def main():
             {"kind": "sources_mismatch", "got": len(ts), "want": len(ss)},
         )
     else:
-        for a, b in zip(ss, ts):
+        for a, b in zip(ss, ts, strict=True):
             if a != b:
                 add_fail(
                     "source line mismatch: " + a[:60],
                     {"kind": "source_line_mismatch", "preview": a[:60]},
                 )
 
-    cn_body = body(sl, "- 来源：")
-    tr_body = body(tl, SRC_LABEL[lang])
-    pack = _lang_pack(lang)
-    if pack and pack.get("labels"):
-        labels = pack["labels"]
-    else:
-        labels = LABELS
-    if pack and pack.get("banned_calques"):
-        banned = pack["banned_calques"]
-    else:
-        banned = BANNED_RU if lang == "ru" else []
+    cn_body = body(sl, src_cn)
+    tr_body = body(tl, src_tr)
+    labels = {
+        "cn": field_labels.field_labels("cn", root=root),
+        lang: field_labels.field_labels(lang, root=root),
+    }
+    banned = field_labels.banned_calques(lang, root=root)
     if not banned:
-        print(f"  (note: no banned_calques configured for lang={lang} — "
-              f"calque check is a no-op for this run)", file=sys.stderr)
+        print(
+            f"  (note: no banned_calques configured for lang={lang} — "
+            f"calque check is a no-op for this run)",
+            file=sys.stderr,
+        )
     for i, cn_lab in enumerate(labels["cn"]):
         want = sum(1 for x in cn_body if x.lstrip().startswith("- " + cn_lab))
         got = sum(1 for x in tr_body if x.lstrip().startswith("- " + labels[lang][i]))
@@ -517,42 +732,37 @@ def main():
     cn_nums = norm_numbers("\n".join(cn_body))
     tr_nums = norm_numbers("\n".join(tr_body), ru=(lang == "ru"), es=(lang == "es"))
     from collections import Counter
+
     missing = Counter(cn_nums) - Counter(tr_nums)
     extra = Counter(tr_nums) - Counter(cn_nums)
     lost_hard = {v: c for v, c in missing.items() if v not in tr_nums}
     lost_soft = {v: c for v, c in missing.items() if v in tr_nums}
     if lost_soft:
-        top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_soft.items(),
-                         key=lambda x: -x[1])[:10])
+        top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_soft.items(), key=lambda x: -x[1])[:10])
         warns.append(f"numbers less frequent (prose economy, check): {top}")
         for v, c in lost_soft.items():
-            warn_objs.append(
-                {"kind": "number_less_frequent", "value": str(v), "count": int(c)}
-            )
+            warn_objs.append({"kind": "number_less_frequent", "value": str(v), "count": int(c)})
     if lost_hard:
-        top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_hard.items(),
-                        key=lambda x: -x[1])[:12])
+        top = ", ".join(f"{v}×{c}" for v, c in sorted(lost_hard.items(), key=lambda x: -x[1])[:12])
         fails.append(f"numbers absent from translation: {top}")
         for v, c in lost_hard.items():
-            fail_objs.append(
-                {"kind": "number_absent", "value": str(v), "count": int(c)}
-            )
+            fail_objs.append({"kind": "number_absent", "value": str(v), "count": int(c)})
     if extra:
         top = ", ".join(f"{v}×{c}" for v, c in extra.most_common(12))
         warns.append(f"numbers added (check they are marked inserts): {top}")
         for v, c in extra.items():
-            warn_objs.append(
-                {"kind": "number_added", "value": str(v), "count": int(c)}
-            )
+            warn_objs.append({"kind": "number_added", "value": str(v), "count": int(c)})
 
     zh_lines = []
     in_note = False
     for idx, ln in enumerate(tl, 1):
-        if ln.startswith("> Примечание переводчика") or ln.startswith("> Translator's note") or ln.startswith("> Nota del traductor"):
+        if ln.startswith(
+            ("> Примечание переводчика", "> Translator's note", "> Nota del traductor")
+        ):
             in_note = True
         elif not ln.startswith(">"):
             in_note = False
-        if idx <= 4 or in_note or ln.startswith(SRC_LABEL[lang]) or "成本标签" in ln:
+        if idx <= 4 or in_note or ln.startswith(src_tr) or "成本标签" in ln:
             continue
         s = re.sub(r"\[[^\]]*\]\([^)]*\)", "[]( )", ln)
         s = re.sub(r"\([^)]*[\u4e00-\u9fff][^)]*\)", "(gloss)", s)
@@ -566,8 +776,8 @@ def main():
             )
     if zh_lines:
         add_fail(
-            f"CJK outside allowed zones: {len(zh_lines)} line(s), " +
-            "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]),
+            f"CJK outside allowed zones: {len(zh_lines)} line(s), "
+            + "; ".join(f"L{i}:{t}" for i, t in zh_lines[:5]),
             {
                 "kind": "cjk_outside",
                 "count": len(zh_lines),
@@ -590,7 +800,7 @@ def main():
                     {"kind": "calque_once", "stem": stem, "count": 1},
                 )
 
-    print(f"verify {os.path.basename(tr_path)} vs {srcs[0]}")
+    print(f"verify {os.path.basename(tr_path)} vs {os.path.basename(src_path)}")
     for w in warns:
         print("  WARN:", w)
     report = {
@@ -609,16 +819,26 @@ def main():
         print(json.dumps(report, ensure_ascii=False))
     if fails:
         sys.exit(1)
-    print(f"OK: headings={len(th)} tags={tt} sources={len(ts)} "
-          f"numbers={len(cn_nums)} (lost=0, extra={sum(extra.values())})")
+    print(
+        f"OK: headings={len(th)} tags={tt} sources={len(ts)} "
+        f"numbers={len(cn_nums)} (lost=0, extra={sum(extra.values())})"
+    )
     os.makedirs(os.path.join(root, "tools", ".status"), exist_ok=True)
     if explicit_file:
         print("stamp skipped (--file mode)")
         return
     mark = os.path.join(root, "tools", ".status", f"{n}-{lang}.ok")
-    json.dump({"chapter": n, "lang": lang, "file": os.path.basename(tr_path),
-               "ts": time.time(), "nums": len(cn_nums)},
-              open(mark, "w", encoding="utf-8"), ensure_ascii=False)
+    json.dump(
+        {
+            "chapter": n,
+            "lang": lang,
+            "file": os.path.basename(tr_path),
+            "ts": time.time(),
+            "nums": len(cn_nums),
+        },
+        open(mark, "w", encoding="utf-8"),
+        ensure_ascii=False,
+    )
 
 
 if __name__ == "__main__":

@@ -33,15 +33,17 @@ tools/digest/NN/units/02.md  → second item
 
 Translation conventions: [TRANSLATION.md](../../TRANSLATION.md). Per-language style rules: `tools/rules/{lang}.json`.
 
-Store translated units under `run/{lang}/NN/units/`.
+Store translated units under `tools/runs/active/{lang}/NN/units/`.
 
 ### 3. Assemble
 
 Rebuild the translated chapter from units + byte-faithful blocks:
 
 ```bash
-make assemble CH=NN LANG=ru WORKDIR=run/ru/NN
+make assemble CH=NN LANG=ru
 ```
+
+(`WORKDIR` defaults to `tools/runs/active/$(LANG)/$(CH)`; override for smoke/other runs.)
 
 Output: `book/{lang}/NN-*.md` — the assembled chapter in target language format.
 
@@ -82,7 +84,7 @@ make update-readme
 If README chapter counts are wrong, regenerate:
 
 ```bash
-make update-readme --fix
+make update-readme ARGS=--fix
 ```
 
 OG previews: regenerate `site/assets/og/{lang}.png` from `tools/og/{lang}.html` when chapter counts change:
@@ -96,8 +98,10 @@ This uses headless Chrome for pixel-perfect 1200×630 screenshots.
 ### 8. Quality gates
 
 ```bash
-make ci          # tests + lint + links + content + build
-make quality     # readability + bureaucratese (informational)
+make format      # Ruff + djlint autofix (optional before commit)
+make lint        # Ruff / djlint / yamllint / shellcheck (also via pre-commit)
+make ci          # tests + lint + links + content + pages + .publish artifact
+make quality     # readability + bureaucratese for ru/en/es (or LANG=ru)
 ```
 
 ### 9. Commit

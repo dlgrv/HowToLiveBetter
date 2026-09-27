@@ -4,6 +4,8 @@
     "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
     "en": ["Cost", "In plain terms", "Benefit", "Evidence grade", "Notes"]
   },
+  "source_label": "Sources",
+  "evidence_grade_label": "Evidence grade",
   "banned_calques": [],
   "style_markers": [
     {"pattern": "\\butilize[ds]?\\b", "label": "utilize", "note": "bureaucratese for 'use'"},

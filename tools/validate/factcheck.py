@@ -7,6 +7,7 @@ tests), then DISCARD any assertion whose cn_span is not literally present in
 the CN unit body (service lines 来源/§SRC§/成本标签 excluded from search —
 a span there proves nothing). Verdicts are persisted with audit fields.
 """
+
 import argparse
 import hashlib
 import json
@@ -22,8 +23,7 @@ RESULTS = os.path.join(REPO, "tools", "validate", "results")
 PROMPT_PATH = os.path.join(REPO, "tools", "prompts", "judge-factcheck.md")
 JUDGE_DIR = os.path.join(REPO, "tools", "judge", "factcheck")
 
-MAJOR_ISSUE_TYPES = ("reversed_logic", "invented", "dropped_condition",
-                     "hardened_claim")
+MAJOR_ISSUE_TYPES = ("reversed_logic", "invented", "dropped_condition", "hardened_claim")
 
 SERVICE_MARKERS = ("来源", "§SRC§", "成本标签", "证据等级")
 SERVICE_LINE_RE = re.compile(r"^\s*-\s*(来源|证据等级)|§SRC§|<!--")
@@ -70,14 +70,14 @@ def normalize_assertions(verdict):
     if not isinstance(raw, list):
         return [], False
     out = []
-    for a in raw:
-        if not isinstance(a, dict):
+    for item in raw:
+        if not isinstance(item, dict):
             continue
-        a = dict(a)
-        if "status" not in a:
-            failed = (a.get("ru_ok") is False) or (a.get("en_ok") is False)
-            a["status"] = "issue" if failed else "ok"
-        out.append(a)
+        entry = dict(item)
+        if "status" not in entry:
+            failed = (entry.get("ru_ok") is False) or (entry.get("en_ok") is False)
+            entry["status"] = "issue" if failed else "ok"
+        out.append(entry)
     return out, True
 
 
@@ -99,7 +99,7 @@ def tr_body(tr_text):
         s = line.strip()
         if not s:
             continue
-        if s in ("§TAG§", "§SRC§") or s.startswith("§TAG§") or s.startswith("§SRC§"):
+        if s in ("§TAG§", "§SRC§") or s.startswith(("§TAG§", "§SRC§")):
             continue
         if s.startswith("<!--"):
             continue
@@ -124,14 +124,14 @@ def open_live_judge(root=None):
     try:
         name = judges.backend_name(root)
         model_id = judges.configured_model_id(root)
-    except Exception:
+    except (KeyError, TypeError, ValueError):
         name = "subagent-glm"
         model_id = "glm-5.3-flash"
     if name != "local-ollama" and not api_key:
         return None
     try:
         backend_cls = judges.get_backend(name)
-    except Exception:
+    except KeyError:
         return None
     client = backend_cls(model_id=model_id, api_key=api_key)
     return client, name, model_id
@@ -195,10 +195,12 @@ def check_grounding(verdict, cn_text):
         line_starts, fragments = located
         service = False
         for ls in line_starts:
-            line = cn_text[ls:cn_text.find("\n", ls)
-                           if cn_text.find("\n", ls) >= 0 else len(cn_text)]
+            line = cn_text[
+                ls : cn_text.find("\n", ls) if cn_text.find("\n", ls) >= 0 else len(cn_text)
+            ]
             if SERVICE_LINE_RE.match(line.strip()) or any(
-                    line.strip().startswith(m) for m in SERVICE_MARKERS):
+                line.strip().startswith(m) for m in SERVICE_MARKERS
+            ):
                 service = True
         if service:
             dropped.append({"assertion": a, "reason": "service_line"})
@@ -238,13 +240,23 @@ def gate_major(verdict):
     """
     assertions, usable = normalize_assertions(verdict)
     if not usable:
-        return {"gate": "error", "major": [], "minor": [],
-                "error": "unparseable or missing assertions"}
+        return {
+            "gate": "error",
+            "major": [],
+            "minor": [],
+            "error": "unparseable or missing assertions",
+        }
     findings = assertions
-    major = [a for a in findings
-             if a.get("status") == "issue" and a.get("issue_type") in MAJOR_ISSUE_TYPES]
-    minor = [a for a in findings
-             if a.get("status") == "issue" and a.get("issue_type") not in MAJOR_ISSUE_TYPES]
+    major = [
+        a
+        for a in findings
+        if a.get("status") == "issue" and a.get("issue_type") in MAJOR_ISSUE_TYPES
+    ]
+    minor = [
+        a
+        for a in findings
+        if a.get("status") == "issue" and a.get("issue_type") not in MAJOR_ISSUE_TYPES
+    ]
     if major:
         return {"gate": "fail", "major": major, "minor": minor}
     if minor:
@@ -258,12 +270,13 @@ def write_result(outdir, nn, lang, verdict, cn_text, tr_text, backend, model_id)
     unit_payload = (cn_text + "\x00" + tr_text).encode("utf-8")
     gate = gate_major(verdict)
     rec = {
-        "chapter": nn, "lang": lang,
+        "chapter": nn,
+        "lang": lang,
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "backend": backend, "model_id": model_id,
+        "backend": backend,
+        "model_id": model_id,
         "unit_sha256": hashlib.sha256(unit_payload).hexdigest(),
-        "prompt_hash": hashlib.sha256(
-            open(PROMPT_PATH, "rb").read()).hexdigest()[:16],
+        "prompt_hash": hashlib.sha256(open(PROMPT_PATH, "rb").read()).hexdigest()[:16],
         "verdict": verdict,
         "gate": gate["gate"],
         "grounding": check_grounding(verdict, cn_text),
@@ -296,38 +309,51 @@ def run_factcheck_cli(
     else:
         opened = open_live_judge()
         if opened is None:
-            print(json.dumps({
-                "status": "judge_unavailable",
-                "reason": "pass --stdin-verdict (mock) or set ZAI_API_KEY "
-                          "(or judge.backend local-ollama); "
-                          "exit 2 so pipelines do not treat this as clean",
-            }, ensure_ascii=False))
+            print(
+                json.dumps(
+                    {
+                        "status": "judge_unavailable",
+                        "reason": "pass --stdin-verdict (mock) or set ZAI_API_KEY "
+                        "(or judge.backend local-ollama); "
+                        "exit 2 so pipelines do not treat this as clean",
+                    },
+                    ensure_ascii=False,
+                )
+            )
             return 2
         client, backend, model_id = opened
         prompt = build_judge_prompt(cn_text, tr_text, lang)
         try:
             reply = client.complete(prompt)
-        except Exception as e:
-            print(json.dumps({
-                "status": "judge_unavailable",
-                "reason": f"live judge failed: {e}",
-            }, ensure_ascii=False))
+        except (OSError, RuntimeError, ValueError, TypeError) as e:
+            print(
+                json.dumps(
+                    {
+                        "status": "judge_unavailable",
+                        "reason": f"live judge failed: {e}",
+                    },
+                    ensure_ascii=False,
+                )
+            )
             return 2
         verdict = parse_verdict(reply)
 
-    path = write_result(
-        outdir, chapter, lang, verdict, cn_text, tr_text, backend, model_id
-    )
+    path = write_result(outdir, chapter, lang, verdict, cn_text, tr_text, backend, model_id)
     gate = gate_major(verdict)["gate"]
     grounding = check_grounding(verdict, cn_text)
     grounded = grounding["grounded"]
-    print(json.dumps({
-        "written": path,
-        "gate": gate,
-        "grounded": grounded,
-        "backend": backend,
-        "model_id": model_id,
-    }, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "written": path,
+                "gate": gate,
+                "grounded": grounded,
+                "backend": backend,
+                "model_id": model_id,
+            },
+            ensure_ascii=False,
+        )
+    )
     if gate in ("fail", "error") or not grounded:
         return 1
     return 0

@@ -18,8 +18,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROFILES = {
     "ru": {
         "patterns": [
-            (r"(?:производить|произвести|осуществлять|осуществить|произвести)\s+[а-яё]+(?:ие|ие|ку)", "действие → глагол"),
-            (r"(?:подвергать|подвергаться|подвергнуть|подвергнуться)\s+[а-яё]+(?:ию|ию)", "подвергать → глагол"),
+            (
+                r"(?:производить|произвести|осуществлять|осуществить|произвести)\s+[а-яё]+(?:ие|ие|ку)",
+                "действие → глагол",
+            ),
+            (
+                r"(?:подвергать|подвергаться|подвергнуть|подвергнуться)\s+[а-яё]+(?:ию|ию)",
+                "подвергать → глагол",
+            ),
             (r"являться\s+\S+ным", "являться → опустить"),
             (r"носить\s+\S+ный\s+характер", "носить … характер → опустить"),
             (r"иметь место\s", "иметь место → происходить"),
@@ -94,7 +100,7 @@ def check_text(text, lang):
     for pattern, desc in profile["patterns"]:
         for m in re.finditer(pattern, text, re.IGNORECASE):
             match_text = m.group(0)
-            if re.search(r'\d', match_text):
+            if re.search(r"\d", match_text):
                 continue
             issues.append((desc, match_text.strip()))
     return issues
@@ -122,15 +128,12 @@ def check_dir(root_dir, lang):
 
 def main():
     import argparse
+
     ap = argparse.ArgumentParser(description="Bureaucratese checker")
-    ap.add_argument("lang", nargs="?", default="ru",
-                    help="Target language (ru/en/es)")
-    ap.add_argument("--dir", default=None,
-                    help="Directory to scan (default: book/LANG/)")
-    ap.add_argument("--json", action="store_true",
-                    help="Output JSON")
-    ap.add_argument("--strict", action="store_true",
-                    help="Exit 1 when findings exist (for gating)")
+    ap.add_argument("lang", nargs="?", default="ru", help="Target language (ru/en/es)")
+    ap.add_argument("--dir", default=None, help="Directory to scan (default: book/LANG/)")
+    ap.add_argument("--json", action="store_true", help="Output JSON")
+    ap.add_argument("--strict", action="store_true", help="Exit 1 when findings exist (for gating)")
     args = ap.parse_args()
 
     scan_dir = args.dir or os.path.join(ROOT, "book", args.lang)
@@ -143,9 +146,7 @@ def main():
     if args.json:
         out = {}
         for path, issues in results.items():
-            out[os.path.relpath(path, ROOT)] = [
-                {"desc": d, "match": m} for d, m in issues
-            ]
+            out[os.path.relpath(path, ROOT)] = [{"desc": d, "match": m} for d, m in issues]
         json.dump(out, sys.stdout, ensure_ascii=False, indent=2)
         return
 

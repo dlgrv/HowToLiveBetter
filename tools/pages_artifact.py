@@ -11,6 +11,7 @@ The published tree mirrors the public URL space:
 Locale pages use __HTLB_BASE__='../', so README and book must sit next to
 en/ in this flat root (not under site/ in git).
 """
+
 from __future__ import annotations
 
 import glob

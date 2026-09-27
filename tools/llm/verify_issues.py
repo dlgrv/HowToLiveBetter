@@ -5,6 +5,7 @@ Repairable kinds only; everything else is skipped here (repair_wave stops on
 unrepairable kinds itself). Digest units live under tools/digest/<NN>/units/
 (READ-ONLY for the wave); translated units under the run workdir units/.
 """
+
 from __future__ import annotations
 
 import json
@@ -17,6 +18,7 @@ _ROOT = Path(__file__).resolve().parents[2]
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
+from tools.pipeline.paths import _nn, digest_units_dir  # noqa: E402
 from tools.verify import norm_numbers  # noqa: E402
 
 REPAIRABLE_KINDS = frozenset({"number_absent", "banned_calque"})
@@ -55,8 +57,8 @@ def _cn_context_for_value(cn_text: str, value: str) -> str:
 
 def locate_issues(
     *,
-    root: Path,
-    nn: str,
+    _root: Path,
+    _nn: str,
     lang: str,
     digest_units_dir: Path,
     tr_units_dir: Path,
@@ -94,22 +96,23 @@ def locate_issues(
             continue
         if kind == "number_absent":
             value = str(fail["value"])
-            matched = [u for u in digest_units
-                       if cn_counters[u][value] > tr_counters.get(u, Counter())[value]]
+            matched = [
+                u
+                for u in digest_units
+                if cn_counters[u][value] > tr_counters.get(u, Counter())[value]
+            ]
             if not matched and not any(c[value] for c in tr_counters.values()):
                 matched = [u for u in digest_units if cn_counters[u][value]]
             if not matched and not any(c[value] for c in tr_counters.values()):
                 located.setdefault("_unlocated", []).append(fail)
             for u in matched:
-                enriched = dict(fail,
-                                cn_context=_cn_context_for_value(cn_texts[u], value))
+                enriched = dict(fail, cn_context=_cn_context_for_value(cn_texts[u], value))
                 located.setdefault(u, []).append(enriched)
         else:
             stem = fail["stem"]
-            hits = [u for u in tr_units
-                    if len(re.findall(stem, tr_texts[u], re.I)) > 1]
+            hits = [u for u in tr_units if len(re.findall(stem, tr_texts[u], re.IGNORECASE)) > 1]
             if not hits and int(fail.get("count", 0) or 0) > 1:
-                hits = [u for u in tr_units if re.search(stem, tr_texts[u], re.I)]
+                hits = [u for u in tr_units if re.search(stem, tr_texts[u], re.IGNORECASE)]
             if not hits:
                 located.setdefault("_unlocated", []).append(fail)
             for u in hits:
@@ -136,7 +139,7 @@ def issues_still_present(unit_tr_text: str, issues: list[dict], lang: str) -> li
         if kind == "number_absent" and str(iss["value"]) not in counts:
             leftovers.append(f"number {iss['value']} still absent")
         if kind == "banned_calque":
-            n = len(re.findall(iss["stem"], unit_tr_text, re.I))
+            n = len(re.findall(iss["stem"], unit_tr_text, re.IGNORECASE))
             if n > 1:
                 leftovers.append(f"stem «{iss['stem']}» still {n}x")
     return leftovers
@@ -144,19 +147,22 @@ def issues_still_present(unit_tr_text: str, issues: list[dict], lang: str) -> li
 
 if __name__ == "__main__":
     ap = __import__("argparse").ArgumentParser(
-        description="Locate verify --json fails to digest/TR units")
+        description="Locate verify --json fails to digest/TR units"
+    )
     ap.add_argument("--nn", required=True)
     ap.add_argument("--lang", required=True)
     ap.add_argument("--workdir", required=True, help="run workdir (parent of units/)")
-    ap.add_argument("--json-file", help="verify --json stdout saved to file; "
-                    "default: read stdin")
+    ap.add_argument("--json-file", help="verify --json stdout saved to file; default: read stdin")
     args = ap.parse_args()
     workdir = Path(args.workdir)
     raw = Path(args.json_file).read_text(encoding="utf-8") if args.json_file else sys.stdin.read()
     report = parse_verify_json(raw)
+    nn = _nn(args.nn)
     out = locate_issues(
-        root=_ROOT, nn=args.nn, lang=args.lang,
-        digest_units_dir=_ROOT / "tools" / "digest" / args.nn / "units",
+        _root=_ROOT,
+        _nn=nn,
+        lang=args.lang,
+        digest_units_dir=Path(digest_units_dir(str(_ROOT), nn)),
         tr_units_dir=workdir / "units",
         fails=[f for f in report.get("fails", []) if f.get("kind") in REPAIRABLE_KINDS],
     )

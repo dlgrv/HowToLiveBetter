@@ -77,7 +77,7 @@ and `tools/glossary.json` are authoritative for terms and style.
 
 ## Few-shot gold (pilot v3 — plain-terms only)
 
-Reference: `docs/superpowers/pilots/2026-09-23-plain-01-item33.md`
+Reference register: CN ch01 plain-terms (paraquat / CO item) — examples below.
 
 **RU v3**
 
@@ -105,8 +105,7 @@ Reference: `docs/superpowers/pilots/2026-09-23-plain-01-item33.md`
 > pensar con oxígeno normal frente al 25,0 % con oxígeno a alta presión
 > — se salva la vida, pero las secuelas suelen quedarse.
 
-**Also few-shot: ch01 §2 (parallel %)** — see
-`docs/superpowers/pilots/2026-09-23-plain-01-item02-03.md` RU preferred:
+**Also few-shot: ch01 §2 (parallel %)** — preferred RU:
 
 > В застёгнутом шлеме у мотоциклиста шанс погибнуть в аварии ниже
 > примерно на 40%, а вероятность получить травму головы — ниже примерно
@@ -119,7 +118,7 @@ Match this **register** in plain-terms; Benefit/Sources stay technical.
 
 After you write units, humans/tools run **in this order**:
 
-1. `assemble.py` / `assemble_en.py` / `assemble_es.py`
+1. `assemble.py <NN> <workdir> <out.md> [lang]`
 2. `verify.py` — **HARD** (stop on FAIL)
 3. Optional: simplify plain-terms only (`tools/prompts/simplify-plain.md`)
 4. `verify.py` again after any plain rewrite

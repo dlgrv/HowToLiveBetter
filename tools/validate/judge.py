@@ -12,6 +12,7 @@ Judge invocation is model-agnostic:
 Without a key and without --stdin-response the CLI prints a clear setup note
 and exits 2 (so pipelines can detect "judge unavailable" explicitly).
 """
+
 import argparse
 import json
 import os
@@ -19,9 +20,11 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
-from tools.pipeline import judges  # noqa: E402
-from tools.pipeline import store   # noqa: E402
-from tools.validate.factcheck import parse_verdict  # noqa: E402
+from tools.pipeline import (
+    judges,
+    store,
+)
+from tools.validate.factcheck import parse_verdict
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PROMPTS_DIR = os.path.join(REPO, "tools", "prompts")
@@ -30,8 +33,7 @@ PROMPTS_DIR = os.path.join(REPO, "tools", "prompts")
 def load_prompt(mode):
     path = os.path.join(PROMPTS_DIR, f"judge-{mode}.md")
     if not os.path.isfile(path):
-        raise FileNotFoundError(
-            f"prompt template missing: {path} (created in plan Task 2)")
+        raise FileNotFoundError(f"prompt template missing: {path} (created in plan Task 2)")
     with open(path, encoding="utf-8") as f:
         return f.read()
 
@@ -40,8 +42,13 @@ def main():
     ap = argparse.ArgumentParser(description="Score a unit with a judge prompt")
     ap.add_argument("--file", required=True, help="path to the unit .md file")
     ap.add_argument("--mode", default="screen", choices=["screen", "ab", "factcheck"])
-    ap.add_argument("--stdin-response", help="use this raw judge reply instead of calling the API (offline/testing)")
-    ap.add_argument("--out-unit", default=None, help="unit id for the verdict filename (default: file stem)")
+    ap.add_argument(
+        "--stdin-response",
+        help="use this raw judge reply instead of calling the API (offline/testing)",
+    )
+    ap.add_argument(
+        "--out-unit", default=None, help="unit id for the verdict filename (default: file stem)"
+    )
     ap.add_argument("--json", action="store_true", help="print the verdict payload as JSON")
     args = ap.parse_args()
 
@@ -60,11 +67,16 @@ def main():
     else:
         api_key = judges.resolve_api_key()
         if not api_key:
-            print(json.dumps({
-                "error": "judge_unavailable",
-                "hint": "judges run via Hermes subagents (primary) or set ZAI_API_KEY for direct HTTP",
-                "model_id": model_id,
-            }, ensure_ascii=False))
+            print(
+                json.dumps(
+                    {
+                        "error": "judge_unavailable",
+                        "hint": "judges run via Hermes subagents (primary) or set ZAI_API_KEY for direct HTTP",
+                        "model_id": model_id,
+                    },
+                    ensure_ascii=False,
+                )
+            )
             return 2
         backend_cls = judges.get_backend(judges.backend_name(REPO))
         client = backend_cls(model_id=model_id, api_key=api_key)
@@ -76,8 +88,13 @@ def main():
         verdict = parse_verdict(reply)
 
     payload = store.build_payload(
-        tool=f"validate.judge.{args.mode}", mode=args.mode, model_id=model_id,
-        prompt=prompt, unit_path=unit_path, verdict=verdict)
+        tool=f"validate.judge.{args.mode}",
+        mode=args.mode,
+        model_id=model_id,
+        prompt=prompt,
+        unit_path=unit_path,
+        verdict=verdict,
+    )
 
     unit_id = args.out_unit or os.path.splitext(os.path.basename(unit_path))[0]
     out = store.write_verdict(REPO, "00", "adhoc", unit_id, payload)

@@ -30,8 +30,8 @@ def chapter_title(path):
                 m = re.match(r"^# (.+)", line)
                 if m:
                     return m.group(1).strip()
-    except Exception:
-        pass
+    except OSError:
+        return os.path.splitext(os.path.basename(path))[0]
     return os.path.splitext(os.path.basename(path))[0]
 
 
@@ -70,7 +70,7 @@ def check_og_preview(lang):
     return []
 
 
-def readme_section(readme_path, lang):
+def readme_section(readme_path, _lang):
     """Find the chapter list section in a README file."""
     if not os.path.isfile(readme_path):
         return None, 0, 0
@@ -112,14 +112,15 @@ def check_readme(lang, chapters):
 
 def main():
     import argparse
+
     ap = argparse.ArgumentParser(
-        description="Audit/update README chapter lists and OG preview images")
-    ap.add_argument("lang", nargs="?", default=None,
-                    help="Language to check (ru/en/es/zh); omit for all")
-    ap.add_argument("--fix", action="store_true",
-                    help="Regenerate README chapter lists")
-    ap.add_argument("--json", action="store_true",
-                    help="Output JSON")
+        description="Audit/update README chapter lists and OG preview images"
+    )
+    ap.add_argument(
+        "lang", nargs="?", default=None, help="Language to check (ru/en/es/zh); omit for all"
+    )
+    ap.add_argument("--fix", action="store_true", help="Regenerate README chapter lists")
+    ap.add_argument("--json", action="store_true", help="Output JSON")
     args = ap.parse_args()
 
     langs = [args.lang] if args.lang else ["ru", "en", "es", "zh"]

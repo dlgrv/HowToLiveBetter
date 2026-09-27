@@ -5,6 +5,7 @@ Applies the hard rules as REJECTIONS (not repairs): a pair whose B-variant
 changes numbers, breaks markdown structure, or touches immutable lines is
 rejected with a reason and left empty for re-generation.
 """
+
 import glob
 import json
 import os
@@ -30,7 +31,7 @@ def validate_pair(a, b):
     la, lb = a.splitlines(), b.splitlines()
     if len(la) != len(lb):
         return "line_count_changed"
-    for i, (xa, xb) in enumerate(zip(la, lb)):
+    for i, (xa, xb) in enumerate(zip(la, lb, strict=True)):
         if xa.startswith(IMMUTABLE_PREFIXES) and xa != xb:
             return f"immutable_line_{i}"
     return None
@@ -58,9 +59,11 @@ def merge():
             filled += 1
     with open(MANIFEST, "w", encoding="utf-8") as f:
         json.dump(m, f, ensure_ascii=False, indent=2)
-    return {"filled": filled, "rejected": rejected,
-            "still_empty": [p["id"] for p in m["pairs"]
-                            if not p["decoy"] and not p["variant_b"]]}
+    return {
+        "filled": filled,
+        "rejected": rejected,
+        "still_empty": [p["id"] for p in m["pairs"] if not p["decoy"] and not p["variant_b"]],
+    }
 
 
 def main():

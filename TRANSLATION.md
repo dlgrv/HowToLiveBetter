@@ -155,13 +155,13 @@ Chapters 8, 9, 11, 15, 19, 25, 26, 31 (and any other chapter citing Chinese law)
 Applies to `book/es/` and `docs/es/`. Status, keep-untouched, tone and
 China-context rules above are identical; field labels differ.
 
-### ES field labels (verified in verify.py / assemble_es.py / index.html)
+### ES field labels (verified in verify.py / assemble.py / index.html)
 
 - 成本 → `- Costo: `
 - 说人话 → `- En términos sencillos: `
 - 收益 → `- Beneficio: `
 - 证据等级 → `- Nivel de evidencia: A/B/C`
-- 来源 → `- Fuentes: ` (injected byte-for-byte by assemble_es.py)
+- 来源 → `- Fuentes: ` (injected byte-for-byte by assemble.py with lang=es)
 - 备注 → `- Notas: `
 - Dispute marker in Notas: starts with `En disputa` (web UI badge)
 - TODO marker: `por verificar` (web UI badge)
@@ -190,7 +190,7 @@ China-context rules above are identical; field labels differ.
 
 ### ES rollout status
 
-- Infrastructure: verify.py `--lang es`, assemble_es.py, web UI (I18N dict,
+- Infrastructure: verify.py `--lang es`, assemble.py (lang=es), web UI (I18N dict,
   parser, /es/ page via build_pages.py), README.es.md scaffold, soft parity
   in tools/check_content.py — landed 2026-09-21 (branch translation/es-w1)
 - Pilot: chapters 01 + 13 (write-first subagents, workdirs `tools/runs/active/es/{01,13}` — legacy `/root/htlb-run-es/` retired)
