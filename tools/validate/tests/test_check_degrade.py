@@ -1,12 +1,8 @@
 """Tests for check_degrade validation gates."""
-import os
-import sys
+
 import unittest
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, REPO)
-
-from tools.validate import check_degrade as cd  # noqa: E402
+from tools.validate import check_degrade as cd
 
 ORIG_RU = """### 2. Заголовок
 <!-- 成本标签: 钱=0 时间=少 -->
@@ -20,12 +16,10 @@ ORIG_RU = """### 2. Заголовок
 
 class TestDigits(unittest.TestCase):
     def test_multiset_same(self):
-        self.assertEqual(cd.digits_multiset("10 и 2026, п.2"),
-                         cd.digits_multiset("2 и 2026, п.10"))
+        self.assertEqual(cd.digits_multiset("10 и 2026, п.2"), cd.digits_multiset("2 и 2026, п.10"))
 
     def test_multiset_differs(self):
-        self.assertNotEqual(cd.digits_multiset("10"),
-                            cd.digits_multiset("100"))
+        self.assertNotEqual(cd.digits_multiset("10"), cd.digits_multiset("100"))
 
 
 class TestLang(unittest.TestCase):
@@ -48,7 +42,8 @@ class TestCheck(unittest.TestCase):
             "- Простыми словами: госпитализация стоит дешевле в 10 случаях из 100.",
             "- Простыми словами: следует отметить, что госпитализация, в рамках "
             "данного пункта, стоит дешевле в 10 случаях из 100. Иными словами, "
-            "речь идёт о том, что госпитализация обходится дешевле.")
+            "речь идёт о том, что госпитализация обходится дешевле.",
+        )
         problems = cd.check(self.base_pair(b), ORIG_RU, "bloat")
         self.assertEqual(problems, [])
 
@@ -67,8 +62,7 @@ class TestCheck(unittest.TestCase):
         self.assertIn("variant_b identical to variant_a", problems)
 
     def test_abridgement_too_long_rejected(self):
-        problems = cd.check(self.base_pair(ORIG_RU + " ещё хвост" * 3),
-                            ORIG_RU, "abridgement")
+        problems = cd.check(self.base_pair(ORIG_RU + " ещё хвост" * 3), ORIG_RU, "abridgement")
         self.assertTrue(any("ratio" in p for p in problems))
 
     def test_leak_rejected(self):

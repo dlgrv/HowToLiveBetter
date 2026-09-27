@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 """Unit tests for marker strip/inject + structural validate (no LLM)."""
+
 from __future__ import annotations
 
-import os
-import sys
 import unittest
 
-_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if _ROOT not in sys.path:
-    sys.path.insert(0, _ROOT)
-
-from tools.llm import translate_unit as tu  # noqa: E402
+from tools.llm import translate_unit as tu
 
 
 class StripInject(unittest.TestCase):
@@ -41,17 +36,8 @@ class StripInject(unittest.TestCase):
 class ValidateRu(unittest.TestCase):
     def test_item_ok(self):
         text = tu.inject_mechanical_markers(
-            "\n".join(
-                [
-                    "### 1. Ремень",
-                    "- Стоимость: 0",
-                    "- Простыми словами: x",
-                    "- Эффект: y",
-                    "- Уровень доказательности: A",
-                    "- Примечания: z",
-                ]
-            )
-            + "\n",
+            "### 1. Ремень\n- Стоимость: 0\n- Простыми словами: x\n- Эффект: y\n- Уровень доказательности: A\n- Примечания: z"
+            "\n",
             "01",
         )
         self.assertEqual(tu.validate_unit(text, "01", "ru"), [])

@@ -2,28 +2,25 @@
 
 Run: cd ~/github/HowToLiveBetter && python3 -m unittest tools.validate.tests.test_common -v
 """
+
 import os
-import sys
 import tempfile
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from tools.pipeline import config as pconfig  # noqa: E402
-from tools.pipeline import store as pstore    # noqa: E402
-from tools.validate import common as vcommon  # noqa: E402
+from tools.pipeline import config as pconfig
+from tools.pipeline import store as pstore
+from tools.test_paths import ROOT
+from tools.validate import common as vcommon
 
 
 class TestProjectConfig(unittest.TestCase):
     def test_load_config_languages_and_judge(self):
         cfg = pconfig.load_config(ROOT)
-        self.assertEqual(cfg["languages"], ["ru", "en"])
+        self.assertEqual(cfg["languages"], ["ru", "en", "es"])
         self.assertEqual(cfg["judge"]["model_id"], "glm-5.3-flash")
 
     def test_lang_rules_skeleton_keys(self):
-        for lang in ("ru", "en"):
+        for lang in ("ru", "en", "es"):
             rules = pconfig.load_lang_rules(lang, root=ROOT)
             for key in ("labels", "banned_calques", "style_markers", "whitelist_zones"):
                 self.assertIn(key, rules, f"{lang}.{key} missing")
@@ -35,9 +32,13 @@ class TestProjectConfig(unittest.TestCase):
         expected = os.path.join(ROOT, "tools", "runs", "active", "ru", "01", "units")
         self.assertEqual(pconfig.unit_dir(ROOT, "ru", 1), expected)
 
+    def test_wave_units_dir_es_ch01(self):
+        expected = os.path.join(ROOT, "tools", "runs", "active", "es", "01", "units")
+        self.assertEqual(pconfig.unit_dir(ROOT, "es", 1), expected)
+
     def test_unknown_lang_raises(self):
         with self.assertRaises(ValueError):
-            pconfig.unit_dir(ROOT, "es", 1)
+            pconfig.unit_dir(ROOT, "xx", 1)
 
 
 class TestVerdictStore(unittest.TestCase):
@@ -50,6 +51,7 @@ class TestVerdictStore(unittest.TestCase):
             f.write(b"abc")
         try:
             import hashlib
+
             self.assertEqual(
                 pstore.unit_sha256(f.name),
                 hashlib.sha256(b"abc").hexdigest(),
@@ -60,8 +62,11 @@ class TestVerdictStore(unittest.TestCase):
     def test_payload_has_audit_fields(self):
         src = os.path.join(ROOT, "tools", "digest", "01", "units", "00.md")
         payload = pstore.build_payload(
-            tool="validate.judge", mode="screen", model_id="glm-5.3-flash",
-            prompt="PROMPT", unit_path=src,
+            tool="validate.judge",
+            mode="screen",
+            model_id="glm-5.3-flash",
+            prompt="PROMPT",
+            unit_path=src,
             verdict={"verdict": "native", "issues": []},
         )
         for key in ("tool", "mode", "model_id", "ts", "prompt_hash", "unit_sha256", "verdict"):

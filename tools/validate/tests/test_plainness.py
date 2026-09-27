@@ -8,19 +8,16 @@ Checks (WARN-only, deterministic):
   - relative-clause chain: >= 3 «который/which» in one sentence
   - unexplained ALL-CAPS abbreviation (not in plain_ok_abbrev whitelist)
 """
+
 import json
 import os
 import sys
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
+from tools.test_paths import ROOT
+from tools.validate import plainness as pl
 
-from tools.validate import plainness as pl  # noqa: E402
-
-PACK = json.load(open(os.path.join(ROOT, "tools", "rules", "ru.json"),
-                      encoding="utf-8"))
+PACK = json.load(open(os.path.join(ROOT, "tools", "rules", "ru.json"), encoding="utf-8"))
 
 
 def ru_field(text):
@@ -44,8 +41,7 @@ class TestSentenceLength(unittest.TestCase):
 
 class TestWhichChain(unittest.TestCase):
     def test_three_which_flagged(self):
-        text = ("Есть врач, который лечит, который знает, который поможет "
-                "и который всегда на связи.")
+        text = "Есть врач, который лечит, который знает, который поможет и который всегда на связи."
         warns = pl.check_field(text, PACK)
         self.assertTrue(any(w["type"] == "which_chain" for w in warns))
 
@@ -70,8 +66,10 @@ class TestAbbrev(unittest.TestCase):
 
 class TestChapter(unittest.TestCase):
     def test_check_chapter_reports_units(self):
-        body = (ru_field("Съешьте " + "очень " * 30 + "сливу.")
-                + "\n### 2. Второй\n- Простыми словами: Коротко и ясно.\n")
+        body = (
+            ru_field("Съешьте " + "очень " * 30 + "сливу.")
+            + "\n### 2. Второй\n- Простыми словами: Коротко и ясно.\n"
+        )
         report = pl.check_chapter(body, PACK)
         self.assertEqual(len(report), 2)
         self.assertTrue(report[0]["warns"])
@@ -84,6 +82,7 @@ class TestChapterFileGlob(unittest.TestCase):
     def test_cli_finds_01_padded(self):
         import subprocess
         import tempfile
+
         with tempfile.TemporaryDirectory() as td:
             lang_dir = os.path.join(td, "en")
             os.makedirs(lang_dir)
@@ -91,19 +90,33 @@ class TestChapterFileGlob(unittest.TestCase):
             with open(path, "w", encoding="utf-8") as f:
                 f.write("### 1. Title\n- In plain terms: Short and clear.\n")
             proc = subprocess.run(
-                [sys.executable, "-m", "tools.validate.plainness", "01",
-                 "--lang", "en", "--book-dir", td],
-                capture_output=True, text=True, cwd=ROOT)
+                [
+                    sys.executable,
+                    "-m",
+                    "tools.validate.plainness",
+                    "01",
+                    "--lang",
+                    "en",
+                    "--book-dir",
+                    td,
+                ],
+                capture_output=True,
+                text=True,
+                cwd=ROOT,
+            )
             self.assertEqual(proc.returncode, 0, proc.stderr)
             self.assertIn("units with plain field:", proc.stdout)
             self.assertNotIn("not found", proc.stderr)
 
     def test_cli_es_skips_not_false_clean(self):
         import subprocess
+
         proc = subprocess.run(
-            [sys.executable, "-m", "tools.validate.plainness", "01",
-             "--lang", "es"],
-            capture_output=True, text=True, cwd=ROOT)
+            [sys.executable, "-m", "tools.validate.plainness", "01", "--lang", "es"],
+            capture_output=True,
+            text=True,
+            cwd=ROOT,
+        )
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertIn("skip", proc.stderr.lower())
         self.assertNotIn("units with plain field:", proc.stdout)

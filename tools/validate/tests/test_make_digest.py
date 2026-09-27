@@ -11,8 +11,7 @@ import sys
 import tempfile
 import unittest
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+from tools.test_paths import REPO_ROOT
 
 # -------- shared fixtures --------
 
@@ -80,10 +79,7 @@ GLOSSARY = {
         {"cn": "证据等级", "ru": "уровень доказательности", "en": "evidence level"},
         {"cn": "成本", "ru": "стоимость", "en": "cost"},
     ],
-    "style_rules": {
-        "ru": ["Избегай канцелярита."],
-        "en": ["Prefer active voice."]
-    }
+    "style_rules": {"ru": ["Избегай канцелярита."], "en": ["Prefer active voice."]},
 }
 
 
@@ -93,7 +89,13 @@ def _setup_tmp_repo(tmp, chapter_n, cn_content, glossary=None):
     os.makedirs(tools_dir)
     shutil.copy2(
         os.path.join(REPO_ROOT, "tools", "make_digest.py"),
-        os.path.join(tools_dir, "make_digest.py"))
+        os.path.join(tools_dir, "make_digest.py"),
+    )
+    shutil.copytree(
+        os.path.join(REPO_ROOT, "tools", "pipeline"),
+        os.path.join(tools_dir, "pipeline"),
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+    )
 
     book_dir = os.path.join(tmp, "book")
     os.makedirs(book_dir)
@@ -108,8 +110,7 @@ def _setup_tmp_repo(tmp, chapter_n, cn_content, glossary=None):
 def _run_digest(tmp, n):
     digest_py = os.path.join(tmp, "tools", "make_digest.py")
     return subprocess.run(
-        [sys.executable, digest_py, str(n)],
-        capture_output=True, text=True, timeout=10
+        [sys.executable, digest_py, str(n)], capture_output=True, text=True, timeout=10
     )
 
 
@@ -118,7 +119,6 @@ def _digest_dir(tmp, n):
 
 
 class TestMakeDigest(unittest.TestCase):
-
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
 

@@ -5,12 +5,10 @@ import subprocess
 import sys
 import unittest
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-SCRIPT = os.path.join(REPO_ROOT, "tools", "check_commit_msg.py")
+from tools.check_commit_msg import validate
+from tools.test_paths import REPO_ROOT
 
-sys.path.insert(0, os.path.join(REPO_ROOT, "tools"))
-from check_commit_msg import validate  # noqa: E402
+SCRIPT = os.path.join(REPO_ROOT, "tools", "check_commit_msg.py")
 
 
 class ValidateUnit(unittest.TestCase):

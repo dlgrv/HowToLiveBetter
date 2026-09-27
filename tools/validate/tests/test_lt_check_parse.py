@@ -1,12 +1,8 @@
 """Task 5: lt_check — parse LanguageTool JSON; server down → skip (never FAIL)."""
+
 import json
 import os
-import sys
 import unittest
-
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
 
 FIXTURE = os.path.join(os.path.dirname(__file__), "fixtures", "lt_response_sample.json")
 
@@ -73,21 +69,22 @@ class TestLtCheckText(unittest.TestCase):
     def test_partial_failure_keeps_prior_hits(self):
         from tools import lt_check as lt
 
-        md = (
-            "- Простыми словами: первая строка.\n"
-            "- Простыми словами: вторая строка.\n"
-        )
+        md = "- Простыми словами: первая строка.\n- Простыми словами: вторая строка.\n"
         calls = {"n": 0}
 
-        def fake_post(text, lang, base_url, timeout):
+        def fake_post(_text, _lang, _base_url, _timeout):
             calls["n"] += 1
             if calls["n"] == 1:
-                return {"matches": [{
-                    "message": "hit",
-                    "offset": 0,
-                    "length": 3,
-                    "rule": {"id": "TEST"},
-                }]}
+                return {
+                    "matches": [
+                        {
+                            "message": "hit",
+                            "offset": 0,
+                            "length": 3,
+                            "rule": {"id": "TEST"},
+                        }
+                    ]
+                }
             return None
 
         old = lt._post_check

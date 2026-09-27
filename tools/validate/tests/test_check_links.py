@@ -7,8 +7,7 @@ import sys
 import tempfile
 import unittest
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+from tools.test_paths import REPO_ROOT
 
 
 def _setup_repo(tmp):
@@ -17,7 +16,8 @@ def _setup_repo(tmp):
     os.makedirs(tools_dir)
     shutil.copy2(
         os.path.join(REPO_ROOT, "tools", "check_links.py"),
-        os.path.join(tools_dir, "check_links.py"))
+        os.path.join(tools_dir, "check_links.py"),
+    )
 
     # Root-level README
     with open(os.path.join(tmp, "README.md"), "w", encoding="utf-8") as f:
@@ -62,14 +62,10 @@ More real: [also works](../docs/guide.md)
 
 def _run(tmp):
     check_py = os.path.join(tmp, "tools", "check_links.py")
-    return subprocess.run(
-        [sys.executable, check_py],
-        capture_output=True, text=True, timeout=10
-    )
+    return subprocess.run([sys.executable, check_py], capture_output=True, text=True, timeout=10)
 
 
 class TestCheckLinks(unittest.TestCase):
-
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
         self.tools_dir = _setup_repo(self.tmp)

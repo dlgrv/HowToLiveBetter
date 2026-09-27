@@ -1,15 +1,8 @@
 """Tests for judge_blind_run: decode + parse + summary aggregation."""
-import os
-import sys
+
 import unittest
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))) or ".", ""))
-
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, REPO)
-
-from tools.validate.judge_blind_run import decode, parse_reply  # noqa: E402
+from tools.validate.judge_blind_run import decode, parse_reply
 
 
 class TestDecode(unittest.TestCase):
@@ -47,9 +40,11 @@ class TestSummaryShape(unittest.TestCase):
             {"decoded": "b", "longer_is_a": False, "decoy": False, "pair_id": "g02"},
         ]
         dec = [r for r in rows if r["decoded"] != "tie"]
-        picked = sum(1 for r in dec
-                     if r["longer_is_a"] is not None
-                     and ((r["decoded"] == "a") == r["longer_is_a"]))
+        picked = sum(
+            1
+            for r in dec
+            if r["longer_is_a"] is not None and ((r["decoded"] == "a") == r["longer_is_a"])
+        )
         self.assertEqual(picked, 3)  # all three picked the longer side
 
 

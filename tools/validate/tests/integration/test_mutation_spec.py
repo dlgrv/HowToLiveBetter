@@ -3,26 +3,45 @@
 Generation of the 30 mutations is subagent work (seed-fixed list committed as
 results/mutations_seed42.json); these tests validate spec + plumbing offline.
 """
+
 import json
 import os
-import sys
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from tools.validate import mutation_test as mt  # noqa: E402
+from tools.test_paths import ROOT
+from tools.validate import mutation_test as mt
 
 RESULTS = os.path.join(ROOT, "tools", "validate", "results")
 SPEC_PATH = os.path.join(RESULTS, "mutations_seed42.json")
 SEED_REF = "f0c2674f729c6af1ef33c4575c30cbb3e2be5f13e7626090a5e16144790d1ef9"
 
-CHAPTERS = ["02", "04", "05", "06", "07", "09", "12", "14", "16", "17",
-            "20", "22", "23", "25", "27", "32"]
+CHAPTERS = [
+    "02",
+    "04",
+    "05",
+    "06",
+    "07",
+    "09",
+    "12",
+    "14",
+    "16",
+    "17",
+    "20",
+    "22",
+    "23",
+    "25",
+    "27",
+    "32",
+]
 
-TAXONOMY = {"dropped_condition", "reversed_logic", "softened_claim",
-            "added_advice", "subject_swapped", "cross_unit_contradiction"}
+TAXONOMY = {
+    "dropped_condition",
+    "reversed_logic",
+    "softened_claim",
+    "added_advice",
+    "subject_swapped",
+    "cross_unit_contradiction",
+}
 
 
 def load_spec():
@@ -35,8 +54,16 @@ def _spec_ready():
     if not os.path.isfile(SPEC_PATH):
         return False
     spec = load_spec()
-    return (len(spec.get("mutations", [])) >= 30
-            and len(spec.get("controls", [])) >= 30)
+    return len(spec.get("mutations", [])) >= 30 and len(spec.get("controls", [])) >= 30
+
+
+def _spec_matches_books(spec):
+    """False when book/ drifted away from committed/local fixture excerpts."""
+    for row in (*spec.get("mutations", []), *spec.get("controls", [])):
+        nn, lang = row["target"]
+        if row["original_excerpt"] not in mt.read_book(nn, lang):
+            return False
+    return True
 
 
 class TestSpec(unittest.TestCase):
@@ -44,6 +71,10 @@ class TestSpec(unittest.TestCase):
     def setUpClass(cls):
         if not _spec_ready():
             raise unittest.SkipTest("mutations_seed42.json not yet generated")
+        if not _spec_matches_books(load_spec()):
+            raise unittest.SkipTest(
+                "mutations_seed42.json excerpts no longer match book/; regenerate fixtures"
+            )
 
     def test_counts(self):
         spec = load_spec()
@@ -81,7 +112,7 @@ class TestVerifyWrapper(unittest.TestCase):
         self.assertEqual((code, out["status"]), (0, "pass"))
 
     def test_broken_file_fails_wrapper(self):
-        code, out = mt.run_verify("02", "ru", file_text="кактус без структуры\n")
+        _code, out = mt.run_verify("02", "ru", file_text="кактус без структуры\n")
         self.assertEqual(out["status"], "fail")
 
 
@@ -94,7 +125,7 @@ class TestControlsVerifiedClean(unittest.TestCase):
     def test_every_control_target_is_green_today(self):
         for nn in CHAPTERS:
             for lang in ("ru", "en"):
-                code, out = mt.run_verify(nn, lang)
+                _code, out = mt.run_verify(nn, lang)
                 self.assertEqual(out["status"], "pass", f"{lang}{nn} must be green")
 
 

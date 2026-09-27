@@ -43,18 +43,17 @@ Discarded false alarms (tested here as armor on purpose):
   * fullwidth ％ is not in FULLWIDTH and never occurs in TR files;
   * EN modal "may" (422 hits) correctly NOT folded — pinning that is armor.
 """
+
 from __future__ import annotations
 
-import json
 import os
-import sys
 import unittest
 
-_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if _ROOT not in sys.path:
-    sys.path.insert(0, _ROOT)
+from tools.llm.tests.helpers import run_verify_json
+from tools.test_paths import REPO_ROOT
+from tools.verify import norm_numbers
 
-from tools.verify import norm_numbers  # noqa: E402
+_ROOT = REPO_ROOT
 
 
 def norm_cn(t):
@@ -308,6 +307,7 @@ class UnicodeDigits(unittest.TestCase):
 
     def test_fullwidth_percent_not_in_class(self):
         from tools.verify import FULLWIDTH
+
         self.assertIsNone(FULLWIDTH.search("％"))
 
 
@@ -404,40 +404,23 @@ class RoundTrip(unittest.TestCase):
 class BannedCalque(unittest.TestCase):
     """Check 7 semantics via real verify.py run: >1 occurrence fails, 1 warns."""
 
-    def _run_verify(self, text):
-        import subprocess
-        import tempfile
-
-        with tempfile.TemporaryDirectory() as d:
-            p = os.path.join(d, "cand.md")
-            with open(p, "w", encoding="utf-8") as f:
-                f.write(text)
-            r = subprocess.run(
-                [sys.executable, os.path.join(_ROOT, "tools", "verify.py"),
-                 "01", "--lang", "ru", "--file", p, "--json"],
-                cwd=_ROOT, capture_output=True, text=True,
-            )
-        js = next((ln for ln in reversed(r.stdout.splitlines()) if ln.startswith("{")), None)
-        self.assertIsNotNone(js, r.stdout + r.stderr)
-        return json.loads(js)
-
     def test_calque_once_is_warn_not_fail(self):
-        rep = self._run_verify("### 1. x\n- Примечания: это когорта пациентов\n")
+        rep, _ = run_verify_json("### 1. x\n- Примечания: это когорта пациентов\n")
         kinds = [f["kind"] for f in rep["fails"]]
         self.assertNotIn("banned_calque", kinds)
         self.assertTrue(any(w["kind"] == "calque_once" for w in rep["warns"]))
 
     def test_calque_twice_fails(self):
-        rep = self._run_verify("### 1. x\n- Примечания: когорта и снова когорта\n")
+        rep, _ = run_verify_json("### 1. x\n- Примечания: когорта и снова когорта\n")
         self.assertTrue(any(f["kind"] == "banned_calque" for f in rep["fails"]))
 
     def test_calque_stem_substring_counts(self):
         # «когорте/когорты» share the stem — must count toward the limit
-        rep = self._run_verify("### 1. x\n- Примечания: в когорте и из когорты\n")
+        rep, _ = run_verify_json("### 1. x\n- Примечания: в когорте и из когорты\n")
         self.assertTrue(any(f["kind"] == "banned_calque" for f in rep["fails"]))
 
     def test_populyac_stem_matches_declensions(self):
-        rep = self._run_verify("### 1. x\n- Примечания: популяция и популяций\n")
+        rep, _ = run_verify_json("### 1. x\n- Примечания: популяция и популяций\n")
         self.assertTrue(any(f["kind"] == "banned_calque" for f in rep["fails"]))
 
 
@@ -450,61 +433,44 @@ class CJKOutside(unittest.TestCase):
 
     PAD = "#pad\n#pad\n#pad\n"  # occupies lines 2-4
 
-    def _run_verify(self, text, lang="ru"):
-        import subprocess
-        import tempfile
-
-        with tempfile.TemporaryDirectory() as d:
-            p = os.path.join(d, "cand.md")
-            with open(p, "w", encoding="utf-8") as f:
-                f.write(text)
-            r = subprocess.run(
-                [sys.executable, os.path.join(_ROOT, "tools", "verify.py"),
-                 "01", "--lang", lang, "--file", p, "--json"],
-                cwd=_ROOT, capture_output=True, text=True,
-            )
-        js = next((ln for ln in reversed(r.stdout.splitlines()) if ln.startswith("{")), None)
-        self.assertIsNotNone(js, r.stdout + r.stderr)
-        return json.loads(js)
-
     def test_cjk_in_body_fails(self):
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD + "- Примечания: тут 成本 затесался\n")
+        rep, _ = run_verify_json("### 1. x\n" + self.PAD + "- Примечания: тут 成本 затесался\n")
         self.assertTrue(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_cjk_in_heading_fails(self):
-        rep = self._run_verify("### 1. x\n" + self.PAD + "### 5. 成本\n")
+        rep, _ = run_verify_json("### 1. x\n" + self.PAD + "### 5. 成本\n")
         self.assertTrue(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_cjk_in_source_line_allowed(self):
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD
-            + "- Источники: 全国人大 (2020). 民法典\n- Примечания: чисто\n")
+        rep, _ = run_verify_json(
+            "### 1. x\n" + self.PAD + "- Источники: 全国人大 (2020). 民法典\n- Примечания: чисто\n"
+        )
         self.assertFalse(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_cjk_in_translator_note_block_allowed(self):
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD
+        rep, _ = run_verify_json(
+            "### 1. x\n"
+            + self.PAD
             + "> Примечание переводчика: термин 成本 оставлен как в оригинале\n"
-            "> продолжение примечания 说人话\n- Примечания: чисто\n")
+            "> продолжение примечания 说人话\n- Примечания: чисто\n"
+        )
         self.assertFalse(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_cjk_in_paren_gloss_allowed(self):
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD
-            + "- Примечания: уплата (成本) налога — чисто\n")
+        rep, _ = run_verify_json(
+            "### 1. x\n" + self.PAD + "- Примечания: уплата (成本) налога — чисто\n"
+        )
         self.assertFalse(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_cjk_without_parens_fails_control(self):
         # negative control for the gloss test above
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD
-            + "- Примечания: уплата 成本 налога — чисто\n")
+        rep, _ = run_verify_json(
+            "### 1. x\n" + self.PAD + "- Примечания: уплата 成本 налога — чисто\n"
+        )
         self.assertTrue(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
 
     def test_fullwidth_punct_warns_not_fails(self):
-        rep = self._run_verify(
-            "### 1. x\n" + self.PAD + "- Примечания: раз，два\n")
+        rep, _ = run_verify_json("### 1. x\n" + self.PAD + "- Примечания: раз，два\n")
         self.assertFalse(any(f["kind"] == "cjk_outside" for f in rep["fails"]))
         self.assertTrue(any(w["kind"] == "fullwidth" for w in rep["warns"]))
 
@@ -524,56 +490,40 @@ class FieldChecks(unittest.TestCase):
             self.skipTest("no ru ch01")
         self.base = open(self.BASE, encoding="utf-8").read()
 
-    def _run(self, text):
-        import subprocess
-        import tempfile
-
-        with tempfile.TemporaryDirectory() as d:
-            p = os.path.join(d, "cand.md")
-            with open(p, "w", encoding="utf-8") as f:
-                f.write(text)
-            r = subprocess.run(
-                [sys.executable, os.path.join(_ROOT, "tools", "verify.py"),
-                 "01", "--lang", "ru", "--file", p, "--json"],
-                cwd=_ROOT, capture_output=True, text=True,
-            )
-        js = next((ln for ln in reversed(r.stdout.splitlines()) if ln.startswith("{")), None)
-        self.assertIsNotNone(js, r.stdout + r.stderr)
-        return json.loads(js)
-
     def test_base_is_clean(self):
-        rep = self._run(self.base)
+        rep, _ = run_verify_json(self.base)
         self.assertEqual(rep["fails"], [], rep["fails"][:3])
 
     def test_indented_label_still_counts(self):
         mutated = self.base.replace("\n- Эффект:", "\n   - Эффект:", 1)
-        rep = self._run(mutated)
+        rep, _ = run_verify_json(mutated)
         self.assertFalse(
             any(f["kind"] == "field_count" for f in rep["fails"]),
-            "lstrip() must tolerate indented labels")
+            "lstrip() must tolerate indented labels",
+        )
 
     def test_missing_field_fails(self):
         mutated = self.base.replace("\n- Эффект:", "\n- ПримечанияX:", 1)
-        rep = self._run(mutated)
+        rep, _ = run_verify_json(mutated)
         fc = [f for f in rep["fails"] if f["kind"] == "field_count"]
         self.assertTrue(fc)
         self.assertTrue(any(f["label"] == "Эффект" and f["got"] < f["want"] for f in fc))
 
     def test_jargon_in_plain_warns(self):
-        mutated = self.base.replace(
-            "\n- Простыми словами:", "\n- Простыми словами: (HR 0.56)", 1)
-        rep = self._run(mutated)
+        mutated = self.base.replace("\n- Простыми словами:", "\n- Простыми словами: (HR 0.56)", 1)
+        rep, _ = run_verify_json(mutated)
         self.assertTrue(any(w["kind"] == "jargon_in_plain" for w in rep["warns"]))
 
     def test_no_jargon_in_base(self):
-        rep = self._run(self.base)
+        rep, _ = run_verify_json(self.base)
         self.assertFalse(any(w["kind"] == "jargon_in_plain" for w in rep["warns"]))
 
     def test_jargon_substring_not_matched(self):
         # 'RRI'/'ORR'/'CIa' must not match \b(?:HR|RR|OR|CI)\b
         mutated = self.base.replace(
-            "\n- Простыми словами:", "\n- Простыми словами: проект RRI, ориентир", 1)
-        rep = self._run(mutated)
+            "\n- Простыми словами:", "\n- Простыми словами: проект RRI, ориентир", 1
+        )
+        rep, _ = run_verify_json(mutated)
         self.assertFalse(any(w["kind"] == "jargon_in_plain" for w in rep["warns"]))
 
 

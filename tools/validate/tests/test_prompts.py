@@ -3,17 +3,26 @@
 Prompts are DATA (tools/prompts/judge-<mode>.md); the test enforces the
 contract that validate scripts and the verdict parser rely on.
 """
+
 import json
 import os
 import re
 import unittest
+from typing import ClassVar
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+from tools.test_paths import REPO
+
 PROMPTS = os.path.join(REPO, "tools", "prompts")
 
 ISSUE_TYPES = [
-    "dropped_condition", "reversed_logic", "softened_claim", "added_advice",
-    "subject_swapped", "cross_unit_contradiction", "invented", "other",
+    "dropped_condition",
+    "reversed_logic",
+    "softened_claim",
+    "added_advice",
+    "subject_swapped",
+    "cross_unit_contradiction",
+    "invented",
+    "other",
 ]
 
 
@@ -73,35 +82,51 @@ class TestFactcheckPrompt(unittest.TestCase):
         # instruct the judge to ground spans on §TAG§/§SRC§ lines.
         p = read("factcheck")
         self.assertIn("§", p)  # mentioned as excluded/banned
-        self.assertLess(re.search(r"§SRC§", p).start(),
-                        re.search(r"(?i)never|do not|must not", p).start() + 400)
+        self.assertLess(
+            re.search(r"§SRC§", p).start(), re.search(r"(?i)never|do not|must not", p).start() + 400
+        )
 
 
 class TestReplyParsing(unittest.TestCase):
     """Fixed sample replies (mock calls) must parse into objects w/o errors."""
 
-    SAMPLES = {
-        "screen": '{"verdict": "translationese", "issues": [{"span": "осуществляет ходьбу", "quote": "осуществляет ходьбу", "severity": "minor", "type": "calque"}], "note": ""}',  # noqa: E501
+    SAMPLES: ClassVar[dict[str, str]] = {
+        "screen": '{"verdict": "translationese", "issues": [{"span": "осуществляет ходьбу", "quote": "осуществляет ходьбу", "severity": "minor", "type": "calque"}], "note": ""}',
         "ab": '{"winner": 1, "reason": "variant 1 reads natural"}',
-        "factcheck": json.dumps({
-            "assertions": [
-                {"cn_span": "每天至少30分钟", "claim": "30 min daily",
-                 "ru_ok": True, "en_ok": True, "issue_type": None},
-                {"cn_span": "不要空腹服药", "claim": "do not take on empty stomach",
-                 "ru_ok": False, "en_ok": True, "issue_type": "dropped_condition"},
-            ]}, ensure_ascii=False),
+        "factcheck": json.dumps(
+            {
+                "assertions": [
+                    {
+                        "cn_span": "每天至少30分钟",
+                        "claim": "30 min daily",
+                        "ru_ok": True,
+                        "en_ok": True,
+                        "issue_type": None,
+                    },
+                    {
+                        "cn_span": "不要空腹服药",
+                        "claim": "do not take on empty stomach",
+                        "ru_ok": False,
+                        "en_ok": True,
+                        "issue_type": "dropped_condition",
+                    },
+                ]
+            },
+            ensure_ascii=False,
+        ),
     }
 
     def test_samples_parse(self):
-        for mode, raw in self.SAMPLES.items():
+        for raw in self.SAMPLES.values():
             obj = json.loads(raw)  # parser contract: strict JSON
             self.assertIsInstance(obj, dict)
         # screen verdict enum respected by sample
-        self.assertIn(json.loads(self.SAMPLES["screen"])["verdict"],
-                      ("native", "translationese", "broken"))
+        self.assertIn(
+            json.loads(self.SAMPLES["screen"])["verdict"], ("native", "translationese", "broken")
+        )
         fc = json.loads(self.SAMPLES["factcheck"])
         for a in fc["assertions"]:
-            self.assertIn(a["issue_type"], ISSUE_TYPES + [None])
+            self.assertIn(a["issue_type"], (*ISSUE_TYPES, None))
 
 
 if __name__ == "__main__":

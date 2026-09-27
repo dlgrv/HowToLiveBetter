@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """Tests for tools/verify.py --json (machine report for repair wave)."""
+
 from __future__ import annotations
 
-import json
-import subprocess
 import sys
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[3]
+from tools.llm.tests.helpers import run_cli
+from tools.llm.verify_issues import parse_verify_json
+from tools.test_paths import REPO_ROOT
+
+ROOT = Path(REPO_ROOT)
 
 
 class VerifyJson(unittest.TestCase):
@@ -17,7 +20,7 @@ class VerifyJson(unittest.TestCase):
         cand = ROOT / "tools" / "runs" / "active" / "ru" / "01" / "assembled.md"
         if not cand.is_file():
             self.skipTest("no assembled candidate")
-        r = subprocess.run(
+        r = run_cli(
             [
                 sys.executable,
                 str(ROOT / "tools" / "verify.py"),
@@ -28,19 +31,10 @@ class VerifyJson(unittest.TestCase):
                 str(cand),
                 "--json",
             ],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
         )
         # May be exit 0 or 1; JSON is the LAST stdout line (also on FAIL) —
         # rfind("{") alone would land inside the object, so parse by line.
-        text = r.stdout
-        js_line = next(
-            (ln for ln in reversed(text.splitlines()) if ln.startswith("{")),
-            None,
-        )
-        self.assertIsNotNone(js_line, text[:500])
-        data = json.loads(js_line)
+        data = parse_verify_json(r.stdout)
         self.assertIn("ok", data)
         self.assertIn("fails", data)
         self.assertIn("warns", data)
@@ -75,18 +69,20 @@ class VerifyJson(unittest.TestCase):
                 "- Notas: algo mas\n",
                 encoding="utf-8",
             )
-            r = subprocess.run(
-                [sys.executable, str(ROOT / "tools" / "verify.py"), "01",
-                 "--lang", "es", "--file", str(tmpmd), "--json"],
-                cwd=ROOT, capture_output=True, text=True,
+            r = run_cli(
+                [
+                    sys.executable,
+                    str(ROOT / "tools" / "verify.py"),
+                    "01",
+                    "--lang",
+                    "es",
+                    "--file",
+                    str(tmpmd),
+                    "--json",
+                ],
             )
             self.assertIn("no banned_calques configured", r.stderr)
-            js_line = next(
-                (ln for ln in reversed(r.stdout.splitlines()) if ln.startswith("{")),
-                None,
-            )
-            self.assertIsNotNone(js_line, r.stdout[:500])
-            data = json.loads(js_line)
+            data = parse_verify_json(r.stdout)
             self.assertIn("ok", data)
         finally:
             tmpmd.unlink(missing_ok=True)
@@ -96,20 +92,22 @@ class VerifyJson(unittest.TestCase):
         cand = ROOT / "book" / "ru" / "01-Не-умирайте-рано.md"
         if not cand.is_file():
             self.skipTest("no ru ch01")
-        r = subprocess.run(
-            [sys.executable, str(ROOT / "tools" / "verify.py"), "01",
-             "--lang", "ru", "--file", str(cand), "--json"],
-            cwd=ROOT, capture_output=True, text=True,
+        r = run_cli(
+            [
+                sys.executable,
+                str(ROOT / "tools" / "verify.py"),
+                "01",
+                "--lang",
+                "ru",
+                "--file",
+                str(cand),
+                "--json",
+            ],
         )
         self.assertNotIn("no banned_calques configured", r.stderr)
 
     def test_help_lists_json(self):
-        r = subprocess.run(
-            [sys.executable, str(ROOT / "tools" / "verify.py"), "--help"],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-        )
+        r = run_cli([sys.executable, str(ROOT / "tools" / "verify.py"), "--help"])
         self.assertEqual(r.returncode, 0)
         self.assertIn("--json", r.stdout)
 

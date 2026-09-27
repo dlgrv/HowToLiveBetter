@@ -3,15 +3,13 @@
 The COMET stack only runs on the Mac (venv ~/.venvs/qe); everything tested
 here is offline-pure: parsing fixed output samples and threshold math.
 """
+
 import os
-import sys
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from tools.pipeline import qe as pqe  # noqa: E402
+import pytest
+from tools.pipeline import qe as pqe
+from tools.test_paths import ROOT
 
 
 class TestOutputParsing(unittest.TestCase):
@@ -19,10 +17,7 @@ class TestOutputParsing(unittest.TestCase):
         "Predicting DataLoader 0: 100%|##########| 2/2 [00:01<00:00]\n"
         '{"scores": [0.8123, -0.1050]}\n'
     )
-    CLI_SAMPLE = (
-        "Some progress bar noise...\n"
-        "wmt20-comet-qe-da: 0.8123\n"
-    )
+    CLI_SAMPLE = "Some progress bar noise...\nwmt20-comet-qe-da: 0.8123\n"
 
     def test_parse_runner_json(self):
         self.assertEqual(pqe.parse_scores(self.RUNNER_SAMPLE), [0.8123, -0.105])
@@ -44,8 +39,8 @@ class TestTau(unittest.TestCase):
         self.assertEqual(pqe.compute_tau(sigma=0.0), 0.01)
 
     def test_three_sigma(self):
-        self.assertAlmostEqual(pqe.compute_tau(sigma=0.005), 0.015)
-        self.assertAlmostEqual(pqe.compute_tau(sigma=0.02), 0.06)
+        assert pqe.compute_tau(sigma=0.005) == pytest.approx(0.015)
+        assert pqe.compute_tau(sigma=0.02) == pytest.approx(0.06)
 
 
 class TestConfig(unittest.TestCase):
@@ -56,6 +51,7 @@ class TestConfig(unittest.TestCase):
 
     def test_project_yaml_backend_matches(self):
         import yaml
+
         proj = yaml.safe_load(open(os.path.join(ROOT, "tools", "rules", "project.yaml")))
         self.assertEqual(proj["qe"]["model"], pqe.load_qe_config(ROOT)["model"])
 
@@ -72,6 +68,7 @@ class TestSkippedDegradation(unittest.TestCase):
 
     def test_noise_report_skipped_shape(self):
         from tools.validate import qe_noise
+
         report = qe_noise.build_report(root=ROOT, force_skip=True)
         self.assertEqual(report["status"], "skipped")
         self.assertIn("reason", report)

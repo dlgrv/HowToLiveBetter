@@ -1,24 +1,26 @@
 """Tests for build_lite3: meaning_break degradations are sane and gated."""
+
 import importlib.util
 import json
 import os
-import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.dirname(HERE))  # tools/validate (check_degrade)
+from tools.test_paths import REPO
+
+_VALIDATE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 spec = importlib.util.spec_from_file_location(
-    "build_lite3", os.path.join(os.path.dirname(HERE), "build_lite3.py"))
-assert spec is not None and spec.loader is not None
+    "build_lite3", os.path.join(os.path.dirname(_VALIDATE_DIR), "build_lite3.py")
+)
+assert spec is not None
+assert spec.loader is not None
 bl3 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bl3)
 
 
 def _manifest():
-    return json.load(open(os.path.join(
-        REPO, "tools/validate/results/golden_manifest.json"), encoding="utf-8"))
+    return json.load(
+        open(os.path.join(REPO, "tools/validate/results/golden_manifest.json"), encoding="utf-8")
+    )
 
 
 def test_edits_target_real_pairs_with_matching_language():
@@ -50,16 +52,14 @@ def test_generated_variants_pass_all_gates():
         for old, new in edits:
             b = b.replace(old, new)
         b = bl3.pad(b, len(p["variant_a"]), p["lang"])
-        probs = bl3.check({"variant_b": b, "lang": p["lang"]},
-                          p["variant_a"], "bloat")
+        probs = bl3.check({"variant_b": b, "lang": p["lang"]}, p["variant_a"], "bloat")
         if pid == "g23":  # original itself carries a literal TODO marker
             probs = [x for x in probs if x != "meta/leak words present"]
         assert not probs, f"{pid}: {probs}"
 
 
 def test_saved_results_file_matches_gates():
-    path = os.path.join(REPO,
-                        "tools/validate/results/_lite3_degrade_meaning_break.json")
+    path = os.path.join(REPO, "tools/validate/results/_lite3_degrade_meaning_break.json")
     if not os.path.exists(path):
         return  # built artifact not committed yet
     d = json.load(open(path, encoding="utf-8"))

@@ -4,15 +4,12 @@ The collector maps judge answers (1/2/=) through the manifest's show_order
 mapping: it must say whether the judge picked the ORIGINAL (variant_a) —
 without ever leaking that mapping into output files consumed by humans.
 """
+
 import os
-import sys
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from tools.validate import golden_collect as gc  # noqa: E402
+from tools.test_paths import ROOT
+from tools.validate import golden_collect as gc
 
 RESULTS = os.path.join(ROOT, "tools", "validate", "results")
 

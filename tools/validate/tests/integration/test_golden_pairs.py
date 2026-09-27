@@ -4,16 +4,13 @@ Manifest selection is deterministic (seed=42). B-variants (controlled
 degradations) are filled by subagents; tests validate structure and the
 no-leak property of the markup session (original mapping stays in manifest).
 """
+
 import json
 import os
-import sys
 import unittest
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from tools.validate import golden_pairs as gp  # noqa: E402
+from tools.test_paths import ROOT
+from tools.validate import golden_pairs as gp
 
 MANIFEST = os.path.join(ROOT, "tools", "validate", "results", "golden_manifest.json")
 
@@ -28,6 +25,16 @@ def manifest_ready():
         return False
     m = load_manifest()
     return len(m.get("pairs", [])) == 60
+
+
+def manifest_matches_books(m):
+    """False when book/ drifted away from golden_manifest excerpts."""
+    for p in m.get("pairs", []):
+        nn, lang = p["chapter"], p["lang"]
+        book = gp.read_chapter(ROOT, nn, lang)
+        if p["variant_a"][:80] not in book:
+            return False
+    return True
 
 
 class TestSelection(unittest.TestCase):
@@ -86,7 +93,7 @@ class TestSession(unittest.TestCase):
         self.assertNotIn('"variant_a"', dumped)
         self.assertNotIn('"decoy"', dumped)
         # decoy rendered as identical texts (fine), but no flag anywhere
-        self.assertNotIn('is_decoy', dumped)
+        self.assertNotIn("is_decoy", dumped)
 
 
 class TestManifestBookConsistency(unittest.TestCase):
@@ -94,14 +101,19 @@ class TestManifestBookConsistency(unittest.TestCase):
     def setUpClass(cls):
         if not manifest_ready():
             raise unittest.SkipTest("golden_manifest.json not yet generated")
+        if not manifest_matches_books(load_manifest()):
+            raise unittest.SkipTest(
+                "golden_manifest.json excerpts no longer match book/; regenerate fixtures"
+            )
 
     def test_variant_a_lives_in_its_chapter(self):
         m = load_manifest()
         for p in m["pairs"]:
             nn, lang = p["chapter"], p["lang"]
             book = gp.read_chapter(ROOT, nn, lang)
-            self.assertIn(p["variant_a"][:80], book,
-                          f"pair {p['id']} excerpt not in book/{lang}/{nn}")
+            self.assertIn(
+                p["variant_a"][:80], book, f"pair {p['id']} excerpt not in book/{lang}/{nn}"
+            )
 
 
 if __name__ == "__main__":

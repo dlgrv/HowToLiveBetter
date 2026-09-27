@@ -1,12 +1,8 @@
 """Tests for render_markup diff highlighting (neutral, symmetric-ish)."""
-import os
-import sys
+
 import unittest
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, REPO)
-
-from tools.validate.render_markup import diff_texts, diff_words  # noqa: E402
+from tools.validate.render_markup import diff_texts, diff_words
 
 
 class TestDiffWords(unittest.TestCase):

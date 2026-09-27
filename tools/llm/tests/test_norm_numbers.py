@@ -5,15 +5,10 @@ Covers: ES «mil millones» compound scale; ZH 千万/百万 scales; RU «мая
 month-stem false match («маяк», prose «в начале мая»); regression guard
 for the already-working 万亿 and digit-date month folding («1 мая» == «5 月 1 日»).
 """
-import os
-import sys
+
 import unittest
 
-_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-if _ROOT not in sys.path:
-    sys.path.insert(0, _ROOT)
-
-from tools.verify import norm_numbers  # noqa: E402
+from tools.verify import norm_numbers
 
 
 class TestNormNumbersScale(unittest.TestCase):

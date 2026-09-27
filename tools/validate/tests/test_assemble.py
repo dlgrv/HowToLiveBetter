@@ -11,8 +11,7 @@ import sys
 import tempfile
 import unittest
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+from tools.test_paths import REPO_ROOT
 
 # -------- shared fixtures --------
 
@@ -98,34 +97,38 @@ BLOCKS_JSON = {
     "blocks": {
         "1": {
             "tag": "<!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->",
-            "src": [
-                "- 来源：Jha P 等 (2013). NEJM. https://doi.org/10.1056/NEJMsa1211128"
-            ]
+            "src": ["- 来源：Jha P 等 (2013). NEJM. https://doi.org/10.1056/NEJMsa1211128"],
         },
         "2": {
             "tag": "<!-- 成本标签: 钱=0 时间=средне 毅力=да 收益=средняя 口径=смертность -->",
-            "src": [
-                "- 来源：Smith et al. (2022)"
-            ]
+            "src": ["- 来源：Smith et al. (2022)"],
         },
         "3": {
             "tag": "<!-- 成本标签: 钱=0 时间=мало 毅力=да 收益=средняя 口径=здоровье -->",
-            "src": [
-                "- 来源：Lustig RH (2012). Nature. https://doi.org/10.1038/482027a"
-            ]
-        }
-    }
+            "src": ["- 来源：Lustig RH (2012). Nature. https://doi.org/10.1038/482027a"],
+        },
+    },
 }
 
 
 def _setup_tmp_fixtures(tmp):
     """Mirror repo structure so the REAL assemble.py runs with root = tmp."""
-    # Copy real assemble.py
+    # Copy real assemble.py + pipeline (chapter path helpers)
     tools_dir = os.path.join(tmp, "tools")
     os.makedirs(tools_dir)
     shutil.copy2(
-        os.path.join(REPO_ROOT, "tools", "assemble.py"),
-        os.path.join(tools_dir, "assemble.py"))
+        os.path.join(REPO_ROOT, "tools", "assemble.py"), os.path.join(tools_dir, "assemble.py")
+    )
+    shutil.copytree(
+        os.path.join(REPO_ROOT, "tools", "pipeline"),
+        os.path.join(tools_dir, "pipeline"),
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+    )
+    shutil.copytree(
+        os.path.join(REPO_ROOT, "tools", "rules"),
+        os.path.join(tools_dir, "rules"),
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+    )
 
     # CN original
     book_dir = os.path.join(tmp, "book")
@@ -158,7 +161,9 @@ def _run_assemble(tmp, workdir, out_md, lang="ru"):
     assemble_py = os.path.join(tmp, "tools", "assemble.py")
     return subprocess.run(
         [sys.executable, assemble_py, "01", workdir, out_md, lang],
-        capture_output=True, text=True, timeout=10
+        capture_output=True,
+        text=True,
+        timeout=10,
     )
 
 
@@ -172,7 +177,6 @@ def _write_blocks(tmp, blocks):
 
 
 class TestAssemble(unittest.TestCase):
-
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
         _setup_tmp_fixtures(self.tmp)
@@ -208,7 +212,9 @@ class TestAssemble(unittest.TestCase):
         self._run("ru")
         with open(self.out_md, encoding="utf-8") as f:
             out = f.read()
-        self.assertIn("- Источники:Jha P 等 (2013). NEJM. https://doi.org/10.1056/NEJMsa1211128", out)
+        self.assertIn(
+            "- Источники:Jha P 等 (2013). NEJM. https://doi.org/10.1056/NEJMsa1211128", out
+        )
         self.assertIn("- Источники:Smith et al. (2022)", out)
         self.assertIn("- Источники:Lustig RH (2012). Nature. https://doi.org/10.1038/482027a", out)
 
