@@ -1,0 +1,91 @@
+[project]
+name = "howtolivebetter-tools"
+version = "0"
+requires-python = ">=3.11"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["tools"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  # CLI/scripts policy
+  "D",       # no docstring mandate
+  "ANN",     # no type-annotation mandate yet
+  "T201",    # print OK in CLI tools
+  "INP001",  # tools/ is not an importable package
+  "COM812",  # conflicts with ruff format
+  "ISC001",  # conflicts with ruff format
+  "CPY001",  # no copyright header policy in this repo
+  "EXE001",  # shebang scripts invoked via python/make, not +x
+  "E501",    # residual long lines (URLs, CJK); formatter handles the rest
+
+  # Multilingual content (CN/RU) uses non-ASCII that RUF flags as "ambiguous"
+  "RUF001",
+  "RUF002",
+  "RUF003",
+
+  # pathlib migration is a separate refactor; os.path is fine for pipeline scripts
+  "PTH",
+
+  # Lazy imports are intentional (optional/heavy deps inside commands)
+  "PLC0415",
+
+  # Exception message style rules are noise for small CLIs
+  "TRY003",
+  "EM101",
+  "EM102",
+
+  # Known fixed argv to local tools / python3
+  "S603",
+  "S607",
+
+  # Boolean positional args are common in small CLIs
+  "FBT001",
+  "FBT002",
+
+  # Complexity / magic-value limits → separate cleanup, not this gate
+  "C901",
+  "PLR0911",
+  "PLR0912",
+  "PLR0913",
+  "PLR0915",
+  "PLR0917",
+  "PLR2004",
+
+  # open() without with — paired with PTH deferral; scripts use short-lived reads
+  "SIM115",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tools/validate/tests", "tools/llm/tests"]
+
+[tool.ruff.lint.per-file-ignores]
+"tools/**/tests/**" = [
+  "S101",  # assert is fine in tests
+  "SLF001",  # tests may call module-private helpers
+  "PT009",  # legacy unittest asserts; new tests use plain assert / pytest.approx
+  "PT027",  # legacy unittest.assertRaises
+  "PLW1510",  # subprocess.run check= in CLI smoke tests
+]
+# Ordered WORD_VALUES pattern table: adjacent raw strings + deferred lambdas are intentional
+"tools/verify.py" = [
+  "ISC004",
+  "PLW0108",
+  "PLC3002",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.djlint]
+profile = "html"
+max_line_length = 120
+# site/index.html is a large template with inline JS; keep noise down
+# H020: #pop tooltip shells filled by JS (site/index.html ~315)
+ignore = "H020,H021,H025"

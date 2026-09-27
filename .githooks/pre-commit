@@ -1,0 +1,5 @@
+#!/bin/sh
+# Block commits that fail the lint stack (must match `make lint` / CI).
+set -e
+cd "$(git rev-parse --show-toplevel)"
+make lint

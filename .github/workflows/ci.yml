@@ -15,8 +15,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install system deps
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
       - name: Install deps
-        run: pip install -r requirements-dev.txt
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements-dev.txt
       - name: Commit message style
         if: github.event_name == 'pull_request'
         run: |
@@ -26,34 +30,33 @@ jobs:
           failed=0
           for c in $(git rev-list --no-merges "$base"..HEAD); do
             echo "── checking $c ──"
-            if ! git log -1 --format=%B "$c" | python3 tools/check_commit_msg.py --stdin; then
+            if ! git log -1 --format=%B "$c" | .venv/bin/python3 tools/check_commit_msg.py --stdin; then
               failed=1
             fi
           done
           exit $failed
+      # Smoke: make_digest still runs (output is gitignored; tests use temp mirrors).
       - name: Generate digest fixtures
-        run: python3 tools/make_digest.py 01
+        run: .venv/bin/python3 tools/make_digest.py 01
       - name: Run unit tests
-        run: >
-          python3 -m pytest tools/validate/tests/ tools/llm/tests/ -v
-          --ignore=tools/validate/tests/integration
+        run: make test
       - name: Run integration tests
-        run: python3 -m pytest tools/validate/tests/integration/ -v
+        run: make test-integration
       - name: Lint
-        run: ruff check tools/ --select E,F --ignore E501
+        run: make lint
       - name: Link check
-        run: python3 tools/check_links.py
+        run: .venv/bin/python3 tools/check_links.py
       - name: Content check
-        run: python3 tools/check_content.py
+        run: .venv/bin/python3 tools/check_content.py
       - name: Build pages
         run: |
-          python3 tools/build_pages.py
+          .venv/bin/python3 tools/build_pages.py
           test -f site/en/index.html
           test -f site/assets/v2.css
           test -f site/assets/og/en.png
       - name: Stage Pages artifact
         run: |
-          python3 tools/pages_artifact.py
+          .venv/bin/python3 tools/pages_artifact.py
           test -f .publish/en/index.html
           test -f .publish/README.md
           test -d .publish/book
@@ -75,7 +78,7 @@ jobs:
           for nn in $pending; do
             f=$(ls book/ru/${nn}-*.md 2>/dev/null | head -1)
             [ -z "$f" ] && continue
-            if ! python3 tools/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
+            if ! .venv/bin/python3 tools/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
               echo "ch.$nn FAILED:"; tail -5 /tmp/v_$nn.log; failed=1
             else
               echo "ch.$nn OK"
@@ -91,8 +94,16 @@ jobs:
         with:
           python-version: '3.11'
       - name: Readability gate
-        run: python3 tools/readability.py ru --strict
+        run: |
+          for lang in ru en es; do
+            echo "=== $$lang ==="
+            python3 tools/readability.py "$$lang" --strict
+          done
         continue-on-error: true
       - name: Bureaucratese gate
-        run: python3 tools/bureaucratese.py ru --strict
+        run: |
+          for lang in ru en es; do
+            echo "=== $$lang ==="
+            python3 tools/bureaucratese.py "$$lang" --strict
+          done
         continue-on-error: true
