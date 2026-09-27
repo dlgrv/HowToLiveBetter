@@ -17,7 +17,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 
 </div>
 
-**Languages / Языки:**
+
 - 🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
 - 🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
