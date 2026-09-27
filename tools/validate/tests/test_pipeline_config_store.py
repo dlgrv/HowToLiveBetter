@@ -34,8 +34,9 @@ class TestProjectConfig(unittest.TestCase):
             for key in ("labels", "banned_calques", "style_markers", "whitelist_zones"):
                 self.assertIn(key, rules, f"{lang}.{key} missing")
 
-    def test_cn_units_dir_exists_ch01(self):
-        self.assertTrue(os.path.isdir(pconfig.unit_dir(REPO_ROOT, "cn", 1)))
+    def test_cn_units_dir_path_ch01(self):
+        expected = os.path.join(REPO_ROOT, "tools", "digest", "01", "units")
+        self.assertEqual(pconfig.unit_dir(REPO_ROOT, "cn", 1), expected)
 
     def test_wave_units_dir_ru_ch01(self):
         expected = os.path.join(REPO_ROOT, "tools", "runs", "active", "ru", "01", "units")
@@ -83,18 +84,31 @@ class TestVerdictStore(unittest.TestCase):
             os.unlink(f.name)
 
     def test_payload_has_audit_fields(self):
-        src = os.path.join(REPO_ROOT, "tools", "digest", "01", "units", "00.md")
-        payload = pstore.build_payload(
-            tool="validate.judge",
-            mode="screen",
-            model_id="glm-5.3-flash",
-            prompt="PROMPT",
-            unit_path=src,
-            verdict={"verdict": "native", "issues": []},
-        )
-        for key in ("tool", "mode", "model_id", "ts", "prompt_hash", "unit_sha256", "verdict"):
-            self.assertIn(key, payload)
-        self.assertEqual(payload["unit_sha256"], pstore.unit_sha256(src))
+        with tempfile.NamedTemporaryFile("wb", suffix=".md", delete=False) as f:
+            f.write(b"unit body")
+            src = f.name
+        try:
+            payload = pstore.build_payload(
+                tool="validate.judge",
+                mode="screen",
+                model_id="glm-5.3-flash",
+                prompt="PROMPT",
+                unit_path=src,
+                verdict={"verdict": "native", "issues": []},
+            )
+            for key in (
+                "tool",
+                "mode",
+                "model_id",
+                "ts",
+                "prompt_hash",
+                "unit_sha256",
+                "verdict",
+            ):
+                self.assertIn(key, payload)
+            self.assertEqual(payload["unit_sha256"], pstore.unit_sha256(src))
+        finally:
+            os.unlink(src)
 
     def test_write_read_verdict_roundtrip(self):
         with tempfile.TemporaryDirectory() as tmp:
