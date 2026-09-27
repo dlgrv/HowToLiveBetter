@@ -17,11 +17,10 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 
 </div>
 
-
-- 🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
-- 🇪🇸 [Español](README.es.md) → [sitio](https://dlgrv.github.io/HowToLiveBetter/es/) — *traducción en curso*
+🇬🇧 [English](README.md) → [site](https://dlgrv.github.io/HowToLiveBetter/en/)
+🇷🇺 [Русский](README.ru.md) → [сайт](https://dlgrv.github.io/HowToLiveBetter/ru/)
+🇨🇳 [中文](README.zh.md) → [网站](https://dlgrv.github.io/HowToLiveBetter/zh/)
+🇪🇸 [Español](README.es.md) → [sitio](https://dlgrv.github.io/HowToLiveBetter/es/) — *traducción en curso*
 
 ---
 
@@ -62,6 +61,8 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 | A relative died, you were laid off, you got a serious diagnosis — what matters most in the first months? | [29. After A Major Blow](book/es/29-Despues-De-Un-Golpe-Fuerte.md) |
 | Once the child starts school, which physical and mental things cannot wait until after the exams? | [30. School-Age Kids](book/es/30-Ninos-En-Edad-Escolar.md) |
 | After eighteen, besides studying and working, which roads are open — and what are their thresholds? | [31. Paths After Eighteen](book/es/31-Caminos-Despues-De-Los-Dieciocho.md) |
+| Estudiar fuera — ¿cómo no romper el visado, y te reconocen el título al volver? | [32. Estudiar en el extranjero](book/es/32-Estudiar-En-El-Extranjero.md) |
+| Tú o un familiar se quedó con una discapacidad — ¿qué complicaciones atajar primero, qué ayudas pedir, y qué pasa con el colegio, el trabajo y la tutela? | [33. Cómo vivir después de una discapacidad](book/es/33-Como-Vivir-Tras-Una-Discapacidad.md) |
 
 ## How to read this
 

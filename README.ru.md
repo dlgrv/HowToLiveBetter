@@ -17,11 +17,10 @@
 
 </div>
 
-
-- 🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
-- 🇪🇸 [Испанский](README.es.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/es/)
+🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+🇪🇸 [Испанский](README.es.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/es/)
 
 ---
 
@@ -62,6 +61,8 @@
 | Близкий умер, сократили, поставлен тяжёлый диагноз — что важнее всего в первые месяцы? | [29. После тяжёлого удара](book/ru/29-После-тяжёлого-удара.md) |
 | Ребёнок пошёл в школу — какие вещи со здоровьем и психикой нельзя откладывать до экзаменов? | [30. Ребёнок в школе](book/ru/30-Ребёнок-в-школе.md) |
 | После восемнадцати кроме учёбы и подработки есть ещё пути — какие у каждого входные требования? | [31. Пути после 18](book/ru/31-Дороги-после-восемнадцати.md) |
+| Учёба за границей — как не оборвать визу и признают ли диплом по возвращении? | [32. Учёба за границей](book/ru/32-Учёба-за-границей.md) |
+| Сами или близкий стали инвалидом — какие осложнения закрыть первыми, какие выплаты можно оформить, как быть с учёбой, работой и опекой? | [33. Как жить после инвалидности](book/ru/33-Как-жить-после-инвалидности.md) |
 
 ## Как читать
 

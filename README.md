@@ -1,67 +1,65 @@
-<div align="center">
-
-<img src="site/assets/og/en.png" alt="HowToLiveBetter — less time, effort, and expense for more life, freedom, and money" width="820">
+![HowToLiveBetter — less time, effort, and expense for more life, freedom, and money](site/assets/og/en.png)
 
 # HowToLiveBetter: The Best-Value Life Guide
 
-Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
+Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.
+
 608 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
-[![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/en/)
-[![Items](https://img.shields.io/badge/Items-608-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20410%20%C2%B7%20B%20149%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1281%20links-565a5f?style=flat-square)](docs/research/核实记录/)
-[![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
+![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)
+![Items](https://img.shields.io/badge/Items-608-18794e?style=flat-square)
+![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20410%20%C2%B7%20B%20149%20%C2%B7%20C%2049-915930?style=flat-square)
+![Primary sources](https://img.shields.io/badge/Primary%20sources-1281%20links-565a5f?style=flat-square)
+![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/research/核实记录/) · [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md)
 
-</div>
-
-
-- 🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- 🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- 🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
-- 🇪🇸 [Español](README.es.md) → [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
+🇬🇧 [English](README.md) → [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
+🇷🇺 [Русский](README.ru.md) → [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
+🇨🇳 [中文](README.zh.md) → [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+🇪🇸 [Español](README.es.md) → [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
 
 ---
 
 ## Questions this book tries to answer
 
-| Question | Where to look |
-| --- | --- |
-| What can you do almost for free that still noticeably lowers your chance of dying early? | [1. Do Not Die Early](book/en/01-Do-Not-Die-Early.md) |
-| How many years of life exactly do smoking, alcohol, a sedentary life, and sleep loss take away? | [2. Don't Die Slowly](book/en/02-Do-Not-Die-Slowly.md) |
-| Not enough energy in a day, constantly interrupted — how do you fix it? | [3. Don't Waste Energy](book/en/03-Do-Not-Waste-Energy.md) |
-| Where does the time go, and how do you do fewer pointless things? | [4. Don't Waste Time](book/en/04-Do-Not-Waste-Time.md) |
-| How should savings be kept so that interest, fees, and scams don't eat them? | [5. Don't Waste Money](book/en/05-Do-Not-Waste-Money.md) |
-| Which supplements, checkup packages, and "IQ taxes" can you simply not buy? | [6. The Negative List](book/en/06-The-Anti-List.md) |
-| You lost your job, your wages are withheld, you have no money — what can you claim and where do you ask for help? | [7. How to Live When You Have No Money](book/en/07-Living-With-No-Money.md) |
-| Betrothal gifts, premarital property, large transfers during dating — who owns what in law? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/en/08-Do-Not-End-Up-Inside.md) |
-| Someone reports you, accuses you, fabricates facts — what is the first step, and can you seek redress and compensation afterwards? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/en/08-Do-Not-End-Up-Inside.md) |
-| Which "side jobs" and casual favors turn an ordinary person into a criminal defendant? | [9. Legal Red Lines](book/en/09-Legal-Red-Lines.md) |
-| Should you court many people at once or commit to one, can long-distance work, what do you bring to register a marriage? | [10. Are Dating and Marriage Worth It](book/en/10-Is-Love-And-Marriage-Worth-It.md) |
-| Writing which code, taking which jobs can get you a prison sentence? | [11. Red Lines for Techies](book/en/11-Red-Lines-For-Techies.md) |
-| Before borrowing to open a shop or founding a company, what should you think through first? | [12. Starting Your Own Business](book/en/12-Starting-Your-Own-Business.md) |
-| Someone collapses and stops breathing, heavy bleeding, fire, lost in the wild — what do you do first? | [13. Emergencies: What to Do First](book/en/13-Emergencies.md) |
-| Account stolen, phone lost — what is the first step? | [14. Accounts And Security](book/en/14-Accounts-And-Security.md) |
-| Deposit withheld, landlord evicting you, long-term rental operator collapsed — what do you do? | [15. Renting And Buying Housing](book/en/15-Renting-And-Buying-Housing.md) |
-| After a chronic disease diagnosis, how do you manage it long-term and spend less? | [16. Living With Chronic Disease](book/en/16-Living-With-Chronic-Disease.md) |
-| How should an elderly parent's guardianship, will, and money be arranged in advance? | [17. Elderly At Home](book/en/17-Elderly-At-Home.md) |
-| What can you claim when having a child, and how much time and money does it take? | [18. Is Having Kids Worth It](book/en/18-Is-Having-Kids-Worth-It.md) |
-| How are overtime pay and annual leave counted, how much compensation does a layoff owe you, how do you file and get paid for a workplace injury? | [19. Employment And Work Injury](book/en/19-Employment-And-Work-Injury.md) |
-| The child is just born — which things matter most? | [20. Newborn](book/en/20-Newborn.md) |
-| Which countries not to go to now, and how far does consular protection go when something happens? | [21. Travel And Abroad Safety](book/en/21-Travel-And-Abroad-Safety.md) |
-| How not to get burned at KTV, internet cafés, escape rooms; and what works best when you're stressed? | [22. How To Relax](book/en/22-How-To-Relax.md) |
-| Learning welding, English, certificates — which ones really pay back? | [23. Which Skills To Learn](book/en/23-Which-Skills-To-Learn.md) |
-| Same illness at a community clinic and a tier-III hospital — how different is the cost? | [24. Seeing The Doctor](book/en/24-Seeing-The-Doctor.md) |
-| Badly injured and rushing to a hospital — register and queue, or go to the ER triage desk? Afterwards, do you need a disability assessment, a disability certificate? | [24. Seeing The Doctor](book/en/24-Seeing-The-Doctor.md) |
-| A family member has died — what to do first, which money can be recovered, which fees can be waived? | [25. After Someone Dies](book/en/25-After-Someone-Dies.md) |
-| Building a website or platform that takes payments — which licenses, where to host servers? | [26. Building A Website Or Platform](book/en/26-Building-A-Website-Or-Platform.md) |
-| Pregnant, about to give birth — when to do what, and which documents to arrange before discharge? | [27. Pregnancy And Birth](book/en/27-Pregnancy-And-Birth.md) |
-| You want to lose weight or look better — which practices wreck your body? | [28. Do Not Ruin Health For Looks](book/en/28-Do-Not-Ruin-Health-For-Looks.md) |
-| A relative died, you were laid off, you got a serious diagnosis — what matters most in the first months? | [29. After A Major Blow](book/en/29-After-A-Major-Blow.md) |
-| Once the child starts school, which physical and mental things cannot wait until after the exams? | [30. School-Age Kids](book/en/30-School-Age-Kids.md) |
-| After eighteen, besides studying and working, which roads are open — and what are their thresholds? | [31. Paths After Eighteen](book/en/31-Paths-After-Eighteen.md) |
+| Question                                                                                                                                                              | Where to look                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| What can you do almost for free that still noticeably lowers your chance of dying early?                                                                              | [1. Do Not Die Early](book/en/01-Do-Not-Die-Early.md)                                          |
+| How many years of life exactly do smoking, alcohol, a sedentary life, and sleep loss take away?                                                                       | [2. Don't Die Slowly](book/en/02-Do-Not-Die-Slowly.md)                                         |
+| Not enough energy in a day, constantly interrupted — how do you fix it?                                                                                               | [3. Don't Waste Energy](book/en/03-Do-Not-Waste-Energy.md)                                     |
+| Where does the time go, and how do you do fewer pointless things?                                                                                                     | [4. Don't Waste Time](book/en/04-Do-Not-Waste-Time.md)                                         |
+| How should savings be kept so that interest, fees, and scams don't eat them?                                                                                          | [5. Don't Waste Money](book/en/05-Do-Not-Waste-Money.md)                                       |
+| Which supplements, checkup packages, and "IQ taxes" can you simply not buy?                                                                                           | [6. The Negative List](book/en/06-The-Anti-List.md)                                            |
+| You lost your job, your wages are withheld, you have no money — what can you claim and where do you ask for help?                                                     | [7. How to Live When You Have No Money](book/en/07-Living-With-No-Money.md)                    |
+| Betrothal gifts, premarital property, large transfers during dating — who owns what in law?                                                                           | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/en/08-Do-Not-End-Up-Inside.md) |
+| Someone reports you, accuses you, fabricates facts — what is the first step, and can you seek redress and compensation afterwards?                                    | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/en/08-Do-Not-End-Up-Inside.md) |
+| Which "side jobs" and casual favors turn an ordinary person into a criminal defendant?                                                                                | [9. Legal Red Lines](book/en/09-Legal-Red-Lines.md)                                            |
+| Should you court many people at once or commit to one, can long-distance work, what do you bring to register a marriage?                                              | [10. Are Dating and Marriage Worth It](book/en/10-Is-Love-And-Marriage-Worth-It.md)            |
+| Writing which code, taking which jobs can get you a prison sentence?                                                                                                  | [11. Red Lines for Techies](book/en/11-Red-Lines-For-Techies.md)                               |
+| Before borrowing to open a shop or founding a company, what should you think through first?                                                                           | [12. Starting Your Own Business](book/en/12-Starting-Your-Own-Business.md)                     |
+| Someone collapses and stops breathing, heavy bleeding, fire, lost in the wild — what do you do first?                                                                 | [13. Emergencies: What to Do First](book/en/13-Emergencies.md)                                 |
+| Account stolen, phone lost — what is the first step?                                                                                                                  | [14. Accounts And Security](book/en/14-Accounts-And-Security.md)                               |
+| Deposit withheld, landlord evicting you, long-term rental operator collapsed — what do you do?                                                                        | [15. Renting And Buying Housing](book/en/15-Renting-And-Buying-Housing.md)                     |
+| After a chronic disease diagnosis, how do you manage it long-term and spend less?                                                                                     | [16. Living With Chronic Disease](book/en/16-Living-With-Chronic-Disease.md)                   |
+| How should an elderly parent's guardianship, will, and money be arranged in advance?                                                                                  | [17. Elderly At Home](book/en/17-Elderly-At-Home.md)                                           |
+| What can you claim when having a child, and how much time and money does it take?                                                                                     | [18. Is Having Kids Worth It](book/en/18-Is-Having-Kids-Worth-It.md)                           |
+| How are overtime pay and annual leave counted, how much compensation does a layoff owe you, how do you file and get paid for a workplace injury?                      | [19. Employment And Work Injury](book/en/19-Employment-And-Work-Injury.md)                     |
+| The child is just born — which things matter most?                                                                                                                    | [20. Newborn](book/en/20-Newborn.md)                                                           |
+| Which countries not to go to now, and how far does consular protection go when something happens?                                                                     | [21. Travel And Abroad Safety](book/en/21-Travel-And-Abroad-Safety.md)                         |
+| How not to get burned at KTV, internet cafés, escape rooms; and what works best when you're stressed?                                                                 | [22. How To Relax](book/en/22-How-To-Relax.md)                                                 |
+| Learning welding, English, certificates — which ones really pay back?                                                                                                 | [23. Which Skills To Learn](book/en/23-Which-Skills-To-Learn.md)                               |
+| Same illness at a community clinic and a tier-III hospital — how different is the cost?                                                                               | [24. Seeing The Doctor](book/en/24-Seeing-The-Doctor.md)                                       |
+| Badly injured and rushing to a hospital — register and queue, or go to the ER triage desk? Afterwards, do you need a disability assessment, a disability certificate? | [24. Seeing The Doctor](book/en/24-Seeing-The-Doctor.md)                                       |
+| A family member has died — what to do first, which money can be recovered, which fees can be waived?                                                                  | [25. After Someone Dies](book/en/25-After-Someone-Dies.md)                                     |
+| Building a website or platform that takes payments — which licenses, where to host servers?                                                                           | [26. Building A Website Or Platform](book/en/26-Building-A-Website-Or-Platform.md)             |
+| Pregnant, about to give birth — when to do what, and which documents to arrange before discharge?                                                                     | [27. Pregnancy And Birth](book/en/27-Pregnancy-And-Birth.md)                                   |
+| You want to lose weight or look better — which practices wreck your body?                                                                                             | [28. Do Not Ruin Health For Looks](book/en/28-Do-Not-Ruin-Health-For-Looks.md)                 |
+| A relative died, you were laid off, you got a serious diagnosis — what matters most in the first months?                                                              | [29. After A Major Blow](book/en/29-After-A-Major-Blow.md)                                     |
+| Once the child starts school, which physical and mental things cannot wait until after the exams?                                                                     | [30. School-Age Kids](book/en/30-School-Age-Kids.md)                                           |
+| After eighteen, besides studying and working, which roads are open — and what are their thresholds?                                                                   | [31. Paths After Eighteen](book/en/31-Paths-After-Eighteen.md)                                 |
+| Studying abroad — how do you keep the visa unbroken, and will the diploma be recognized when you come home?                                                           | [32. Studying Abroad](book/en/32-Studying-Abroad.md)                                           |
+| You or a family member became disabled — which complications to prevent first, which subsidies can you claim, and what about school, work, and guardianship?          | [33. Living With Disability](book/en/33-Living-With-Disability.md)                             |
 
 ## How to read this
 
@@ -105,11 +103,11 @@ Mortality numbers, time/energy numbers, money numbers, and legal consequences ar
 
 Every piece of advice carries an evidence grade:
 
-| Grade | Meaning |
-| --- | --- |
-| A | Quantifiable evidence from meta-analyses, large cohorts, or RCTs that gives concrete numbers (HR, RR, percent reduction) |
-| B | Research-backed but hard to quantify, or evidence from small samples / a single study |
-| C | Author experience or general consensus, no direct literature |
+| Grade | Meaning                                                                                                                  |
+| ----- | ------------------------------------------------------------------------------------------------------------------------ |
+| A     | Quantifiable evidence from meta-analyses, large cohorts, or RCTs that gives concrete numbers (HR, RR, percent reduction) |
+| B     | Research-backed but hard to quantify, or evidence from small samples / a single study                                    |
+| C     | Author experience or general consensus, no direct literature                                                             |
 
 Of the 608 items in the book, 410 are grade A, 149 grade B, and 49 grade C; 56 items are marked as contested and 29 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
 
@@ -117,11 +115,11 @@ Of the 608 items in the book, 410 are grade A, 149 grade B, and 49 grade C; 56 i
 
 The evidence grade answers "can this number be trusted", not "is it worth doing". So every item also carries a benefit magnitude and a measure; the search page combines these with the three costs into one value-for-money tier:
 
-| Dimension | Values | How it is set |
-| --- | --- | --- |
-| Measure | Buys lifespan / buys money / buys time-energy / buys personal freedom | By what the item mainly buys back. **Measures are not compared with each other**: "all-cause mortality down 12%" and "save 500 yuan a year" are not on one ruler |
-| Benefit magnitude | Large / medium / small | Mechanically applied from thresholds in the item's own Benefit field where possible: for lifespan, relative reduction (≥20% large, 10–20% medium, <10% or only surrogate endpoints small); for money, the amount (tens of thousands large, hundreds to thousands medium, tens of yuan small); for personal freedom, the consequence (avoiding criminal liability large, avoiding detention or administrative punishment medium, avoiding a civil dispute small); for time-energy, the saving (hours a day large, hours a week medium, one-off small) |
-| Value for money | Very high / high / ordinary | Large benefit with all three costs zero = very high; large benefit with low costs, or medium benefit with zero costs = high; the rest = ordinary |
+| Dimension         | Values                                                                | How it is set                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Measure           | Buys lifespan / buys money / buys time-energy / buys personal freedom | By what the item mainly buys back. **Measures are not compared with each other**: "all-cause mortality down 12%" and "save 500 yuan a year" are not on one ruler                                                                                                                                                                                                                                                                                                                                                                                     |
+| Benefit magnitude | Large / medium / small                                                | Mechanically applied from thresholds in the item's own Benefit field where possible: for lifespan, relative reduction (≥20% large, 10–20% medium, <10% or only surrogate endpoints small); for money, the amount (tens of thousands large, hundreds to thousands medium, tens of yuan small); for personal freedom, the consequence (avoiding criminal liability large, avoiding detention or administrative punishment medium, avoiding a civil dispute small); for time-energy, the saving (hours a day large, hours a week medium, one-off small) |
+| Value for money   | Very high / high / ordinary                                           | Large benefit with all three costs zero = very high; large benefit with low costs, or medium benefit with zero costs = high; the rest = ordinary                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 Of the 608 items in the book, 104 (17%) are very high, 276 (45%) high, and 228 (38%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
 
@@ -131,53 +129,51 @@ Of the 608 items in the book, 104 (17%) are very high, 276 (45%) high, and 228 (
 
 The text tries to speak plainly, but citing research requires a few statistical terms. Check this table when something is unclear; on the online search page, hovering over (or tapping) a dotted-underlined word also pops up an explanation.
 
-<details>
-<summary>Expand 41 terms (all-cause mortality, HR, RR, 95% CI, meta-analysis, BMI, LPR, deposit vs prepayment …)</summary>
+Expand 41 terms (all-cause mortality, HR, RR, 95% CI, meta-analysis, BMI, LPR, deposit vs prepayment …)
 
-| Term | Meaning |
-| --- | --- |
-| All-cause mortality | The share of people dying from any cause over a period, regardless of cause. The book uses it to measure "how long people live". The original literature calls it all-cause mortality, abbreviated ACM |
-| HR | Hazard ratio. The speed at which two groups hit an event (death, illness) over the same time. HR 0.87 means 13% lower than the control group; HR 1.21 means 21% higher |
-| RR | Relative risk. The ratio of event probabilities between two groups; read like HR |
-| OR | Odds ratio. The ratio of odds between two groups; close to RR when events are rare, exaggerates the difference when they are common |
-| IRR | Incidence rate ratio; read like RR |
-| RaR | Rate ratio (e.g. number of falls); read like RR |
-| Standardized mortality ratio | SMR. Actual deaths in a group divided by the expected number computed from the mortality of the general population of the same age. 5.86 means 5.86 times the deaths of peers |
-| Risk difference | The probability of an event in one group minus the other, directly giving "how many extra cases per thousand". Ratios only say how many times; the risk difference says how many more people in absolute terms |
-| 95% CI | 95% confidence interval. The range where the true value most likely sits. If a ratio-type interval crosses 1, or a difference-type interval crosses 0, the difference may be pure chance and the text will say "not statistically significant" |
-| RCT | Randomized controlled trial. People are randomly split into two groups, one gets the intervention, one does not, and outcomes are compared. The best evidence of causation |
-| Meta-analysis | Pooling the results of multiple studies into one overall estimate |
-| Cohort | Cohort study. A group of people is followed for years to see who has events. Shows association, cannot fully show causation |
-| Observational | Observational study. Researchers only observe, do not intervene; results may be affected by confounding and reverse causation, so discount the numbers |
-| Confounding | A third factor that affects both cause and result, making association look like causation. People who eat more vegetables also tend to exercise more |
-| Reverse causation | Not A causing B, but B causing A. It is not that sleeping a lot makes people die early; it is that seriously ill people sleep a lot |
-| d, g | Effect size. How many standard deviations apart two group means are. 0.2 is small, 0.5 medium, 0.8 large |
-| r | Correlation coefficient. How strongly two things move together, from -1 to 1; 0.1 weak, 0.3 medium, 0.5 strong |
-| MET | Unit of exercise intensity. 1 MET is sitting quietly; brisk walking is about 3 to 4 MET. MET·h is intensity times hours |
-| GRADE | An international standard for grading evidence quality into high, moderate, low, and very low |
-| Intention-to-screen analysis | Counting the effect by "who was invited" rather than "who actually went", which underestimates the effect on those who actually went |
-| Pack-years | A unit of smoking amount. Packs per day times years of smoking; 30 pack-years is one pack a day for 30 years |
-| BMI | Body mass index. Weight (kg) divided by height (m) squared |
-| LDL | Low-density lipoprotein cholesterol, colloquially "bad cholesterol" |
-| eGFR | Estimated glomerular filtration rate. A measure of how well the kidneys filter, in mL/min/1.73 m²; the lower the number, the worse the kidney function, and chronic kidney disease is staged by it |
-| HBsAg | Hepatitis B surface antigen; positive means infected with hepatitis B |
-| HPV | Human papillomavirus; long-term infection with some types causes cervical cancer |
-| LDCT | Low-dose chest CT, with about one-fifth to one-tenth the radiation of a regular CT |
-| PM2.5 | Airborne particulate matter under 2.5 micrometers in diameter |
-| NOVA | A food classification by degree of processing; "ultra-processed food" is its fourth category |
-| LPR | Loan Prime Rate. China's benchmark lending rate, published on the 20th of each month; mortgage and private-lending caps both reference it |
-| One-arbitration-final | The labor arbitration ruling takes effect directly; the employer cannot sue in court |
-| Crude marriage rate, crude divorce rate | Marriages and divorces registered in the year per thousand people. Divorces divided by marriages is another measure, the divorce-to-marriage ratio; do not mix the two |
-| AED | Automated external defibrillator. The red or yellow first-aid box common in public places; turn it on and follow the voice prompts, it decides by itself whether to shock |
-| CPR | Cardiopulmonary resuscitation. Pressing hard on the chest during cardiac arrest to keep blood flowing |
-| CCC | China Compulsory Certification. Products in the catalog may not leave the factory or be sold without this mark |
-| ICP filing | The registration a website or app completes in the MIIT system before going live |
-| Multi-Level Protection Scheme | China's cybersecurity classified protection system; protections are applied according to how important the system is |
-| GPL | An open-source license. Build a product with its code and you generally must open-source your product when distributing |
-| Non-compete | An agreement not to join a competitor for a period after leaving; the company must pay monthly compensation, capped at 2 years |
-| Subscribed capital | The money promised when registering a company. Once promised it must actually be paid in within the statutory deadline; it is not just for show |
-| Deposit vs prepayment | A statutory deposit (dingjin) carries a penalty: the holder who breaches returns double, capped at 20% of the contract; a prepayment (yudingjin) carries no penalty |
-</details>
+| Term                                    | Meaning                                                                                                                                                                                                                                        |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| All-cause mortality                     | The share of people dying from any cause over a period, regardless of cause. The book uses it to measure "how long people live". The original literature calls it all-cause mortality, abbreviated ACM                                         |
+| HR                                      | Hazard ratio. The speed at which two groups hit an event (death, illness) over the same time. HR 0.87 means 13% lower than the control group; HR 1.21 means 21% higher                                                                         |
+| RR                                      | Relative risk. The ratio of event probabilities between two groups; read like HR                                                                                                                                                               |
+| OR                                      | Odds ratio. The ratio of odds between two groups; close to RR when events are rare, exaggerates the difference when they are common                                                                                                            |
+| IRR                                     | Incidence rate ratio; read like RR                                                                                                                                                                                                             |
+| RaR                                     | Rate ratio (e.g. number of falls); read like RR                                                                                                                                                                                                |
+| Standardized mortality ratio            | SMR. Actual deaths in a group divided by the expected number computed from the mortality of the general population of the same age. 5.86 means 5.86 times the deaths of peers                                                                  |
+| Risk difference                         | The probability of an event in one group minus the other, directly giving "how many extra cases per thousand". Ratios only say how many times; the risk difference says how many more people in absolute terms                                 |
+| 95% CI                                  | 95% confidence interval. The range where the true value most likely sits. If a ratio-type interval crosses 1, or a difference-type interval crosses 0, the difference may be pure chance and the text will say "not statistically significant" |
+| RCT                                     | Randomized controlled trial. People are randomly split into two groups, one gets the intervention, one does not, and outcomes are compared. The best evidence of causation                                                                     |
+| Meta-analysis                           | Pooling the results of multiple studies into one overall estimate                                                                                                                                                                              |
+| Cohort                                  | Cohort study. A group of people is followed for years to see who has events. Shows association, cannot fully show causation                                                                                                                    |
+| Observational                           | Observational study. Researchers only observe, do not intervene; results may be affected by confounding and reverse causation, so discount the numbers                                                                                         |
+| Confounding                             | A third factor that affects both cause and result, making association look like causation. People who eat more vegetables also tend to exercise more                                                                                           |
+| Reverse causation                       | Not A causing B, but B causing A. It is not that sleeping a lot makes people die early; it is that seriously ill people sleep a lot                                                                                                            |
+| d, g                                    | Effect size. How many standard deviations apart two group means are. 0.2 is small, 0.5 medium, 0.8 large                                                                                                                                       |
+| r                                       | Correlation coefficient. How strongly two things move together, from -1 to 1; 0.1 weak, 0.3 medium, 0.5 strong                                                                                                                                 |
+| MET                                     | Unit of exercise intensity. 1 MET is sitting quietly; brisk walking is about 3 to 4 MET. MET·h is intensity times hours                                                                                                                        |
+| GRADE                                   | An international standard for grading evidence quality into high, moderate, low, and very low                                                                                                                                                  |
+| Intention-to-screen analysis            | Counting the effect by "who was invited" rather than "who actually went", which underestimates the effect on those who actually went                                                                                                           |
+| Pack-years                              | A unit of smoking amount. Packs per day times years of smoking; 30 pack-years is one pack a day for 30 years                                                                                                                                   |
+| BMI                                     | Body mass index. Weight (kg) divided by height (m) squared                                                                                                                                                                                     |
+| LDL                                     | Low-density lipoprotein cholesterol, colloquially "bad cholesterol"                                                                                                                                                                            |
+| eGFR                                    | Estimated glomerular filtration rate. A measure of how well the kidneys filter, in mL/min/1.73 m²; the lower the number, the worse the kidney function, and chronic kidney disease is staged by it                                             |
+| HBsAg                                   | Hepatitis B surface antigen; positive means infected with hepatitis B                                                                                                                                                                          |
+| HPV                                     | Human papillomavirus; long-term infection with some types causes cervical cancer                                                                                                                                                               |
+| LDCT                                    | Low-dose chest CT, with about one-fifth to one-tenth the radiation of a regular CT                                                                                                                                                             |
+| PM2.5                                   | Airborne particulate matter under 2.5 micrometers in diameter                                                                                                                                                                                  |
+| NOVA                                    | A food classification by degree of processing; "ultra-processed food" is its fourth category                                                                                                                                                   |
+| LPR                                     | Loan Prime Rate. China's benchmark lending rate, published on the 20th of each month; mortgage and private-lending caps both reference it                                                                                                      |
+| One-arbitration-final                   | The labor arbitration ruling takes effect directly; the employer cannot sue in court                                                                                                                                                           |
+| Crude marriage rate, crude divorce rate | Marriages and divorces registered in the year per thousand people. Divorces divided by marriages is another measure, the divorce-to-marriage ratio; do not mix the two                                                                         |
+| AED                                     | Automated external defibrillator. The red or yellow first-aid box common in public places; turn it on and follow the voice prompts, it decides by itself whether to shock                                                                      |
+| CPR                                     | Cardiopulmonary resuscitation. Pressing hard on the chest during cardiac arrest to keep blood flowing                                                                                                                                          |
+| CCC                                     | China Compulsory Certification. Products in the catalog may not leave the factory or be sold without this mark                                                                                                                                 |
+| ICP filing                              | The registration a website or app completes in the MIIT system before going live                                                                                                                                                               |
+| Multi-Level Protection Scheme           | China's cybersecurity classified protection system; protections are applied according to how important the system is                                                                                                                           |
+| GPL                                     | An open-source license. Build a product with its code and you generally must open-source your product when distributing                                                                                                                        |
+| Non-compete                             | An agreement not to join a competitor for a period after leaving; the company must pay monthly compensation, capped at 2 years                                                                                                                 |
+| Subscribed capital                      | The money promised when registering a company. Once promised it must actually be paid in within the statutory deadline; it is not just for show                                                                                                |
+| Deposit vs prepayment                   | A statutory deposit (dingjin) carries a penalty: the holder who breaches returns double, capped at 20% of the contract; a prepayment (yudingjin) carries no penalty                                                                            |
 
 ## Table of contents
 
@@ -217,7 +213,7 @@ The text tries to speak plainly, but citing research requires a few statistical 
 
 Items inside each section are ordered from highest to lowest value for money. Section titles like "Don't Die Early" or "Don't Waste Time" name the outcome the section tries to prevent; whether an item is a to-do or a don't is decided by the item title. Long reads: [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md), [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md), [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md), and [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md). The verification trail for every cited source is in [docs/核实记录](docs/research/核实记录/).
 
-`site/index.html` is the online search page template; `make web-build` writes locale pages under `site/{en,ru,es,zh}/`. Data is read from root `README*.md` and `book/` (copied beside the site in the Pages artifact). GitHub Pages deploys via Actions (`.github/workflows/pages.yml`) — in repo Settings → Pages, set Source to **GitHub Actions**. Locally: `make serve` then open http://127.0.0.1:8000/en/.
+`site/index.html` is the online search page template; `make web-build` writes locale pages under `site/{en,ru,es,zh}/`. Data is read from root `README*.md` and `book/` (copied beside the site in the Pages artifact). GitHub Pages deploys via Actions (`.github/workflows/pages.yml`) — in repo Settings → Pages, set Source to **GitHub Actions**. Locally: `make serve` then open [http://127.0.0.1:8000/en/](http://127.0.0.1:8000/en/).
 
 ## The book itself
 

@@ -1,5 +1,5 @@
 {
-  "_comment": "RU language pack. labels/banned_calques filled in Task 10b (moved from tools/verify.py). style_markers: corpus-driven (Task 6, freq audit 2026-09-19 over book/ru: 'dann' x240 split by POS, 'javlyaetsya' x26, 'osushchestvlya' x1, 'v ramkakh' x4); whitelist_zones = line prefixes where passive/evidence phrasing is legitimate.",
+  "_comment": "RU language pack. labels/banned_calques filled in Task 10b (moved from tools/verify.py). style_markers: corpus-driven (Task 6); do not flag the noun данные/данных as канцелярит «данный». Inverse marker этих-вместо-данных catches the LLM rewrite. whitelist_zones = line prefixes where passive/evidence phrasing is legitimate.",
   "labels": {
     "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
     "ru": ["Стоимость", "Простыми словами", "Эффект", "Уровень доказательности", "Примечания"]
@@ -11,7 +11,6 @@
     {"pattern": "\\bосуществля", "label": "осуществля", "note": "канцелярит-глагол"},
     {"pattern": "\\bявляется", "label": "является", "note": "канцелярит-связка"},
     {"pattern": "\\bв рамках\\b", "label": "в рамках", "note": "канцелярит-предлог"},
-    {"pattern": "\\bданн(ого|ой|ое|ая|ым|ом|ыми)\\b", "label": "данн-указат.", "note": "указательное «данного/данным»; существительное «данные» не матчится"},
     {"pattern": "[а-яё]{4,}(нн|ем|им)(ый|ая|ое|ым|ом|ые|ых|ыми)\\s+[а-яё]{4,}(нн|ем|им)(ый|ая|ое|ым|ом|ые|ых|ыми)\\b", "label": "причастная цепочка", "note": "две страдательные причастные формы подряд"},
     {"pattern": "носить\\s+\\S+ный\\s+характер", "label": "носить характер", "note": "носить … характер → опустить"},
     {"pattern": "иметь место\\s", "label": "иметь место", "note": "иметь место → происходить"},
@@ -26,6 +25,7 @@
     {"pattern": "в случае, если\\b", "label": "в случае если", "note": "в случае, если → если"},
     {"pattern": "в том числе\\b", "label": "в том числе", "note": "в том числе → включая / например"},
     {"pattern": "\\bв данном\\b", "label": "в данном", "note": "в данном → в этом"},
+    {"pattern": "(?i)\\b(личн|персональн|пользовательск|официальн|электронн|сравнительн|обобщ[её]нн|контактн|наблюдательн)\\w*\\s+эт(и|их|им|ими)\\b", "label": "этих-вместо-данных", "note": "существительное «данные», не указательное «эти»"},
     {"pattern": "вышеуказанн|нижеуказанн|вышеописанн", "label": "вышеуказанный", "note": "вышеуказанный → этот"},
     {"pattern": "посредством\\b", "label": "посредством", "note": "посредством → через / с помощью"},
     {"pattern": "необходимо отметить\\b", "label": "необходимо отметить", "note": "необходимо отметить → важно / опустить"},

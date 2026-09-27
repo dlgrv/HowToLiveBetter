@@ -68,12 +68,16 @@ and `tools/glossary.json` are authoritative for terms and style.
 13. Avoid calques listed under `banned_calques` in glossary / `rules/*.json`.
 14. After any later simplify pass, meaning must still pass factcheck
     (`reversed_logic`, `invented`, `dropped_condition`, `hardened_claim`).
+15. **RU `данные` is a noun** (statistics / personal data). Never rewrite
+    `данные` / `данных` / `данными` as `эти` / `этих` / `этими`.
+    Demonstrative `этот` is fine only with a real noun (`эти исследования`).
+    Do not "fix" канцелярит `данный` by touching the data noun.
 
 ### Medium
 
-15. Item titles and Cost lines: neighbor-readable; verb-first titles.
-16. Sensitive topics: translate faithfully without adding how-to detail.
-17. ES: decimal comma in plain-terms (`43,2 %`), consistent with Benefit.
+16. Item titles and Cost lines: neighbor-readable; verb-first titles.
+17. Sensitive topics: translate faithfully without adding how-to detail.
+18. ES: decimal comma in plain-terms (`43,2 %`), consistent with Benefit.
 
 ## Few-shot gold (pilot v3 — plain-terms only)
 

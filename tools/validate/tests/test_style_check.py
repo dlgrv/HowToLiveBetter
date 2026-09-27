@@ -114,7 +114,6 @@ class TestStyleCheck(unittest.TestCase):
         self.assertGreaterEqual(len(warns), 3)
         labels = {w["label"] for w in warns}
         self.assertTrue(any("осуществля" in ln for ln in labels))
-        self.assertTrue(any("данн" in ln for ln in labels))
         self.assertTrue(any("является" in ln for ln in labels))
 
     def test_cap_per_category(self):
@@ -130,6 +129,11 @@ class TestStyleCheck(unittest.TestCase):
 
     def test_data_noun_zero(self):
         self.assertEqual(self._warns(DATA_NOUN), [])
+
+    def test_eti_for_data_warns(self):
+        warns = self._warns("- Простыми словами: удаление персональных этих не закрывает аккаунт.")
+        labels = {w["label"] for w in warns}
+        self.assertIn("этих-вместо-данных", labels)
 
     def test_engine_reads_rules_not_hardcoded(self):
         import tools.style_check as sc
