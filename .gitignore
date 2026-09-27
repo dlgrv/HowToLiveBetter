@@ -36,6 +36,10 @@ tools/validate/results/_lite2_work_bloat/
 tools/validate/results/_lite*_degrade_*.json
 tools/validate/results/factcheck/
 tools/validate/results/style_fp_session*.json
+tools/validate/results/mutations_cases.json
+tools/validate/results/qe_noise.json
+tools/validate/results/golden_labels.json
+tools/validate/results/golden_verdicts.json
 
 .worktrees/
 .superpowers/
@@ -53,3 +57,6 @@ venv/
 
 .DS_Store
 .publish/
+
+# archived agent session notes (not part of the live pipeline)
+docs/agent-sessions/
