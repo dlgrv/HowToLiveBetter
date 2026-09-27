@@ -7,6 +7,8 @@
 Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
 608 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
+You don't have to do it all: this is a ranked shortlist, not a task list — pick one or two and that counts. The author has not done most of these either.
+
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/es/)
 [![Items](https://img.shields.io/badge/Items-608-18794e?style=flat-square)](#table-of-contents)
 [![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20410%20%C2%B7%20B%20149%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
@@ -38,8 +40,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 | How should savings be kept so that interest, fees, and scams don't eat them? | [5. Don't Waste Money](book/es/05-No-Desperdicies-Dinero.md) |
 | Which supplements, checkup packages, and "IQ taxes" can you simply not buy? | [6. The Negative List](book/es/06-La-Lista-Negra.md) |
 | You lost your job, your wages are withheld, you have no money — what can you claim and where do you ask for help? | [7. How to Live When You Have No Money](book/es/07-Como-Vivir-Sin-Dinero.md) |
-| Betrothal gifts, premarital property, large transfers during dating — who owns what in law? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-No-Te-Entres-Tu-Mismo.md) |
-| Someone reports you, accuses you, fabricates facts — what is the first step, and can you seek redress and compensation afterwards? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-No-Te-Entres-Tu-Mismo.md) |
+| Betrothal gifts, premarital property, large transfers during dating — who owns what in law; someone reports you, accuses you, fabricates facts — what is the first step, and can you seek redress and compensation afterwards? | [8. Don't Get Yourself Locked Up: Law and Property Safety](book/es/08-No-Te-Entres-Tu-Mismo.md) |
 | Which "side jobs" and casual favors turn an ordinary person into a criminal defendant? | [9. Legal Red Lines](book/es/09-Lineas-Rojas-Legales-Para-Gente-Comun.md) |
 | Should you court many people at once or commit to one, can long-distance work, what do you bring to register a marriage? | [10. Are Dating and Marriage Worth It](book/es/10-Merece-La-Pena-Enamorarse-Y-Casarse.md) |
 | Writing which code, taking which jobs can get you a prison sentence? | [11. Red Lines for Techies](book/es/11-Lineas-Rojas-Para-Programadores-Y-Tecnicos.md) |
@@ -55,8 +56,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 | Which countries not to go to now, and how far does consular protection go when something happens? | [21. Travel And Abroad Safety](book/es/21-Viajes-Y-Seguridad-En-El-Extranjero.md) |
 | How not to get burned at KTV, internet cafés, escape rooms; and what works best when you're stressed? | [22. How To Relax](book/es/22-Como-Relajarse.md) |
 | Learning welding, English, certificates — which ones really pay back? | [23. Which Skills To Learn](book/es/23-Que-Habilidades-Aprender.md) |
-| Same illness at a community clinic and a tier-III hospital — how different is the cost? | [24. Seeing The Doctor](book/es/24-Ir-Al-Medico.md) |
-| Badly injured and rushing to a hospital — register and queue, or go to the ER triage desk? Afterwards, do you need a disability assessment, a disability certificate? | [24. Seeing The Doctor](book/es/24-Ir-Al-Medico.md) |
+| Same illness at a community clinic and a tier-III hospital — how different is the cost; badly injured and rushing to a hospital — register and queue, or go to the ER triage desk; afterwards, do you need a disability assessment, a disability certificate? | [24. Seeing The Doctor](book/es/24-Ir-Al-Medico.md) |
 | A family member has died — what to do first, which money can be recovered, which fees can be waived? | [25. After Someone Dies](book/es/25-Que-Hacer-Cuando-Alguien-Fallece.md) |
 | Building a website or platform that takes payments — which licenses, where to host servers? | [26. Building A Website Or Platform](book/es/26-Crear-Una-Web-O-Plataforma.md) |
 | Pregnant, about to give birth — when to do what, and which documents to arrange before discharge? | [27. Pregnancy And Birth](book/es/27-Embarazo-Y-Parto.md) |

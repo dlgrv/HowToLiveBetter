@@ -70,8 +70,13 @@ and `tools/glossary.json` are authoritative for terms and style.
     (`reversed_logic`, `invented`, `dropped_condition`, `hardened_claim`).
 15. **RU `данные` is a noun** (statistics / personal data). Never rewrite
     `данные` / `данных` / `данными` as `эти` / `этих` / `этими`.
+    Write `Согласно данным ВОЗ`, `исторические данные`, `паспортные данные` —
+    not `Согласно этим ВОЗ` / `исторические эти`.
     Demonstrative `этот` is fine only with a real noun (`эти исследования`).
     Do not "fix" канцелярит `данный` by touching the data noun.
+    If you shorten `в рамках` / `в соответствии с`, fix the case in the
+    same pass: `В исследовании Cochrane`, `согласно закону` — never
+    `При исследования` or `согласно законом`.
 
 ### Medium
 

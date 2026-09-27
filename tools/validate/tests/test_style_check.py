@@ -135,6 +135,45 @@ class TestStyleCheck(unittest.TestCase):
         labels = {w["label"] for w in warns}
         self.assertIn("этих-вместо-данных", labels)
 
+    def test_eti_for_data_warns_wider_tails(self):
+        for snippet in (
+            "- Простыми словами: в основе лежат проверенные исторические эти.",
+            "- Простыми словами: согласно этим ВОЗ риск выше.",
+            "- Простыми словами: по этим статистики смертность 40%.",
+        ):
+            labels = {w["label"] for w in self._warns(snippet)}
+            self.assertIn("этих-вместо-данных", labels, snippet)
+
+    def test_eti_for_data_skips_real_demonstrative(self):
+        for snippet in (
+            "- Простыми словами: по этим направлениям набор идёт каждый год.",
+            "- Простыми словами: машинное обучение на основе этих 29 лабораторий.",
+            "- Простыми словами: большинство этих исследований мелкие.",
+        ):
+            labels = {w["label"] for w in self._warns(snippet)}
+            self.assertNotIn("этих-вместо-данных", labels, snippet)
+
+    def test_pri_genitive_after_ramki_warns(self):
+        warns = self._warns("- Простыми словами: При исследования Cochrane падения ниже.")
+        labels = {w["label"] for w in warns}
+        self.assertIn("при-родительный-после-рамок", labels)
+
+    def test_soglasno_instrumental_warns(self):
+        warns = self._warns("- Простыми словами: стоимость устанавливается согласно законом.")
+        labels = {w["label"] for w in warns}
+        self.assertIn("согласно-творительный", labels)
+
+    def test_pri_and_soglasno_skip_grammatical(self):
+        for snippet, label in (
+            (
+                "- Простыми словами: При использовании схемы внесите депозит.",
+                "при-родительный-после-рамок",
+            ),
+            ("- Простыми словами: льготы согласно статье 26 положения.", "согласно-творительный"),
+        ):
+            labels = {w["label"] for w in self._warns(snippet)}
+            self.assertNotIn(label, labels, snippet)
+
     def test_engine_reads_rules_not_hardcoded(self):
         import tools.style_check as sc
 
