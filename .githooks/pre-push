@@ -1,0 +1,7 @@
+#!/bin/sh
+# Block pushes that would fail the GitHub `test` job's unit + content steps.
+# Full replica of that job: `make ci`.
+set -e
+cd "$(git rev-parse --show-toplevel)"
+make test
+make check-content

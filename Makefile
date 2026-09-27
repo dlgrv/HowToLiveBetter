@@ -35,9 +35,9 @@ ci:  ## Local CI ≈ GitHub test job (tests+lint+links+content+pages+artifact)
 	$(PY) tools/pages_artifact.py
 	@test -f .publish/en/index.html && test -f .publish/README.md && test -d .publish/book
 
-hooks:  ## Install local git hooks (commit-msg + pre-commit lint)
+hooks:  ## Install local git hooks (commit-msg + pre-commit lint/content + pre-push tests)
 	git config core.hooksPath .githooks
-	@echo "✓ core.hooksPath=.githooks (commit-msg + pre-commit lint enforced)"
+	@echo "✓ core.hooksPath=.githooks (commit-msg, pre-commit lint+content, pre-push test+content)"
 
 check-commit-msg:  ## Validate a message: make check-commit-msg MSG='fix: …'
 	@[ -n "$(MSG)" ] || (echo "Usage: make check-commit-msg MSG='type: description'" && exit 1)

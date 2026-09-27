@@ -71,7 +71,7 @@ Full checklist: [docs/pipeline/add-chapter.md](docs/pipeline/add-chapter.md). Su
 - **Tool output contracts:** `--json` → structured stdout. Exit codes: 0=pass, 1=FAIL, 2=WARN.
 - **Commit policy:** publication only through MR + squash-merge to `main`. No direct pushes.
 - **Commit messages:** English Conventional Commits only — enforced by `.githooks/commit-msg` and CI on PRs. Run `make hooks` once after clone.
-- **Code quality stack** (config in `pyproject.toml` / `.yamllint.yaml`): **Ruff** (Python lint+format), **djlint** (`tools/og/*.html`, lint `site/index.html`), **yamllint**, **shellcheck** (`tools/llm/*.sh`). Commands: `make format`, `make lint`. Requires Python **≥3.11** venv and `shellcheck` on PATH. `.githooks/pre-commit` runs `make lint`.
+- **Code quality stack** (config in `pyproject.toml` / `.yamllint.yaml`): **Ruff** (Python lint+format), **djlint** (`tools/og/*.html`, lint `site/index.html`), **yamllint**, **shellcheck** (`tools/llm/*.sh`). Commands: `make format`, `make lint`. Requires Python **≥3.11** venv and `shellcheck` on PATH. `.githooks/pre-commit` runs `make lint` + `make check-content`; `.githooks/pre-push` runs `make test` + `make check-content`. Full GitHub replica: `make ci` before push if hooks are not installed.
 - **Repair issue locator:** `tools/llm/verify_issues.py` maps verify HARD fails to unit IDs (used by `repair_wave --dry-locate`); not the chapter verify gate (`tools/verify.py`).
 ### Commit messages
 
