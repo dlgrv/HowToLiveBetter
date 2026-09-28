@@ -14,6 +14,11 @@ jobs:
       PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Need full history so the PR merge ref has both parents; otherwise
+          # `rev-list --no-merges` can treat the synthetic merge as a normal
+          # commit and fail the conventional-commit check on its subject.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -27,7 +32,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           set -e
-          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          git fetch --no-tags origin "${{ github.base_ref }}"
           base="origin/${{ github.base_ref }}"
           failed=0
           for c in $(git rev-list --no-merges "$base"..HEAD); do
