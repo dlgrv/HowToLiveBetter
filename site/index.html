@@ -173,7 +173,7 @@ html.dark .theme-btn .moon{display:none}
 .doc-head .meta-line a{white-space:nowrap;margin:0 6px}
 .doc-head .fork-note{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--t3)}
 .doc-head .fork-note a{color:var(--brand-1)}
-#feedback-line-star{margin-top:6px}
+#feedback-line{margin-top:6px}
 .meta-line a{color:var(--t2);text-decoration:underline;text-decoration-color:var(--divider);text-underline-offset:3px}
 .meta-line a:hover{color:var(--brand-1);text-decoration-color:var(--brand-1)}
 
@@ -292,7 +292,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -394,13 +394,14 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <p class="fork-note" id="fork-note"></p>
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
+      <p class="meta-line" id="feedback-line-star">
+        <span aria-hidden="true">⭐</span>
+        <span id="fb-star-t">Понравилась книга —</span>
+        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
+      </p>
       <p class="meta-line" id="feedback-line">
         <span id="fb-issue-t">Нашли ошибку в переводе или есть что добавить —</span>
         <a id="fb-issue" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener">откройте issue</a>
-      </p>
-      <p class="meta-line" id="feedback-line-star">
-        <span id="fb-star-t">Понравился перевод —</span>
-        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
       </p>
       <div class="stat" aria-live="polite">Показано <span id="cnt"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span> из <span id="tot"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span></div>
     </div>
@@ -490,7 +491,7 @@ const I18N = {
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="book/ru/">book/ru/</a>.',
    docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
    docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
-   fbAria:'Обратная связь', fbIssueT:'Нашли ошибку в переводе или есть что добавить —', fbIssue:'откройте issue', fbStarT:'Понравился перевод —', fbStar:'поставьте звезду репозиторию',
+   fbAria:'Обратная связь', fbIssueT:'Нашли ошибку в переводе или есть что добавить —', fbIssue:'откройте issue', fbStarT:'Понравилась книга —', fbStar:'поставьте звезду репозиторию',
    shown:'Показано', of:'из', loading:'Загружаю текст…',
    empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
    sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
@@ -529,7 +530,7 @@ const I18N = {
    noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="README.md">README.md</a> (table of contents) and the <a href="book/en/">book/en/</a> directory.',
    docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
    docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
-   fbAria:'Feedback', fbIssueT:'Spotted a mistake or have something to add —', fbIssue:'open an issue', fbStarT:'Like the translation —', fbStar:'give the repo a star',
+   fbAria:'Feedback', fbIssueT:'Spotted a mistake or have something to add —', fbIssue:'open an issue', fbStarT:'Like the book —', fbStar:'give the repo a star',
    shown:'Showing', of:'of', loading:'Loading text…',
    empty:'Nothing found. Remove one of the filters or try a shorter query.', reset:'Reset', resetF:'Reset filters',
    sections:'Sections', ratioH:'Benefit / costs', ratioS:'Author judgment, comparable within one category only',
@@ -568,7 +569,7 @@ const I18N = {
    noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../README.es.md">README.es.md</a> (índice) y el directorio <a href="../book/es/">book/es/</a>.',
    docHead:'Cada recomendación responde a dos preguntas: qué cuesta — y qué devuelve.',
    docHead2:'A quién llega el beneficio también está por niveles: primero tú mismo, luego tu cónyuge y la familia directa, después amigos y colegas; los extraños van al final. «Final» no significa «cero»: la probabilidad de retorno es menor y hay que sopesar los riesgos junto con el beneficio.',
-   fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta la traducción —', fbStar:'dale una estrella al repositorio',
+   fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta el libro —', fbStar:'dale una estrella al repositorio',
    shown:'Mostrando', of:'de', loading:'Cargando el texto…',
    empty:'No se encontró nada. Quita uno de los filtros o prueba con una búsqueda más corta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
    sections:'Secciones', ratioH:'Beneficio / costos', ratioS:'Juicio del autor, comparable solo dentro de una misma categoría',
@@ -607,7 +608,7 @@ const I18N = {
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="README.zh.md">README.zh.md</a>（目录）与 <a href="book/">book/</a> 目录。',
    docHead:'每条建议回答两个问题：付出什么——换回什么。',
    docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
-   fbAria:'反馈', fbIssueT:'发现翻译有误或有补充想法 —', fbIssue:'欢迎提 issue', fbStarT:'觉得翻译不错 —', fbStar:'给仓库点个 star',
+   fbAria:'反馈', fbIssueT:'发现翻译有误或有补充想法 —', fbIssue:'欢迎提 issue', fbStarT:'觉得这本书不错 —', fbStar:'给仓库点个 star',
    shown:'显示', of:'/', loading:'正在载入正文…',
    empty:'没有符合条件的结果。请去掉一个筛选条件，或换更短的关键词。', reset:'重置', resetF:'重置筛选',
    sections:'小节', ratioH:'性价比', ratioS:'作者判断，仅在同一口径内可比',
