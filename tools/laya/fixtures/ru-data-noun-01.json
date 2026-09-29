@@ -1,0 +1,20 @@
+{
+  "id": "ru-data-noun-01",
+  "label": "data_noun",
+  "note": "«данным» = data (dative of данные), not demonstrative",
+  "state": "По этим данным риск сердечного приступа ниже примерно на двадцать процентов.",
+  "questions": {
+    "noun_or_demonstrative": {
+      "type": "choice",
+      "instructions": "Is the word «данным» the noun «данные» (data) or a demonstrative?",
+      "criteria": {
+        "data_noun": "Noun meaning data / statistics",
+        "demonstrative": "Demonstrative these / those",
+        "unclear": "Cannot tell"
+      }
+    }
+  },
+  "expected": {
+    "noun_or_demonstrative": "data_noun"
+  }
+}

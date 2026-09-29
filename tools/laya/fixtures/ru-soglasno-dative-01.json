@@ -1,0 +1,20 @@
+{
+  "id": "ru-soglasno-dative-01",
+  "label": "dative_ok",
+  "note": "«согласно» + dative is grammatical",
+  "state": "Согласно закону о защите прав потребителей вы можете расторгнуть договор.",
+  "questions": {
+    "soglasno_case": {
+      "type": "choice",
+      "instructions": "Does «согласно» take the correct case in this Russian sentence?",
+      "criteria": {
+        "dative_ok": "Dative (закону / требованиям) — correct",
+        "instrumental_bad": "Instrumental (законом / требованиями) — wrong",
+        "unclear": "Cannot tell"
+      }
+    }
+  },
+  "expected": {
+    "soglasno_case": "dative_ok"
+  }
+}

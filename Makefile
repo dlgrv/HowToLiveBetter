@@ -168,10 +168,10 @@ lint:  ## All code linters (must match CI)
 	$(DJLINT) $(OG_HTML) --check
 	$(DJLINT) site/index.html --lint
 	$(YAMLLINT) .github/workflows/
-	shellcheck tools/llm/*.sh
+	shellcheck tools/llm/*.sh tools/laya/*.sh
 
 test:  ## Run unit tests (excludes integration)
-	$(PY) -m pytest tools/validate/tests/ tools/llm/tests/ -v --ignore=tools/validate/tests/integration
+	$(PY) -m pytest tools/validate/tests/ tools/llm/tests/ tools/laya/tests/ -v --ignore=tools/validate/tests/integration
 
 test-integration:  ## Run integration tests (golden manifests, E2E)
 	$(PY) -m pytest tools/validate/tests/integration/ -v

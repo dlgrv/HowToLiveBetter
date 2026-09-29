@@ -61,7 +61,7 @@ ignore = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-testpaths = ["tools/validate/tests", "tools/llm/tests"]
+testpaths = ["tools/validate/tests", "tools/llm/tests", "tools/laya/tests"]
 
 [tool.ruff.lint.per-file-ignores]
 "tools/**/tests/**" = [

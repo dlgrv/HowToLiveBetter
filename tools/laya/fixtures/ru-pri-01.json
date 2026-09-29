@@ -1,0 +1,15 @@
+{
+  "id": "ru-pri-01",
+  "label": "ok",
+  "note": "neutral «при» usage — fixture for later triage filters",
+  "state": "При сердечном приступе сразу звоните в скорую.",
+  "questions": {
+    "pri_natural": {
+      "type": "noul",
+      "instructions": "Is «при» used naturally here (not a calque of Chinese 在…时)?"
+    }
+  },
+  "expected": {
+    "pri_natural": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ru-soglasno-instrumental-01",
+  "label": "instrumental_bad",
+  "note": "calque: согласно + instrumental",
+  "state": "Согласно требованиями законодательства работодателя штраф неизбежен.",
+  "questions": {
+    "soglasno_case": {
+      "type": "choice",
+      "instructions": "Does «согласно» take the correct case? (Hint: «требованиями» is instrumental.)",
+      "criteria": {
+        "dative_ok": "Dative — correct",
+        "instrumental_bad": "Instrumental — wrong for согласно",
+        "unclear": "Cannot tell"
+      }
+    }
+  },
+  "expected": {
+    "soglasno_case": "instrumental_bad"
+  }
+}

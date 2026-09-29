@@ -10,6 +10,7 @@ Ops detail lives next to each runtime:
 |---|---|
 | [llm/README.md](llm/README.md) | Hy-MT2 / `llama-server` / `.env` / translate + repair CLIs |
 | [languagetool/README.md](languagetool/README.md) | self-hosted LT Docker on `:8010` (optional) |
+| [laya/README.md](laya/README.md) | Laya System-1 HTTP on `:8090` (optional WARN spike; not on publish spine) |
 | [../docs/pipeline/translation-playbook.md](../docs/pipeline/translation-playbook.md) | experience notes / full command list |
 | [../docs/pipeline/add-chapter.md](../docs/pipeline/add-chapter.md) | checklist for one chapter |
 | [../TRANSLATION.md](../TRANSLATION.md) | conventions (byte-faithful zones, field labels) |
@@ -63,6 +64,7 @@ flowchart LR
 | Style | Python | per-file WARN, or `style_check --book --strict` via `make quality` |
 | LanguageTool | Docker `:8010` | skip if server down, exit 0 |
 | Plainness | Python WARN | ru\|en |
+| Laya (spike) | HTTP `:8090` | skip if server down, exit 0; multilingual only |
 
 Optional: simplify plain-terms (LLM) → then **verify → factcheck → style → LT** again.
 
@@ -151,6 +153,15 @@ Optional: simplify plain-terms (LLM) → then **verify → factcheck → style �
 | **Runtime** | Python WARN |
 | **Why** | Extra readability signal on plain-terms (ru/en; es fields limited). |
 
+### Laya — `tools/laya/` (optional spike)
+
+| | |
+|---|---|
+| **Runtime** | Python → HTTP `http://127.0.0.1:8090` (`laya-serve`, multilingual) |
+| **In → out** | health + one `/v1/systemone` probe → JSON / skip |
+| **Why** | Typed System-1 decisions for later RU style triage (данные/эти, согласно, …). |
+| **Needs** | [laya/README.md](laya/README.md). Server down → skip, exit `0`. Do not co-load with Hy-MT2 Q8 on 48 GB. |
+
 ### Human + commit
 
 Tone, titles, Cost tags, ES parity by eye. One chapter ≈ one commit; overlay only via MR + squash to `main`.
@@ -165,6 +176,7 @@ Tone, titles, Cost tags, ES parity by eye. One chapter ≈ one commit; overlay o
 | Local translate/repair | [llm/README.md](llm/README.md) — build llama.cpp, download Hy-MT2 GGUF, `llama-server` / `start-llama-server.sh`, copy `.env.example` → `.env` |
 | Factcheck live (optional) | `ZAI_API_KEY` or `judge.backend: local-ollama` — else expect exit `2` |
 | LanguageTool (optional) | `docker run … -p 8010:8010 erikvl87/languagetool` — skip is OK |
+| Laya (optional) | `pip install -r tools/laya/requirements-laya.txt` then `./tools/laya/start-laya-server.sh` — skip is OK |
 | Cloud LLM instead of local | same `.env` (`HTLB_LLM_BASE_URL` / `MODEL` / `API_KEY`); no llama-server |
 
 Workdirs under `tools/runs/` and digests under `tools/digest/` are local state (gitignored). Publication is `book/<lang>/` + `translations.json` via MR.

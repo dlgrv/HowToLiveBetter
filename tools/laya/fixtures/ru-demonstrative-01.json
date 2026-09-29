@@ -1,0 +1,20 @@
+{
+  "id": "ru-demonstrative-01",
+  "label": "demonstrative",
+  "note": "inverse rewrite trap: «этих» where «данных» was meant — still demonstrative form",
+  "state": "На основе этих исследований авторы сообщают снижение риска.",
+  "questions": {
+    "noun_or_demonstrative": {
+      "type": "choice",
+      "instructions": "Is «этих» a demonstrative or the noun «данные»?",
+      "criteria": {
+        "data_noun": "Noun meaning data / statistics",
+        "demonstrative": "Demonstrative these / those",
+        "unclear": "Cannot tell"
+      }
+    }
+  },
+  "expected": {
+    "noun_or_demonstrative": "demonstrative"
+  }
+}
