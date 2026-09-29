@@ -37,7 +37,7 @@ jobs:
           failed=0
           for c in $(git rev-list --no-merges "$base"..HEAD); do
             echo "── checking $c ──"
-            if ! git log -1 --format=%B "$c" | .venv/bin/python3 tools/check_commit_msg.py --stdin; then
+            if ! git log -1 --format=%B "$c" | .venv/bin/python3 forge/ops/check_commit_msg.py --stdin; then
               failed=1
             fi
           done
@@ -49,18 +49,18 @@ jobs:
       - name: Lint
         run: make lint
       - name: Link check
-        run: .venv/bin/python3 tools/check_links.py
+        run: .venv/bin/python3 forge/ops/check_links.py
       - name: Content check
-        run: .venv/bin/python3 tools/check_content.py
+        run: .venv/bin/python3 forge/ops/check_content.py
       - name: Build pages
         run: |
-          .venv/bin/python3 tools/build_pages.py
+          .venv/bin/python3 forge/site/build_pages.py
           test -f site/en/index.html
           test -f site/assets/v2.css
           test -f site/assets/og/en.png
       - name: Stage Pages artifact
         run: |
-          .venv/bin/python3 tools/pages_artifact.py
+          .venv/bin/python3 forge/site/pages_artifact.py
           test -f .publish/en/index.html
           test -f .publish/README.md
           test -d .publish/book
@@ -82,7 +82,7 @@ jobs:
           for nn in $pending; do
             f=$(ls book/ru/${nn}-*.md 2>/dev/null | head -1)
             [ -z "$f" ] && continue
-            if ! .venv/bin/python3 tools/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
+            if ! .venv/bin/python3 translate/steps/verify/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
               echo "ch.$nn FAILED:"; tail -5 /tmp/v_$nn.log; failed=1
             else
               echo "ch.$nn OK"

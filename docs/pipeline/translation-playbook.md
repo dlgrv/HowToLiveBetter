@@ -19,137 +19,88 @@
 
 ## 2. Пайплайн
 
-Схема блоков (Mermaid) и карточки runtime: [tools/README.md](../../tools/README.md).
+Схема блоков (Mermaid) и карточки runtime: [translate/README.md](../../translate/README.md).
 
-**Обязательный spine (publish / `make wave`):** digest → translate → assemble → verify (↔ repair) → human(+commit).
-
-**Опциональный WARN после verify** (не требуется для «wave done»): factcheck → style → LT → plainness. После любого rewrite — снова `verify`, и только потом factcheck; не полировать style/LT до factcheck.
+**Обязательный spine:** digest → translate → assemble → verify (↔ repair) →
+`make lt` → style/quality → `make polish` → human(+commit).
 
 ```text
-1. python3 tools/make_digest.py <NN>
+1. python3 translate/steps/digest/make_digest.py <NN>
 
-2. LLM / API: перевод **по одному юниту** ZH → ru|en|es
-        (`tools/digest/<NN>/units/NN.md` + gloss; quality pack + name_forms).
-        **Запрещено** скармливать целый `book/*.md` в модель.
-        → записать переведённые units/*.md с §TAG§ / §SRC§
+2. LLM: перевод **по одному юниту** ZH → ru|en|es
+        (`translate/digest/<NN>/units/` + gloss). **Запрещено** кормить целый book/*.md.
+        → translate/runs/active/<lang>/<NN>/units/
 
-3. Сборка (один скрипт для всех языков; `lang` по умолчанию `ru`):
-     python3 tools/assemble.py <NN> <workdir> book/<lang>/<slug>.md <lang>
-     # workdir канонически: tools/runs/active/<lang>/<NN>
+3. python3 translate/steps/assemble/assemble.py <NN> <workdir> book/<lang>/<slug>.md <lang>
      # или: make assemble CH=<NN> LANG=<lang>
 
-4. python3 tools/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
+4. python3 translate/steps/verify/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
 
-4b. При FAIL по числам/калькам (number_absent / banned_calque) — волна
-    авторемонта (LLM чинит только грязные units, ≤8 за раунд):
-     python3 tools/llm/repair_wave.py --nn <NN> --lang <lang> \
-       --workdir tools/runs/active/<lang>/<NN> \
-       --assembled tools/runs/active/<lang>/<NN>/assembled.md \
-       --max-rounds 3            # fallback-retranslate включён по умолчанию
-    Затем повторить шаг 4 (HARD). Style/LT не запускать до OK.
+4b. FAIL number_absent / banned_calque → repair_wave (≤8/раунд, ≤3 раунда), снова verify.
+    Style/LT не запускать до OK.
 
-5. Human pass + commit (1 глава = 1 коммит), либо сначала optional WARN ниже
+5. make lt CH=<NN> LANG=<lang>     # LT :8010 обязателен; down → exit 2
 
---- optional WARN (после verify OK) ---
+6. make style CH=<NN> LANG=<lang>  # или make quality
 
-6. [опционально] упростить только plain-terms (LLM + tools/prompts/simplify-plain.md)
-   → снова шаг 4 (verify)
+7. make polish CH=<NN> LANG=<lang> # Laya :8090 + Hy-MT2
 
-7. [опционально] Factcheck vs китайский (pass E) — после re-verify, ДО style/LT:
-     python3 tools/validate/factcheck.py \
-       --chapter <NN> --lang <ru|en> \
-       --cn-unit <path-to-cn-unit.md> \
-       --tr-unit <path-to-tr-unit.md>
-     # exit 2 = judge unavailable; не путать с FAIL verify
-
-8. [опционально] python3 tools/style_check.py book/<lang>/<file>.md --lang <ru|en|es>
-     # book-wide: python3 tools/style_check.py --book --lang ru [--strict]
-     # make quality = readability + style --book --strict
-
-9. [опционально] python3 tools/lt_check.py --file book/<lang>/<file>.md --lang <lang>
-
-10. [опционально] python3 -m tools.validate.plainness <NN> --lang <ru|en>
+8. Human pass + commit (1 глава = 1 коммит)
 ```
 
-Волны из §5 (локализация, естественность, …) — поверх уже проверенной главы, с повторным `verify` после каждой волны.
-
-**Только упрощение plain (без нового перевода):** patch plain-terms → verify → [optional factcheck → style → lt → plainness] → human.
-
-### Factcheck (`tools/validate/factcheck.py`)
-
-- `--lang`: только **ru** или **en** (испанский **N/A**, пока factcheck не расширят).
-- Без `--stdin-verdict` live judge не вызывается: на stdout JSON
-  `judge_unavailable` и **exit 2** (не «всё чисто» — пайплайн должен
-  остановиться или подставить mock/live judge):
-
-```json
-{"status": "judge_unavailable", "reason": "…"}
-```
-
-- С `--stdin-verdict` / live judge: пишет JSON в `tools/validate/results/factcheck/`.
-  **exit 1**, если `gate` ∈ {fail, error} **или** `grounded` = false
-  (cn_span не находится в CN unit).
-  `gate=pass|warn` и `grounded=true` → exit 0. В stdout есть `"gate"` и `"grounded"`.
-
-Пример smoke (минимальные unit-файлы):
-
-```bash
-python3 tools/validate/factcheck.py \
-  --chapter 01 --lang ru \
-  --cn-unit /path/unit_cn.md --tr-unit /path/unit_ru.md \
-  --stdin-verdict '{"unit":"33","assertions":[],"issues":[]}'
-```
+**Только упрощение plain (без нового перевода):** patch → verify → `make lt` → style → polish → human.
 
 ### Почему юниты, а не главы
-- Сабагент / API-модель (Gemini и др.) с целой главой (30–42КБ) таймится,
-  «сгорает» в рассуждениях или режет середину — **никогда не кормить целый
-  `book/*.md`**. Только `tools/digest/<NN>/units/*.md` (+ gloss).
-- Юнит 1–2КБ = один пункт или два. Риск потери = один пункт, а не глава.
-- Крупные главы: волны по 5–6 юнитов параллельно, потом `assemble*.py`.
-  **Исключение — локальный Hy-MT2 Q8 на 48 GB Mac:** только **последовательные** юниты (`-np 1`, один worker). Параллель 5–6 — для cloud / после перехода на Q4. См. [tools/llm/README.md](../../tools/llm/README.md).
-- Сборка и проверка централизованы: LLM физически не может испортить источники — они не входят в его контекст.
+- Сабагент / API-модель с целой главой (30–42КБ) таймится или режет середину —
+  **никогда не кормить целый `book/*.md`**. Только `translate/digest/<NN>/units/*.md`.
+- Юнит 1–2КБ = один пункт. Риск потери = один пункт, а не глава.
+- **Локальный Hy-MT2 Q8 на 48 GB:** только последовательные юниты (`-np 1`).
+  См. [translate/llm/README.md](../../translate/llm/README.md).
+- Сборка централизована: источники не входят в контекст LLM.
 
-### Скрипты (в `tools/`)
+### Скрипты (в `translate/`)
 | Скрипт | Что делает |
 |---|---|
-| `make_digest.py <NN>` | режет главу на юниты; теги и источники уходят в `blocks.json`, в юните — заполнители `§TAG§`/`§SRC§` |
-| `assemble.py <NN> <workdir> <out.md> [lang]` | сборка RU/EN/ES; инъекция блоков байт-в-байт, счётчики и источники; exit ≠ 0 при FAIL |
-| `verify.py <NN> --lang …` | жёсткая сверка главы с оригиналом (пункты, теги, источники, иероглифы) |
-| `validate/factcheck.py` | pass E: вердикт судьи + grounding по CN unit; см. выше |
-| `style_check.py`, `lt_check.py`, `validate/plainness` | WARN-слой после factcheck |
-| `tools/llm/translate_unit.py` | локальный/cloud LLM: один digest-юнит → `tools/runs/…` (см. ниже) |
+| `steps/digest/make_digest.py` | режет главу на юниты; теги/источники → `blocks.json` |
+| `steps/assemble/assemble.py` | сборка; инъекция блоков байт-в-байт |
+| `steps/verify/verify.py` | HARD сверка с оригиналом |
+| `steps/repair/repair_wave.py` | авторемонт number/calque fails |
+| `shelf/lt_check.py` (`make lt`) | LT plain-terms; exit 2 если `:8010` down |
+| `shelf/style_check.py` | маркеры стиля |
+| `steps/polish/polish_wave.py` | clarity → simplify → verify |
+| `steps/translate/translate_unit.py` | Hy-MT2: один digest-юнит |
 
-### Ops: модель перевода + LanguageTool
+### Ops: модель перевода + LanguageTool + Laya
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
-| **Hy-MT2-30B-A3B** (official GGUF Q8 → `llama-server` `:8080`) | [tools/llm/README.md](../../tools/llm/README.md), [start-llama-server.sh](../../tools/llm/start-llama-server.sh), [.env.example](../../.env.example) | Metal `llama-server` **`-c 16384`** + `.env` `HTLB_LLM_*`; юниты только последовательно на Q8@48GB |
-| **LanguageTool** Docker `htlb-lt` `:8010` | [tools/languagetool/README.md](../../tools/languagetool/README.md) | `docker run --rm -d --name htlb-lt -p 8010:8010 erikvl87/languagetool:latest` → healthcheck curl → `lt_check.py` |
+| **Hy-MT2** Q8 → `llama-server` `:8080` | [translate/llm/README.md](../../translate/llm/README.md) | `.env` `HTLB_LLM_*`; юниты последовательно |
+| **LanguageTool** `:8010` | [translate/languagetool/README.md](../../translate/languagetool/README.md) | Docker → `make lt` |
+| **Laya** `:8090` | [translate/laya/README.md](../../translate/laya/README.md) | `./translate/laya/start-laya-server.sh` → `make polish` |
 
-**Канонический workdir волны:** `tools/runs/active/<lang>/<NN>/` (родитель `units/`).  
-`wave_pipeline.py` / `status.py` / `tools/rules/project.json` смотрят сюда — **не** `/root/htlb-run-*`.
+**Канонический workdir:** `translate/runs/active/<lang>/<NN>/`.
 
-Cloud LLM позже — тот же `.env` / `tools/llm` client (например CometAPI), без смены digest→assemble→verify→factcheck→style→LT.
+Публикационный LLM — только локальный Hy-MT2. Cloud endpoints не нужны.
 
-### Gates / WARN (не путать exit codes)
+### Exit codes
 
 | Шаг | Exit | Правило |
 |---|---|---|
 | `verify.py` | ≠0 = STOP | HARD |
-| `factcheck.py` | **опционально**; **2** = judge недоступен; **1** = gate fail / ungrounded; **0** = pass. ES N/A. Не путать с HARD verify |
-| `style_check` / `lt_check` / `plainness` | часто **0** даже при WARN/skip | Читать stdout; «exit 0» ≠ «замечаний не было» |
-| ES | style: `tools/rules/es.json` (базовый); plainness пока без `es`; factcheck N/A | Автоматика тоньше RU/EN — глаза открыты |
+| `lt_check` / `make lt` | **2** = LT down | обязателен после verify |
+| `polish` | **2** = Laya down; **1** = `RUN_REPAIR` | после LT/style |
+| `style_check` / `make quality` | findings → см. `--strict` | book gate |
 
-**§TAG§ / §SRC§:** `translate_unit.py` ретраит и exit 2 при потере маркеров; после assemble — `assemble*.py` FAIL на leftover `§` / missing `§SRC§`. Не кормить модель в обход CLI.
+**§TAG§ / §SRC§:** `translate_unit.py` ретраит и exit 2 при потере маркеров; после assemble — FAIL на leftover `§`. Не кормить модель в обход CLI.
 
 ### Reading order (новый агент)
 
 1. Этот playbook §2 (порядок) + Ops выше  
-2. [tools/llm/README.md](../../tools/llm/README.md) — Hy-MT2 / `.env` / local server  
-3. [tools/languagetool/README.md](../../tools/languagetool/README.md) — `htlb-lt`  
+2. [translate/llm/README.md](../../translate/llm/README.md) — Hy-MT2 / `.env` / local server  
+3. [translate/languagetool/README.md](../../translate/languagetool/README.md) — LT `:8010`  
+4. [translate/laya/README.md](../../translate/laya/README.md) — Laya для polish  
 
-Перед mass retranslate: `ZAI_API_KEY` (или `judge.backend: local-ollama`) для live factcheck; иначе `--stdin-verdict` на каждый юнит или STOP на exit 2.
-| `watchdog.py <run-dir>` | монитор: недостающие юниты + стагнация (нет записей 25+ мин); для cron-периода |
+Перед mass retranslate: Hy-MT2 + LT + Laya подняты; `make lt` / `make polish` не должны давать exit 2.
 
 ## 3. Сабагенты: как использовать
 

@@ -192,6 +192,6 @@ China-context rules above are identical; field labels differ.
 
 - Infrastructure: verify.py `--lang es`, assemble.py (lang=es), web UI (I18N dict,
   parser, /es/ page via build_pages.py), README.es.md scaffold, soft parity
-  in tools/check_content.py — landed 2026-09-21 (branch translation/es-w1)
-- Pilot: chapters 01 + 13 (write-first subagents, workdirs `tools/runs/active/es/{01,13}` — legacy `/root/htlb-run-es/` retired)
+  in forge/ops/check_content.py — landed 2026-09-21 (branch translation/es-w1)
+- Pilot: chapters 01 + 13 (write-first subagents, workdirs `translate/runs/active/es/{01,13}` — legacy `/root/htlb-run-es/` retired)
 - Waves: chapters 02–12, 14–32 (5–6 per wave), then 4 docs articles in docs/es/

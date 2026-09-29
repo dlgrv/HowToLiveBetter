@@ -6,18 +6,18 @@ dist/
 
 # translation pipeline transient state
 run/
-tools/digest/
-tools/runs/
-tools/.status/
+translate/digest/
+translate/runs/
+translate/.status/
 
 # local tool caches
 .pytest_cache/
 .ruff_cache/
 
 # quality pipeline v2 transient state (verdicts and QE caches are machine-local)
-tools/judge/
-tools/.qe/
-tools/validate/results/_batch*.json
+translate/judge/
+translate/.qe/
+translate/validate/results/_batch*.json
 
 # python
 __pycache__/
@@ -26,21 +26,21 @@ __pycache__/
 # hermes local artifacts
 .hermes/
 _build_batch4.py
-tools/validate/results/_build_batch4.py
-tools/validate/results/_ru_work/
-tools/validate/results/_golden_b_*.json
-tools/validate/results/golden_session/
-tools/validate/results/golden_verdicts_batch*.json
-tools/validate/results/golden_judge_run_lite*/
-tools/validate/results/_lite2_work_bloat/
-tools/validate/results/_lite*_degrade_*.json
-tools/validate/results/factcheck/
-tools/validate/results/style_fp_session*.json
-tools/validate/results/mutations_cases.json
-tools/validate/results/qe_noise.json
-tools/validate/results/golden_labels.json
-tools/validate/results/golden_verdicts.json
-tools/validate/results/retro_e_findings.json
+translate/validate/results/_build_batch4.py
+translate/validate/results/_ru_work/
+translate/validate/results/_golden_b_*.json
+translate/validate/results/golden_session/
+translate/validate/results/golden_verdicts_batch*.json
+translate/validate/results/golden_judge_run_lite*/
+translate/validate/results/_lite2_work_bloat/
+translate/validate/results/_lite*_degrade_*.json
+translate/validate/results/factcheck/
+translate/validate/results/style_fp_session*.json
+translate/validate/results/mutations_cases.json
+translate/validate/results/qe_noise.json
+translate/validate/results/golden_labels.json
+translate/validate/results/golden_verdicts.json
+translate/validate/results/retro_e_findings.json
 
 .worktrees/
 .superpowers/

@@ -1,12 +1,12 @@
 [project]
-name = "howtolivebetter-tools"
+name = "howtolivebetter"
 version = "0"
 requires-python = ">=3.11"
 
 [tool.ruff]
 target-version = "py311"
 line-length = 100
-src = ["tools"]
+src = ["translate", "forge"]
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -15,7 +15,7 @@ ignore = [
   "D",       # no docstring mandate
   "ANN",     # no type-annotation mandate yet
   "T201",    # print OK in CLI tools
-  "INP001",  # tools/ is not an importable package
+  "INP001",  # translate/ is not an importable package
   "COM812",  # conflicts with ruff format
   "ISC001",  # conflicts with ruff format
   "CPY001",  # no copyright header policy in this repo
@@ -61,10 +61,10 @@ ignore = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-testpaths = ["tools/validate/tests", "tools/llm/tests", "tools/laya/tests"]
+testpaths = ["translate/validate/tests", "translate/llm/tests", "translate/laya/tests"]
 
 [tool.ruff.lint.per-file-ignores]
-"tools/**/tests/**" = [
+"translate/**/tests/**" = [
   "S101",  # assert is fine in tests
   "SLF001",  # tests may call module-private helpers
   "PT009",  # legacy unittest asserts; new tests use plain assert / pytest.approx
@@ -72,11 +72,13 @@ testpaths = ["tools/validate/tests", "tools/llm/tests", "tools/laya/tests"]
   "PLW1510",  # subprocess.run check= in CLI smoke tests
 ]
 # Ordered WORD_VALUES pattern table: adjacent raw strings + deferred lambdas are intentional
-"tools/verify.py" = [
+"translate/steps/verify/verify.py" = [
   "ISC004",
   "PLW0108",
   "PLC3002",
 ]
+# Package name matches stdlib ``site``; always imported as ``forge.site.*`` (Pages builders).
+"forge/site/**" = ["A005"]
 
 [tool.ruff.format]
 quote-style = "double"

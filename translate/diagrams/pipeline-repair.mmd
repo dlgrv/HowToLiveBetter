@@ -1,0 +1,11 @@
+flowchart TD
+  Fail["Verify FAIL<br/>number_absent / banned_calque"]
+  Repair["Repair wave<br/>repair_wave.py · LLM"]
+  Ok{"fixed within ≤3 rounds?"}
+  Asm["Assemble → chapter → verify<br/>same path again"]
+  Resume["Resume happy path<br/>→ make lt"]
+  Stop["STOP<br/>exit 1 · hand-fix"]
+
+  Fail --> Repair --> Ok
+  Ok -->|yes| Asm --> Resume
+  Ok -->|no · exhausted| Stop

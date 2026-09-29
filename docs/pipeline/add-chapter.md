@@ -5,7 +5,7 @@ When a new CN chapter appears (via upstream sync) or a chapter needs translation
 ## Prerequisites
 
 - Upstream CN chapter exists at `book/NN-*.md`
-- `tools/langs.json` has the target language registered
+- `translate/langs.json` has the target language registered
 - `waves.json` includes this chapter in a wave
 
 ## Steps
@@ -18,22 +18,22 @@ Split the CN chapter into translatable units:
 make digest CH=NN
 ```
 
-This creates `tools/digest/NN/units/` with per-item `.md` files and a `blocks.json` with byte-faithful blocks (tags + sources).
+This creates `translate/digest/NN/units/` with per-item `.md` files and a `blocks.json` with byte-faithful blocks (tags + sources).
 
 ### 2. Translate
 
-Translate each unit in `tools/digest/NN/units/`:
+Translate each unit in `translate/digest/NN/units/`:
 
 ```
-tools/digest/NN/units/00.md  → head (chapter intro)
-tools/digest/NN/units/01.md  → first item (replace §TAG§/§SRC§ placeholders)
-tools/digest/NN/units/02.md  → second item
+translate/digest/NN/units/00.md  → head (chapter intro)
+translate/digest/NN/units/01.md  → first item (replace §TAG§/§SRC§ placeholders)
+translate/digest/NN/units/02.md  → second item
 ...
 ```
 
-Translation conventions: [TRANSLATION.md](../../TRANSLATION.md). Per-language style rules: `tools/rules/{lang}.json`.
+Translation conventions: [TRANSLATION.md](../../TRANSLATION.md). Per-language style rules: `translate/rules/{lang}.json`.
 
-Store translated units under `tools/runs/active/{lang}/NN/units/`.
+Store translated units under `translate/runs/active/{lang}/NN/units/`.
 
 ### 3. Assemble
 
@@ -43,7 +43,7 @@ Rebuild the translated chapter from units + byte-faithful blocks:
 make assemble CH=NN LANG=ru
 ```
 
-(`WORKDIR` defaults to `tools/runs/active/$(LANG)/$(CH)`; override for smoke/other runs.)
+(`WORKDIR` defaults to `translate/runs/active/$(LANG)/$(CH)`; override for smoke/other runs.)
 
 Output: `book/{lang}/NN-*.md` — the assembled chapter in target language format.
 
@@ -57,7 +57,19 @@ make verify CH=NN LANG=ru
 
 Checks: heading count, tag count, source line byte-identity, CJK leakage, banned calques.
 
-### 5. Status
+### 5. LanguageTool / style / polish
+
+After green verify (LT Docker `:8010` and Laya `:8090` must be up):
+
+```bash
+make lt CH=NN LANG=ru
+make style CH=NN LANG=ru   # or: make quality
+make polish CH=NN LANG=ru
+```
+
+`make lt` / `make polish` exit **2** if LT / Laya is down.
+
+### 6. Status
 
 Update `translations.json` — mark the chapter as `done` for this language.
 
@@ -65,7 +77,7 @@ Update `translations.json` — mark the chapter as `done` for this language.
 make status
 ```
 
-### 6. Build pages
+### 7. Build pages
 
 Regenerate per-language HTML:
 
@@ -73,7 +85,7 @@ Regenerate per-language HTML:
 make web-build
 ```
 
-### 7. README and OG preview
+### 8. README and OG preview
 
 Audit README chapter lists and OG preview images:
 
@@ -87,7 +99,7 @@ If README chapter counts are wrong, regenerate:
 make update-readme ARGS=--fix
 ```
 
-OG previews: regenerate `site/assets/og/{lang}.png` from `tools/og/{lang}.html` when chapter counts change:
+OG previews: regenerate `site/assets/og/{lang}.png` from `forge/og/{lang}.html` when chapter counts change:
 
 ```bash
 make og
@@ -95,7 +107,7 @@ make og
 
 This uses headless Chrome for pixel-perfect 1200×630 screenshots.
 
-### 8. Quality gates
+### 9. Quality gates
 
 ```bash
 make format      # Ruff + djlint autofix (optional before commit)

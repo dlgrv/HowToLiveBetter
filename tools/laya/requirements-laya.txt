@@ -1,3 +1,0 @@
-# Optional local install — not part of CI / make test deps.
-#   python3 -m pip install -r tools/laya/requirements-laya.txt
-laya[serve]>=0.3.21

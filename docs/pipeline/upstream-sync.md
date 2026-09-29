@@ -30,16 +30,16 @@ git checkout upstream/main -- skills/
 
 # Chinese README → README.zh.md ONLY (never root README.md)
 git show upstream/main:README.md > README.zh.md
-python3 tools/strip_zh_readme_ads.py README.zh.md
+python3 forge/ops/strip_zh_readme_ads.py README.zh.md
 
-# Do NOT checkout ads/, site/, index.html, og.png, or tools/
+# Do NOT checkout ads/, site/, index.html, og.png, or translate/
 ```
 
 Review `git status` / `git diff --stat` before committing. Then:
 
 1. Run the [Translation catch-up](#translation-catch-up-after-cn-sync) checklist below (changed chapters → queue `en` / `ru` / `es`).
-2. `python3 tools/check_content.py` (parity / stats).
-3. If site template or counts changed: `python3 tools/build_pages.py`.
+2. `python3 forge/ops/check_content.py` (parity / stats).
+3. If site template or counts changed: `python3 forge/site/build_pages.py`.
 
 ## Translation catch-up (after CN sync)
 
@@ -59,7 +59,7 @@ git diff --name-only HEAD -- docs/*.md
 git diff --cached --name-only -- docs/*.md
 ```
 
-Extract `<NN>` from each `book/NN-*.md` filename. If `README.zh.md` changed, queue README work for each non-`zh` locale (`README.md`, `README.ru.md`, `README.es.md`, … — see [tools/langs.json](../../tools/langs.json)).
+Extract `<NN>` from each `book/NN-*.md` filename. If `README.zh.md` changed, queue README work for each non-`zh` locale (`README.md`, `README.ru.md`, `README.es.md`, … — see [translate/langs.json](../../translate/langs.json)).
 
 ### 2. Queue locales
 
@@ -79,25 +79,12 @@ When in doubt, use **A** for the affected units (re-digest and re-translate only
 **Required spine** (`make wave` = assemble + verify):
 
 ```text
-digest → translate → assemble → verify ↔ repair → human(+commit)
+digest → translate → assemble → verify ↔ repair → lt → style → polish → human(+commit)
 ```
 
-**Optional WARN** (not required for wave done). If you run them, keep this order after verify OK:
-
-```text
-[simplify] → verify → factcheck → style_check → lt_check → plainness
-```
-
-- **Path A:** digest → translate → assemble → verify (HARD stop on FAIL). Optional quality WARN after green verify — see [tools/README.md](../../tools/README.md).
-- **Path B:** omit digest/translate/assemble; patch plain-terms → `verify` → optional factcheck/style/LT/plainness → human.
-
-Hard stop on first `verify.py` FAIL. Do not run style / LanguageTool / plainness before a post-simplify `verify` (and factcheck, if you use it).
-
-Notes:
-
-- `factcheck.py` today: `--lang ru|en` only (Spanish N/A until extended); use `--stdin-verdict` for smoke when live judge is unavailable. Exit 2 ≠ verify FAIL.
-- `plainness`: `ru|en` only today (no ES plain field yet).
-- Book-wide style gate: `make quality` → readability + `style_check --book --strict`.
+- Hard stop on first `verify.py` FAIL.
+- `make lt` requires LanguageTool `:8010` (exit 2 if down).
+- Book-wide style: `make quality` → readability + `style_check --book --strict`.
 - One chapter per commit when the user asks to commit (fork policy).
 
 ### 5. Docs and site
@@ -129,7 +116,7 @@ These are fork-owned. A broad `git merge upstream/main` or `checkout upstream/ma
 
 - `README.md`, `README.ru.md`, `README.es.md` (and any `README.<lang>.md` except the explicit `README.zh.md` ritual above)
 - Entire `site/` (UI, assets, OG PNGs, robots, sitemap)
-- `tools/v2.css`, `tools/og/`, `tools/build_pages.py`, `tools/pages_artifact.py`, `tools/langs.json`, `tools/check_content.py`, `tools/strip_zh_readme_ads.py`
+- `forge/v2.css`, `forge/og/`, `forge/site/build_pages.py`, `forge/site/pages_artifact.py`, `translate/langs.json`, `forge/ops/check_content.py`, `forge/ops/strip_zh_readme_ads.py`
 - `.github/workflows/`
 - `CLAUDE.md`, `TRANSLATION.md`, `AGENTS.md`
 - `docs/research/en/`, `docs/research/ru/`, `docs/research/es/`, `book/en/`, `book/ru/`, `book/es/`
@@ -146,5 +133,5 @@ These are fork-owned. A broad `git merge upstream/main` or `checkout upstream/ma
 Before committing a sync, confirm never-merge paths are absent from the staged set:
 
 ```bash
-git diff --cached --name-only | grep -E '^(README\.md|README\.ru\.md|README\.es\.md|site/|ads/|tools/(v2|og|build_pages|pages_artifact|langs|check_content|strip_zh)|CLAUDE\.md|TRANSLATION\.md|AGENTS\.md)' && echo 'FAIL: never-merge path staged' || echo 'ok'
+git diff --cached --name-only | grep -E '^(README\.md|README\.ru\.md|README\.es\.md|site/|ads/|translate/(v2|og|build_pages|pages_artifact|langs|check_content|strip_zh)|CLAUDE\.md|TRANSLATION\.md|AGENTS\.md)' && echo 'FAIL: never-merge path staged' || echo 'ok'
 ```

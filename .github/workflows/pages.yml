@@ -38,9 +38,9 @@ jobs:
       - name: Install deps
         run: pip install -r requirements-dev.txt
       - name: Build site pages
-        run: python3 tools/build_pages.py
+        run: python3 forge/site/build_pages.py
       - name: Stage Pages artifact
-        run: python3 tools/pages_artifact.py
+        run: python3 forge/site/pages_artifact.py
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

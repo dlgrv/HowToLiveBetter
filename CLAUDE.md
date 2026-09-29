@@ -8,10 +8,10 @@ When the user asks to pull/sync/update from the original Chinese repo, **follow 
 
 1. `git fetch upstream` (remote: `https://github.com/eternity4719/HowToLiveBetter.git`)
 2. Path-filtered checkout of root `book/NN-*.md` and Chinese `docs/` only — **never** `git merge upstream/main`
-3. `git show upstream/main:README.md > README.zh.md` then `python3 tools/strip_zh_readme_ads.py README.zh.md` — **never** overwrite root `README.md`; **never** checkout `ads/` or `site/`
-4. `python3 tools/check_content.py`; catch up `book/<lang>/` for changed chapters; `python3 tools/build_pages.py` if needed (writes under `site/`)
+3. `git show upstream/main:README.md > README.zh.md` then `python3 forge/ops/strip_zh_readme_ads.py README.zh.md` — **never** overwrite root `README.md`; **never** checkout `ads/` or `site/`
+4. `python3 forge/ops/check_content.py`; catch up `book/<lang>/` for changed chapters; `python3 forge/site/build_pages.py` if needed (writes under `site/`)
 
-Locales: [tools/langs.json](tools/langs.json), [docs/pipeline/add-language.md](docs/pipeline/add-language.md). Site lives in `site/`; Pages deploy via Actions (not branch `/`).
+Locales: [translate/langs.json](translate/langs.json), [docs/pipeline/add-language.md](docs/pipeline/add-language.md). Site lives in `site/`; Pages deploy via Actions (not branch `/`).
 
 # 高性价比人生指南 · 项目规则
 
@@ -57,14 +57,14 @@ Locales: [tools/langs.json](tools/langs.json), [docs/pipeline/add-language.md](d
 - 「说人话」是把「收益」栏的统计量翻成日常说法的一到两句：HR/RR/OR 一律换算成「高约几成 / 低约百分之几」，人群和研究设计不写，只留读者关心的方向和量级；不许出现 HR、RR、OR、CI、队列、荟萃这些词，也不许出现「收益」栏里没有的数字。「收益」栏原样保留全部数字和置信区间，一个字不动。金钱与自由口径的条目同样写，翻成「能拿回多少钱 / 会摊上什么后果」。检索页把它渲染成卡片里最显眼的一段，缺这一行就不显示，可以逐节补。
 - 收益与口径是后加的两个字段，用来回答「值不值得做」（证据等级只回答「数字可不可信」，两者正交）。口径按这条主要换回什么定：死亡率（含健康终点、存活率）、金钱（含保障待遇）、时间（含精力）、自由（含法律责任、个人信息）。**不同口径之间不做比较**。
 - 收益量级尽量按阈值从条目自己的「收益」栏机械套，不凭感觉：死亡率口径看相对降幅（≥20% 大 / 10–20% 中 / <10% 或只有替代终点 小）；金钱看金额（万元级 大 / 数百到数千 中 / 几十元 小）；自由看后果（避免刑责 大 / 避免拘留或行政处罚 中 / 避免民事纠纷 小）；时间看节省量（每天小时级 大 / 每周小时级 中 / 一次性 小）。数字不足以判定时才用判断，并在核实记录里写明凭什么定的。
-- 条目数、A 级条数变了要同步四处：README（正文数字与两个徽章）、index.html（五处描述、numberOfPages、页头条目数）、CLAUDE.md 的目录简介，以及 **tools/og.html + 重新截图 og.png**（命令写在 og.html 文件头注释里，链接数的口径是 book/ 下所有「- 来源：」和「- 备注：」行里的 http(s) 总数）。跑 `powershell -ExecutionPolicy Bypass -File tools\sync-stats.ps1` 一键完成：它重算条目数、A/B/C 数、争议数、TODO 数、链接数和性价比三档，回写 README 的七处、index.html 的三类位置、tools/og.html 的三个数字，再用全新的 user-data-dir 重出 og.png（`-NoScreenshot` 可只改数字）。**CLAUDE.md 的目录简介脚本不碰，仍要手工改。**性价比档的规则和 index.html 的 COST_W、e.ratio 两行绑定，那两行改了脚本会直接报错要求同步。**每次改完条目就跑一次，和正文改动一起提交**（2026-09-18 用户定；当天早些时候的「等我说改完了再改」已作废——脚本把一次同步的开销压到几百 token，不必再攒着）。跑完不用打开 og.png：脚本自己校验图是本次写入、大小在 120KB 到 400KB，只有改过 tools/og.html 版式时才值得看一眼。汇报里也不必再写「待同步」，直接给同步后的数字。
+- 条目数、A 级条数变了要同步四处：README（正文数字与两个徽章）、index.html（五处描述、numberOfPages、页头条目数）、CLAUDE.md 的目录简介，以及 **forge/og.html + 重新截图 og.png**（命令写在 og.html 文件头注释里，链接数的口径是 book/ 下所有「- 来源：」和「- 备注：」行里的 http(s) 总数）。跑 `powershell -ExecutionPolicy Bypass -File tools\sync-stats.ps1` 一键完成：它重算条目数、A/B/C 数、争议数、TODO 数、链接数和性价比三档，回写 README 的七处、index.html 的三类位置、forge/og.html 的三个数字，再用全新的 user-data-dir 重出 og.png（`-NoScreenshot` 可只改数字）。**CLAUDE.md 的目录简介脚本不碰，仍要手工改。**性价比档的规则和 index.html 的 COST_W、e.ratio 两行绑定，那两行改了脚本会直接报错要求同步。**每次改完条目就跑一次，和正文改动一起提交**（2026-09-18 用户定；当天早些时候的「等我说改完了再改」已作废——脚本把一次同步的开销压到几百 token，不必再攒着）。跑完不用打开 og.png：脚本自己校验图是本次写入、大小在 120KB 到 400KB，只有改过 forge/og.html 版式时才值得看一眼。汇报里也不必再写「待同步」，直接给同步后的数字。
 - 性价比档不写进 README，由 index.html 按「收益量级 + 三项成本」实时合成（大且成本全零=极高，大且成本分≤2 或 中且成本全零=高，其余=一般），改档位规则只改 index.html。
 
 ## 目录结构
 
 正文按节拆成 `book/01-*.md` … `book/31-*.md`（2026-09-08 拆的，原来单文件 531 KB，超过 GitHub 渲染 Markdown 的 512 KB 上限，后面的节显示不出来也跳不了锚点）。README 只留导读、术语表和目录，新增或修改条目改对应的 book 文件；检索页 index.html 先读 README 拿目录里的文件列表，再并发读这些文件。每节文件第一行是回总目录的链接，第二行空行，第三行是 `# N. 节名`。
 
-电子书：`tools/epub/build.mjs`（只依赖 marked，zip 自己打）把 README 的导读、术语表、目录 + book/ 全部节 + docs/ 四篇长文打成 EPUB 3；文件清单从 README 的目录和长文链接里取，新增节或长文不用改脚本。`.github/workflows/epub.yml` 在 main 上正文改动后自动生成、跑 epubcheck、挂到固定 Release `epub-latest`（下载链接不变，README 里引用的就是它）；PR 只生成校验不发布。本地 `cd tools/epub && npm ci && npm run build`，产物在 `dist/`（已 gitignore）。**EPUB 文件本身不入库**，正文几乎天天改，提交二进制只会过时和撑大历史（2026-09-18 issue #12 定的方案）。
+电子书：`translate/epub/build.mjs`（只依赖 marked，zip 自己打）把 README 的导读、术语表、目录 + book/ 全部节 + docs/ 四篇长文打成 EPUB 3；文件清单从 README 的目录和长文链接里取，新增节或长文不用改脚本。`.github/workflows/epub.yml` 在 main 上正文改动后自动生成、跑 epubcheck、挂到固定 Release `epub-latest`（下载链接不变，README 里引用的就是它）；PR 只生成校验不发布。本地 `cd translate/epub && npm ci && npm run build`，产物在 `dist/`（已 gitignore）。**EPUB 文件本身不入库**，正文几乎天天改，提交二进制只会过时和撑大历史（2026-09-18 issue #12 定的方案）。
 
 1. 不要早死（外因：交通、火灾、燃气器具与用气安全、毒蘑菇、溺水、跌落、中毒、疫苗、体检筛查、心理危机（12356 与限制致死手段、自杀念头的时间尺度与未遂之后的长期结局、中毒被救回来之后的不可逆后遗症、高处坠落幸存之后的 ICU 与康复账、摘掉一个肾之后剩余肾的长期代价与卖肾者的随访结局，法律那一侧在第 9 节）、家庭应急装备、安全套与不共用针具、艾滋病的免费自愿咨询检测与窗口期、肉眼血尿等该去查的信号；装备清单长文放 docs/家庭应急装备清单.md）
 2. 不要慢慢死（烟酒、运动、睡眠、饮食、久坐——只收效应量大且证据硬的，不追求全）

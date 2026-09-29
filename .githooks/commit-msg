@@ -1,4 +1,4 @@
 #!/bin/sh
 # Enforce English Conventional Commits (see AGENTS.md).
 ROOT="$(git rev-parse --show-toplevel)"
-exec python3 "$ROOT/tools/check_commit_msg.py" "$1"
+exec python3 "$ROOT/forge/ops/check_commit_msg.py" "$1"

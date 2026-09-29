@@ -1,0 +1,18 @@
+flowchart TD
+  CN["CN chapter<br/>book/NN-*.md"]
+  Digest["Digest<br/>make_digest.py · Python"]
+  Units["Digest units<br/>translate/digest/NN/units/"]
+  Translate["Translate unit<br/>translate_unit.py · LLM"]
+  Runs["Run workdir<br/>translate/runs/active/lang/NN/"]
+  Assemble["Assemble<br/>assemble.py · Python"]
+  Chapter["Overlay chapter<br/>book/lang/NN-*.md"]
+  Verify["Verify<br/>verify.py · Python HARD"]
+  LT["LanguageTool<br/>shelf/lt_check.py · Docker LT"]
+  Style["Style check<br/>shelf/style_check.py · Python"]
+  Polish["Polish<br/>polish_wave.py · Laya + Hy-MT2"]
+  Human["Human pass + commit"]
+
+  CN --> Digest --> Units --> Translate --> Runs --> Assemble --> Chapter --> Verify
+  Verify -->|pass| LT --> Style --> Polish --> Human
+  Verify -->|fail| Repair["Repair · repair_wave.py"]
+  Repair --> Assemble
