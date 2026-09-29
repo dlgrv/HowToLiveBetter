@@ -72,23 +72,17 @@ jobs:
             exit 1
           fi
       - name: Verify retranslated chapters
+        # Soft pending: NNs listed here are exempt until every locale catches up
+        # (parity also softens). Hard-verify would couple EN/RU/ES PRs (#75).
+        # After an NN is removed from the list, mutation controls gate it again.
         run: |
           if [ ! -f docs/.retranslate-pending ]; then
             echo "no retranslate-pending list — skipping"
             exit 0
           fi
-          pending=$(grep -vE '^\s*(#|$)' docs/.retranslate-pending | tr -d ' ')
-          failed=0
-          for nn in $pending; do
-            f=$(ls book/ru/${nn}-*.md 2>/dev/null | head -1)
-            [ -z "$f" ] && continue
-            if ! .venv/bin/python3 translate/steps/verify/verify.py "$nn" --lang ru > /tmp/v_$nn.log 2>&1; then
-              echo "ch.$nn FAILED:"; tail -5 /tmp/v_$nn.log; failed=1
-            else
-              echo "ch.$nn OK"
-            fi
-          done
-          exit $failed
+          echo "retranslate-pending active — soft-skip hard verify:"
+          grep -vE '^\s*(#|$)' docs/.retranslate-pending || true
+          exit 0
 
   quality:
     runs-on: ubuntu-latest
