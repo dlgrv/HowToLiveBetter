@@ -334,10 +334,10 @@ class RoundTrip(unittest.TestCase):
     def test_es_mil_millon_singular(self):
         self.assertEqual(norm_numbers("1 mil millón", es=True), ["1000000000"])
 
-    def test_es_dot_thousands_not_supported_current_behavior(self):
-        # ES dot-thousands «610.000» — not a corpus rendering (ES uses space
-        # thousands); armor: pinned, not 610000.
-        self.assertEqual(norm_numbers("610.000", es=True), ["610"])
+    def test_es_dot_thousands_folded(self):
+        # Spanish thousands dot «610.000» == «610 000» == 610000
+        self.assertEqual(norm_numbers("610.000", es=True), ["610000"])
+        self.assertEqual(norm_numbers("610 000", es=True), ["610000"])
 
     # bug-02 FIXED: «N mil» digit+mil keeps the scale
     def test_es_digit_mil(self):
