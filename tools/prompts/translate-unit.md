@@ -65,7 +65,8 @@ and `tools/glossary.json` are authoritative for terms and style.
     (see `abbrev_gloss_examples`): mmHg / мм рт. ст., BMI/ИМТ, CT/КТ,
     MRI/МРТ, ultrasound/УЗИ, HPV, mmol/L / ммоль/л, mg/dL. Optional skip:
     ml, °C, SIM/PIN when context is already clear. Or move detail to Benefit.
-13. Avoid calques listed under `banned_calques` in glossary / `rules/*.json`.
+13. Avoid calques listed under `banned_calques` (HARD) and `soft_calques`
+    (WARN) in `tools/rules/<lang>.json`.
 14. After any later simplify pass, meaning must still pass factcheck
     (`reversed_logic`, `invented`, `dropped_condition`, `hardened_claim`).
 15. **RU `данные` is a noun** (statistics / personal data). Never rewrite

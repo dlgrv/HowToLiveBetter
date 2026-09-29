@@ -5,8 +5,9 @@ Engine is language-agnostic: patterns and whitelist zones come from
 tools/rules/<lang>.json. Lines starting with a whitelisted prefix (evidence,
 notes, sources) are never flagged — medical passive there is legitimate.
 
-Glossary (tools/glossary.json) adds banned_calques stems/phrases and name_forms
-anti-patterns (e.g. «в Бангладеш» instead of «в Бангладеше»).
+`soft_calques` in the language pack are always loaded (WARN). Glossary
+(`tools/glossary.json`) contributes name_forms anti-patterns only
+(e.g. «в Бангладеш» instead of «в Бангладеше»).
 
 CLI:
   python3 tools/style_check.py <file.md> --lang ru [--plain-only]   # WARN, exit 0
@@ -38,27 +39,34 @@ def _compile_markers(raw_markers):
     return out
 
 
+def _stem_to_calque_marker(ban: str) -> dict:
+    pat = re.escape(ban)
+    if " " not in ban and not ban.startswith("в "):
+        pat = rf"\b{pat}"
+    return {
+        "pattern": pat,
+        "label": f"calque:{ban[:24]}",
+        "note": "rules soft_calques",
+    }
+
+
+def load_soft_calque_marker_dicts(lang, root=REPO):
+    """WARN calque stems from rules/<lang>.json soft_calques (always on)."""
+    try:
+        rules = pconfig.load_lang_rules(lang, root=root)
+    except FileNotFoundError:
+        return []
+    return [_stem_to_calque_marker(ban) for ban in (rules.get("soft_calques") or []) if ban]
+
+
 def load_glossary_marker_dicts(lang, root=REPO):
-    """Uncompiled marker dicts from glossary (for merging / dedup)."""
+    """Uncompiled name_forms markers from glossary (optional)."""
     path = os.path.join(root, "tools", "glossary.json")
     if not os.path.isfile(path):
         return []
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     markers = []
-    for ban in data.get("banned_calques", {}).get(lang, []):
-        if not ban:
-            continue
-        pat = re.escape(ban)
-        if " " not in ban and not ban.startswith("в "):
-            pat = rf"\b{pat}"
-        markers.append(
-            {
-                "pattern": pat,
-                "label": f"calque:{ban[:24]}",
-                "note": "glossary banned_calques",
-            }
-        )
     for nf in data.get("name_forms", []):
         if nf.get("lang") != lang:
             continue
@@ -75,7 +83,7 @@ def load_glossary_marker_dicts(lang, root=REPO):
 
 
 def load_markers(lang, root=REPO, include_glossary=True):
-    """Style markers for a language from its language pack + glossary."""
+    """Style markers: rules style_markers + soft_calques always; name_forms optional."""
     try:
         rules = pconfig.load_lang_rules(lang, root=root)
     except FileNotFoundError:
@@ -84,6 +92,10 @@ def load_markers(lang, root=REPO, include_glossary=True):
         ) from None
     raw = list(rules.get("style_markers", []))
     seen = {m["pattern"] for m in raw}
+    for sm in load_soft_calque_marker_dicts(lang, root=root):
+        if sm["pattern"] not in seen:
+            seen.add(sm["pattern"])
+            raw.append(sm)
     if include_glossary:
         for gm in load_glossary_marker_dicts(lang, root=root):
             if gm["pattern"] not in seen:

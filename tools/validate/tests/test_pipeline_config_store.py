@@ -31,7 +31,13 @@ class TestProjectConfig(unittest.TestCase):
     def test_lang_rules_skeleton_keys(self):
         for lang in ("ru", "en", "es"):
             rules = pconfig.load_lang_rules(lang, root=REPO_ROOT)
-            for key in ("labels", "banned_calques", "style_markers", "whitelist_zones"):
+            for key in (
+                "labels",
+                "banned_calques",
+                "soft_calques",
+                "style_markers",
+                "whitelist_zones",
+            ):
                 self.assertIn(key, rules, f"{lang}.{key} missing")
 
     def test_cn_units_dir_path_ch01(self):

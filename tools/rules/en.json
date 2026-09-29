@@ -1,33 +1,138 @@
 {
   "_comment": "EN language pack. labels/banned_calques filled in Task 10b. style_markers: EN bureaucratese equivalents (filled alongside Task 6 corpus audit); whitelist_zones = line prefixes for evidence/notes lines.",
   "labels": {
-    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
-    "en": ["Cost", "In plain terms", "Benefit", "Evidence grade", "Notes"]
+    "cn": [
+      "成本",
+      "说人话",
+      "收益",
+      "证据等级",
+      "备注"
+    ],
+    "en": [
+      "Cost",
+      "In plain terms",
+      "Benefit",
+      "Evidence grade",
+      "Notes"
+    ]
   },
   "source_label": "Sources",
   "evidence_grade_label": "Evidence grade",
   "banned_calques": [],
   "style_markers": [
-    {"pattern": "\\butilize[ds]?\\b", "label": "utilize", "note": "bureaucratese for 'use'"},
-    {"pattern": "\\bit should be noted that\\b", "label": "it-should-be-noted", "note": "filler passive opener"},
-    {"pattern": "\\bit is important to note that\\b", "label": "important-to-note", "note": "filler opener"},
-    {"pattern": "\\bin order to\\b", "label": "in-order-to", "note": "in order to → to"},
-    {"pattern": "\\bin the event that\\b", "label": "in-the-event-that", "note": "in the event that → if"},
-    {"pattern": "\\bin accordance with\\b", "label": "in-accordance-with", "note": "in accordance with → under / per"},
-    {"pattern": "\\bfor the purpose of\\b", "label": "for-the-purpose-of", "note": "for the purpose of → for / to"},
-    {"pattern": "\\bwith regard to\\b", "label": "with-regard-to", "note": "with regard to → about / on"},
-    {"pattern": "\\bin respect of\\b", "label": "in-respect-of", "note": "in respect of → about"},
-    {"pattern": "\\bin relation to\\b", "label": "in-relation-to", "note": "in relation to → about / on"},
-    {"pattern": "\\bby means of\\b", "label": "by-means-of", "note": "by means of → by / using"},
-    {"pattern": "\\bon the basis of\\b", "label": "on-the-basis-of", "note": "on the basis of → based on / because"},
-    {"pattern": "\\bwith the exception of\\b", "label": "with-the-exception-of", "note": "with the exception of → except"},
-    {"pattern": "\\bas a consequence of\\b", "label": "as-a-consequence-of", "note": "as a consequence of → because of"},
-    {"pattern": "\\bprior to\\b", "label": "prior-to", "note": "prior to → before"},
-    {"pattern": "\\bsubsequent to\\b", "label": "subsequent-to", "note": "subsequent to → after"},
-    {"pattern": "\\bin the course of\\b", "label": "in-the-course-of", "note": "in the course of → during"},
-    {"pattern": "\\ba number of\\b", "label": "a-number-of", "note": "a number of → several / some"},
-    {"pattern": "\\bwith respect to the aforementioned\\b", "label": "aforementioned", "note": "officialese"},
-    {"pattern": "\\bthe aforementioned\\b", "label": "aforementioned-np", "note": "officialese determiner"}
+    {
+      "pattern": "\\butilize[ds]?\\b",
+      "label": "utilize",
+      "note": "bureaucratese for 'use'"
+    },
+    {
+      "pattern": "\\bit should be noted that\\b",
+      "label": "it-should-be-noted",
+      "note": "filler passive opener"
+    },
+    {
+      "pattern": "\\bit is important to note that\\b",
+      "label": "important-to-note",
+      "note": "filler opener"
+    },
+    {
+      "pattern": "\\bin order to\\b",
+      "label": "in-order-to",
+      "note": "in order to → to"
+    },
+    {
+      "pattern": "\\bin the event that\\b",
+      "label": "in-the-event-that",
+      "note": "in the event that → if"
+    },
+    {
+      "pattern": "\\bin accordance with\\b",
+      "label": "in-accordance-with",
+      "note": "in accordance with → under / per"
+    },
+    {
+      "pattern": "\\bfor the purpose of\\b",
+      "label": "for-the-purpose-of",
+      "note": "for the purpose of → for / to"
+    },
+    {
+      "pattern": "\\bwith regard to\\b",
+      "label": "with-regard-to",
+      "note": "with regard to → about / on"
+    },
+    {
+      "pattern": "\\bin respect of\\b",
+      "label": "in-respect-of",
+      "note": "in respect of → about"
+    },
+    {
+      "pattern": "\\bin relation to\\b",
+      "label": "in-relation-to",
+      "note": "in relation to → about / on"
+    },
+    {
+      "pattern": "\\bby means of\\b",
+      "label": "by-means-of",
+      "note": "by means of → by / using"
+    },
+    {
+      "pattern": "\\bon the basis of\\b",
+      "label": "on-the-basis-of",
+      "note": "on the basis of → based on / because"
+    },
+    {
+      "pattern": "\\bwith the exception of\\b",
+      "label": "with-the-exception-of",
+      "note": "with the exception of → except"
+    },
+    {
+      "pattern": "\\bas a consequence of\\b",
+      "label": "as-a-consequence-of",
+      "note": "as a consequence of → because of"
+    },
+    {
+      "pattern": "\\bprior to\\b",
+      "label": "prior-to",
+      "note": "prior to → before"
+    },
+    {
+      "pattern": "\\bsubsequent to\\b",
+      "label": "subsequent-to",
+      "note": "subsequent to → after"
+    },
+    {
+      "pattern": "\\bin the course of\\b",
+      "label": "in-the-course-of",
+      "note": "in the course of → during"
+    },
+    {
+      "pattern": "\\ba number of\\b",
+      "label": "a-number-of",
+      "note": "a number of → several / some"
+    },
+    {
+      "pattern": "\\bwith respect to the aforementioned\\b",
+      "label": "aforementioned",
+      "note": "officialese"
+    },
+    {
+      "pattern": "\\bthe aforementioned\\b",
+      "label": "aforementioned-np",
+      "note": "officialese determiner"
+    }
   ],
-  "whitelist_zones": ["- Benefit:", "- Notes:", "- Sources:", "- Evidence grade:", "<!-- 成本标签"]
+  "whitelist_zones": [
+    "- Benefit:",
+    "- Notes:",
+    "- Sources:",
+    "- Evidence grade:",
+    "<!-- 成本标签"
+  ],
+  "soft_calques": [
+    "cohort",
+    "exposure",
+    "quartile",
+    "confound",
+    "herbicide"
+  ]
 }

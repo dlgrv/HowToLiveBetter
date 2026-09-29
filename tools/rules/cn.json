@@ -1,9 +1,16 @@
 {
   "_comment": "CN source-field labels for verify/assemble (not a translation pack).",
   "labels": {
-    "cn": ["成本", "说人话", "收益", "证据等级", "备注"]
+    "cn": [
+      "成本",
+      "说人话",
+      "收益",
+      "证据等级",
+      "备注"
+    ]
   },
   "source_label": "来源",
   "evidence_grade_label": "证据等级",
-  "banned_calques": []
+  "banned_calques": [],
+  "soft_calques": []
 }

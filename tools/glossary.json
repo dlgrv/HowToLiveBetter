@@ -285,31 +285,6 @@
       "form": "в Китае"
     }
   ],
-  "banned_calques": {
-    "ru": [
-      "когорт",
-      "экспозици",
-      "квартил",
-      "квинтил",
-      "конфаунд",
-      "популяц",
-      "гербицид",
-      "против параквата",
-      "на ход болезни"
-    ],
-    "en": [
-      "cohort",
-      "exposure",
-      "quartile",
-      "confound",
-      "herbicide"
-    ],
-    "es": [
-      "cohorte",
-      "herbicida",
-      "paraquat no tiene"
-    ]
-  },
   "abbrev_gloss_examples": [
     {
       "lang": "ru",

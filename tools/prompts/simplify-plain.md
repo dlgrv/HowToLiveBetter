@@ -30,7 +30,7 @@ Apply the same locked rules as `tools/prompts/translate-unit.md`:
 9. Abbreviations / units: gloss on first plain-terms use
    (`abbrev_gloss_examples`: mmHg, ИМТ/BMI, КТ/CT, МРТ/MRI, УЗИ, HPV,
    ммоль/л, mg/dL). Skip ml / °C / SIM-PIN when obvious.
-10. Avoid `banned_calques` patterns.
+10. Avoid `banned_calques` / `soft_calques` patterns from `tools/rules/<lang>.json`.
 11. **No over-compress** — see «When not to simplify» below.
 
 ## Pipeline order (mandatory after your edit)

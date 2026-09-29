@@ -1,25 +1,89 @@
 {
   "labels": {
-    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
-    "es": ["Costo", "En términos sencillos", "Beneficio", "Nivel de evidencia", "Notas"]
+    "cn": [
+      "成本",
+      "说人话",
+      "收益",
+      "证据等级",
+      "备注"
+    ],
+    "es": [
+      "Costo",
+      "En términos sencillos",
+      "Beneficio",
+      "Nivel de evidencia",
+      "Notas"
+    ]
   },
   "source_label": "Fuentes",
   "evidence_grade_label": "Nivel de evidencia",
   "banned_calques": [],
   "style_markers": [
-    {"pattern": "\\ben el marco de\\b", "label": "en-el-marco", "note": "calque / officialese"},
-    {"pattern": "\\bse debe señalar que\\b", "label": "se-debe-senalar", "note": "filler opener"},
-    {"pattern": "\\bcabe señalar que\\b", "label": "cabe-senalar", "note": "cabe señalar que → omitir"},
-    {"pattern": "\\bes importante señalar que\\b", "label": "importante-senalar", "note": "filler opener"},
-    {"pattern": "\\bcon el fin de\\b", "label": "con-el-fin-de", "note": "con el fin de → para"},
-    {"pattern": "\\ba fin de\\b", "label": "a-fin-de", "note": "a fin de → para"},
-    {"pattern": "\\bde conformidad con\\b", "label": "de-conformidad-con", "note": "de conformidad con → según"},
-    {"pattern": "\\ben relación con\\b", "label": "en-relacion-con", "note": "en relación con → sobre"},
-    {"pattern": "\\bpor medio de\\b", "label": "por-medio-de", "note": "por medio de → con / mediante"},
-    {"pattern": "\\bcon respecto a\\b", "label": "con-respecto-a", "note": "con respecto a → sobre"},
-    {"pattern": "\\bpor parte de\\b", "label": "por-parte-de", "note": "por parte de → de"},
-    {"pattern": "\\ben caso de que\\b", "label": "en-caso-de-que", "note": "en caso de que → si"},
-    {"pattern": "\\butilizar\\b", "label": "utilizar", "note": "preferir 'usar' en plain-terms"}
+    {
+      "pattern": "\\ben el marco de\\b",
+      "label": "en-el-marco",
+      "note": "calque / officialese"
+    },
+    {
+      "pattern": "\\bse debe señalar que\\b",
+      "label": "se-debe-senalar",
+      "note": "filler opener"
+    },
+    {
+      "pattern": "\\bcabe señalar que\\b",
+      "label": "cabe-senalar",
+      "note": "cabe señalar que → omitir"
+    },
+    {
+      "pattern": "\\bes importante señalar que\\b",
+      "label": "importante-senalar",
+      "note": "filler opener"
+    },
+    {
+      "pattern": "\\bcon el fin de\\b",
+      "label": "con-el-fin-de",
+      "note": "con el fin de → para"
+    },
+    {
+      "pattern": "\\ba fin de\\b",
+      "label": "a-fin-de",
+      "note": "a fin de → para"
+    },
+    {
+      "pattern": "\\bde conformidad con\\b",
+      "label": "de-conformidad-con",
+      "note": "de conformidad con → según"
+    },
+    {
+      "pattern": "\\ben relación con\\b",
+      "label": "en-relacion-con",
+      "note": "en relación con → sobre"
+    },
+    {
+      "pattern": "\\bpor medio de\\b",
+      "label": "por-medio-de",
+      "note": "por medio de → con / mediante"
+    },
+    {
+      "pattern": "\\bcon respecto a\\b",
+      "label": "con-respecto-a",
+      "note": "con respecto a → sobre"
+    },
+    {
+      "pattern": "\\bpor parte de\\b",
+      "label": "por-parte-de",
+      "note": "por parte de → de"
+    },
+    {
+      "pattern": "\\ben caso de que\\b",
+      "label": "en-caso-de-que",
+      "note": "en caso de que → si"
+    },
+    {
+      "pattern": "\\butilizar\\b",
+      "label": "utilizar",
+      "note": "preferir 'usar' en plain-terms"
+    }
   ],
   "whitelist_zones": [
     "- Beneficio:",
@@ -27,5 +91,10 @@
     "- Fuentes:",
     "- Nivel de evidencia:",
     "<!-- 成本标签"
+  ],
+  "soft_calques": [
+    "cohorte",
+    "herbicida",
+    "paraquat no tiene"
   ]
 }
