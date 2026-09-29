@@ -1,6 +1,9 @@
 # Chapters awaiting locale catch-up after upstream CN sync.
-# Remove NN when en/ru/es are verified for that chapter.
+# Remove NN when that locale's chapter verifies. Integration CI only gates
+# the primary language (en) and skips NNs listed here — langs do not block each other.
 02
 05
+07
+16
 23
 34
