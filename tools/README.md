@@ -137,6 +137,15 @@ Optional: simplify plain-terms (LLM) → then **verify → factcheck → style �
 | **Exit** | per-file: always `0`. `--book --strict`: `1` if findings (`make quality`). |
 | **Notes** | `tools/bureaucratese.py` is a deprecated shim to `--book`. |
 
+### Laya triage — `tools/laya/triage.py` (optional WARN)
+
+| | |
+|---|---|
+| **Runtime** | Python → style_check → HTTP Laya `:8090` (`make triage CH=NN LANG=ru`) |
+| **In → out** | RU style hits for `этих-вместо-данных` / `согласно-творительный` / `при-родительный-после-рамок` → cards `bug\|ok\|unclear\|skip_server_down` |
+| **Why** | Confirm or dismiss a few high-noise RU markers without HARD-failing the chapter. |
+| **Needs** | [laya/README.md](laya/README.md). Server down → skip, exit `0`. `--apply` reserved (default off; no autofix). |
+
 ### LanguageTool — `lt_check.py` (optional)
 
 | | |
@@ -153,13 +162,13 @@ Optional: simplify plain-terms (LLM) → then **verify → factcheck → style �
 | **Runtime** | Python WARN |
 | **Why** | Extra readability signal on plain-terms (ru/en; es fields limited). |
 
-### Laya — `tools/laya/` (optional spike)
+### Laya — `tools/laya/` (optional spike + triage)
 
 | | |
 |---|---|
 | **Runtime** | Python → HTTP `http://127.0.0.1:8090` (`laya-serve`, multilingual) |
-| **In → out** | health + one `/v1/systemone` probe → JSON / skip |
-| **Why** | Typed System-1 decisions for later RU style triage (данные/эти, согласно, …). |
+| **In → out** | health / `/v1/systemone` probe; `make triage` → WARN cards |
+| **Why** | Typed System-1 decisions for RU style triage (данные/эти, согласно, при). |
 | **Needs** | [laya/README.md](laya/README.md). Server down → skip, exit `0`. Do not co-load with Hy-MT2 Q8 on 48 GB. |
 
 ### Human + commit

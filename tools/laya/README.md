@@ -2,7 +2,7 @@
 
 Self-hosted HTTP serve for [Laya](https://github.com/NandhaKishorM/laya) —
 typed `choice` / `noul` decisions over Russian style hits. **Not** on the
-publish spine (`make wave` / verify). Spike client only; triage lands later.
+publish spine (`make wave` / verify).
 
 ## Ports (do not collide)
 
@@ -40,6 +40,20 @@ Binds `127.0.0.1:8090`, preloads **multilingual only** (`LAYA_MODELS=multilingua
 PYTHONPATH=. python3 -m tools.laya.client
 PYTHONPATH=. python3 -m tools.laya.client --fixture tools/laya/fixtures/ru-data-noun-01.json
 ```
+
+## Triage (after style_check)
+
+```bash
+make triage CH=10 LANG=ru
+# or: PYTHONPATH=. python3 -m tools.laya.triage book/ru/10-….md --lang ru [--json]
+```
+
+Filters style hits to three RU labels (`этих-вместо-данных`, `согласно-творительный`,
+`при-родительный-после-рамок`), asks Laya, prints WARN cards
+`bug|ok|unclear|skip_server_down`. Always exit `0`. `--apply` is reserved
+(default off; no autofix).
+
+Locked question dicts live in `questions.py`.
 
 Env (see `.env.example`):
 

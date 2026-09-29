@@ -9,7 +9,7 @@ RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality factcheck style check-content check-links
+.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality factcheck style triage check-content check-links
 
 OG_HTML = tools/og/en.html tools/og/ru.html tools/og/es.html tools/og/zh.html
 
@@ -18,7 +18,7 @@ check-content:  ## CJK-leak, parity, readme-badge checks
 
 ci:  ## Local CI ≈ GitHub test job (tests+lint+links+content+pages+artifact)
 	@echo "=== Running tests ==="
-	$(PY) -m pytest tools/validate/tests/ tools/llm/tests/ -v --ignore=tools/validate/tests/integration
+	$(PY) -m pytest tools/validate/tests/ tools/llm/tests/ tools/laya/tests/ -v --ignore=tools/validate/tests/integration
 	@echo "=== Integration tests ==="
 	$(PY) -m pytest tools/validate/tests/integration/ -v
 	@echo "=== Lint ==="
@@ -184,6 +184,10 @@ factcheck:  ## Unit fact-check. Usage: make factcheck CH=01 LANG=ru|en CN=… TR
 style:  ## Style audit (WARN-only). Usage: make style CH=10 LANG=ru
 	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make style CH=NN LANG=ru|en|es" && exit 1)
 	$(PY) tools/style_check.py book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-") --lang $(LANG)
+
+triage:  ## Laya WARN triage after style (RU). Usage: make triage CH=10 LANG=ru
+	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make triage CH=NN LANG=ru" && exit 1)
+	$(PY) -m tools.laya.triage book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-") --lang $(LANG)
 
 # ── Links ──────────────────────────────────────────────────────
 
