@@ -5,14 +5,14 @@
 # HowToLiveBetter: Guía de la vida al mejor precio — traducción española
 
 Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
-608 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
+630 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
 You don't have to do it all: this is a ranked shortlist, not a task list — pick one or two and that counts. The author has not done most of these either.
 
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/es/)
-[![Items](https://img.shields.io/badge/Items-608-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20410%20%C2%B7%20B%20149%20%C2%B7%20C%2049-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1281%20links-565a5f?style=flat-square)](docs/research/核实记录/)
+[![Items](https://img.shields.io/badge/Items-630-18794e?style=flat-square)](#table-of-contents)
+[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20420%20%C2%B7%20B%20159%20%C2%B7%20C%2051-915930?style=flat-square)](#evidence-grades)
+[![Primary sources](https://img.shields.io/badge/Primary%20sources-1341%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/es/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/research/核实记录/) · [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md)
@@ -65,14 +65,15 @@ Idiomas:
 | After eighteen, besides studying and working, which roads are open — and what are their thresholds? | [31. Paths After Eighteen](book/es/31-Caminos-Despues-De-Los-Dieciocho.md) |
 | Estudiar fuera — ¿cómo no romper el visado, y te reconocen el título al volver? | [32. Estudiar en el extranjero](book/es/32-Estudiar-En-El-Extranjero.md) |
 | Tú o un familiar se quedó con una discapacidad — ¿qué complicaciones atajar primero, qué ayudas pedir, y qué pasa con el colegio, el trabajo y la tutela? | [33. Cómo vivir después de una discapacidad](book/es/33-Como-Vivir-Tras-Una-Discapacidad.md) |
+| Cold meds, fever reducers, stomach meds you buy yourself — what not to combine, and what kids, pregnancy, and older adults must avoid? | [34. Medicamentos caseros sin hacerse daño](book/es/34-Medicamentos-Caseros-Sin-Hacerse-Dano.md) |
 
 ## How to read this
 
 - **To filter by conditions**: open the [online search page](https://dlgrv.github.io/HowToLiveBetter/es/); you can filter by keyword, chapter, and evidence grade, and combine three cost dimensions: whether it costs money, whether it takes time, whether it takes willpower. The data is read directly from the book/ text; fix the text and the search page changes with it.
 - **To read in order**: items inside each section are ordered from highest to lowest value for the money; start with the first few items of each section.
 - **If you can't read that string of numbers**: every item has an "In plain terms" line that translates the risk ratios and confidence intervals in the Benefit field into everyday statements like "about 20% lower chance of dying in the same period" or "a few days of detention, a fine of so much" — using only facts already in the original, without adding new numbers. That line alone is enough to decide; the Benefit field keeps all the raw numbers and confidence intervals so you can check for yourself.
-- **Only the hardest conclusions**: on the search page check evidence grade A to keep only the 410 items with concrete numbers from meta-analyses or large trials.
-- **Only the most worthwhile**: check "very high" value-for-money to get the 99 items that cost no money, no time, no willpower, and whose benefit lands in the largest tier. Stack one more "what it buys back" filter on top and you have the priority list under that measure.
+- **Only the hardest conclusions**: on the search page check evidence grade A to keep only the 420 items with concrete numbers from meta-analyses or large trials.
+- **Only the most worthwhile**: check "very high" value-for-money to get the 108 items that cost no money, no time, no willpower, and whose benefit lands in the largest tier. Stack one more "what it buys back" filter on top and you have the priority list under that measure.
 - **Don't be alarmed by section titles that start with "Don't"**: a section title names the outcome that section tries to prevent (don't die early, don't waste time), not a blanket ban on every item under it. Item titles are the actual actions, always starting with a verb, each carrying its own "do this" or "don't do this" — both kinds live in the same section. For example, section 4 has both "Turn 'planning to do it' into 'at such an hour, in such a place, when X happens, do it'" and "Skip TV and rolling news". Read by item title, not by the tone of the section title.
 
 Each piece of advice looks like this:
@@ -114,7 +115,7 @@ Every piece of advice carries an evidence grade:
 | B | Research-backed but hard to quantify, or evidence from small samples / a single study |
 | C | Author experience or general consensus, no direct literature |
 
-Of the 608 items in the book, 410 are grade A, 149 grade B, and 49 grade C; 56 items are marked as contested and 29 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
+Of the 630 items in the book, 420 are grade A, 159 grade B, and 51 grade C; 58 items are marked as contested and 35 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
 
 ## Value-for-money tiers
 
@@ -126,7 +127,7 @@ The evidence grade answers "can this number be trusted", not "is it worth doing"
 | Benefit magnitude | Large / medium / small | Mechanically applied from thresholds in the item's own Benefit field where possible: for lifespan, relative reduction (≥20% large, 10–20% medium, <10% or only surrogate endpoints small); for money, the amount (tens of thousands large, hundreds to thousands medium, tens of yuan small); for personal freedom, the consequence (avoiding criminal liability large, avoiding detention or administrative punishment medium, avoiding a civil dispute small); for time-energy, the saving (hours a day large, hours a week medium, one-off small) |
 | Value for money | Very high / high / ordinary | Large benefit with all three costs zero = very high; large benefit with low costs, or medium benefit with zero costs = high; the rest = ordinary |
 
-Of the 608 items in the book, 104 (17%) are very high, 276 (45%) high, and 228 (38%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
+Of the 630 items in the book, 108 (17%) are very high, 288 (46%) high, and 234 (37%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
 
 **This tier is the author's judgment, not evidence** — essentially grade C, and orthogonal to the evidence grade. An item can be grade A but ordinary value (the shingles vaccine has a phase-III RCT at 97.2% efficacy, but two doses cost three to four thousand yuan and shingles is rarely fatal), and it can be grade C but very high value (sending your itinerary to family before going abroad). "Ordinary" does not mean "shouldn't be done" — every item in the book is advice worth taking; it only means you should weigh that spend yourself.
 
@@ -217,6 +218,7 @@ The text tries to speak plainly, but citing research requires a few statistical 
 31. [Paths After Eighteen](book/es/31-Caminos-Despues-De-Los-Dieciocho.md): the legal thresholds of eight roads; military service (registration, two years as a conscript, joint punishment for refusing service, tuition compensation and further study, placement and the 30-day report, discharge pay and tax on seniority); targeted exams of grassroots service programs; joining the staff after Teach-First postings; firefighters and military civilian posts; self-study, adult-gaokao and open university; social insurance in flexible employment; injury protection for delivery riders. Measure: money/time; the refusing-service item also touches personal freedom.
 32. [Studying Abroad: Status, Work, Insurance, And Getting The Diploma Recognized](book/es/32-Estudiar-En-El-Extranjero.md): check the accreditation list before paying tuition; the US fixed admission period and 30-day departure window from September 2026; work-hour caps in the US, Canada, the UK, and Australia; full-time enrollment as the root of your status; reporting a new address within 10 days; the MOE study-abroad warnings; Australia's OSHC that must not lapse; the UK healthcare surcharge; and the 10–20 working days to reserve for returning-home credential recognition. Measure: money and personal freedom.
 33. [Cómo vivir después de una discapacidad](book/es/33-Como-Vivir-Tras-Una-Discapacidad.md): la primera década tras una discapacidad es la ventana de alto riesgo de suicidio; la hospitalización voluntaria por trastornos mentales y sus dos excepciones; cojines antiescaras para usuarios de silla de ruedas; ayudas técnicas y adaptaciones del hogar a través de la Federación de Personas con Discapacidad; solicitud del certificado de discapacidad y del subsidio de subsistencia; discriminación en admisión escolar y empleo, y cómo responder
+34. [Medicamentos caseros sin hacerse daño](book/es/34-Medicamentos-Caseros-Sin-Hacerse-Dano.md): don't double up on acetaminophen; no aspirin/nimesulide/analgin for kids' fever; who is at high risk of ibuprofen stomach harm; no combo cold meds under age 2 without a doctor; no self-dosing ibuprofen after week 20 of pregnancy; omeprazole self-use at most 7 days; no antibiotics for a cold; rehydrate first for diarrhea and don't give antidiarrheals to kids; overusing painkillers can cause more headaches. Measure: mortality.
 
 Items inside each section are ordered from highest to lowest value for money. Section titles like "Don't Die Early" or "Don't Waste Time" name the outcome the section tries to prevent; whether an item is a to-do or a don't is decided by the item title. Long reads: [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md), [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md), [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md), and [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md). The verification trail for every cited source is in [docs/核实记录](docs/research/核实记录/).
 
@@ -224,4 +226,4 @@ Items inside each section are ordered from highest to lowest value for money. Se
 
 ## The book itself
 
-The text is split into 33 section files under [book/es/](book/es/); click a section title in the table of contents above to open it. It is split because a single file would exceed GitHub's 512 KB Markdown rendering limit and later sections would not display; the [online search page](https://dlgrv.github.io/HowToLiveBetter/es/) reads these files combined and works the same way.
+The text is split into 34 section files under [book/es/](book/es/); click a section title in the table of contents above to open it. It is split because a single file would exceed GitHub's 512 KB Markdown rendering limit and later sections would not display; the [online search page](https://dlgrv.github.io/HowToLiveBetter/es/) reads these files combined and works the same way.
