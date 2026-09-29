@@ -65,7 +65,7 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 ## Índice
 
 1. [Como evitar uma morte prematura](book/pt/01-Como-Evitar-Uma-Morte-Prematura.md)
-2. [Não morra devagar](book/pt/02-N\303\243o-Morra-Devagar.md")
+2. [Não morra devagar](book/pt/02-Não-Morra-Devagar.md)
 3. [Não desperdice energia](book/pt/03-N\303\243o-desperdice-energia.md")
 4. [Não perca tempo](book/pt/04-N\303\243o-perca-tempo.md")
 5. [Não desperdice dinheiro](book/pt/05-N\303\243o-desperdice-dinheiro.md")
