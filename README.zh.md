@@ -298,9 +298,3 @@ node tools/pdf/build.mjs                   # PDF，另需 pandoc ≥ 3.1 和 typ
 ## Star 走势
 
 [![Star History Chart](https://api.star-history.com/svg?repos=eternity4719/HowToLiveBetter&type=Date)](https://star-history.com/#eternity4719/HowToLiveBetter&Date)
-
-## 赞赏
-
-觉得有用，可以用微信扫码请作者喝杯咖啡。给不给都行，不影响任何内容。
-
-<img src="ads/wechat-reward.png" alt="微信赞赏码" width="240">

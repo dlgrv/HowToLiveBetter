@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Remove upstream author ad block from README.zh.md after sync.
+"""Remove upstream author ad blocks from README.zh.md after sync.
 
-Upstream README.md ends with a 「广告位」 section linking ads/. This fork does
-not carry ads/; strip that section whenever README.zh.md is refreshed from
-upstream so the next sync does not reintroduce it.
+Upstream README.md ends with a 「广告位」 section linking ads/, and a 「赞赏」
+reward QR that also lives under ads/. This fork does not carry ads in its
+READMEs. Strip both sections whenever README.zh.md is refreshed from upstream
+so the next sync does not reintroduce them.
 """
 
 from __future__ import annotations
@@ -15,10 +16,16 @@ ADS_SECTION_RE = re.compile(
     r"\n## 广告位\n.*\Z",
     re.DOTALL,
 )
+REWARD_SECTION_RE = re.compile(
+    r"\n## 赞赏\n.*\Z",
+    re.DOTALL,
+)
 
 
 def strip_ads(text: str) -> str:
-    return ADS_SECTION_RE.sub("\n", text).rstrip() + "\n"
+    text = ADS_SECTION_RE.sub("\n", text)
+    text = REWARD_SECTION_RE.sub("\n", text)
+    return text.rstrip() + "\n"
 
 
 def main(argv: list[str] | None = None) -> int:
