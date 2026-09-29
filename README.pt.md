@@ -31,7 +31,7 @@ Idiomas:
 
 ## Perguntas que este livro tenta responder
 
-Use a [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) para filtrar por palavra-chave, seção e grau de evidência. Os capítulos em português aparecem no índice abaixo conforme forem publicados em [book/pt/](book/pt/).
+Use a [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) para filtrar por palavra-chave, seção e grau de evidência. Os capítulos em português estão em [book/pt/](book/pt/).
 
 ## Como ler
 
@@ -104,4 +104,4 @@ Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-K
 
 ## O livro em si
 
-O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice quando os arquivos existirem. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
+O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice acima. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
