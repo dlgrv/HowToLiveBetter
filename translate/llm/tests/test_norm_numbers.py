@@ -54,5 +54,25 @@ class TestNormNumbersScale(unittest.TestCase):
         self.assertIn("5", norm_numbers("1 мая", ru=True))
 
 
+class TestNormNumbersPortuguese(unittest.TestCase):
+    """pt-BR: same decimal notation as ES; scale words are not Spanish."""
+
+    def test_dot_thousands(self):
+        assert norm_numbers("610.000", lang="pt") == ["610000"]
+
+    def test_milhao(self):
+        assert norm_numbers("1,5 milhão", lang="pt") == ["1500000"]
+        assert norm_numbers("2 milhões", lang="pt") == ["2000000"]
+
+    def test_bilhao_is_billion(self):
+        assert norm_numbers("1 bilhão", lang="pt") == ["1000000000"]
+
+    def test_es_billon_still_trillion(self):
+        assert norm_numbers("1 billón", lang="es") == ["1000000000000"]
+
+    def test_legacy_es_kwarg_still_works(self):
+        assert norm_numbers("610.000", es=True) == ["610000"]
+
+
 if __name__ == "__main__":
     unittest.main()

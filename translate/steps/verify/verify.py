@@ -459,17 +459,33 @@ def fold_words(text):
     return WORD_RX.sub(rep, text)
 
 
-def norm_numbers(text, ru=False, es=False):
-    """Multiset of ABSOLUTE numeric values: scale-words (万/亿/тыс./млн/млрд/
-    thousand/million/billion/mil/millones) are folded into the value, so «65.4 万»
-    == «654 тыс.» == «654,000» == «654 000». Comma handling is language-dependent:
-    RU uses comma as decimal and space as thousands; ES also uses comma as decimal
-    and space or dot as thousands («9.676» == «9 676» == «9676»); CN/EN use the
-    dot as decimal and the comma as thousands separator."""
+def norm_numbers(text, lang=None, *, ru=False, es=False):
+    """Multiset of ABSOLUTE numeric values: scale-words are folded into the value.
+
+    Prefer ``lang=`` (``\"ru\"``, ``\"es\"``, ``\"pt\"``, or ``None`` for CN/EN).
+    Legacy ``ru=True`` / ``es=True`` map to those codes; do not mix with ``lang=``.
+
+    Decimal notation: RU uses comma as decimal and space as thousands; ES and PT
+    use comma as decimal and space or dot as thousands («9.676» == «9676»);
+    CN/EN use the dot as decimal and the comma as thousands separator.
+
+    Scale tables are per-language. Brazilian ``bilhão`` is 10^9; Spanish
+    ``billón`` is 10^12 — never share those tables.
+    """
+    if lang is not None and (ru or es):
+        raise ValueError("pass lang= or ru=/es=, not both")
+    if lang is None:
+        if ru and es:
+            raise ValueError("pass a single lang=, not both ru and es")
+        if ru:
+            lang = "ru"
+        elif es:
+            lang = "es"
+
     text = text.replace("\u00a0", " ")
     text = text.replace("\u202f", " ")
     text = re.sub(r"(?<![\d.])\.(\d+)", r"0.\1", text)
-    if ru:
+    if lang == "ru":
         text = re.sub(
             r"(\d),(\d{3})(?=\s*(?:тыс|млн|млрд|трлн|триллион|миллион|"
             r"миллиард|thousand|million|billion|trillion)\b)",
@@ -492,18 +508,23 @@ def norm_numbers(text, ru=False, es=False):
         text = text.replace("\x00", ".")
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)
-    elif es:
+    elif lang in ("es", "pt"):
         # Fold thousands dots before commas become decimals. «9.676» / «1.234.567»
-        # must not be read as 9.676 / 1.234 after the comma→dot pass (that would
-        # turn «1,676» into the decimal 1.676, which is correct and distinct).
+        # must not be read as 9.676 / 1.234 after the comma→dot pass.
         text = re.sub(
             r"(?<![\d,])(\d{1,3}(?:\.\d{3})+)(?!\d)",
             lambda m: m.group(1).replace(".", ""),
             text,
         )
+        if lang == "es":
+            scale_ahead = r"mil(?:|es)\b|millones|millón\b|mil millones|billones|trillones"
+        else:
+            scale_ahead = (
+                r"mil\b|milhões|milhão\b|mil milhões|bilhões|bilhão\b|"
+                r"trilhões|trilhão\b"
+            )
         text = re.sub(
-            r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
-            r"mil millones|billones|trillones))",
+            rf"(\d),(\d{{3}})(?=\s*(?:{scale_ahead}))",
             r"\1.\2",
             text,
             flags=re.IGNORECASE,
@@ -513,10 +534,21 @@ def norm_numbers(text, ru=False, es=False):
     else:
         text = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", text)
     text = fold_words(text)
+
+    if lang == "pt":
+        distrib_scales = (
+            r"тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion|тысяч|"
+            r"миллион|миллиард|триллион|trillion|milhões|milhão|bilhões|bilhão|"
+            r"trilhões|trilhão|mil"
+        )
+    else:
+        distrib_scales = (
+            r"тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion|тысяч|"
+            r"миллион|миллиард|триллион|trillion|millones|millón|billones|mil"
+        )
     _distrib = re.compile(
         r"(\d+(?:\.\d+)?)((?:\s+(?:до|and|to|a|de)\s*|\s*[–—-]\s*)\d+(?:\.\d+)?)"
-        r"\s*(тыс\.?|млн\.?|млрд\.?|трлн\.?|thousand|million|billion|тысяч|"
-        r"миллион|миллиард|триллион|trillion|millones|millón|billones|mil)\b",
+        rf"\s*({distrib_scales})\b",
         flags=re.IGNORECASE,
     )
 
@@ -538,6 +570,10 @@ def norm_numbers(text, ru=False, es=False):
             "billion": 1e9,
             "trillion": 1e12,
             "mil": 1e3,
+            "milhão": 1e6,
+            "milhões": 1e6,
+            "bilhão": 1e9,
+            "bilhões": 1e9,
         }.get(key, 1)
         a, b = float(first), float(second)
         if a > 0 and b > 0 and 1e-2 <= (a / b) <= 1e2:
@@ -545,10 +581,9 @@ def norm_numbers(text, ru=False, es=False):
         return m.group(0)
 
     text = _distrib.sub(_distribute, text)
-    scale = [
-        ("mil millones", 1e9),
-        ("mil millón", 1e9),
-        ("mil millon", 1e9),
+
+    # Longer keys first so «milhões» / «millones» win over bare «mil».
+    scale_common = [
         ("тысяч", 1e3),
         ("тыс", 1e3),
         ("миллион", 1e6),
@@ -568,21 +603,47 @@ def norm_numbers(text, ru=False, es=False):
         ("thousand", 1e3),
         ("million", 1e6),
         ("billion", 1e9),
-        ("millones", 1e6),
-        ("millón", 1e6),
-        ("millon", 1e6),
-        ("mil", 1e3),
-        ("billones", 1e12),
-        ("billón", 1e12),
-        ("trillones", 1e12),
     ]
+    if lang == "pt":
+        scale = [
+            ("mil milhões", 1e9),
+            ("milhões", 1e6),
+            ("milhão", 1e6),
+            ("bilhões", 1e9),
+            ("bilhão", 1e9),
+            ("trilhões", 1e12),
+            ("trilhão", 1e12),
+            *scale_common,
+            ("mil", 1e3),
+        ]
+        romance_scales = (
+            r"mil\s+milhões|milhões|milhão\b|bilhões|bilhão\b|"
+            r"trilhões|trilhão\b|mil\b"
+        )
+    else:
+        scale = [
+            ("mil millones", 1e9),
+            ("mil millón", 1e9),
+            ("mil millon", 1e9),
+            *scale_common,
+            ("millones", 1e6),
+            ("millón", 1e6),
+            ("millon", 1e6),
+            ("mil", 1e3),
+            ("billones", 1e12),
+            ("billón", 1e12),
+            ("trillones", 1e12),
+        ]
+        romance_scales = (
+            r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
+            r"billones|billón\b|trillones|mil\b"
+        )
     out = []
     for m in re.finditer(
         r"(\d+(?:\.\d+)?)\s*[多余]?\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百)\s*[多余]?|"
         r"(\d+(?:\.\d+)?)\s*(万亿|千万|百万|万|亿|千(?![卡克瓦赫])|百|тысяч\w*|тыс\.?|миллион\w*|млн|"
         r"миллиард\w*|млрд|трлн|триллион\w*|trillion|thousand|million|billion|"
-        r"mil\s+millones|mil\s+millón|mil\s+millon|millones|millón\b|"
-        r"billones|billón\b|trillones|mil\b)?",
+        rf"{romance_scales})?",
         text,
         flags=re.IGNORECASE,
     ):
@@ -732,7 +793,7 @@ def main():
                 )
 
     cn_nums = norm_numbers("\n".join(cn_body))
-    tr_nums = norm_numbers("\n".join(tr_body), ru=(lang == "ru"), es=(lang == "es"))
+    tr_nums = norm_numbers("\n".join(tr_body), lang=lang)
     from collections import Counter
 
     missing = Counter(cn_nums) - Counter(tr_nums)

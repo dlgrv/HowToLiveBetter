@@ -1,0 +1,105 @@
+{
+  "labels": {
+    "cn": [
+      "成本",
+      "说人话",
+      "收益",
+      "证据等级",
+      "备注"
+    ],
+    "pt": [
+      "Custo",
+      "Em linguagem simples",
+      "Benefício",
+      "Nível de evidência",
+      "Notas"
+    ]
+  },
+  "source_label": "Fontes",
+  "evidence_grade_label": "Nível de evidência",
+  "banned_calques": [],
+  "style_markers": [
+    {
+      "pattern": "\\bno que diz respeito a\\b",
+      "label": "no-que-diz-respeito",
+      "note": "burocratismo → sobre / quanto a"
+    },
+    {
+      "pattern": "\\bem virtude de\\b",
+      "label": "em-virtude-de",
+      "note": "em virtude de → por / devido a"
+    },
+    {
+      "pattern": "\\bcom o intuito de\\b",
+      "label": "com-o-intuito-de",
+      "note": "com o intuito de → para"
+    },
+    {
+      "pattern": "\\bde acordo com o disposto\\b",
+      "label": "de-acordo-disposto",
+      "note": "de acordo com o disposto → conforme a lei / o texto"
+    },
+    {
+      "pattern": "\\bde acordo com o previsto\\b",
+      "label": "de-acordo-previsto",
+      "note": "de acordo com o previsto → conforme"
+    },
+    {
+      "pattern": "\\bno sentido de\\b",
+      "label": "no-sentido-de",
+      "note": "no sentido de → para / de modo a"
+    },
+    {
+      "pattern": "\\btendo em vista\\b",
+      "label": "tendo-em-vista",
+      "note": "tendo em vista → considerando / para"
+    },
+    {
+      "pattern": "\\bvisando\\b",
+      "label": "visando",
+      "note": "visando → para (evitar gerúndio burocrático)"
+    },
+    {
+      "pattern": "\\bcumpre salientar que\\b",
+      "label": "cumpre-salientar",
+      "note": "abridor vazio → omitir"
+    },
+    {
+      "pattern": "\\bfaz-se necessário\\b",
+      "label": "faz-se-necessario",
+      "note": "faz-se necessário → é preciso / você precisa"
+    },
+    {
+      "pattern": "\\bpor ocasião de\\b",
+      "label": "por-ocasiao-de",
+      "note": "por ocasião de → quando / na"
+    },
+    {
+      "pattern": "\\bem relação a\\b",
+      "label": "em-relacao-a",
+      "note": "em relação a → sobre / quanto a"
+    },
+    {
+      "pattern": "\\bno âmbito de\\b",
+      "label": "no-ambito-de",
+      "note": "no âmbito de → em / dentro de"
+    },
+    {
+      "pattern": "\\butilizar\\b",
+      "label": "utilizar",
+      "note": "preferir 'usar' em linguagem simples"
+    }
+  ],
+  "whitelist_zones": [
+    "- Benefício:",
+    "- Notas:",
+    "- Fontes:",
+    "- Nível de evidência:",
+    "<!-- 成本标签"
+  ],
+  "soft_calques": [
+    "cohorte",
+    "herbicida",
+    "paraquat isolado"
+  ]
+}

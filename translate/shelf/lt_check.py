@@ -5,7 +5,7 @@ Self-hosted LT (Docker :8010). Run after green verify, before polish.
 Server unreachable with plain-terms to check → exit 2.
 Grammar hits print as WARN lines; exit 0 when LT answered.
 
-CLI: python3 translate/shelf/lt_check.py --file book/<lang>/<chapter>.md --lang ru|en|es
+CLI: python3 translate/shelf/lt_check.py --file book/<lang>/<chapter>.md --lang ru|en|es|pt
 """
 
 import argparse
@@ -25,6 +25,7 @@ LT_LANG = {
     "ru": "ru-RU",
     "en": "en-US",
     "es": "es",
+    "pt": "pt-BR",
 }
 
 
@@ -133,7 +134,7 @@ def exit_code_for_findings(findings):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="LanguageTool check (plain-terms; required)")
     ap.add_argument("--file", required=True, help="markdown chapter file")
-    ap.add_argument("--lang", required=True, help="language pack key (ru|en|es)")
+    ap.add_argument("--lang", required=True, help="language pack key (ru|en|es|pt)")
     ap.add_argument(
         "--base-url",
         default=DEFAULT_BASE_URL,

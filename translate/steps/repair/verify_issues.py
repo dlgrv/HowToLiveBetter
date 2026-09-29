@@ -23,7 +23,7 @@ REPAIRABLE_KINDS = frozenset({"number_absent", "banned_calque"})
 
 def _num_counter(text: str, lang: str) -> Counter:
     """Counter of absolute numeric values (norm_numbers-folded) in text."""
-    return Counter(norm_numbers(text, ru=(lang == "ru"), es=(lang == "es")))
+    return Counter(norm_numbers(text, lang=lang))
 
 
 def parse_verify_json(stdout: str) -> dict:

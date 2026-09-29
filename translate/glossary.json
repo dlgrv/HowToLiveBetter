@@ -263,6 +263,20 @@
       "En el campo «En términos sencillos»: no comprimir de más cifras ya claras (mejor «hubo 828 intoxicaciones por setas» que un telegrama). Corta jerga legal, no el ritmo natural.",
       "Pase simplify: si ya pasa el neighbor test, corrige solo defectos — no reescribas solo para acortar.",
       "En el campo «En términos sencillos»: unidades y abreviaturas médicas — glosa la primera vez (ver abbrev_gloss_examples): mmHg (milímetros de mercurio); IMC (índice de masa corporal); TAC/TC (tomografía computarizada); RM (resonancia magnética); ecografía; VPH (virus del papiloma humano); mmol/L (milimoles por litro); mg/dL (miligramos por decilitro). Opcional omitir: ml, °C, SIM/PIN si el contexto basta."
+    ],
+    "pt": [
+      "Português brasileiro claro e sóbrio; sem exclamações; títulos de item com verbo.",
+      "Conceitos próprios da China: transliteração + glossa breve na primeira vez no arquivo, p. ex. dibao (低保 — auxílio mínimo por renda).",
+      "万 = ×10 000 (2 万 = 20 000 yuan). Números idênticos ao original; decimais com vírgula (43,2 %).",
+      "No campo «Em linguagem simples»: sem jargão epidemiológico (HR, RR, IC); cifras só as de «Benefício».",
+      "No campo «Em linguagem simples»: veneno de mato (paraquat); não herbicida sozinho nem paraquat a seco.",
+      "Nomes geográficos: gramática natural do português (em Bangladesh), sem calco do inglês.",
+      "Procedimentos médicos detalhados ficam em «Benefício»; em linguagem simples só a mensagem para o leitor.",
+      "No campo «Em linguagem simples»: dois % na mesma frase — verbos paralelos completos (reduz a chance de morrer… e a de lesão na cabeça…); sem elipse telegráfica.",
+      "Fecho de advertência: preferir o tipo de afirmação do chinês (não conta como carregar); «não ajuda» só se não endurecer o sentido.",
+      "No campo «Em linguagem simples»: não comprimir demais cifras já claras (melhor «houve 828 intoxicações por cogumelo» que um telegrama). Corte jargão jurídico, não o ritmo natural.",
+      "Passe simplify: se já passa no neighbor test, corrija só defeitos — não reescreva só para encurtar.",
+      "No campo «Em linguagem simples»: unidades e abreviaturas médicas — glossar na primeira vez (ver abbrev_gloss_examples): mmHg (milímetros de mercúrio); IMC (índice de massa corporal); TC (tomografia computadorizada); RM (ressonância magnética); ultrassom; HPV (papilomavírus humano); mmol/L (milimoles por litro); mg/dL (miligramas por decilitro). Opcional omitir: ml, °C, SIM/PIN se o contexto bastar."
     ]
   },
   "name_forms": [

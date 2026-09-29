@@ -14,6 +14,7 @@ from typing import Any
 
 from translate.laya import client as laya_client
 from translate.laya.questions import CLARITY_QUESTIONS, interpret_clarity
+from translate.lib.config import default_root, translation_langs
 from translate.lib.labels import PLAIN_FIELD_INDEX, field_labels
 
 VERDICTS = frozenset({"понятно", "непонятно", "skip_server_down"})
@@ -79,7 +80,11 @@ def main(argv: list[str] | None = None) -> int:
         description="Laya clarity on plain-terms lines (понятно/непонятно; ru|en|es)"
     )
     ap.add_argument("file", help="chapter markdown")
-    ap.add_argument("--lang", required=True, choices=("ru", "en", "es"))
+    ap.add_argument(
+        "--lang",
+        required=True,
+        choices=tuple(translation_langs(default_root())),
+    )
     ap.add_argument("--base-url", default=None)
     ap.add_argument("--timeout", type=float, default=laya_client.DEFAULT_TIMEOUT)
     ap.add_argument("--json", action="store_true")

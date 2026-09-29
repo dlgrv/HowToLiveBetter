@@ -6,6 +6,7 @@ Uses language-specific readability metrics:
 - RU: Flesch-Kincaid adapted (sentence length, word length, syllable count)
 - EN: Flesch Reading Ease + Flesch-Kincaid Grade Level
 - ES: Fernández Huerta (adapted Flesch for Spanish)
+- PT: same coefficients as ES; Brazilian Portuguese grade labels
 """
 
 import json
@@ -201,13 +202,32 @@ def flesch_es(text):
     }
 
 
-SCORERS = {"ru": flesch_ru, "en": flesch_en, "es": flesch_es}
+def flesch_pt(text):
+    """Fernández Huerta coefficients; Brazilian Portuguese readability labels."""
+    base = flesch_es(text)
+    score = base["score"]
+    if score >= 80:
+        grade = "muito fácil"
+    elif score >= 60:
+        grade = "fácil"
+    elif score >= 40:
+        grade = "médio"
+    elif score >= 20:
+        grade = "um pouco difícil"
+    else:
+        grade = "muito difícil"
+    return {**base, "grade": grade}
+
+
+SCORERS = {"ru": flesch_ru, "en": flesch_en, "es": flesch_es, "pt": flesch_pt}
 
 
 def score_file(path, lang):
     with open(path, encoding="utf-8") as f:
         text = f.read()
-    scorer = SCORERS.get(lang, flesch_en)
+    if lang not in SCORERS:
+        raise ValueError(f"unknown language {lang!r}; supported: {sorted(SCORERS)}")
+    scorer = SCORERS[lang]
     result = scorer(text)
     result["path"] = os.path.relpath(path, ROOT)
     result["file"] = os.path.basename(path)
@@ -218,7 +238,7 @@ def main():
     import argparse
 
     ap = argparse.ArgumentParser(description="Readability scorer")
-    ap.add_argument("lang", nargs="?", default="ru", help="Target language (ru/en/es)")
+    ap.add_argument("lang", nargs="?", default="ru", help="Target language (ru/en/es/pt)")
     ap.add_argument("--dir", default=None, help="Directory (default: book/LANG/)")
     ap.add_argument("--json", action="store_true", help="Output JSON")
     ap.add_argument("--desc", action="store_true", help="Sort by score ascending (hardest first)")
