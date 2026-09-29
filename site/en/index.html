@@ -4,7 +4,7 @@
 <script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <script>
 /* HTLB_LANGS_BEGIN */
-window.__HTLB_LANGS__={"codes":["en","ru","zh","es"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419"}};
+window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES","pt":"PT"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español","pt":"Português"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md","pt":"README.pt.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419","pt":"pt_BR"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419","pt":"pt-BR"}};
 /* HTLB_LANGS_END */
 </script>
 <script>
@@ -525,11 +525,12 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
           <button type="button" role="menuitem" data-lang="es">Español</button>
+          <button type="button" role="menuitem" data-lang="pt">Português</button>
         </div>
       </details>
       <a class="icon-btn ic-doc" href="../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
@@ -703,6 +704,7 @@ function fileCountPhrase(n){
   if (!n) return '…';
   if (LANG === 'zh') return n + ' 个文件';
   if (LANG === 'en') return n + (n === 1 ? ' file' : ' files');
+  if (LANG === 'pt') return n + (n === 1 ? ' arquivo' : ' arquivos');
   const m10 = n % 10, m100 = n % 100;
   if (m10 === 1 && m100 !== 11) return n + ' файл';
   if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return n + ' файла';
@@ -834,6 +836,45 @@ const I18N = {
    about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
    author:'HowToLiveBetter (traducción al español)',
    forkNote:'Traducción no oficial. El <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original chino</a> es el autorizado.',
+   snapshotNote:'' },
+ pt:{ htmlLang:'pt-BR', title:'Guia de vida com melhor custo-benefício', search:'Buscar nas recomendações', searchShort:'Buscar',
+   noscriptH:'Guia de vida com melhor custo-benefício',
+   noscriptP:'Tradução para o português brasileiro de HowToLiveBetter (高性价比人生指南): 34 seções; cada recomendação indica custo, benefício, nível de evidência e fonte primária.',
+   noscriptLink:'Os filtros e a busca desta página exigem JavaScript. O texto pode ser lido diretamente: <a href="../README.pt.md">README.pt.md</a> (índice) e o diretório <a href="../book/pt/">book/pt/</a>.',
+   docHead:'Cada recomendação responde a duas perguntas: o que custa — e o que devolve.',
+   docHead2:'A quem o benefício chega também é em camadas: primeiro você, depois cônjuge e família direta, depois amigos e colegas; estranhos vêm por último. «Por último» não significa «zero»: a chance de retorno é menor e os riscos precisam ser pesados junto com o benefício.',
+   fbAria:'Feedback', fbIssueT:'Encontrou um erro ou quer sugerir algo —', fbIssue:'abra um issue', fbStarT:'Gostou do livro —', fbStar:'dê uma estrela ao repositório',
+   shown:'Mostrando', of:'de', loading:'Carregando o texto…',
+   empty:'Nada encontrado. Remova um dos filtros ou tente uma busca mais curta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
+   sections:'Seções', ratioH:'Benefício / custos', ratioS:'Julgamento do autor, comparável só dentro da mesma categoria',
+   lensH:'O que você ganha', lensS:'As categorias não se comparam entre si',
+   gradeH:'Evidência', gradeS:'Metanálise/ECR · há estudos · consenso', gradeA:'Nível A', gradeB:'Nível B', gradeC:'Nível C',
+   moneyH:'Dinheiro', timeH:'Tempo', willH:'Força de vontade',
+   money0:'Grátis', moneyL:'Pouco', moneyM:'Muito', timeL:'Na hora', timeM:'Algumas horas', timeH2:'Todo dia', willN:'Não precisa', willS:'Um pouco', willB:'Bastante',
+   fDispute:'só controversas', fTodo:'só sem verificar',
+   hint1:'Uma seção por vez; custos e nível podem ser combinados. Dentro de um grupo a escolha é «ou», entre grupos «e».',
+   hint2:'Dentro de uma seção — por benefício decrescente. A busca não altera a ordem.',
+   hint3:'Os dados vêm do diretório <a href="../book/pt/">book/pt/</a> ({n}); edite o texto lá.',
+   foot:'A categoria do benefício está em cada entrada (mortalidade / tempo e energia / dinheiro / proteção e liberdade pessoal); as categorias não se comparam entre si. Verificação de fontes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (em chinês)</a>. O texto é de domínio público (Unlicense).',
+   kCost:'Custo', kGain:'Benefício', kNote:'Notas', src:'Fontes', anchor:'Link para esta entrada',
+   ratioBadge:'Benefício/custos', ratioTitle:'Julgamento do autor: a partir do nível do efeito', gradeBadge:'Evidência', dispute:'Em disputa', todo:'Tem item sem verificar',
+   ratio:{'极高':'Muito alta','高':'Alta','一般':'Normal'},
+   lens:{'死亡率':'Vida','金钱':'Dinheiro','时间':'Tempo e energia','自由':'Liberdade'},
+   moneyL2:{'0':'Grátis','少':'Gasto pequeno','多':'Gasto relevante'},
+   timeL2:{'少':'Na hora','中':'Algumas horas','多':'Todo dia'},
+   willL2:{'否':'Sem esforço','些':'Um pouco de esforço','是':'Esforço sério'},
+   ratioFull:'Benefício/custos: ', gradeFull:'Evidência: ',
+   errFile:'Esta página só abre por http. Execute <code>python -m http.server</code> no diretório do repositório e abra <code>http://localhost:8000/</code>, ou use o endereço do GitHub Pages.',
+   errLoad:(m)=>`Não foi possível carregar o texto (${m}). Confira se o README e o diretório book/ estão ao lado de index.html.`,
+   cap:true,
+   allSections:'Seções',
+   readmeHref:'README.pt.md', readmeTitle:'Abrir README',
+   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
+   metaDesc:'Guia ordenado por custo-benefício: 528 recomendações — saúde e longevidade, primeiros socorros, dinheiro, proteção contra fraudes, limites legais, trabalho, família. Cada uma indica custo, benefício, nível de evidência e fonte primária; filtre por dinheiro, tempo e força de vontade.',
+   keywords:'saúde,longevidade,medicina baseada em evidências,mortalidade,economizar dinheiro,finanças pessoais,fraude,primeiros socorros,direito,psicologia',
+   about:['saúde','longevidade','finanças pessoais','primeiros socorros','direito','proteção do consumidor'],
+   author:'HowToLiveBetter (tradução para português brasileiro)',
+   forkNote:'Tradução não oficial. O <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original em chinês</a> é o autoritativo.',
    snapshotNote:'' },
  zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',

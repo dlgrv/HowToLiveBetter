@@ -43,6 +43,17 @@
       "inLanguage": "es-419",
       "shortLabel": "ES",
       "menuLabel": "Español"
+    },
+    {
+      "code": "pt",
+      "primary": false,
+      "contentRoot": "book/pt",
+      "readme": "README.pt.md",
+      "htmlLang": "pt-BR",
+      "ogLocale": "pt_BR",
+      "inLanguage": "pt-BR",
+      "shortLabel": "PT",
+      "menuLabel": "Português"
     }
   ]
 }

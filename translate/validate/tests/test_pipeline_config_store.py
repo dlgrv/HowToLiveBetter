@@ -27,11 +27,11 @@ class TestProjectConfig(unittest.TestCase):
         self.assertIn("zh", site)
         self.assertNotIn("zh", tr)
         self.assertNotIn("cn", tr)
-        self.assertEqual(set(tr), {"en", "ru", "es"})
+        self.assertEqual(set(tr), {"en", "ru", "es", "pt"})
         self.assertTrue(set(tr).issubset(set(site)))
 
     def test_lang_rules_skeleton_keys(self):
-        for lang in ("ru", "en", "es"):
+        for lang in pconfig.translation_langs(REPO_ROOT):
             rules = pconfig.load_lang_rules(lang, root=REPO_ROOT)
             for key in (
                 "labels",

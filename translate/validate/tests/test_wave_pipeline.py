@@ -25,13 +25,18 @@ def _setup_temp_repo(tmp: str) -> None:
     )
 
     stub = "# 2. stub\n\nMinimal chapter for wave_pipeline smoke test.\n"
-    for lang in ("ru", "en", "es"):
+    import json
+
+    with open(os.path.join(tmp, "translate", "langs.json"), encoding="utf-8") as fh:
+        langs = json.load(fh)
+    codes = [x["code"] for x in langs["languages"] if x["code"] != "zh"]
+    for lang in codes:
         lang_dir = os.path.join(tmp, "book", lang)
         os.makedirs(lang_dir, exist_ok=True)
         with open(os.path.join(lang_dir, "02-stub.md"), "w", encoding="utf-8") as f:
             f.write(stub)
 
-    for lang in ("ru", "en", "es"):
+    for lang in codes:
         units = os.path.join(tmp, "translate", "runs", "active", lang, "02", "units")
         os.makedirs(units, exist_ok=True)
         with open(os.path.join(units, "01.md"), "w", encoding="utf-8") as f:
@@ -65,12 +70,13 @@ class TestWavePipelineMain(unittest.TestCase):
                 rc = wave_pipeline.main(["02"])
 
         self.assertEqual(rc, 0)
-        self.assertEqual(len(assemble_calls), 3)
-        self.assertEqual(len(verify_calls), 3)
+        expected = {"ru", "en", "es", "pt"}
+        self.assertEqual(len(assemble_calls), len(expected))
+        self.assertEqual(len(verify_calls), len(expected))
         langs_assembled = {c[-1] for c in assemble_calls}
         langs_verified = {c[c.index("--lang") + 1] for c in verify_calls}
-        self.assertEqual(langs_assembled, {"ru", "en", "es"})
-        self.assertEqual(langs_verified, {"ru", "en", "es"})
+        self.assertEqual(langs_assembled, expected)
+        self.assertEqual(langs_verified, expected)
 
 
 if __name__ == "__main__":

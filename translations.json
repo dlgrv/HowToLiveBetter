@@ -515,5 +515,17 @@
       "file": "34-Medicamentos-Caseros-Sin-Hacerse-Dano.md",
       "verified": null
     }
+  },
+  "pt": {
+    "01": {
+      "status": "complete",
+      "file": "01-Como-Evitar-Uma-Morte-Prematura.md",
+      "verified": null
+    },
+    "02": {
+      "status": "complete",
+      "file": "02-Não-Morra-Devagar.md",
+      "verified": null
+    }
   }
 }

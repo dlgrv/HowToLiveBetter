@@ -22,6 +22,7 @@ You don't have to do it all: this is a ranked shortlist, not a task list — pic
 Idiomas:
 
 - [🇪🇸 Español](README.es.md) - [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
+- [🇧🇷 Português](README.pt.md) - [ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/)
 - [🇬🇧 English](README.md) - [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
 - [🇷🇺 Русский](README.ru.md) - [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
 - [🇨🇳 中文](README.zh.md) - [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)

@@ -269,6 +269,7 @@ SECTION_COUNT = {
     "README.es.md": re.compile(r"split into (\d+) section files"),
     "README.ru.md": re.compile(r"разбит на (\d+) файл(?:а|ов)?"),
     "README.zh.md": re.compile(r"拆成 (\d+) 个文件"),
+    "README.pt.md": re.compile(r"dividido em (\d+) arquivos"),
 }
 
 IN_PROGRESS_MARKERS = (

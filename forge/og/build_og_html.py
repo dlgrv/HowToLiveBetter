@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render forge/og/{en,ru,es,zh}.html from forge/og/_template.html.
+"""Render forge/og/{en,ru,es,zh,pt}.html from forge/og/_template.html.
 
 Usage (from repo root):
   python3 forge/og/build_og_html.py
@@ -63,6 +63,19 @@ LOCALES = {
         "grade_a_suffix": "",
         "links_label": "enlaces a fuentes primarias",
         "filter_label": "Filtro por relación valor-precio",
+    },
+    "pt": {
+        "font_family": LATIN_SERIF,
+        "h1_size": "52",
+        "brand": "HowToLiveBetter: Guia de vida com melhor custo-benefício",
+        "h1_line1": "Menos tempo, esforço e gasto —",
+        "h1_line2": "mais vida, liberdade e dinheiro",
+        "topics": "Longevidade | Primeiros socorros | Dinheiro | Leis | Família | Habilidades",
+        "tips_label": "recomendações",
+        "grade_a_label": "Evidência nível A",
+        "grade_a_suffix": "",
+        "links_label": "links para fontes primárias",
+        "filter_label": "Filtro por custo-benefício",
     },
     "zh": {
         "font_family": CJK_SERIF,
