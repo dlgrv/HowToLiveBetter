@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Content gates for the translated HowToLiveBetter repo.
 
-Four gates, one runner:
+Five gates, one runner:
 
 1. CJK LEAKS      No untranslated Chinese prose in book/{en,ru}, docs/{en,ru}.
                   Legal CJK: 《book titles》, parenthetical glosses (… — …),
@@ -13,17 +13,20 @@ Four gates, one runner:
 2. FILENAMES      No CJK characters in file names under translated dirs
                   (book/en, book/ru, docs/en, docs/ru). CN originals in book/
                   and docs/ root are Chinese by definition.
-3. PARITY         Chapters NN 01..32 exist exactly once in book/, book/en,
-                  book/ru; every NN is linked from all three READMEs; item
-                  (###) count matches across the three languages per chapter;
-                  each README links >=4 docs long reads in its language.
+3. PARITY         Each chapter NN exists once in book/ and each translated
+                  tree; every NN is linked from each langs.json README; item
+                  (###) counts match per chapter; each README links >=4 docs
+                  long reads in its language.
 4. STATS          Items / A-grade / primary-link counts recomputed from
-                  book/*.md must appear in all three READMEs (badge sync).
+                  book/*.md must appear in every langs.json README (badge sync).
+5. README         Section-count sentence and in-progress markers are checked
+                  for every langs.json README.
 
 Exit codes: 0 = all gates pass, 1 = violations found.
 """
 
 import glob
+import json
 import os
 import re
 import sys
@@ -261,6 +264,71 @@ def gate_stats(issues):
                     )
 
 
+SECTION_COUNT = {
+    "README.md": re.compile(r"split into (\d+) section files"),
+    "README.es.md": re.compile(r"split into (\d+) section files"),
+    "README.ru.md": re.compile(r"разбит на (\d+) файл(?:а|ов)?"),
+    "README.zh.md": re.compile(r"拆成 (\d+) 个文件"),
+}
+
+IN_PROGRESS_MARKERS = (
+    "traducción en curso",
+    "translation in progress",
+    "перевод в процессе",
+    "翻译进行中",
+)
+
+
+def section_count_issues(readme_name, text, n_chapters):
+    pat = SECTION_COUNT.get(readme_name)
+    if pat is None:
+        return []
+    m = pat.search(text)
+    if not m:
+        return [f"[readme] {readme_name}: section-count sentence missing"]
+    stated = int(m.group(1))
+    if stated != n_chapters:
+        return [
+            f"[readme] {readme_name}: says {stated} section files, found {n_chapters} chapter files"
+        ]
+    return []
+
+
+def stale_status_issues(text, all_complete):
+    if not all_complete:
+        return []
+    return [
+        f"[readme] stale in-progress marker {marker!r} but every chapter is complete"
+        for marker in IN_PROGRESS_MARKERS
+        if marker in text
+    ]
+
+
+def _all_complete(lang_code):
+    path = os.path.join(ROOT, "translations.json")
+    data = json.load(open(path, encoding="utf-8"))
+    block = data.get(lang_code)
+    if not isinstance(block, dict):
+        return None  # zh and unknown langs: skip
+    chapters = [v for v in block.values() if isinstance(v, dict) and "status" in v]
+    if not chapters:
+        return None
+    return all(v["status"] == "complete" for v in chapters)
+
+
+def gate_readme_facts(issues):
+    for entry in load_langs(ROOT):
+        readme = entry["readme"]
+        text = open(os.path.join(ROOT, readme), encoding="utf-8").read()
+        n = len(chapter_nns(entry["contentRoot"]))
+        issues.extend(section_count_issues(readme, text, n))
+        complete = _all_complete(entry["code"])
+        if complete is None:
+            continue
+        for item in stale_status_issues(text, complete):
+            issues.append(f"{item} ({readme})")
+
+
 def main():
     issues = []
     gate_filenames(issues)
@@ -268,7 +336,8 @@ def main():
     gate_empty_fields(issues)
     gate_parity(issues)
     gate_stats(issues)
-    print("content gates: filenames, cjk-leaks, empty-fields, parity, stats")
+    gate_readme_facts(issues)
+    print("content gates: filenames, cjk-leaks, empty-fields, parity, stats, readme")
     if issues:
         print(f"VIOLATIONS: {len(issues)}")
         for i in issues:
