@@ -15,13 +15,15 @@
 
 ## Шаг 0. Инфраструктура (однократно, ~1 ч агента, 0 токенов API)
 
-Скрипты в `tools/validate/`:
+Скрипты калибровки в `tools/validate/research/` (не на publish spine):
 - `qe_noise.py` — шум/порог CometKiwi (шаг 1).
 - `golden_pairs.py` — сборка золотых A/B-пар со стратификацией и фиксированным seed, маппинг пар→вердикты в JSON (шаг 2).
 - `judge_agreement.py` — kappa/совпадения судья↔Лёня, judge↔judge, bias-метрики (шаг 3).
 - `style_fp_audit.py` — прогон A по всем главо-языкам, выборка WARN-ов на аудит (шаг 4).
 - `mutation_test.py` — инъекция 30 семантических мутаций + контрольных чистых юнитов для E (шаг 5).
 - `nativeness_rate.py` — книг-левел метрика (шаг 7).
+
+Publish-adjacent в `tools/validate/`: `factcheck.py`, `plainness.py`, `judge.py`; конфиг QE — `tools/validate/qe_config.json`.
 
 Артефакты: `tools/validate/results/*.json` (seed, ID пар, вердикты) — коммитятся, чтобы любой прогон повторялся.
 

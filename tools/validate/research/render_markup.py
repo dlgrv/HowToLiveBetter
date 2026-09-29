@@ -7,7 +7,7 @@ marker must stay blind to the key. Identical (decoy) pairs render with no
 marks at all, which the marker is told to expect.
 
 Usage:
-  python3 tools/validate/render_markup.py \
+  python3 tools/validate/research/render_markup.py \
       --subset tools/validate/results/golden_lite_subset.json \
       --out /tmp/htlb-markup-lite.html [--title "..."]
 """

@@ -10,7 +10,7 @@ plus a summary.json with native_preference / decoy FP / length-bias /
 position-bias breakdowns.
 
 Usage:
-  python3 tools/validate/judge_blind_run.py \
+  python3 tools/validate/research/judge_blind_run.py \
       --subset tools/validate/results/golden_lite_subset.json \
       --out tools/validate/results/golden_judge_run_lite
 """

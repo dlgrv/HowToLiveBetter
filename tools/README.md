@@ -168,3 +168,5 @@ Tone, titles, Cost tags, ES parity by eye. One chapter ≈ one commit; overlay o
 | Cloud LLM instead of local | same `.env` (`HTLB_LLM_BASE_URL` / `MODEL` / `API_KEY`); no llama-server |
 
 Workdirs under `tools/runs/` and digests under `tools/digest/` are local state (gitignored). Publication is `book/<lang>/` + `translations.json` via MR.
+
+Research / calibration CLIs live under [`validate/research/`](validate/research/) and are **not** on the publish spine.

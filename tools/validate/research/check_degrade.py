@@ -9,7 +9,7 @@ Checks per pair (recipe-aware):
   - length ratio within recipe band (abridgement 0.55–0.90, bloat 1.15–1.70)
   - variant_b != variant_a; no recipe/meta words leaked into text
 Usage:
-  python3 tools/validate/check_degrade.py --file results/_lite2_degrade_bloat.json \
+  python3 tools/validate/research/check_degrade.py --file results/_lite2_degrade_bloat.json \
       --recipe bloat
 """
 

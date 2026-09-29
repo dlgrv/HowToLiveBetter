@@ -2,7 +2,7 @@
 
 import unittest
 
-from tools.validate.render_markup import diff_texts, diff_words
+from tools.validate.research.render_markup import diff_texts, diff_words
 
 
 class TestDiffWords(unittest.TestCase):

@@ -11,7 +11,7 @@ import unittest
 import pytest
 from tools.pipeline.paths import load_chapter_text, tr_chapter_path
 from tools.test_paths import REPO_ROOT
-from tools.validate import mutation_test as mt
+from tools.validate.research import mutation_test as mt
 
 RESULTS = os.path.join(REPO_ROOT, "tools", "validate", "results")
 SPEC_PATH = os.path.join(RESULTS, "mutations_seed42.json")

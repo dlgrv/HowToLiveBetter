@@ -2,7 +2,7 @@
 
 import unittest
 
-from tools.validate import check_degrade as cd
+from tools.validate.research import check_degrade as cd
 
 ORIG_RU = """### 2. Заголовок
 <!-- 成本标签: 钱=0 时间=少 -->

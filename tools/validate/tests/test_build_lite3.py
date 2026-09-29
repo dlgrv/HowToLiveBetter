@@ -1,20 +1,10 @@
 """Tests for build_lite3: meaning_break degradations are sane and gated."""
 
-import importlib.util
 import json
 import os
 
 from tools.test_paths import REPO_ROOT
-
-_VALIDATE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-spec = importlib.util.spec_from_file_location(
-    "build_lite3", os.path.join(os.path.dirname(_VALIDATE_DIR), "build_lite3.py")
-)
-assert spec is not None
-assert spec.loader is not None
-bl3 = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(bl3)
+from tools.validate.research import build_lite3 as bl3
 
 
 def _manifest():

@@ -11,7 +11,7 @@ import os
 import sys
 
 from tools.pipeline.config import default_root
-from tools.validate.check_degrade import check
+from tools.validate.research.check_degrade import check
 
 REPO = default_root()
 MANIFEST = os.path.join(REPO, "tools/validate/results/golden_manifest.json")

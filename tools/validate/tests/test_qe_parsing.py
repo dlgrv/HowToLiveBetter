@@ -65,7 +65,7 @@ class TestSkippedDegradation(unittest.TestCase):
             pqe.run_scores([{"src": "你好", "mt": "Привет"}], root=REPO_ROOT)
 
     def test_noise_report_skipped_shape(self):
-        from tools.validate import qe_noise
+        from tools.validate.research import qe_noise
 
         report = qe_noise.build_report(root=REPO_ROOT, force_skip=True)
         self.assertEqual(report["status"], "skipped")

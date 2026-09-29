@@ -2,7 +2,7 @@
 
 import unittest
 
-from tools.validate.judge_blind_run import decode, parse_reply
+from tools.validate.research.judge_blind_run import decode, parse_reply
 
 
 class TestDecode(unittest.TestCase):

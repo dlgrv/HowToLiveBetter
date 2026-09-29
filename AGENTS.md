@@ -37,7 +37,7 @@ After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
 | `.publish/` | Pages deploy artifact (`make serve` / `pages_artifact.py`) |
 | `tools/` | pipeline + `tools/og/*.html` screenshot sources |
 | `tools/llm/` | machine translate / repair (LLM CLIs) |
-| `tools/validate/` | research / golden / judge — **not** required to publish |
+| `tools/validate/` | publish-adjacent: factcheck / plainness; research scripts under `tools/validate/research/` — **not** required to publish |
 | `README*.md` | stay at repo root (GitHub UI + Pages artifact) |
 
 **Publish path:** digest → `tools/runs/active/<lang>/<NN>/` → assemble → verify → `book/<lang>/`.

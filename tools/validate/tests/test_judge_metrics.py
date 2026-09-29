@@ -6,7 +6,7 @@ Pure-math module.
 import unittest
 
 import pytest
-from tools.validate import judge_metrics as jm
+from tools.validate.research import judge_metrics as jm
 
 
 class TestKappa(unittest.TestCase):

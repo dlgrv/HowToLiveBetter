@@ -12,7 +12,7 @@ import unittest
 import pytest
 from tools.pipeline.paths import load_chapter_text
 from tools.test_paths import REPO_ROOT
-from tools.validate import golden_pairs as gp
+from tools.validate.research import golden_pairs as gp
 
 MANIFEST = os.path.join(REPO_ROOT, "tools", "validate", "results", "golden_manifest.json")
 

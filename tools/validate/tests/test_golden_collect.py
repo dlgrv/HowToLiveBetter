@@ -9,7 +9,7 @@ import os
 import unittest
 
 from tools.test_paths import REPO_ROOT
-from tools.validate import golden_collect as gc
+from tools.validate.research import golden_collect as gc
 
 RESULTS = os.path.join(REPO_ROOT, "tools", "validate", "results")
 
