@@ -76,19 +76,28 @@ When in doubt, use **A** for the affected units (re-digest and re-translate only
 
 ### 4. Locked step order (do not reorder)
 
+**Required spine** (`make wave` = assemble + verify):
+
 ```text
-digest → translate → assemble → verify → [simplify] → verify → factcheck → style_check → lt_check → plainness → human
+digest → translate → assemble → verify ↔ repair → human(+commit)
 ```
 
-- **Path A:** all steps from `python3 tools/make_digest.py <NN>` through human pass (see playbook §2 for exact commands: `assemble.py … [lang]`, two `verify` runs if you simplify, then `factcheck`, `style_check`, `lt_check`, `plainness`).
-- **Path B:** omit digest/translate/assemble; run: patch plain-terms → `verify` → `factcheck` → `style_check` → `lt_check` → `plainness` → human.
+**Optional WARN** (not required for wave done). If you run them, keep this order after verify OK:
 
-Hard stop on first `verify.py` FAIL. Do not run style / LanguageTool / plainness before the post-simplify `verify` and **factcheck** (see playbook §2).
+```text
+[simplify] → verify → factcheck → style_check → lt_check → plainness
+```
+
+- **Path A:** digest → translate → assemble → verify (HARD stop on FAIL). Optional quality WARN after green verify — see [tools/README.md](../../tools/README.md).
+- **Path B:** omit digest/translate/assemble; patch plain-terms → `verify` → optional factcheck/style/LT/plainness → human.
+
+Hard stop on first `verify.py` FAIL. Do not run style / LanguageTool / plainness before a post-simplify `verify` (and factcheck, if you use it).
 
 Notes:
 
-- `factcheck.py` today: `--lang ru|en` only (Spanish N/A until extended); use `--stdin-verdict` for smoke when live judge is unavailable.
+- `factcheck.py` today: `--lang ru|en` only (Spanish N/A until extended); use `--stdin-verdict` for smoke when live judge is unavailable. Exit 2 ≠ verify FAIL.
 - `plainness`: `ru|en` only today (no ES plain field yet).
+- Book-wide style gate: `make quality` → readability + `style_check --book --strict`.
 - One chapter per commit when the user asks to commit (fork policy).
 
 ### 5. Docs and site

@@ -55,7 +55,7 @@ Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Action
 
 ## Pipeline (for AI agents)
 
-Entry point: `make help` lists all commands. Raw `python3 tools/…` from the repo root needs `PYTHONPATH=.` (Make exports it).
+Map of blocks (required spine vs optional WARN): [tools/README.md](tools/README.md). Entry point: `make help` lists all commands. Raw `python3 tools/…` from the repo root needs `PYTHONPATH=.` (Make exports it). **`make wave` = assemble + verify only** — factcheck / style / LT / plainness are optional after a green verify.
 
 ### Adding a chapter
 
@@ -126,9 +126,13 @@ make status
 
 ### Committing
 
+Publication only through a GitHub PR; **squash-only** is enforced on the
+repo (`allow_merge_commit` / `allow_rebase_merge` off). `main` requires a
+pull request (branch protection) — do not push directly to `main`.
+
 ```bash
 # After translation work — always ask user before committing.
-# Merge strategy: branch → MR → squash to main.
+# Merge strategy: branch → PR → gh pr merge --squash --delete-branch.
 # Subject must stay English (do not paste RU/CN chapter titles into the message).
 git checkout -b translation/ru-ch02
 git add book/ru/ translations.json

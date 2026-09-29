@@ -50,12 +50,12 @@ else
 QUALITY_LANGS := $(shell $(PY) -c 'from tools.pipeline.config import translation_langs; print(" ".join(translation_langs()))')
 endif
 
-quality:  ## Content quality (readability + bureaucratese). Usage: make quality [LANG=ru]
+quality:  ## Content quality (readability + style --book). Usage: make quality [LANG=ru]
 	@for lang in $(QUALITY_LANGS); do \
 		echo "=== $$lang: readability ==="; \
 		$(PY) tools/readability.py $$lang --strict || exit 1; \
-		echo "=== $$lang: bureaucratese ==="; \
-		$(PY) tools/bureaucratese.py $$lang --strict || exit 1; \
+		echo "=== $$lang: style --book ==="; \
+		$(PY) tools/style_check.py --book --lang $$lang --strict || exit 1; \
 	done
 
 help:  ## Show this help

@@ -101,7 +101,7 @@ This uses headless Chrome for pixel-perfect 1200×630 screenshots.
 make format      # Ruff + djlint autofix (optional before commit)
 make lint        # Ruff / djlint / yamllint / shellcheck (also via pre-commit)
 make ci          # tests + lint + links + content + pages + .publish artifact
-make quality     # readability + bureaucratese for ru/en/es (or LANG=ru)
+make quality     # readability + style_check --book --strict (or LANG=ru)
 ```
 
 ### 9. Commit

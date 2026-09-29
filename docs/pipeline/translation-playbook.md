@@ -19,7 +19,11 @@
 
 ## 2. Пайплайн
 
-**Порядок шагов зафиксирован** (plain-language pipeline, 2026-09): после упрощения «说人话» сначала повторная `verify`, затем **factcheck**, и только потом style / LanguageTool — иначе можно отполировать текст с перевёрнутой логикой.
+Схема блоков (Mermaid) и карточки runtime: [tools/README.md](../../tools/README.md).
+
+**Обязательный spine (publish / `make wave`):** digest → translate → assemble → verify (↔ repair) → human(+commit).
+
+**Опциональный WARN после verify** (не требуется для «wave done»): factcheck → style → LT → plainness. После любого rewrite — снова `verify`, и только потом factcheck; не полировать style/LT до factcheck.
 
 ```text
 1. python3 tools/make_digest.py <NN>
@@ -44,34 +48,32 @@
        --max-rounds 3            # fallback-retranslate включён по умолчанию
     Затем повторить шаг 4 (HARD). Style/LT не запускать до OK.
 
-5. [опционально] упростить только plain-terms (LLM + tools/prompts/simplify-plain.md)
+5. Human pass + commit (1 глава = 1 коммит), либо сначала optional WARN ниже
 
-6. python3 tools/verify.py <NN> --lang <lang>         # обязательно после любого rewrite
+--- optional WARN (после verify OK) ---
 
-7. Factcheck vs китайский (pass E) — после re-verify, ДО style/LT:
-     # live: ZAI_API_KEY in env (or judge.backend local-ollama in project.json)
+6. [опционально] упростить только plain-terms (LLM + tools/prompts/simplify-plain.md)
+   → снова шаг 4 (verify)
+
+7. [опционально] Factcheck vs китайский (pass E) — после re-verify, ДО style/LT:
      python3 tools/validate/factcheck.py \
        --chapter <NN> --lang <ru|en> \
        --cn-unit <path-to-cn-unit.md> \
        --tr-unit <path-to-tr-unit.md>
-     # mock/tests only:
-     #   --stdin-verdict '{...}'
-     # exit 2 = judge unavailable → STOP; 1 = gate/ungrounded; 0 = pass
+     # exit 2 = judge unavailable; не путать с FAIL verify
 
-8. python3 tools/style_check.py book/<lang>/<file>.md --lang <ru|en>   # WARN
-     # es: пока нет tools/rules/es.json → WARN skip, exit 0 (не падать)
+8. [опционально] python3 tools/style_check.py book/<lang>/<file>.md --lang <ru|en|es>
+     # book-wide: python3 tools/style_check.py --book --lang ru [--strict]
+     # make quality = readability + style --book --strict
 
-9. python3 tools/lt_check.py --file book/<lang>/<file>.md --lang <lang>
-     # self-host LT; сервер недоступен → WARN skip, не FAIL главы
+9. [опционально] python3 tools/lt_check.py --file book/<lang>/<file>.md --lang <lang>
 
-10. python3 -m tools.validate.plainness <NN> --lang <ru|en>   # WARN (ES поля пока нет)
-
-11. Human pass — тон, заголовки/Cost, ES parity на глаз
+10. [опционально] python3 -m tools.validate.plainness <NN> --lang <ru|en>
 ```
 
-После шага 11 (или после первой успешной сборки + verify, если волны качества идут отдельно): **git commit (1 глава = 1 коммит)**. Волны из §5 (локализация, естественность, …) — поверх уже проверенной главы, с повторным `verify` после каждой волны.
+Волны из §5 (локализация, естественность, …) — поверх уже проверенной главы, с повторным `verify` после каждой волны.
 
-**Только упрощение plain (без нового перевода):** patch plain-terms → verify → factcheck → style_check → lt_check → plainness → human.
+**Только упрощение plain (без нового перевода):** patch plain-terms → verify → [optional factcheck → style → lt → plainness] → human.
 
 ### Factcheck (`tools/validate/factcheck.py`)
 
@@ -134,7 +136,7 @@ Cloud LLM позже — тот же `.env` / `tools/llm` client (наприме
 | Шаг | Exit | Правило |
 |---|---|---|
 | `verify.py` | ≠0 = STOP | HARD |
-| `factcheck.py` | **2** = judge недоступен (нет `--stdin-verdict` / live judge) → **STOP волны**, не считать главу чистой; **1** = gate fail / ungrounded; **0** = pass. ES factcheck N/A |
+| `factcheck.py` | **опционально**; **2** = judge недоступен; **1** = gate fail / ungrounded; **0** = pass. ES N/A. Не путать с HARD verify |
 | `style_check` / `lt_check` / `plainness` | часто **0** даже при WARN/skip | Читать stdout; «exit 0» ≠ «замечаний не было» |
 | ES | style: `tools/rules/es.json` (базовый); plainness пока без `es`; factcheck N/A | Автоматика тоньше RU/EN — глаза открыты |
 

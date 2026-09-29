@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Style check, pass A (WARN-only, plan Task 6): bureaucratese / calque markers.
+"""Style check: bureaucratese / calque markers (pass A).
 
 Engine is language-agnostic: patterns and whitelist zones come from
 tools/rules/<lang>.json. Lines starting with a whitelisted prefix (evidence,
@@ -8,9 +8,12 @@ notes, sources) are never flagged — medical passive there is legitimate.
 Glossary (tools/glossary.json) adds banned_calques stems/phrases and name_forms
 anti-patterns (e.g. «в Бангладеш» instead of «в Бангладеше»).
 
-CLI: python3 tools/style_check.py <file.md> --lang ru [--plain-only]
-Exit code is ALWAYS 0 (advisory pass); findings go to stdout as WARN lines.
+CLI:
+  python3 tools/style_check.py <file.md> --lang ru [--plain-only]   # WARN, exit 0
+  python3 tools/style_check.py --book --lang ru [--strict] [--json] # book-wide gate
 """
+
+from __future__ import annotations
 
 import argparse
 import json
@@ -144,13 +147,105 @@ def check_text(
     return findings
 
 
-def main():
-    ap = argparse.ArgumentParser(description="WARN-only style check (pass A)")
-    ap.add_argument("file")
+def check_file(path, lang, *, include_glossary=True, max_per_category=None):
+    """Findings for one file as [(desc, span), ...] for book-wide reporting."""
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    try:
+        findings = check_text(
+            text,
+            lang,
+            include_glossary=include_glossary,
+            max_per_category=max_per_category,
+        )
+    except ValueError:
+        return []
+    return [(f.get("note") or f["label"], f["span"]) for f in findings]
+
+
+def check_dir(root_dir, lang, *, include_glossary=False, max_per_category=None):
+    """Walk root_dir/**/*.md → {path: [(desc, match)]}."""
+    results = {}
+    for dirpath, _, filenames in os.walk(root_dir):
+        for fn in filenames:
+            if not fn.endswith(".md"):
+                continue
+            path = os.path.join(dirpath, fn)
+            issues = check_file(
+                path,
+                lang,
+                include_glossary=include_glossary,
+                max_per_category=max_per_category,
+            )
+            if issues:
+                results[path] = issues
+    return results
+
+
+def _emit_book_results(results, *, root=REPO, as_json=False) -> int:
+    """Print book-wide results. Return total finding count."""
+    if as_json:
+        out = {}
+        for path, issues in results.items():
+            out[os.path.relpath(path, root)] = [{"desc": d, "match": m} for d, m in issues]
+        json.dump(out, sys.stdout, ensure_ascii=False, indent=2)
+        print()
+        return sum(len(v) for v in results.values())
+
+    total = sum(len(v) for v in results.values())
+    if total == 0:
+        print("OK — no style markers detected")
+        return 0
+
+    print(f"Found {total} style-marker instance(s):\n")
+    for path, issues in sorted(results.items()):
+        rel = os.path.relpath(path, root)
+        print(f"  {rel}:")
+        for desc, match in issues:
+            print(f"    • {desc}: «{match}»")
+        print()
+    return total
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="Style check (per-file WARN or book-wide gate)")
+    ap.add_argument("file", nargs="?", help="chapter markdown (omit with --book)")
     ap.add_argument("--lang", required=True, help="language pack key (ru|en|es)")
     ap.add_argument("--plain-only", action="store_true", help="scan only plain-terms field lines")
     ap.add_argument("--json", action="store_true", help="emit findings as JSON")
-    args = ap.parse_args()
+    ap.add_argument(
+        "--book",
+        action="store_true",
+        help="scan book/<lang>/ (rules markers only, no glossary; no per-label cap)",
+    )
+    ap.add_argument(
+        "--dir", default=None, help="with --book: directory to scan (default book/LANG)"
+    )
+    ap.add_argument(
+        "--strict",
+        action="store_true",
+        help="with --book: exit 1 when any findings (make quality)",
+    )
+    args = ap.parse_args(argv)
+
+    if args.book:
+        if args.file:
+            print("ERROR: do not pass a file with --book", file=sys.stderr)
+            return 2
+        scan_dir = args.dir or os.path.join(REPO, "book", args.lang)
+        if not os.path.isdir(scan_dir):
+            print(f"Directory not found: {scan_dir}", file=sys.stderr)
+            return 1
+        results = check_dir(scan_dir, args.lang, include_glossary=False, max_per_category=None)
+        total = _emit_book_results(results, as_json=args.json)
+        if args.strict and total:
+            return 1
+        return 0
+
+    if not args.file:
+        print("ERROR: file required unless --book", file=sys.stderr)
+        return 2
+
     try:
         text = open(args.file, encoding="utf-8").read()
     except OSError as e:
