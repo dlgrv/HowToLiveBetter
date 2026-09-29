@@ -463,8 +463,9 @@ def norm_numbers(text, ru=False, es=False):
     """Multiset of ABSOLUTE numeric values: scale-words (万/亿/тыс./млн/млрд/
     thousand/million/billion/mil/millones) are folded into the value, so «65.4 万»
     == «654 тыс.» == «654,000» == «654 000». Comma handling is language-dependent:
-    RU/ES use the comma as the decimal separator and a space as the thousands
-    separator; CN/EN use the dot as decimal and the comma as thousands separator."""
+    RU uses comma as decimal and space as thousands; ES also uses comma as decimal
+    and space or dot as thousands («9.676» == «9 676» == «9676»); CN/EN use the
+    dot as decimal and the comma as thousands separator."""
     text = text.replace("\u00a0", " ")
     text = text.replace("\u202f", " ")
     text = re.sub(r"(?<![\d.])\.(\d+)", r"0.\1", text)
@@ -492,6 +493,14 @@ def norm_numbers(text, ru=False, es=False):
         text = re.sub(r"(?<=\d),(?=\d)", ".", text)
         text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)
     elif es:
+        # Fold thousands dots before commas become decimals. «9.676» / «1.234.567»
+        # must not be read as 9.676 / 1.234 after the comma→dot pass (that would
+        # turn «1,676» into the decimal 1.676, which is correct and distinct).
+        text = re.sub(
+            r"(?<![\d,])(\d{1,3}(?:\.\d{3})+)(?!\d)",
+            lambda m: m.group(1).replace(".", ""),
+            text,
+        )
         text = re.sub(
             r"(\d),(\d{3})(?=\s*(?:mil(?:|es)\b|millones|millón\b|"
             r"mil millones|billones|trillones))",

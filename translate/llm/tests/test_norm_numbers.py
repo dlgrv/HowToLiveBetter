@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Unit tests for verify.norm_numbers scale folding and word folding.
 
-Covers: ES «mil millones» compound scale; ZH 千万/百万 scales; RU «мая»
-month-stem false match («маяк», prose «в начале мая»); regression guard
-for the already-working 万亿 and digit-date month folding («1 мая» == «5 月 1 日»).
+Covers: ES «mil millones» compound scale; ES thousands dots («9.676»);
+ZH 千万/百万 scales; RU «мая» month-stem false match («маяк», prose
+«в начале мая»); regression guard for the already-working 万亿 and
+digit-date month folding («1 мая» == «5 月 1 日»).
 """
 
 import unittest
@@ -17,6 +18,20 @@ class TestNormNumbersScale(unittest.TestCase):
 
     def test_es_mil_millon_singular(self):
         self.assertEqual(norm_numbers("1 mil millón", es=True), ["1000000000"])
+
+    def test_es_thousands_dot(self):
+        self.assertEqual(norm_numbers("9.676", es=True), ["9676"])
+        self.assertEqual(norm_numbers("113.000", es=True), ["113000"])
+
+    def test_es_thousands_dot_multi_group(self):
+        self.assertEqual(norm_numbers("1.234.567", es=True), ["1234567"])
+
+    def test_es_thousands_space_still_works(self):
+        self.assertEqual(norm_numbers("9 676", es=True), ["9676"])
+
+    def test_es_comma_decimal_not_thousands(self):
+        # «1,21» is a decimal; must not become 121 after folding
+        self.assertEqual(norm_numbers("1,21", es=True), ["1.21"])
 
     def test_zh_qianwan(self):
         self.assertEqual(norm_numbers("3 千万"), ["30000000"])
