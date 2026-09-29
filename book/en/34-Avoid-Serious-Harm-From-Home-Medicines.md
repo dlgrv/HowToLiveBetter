@@ -1,4 +1,4 @@
-[← Back to main index](../README.md)
+[← Back to main index](../../README.md)
 
 # 34. Avoid serious harm from over-the-counter medicines at home
 
