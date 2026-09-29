@@ -61,7 +61,12 @@ ignore = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-testpaths = ["translate/validate/tests", "translate/llm/tests", "translate/laya/tests"]
+testpaths = [
+  "translate/validate/tests",
+  "translate/llm/tests",
+  "translate/laya/tests",
+  "forge/site/tests",
+]
 
 [tool.ruff.lint.per-file-ignores]
 "translate/**/tests/**" = [
@@ -70,6 +75,12 @@ testpaths = ["translate/validate/tests", "translate/llm/tests", "translate/laya/
   "PT009",  # legacy unittest asserts; new tests use plain assert / pytest.approx
   "PT027",  # legacy unittest.assertRaises
   "PLW1510",  # subprocess.run check= in CLI smoke tests
+]
+"forge/**/tests/**" = [
+  "S101",  # assert is fine in tests
+  "SLF001",
+  "PT009",
+  "PT027",
 ]
 # Ordered WORD_VALUES pattern table: adjacent raw strings + deferred lambdas are intentional
 "translate/steps/verify/verify.py" = [

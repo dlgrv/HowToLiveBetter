@@ -18,7 +18,7 @@ check-content:  ## CJK-leak, parity, readme-badge checks
 
 ci:  ## Local CI ≈ GitHub test job (tests+lint+links+content+pages+artifact)
 	@echo "=== Running tests ==="
-	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ -v --ignore=translate/validate/tests/integration
+	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
 	@echo "=== Integration tests ==="
 	$(PY) -m pytest translate/validate/tests/integration/ -v
 	@echo "=== Lint ==="
@@ -171,7 +171,7 @@ lint:  ## All code linters (must match CI)
 	shellcheck translate/steps/translate/*.sh translate/laya/*.sh
 
 test:  ## Run unit tests (excludes integration)
-	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ -v --ignore=translate/validate/tests/integration
+	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
 
 test-integration:  ## Run integration tests (golden manifests, E2E)
 	$(PY) -m pytest translate/validate/tests/integration/ -v

@@ -94,7 +94,7 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es"],"primary":"en","shortLabels
    "url": "https://dlgrv.github.io/HowToLiveBetter/es/",
    "inLanguage": "es-419",
    "bookFormat": "https://schema.org/EBook",
-   "numberOfPages": 630,
+   "numberOfPages": 639,
    "license": "https://unlicense.org/",
    "abstract": "Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.",
    "about": [
@@ -525,7 +525,7 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -1278,13 +1278,30 @@ function syncControls(){
   document.getElementById('f-todo').checked = state.todo;
 }
 // 文字只在搜索词变化时重渲染；筛选按钮只切换显隐，不碰卡片内容
+// Twin of forge/site/sources.py — keep splitSources/srcCount in sync.
 function srcCount(s){
-  const n = ((s || '').match(/https?:\/\//g) || []).length;
-  if (n) return n;
   return splitSources(s).length;
 }
 function splitSources(s){
-  return (s || '').split(/\s*[；;]\s*/).map(x => x.trim()).filter(Boolean);
+  s = s || '';
+  // Prefer markdown <https://…> and bare URLs; one list item per URL.
+  const re = /<https?:\/\/[^>\s]+>|https?:\/\/[^\s；;>]+/g;
+  const matches = [...s.matchAll(re)];
+  if (matches.length){
+    const parts = [];
+    let start = 0;
+    for (const m of matches){
+      const end = m.index + m[0].length;
+      let chunk = s.slice(start, end).trim().replace(/^[；;]\s*/, '');
+      if (chunk) parts.push(chunk);
+      start = end;
+    }
+    const trail = s.slice(start).trim().replace(/^[；;]\s*/, '');
+    if (trail) parts.push(trail);
+    return parts;
+  }
+  // No URLs: split only on fullwidth ； (ASCII ; is common inside citations).
+  return s.split(/\s*；\s*/).map(x => x.trim()).filter(Boolean);
 }
 function renderSources(el, text, terms){
   el.textContent = '';
