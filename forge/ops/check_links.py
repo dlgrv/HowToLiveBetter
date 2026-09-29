@@ -6,7 +6,7 @@ or the site. translate/ is excluded: translate/digest/*/units mirror source snip
 whose relative links resolve at assembly time (byte-identity required by
 TRANSLATION.md), and translate/validate/results are QA logs, not reader content.
 
-Every relative link target is resolved FROM THE FILE'S directory (not repo
+Every relative link target, including HTML `<img src>`, is resolved FROM THE FILE'S directory (not repo
 root — resolving from root is how a broken docs/en/ -> ../核实记录 link once
 passed a naive check). Links inside fenced code blocks (``` / ~~~) and
 inline code spans are skipped: they are examples, not real links.
@@ -24,6 +24,7 @@ from translate.lib.config import default_root
 ROOT = default_root()
 
 LINK = re.compile(r'\]\(([^)\s]+)(?:\s+"[^"]*")?\)')
+IMG_SRC = re.compile(r"""<img\b[^>]*\bsrc=["']([^"'#]+)["']""", re.IGNORECASE)
 FENCE = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)
 INLINE_CODE = re.compile(r"`[^`\n]*`")
 SKIP_PREFIXES = ("http://", "https://", "mailto:", "data:", "#")
@@ -57,16 +58,23 @@ def check():
     for path in files:
         rel = os.path.relpath(path, ROOT)
         base = os.path.dirname(path)
-        for m in LINK.finditer(effective_text(path)):
-            target = m.group(1).strip().lstrip("<").rstrip(">")
-            if target.startswith(SKIP_PREFIXES):
-                continue
+        text = effective_text(path)
+
+        def consider(raw, rel=rel, base=base):
+            target = raw.strip().lstrip("<").rstrip(">")
+            if not target or target.startswith(SKIP_PREFIXES):
+                return
             target = target.split("#", 1)[0]
             if not target:
-                continue
+                return
             resolved = urllib.parse.unquote(os.path.normpath(os.path.join(base, target)))
             if not os.path.exists(resolved):
                 broken.append((rel, target, os.path.relpath(resolved, ROOT)))
+
+        for m in LINK.finditer(text):
+            consider(m.group(1))
+        for m in IMG_SRC.finditer(text):
+            consider(m.group(1))
     return files, broken
 
 

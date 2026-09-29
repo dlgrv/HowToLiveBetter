@@ -144,6 +144,22 @@ class TestCheckLinks(unittest.TestCase):
         self.assertNotIn("https://", r.stdout)
         self.assertNotIn("mailto:", r.stdout)
 
+    def test_html_img_src_missing(self):
+        os.remove(os.path.join(self.tmp, "docs", "broken.md"))
+        with open(os.path.join(self.tmp, "README.md"), "w", encoding="utf-8") as f:
+            f.write('# Test\n<img src="og.png" alt="preview" width="820">\n')
+        r = _run(self.tmp)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("og.png", r.stdout)
+
+    def test_html_img_src_present(self):
+        os.remove(os.path.join(self.tmp, "docs", "broken.md"))
+        open(os.path.join(self.tmp, "preview.png"), "w", encoding="utf-8").close()
+        with open(os.path.join(self.tmp, "README.md"), "w", encoding="utf-8") as f:
+            f.write('# Test\n<img src="preview.png" alt="preview">\n')
+        r = _run(self.tmp)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
