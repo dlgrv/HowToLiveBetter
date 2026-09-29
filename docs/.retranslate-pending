@@ -1,2 +1,5 @@
 # Soft parity: missing translations. One NN per line.
 # Remove NN when that locale's chapter verifies.
+# EN catch-up after upstream CN sync (verify still fails for these).
+07
+16
