@@ -98,7 +98,6 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 32. [Estudar no exterior: status legal, trabalho, seguros e reconhecimento do diploma](book/pt/32-Estudar-no-exterior-status-legal-trabalho-seguros-e-reconhecimento-do-diploma.md)
 33. [Como viver após ficar com deficiência](book/pt/33-Como-viver-após-ficar-com-deficiência.md)
 34. [Cuidado ao usar os medicamentos que tem em casa](book/pt/34-Cuidado-ao-usar-os-medicamentos-que-tem-em-casa.md)
-
 Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-Kit.md), [Quais licenças uma plataforma precisa](docs/research/pt/What-Licenses-A-Platform-Needs.md), [Vale a pena casar](docs/research/pt/Is-Marriage-Worth-It.md), [Devo parar para ajudar um estranho](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md). O rastro de verificação das fontes está em [docs/核实记录](docs/research/核实记录/).
 
 `site/index.html` é o modelo da busca online; `make web-build` gera páginas em `site/{en,ru,es,zh,pt}/`. Localmente: `make serve` e abra http://127.0.0.1:8000/pt/.
