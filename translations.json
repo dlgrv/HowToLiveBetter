@@ -515,5 +515,177 @@
       "file": "34-Medicamentos-Caseros-Sin-Hacerse-Dano.md",
       "verified": null
     }
+  },
+  "id": {
+    "01": {
+      "status": "complete",
+      "file": "01-Hindari-Kematian-Dini.md",
+      "verified": null
+    },
+    "02": {
+      "status": "complete",
+      "file": "02-Jangan-Rusak-Kesehatan-Perlahan.md",
+      "verified": null
+    },
+    "03": {
+      "status": "complete",
+      "file": "03-Jaga-Tenaga.md",
+      "verified": null
+    },
+    "04": {
+      "status": "complete",
+      "file": "04-Hemat-Waktu.md",
+      "verified": null
+    },
+    "05": {
+      "status": "complete",
+      "file": "05-Jaga-Uang.md",
+      "verified": null
+    },
+    "06": {
+      "status": "complete",
+      "file": "06-Yang-Tampak-Berguna-Tapi-Tidak.md",
+      "verified": null
+    },
+    "07": {
+      "status": "complete",
+      "file": "07-Saat-Tidak-Punya-Uang.md",
+      "verified": null
+    },
+    "08": {
+      "status": "complete",
+      "file": "08-Lindungi-Diri-Dan-Harta.md",
+      "verified": null
+    },
+    "09": {
+      "status": "complete",
+      "file": "09-Batas-Hukum-Sehari-Hari.md",
+      "verified": null
+    },
+    "10": {
+      "status": "complete",
+      "file": "10-Cinta-Dan-Pernikahan.md",
+      "verified": null
+    },
+    "11": {
+      "status": "complete",
+      "file": "11-Batas-Hukum-Bagi-Pekerja-Teknologi.md",
+      "verified": null
+    },
+    "12": {
+      "status": "complete",
+      "file": "12-Memulai-Usaha.md",
+      "verified": null
+    },
+    "13": {
+      "status": "complete",
+      "file": "13-Keadaan-Darurat.md",
+      "verified": null
+    },
+    "14": {
+      "status": "complete",
+      "file": "14-Keamanan-Akun-Dan-Data.md",
+      "verified": null
+    },
+    "15": {
+      "status": "complete",
+      "file": "15-Menyewa-Dan-Membeli-Rumah.md",
+      "verified": null
+    },
+    "16": {
+      "status": "complete",
+      "file": "16-Hidup-Dengan-Penyakit-Kronis.md",
+      "verified": null
+    },
+    "17": {
+      "status": "complete",
+      "file": "17-Keluarga-Lanjut-Usia.md",
+      "verified": null
+    },
+    "18": {
+      "status": "complete",
+      "file": "18-Membesarkan-Anak.md",
+      "verified": null
+    },
+    "19": {
+      "status": "complete",
+      "file": "19-Kerja-Dan-Cedera-Kerja.md",
+      "verified": null
+    },
+    "20": {
+      "status": "complete",
+      "file": "20-Bayi-Baru-Lahir.md",
+      "verified": null
+    },
+    "21": {
+      "status": "complete",
+      "file": "21-Bepergian-Dan-Keamanan-Di-Luar-Negeri.md",
+      "verified": null
+    },
+    "22": {
+      "status": "complete",
+      "file": "22-Beristirahat-Dan-Mengelola-Stres.md",
+      "verified": null
+    },
+    "23": {
+      "status": "complete",
+      "file": "23-Keterampilan-Yang-Layak-Dipelajari.md",
+      "verified": null
+    },
+    "24": {
+      "status": "complete",
+      "file": "24-Berobat.md",
+      "verified": null
+    },
+    "25": {
+      "status": "complete",
+      "file": "25-Setelah-Seseorang-Meninggal.md",
+      "verified": null
+    },
+    "26": {
+      "status": "complete",
+      "file": "26-Membangun-Situs-Atau-Platform.md",
+      "verified": null
+    },
+    "27": {
+      "status": "complete",
+      "file": "27-Kehamilan-Dan-Persalinan.md",
+      "verified": null
+    },
+    "28": {
+      "status": "complete",
+      "file": "28-Menjaga-Kesehatan-Saat-Mengubah-Penampilan.md",
+      "verified": null
+    },
+    "29": {
+      "status": "complete",
+      "file": "29-Setelah-Pukulan-Hidup-Yang-Berat.md",
+      "verified": null
+    },
+    "30": {
+      "status": "complete",
+      "file": "30-Anak-Usia-Sekolah.md",
+      "verified": null
+    },
+    "31": {
+      "status": "complete",
+      "file": "31-Pilihan-Setelah-18-Tahun.md",
+      "verified": null
+    },
+    "32": {
+      "status": "complete",
+      "file": "32-Kuliah-Di-Luar-Negeri.md",
+      "verified": null
+    },
+    "33": {
+      "status": "complete",
+      "file": "33-Hidup-Setelah-Disabilitas.md",
+      "verified": null
+    },
+    "34": {
+      "status": "complete",
+      "file": "34-Obat-Rumahan-Dengan-Aman.md",
+      "verified": null
+    }
   }
 }

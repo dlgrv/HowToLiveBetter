@@ -4,7 +4,7 @@
 <script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <script>
 /* HTLB_LANGS_BEGIN */
-window.__HTLB_LANGS__={"codes":["en","ru","zh","es"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419"}};
+window.__HTLB_LANGS__={"codes":["en","ru","zh","es","id"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES","id":"ID"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español","id":"Bahasa Indonesia"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md","id":"README.id.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419","id":"id_ID"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419","id":"id"}};
 /* HTLB_LANGS_END */
 </script>
 <script>
@@ -525,11 +525,12 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
           <button type="button" role="menuitem" data-lang="es">Español</button>
+          <button type="button" role="menuitem" data-lang="id">Bahasa Indonesia</button>
         </div>
       </details>
       <a class="icon-btn ic-doc" href="../README.ru.md" title="Открыть README.ru" aria-label="README"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
@@ -835,6 +836,44 @@ const I18N = {
    author:'HowToLiveBetter (traducción al español)',
    forkNote:'Traducción no oficial. El <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original chino</a> es el autorizado.',
    snapshotNote:'' },
+ id:{ htmlLang:'id', title:'Panduan Hidup yang Sepadan', search:'Cari saran', searchShort:'Cari',
+   noscriptH:'Panduan Hidup yang Sepadan',
+   noscriptP:'Terjemahan bahasa Indonesia dari HowToLiveBetter: 34 bab dan 630 saran. Tiap saran memuat biaya, manfaat, tingkat bukti, dan sumber.',
+   noscriptLink:'Pencarian dan filter memerlukan JavaScript. Kamu juga bisa membaca <a href="../README.id.md">daftar isi</a> dan berkas di <a href="../book/id/">book/id/</a>.',
+   docHead:'Tiap saran menjawab: apa yang kamu keluarkan, dan apa yang kamu dapatkan.',
+   docHead2:'Manfaat untuk diri sendiri didahulukan, lalu keluarga dekat, teman dan rekan kerja, kemudian orang yang tidak dikenal. Risiko dan manfaat tetap perlu ditimbang bersama.',
+   fbAria:'Masukan', fbIssueT:'Menemukan kesalahan atau ingin menambahkan sesuatu?', fbIssue:'Buat issue', fbStarT:'Suka bukunya?', fbStar:'Beri bintang di GitHub',
+   shown:'Menampilkan', of:'dari', loading:'Memuat isi…',
+   empty:'Tidak ada hasil. Coba lepas salah satu filter atau gunakan kata kunci yang lebih pendek.', reset:'Atur ulang', resetF:'Hapus filter',
+   sections:'Bab', ratioH:'Manfaat dibanding biaya', ratioS:'Penilaian penulis; hanya dapat dibandingkan dalam kategori yang sama',
+   lensH:'Manfaatnya', lensS:'Kategori berbeda tidak dibandingkan',
+   gradeH:'Tingkat bukti', gradeS:'Analisis gabungan/uji klinis · ada penelitian · konsensus', gradeA:'Tingkat A', gradeB:'Tingkat B', gradeC:'Tingkat C',
+   moneyH:'Uang', timeH:'Waktu', willH:'Usaha',
+   money0:'Gratis', moneyL:'Sedikit', moneyM:'Banyak', timeL:'Sebentar', timeM:'Beberapa jam', timeH2:'Setiap hari', willN:'Tidak perlu', willS:'Sedikit', willB:'Besar',
+   fDispute:'hanya yang diperdebatkan', fTodo:'hanya yang belum diverifikasi',
+   hint1:'Pilih satu bab. Kamu bisa memilih beberapa biaya dan tingkat bukti sekaligus.',
+   hint2:'Urutan saran dalam bab mengikuti manfaat dibanding biayanya. Pencarian tidak mengubah urutan.',
+   hint3:'Isi diambil dari <a href="../book/id/">book/id/</a> ({n}); perbaiki naskah di sana.',
+   foot:'Setiap saran menyebut jenis manfaatnya: umur dan kesehatan, waktu dan tenaga, uang, atau perlindungan hukum. Jenis yang berbeda tidak dibandingkan. Teks ini berlisensi Unlicense.',
+   kCost:'Biaya', kGain:'Manfaat', kNote:'Catatan', src:'Sumber', anchor:'Tautan ke saran ini',
+   ratioBadge:'Manfaat/biaya', ratioTitle:'Penilaian penulis berdasarkan besarnya manfaat', gradeBadge:'Bukti', dispute:'Diperdebatkan', todo:'Belum diverifikasi',
+   ratio:{'极高':'Sangat tinggi','高':'Tinggi','一般':'Biasa'},
+   lens:{'死亡率':'Umur dan kesehatan','金钱':'Uang','时间':'Waktu dan tenaga','自由':'Kebebasan'},
+   moneyL2:{'0':'Gratis','少':'Biaya kecil','多':'Biaya besar'},
+   timeL2:{'少':'Sebentar','中':'Beberapa jam','多':'Setiap hari'},
+   willL2:{'否':'Tidak perlu usaha ekstra','些':'Sedikit usaha','是':'Usaha besar'},
+   ratioFull:'Manfaat/biaya: ', gradeFull:'Tingkat bukti: ',
+   errFile:'Buka halaman ini melalui http. Jalankan <code>python -m http.server</code> di folder repo lalu buka <code>http://localhost:8000/</code>, atau gunakan GitHub Pages.',
+   errLoad:(m)=>`Gagal memuat isi (${m}). Pastikan README dan folder book/ ada di samping index.html.`,
+   cap:true, allSections:'Semua bab',
+   readmeHref:'README.id.md', readmeTitle:'Buka README bahasa Indonesia',
+   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
+   metaDesc:'Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.',
+   keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
+   author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
+   about:['kesehatan','umur panjang','keuangan pribadi','pertolongan pertama','hukum','hak konsumen'],
+   forkNote:'Terjemahan tidak resmi. <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">Naskah Mandarin</a> tetap menjadi rujukan utama.',
+   snapshotNote:'' },
  zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
    noscriptP:'《高性价比人生指南》：31 个小节，每条建议都写明成本、收益、证据等级与原始出处。',
@@ -1040,12 +1079,12 @@ function parseReadme(md){
       continue;
     }
     if (entry){
-      if ((m = /^- (?:成本|Стоимость|Costo|Cost)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами|En términos sencillos|In plain terms)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:收益|Эффект|Beneficio|Benefit)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:证据等级|Уровень доказательности|Nivel de evidencia|Evidence grade)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
-      else if ((m = /^- (?:来源|Источники|Fuentes|Sources)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания|Notas|Notes)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      if ((m = /^- (?:成本|Стоимость|Costo|Cost|Biaya)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|En términos sencillos|In plain terms|Singkatnya)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Beneficio|Benefit|Manfaat)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Nivel de evidencia|Evidence grade|Tingkat bukti)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Fuentes|Sources|Sumber)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notas|Notes|Catatan)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;

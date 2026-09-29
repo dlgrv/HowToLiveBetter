@@ -25,6 +25,7 @@
 - [🇬🇧 English](README.md) - [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
 - [🇨🇳 中文](README.zh.md) - [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
 - [🇪🇸 Español](README.es.md) - [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
+- [🇮🇩 Bahasa Indonesia](README.id.md) - [baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/)
 
 ---
 
