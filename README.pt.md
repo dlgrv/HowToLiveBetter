@@ -64,40 +64,40 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 
 ## Índice
 
-1. [Não morra cedo](book/pt/01-Como-Evitar-Uma-Morte-Prematura.md)
-2. [Não morra devagar](book/pt/02-Não-Morra-Devagar.md)
-3. Não desperdice energia
-4. Não desperdice tempo
-5. Não desperdice dinheiro
-6. Lista negativa
-7. Como viver sem dinheiro
-8. Não se enrole: lei e patrimônio
-9. Linhas vermelhas legais para pessoas comuns
-10. Namoro e casamento valem a pena?
-11. Linhas vermelhas para programadores e técnicos
-12. Empreender e fazer negócios
-13. Emergências: o que fazer primeiro
-14. Contas e segurança da informação
-15. Alugar e comprar moradia
-16. Viver com doença crônica
-17. Idosos em casa
-18. Ter filhos vale a pena?
-19. Emprego e acidente de trabalho
-20. Recém-nascido
-21. Viagens e segurança no exterior
-22. Como relaxar
-23. Quais habilidades aprender
-24. Ir ao médico
-25. Depois que alguém morre
-26. Criar um site ou plataforma
-27. Gravidez e parto
-28. Não estrague a saúde pela aparência
-29. Depois de um golpe forte
-30. Filhos em idade escolar
-31. Caminhos depois dos dezoito
-32. Estudar no exterior
-33. Como viver depois de uma deficiência
-34. Remédios caseiros sem se machucar
+1. [Como evitar uma morte prematura](book/pt/01-Como-evitar-uma-morte-prematura.md)
+2. [Não morra devagar](book/pt/02-Não-morra-devagar.md)
+3. [Não desperdice energia](book/pt/03-Não-desperdice-energia.md)
+4. [Não perca tempo](book/pt/04-Não-perca-tempo.md)
+5. [Não desperdice dinheiro](book/pt/05-Não-desperdice-dinheiro.md)
+6. [Lista de itens a evitar](book/pt/06-Lista-de-itens-a-evitar.md)
+7. [Como sobreviver quando não se tem dinheiro](book/pt/07-Como-sobreviver-quando-não-se-tem-dinheiro.md)
+8. [Não arrisque sua segurança: leis e proteção patrimonial](book/pt/08-Não-arrisque-sua-segurança-leis-e-proteção-patrimonial.md)
+9. [Armadilhas legais que as pessoas comuns costumam cometer](book/pt/09-Armadilhas-legais-que-as-pessoas-comuns-costumam-cometer.md)
+10. [Vale a pena namorar e casar?](book/pt/10-Vale-a-pena-namorar-e-casar.md)
+11. [Armadilhas legais comuns para programadores e profissionais da área de tecnologia](book/pt/11-Armadilhas-legais-comuns-para-programadores-e-profissionais-da-área-de-tecnologi.md)
+12. [Empreendedorismo e negócios: como evitar perder seus bens](book/pt/12-Empreendedorismo-e-negócios-como-evitar-perder-seus-bens.md)
+13. [Situações de emergência: o que fazer primeiro](book/pt/13-Situações-de-emergência-o-que-fazer-primeiro.md)
+14. [Segurança de contas e informações pessoais](book/pt/14-Segurança-de-contas-e-informações-pessoais.md)
+15. [Alugar ou comprar um imóvel](book/pt/15-Alugar-ou-comprar-um-imóvel.md)
+16. [Como viver após desenvolver uma doença crônica](book/pt/16-Como-viver-após-desenvolver-uma-doença-crônica.md)
+17. [Idosos em casa](book/pt/17-Idosos-em-casa.md)
+18. [Vale a pena ter filhos?](book/pt/18-Vale-a-pena-ter-filhos.md)
+19. [Emprego, demissão e acidentes de trabalho](book/pt/19-Emprego-demissão-e-acidentes-de-trabalho.md)
+20. [Recém-nascido: cuidados iniciais](book/pt/20-Recém-nascido-cuidados-iniciais.md)
+21. [Viajar ao exterior, turismo e segurança no estrangeiro](book/pt/21-Viajar-ao-exterior-turismo-e-segurança-no-estrangeiro.md)
+22. [Como relaxar: locais de lazer e maneiras de aliviar o estresse](book/pt/22-Como-relaxar-locais-de-lazer-e-maneiras-de-aliviar-o-estresse.md)
+23. [Quais habilidades valem a pena aprender?](book/pt/23-Quais-habilidades-valem-a-pena-aprender.md)
+24. [Como consultar um médico gastando menos e evitando complicações](book/pt/24-Como-consultar-um-médico-gastando-menos-e-evitando-complicações.md)
+25. [O que fazer após o falecimento de alguém](book/pt/25-O-que-fazer-após-o-falecimento-de-alguém.md)
+26. [Criar um site ou plataforma: licenças, registros e servidores](book/pt/26-Criar-um-site-ou-plataforma-licenças-registros-e-servidores.md)
+27. [Gravidez e parto: desde a confirmação da gravidez até a alta hospitalar e emissão de documentos](book/pt/27-Gravidez-e-parto-desde-a-confirmação-da-gravidez-até-a-alta-hospitalar-e-emissão.md)
+28. [Não prejudique a saúde só para mudar a aparência](book/pt/28-Não-prejudique-a-saúde-só-para-mudar-a-aparência.md)
+29. [Após sofrer um grande golpe](book/pt/29-Após-sofrer-um-grande-golpe.md)
+30. [Crianças em idade escolar](book/pt/30-Crianças-em-idade-escolar.md)
+31. [Quais são as opções após completar 18 anos](book/pt/31-Quais-são-as-opções-após-completar-18-anos.md)
+32. [Estudar no exterior: status legal, trabalho, seguros e reconhecimento do diploma](book/pt/32-Estudar-no-exterior-status-legal-trabalho-seguros-e-reconhecimento-do-diploma.md)
+33. [Como viver após ficar com deficiência](book/pt/33-Como-viver-após-ficar-com-deficiência.md)
+34. [Cuidado ao usar os medicamentos que tem em casa](book/pt/34-Cuidado-ao-usar-os-medicamentos-que-tem-em-casa.md)
 
 Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-Kit.md), [Quais licenças uma plataforma precisa](docs/research/pt/What-Licenses-A-Platform-Needs.md), [Vale a pena casar](docs/research/pt/Is-Marriage-Worth-It.md), [Devo parar para ajudar um estranho](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md). O rastro de verificação das fontes está em [docs/核实记录](docs/research/核实记录/).
 
@@ -105,4 +105,4 @@ Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-K
 
 ## O livro em si
 
-O texto está dividido em 2 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice quando os arquivos existirem. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
+O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice quando os arquivos existirem. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
