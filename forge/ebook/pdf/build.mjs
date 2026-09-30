@@ -1,7 +1,7 @@
 // Build one locale PDF via pandoc (typst writer) and typst.
 // Usage: node forge/ebook/pdf/build.mjs --lang en
 // Needs pandoc >= 3.1 and typst >= 0.13, or PANDOC / TYPST env paths.
-import { writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
 import { resolve, dirname, posix, basename } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import {
@@ -12,6 +12,7 @@ import {
   gitCommit,
   buildStamp,
   prepareSection,
+  fitTypstTableColumns,
   parseLang,
   aboutMd,
   coverRel,
@@ -101,6 +102,7 @@ run(PANDOC, [
   typFile,
   WORK,
 ]);
+writeFileSync(typFile, fitTypstTableColumns(readFileSync(typFile, 'utf8')));
 const log = run(TYPST, ['compile', typFile, OUT, '--root', ROOT]);
 if (log.trim()) console.log(log.trim());
 const size = statSync(OUT).size;

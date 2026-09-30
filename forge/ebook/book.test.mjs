@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { ensureH1, headingText, isChapterPath, localeFor, navLabel, prepareSection, promoteItemHeadings, readBook, requireRepoFile, stripBackLink } from './book.mjs';
+import { ensureH1, fitTypstTableColumns, headingText, isChapterPath, localeFor, navLabel, prepareSection, promoteItemHeadings, read, readBook, requireRepoFile, stripBackLink } from './book.mjs';
 
 const EXPECTED_CHAPTERS = 34;
 
@@ -74,6 +74,21 @@ test('each locale TOC has 34 chapters and long reads', () => {
       }
     }
   }
+});
+
+test('ebook links are underlined and tables stay on the page', () => {
+  const css = read('forge/ebook/epub/style.css');
+  assert.match(css, /a \{[^}]*text-decoration:\s*underline/);
+  assert.match(css, /table \{[^}]*table-layout:\s*fixed/);
+  assert.match(css, /th, td \{[^}]*overflow-wrap:\s*anywhere/);
+  const typ = read('forge/ebook/pdf/template.typ');
+  assert.match(typ, /#set table\([\s\S]*stroke:\s*0\.4pt/);
+  assert.equal(typ.includes('stroke: none'), false);
+  assert.match(typ, /#show link: it => underline\(/);
+  const src = '#table(\n    columns: 5,\n    align: (auto,auto,),\n  )\n#grid(columns: (1fr, auto), a, b)';
+  const fitted = fitTypstTableColumns(src);
+  assert.match(fitted, /columns: 5 \* \(1fr,\),/);
+  assert.match(fitted, /columns: \(1fr, auto\)/);
 });
 
 test('missing chapter file fails', () => {

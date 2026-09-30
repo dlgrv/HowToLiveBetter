@@ -1,8 +1,21 @@
 $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
 #set terms(hanging-indent: 1.5em)
 
-#set table(inset: 6pt, stroke: none)
-#show table.cell: it => align(left, it)
+#set table(inset: (x: 5pt, y: 4pt), stroke: 0.4pt + luma(170))
+#show table.cell: it => {
+  show regex("[A-Za-z0-9./:?#&=%_~+-]{24,}"): piece => {
+    let chars = piece.text.clusters()
+    let out = ()
+    for (i, c) in chars.enumerate() {
+      out.push(c)
+      if calc.rem(i + 1, 12) == 0 and i + 1 < chars.len() {
+        out.push(sym.zws)
+      }
+    }
+    out.join()
+  }
+  align(left, it)
+}
 
 #let horizontalRule = line(start: (25%, 0%), end: (75%, 0%))
 #let divider = if "divider" in std { divider } else { horizontalRule }
@@ -55,6 +68,7 @@ $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
 #outline(title: [$outlinetitle$], depth: 1, indent: 1em)
 
 #pagebreak(weak: true)
+#show link: it => underline(stroke: 0.45pt + rgb("#1a4fb4"), offset: 1.5pt, text(fill: rgb("#1a4fb4"), it))
 #set page(header: running-head, footer: context align(center, text(8.5pt, fill: luma(120))[#counter(page).at(here()).first() / #counter(page).final().first()]))
 #counter(page).update(1)
 

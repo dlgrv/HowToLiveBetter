@@ -210,6 +210,10 @@ export function prepareSection(md) {
   return promoteItemHeadings(ensureH1(stripBackLink(md)));
 }
 
+export function fitTypstTableColumns(typ) {
+  return typ.replace(/columns:\s*(\d+),/g, (_, n) => `columns: ${n} * (1fr,),`);
+}
+
 const NAMED_ENTITIES = {
   amp: '&',
   lt: '<',
