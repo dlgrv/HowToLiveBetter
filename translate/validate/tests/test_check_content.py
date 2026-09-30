@@ -1,9 +1,13 @@
 """Published-book gates must stay green in `make test` (same as CI content step)."""
 
+import json
 import unittest
+from pathlib import Path
 
 from forge.ops import check_content
 from forge.ops.check_content import section_count_issues, stale_status_issues
+
+from translate.test_paths import REPO_ROOT
 
 
 class CheckContentRepoTest(unittest.TestCase):
@@ -54,3 +58,12 @@ def test_in_progress_allowed_while_incomplete():
 
 def test_no_marker_when_complete():
     assert stale_status_issues("leer en el sitio", all_complete=True) == []
+
+
+def test_readme_column_uses_filenames():
+    langs = json.loads((Path(REPO_ROOT) / "translate" / "langs.json").read_text())
+    names = [row["readme"] for row in langs["languages"]]
+    for name in names:
+        text = (Path(REPO_ROOT) / name).read_text()
+        for label in names:
+            assert f"[{label}]({label})" in text, f"{name} missing [{label}]({label})"
