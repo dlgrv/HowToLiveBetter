@@ -525,7 +525,7 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -1119,7 +1119,7 @@ function parseGlossary(md){
   const rows = [];
   for (const line of m[1].split(/\r?\n/)){
     const c = /^\|\s*(.+?)\s*\|\s*(.+?)\s*\|$/.exec(line);
-    if (!c || c[1] === 'термин' || c[1] === 'Term' || /^-+$/.test(c[1])) continue;
+    if (!c || /^(?:термин|Term|Termo|术语)$/i.test(c[1].trim()) || /^-+$/.test(c[1].trim())) continue;
     for (const t of c[1].split('、')){
       const term = t.trim(); if (!term) continue;
       rows.push({term, meaning: c[2], latin: /^[A-Za-z0-9%. ]+$/.test(term)});
@@ -1127,13 +1127,14 @@ function parseGlossary(md){
   }
   rows.sort((a,b) => b.term.length - a.term.length);
   // 合并成一条正则：长词在前保证最长匹配，拉丁术语要求前后不是字母数字
+  // Empty alt → RegExp('') matches every offset and freezes termify on large pages (PT README had no glossary table).
   const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const alt = (list) => list.map(g => escRe(g.term)).join('|');
   const parts = [];
   const latin = rows.filter(g => g.latin), cjk = rows.filter(g => !g.latin);
   if (latin.length) parts.push(`(?<![A-Za-z0-9])(?:${alt(latin)})(?![A-Za-z0-9])`);
   if (cjk.length) parts.push(`(?:${alt(cjk)})`);
-  GLOSS_RE = new RegExp(parts.join('|'), 'g');
+  GLOSS_RE = parts.length ? new RegExp(parts.join('|'), 'g') : null;
   GLOSS_BY = Object.fromEntries(rows.map(g => [g.term, g]));
   return rows;
 }
