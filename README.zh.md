@@ -46,13 +46,13 @@ AI 助手 skill 支持 Claude Code 和 Codex。装上后直接问「替朋友担
 
 </div>
 
-| 语言 | README | 网站 | PDF | EPUB |
+| 语言 | 网站 | README | PDF | EPUB |
 | --- | --- | --- | --- | --- |
-| 🇨🇳 中文 | [README.zh.md](README.zh.md) | [网站](https://dlgrv.github.io/HowToLiveBetter/zh/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
-| 🇬🇧 English | [README.md](README.md) | [网站](https://dlgrv.github.io/HowToLiveBetter/en/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
-| 🇷🇺 Русский | [README.ru.md](README.ru.md) | [网站](https://dlgrv.github.io/HowToLiveBetter/ru/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
-| 🇪🇸 Español | [README.es.md](README.es.md) | [网站](https://dlgrv.github.io/HowToLiveBetter/es/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
-| 🇧🇷 Português | [README.pt.md](README.pt.md) | [网站](https://dlgrv.github.io/HowToLiveBetter/pt/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
+| 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
+| 🇬🇧 English | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/en/) | [README.md](README.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
+| 🇷🇺 Русский | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/ru/) | [README.ru.md](README.ru.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
+| 🇪🇸 Español | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
+| 🇧🇷 Português | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
 
 ---
 
