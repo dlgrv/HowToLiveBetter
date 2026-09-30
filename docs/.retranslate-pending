@@ -1,0 +1,4 @@
+# Soft parity: chapters that still fail verify on the primary locale.
+# Catch-up chapters from the 2026-09-30 upstream sync were removed after verify passed.
+# 16 still fails (number_absent + source_line_mismatch) and is outside that wave.
+16
