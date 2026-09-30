@@ -22,17 +22,15 @@ mkdir -p ~/.claude/skills/life-decision-guide && curl -fsSL -o ~/.claude/skills/
 
 在本仓库里开 Codex，不用装——根目录的 `AGENTS.md` 已经把它指出来了。
 
-想在任何目录下都能用，放进 Codex 的自定义提示词目录，之后用 `/life-decision-guide` 调用：
+想在任何目录下都能用，复制到 Codex 的个人 skill 目录 `~/.agents/skills`：
 
 ```bash
-mkdir -p ~/.codex/prompts && curl -fsSL -o ~/.codex/prompts/life-decision-guide.md "https://raw.githubusercontent.com/eternity4719/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
+mkdir -p ~/.agents/skills/life-decision-guide && curl -fsSL -o ~/.agents/skills/life-decision-guide/SKILL.md "https://raw.githubusercontent.com/eternity4719/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
 ```
 
-想让它在所有会话里都生效而不用每次敲斜杠命令，就把这一行加进 `~/.codex/AGENTS.md`：
+之后直接问问题就会按描述自动触发，也可以输入 `$life-decision-guide` 显式调用。注意是 `$` 不是 `/`，新版 Codex 输入 `/life-decision-guide` 会报 `Unrecognized command`。没出现就重启一次 Codex。
 
-```markdown
-回答人生决策类问题（该不该、值不值、怎么选、能领什么、犯不犯法）时，按 ~/.codex/prompts/life-decision-guide.md 执行。
-```
+旧版 Codex 还没有 skill，只能用自定义提示词：把文件放到 `~/.codex/prompts/life-decision-guide.md`，再用 `/life-decision-guide` 调用。Codex 已宣布弃用这套写法（[openai/codex#10848](https://github.com/openai/codex/issues/10848)），新版用上面的 skill 装法。
 
 ## 正文从哪来
 
