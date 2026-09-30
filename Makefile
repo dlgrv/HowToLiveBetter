@@ -9,7 +9,7 @@ RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links
+.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
 
 # Locale list must stay in sync with translate/langs.json (registry).
 OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html
@@ -173,6 +173,27 @@ lint:  ## All code linters (must match CI)
 
 test:  ## Run unit tests (excludes integration)
 	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
+	node --test forge/ebook/book.test.mjs
+
+ebook-deps:  ## Install forge/ebook npm dependencies
+	npm ci --prefix forge/ebook
+
+ebook-test:  ## Ebook manifest tests (chapter counts, back-links)
+	node --test forge/ebook/book.test.mjs
+
+ebook-epub: ebook-deps  ## Build one EPUB. Usage: make ebook-epub LANG=en
+	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-epub LANG=en" && exit 1)
+	node forge/ebook/epub/build.mjs --lang $(LANG)
+
+ebook-pdf: ebook-deps  ## Build one PDF. Usage: make ebook-pdf LANG=en
+	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-pdf LANG=en" && exit 1)
+	node forge/ebook/pdf/build.mjs --lang $(LANG)
+
+ebooks: ebook-deps ebook-test  ## Build EPUB+PDF for every language in langs.json
+	@for lang in $$(python3 -c 'import json; print(" ".join(x["code"] for x in json.load(open("translate/langs.json"))["languages"]))'); do \
+		node forge/ebook/epub/build.mjs --lang $$lang; \
+		node forge/ebook/pdf/build.mjs --lang $$lang; \
+	done
 
 test-integration:  ## Run integration tests (golden manifests, E2E)
 	$(PY) -m pytest translate/validate/tests/integration/ -v

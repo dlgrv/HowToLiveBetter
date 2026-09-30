@@ -1,0 +1,143 @@
+# EPUB + PDF for every language in translate/langs.json.
+# main: one publish job uploads all assets to the fixed Release ebooks-latest.
+# pull requests: build and check only.
+name: ebooks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - book/**
+      - README*.md
+      - docs/**
+      - forge/ebook/**
+      - .github/workflows/ebooks.yml
+  pull_request:
+    paths:
+      - book/**
+      - README*.md
+      - docs/**
+      - forge/ebook/**
+      - .github/workflows/ebooks.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ebooks-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PANDOC_VERSION: "3.11"
+  TYPST_VERSION: "0.15.1"
+
+jobs:
+  build:
+    name: ${{ matrix.lang }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [en, ru, zh, es, pt]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: forge/ebook/package-lock.json
+
+      - name: Install npm deps
+        run: npm ci --prefix forge/ebook
+
+      - name: Manifest tests
+        run: node --test forge/ebook/book.test.mjs
+
+      - name: Install pandoc, typst, and CJK fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          curl -sSL -o pandoc.tgz \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz"
+          tar xzf pandoc.tgz
+          curl -sSL -o typst.tar.xz \
+            "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz"
+          tar xJf typst.tar.xz
+          echo "$PWD/pandoc-${PANDOC_VERSION}/bin" >> "$GITHUB_PATH"
+          echo "$PWD/typst-x86_64-unknown-linux-musl" >> "$GITHUB_PATH"
+
+      - name: EPUB
+        run: node forge/ebook/epub/build.mjs --lang ${{ matrix.lang }}
+
+      - name: PDF
+        run: |
+          typst fonts | grep -i -E 'noto (serif|sans) cjk'
+          node forge/ebook/pdf/build.mjs --lang ${{ matrix.lang }}
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: epubcheck and PDF size
+        run: |
+          curl -sSL -o epubcheck.zip https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip
+          unzip -q epubcheck.zip
+          java -jar epubcheck-5.4.0/epubcheck.jar "dist/HowToLiveBetter-${{ matrix.lang }}.epub"
+          python3 - << 'PY'
+          import os
+          lang = os.environ["LANG_CODE"]
+          path = f"dist/HowToLiveBetter-{lang}.pdf"
+          size = os.path.getsize(path)
+          if size < 1_048_576 or size > 80 * 1_048_576:
+              raise SystemExit(f"{path} size {size} outside 1MB..80MB")
+          print(f"{path} {size} bytes")
+          PY
+        env:
+          LANG_CODE: ${{ matrix.lang }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ebook-${{ matrix.lang }}
+          path: |
+            dist/HowToLiveBetter-${{ matrix.lang }}.epub
+            dist/HowToLiveBetter-${{ matrix.lang }}.pdf
+
+  publish:
+    name: publish ebooks-latest
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ebook-*
+          merge-multiple: true
+          path: dist
+
+      - name: Upload Release ebooks-latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find dist -maxdepth 1 -type f \
+            \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \) | sort)
+          if [ "${#files[@]}" -ne 10 ]; then
+            echo "expected 10 assets, got ${#files[@]}"
+            ls -l dist
+            exit 1
+          fi
+          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt."
+          notes="$notes Assets are replaced on each main build; download URLs stay fixed."
+          if gh release view ebooks-latest >/dev/null 2>&1; then
+            gh release edit ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes"
+          else
+            git tag ebooks-latest
+            git push origin ebooks-latest
+            gh release create ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes" --latest=false
+          fi
+          gh release upload ebooks-latest "${files[@]}" --clobber

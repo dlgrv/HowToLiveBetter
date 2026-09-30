@@ -1,0 +1,9 @@
+{
+  "name": "howtolivebetter-ebook",
+  "private": true,
+  "type": "module",
+  "description": "Per-locale EPUB and PDF builds",
+  "dependencies": {
+    "marked": "18.0.13"
+  }
+}
