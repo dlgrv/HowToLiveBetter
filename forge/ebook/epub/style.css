@@ -5,7 +5,7 @@ h3 { font-size: 1.1em; margin: 1.4em 0 0.4em; }
 p { margin: 0.6em 0; }
 ul, ol { padding-left: 1.4em; margin: 0.4em 0; }
 li { margin: 0.25em 0; }
-a { color: #3451b2; text-decoration: none; word-break: break-all; }
+a { color: #3451b2; text-decoration: none; overflow-wrap: anywhere; }
 code { font-family: monospace; font-size: 0.9em; }
 pre { white-space: pre-wrap; word-break: break-all; font-size: 0.85em; border: 1px solid #cccccc; padding: 0.5em; }
 table { border-collapse: collapse; width: 100%; font-size: 0.9em; margin: 0.8em 0; }

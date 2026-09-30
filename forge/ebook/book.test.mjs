@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { ensureH1, isChapterPath, localeFor, readBook, requireRepoFile, stripBackLink } from './book.mjs';
+import { ensureH1, headingText, isChapterPath, localeFor, navLabel, prepareSection, promoteItemHeadings, readBook, requireRepoFile, stripBackLink } from './book.mjs';
 
 const EXPECTED_CHAPTERS = 34;
 
@@ -11,11 +11,38 @@ test('stripBackLink drops known first-page back links', () => {
     ['[← Volver al índice](../../README.es.md)\n# T\n', '# T\n'],
     ['[← К оглавлению](../../README.ru.md)\n# T\n', '# T\n'],
     ['[← Back to contents](../../README.md)\n# T\n', '# T\n'],
+    ['Backlink: [← Return to main index](../../README.md)\n# T\n', '# T\n'],
     ['# T\n\nbody\n', '# T\n\nbody\n'],
   ];
   for (const [input, expected] of cases) {
     assert.equal(stripBackLink(input), expected);
   }
+});
+
+test('promoteItemHeadings lifts chapter items and leaves real sections', () => {
+  const chapter = '# 1. Title\n\n### 1. Do the thing\n\n## 许可\n\nfooter\n';
+  assert.match(promoteItemHeadings(chapter), /## 1\. Do the thing/);
+  assert.match(promoteItemHeadings(chapter), /## 许可/);
+  const longRead = '# Title\n\n## Section\n\n### Detail\n\n#### Note\n';
+  assert.equal(promoteItemHeadings(longRead), longRead);
+  const fenced = '# Title\n\n```\n### not a heading\n```\n\n### Real item\n';
+  const promoted = promoteItemHeadings(fenced);
+  assert.match(promoted, /```\n### not a heading\n```/);
+  assert.match(promoted, /## Real item/);
+});
+
+test('prepareSection strips a labeled back link then promotes items', () => {
+  const md = 'Backlink: [← Return to main index](../../README.md)\n\n# 14. Accounts\n\n### 1. Enable 2FA\n';
+  const out = prepareSection(md);
+  assert.equal(out.includes('Backlink'), false);
+  assert.match(out, /^# 14\. Accounts/);
+  assert.match(out, /## 1\. Enable 2FA/);
+});
+
+test('nav labels decode entities before escaping', () => {
+  assert.equal(headingText('The platform&#39;s own'), "The platform's own");
+  assert.equal(navLabel('The platform&#39;s own'), "The platform's own");
+  assert.equal(navLabel('A &amp; B'), 'A &amp; B');
 });
 
 test('ensureH1 promotes a leading section heading', () => {

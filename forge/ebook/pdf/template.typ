@@ -43,9 +43,7 @@ $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
 #set page(paper: "a4", margin: (x: 2.2cm, top: 2.2cm, bottom: 2cm), header: none, footer: none)
 #align(center + horizon)[
   #image("$cover$", width: 100%)
-  #v(1.2cm)
-  #block(width: 80%)[#text(11.5pt, fill: luma(60))[$subtitle$]]
-  #v(2cm)
+  #v(1.6cm)
   #text(10pt, fill: luma(90))[
     $coverline1$ \
     $coverline2$ \

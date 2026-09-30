@@ -12,8 +12,9 @@ import {
   readBook,
   gitCommit,
   buildStamp,
-  stripBackLink,
-  ensureH1,
+  prepareSection,
+  headingText,
+  xmlEscape,
   parseLang,
   aboutMd,
   coverRel,
@@ -35,8 +36,7 @@ const BOOK_IDS = {
 const BOOK_ID = BOOK_IDS[lang];
 const contentsMd = book.contentsMd.replace(/^## [^\n]+/, `# ${locale.labels.contents}`);
 
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const plain = (html) => html.replace(/<[^>]+>/g, '');
+const esc = xmlEscape;
 
 const pages = [
   {
@@ -49,12 +49,12 @@ const pages = [
   ...bookFiles.map((src, i) => ({
     file: `ch${String(i + 1).padStart(2, '0')}.xhtml`,
     src,
-    md: ensureH1(stripBackLink(read(src))),
+    md: prepareSection(read(src)),
   })),
   ...docFiles.map((src, i) => ({
     file: `doc${i + 1}.xhtml`,
     src,
-    md: ensureH1(stripBackLink(read(src))),
+    md: prepareSection(read(src)),
   })),
   {
     file: 'about.xhtml',
@@ -81,7 +81,7 @@ marked.use({
     heading({ tokens, depth }) {
       const html = this.parser.parseInline(tokens);
       const id = `h${++headingSeq}`;
-      current.headings.push({ id, depth, text: plain(html) });
+      current.headings.push({ id, depth, text: headingText(html) });
       return `<h${depth} id="${id}">${html}</h${depth}>\n`;
     },
     link({ href, title, tokens }) {
@@ -136,12 +136,9 @@ for (const p of pages) {
 }
 
 const navItems = pages.map((p) => {
-  const [first, ...rest] = p.headings;
+  const [first] = p.headings;
   const top = first?.depth === 1 ? { href: `${p.file}#${first.id}`, text: p.title } : { href: p.file, text: p.title };
-  const subs = (first?.depth === 1 ? rest : p.headings)
-    .filter((h) => h.depth <= 3)
-    .map((h) => ({ href: `${p.file}#${h.id}`, text: h.text }));
-  return { ...top, subs };
+  return { ...top, subs: [] };
 });
 
 const navXhtml = wrap(

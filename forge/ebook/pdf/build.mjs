@@ -11,15 +11,14 @@ import {
   readBook,
   gitCommit,
   buildStamp,
-  stripBackLink,
-  ensureH1,
+  prepareSection,
   parseLang,
   aboutMd,
   coverRel,
 } from '../book.mjs';
 
 const lang = parseLang();
-const { locale, description, frontMd, contentsMd, bookFiles, docFiles } = readBook(lang);
+const { locale, description, frontMd, bookFiles, docFiles } = readBook(lang);
 const OUT = resolve(ROOT, `dist/HowToLiveBetter-${lang}.pdf`);
 const WORK = resolve(ROOT, `dist/pdf-build-${lang}.md`);
 const PANDOC = process.env.PANDOC ?? 'pandoc';
@@ -37,14 +36,9 @@ const pages = [
     md: `# ${locale.labels.front}\n\n${description}\n\n${frontMd}`,
     anchor: 'front',
   },
-  {
-    src: locale.readme,
-    md: contentsMd.replace(/^## [^\n]+/, `# ${locale.labels.contents}`),
-    anchor: 'contents',
-  },
   ...[...bookFiles, ...docFiles].map((src) => ({
     src,
-    md: ensureH1(stripBackLink(read(src))),
+    md: prepareSection(read(src)),
     anchor: anchorOf.get(src),
   })),
   { src: locale.readme, md: aboutMd(locale, STAMP, COMMIT), anchor: 'about' },
@@ -96,7 +90,6 @@ run(PANDOC, [
   '--wrap=none',
   `--template=${resolve(ROOT, 'forge/ebook/pdf/template.typ')}`,
   '-V', `booktitle=${typstArg(locale.title)}`,
-  '-V', `subtitle=${typstArg(description)}`,
   '-V', `ebooklang=${locale.typstLang}`,
   '-V', `ebookregion=${locale.typstRegion}`,
   '-V', `cover=${cover}`,

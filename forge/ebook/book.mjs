@@ -157,10 +157,86 @@ export function ensureH1(md) {
   return md.replace(/^## /m, '# ');
 }
 
+const BACK_LINK_LINE = /^(?:[^\n\[]{0,40}?\s*)?\[←[^\]]*\]\([^)]*\)\s*$/;
+
 export function stripBackLink(md) {
   const lines = md.split('\n');
-  const out = lines.filter((line, i) => i >= 8 || !/^\[←[^\]]*\]\([^)]*\)\s*$/.test(line));
+  const out = lines.filter((line, i) => i >= 8 || !BACK_LINK_LINE.test(line));
   return out.join('\n').replace(/^\n+/, '');
+}
+
+function fenceMark(line) {
+  const match = line.match(/^(`{3,}|~{3,})(.*)$/);
+  if (!match) return null;
+  return { char: match[1][0], rest: match[2].trim() };
+}
+
+// Item titles in chapters are ### under a lone H1. Lift those to ## so the
+// outline does not skip a level. Stop at the first real ## (license footers
+// in a few translations) and leave fenced examples alone.
+export function promoteItemHeadings(md) {
+  const lines = md.split('\n');
+  let fence = '';
+  let firstH2 = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const mark = fenceMark(lines[i]);
+    if (mark) {
+      if (!fence) fence = mark.char;
+      else if (mark.char === fence && mark.rest === '') fence = '';
+      continue;
+    }
+    if (!fence && /^## /.test(lines[i])) {
+      firstH2 = i;
+      break;
+    }
+  }
+  fence = '';
+  return lines
+    .map((line, i) => {
+      const mark = fenceMark(line);
+      if (mark) {
+        if (!fence) fence = mark.char;
+        else if (mark.char === fence && mark.rest === '') fence = '';
+        return line;
+      }
+      if (fence) return line;
+      if ((firstH2 < 0 || i < firstH2) && line.startsWith('### ')) return `## ${line.slice(4)}`;
+      return line;
+    })
+    .join('\n');
+}
+
+export function prepareSection(md) {
+  return promoteItemHeadings(ensureH1(stripBackLink(md)));
+}
+
+const NAMED_ENTITIES = {
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  apos: "'",
+};
+
+export function decodeEntities(text) {
+  return text.replace(/&(#x[0-9a-fA-F]+|#\d+|[a-z]+);/g, (all, body) => {
+    if (body[0] !== '#') return NAMED_ENTITIES[body] ?? all;
+    const code = body[1] === 'x' ? Number.parseInt(body.slice(2), 16) : Number(body.slice(1));
+    if (!Number.isInteger(code) || code < 0 || code > 0x10ffff) return all;
+    return String.fromCodePoint(code);
+  });
+}
+
+export function xmlEscape(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+export function headingText(html) {
+  return decodeEntities(html.replace(/<[^>]+>/g, ''));
+}
+
+export function navLabel(html) {
+  return xmlEscape(headingText(html));
 }
 
 export function isChapterPath(rel, contentRoot) {
