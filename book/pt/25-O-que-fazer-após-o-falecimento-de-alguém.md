@@ -1,4 +1,4 @@
-[← Voltar ao índice](../README.md)
+[← Voltar ao índice](../../README.pt.md)
 
 # 25. O que fazer após a morte de uma pessoa
 
