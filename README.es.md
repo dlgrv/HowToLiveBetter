@@ -19,13 +19,13 @@ You don't have to do it all: this is a ranked shortlist, not a task list — pic
 
 </div>
 
-Idiomas:
-
-- [🇪🇸 Español](README.es.md) - [leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/)
-- [🇧🇷 Português](README.pt.md) - [ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/)
-- [🇬🇧 English](README.md) - [read on the site](https://dlgrv.github.io/HowToLiveBetter/en/)
-- [🇷🇺 Русский](README.ru.md) - [читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/)
-- [🇨🇳 中文](README.zh.md) - [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/)
+| Idioma | README | Sitio | PDF | EPUB |
+| --- | --- | --- | --- | --- |
+| 🇪🇸 Español | [README.es.md](README.es.md) | [sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
+| 🇧🇷 Português | [README.pt.md](README.pt.md) | [sitio](https://dlgrv.github.io/HowToLiveBetter/pt/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
+| 🇬🇧 English | [README.md](README.md) | [sitio](https://dlgrv.github.io/HowToLiveBetter/en/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
+| 🇷🇺 Русский | [README.ru.md](README.ru.md) | [sitio](https://dlgrv.github.io/HowToLiveBetter/ru/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
+| 🇨🇳 中文 | [README.zh.md](README.zh.md) | [sitio](https://dlgrv.github.io/HowToLiveBetter/zh/) | [PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
 
 ---
 
