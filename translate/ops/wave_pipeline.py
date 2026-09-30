@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""Assemble+verify for an explicit chapter list only.
+
+Does not touch chapters outside the CLI list. Skips overwrite when the
+workdir looks older than the published chapter (stale reverse-digest /
+leftover active/ dirs) unless HTLB_FORCE_ASSEMBLE=1.
+"""
+
+from __future__ import annotations
+
 import os
 import subprocess
 import sys
@@ -9,9 +18,22 @@ from translate.lib.paths import tr_chapter_path
 REPO = default_root()
 
 
-def main(chapters):
+def _units_newest_mtime(units_dir: str) -> float:
+    newest = 0.0
+    for name in os.listdir(units_dir):
+        if not name.endswith(".md"):
+            continue
+        newest = max(newest, os.path.getmtime(os.path.join(units_dir, name)))
+    return newest
+
+
+def main(chapters: list[str]) -> int:
+    if not chapters:
+        print("Usage: wave_pipeline.py NN [NN …]", file=sys.stderr)
+        return 2
     rows, fails = [], 0
     py = sys.executable
+    force = os.environ.get("HTLB_FORCE_ASSEMBLE", "").strip() in ("1", "true", "yes")
     for nn in chapters:
         for lang in translation_langs(REPO):
             try:
@@ -22,10 +44,23 @@ def main(chapters):
                 continue
             bk = os.path.basename(out)
             wd = os.path.dirname(unit_dir(REPO, lang, nn))
-            if not os.path.isdir(os.path.join(wd, "units")):
+            units = os.path.join(wd, "units")
+            if not os.path.isdir(units):
                 rows.append((lang, nn, f"ASSEMBLE FAIL: missing {wd}/units"))
                 fails += 1
                 continue
+            if os.path.isfile(out) and not force:
+                book_mtime = os.path.getmtime(out)
+                units_mtime = _units_newest_mtime(units)
+                if units_mtime + 1.0 < book_mtime:
+                    rows.append(
+                        (
+                            lang,
+                            nn,
+                            "SKIP stale workdir (newer book; set HTLB_FORCE_ASSEMBLE=1)",
+                        )
+                    )
+                    continue
             r = subprocess.run(
                 [py, "translate/steps/assemble/assemble.py", nn, wd, out, lang],
                 cwd=REPO,
@@ -69,4 +104,4 @@ def main(chapters):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:] or ["02"]))
+    sys.exit(main(sys.argv[1:] or []))

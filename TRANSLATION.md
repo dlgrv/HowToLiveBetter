@@ -1,6 +1,6 @@
-# Translation conventions (EN / RU / …)
+# Translation conventions (EN / RU / ES / PT / …)
 
-Applies to everything under `book/<lang>/` for non-Chinese locales (see [docs/pipeline/add-language.md](docs/pipeline/add-language.md)). Chinese originals live at `book/*.md`.
+Applies to everything under `book/<lang>/` for non-Chinese locales (see [docs/pipeline/add-language.md](docs/pipeline/add-language.md); registry: [translate/langs.json](translate/langs.json)). Chinese originals live at `book/*.md`.
 
 ## Status line
 First line of every translated file, before the back-link:
@@ -12,12 +12,23 @@ First line of every translated file, before the back-link:
 
 ## Keep untouched
 - Full citation lines in `- 来源：/来源` — author names, journal names, DOIs, URLs, Chinese regulation titles + document numbers stay exactly as in the original. Only the surrounding field label is translated.
-- All numbers, HR/RR/OR/CI values, percentages, prices.
+- All numbers, HR/RR/OR/CI values, percentages, prices. Locale *spelling* of the same absolute value is fine (RU/ES/PT decimal comma `0,499`; never drop the point as `0499`). Pipeline may append `〔N〕` in Notes when verify needs a missing abs value — see [translate/steps/repair/mechanical.py](translate/steps/repair/mechanical.py).
 - The HTML cost-tag comment `<!-- 成本标签: ... -->` — keep the Chinese field names (钱/时间/毅力/收益/口径) and values byte-identical; index.html parses it.
 - Markdown structure: heading levels, `### N.` numbering, list-item order, links.
+- Field text stays on the **same line** as `- Label:` (no bare empty label with value on the next line).
 
 ## Translate
-- Field labels: 成本→Cost/Стоимость, 说人话→In plain terms/Простыми словами, 收益→Benefit/Эффект, 证据等级→Evidence grade/Уровень доказательности, 来源→Sources/Источники, 备注→Notes/Примечания.
+- Field labels (SSOT: `translate/rules/<lang>.json` via `translate.lib.labels`):
+
+  | CN | EN | RU | ES | PT |
+  |---|---|---|---|---|
+  | 成本 | Cost | Стоимость | Costo | Custo |
+  | 说人话 | In plain terms | Простыми словами | En términos sencillos | Em linguagem simples |
+  | 收益 | Benefit | Эффект | Beneficio | Benefício |
+  | 证据等级 | Evidence grade | Уровень доказательности | Nivel de evidencia | Nível de evidência |
+  | 来源 | Sources | Источники | Fuentes | Fontes |
+  | 备注 | Notes | Примечания | Notas | Notas |
+
 - The «说人话» line is the most important line — translate it fully and idiomatically; it may not introduce numbers absent from the 收益 line.
 - Units: 元→CNY (keep "yuan" also acceptable in RU: «юаней»); keep mmHg, mg, %, etc. Chinese administrative terms (医保, 户口, ICP 备案, 疾控中心) → transliterate or translate with the Chinese term in parentheses on first use in a file.
 - Law/regulation names: translate the meaning + keep the official Chinese name and document number in the sources line (already there); in body text give an English/Russian gloss.
@@ -67,11 +78,15 @@ Chinese original (`../01-不要早死.md`) — that link must not change.
 | 29 | 29-После-тяжёлого-удара |
 | 30 | 30-Ребёнок-в-школе |
 | 31 | 31-Дороги-после-восемнадцати |
+| 32 | 32-Учёба-за-границей |
+| 33 | 33-Как-жить-после-инвалидности |
+| 34 | 34-Домашние-лекарства-не-навреди |
 
 README policy (decided 2026-09-18; clarified 2026-09-22): in the dlgrv fork the primary README language is **English**.
 - `README.md` — English (GitHub root face + site default)
 - `README.zh.md` — Chinese mirror of upstream `README.md` (see [docs/pipeline/upstream-sync.md](docs/pipeline/upstream-sync.md); never overwrite root `README.md` from upstream)
 - `README.ru.md` — Russian translation
+- `README.es.md` / `README.pt.md` — Spanish / Brazilian Portuguese
 - Any further locale: `README.<lang>.md` + `book/<lang>/` (see [docs/pipeline/add-language.md](docs/pipeline/add-language.md))
 Keep all READMEs linked via a `Languages:` line. Upstream sync ritual: [docs/pipeline/upstream-sync.md](docs/pipeline/upstream-sync.md).
 
@@ -110,13 +125,15 @@ EN filenames: English slugs under `book/en/`, same two-digit prefix (decided 202
 | 29 | 29-After-A-Major-Blow |
 | 30 | 30-School-Age-Kids |
 | 31 | 31-Paths-After-Eighteen |
+| 32 | 32-Studying-Abroad |
+| 33 | 33-Living-With-Disability |
+| 34 | 34-Avoid-Serious-Harm-From-Home-Medicines |
 
 ## Russian README (README.ru.md)
 
 - Root `README.md` is **English** (fork primary). Chinese TOC lives in `README.zh.md`.
 - `README.ru.md` = full Russian translation of the guide front matter / TOC. Status line points at the Chinese original chapter set / `README.zh.md` where appropriate.
-- All numbers byte-faithful (528, 347/131/50, thresholds…). The
-  example item block keeps citation lines byte-identical after the label.
+- All numbers byte-faithful to the Chinese abs values (locale comma/space OK). Citation lines stay byte-identical after the label.
 - Badges: recreate with Russian labels (URL-encode programmatically), same colors/numbers,
   same link targets; anchors inside the doc point to translated headings.
 - Chapter links → `book/ru/<Russian slug>.md`. Long-read links → `docs/ru/` when translated.
@@ -150,35 +167,28 @@ Match the original: restrained, no exclamation marks, no moralizing, verb-first 
 Chapters 8, 9, 11, 15, 19, 25, 26, 31 (and any other chapter citing Chinese law) get one extra line under the heading:
 "Chapter X cites Chinese laws and institutions; for readers outside China it is reference material, not applicable law." (RU equivalent.)
 
+## Numbers (all locales) — verify / repair
+
+Canonical abs values come from CN via `norm_numbers`. Locale spelling:
+
+| Lang | Decimal | Thousands | Pitfall |
+|---|---|---|---|
+| EN | `.` | `,` or thin space | — |
+| RU / ES / PT | `,` | space (ES/PT also `.`) | bare `0.499` → folds to `499`; write `0,499` |
+| any | — | — | never `2022 523` as a bare dump (folds to `2022523`); pipeline uses `〔2022〕〔523〕` |
+
+Do not ask the MT model to “fix numbers” in a retry loop — use `make repair` (mechanical).
+
 ## Spanish (ES) — conventions
 
 Applies to `book/es/` and `docs/es/`. Status, keep-untouched, tone and
-China-context rules above are identical; field labels differ.
-
-### ES field labels (verified in verify.py / assemble.py / index.html)
-
-- 成本 → `- Costo: `
-- 说人话 → `- En términos sencillos: `
-- 收益 → `- Beneficio: `
-- 证据等级 → `- Nivel de evidencia: A/B/C`
-- 来源 → `- Fuentes: ` (injected byte-for-byte by assemble.py with lang=es)
-- 备注 → `- Notas: `
-- Dispute marker in Notas: starts with `En disputa` (web UI badge)
-- TODO marker: `por verificar` (web UI badge)
+China-context rules above are identical; field labels are in the table above.
 
 ### ES file naming
 
 `NN-Title-Slug.md`, Spanish Title-Case, e.g. `01-No-Mueras-Temprano.md`
 (final slugs recorded in README.es.md table of contents; the table links
-`book/es/NN-…`).
-
-### ES numbers (verify gate folds scale words into values)
-
-- Space as thousands separator: `248 099`; decimal comma: `17,4`
-- 万 → ×10 000 (`6,4 万` → `64 000`), 亿 → ×10⁸, 千 → ×1 000
-- Percentages and mg/ml/°C units pass through unchanged
-- Never `mil millones` — write digits for ≥10⁹ (`3,2 亿` → `320 000 000`)
-- Time windows keep values (`72 horas`, `4,5 horas`)
+`book/es/NN-…`). Chapters **01–34** under `book/es/`.
 
 ### ES style
 
@@ -187,11 +197,10 @@ China-context rules above are identical; field labels differ.
 - Chinese legal/medical identifiers keep hanzi + short Spanish gloss on first use: `《民法典》 (Código Civil)`
 - Emergency numbers keep Chinese values in place; Spanish/RU/US equivalents only as a Notas gloss
 - Sources are never translated (injected byte-for-byte)
+- Dispute marker in Notas: starts with `En disputa`; TODO: `por verificar` (web UI badges)
 
-### ES rollout status
+## Portuguese (PT) — conventions
 
-- Infrastructure: verify.py `--lang es`, assemble.py (lang=es), web UI (I18N dict,
-  parser, /es/ page via build_pages.py), README.es.md scaffold, soft parity
-  in forge/ops/check_content.py — landed 2026-09-21 (branch translation/es-w1)
-- Pilot: chapters 01 + 13 (write-first subagents, workdirs `translate/runs/active/es/{01,13}` — legacy `/root/htlb-run-es/` retired)
-- Waves: chapters 02–12, 14–32 (5–6 per wave), then 4 docs articles in docs/es/
+Applies to `book/pt/` and `README.pt.md` (pt-BR). Field labels in the table above
+(`Custo` / `Em linguagem simples` / `Benefício` / `Nível de evidência` / `Fontes` / `Notas`).
+Same number rules as ES. Chapters **01–34** under `book/pt/`; slugs as in TOC.

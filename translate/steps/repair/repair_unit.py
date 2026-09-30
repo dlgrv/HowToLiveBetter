@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""Repair one translated digest unit for verify.py HARD fails (LLM, constrained).
+"""Repair one translated digest unit for verify.py HARD fails.
 
-Repairs only kinds number_absent / banned_calque. After the LLM draft:
-strip → inject mechanical markers → validate_unit (same gate as translation).
+Kinds: number_absent / banned_calque.
+
+**number_absent is mechanical first** (locale-aware digit inject into Notes).
+LLM re-prompt for digits is skipped when inject clears the assert — Hy-MT2
+oscillates on absolute values and is not worth the slot. banned_calque still
+uses the constrained LLM path.
+
+After any draft: strip → collapse multiline fields → markers → validate_unit.
 
 Exit codes: 0 ok; 2 structural fail after retries; 1 LLM/infra error.
 Never writes under translate/digest/ (only <out-dir>/units/<unit>.md).
@@ -17,6 +23,7 @@ from pathlib import Path
 
 from translate.lib.config import default_root, translation_langs
 from translate.llm.client import LLMError, chat
+from translate.steps.repair.mechanical import collapse_multiline_fields, mechanical_fix_unit
 from translate.steps.repair.verify_issues import REPAIRABLE_KINDS, issues_still_present
 from translate.steps.translate.translate_unit import (
     LOCALE_FIELD_HINTS,
@@ -123,64 +130,96 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(f"translated unit missing: {tr_path}")
     current_tr = strip_mechanical_markers(tr_path.read_text(encoding="utf-8"))
 
-    prompt_path = root / "translate" / "prompts" / "repair-unit.md"
-    if not prompt_path.is_file():
-        raise SystemExit(f"prompt missing: {prompt_path}")
-    prompt_template = prompt_path.read_text(encoding="utf-8")
-
-    messages = build_repair_messages(
-        args.lang, unit_text, current_tr, issues, prompt_template, uu=uu
-    )
-    max_attempts = 3
-    last_errs: list[str] = []
-    repaired = ""
-    for attempt in range(1, max_attempts + 1):
-        try:
-            repaired = chat(messages)
-        except LLMError as e:
-            print(f"LLM error: {e}", file=sys.stderr)
-            return 1
-        repaired = strip_fence(repaired)
-        repaired = inject_mechanical_markers(repaired, uu)
-        last_errs = validate_unit(repaired, uu, args.lang)
-        if last_errs:
+    # 1) Structural collapse + mechanical number inject (no LLM).
+    draft = collapse_multiline_fields(current_tr, args.lang)
+    number_issues = [i for i in issues if i.get("kind") == "number_absent"]
+    calque_issues = [i for i in issues if i.get("kind") == "banned_calque"]
+    if number_issues:
+        draft = mechanical_fix_unit(draft, number_issues, args.lang)
+        leftover_nums = issues_still_present(draft, number_issues, args.lang)
+        if leftover_nums:
             print(
-                f"attempt {attempt}/{max_attempts} structural fail ({uu}): " + ", ".join(last_errs),
+                f"mechanical number fix failed ({uu}): " + ", ".join(leftover_nums),
+                file=sys.stderr,
+            )
+            return 2
+        print(f"mechanical number_absent cleared ({uu})", file=sys.stderr)
+
+    # 2) LLM only for banned_calque (digits stay mechanical).
+    repaired = draft
+    if calque_issues:
+        prompt_path = root / "translate" / "prompts" / "repair-unit.md"
+        if not prompt_path.is_file():
+            raise SystemExit(f"prompt missing: {prompt_path}")
+        prompt_template = prompt_path.read_text(encoding="utf-8")
+        messages = build_repair_messages(
+            args.lang, unit_text, draft, calque_issues, prompt_template, uu=uu
+        )
+        max_attempts = 3
+        last_errs: list[str] = []
+        for attempt in range(1, max_attempts + 1):
+            try:
+                repaired = chat(messages)
+            except LLMError as e:
+                print(f"LLM error: {e}", file=sys.stderr)
+                return 1
+            repaired = strip_fence(repaired)
+            repaired = collapse_multiline_fields(repaired, args.lang)
+            # Re-apply number inject so calque rewrite cannot drop digits again.
+            if number_issues:
+                repaired = mechanical_fix_unit(repaired, number_issues, args.lang)
+            repaired = inject_mechanical_markers(repaired, uu)
+            last_errs = validate_unit(repaired, uu, args.lang)
+            if last_errs:
+                print(
+                    f"attempt {attempt}/{max_attempts} structural fail ({uu}): "
+                    + ", ".join(last_errs),
+                    file=sys.stderr,
+                )
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": (
+                            "Your previous draft failed structural checks: "
+                            + ", ".join(last_errs)
+                            + ". Re-output the FULL repaired unit: line 1 `### N. …`, "
+                            "dashed `- Label:` fields, no §TAG§/§SRC§, no bold labels."
+                        ),
+                    }
+                )
+                continue
+            leftovers = issues_still_present(
+                strip_mechanical_markers(repaired), calque_issues, args.lang
+            )
+            if not leftovers:
+                break
+            print(
+                f"attempt {attempt}/{max_attempts} issue assert fail ({uu}): "
+                + ", ".join(leftovers),
                 file=sys.stderr,
             )
             messages.append(
                 {
                     "role": "user",
                     "content": (
-                        "Your previous draft failed structural checks: "
-                        + ", ".join(last_errs)
-                        + ". Re-output the FULL repaired unit: line 1 `### N. …`, "
-                        "dashed `- Label:` fields, no §TAG§/§SRC§, no bold labels."
+                        "Your previous draft did NOT fix: "
+                        + ", ".join(leftovers)
+                        + ". Re-output the FULL unit with the listed issue(s) fixed."
                     ),
                 }
             )
-            continue
-        leftovers = issues_still_present(strip_mechanical_markers(repaired), issues, args.lang)
-        if not leftovers:
-            break
-        print(
-            f"attempt {attempt}/{max_attempts} issue assert fail ({uu}): " + ", ".join(leftovers),
-            file=sys.stderr,
-        )
-        messages.append(
-            {
-                "role": "user",
-                "content": (
-                    "Your previous draft did NOT fix: "
-                    + ", ".join(leftovers)
-                    + ". Re-output the FULL unit with the listed issue(s) fixed. "
-                    "Numbers: write the absolute value with digits (e.g. 610 000)."
-                ),
-            }
-        )
+        else:
+            print(f"repair failed after {max_attempts} attempts ({uu})", file=sys.stderr)
+            return 2
     else:
-        print(f"repair failed after {max_attempts} attempts ({uu})", file=sys.stderr)
-        return 2
+        repaired = inject_mechanical_markers(repaired, uu)
+        last_errs = validate_unit(repaired, uu, args.lang)
+        if last_errs:
+            print(
+                f"structural fail after mechanical ({uu}): " + ", ".join(last_errs),
+                file=sys.stderr,
+            )
+            return 2
 
     atomic_write(tr_path, repaired if repaired.endswith("\n") else repaired + "\n")
     try:

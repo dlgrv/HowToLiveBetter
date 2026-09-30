@@ -57,6 +57,19 @@ class ValidateRu(unittest.TestCase):
         )
         self.assertEqual(tu.validate_unit(text, "01", "ru"), [])
 
+    def test_item_empty_field_fails(self):
+        body = (
+            "### 1. Title\n§TAG§\n"
+            "- Стоимость:\n"
+            "- Простыми словами: a\n"
+            "- Эффект: b\n"
+            "- Уровень доказательности: A\n"
+            "- Примечания: z\n"
+            "§SRC§\n"
+        )
+        errs = tu.validate_unit(body, "01", "ru")
+        self.assertTrue(any("empty field" in e for e in errs))
+
     def test_item_bold_fields_fail(self):
         text = tu.inject_mechanical_markers(
             "### 11. Windows\n**Стоимость:** 10\n**Простыми словами:** a\n"

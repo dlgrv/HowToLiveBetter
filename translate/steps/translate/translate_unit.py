@@ -163,6 +163,11 @@ def validate_unit(text: str, uu: str, lang: str) -> list[str]:
         for lab in fields
         if not re.search(rf"^{re.escape(lab)}", text, re.MULTILINE)
     )
+    errs.extend(
+        f"empty field {lab} (value must be on the same line)"
+        for lab in fields
+        if re.search(rf"^{re.escape(lab)}\s*$", text, re.MULTILINE)
+    )
 
     return errs
 
@@ -271,6 +276,11 @@ def main(argv: list[str] | None = None) -> int:
             print(f"LLM error: {e}", file=sys.stderr)
             return 1
         translated = strip_fence(translated)
+        if uu != "00":
+            # Late import: mechanical sits under repair/; avoid cycle at module load.
+            from translate.steps.repair.mechanical import collapse_multiline_fields
+
+            translated = collapse_multiline_fields(translated, args.lang)
         translated = inject_mechanical_markers(translated, uu)
         last_errs = validate_unit(translated, uu, args.lang)
         if not last_errs:

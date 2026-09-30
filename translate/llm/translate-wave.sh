@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Translate a batch of chapters sequentially; units within a chapter run
-# 2-at-a-time (llama-server -np 2). Usage: ./translate-wave.sh <lang> 16 17 18
+# Translate a batch of chapters. Units run one at a time to match the locked
+# llama-server config (-np 1, -c 10240). Usage: ./translate-wave.sh <lang> 16 17 18
 set -uo pipefail
 cd "$(dirname "$0")/../.." || exit
 
@@ -34,7 +34,7 @@ for raw in "$@"; do
   )
   i=0
   while [ "$i" -lt "${#units[@]}" ]; do
-    batch=("${units[@]:$i:2}")
+    batch=("${units[@]:$i:1}")
     pids=()
     for u in "${batch[@]}"; do
       python3 translate/steps/translate/translate_unit.py --nn "$nn" --unit "$u" --lang "$lang" \
@@ -44,7 +44,7 @@ for raw in "$@"; do
     for p in "${pids[@]}"; do
       wait "$p" || echo "unit failed (see /tmp/tu_${lang}_${nn}_*.log)"
     done
-    i=$((i + 2))
+    i=$((i + 1))
   done
 
   python3 translate/steps/assemble/assemble.py "$nn" "translate/runs/active/$lang/$nn" \
@@ -67,5 +67,6 @@ PYFIX
     --workdir "translate/runs/active/$lang/$nn" \
     --assembled "translate/runs/active/$lang/$nn/assembled.md" \
     --max-rounds 3 2>&1 | tail -1
+  # number_absent is mechanical-first (no LLM fallback); calque may still use LLM.
   echo "== ch$nn ($lang) done"
 done

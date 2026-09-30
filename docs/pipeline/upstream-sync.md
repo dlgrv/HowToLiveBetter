@@ -83,6 +83,9 @@ digest → translate → assemble → verify ↔ repair → lt → style → pol
 ```
 
 - Hard stop on first `verify.py` FAIL.
+- `number_absent` → mechanical inject (`make repair` / `mechanical.py`), **not** LLM retry.
+- Stale `translate/runs/active/<lang>/<NN>/` older than `book/<lang>/` is skipped by
+  `wave_pipeline` unless `HTLB_FORCE_ASSEMBLE=1`.
 - `make lt` requires LanguageTool `:8010` (exit 2 if down).
 - Book-wide style: `make quality` → readability + `style_check --book --strict`.
 - One chapter per commit when the user asks to commit (fork policy).

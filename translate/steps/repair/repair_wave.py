@@ -3,8 +3,9 @@
 
 Drives verify.py HARD fails of kinds number_absent / banned_calque to green:
 per round, assemble the candidate, run verify --json, locate failing units,
-repair each with repair_unit.py (fallback: full translate_unit.py after the
-post-repair assert still fails), then re-assemble/re-verify. ≤ --max-rounds.
+repair each with repair_unit.py (mechanical-first for numbers; LLM for
+calques; fallback full translate_unit only for non-number leftovers),
+then re-assemble/re-verify. ≤ --max-rounds.
 
 Exit codes: 0 = verify OK; 1 = exhausted rounds / unrepairable / unlocated;
 2 = LLM/infra error.
@@ -217,6 +218,18 @@ def main(argv: list[str] | None = None) -> int:
                 and issues_still_present(tr_path.read_text(encoding="utf-8"), issues, lang)
             )
             if rc != 0 or still:
+                number_only = bool(issues) and all(i.get("kind") == "number_absent" for i in issues)
+                if number_only:
+                    # Mechanical inject should clear digits; retranslate oscillates.
+                    print(
+                        f"round={round_no} number_absent unit={unit} "
+                        f"rc={rc} still={bool(still)} "
+                        "(no LLM fallback — fix mechanical inject)",
+                        file=sys.stderr,
+                    )
+                    if rc != 0:
+                        return 2
+                    continue
                 if still and rc == 0:
                     print(
                         f"round={round_no} post-repair assert FAILED unit={unit} "

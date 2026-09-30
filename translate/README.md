@@ -1,6 +1,6 @@
 # Translation pipeline (`translate/`)
 
-Machine-assisted ZH → `ru` / `en` / `es`. CN chapters stay at `book/NN-*.md`;
+Machine-assisted ZH → `ru` / `en` / `es` / `pt`. CN chapters stay at `book/NN-*.md`;
 overlays land in `book/<lang>/`.
 
 Site/OG/repo gates live in [`forge/`](../forge/README.md). Rituals (sync, add-chapter)
@@ -26,7 +26,9 @@ Output dirs `translate/digest/` and `translate/runs/` are gitignored.
 | [../docs/pipeline/add-chapter.md](../docs/pipeline/add-chapter.md) | chapter checklist |
 | [../TRANSLATION.md](../TRANSLATION.md) | conventions |
 
-`make help` lists wrappers. **`make wave` = assemble + verify.**
+`make help` lists wrappers. **`make wave` = assemble + verify** (chapters from
+`waves.json` only; skips stale workdirs older than `book/<lang>/` unless
+`HTLB_FORCE_ASSEMBLE=1`). **`make repair` = mechanical-first number fix + calque LLM.**
 
 ---
 
@@ -41,8 +43,10 @@ flowchart LR
   Digest --> Translate[Translate]
   Translate --> Assemble[Assemble]
   Assemble --> Verify[Verify]
-  Verify -->|fail| Repair[Repair]
-  Repair --> Assemble
+  Verify -->|number_absent| Mech[Mechanical inject]
+  Verify -->|banned_calque| LLMRepair[LLM repair]
+  Mech --> Assemble
+  LLMRepair --> Assemble
   Verify -->|pass| LT[LanguageTool]
   LT --> Style[Style]
   Style --> Polish[Polish]
@@ -52,10 +56,10 @@ flowchart LR
 | Step | Code | Writes |
 |---|---|---|
 | Digest | `steps/digest/make_digest.py` | `translate/digest/NN/` |
-| Translate | `steps/translate/translate_unit.py` + `llm/client.py` | `translate/runs/active/<lang>/NN/` |
-| Assemble | `steps/assemble/assemble.py` | `book/<lang>/` |
+| Translate | `steps/translate/translate_unit.py` + `llm/client.py` (+ field collapse) | `translate/runs/active/<lang>/NN/` |
+| Assemble | `steps/assemble/assemble.py` | `book/<lang>/` (or workdir `assembled.md`) |
 | Verify | `steps/verify/verify.py` | report only |
-| Repair | `steps/repair/repair_wave.py` | dirty units → re-assemble |
+| Repair | `steps/repair/repair_wave.py` + **`mechanical.py`** | dirty units → re-assemble |
 | LanguageTool | `shelf/lt_check.py` (`make lt`) | report; exit 2 if `:8010` down |
 | Style | `shelf/style_check.py` (`make style` / `make quality`) | report |
 | Polish | `steps/polish/polish_wave.py` | plain-terms → re-assemble |
@@ -69,9 +73,17 @@ Research CLIs under `validate/research/` are calibration only — not on this fl
 
 ### Digest / Translate / Assemble / Verify / Repair
 
-See prior ops docs: [llm/README.md](llm/README.md). Workdir = parent of `units/`
+See [llm/README.md](llm/README.md). Workdir = parent of `units/`
 (`translate/runs/active/<lang>/<NN>`). Verify HARD: counts, tags, sources, numbers/calques.
-Repair: ≤8 dirty/round, ≤3 rounds; `--dry-locate`.
+
+**Repair (`make repair CH=NN LANG=…`):**
+
+- `number_absent` → **mechanical only** (`steps/repair/mechanical.py`): locale
+  decimals (`0,499` for es/pt/ru), safe Notes inject `〔N〕`, fix mangled
+  `g = 0499`, collapse `- Label:\n value`. **No LLM retry / no fallback
+  retranslate** (Hy-MT2 oscillates on abs values).
+- `banned_calque` → constrained LLM (`repair-unit.md`); fallback retranslate allowed.
+- Caps: ≤8 dirty/round, ≤3 rounds; `--dry-locate` to preview the unit map.
 
 ### LanguageTool — `translate/shelf/lt_check.py`
 
@@ -99,7 +111,7 @@ Repair: ≤8 dirty/round, ≤3 rounds; `--dry-locate`.
 
 ### Human + commit
 
-Tone, titles, Cost tags, ES parity by eye. Overlay only via MR + squash to `main`.
+Tone, titles, Cost tags, locale parity by eye. Overlay only via MR + squash to `main`.
 
 ---
 

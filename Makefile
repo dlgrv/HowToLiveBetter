@@ -9,7 +9,7 @@ RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
+.PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
 
 # Locale list must stay in sync with translate/langs.json (registry).
 OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html
@@ -119,6 +119,12 @@ wave:  ## Run assemble+verify for a wave. Usage: make wave WAVE=1
 	@[ -n "$(WAVE)" ] || (echo "Usage: make wave WAVE=N" && exit 1)
 	@$(PY) -c "import json; w=json.load(open('waves.json')); print('Wave $(WAVE):', w['waves']['$(WAVE)']['chapters'])"
 	@$(PY) translate/ops/wave_pipeline.py $$($(PY) -c "import json; print(' '.join(f'{int(c):02d}' for c in json.load(open('waves.json'))['waves']['$(WAVE)']['chapters']))")
+
+repair:  ## Mechanical-first repair after verify FAIL. Usage: make repair CH=01 LANG=ru
+	@[ -n "$(CH)" ] || (echo "Usage: make repair CH=NN LANG=ru|en|es|pt" && exit 1)
+	@[ -n "$(LANG)" ] || (echo "Usage: make repair CH=NN LANG=ru|en|es|pt" && exit 1)
+	$(PY) translate/steps/repair/repair_wave.py --nn $(CH_PAD) --lang $(LANG) \
+		--workdir $(WORKDIR) --assembled $(WORKDIR)/assembled.md --max-rounds 3
 
 # ── Status ─────────────────────────────────────────────────────
 

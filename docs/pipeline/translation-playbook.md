@@ -36,7 +36,11 @@
 
 4. python3 translate/steps/verify/verify.py <NN> --lang <ru|en|es>     # HARD — стоп при FAIL
 
-4b. FAIL number_absent / banned_calque → repair_wave (≤8/раунд, ≤3 раунда), снова verify.
+4b. FAIL `number_absent` / `banned_calque` → `repair_wave` (≤8/раунд, ≤3 раунда), снова verify.
+    **Числа — только механически** (`steps/repair/mechanical.py`: locale-форма
+    `0,499` для es/pt/ru, inject `〔N〕` в Notes, collapse multiline fields).
+    LLM-ретрай и fallback-retranslate для `number_absent` **запрещены**
+    (Hy-MT2 осциллирует: 2022↔8000). `banned_calque` по-прежнему через LLM.
     Style/LT не запускать до OK.
 
 5. make lt CH=<NN> LANG=<lang>     # LT :8010 обязателен; down → exit 2
@@ -54,9 +58,17 @@
 - Сабагент / API-модель с целой главой (30–42КБ) таймится или режет середину —
   **никогда не кормить целый `book/*.md`**. Только `translate/digest/<NN>/units/*.md`.
 - Юнит 1–2КБ = один пункт. Риск потери = один пункт, а не глава.
-- **Локальный Hy-MT2 Q8 на 48 GB:** только последовательные юниты (`-np 1`).
+- **Локальный Hy-MT2 Q8 на 48 GB:** один `llama-server` (`-np 1`, `-c 10240`),
+  юниты строго по одному. Не поднимать второй инстанс и не резать контекст
+  до 4096 — длинные пункты обрезаются. Канон:
+  `./translate/steps/translate/start-llama-server.sh`.
   См. [translate/llm/README.md](../../translate/llm/README.md).
 - Сборка централизована: источники не входят в контекст LLM.
+- **`make wave` / `wave_pipeline.py`:** только главы из аргумента; не трогать
+  чужие `translate/runs/active/<lang>/<NN>/`. Если workdir старше
+  опубликованного `book/<lang>/`, assemble пропускается
+  (`HTLB_FORCE_ASSEMBLE=1` — принудительно). Иначе stale reverse-digest
+  затирает живые главы.
 
 ### Скрипты (в `translate/`)
 | Скрипт | Что делает |
@@ -64,7 +76,8 @@
 | `steps/digest/make_digest.py` | режет главу на юниты; теги/источники → `blocks.json` |
 | `steps/assemble/assemble.py` | сборка; инъекция блоков байт-в-байт |
 | `steps/verify/verify.py` | HARD сверка с оригиналом |
-| `steps/repair/repair_wave.py` | авторемонт number/calque fails |
+| `steps/repair/repair_wave.py` | авторемонт: числа mechanical-first, calque → LLM |
+| `steps/repair/mechanical.py` | locale digit inject + collapse `- Label:\\n value` |
 | `shelf/lt_check.py` (`make lt`) | LT plain-terms; exit 2 если `:8010` down |
 | `shelf/style_check.py` | маркеры стиля |
 | `steps/polish/polish_wave.py` | clarity → simplify → verify |
@@ -74,7 +87,7 @@
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
-| **Hy-MT2** Q8 → `llama-server` `:8080` | [translate/llm/README.md](../../translate/llm/README.md) | `.env` `HTLB_LLM_*`; юниты последовательно |
+| **Hy-MT2** Q8 → `llama-server` `:8080` | [translate/llm/README.md](../../translate/llm/README.md) | `./translate/steps/translate/start-llama-server.sh` (`-np 1` `-c 10240`); `.env` `HTLB_LLM_*`; юниты по одному |
 | **LanguageTool** `:8010` | [translate/languagetool/README.md](../../translate/languagetool/README.md) | Docker → `make lt` |
 | **Laya** `:8090` | [translate/laya/README.md](../../translate/laya/README.md) | `./translate/laya/start-laya-server.sh` → `make polish` |
 
@@ -106,7 +119,7 @@
 
 ### Волны параллельно
 - Перевод (cloud / лёгкий backend): 5–6 сабагентов параллельно, по 1 юниту на каждого. Крупные главы (13 — 42 пункта) режутся на 2 волны.
-- Перевод (**локальный Q8 llama.cpp на 48 GB**): строго 1 юнит за раз; не крутить параллельно с тяжёлым Docker LT + браузером, если Activity Monitor уже в swap.
+- Перевод (**локальный Q8 llama.cpp на 48 GB**): один `llama-server` (`start-llama-server.sh`: `-np 1`, `-c 10240`), строго 1 юнит за раз; не крутить параллельно с тяжёлым Docker LT + браузером, если Activity Monitor уже в swap.
 - Ревью: волны по главам/аспектам. QA — юнитами по ~10 пар строк, 8 параллельно; 316 строк проверены за ~12 минут (целые главы — 50+ минут и таймауты).
 
 ### Контракт с сабагентом (проверено)

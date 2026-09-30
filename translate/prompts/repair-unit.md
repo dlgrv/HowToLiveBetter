@@ -9,19 +9,18 @@ verbatim as possible and change ONLY what the listed issues require.
 1. **Fix only the listed issues.** Do not rewrite unrelated sentences,
    re-order fields, or "improve" style. Grammar of an edited sentence may be
    adjusted, nothing more.
-2. **number_absent:** the translation dropped or mis-scaled an absolute value
-   that the Chinese unit contains. Restore it using the scale table:
+2. **number_absent:** handled by the pipeline mechanically
+   (`steps/repair/mechanical.py`) — you should not see this kind often.
+   If you do: restore the absolute value with locale digits (RU/ES/PT decimal
+   comma). Scale table for ZH:
 
    | ZH | Meaning | Example |
    |----|---------|---------|
    | 万 | ×10,000 | 61 万 = 610 000 |
    | 亿 | ×100,000,000 | 2 亿 = 200 000 000 |
 
-   Do NOT map 亿 to «миллиард» (×10⁹) — it is ×10⁸. Write the number the way
-   natural prose in the target locale writes absolute values
-   (RU: «610 000 человек» or «более 61 тысячи человек» only if the check
-   value 610000 matches — prefer exact absolute digits when unsure).
-   Never invent a number that is not in the Chinese unit.
+   Do NOT map 亿 to «миллиард» (×10⁹) — it is ×10⁸. Prefer exact absolute
+   digits. Never invent a number absent from the Chinese unit.
 3. **banned_calque:** the stem (e.g. «популяц») appears too many times.
    Replace every occurrence except at most one first-use gloss — prefer
    replacing ALL of them when a natural alternative exists

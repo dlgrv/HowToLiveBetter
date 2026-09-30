@@ -82,7 +82,9 @@ and `translate/glossary.json` are authoritative for terms and style.
 
 16. Item titles and Cost lines: neighbor-readable; verb-first titles.
 17. Sensitive topics: translate faithfully without adding how-to detail.
-18. ES: decimal comma in plain-terms (`43,2 %`), consistent with Benefit.
+18. ES/PT: decimal comma in plain-terms and Benefit (`43,2 %`, `g = 0,499`).
+    Never write `g = 0499` (lost point) or bare `0.499` in ES/PT — verify
+    folds the latter to `499`.
 
 ## Few-shot gold (pilot v3 — plain-terms only)
 
