@@ -3,7 +3,7 @@
 Self-hosted [LanguageTool](https://github.com/languagetool-org/languagetool)
 on loopback `:8010`. Grammar/spelling on **plain-terms** lines only.
 
-**Order:** after green `verify`, before `make polish`.  
+**Order:** after green `verify`, before style/human.  
 `make lt CH=NN LANG=ru|en|es` — if the server is down and there are plain-terms
 to check → **exit 2**.
 

@@ -133,8 +133,7 @@ After you write units, humans/tools run **in this order**:
 2. `verify.py` — **HARD** (stop on FAIL)
 3. `make lt` — LanguageTool on plain-terms (**exit 2** if `:8010` down)
 4. `style_check.py` / `make quality`
-5. `make polish` (Laya clarity → simplify → verify) when polishing
-6. Human pass + commit
+5. Human pass + commit
 
 **Forbidden:** using EN as structural master for RU/ES.
 

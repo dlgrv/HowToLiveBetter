@@ -9,7 +9,7 @@ RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
+.PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
 
 # Locale list must stay in sync with translate/langs.json (registry).
 OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html
@@ -19,7 +19,7 @@ check-content:  ## CJK-leak, parity, readme-badge checks
 
 ci:  ## Local CI ≈ GitHub test job (tests+lint+links+content+pages+artifact)
 	@echo "=== Running tests ==="
-	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
+	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
 	@echo "=== Integration tests ==="
 	$(PY) -m pytest translate/validate/tests/integration/ -v
 	@echo "=== Lint ==="
@@ -175,10 +175,10 @@ lint:  ## All code linters (must match CI)
 	$(DJLINT) $(OG_HTML) --check
 	$(DJLINT) site/index.html --lint
 	$(YAMLLINT) .github/workflows/
-	shellcheck translate/steps/translate/*.sh translate/laya/*.sh
+	shellcheck translate/steps/translate/*.sh
 
 test:  ## Run unit tests (excludes integration)
-	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ translate/laya/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
+	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
 	node --test forge/ebook/book.test.mjs
 
 ebook-deps:  ## Install forge/ebook npm dependencies
@@ -211,20 +211,6 @@ lt:  ## LanguageTool on plain-terms (required; exit 2 if :8010 down). Usage: mak
 style:  ## Style audit (style_check). Usage: make style CH=10 LANG=ru
 	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make style CH=NN LANG=ru|en|es" && exit 1)
 	$(PY) translate/shelf/style_check.py book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-") --lang $(LANG)
-
-triage:  ## Laya triage (RU; exit 2 if hits + server down). Usage: make triage CH=10 LANG=ru
-	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make triage CH=NN LANG=ru" && exit 1)
-	$(PY) -m translate.laya.triage book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-") --lang $(LANG)
-
-clarity:  ## Laya понятно/непонятно on plain-terms. Usage: make clarity CH=10 LANG=ru|en|es
-	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make clarity CH=NN LANG=ru|en|es" && exit 1)
-	$(PY) -m translate.laya.plain book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-") --lang $(LANG)
-
-polish:  ## Clarity→simplify→assemble→verify (≤3). Usage: make polish CH=01 LANG=ru [WORKDIR=…]
-	@[ -n "$(CH)" ] && [ -n "$(LANG)" ] || (echo "Usage: make polish CH=NN LANG=ru|en|es [WORKDIR=…]" && exit 1)
-	$(PY) translate/steps/polish/polish_wave.py --nn $(CH_PAD) --lang $(LANG) \
-		--workdir $(WORKDIR) \
-		--assembled book/$(LANG)/$(shell ls book/$(LANG)/ | grep "^$(CH_PAD)-")
 
 # ── Links ──────────────────────────────────────────────────────
 

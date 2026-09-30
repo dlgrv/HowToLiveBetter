@@ -4,7 +4,7 @@
 
 Сопутствующие документы (не дублируются здесь):
 - `TRANSLATION.md` — конвенции перевода (байт-верные зоны, маппинг полей, слаги файлов)
-- `docs/localization-techniques.md` — каталог из 8 приёмов передачи реалий с примерами
+- `docs/pipeline/localization-techniques.md` — каталог из 8 приёмов передачи реалий с примерами
 - `QUALITY.md` — MQM-рубрика оценки качества и жёсткие правила (hard fail)
 
 ---
@@ -22,7 +22,7 @@
 Схема блоков (Mermaid) и карточки runtime: [translate/README.md](../../translate/README.md).
 
 **Обязательный spine:** digest → translate → assemble → verify (↔ repair) →
-`make lt` → style/quality → `make polish` → human(+commit).
+`make lt` → style/quality → human(+commit).
 
 ```text
 1. python3 translate/steps/digest/make_digest.py <NN>
@@ -47,12 +47,10 @@
 
 6. make style CH=<NN> LANG=<lang>  # или make quality
 
-7. make polish CH=<NN> LANG=<lang> # Laya :8090 + Hy-MT2
-
-8. Human pass + commit (1 глава = 1 коммит)
+7. Human pass + commit (1 глава = 1 коммит)
 ```
 
-**Только упрощение plain (без нового перевода):** patch → verify → `make lt` → style → polish → human.
+**Только правка plain (без нового перевода):** patch → verify → `make lt` → style → human.
 
 ### Почему юниты, а не главы
 - Сабагент / API-модель с целой главой (30–42КБ) таймится или режет середину —
@@ -80,16 +78,14 @@
 | `steps/repair/mechanical.py` | locale digit inject + collapse `- Label:\\n value` |
 | `shelf/lt_check.py` (`make lt`) | LT plain-terms; exit 2 если `:8010` down |
 | `shelf/style_check.py` | маркеры стиля |
-| `steps/polish/polish_wave.py` | clarity → simplify → verify |
 | `steps/translate/translate_unit.py` | Hy-MT2: один digest-юнит |
 
-### Ops: модель перевода + LanguageTool + Laya
+### Ops: модель перевода + LanguageTool
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
 | **Hy-MT2** Q8 → `llama-server` `:8080` | [translate/llm/README.md](../../translate/llm/README.md) | `./translate/steps/translate/start-llama-server.sh` (`-np 1` `-c 10240`); `.env` `HTLB_LLM_*`; юниты по одному |
 | **LanguageTool** `:8010` | [translate/languagetool/README.md](../../translate/languagetool/README.md) | Docker → `make lt` |
-| **Laya** `:8090` | [translate/laya/README.md](../../translate/laya/README.md) | `./translate/laya/start-laya-server.sh` → `make polish` |
 
 **Канонический workdir:** `translate/runs/active/<lang>/<NN>/`.
 
@@ -101,7 +97,6 @@
 |---|---|---|
 | `verify.py` | ≠0 = STOP | HARD |
 | `lt_check` / `make lt` | **2** = LT down | обязателен после verify |
-| `polish` | **2** = Laya down; **1** = `RUN_REPAIR` | после LT/style |
 | `style_check` / `make quality` | findings → см. `--strict` | book gate |
 
 **§TAG§ / §SRC§:** `translate_unit.py` ретраит и exit 2 при потере маркеров; после assemble — FAIL на leftover `§`. Не кормить модель в обход CLI.
@@ -111,9 +106,8 @@
 1. Этот playbook §2 (порядок) + Ops выше  
 2. [translate/llm/README.md](../../translate/llm/README.md) — Hy-MT2 / `.env` / local server  
 3. [translate/languagetool/README.md](../../translate/languagetool/README.md) — LT `:8010`  
-4. [translate/laya/README.md](../../translate/laya/README.md) — Laya для polish  
 
-Перед mass retranslate: Hy-MT2 + LT + Laya подняты; `make lt` / `make polish` не должны давать exit 2.
+Перед mass retranslate: Hy-MT2 + LT подняты; `make lt` не должен давать exit 2.
 
 ## 3. Сабагенты: как использовать
 

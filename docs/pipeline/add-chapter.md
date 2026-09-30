@@ -57,17 +57,16 @@ make verify CH=NN LANG=ru
 
 Checks: heading count, tag count, source line byte-identity, CJK leakage, banned calques.
 
-### 5. LanguageTool / style / polish
+### 5. LanguageTool / style
 
-After green verify (LT Docker `:8010` and Laya `:8090` must be up):
+After green verify (LT Docker `:8010` must be up):
 
 ```bash
 make lt CH=NN LANG=ru
 make style CH=NN LANG=ru   # or: make quality
-make polish CH=NN LANG=ru
 ```
 
-`make lt` / `make polish` exit **2** if LT / Laya is down.
+`make lt` exits **2** if LT is down.
 
 ### 6. Status
 

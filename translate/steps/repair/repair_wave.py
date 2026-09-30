@@ -11,7 +11,7 @@ Exit codes: 0 = verify OK; 1 = exhausted rounds / unrepairable / unlocated;
 2 = LLM/infra error.
 
 Never writes under translate/digest/ (workdir is the run dir; digest units are
-read-only inputs). No style/LT/polish inside the loop.
+read-only inputs). No style/LT inside the loop.
 
 CONCURRENCY INVARIANT (locked decision, do not "optimize" away): units within
 a round are repaired SEQUENTIALLY — a plain for-loop, no threadpool, no async.

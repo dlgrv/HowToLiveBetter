@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="972" height="176" viewBox="0 0 972 176" role="img" aria-label="Translation pipeline">
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      fill: #1f2328;
+    }
+    .edge { font-size: 10px; fill: #656d76; }
+    .box { fill: #ffffff; stroke: #d0d7de; stroke-width: 1; }
+    .arr { fill: none; stroke: #656d76; stroke-width: 1.25; marker-end: url(#a); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#656d76"/>
+    </marker>
+  </defs>
+
+  <!-- boxes 108×32; spine y=72 -->
+  <rect class="box" x="8" y="72" width="108" height="32"/><text x="62" y="92" text-anchor="middle">CN</text>
+  <path class="arr" d="M116 88 H128"/>
+  <rect class="box" x="128" y="72" width="108" height="32"/><text x="182" y="92" text-anchor="middle">Digest</text>
+  <path class="arr" d="M236 88 H248"/>
+  <rect class="box" x="248" y="72" width="108" height="32"/><text x="302" y="92" text-anchor="middle">Translate</text>
+  <path class="arr" d="M356 88 H368"/>
+  <rect class="box" x="368" y="72" width="108" height="32"/><text x="422" y="92" text-anchor="middle">Assemble</text>
+  <path class="arr" d="M476 88 H488"/>
+  <rect class="box" x="488" y="72" width="108" height="32"/><text x="542" y="92" text-anchor="middle">Verify</text>
+
+  <!-- column x=616: Mechanical / LanguageTool / LLM repair -->
+  <rect class="box" x="616" y="12" width="108" height="32"/><text x="670" y="32" text-anchor="middle">Mechanical</text>
+  <rect class="box" x="616" y="72" width="108" height="32"/><text x="670" y="92" text-anchor="middle">LanguageTool</text>
+  <rect class="box" x="616" y="132" width="108" height="32"/><text x="670" y="152" text-anchor="middle">LLM repair</text>
+
+  <!-- enter from left -->
+  <path class="arr" d="M542 72 V28 H616"/>
+  <text class="edge" x="500" y="22">number_absent</text>
+  <path class="arr" d="M596 88 H616"/>
+  <text class="edge" x="598" y="82">pass</text>
+  <path class="arr" d="M542 104 V148 H616"/>
+  <text class="edge" x="500" y="170">banned_calque</text>
+
+  <!-- Mechanical exit: top middle → Assemble top -->
+  <path class="arr" d="M670 12 V4 H422 V72"/>
+  <!-- LLM repair exit: bottom middle → Assemble bottom -->
+  <path class="arr" d="M670 164 V172 H422 V104"/>
+
+  <path class="arr" d="M724 88 H736"/>
+  <rect class="box" x="736" y="72" width="108" height="32"/><text x="790" y="92" text-anchor="middle">Style</text>
+  <path class="arr" d="M844 88 H856"/>
+  <rect class="box" x="856" y="72" width="108" height="32"/><text x="910" y="92" text-anchor="middle">Human</text>
+</svg>

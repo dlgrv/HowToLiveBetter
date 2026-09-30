@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """LanguageTool grammar check on plain-terms lines (required local step).
 
-Self-hosted LT (Docker :8010). Run after green verify, before polish.
+Self-hosted LT (Docker :8010). Run after green verify, before style/human.
 Server unreachable with plain-terms to check → exit 2.
 Grammar hits print as WARN lines; exit 0 when LT answered.
 

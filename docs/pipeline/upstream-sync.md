@@ -79,7 +79,7 @@ When in doubt, use **A** for the affected units (re-digest and re-translate only
 **Required spine** (`make wave` = assemble + verify):
 
 ```text
-digest → translate → assemble → verify ↔ repair → lt → style → polish → human(+commit)
+digest → translate → assemble → verify ↔ repair → lt → style → human(+commit)
 ```
 
 - Hard stop on first `verify.py` FAIL.

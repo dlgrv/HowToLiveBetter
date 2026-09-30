@@ -1,1 +1,1 @@
-"""Translation publish conveyor (digest → polish)."""
+"""Translation publish conveyor (digest → verify → lt → style)."""

@@ -64,7 +64,6 @@ pythonpath = ["."]
 testpaths = [
   "translate/validate/tests",
   "translate/llm/tests",
-  "translate/laya/tests",
   "forge/site/tests",
 ]
 

@@ -35,7 +35,7 @@ After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
 | `book/{en,ru,es}/` | translations |
 | `site/` | authored Pages UI (`index.html`, `{lang}/`, `assets/`) |
 | `.publish/` | Pages deploy artifact (`make serve` / `pages_artifact.py`) |
-| `translate/` | ZH→locale conveyor (`steps/`, `llm/`, `laya/`, `shelf/`, `lib/`, …) |
+| `translate/` | ZH→locale conveyor (`steps/`, `llm/`, `shelf/`, `lib/`, …) |
 | `forge/` | site/OG builders + repo gates (`check_*`, `update_readme`, …) |
 | `docs/pipeline/` | human/agent rituals (sync, add-chapter, playbook) — not code |
 | `README*.md` | stay at repo root (GitHub UI + Pages artifact) |
@@ -55,7 +55,7 @@ Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Action
 
 ## Pipeline (for AI agents)
 
-Map of blocks: [translate/README.md](translate/README.md) + [forge/README.md](forge/README.md). Entry point: `make help`. Raw `python3 translate/…` / `forge/…` needs `PYTHONPATH=.` (Make exports it). **`make wave` = assemble + verify.** After green verify: `make lt` (LanguageTool `:8010` required) → style/quality → `make polish` (Laya + Hy-MT2).
+Map of blocks: [translate/README.md](translate/README.md) + [forge/README.md](forge/README.md). Entry point: `make help`. Raw `python3 translate/…` / `forge/…` needs `PYTHONPATH=.` (Make exports it). **`make wave` = assemble + verify.** After green verify: `make lt` (LanguageTool `:8010` required) → style/quality → human(+commit).
 
 ### Adding a chapter
 

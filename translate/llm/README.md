@@ -106,18 +106,6 @@ re-assemble → re-verify. ≤ 8 dirty units/round; never writes
 `translate/digest/` or (from repair_wave itself) `book/`. Exit: 0 OK,
 1 exhausted/unrepairable, 2 LLM/infra. Preview: `--dry-locate`.
 
-## Polish wave (after green verify)
-
-```bash
-make polish CH=01 LANG=ru   # Laya :8090 + Hy-MT2 :8080 OK together
-# or: python3 translate/steps/polish/polish_wave.py --nn 01 --lang ru \
-#       --workdir translate/runs/active/ru/01 --assembled book/ru/01-….md
-```
-
-Clarity on unit plain-terms → `simplify_unit.py` (`simplify-plain.md`) →
-assemble → verify. ≤3 rounds. Exit 0 leftover `непонятно`, 1 `RUN_REPAIR`,
-2 Laya down. Client is still `translate/llm/client.py`.
-
 Assemble workdir = parent of `units/`. One script for all langs: `assemble.py <NN> <workdir> <out.md> [lang]` (`lang` defaults to `ru`).
 
 Ops detail: this README + [start-llama-server.sh](../steps/translate/start-llama-server.sh) + [translation-playbook.md](../../docs/pipeline/translation-playbook.md) (§ Ops).
