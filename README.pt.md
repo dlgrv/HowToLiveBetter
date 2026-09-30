@@ -15,7 +15,7 @@ Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista
 [![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1341%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** · [Índice](#índice) · [Glossário](#como-ler-os-números-glossário) · [Registros de verificação](docs/research/核实记录/) · [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) · [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) · [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) · [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md)
+**[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md)
 
 </div>
 

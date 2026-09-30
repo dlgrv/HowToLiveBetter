@@ -15,7 +15,7 @@ You don't have to do it all: this is a ranked shortlist, not a task list — pic
 [![Primary sources](https://img.shields.io/badge/Primary%20sources-1341%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/es/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/research/核实记录/) · [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md)
+**[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/es/)** | [Table of contents](#table-of-contents) | [Glossary](#reading-the-numbers-glossary) | [Verification records](docs/research/核实记录/) | [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md) | [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md) | [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md) | [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md)
 
 </div>
 

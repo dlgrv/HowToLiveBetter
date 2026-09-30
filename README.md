@@ -12,7 +12,7 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 ![Primary sources](https://img.shields.io/badge/Primary%20sources-1341%20links-565a5f?style=flat-square)
 ![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)
 
-**[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** · [Table of contents](#table-of-contents) · [Glossary](#reading-the-numbers-glossary) · [Verification records](docs/research/核实记录/) · [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md) · [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md) · [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md) · [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md)
+**[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** | [Table of contents](#table-of-contents) | [Glossary](#reading-the-numbers-glossary) | [Verification records](docs/research/核实记录/) | [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md) | [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md) | [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md) | [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md)
 
 Languages:
 
