@@ -1,4 +1,30 @@
-# Soft parity: chapters that still fail verify on the primary locale.
-# Catch-up chapters from the 2026-09-30 upstream sync were removed after verify passed.
-# 16 still fails (number_absent + source_line_mismatch) and is outside that wave.
+# Soft parity: chapters awaiting locale catch-up after upstream CN sync through 6f6d969.
+# Remove NN when en/ru/es/pt verify for that chapter.
+# Pre-existing soft fail:
 16
+# Count-changing or edited in this sync:
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+13
+17
+19
+20
+21
+22
+23
+24
+28
+29
+30
+31
+33
+34
