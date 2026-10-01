@@ -15,15 +15,20 @@ git checkout upstream/main -- $(git ls-tree -r --name-only upstream/main book | 
 # Chinese docs root + 核实记录 (not docs/en|ru|…)
 git checkout upstream/main -- $(git ls-tree -r --name-only upstream/main docs | grep -E '^docs/[^/]+\.md$' ; git ls-tree -r --name-only upstream/main docs/核实记录)
 
+# Upstream AI skill
+git checkout upstream/main -- skills/
+
 # Chinese README → README.zh.md ONLY (never root README.md)
 git show upstream/main:README.md > README.zh.md
 python3 forge/ops/strip_zh_readme_ads.py README.zh.md
+# overlay: docs/→docs/research/, og→site/assets/og/zh.png, language table from README.md
 
-python3 forge/ops/check_content.py
-# if template/counts changed: python3 forge/site/build_pages.py
+# Prefer: make sync-upstream  (same steps; does not run check_content yet)
 ```
 
-After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
+After sync: list touched `book/NN-*.md`, fill `docs/.retranslate-pending`, catch up each `book/{en,ru,es,pt}/`, **then** `python3 forge/ops/check_content.py` (and `build_pages.py` if needed).
+
+GitHub compare `eternity4719:main...main`: `behind_by` = upstream commits not yet anchored; `ahead_by` = fork-only commits. Lineage fix when base lags tip: `git merge -s ours upstream/main` and push to `main` **without squash**.
 
 **Never** checkout from upstream: `ads/`, `site/`, `index.html`, `og.png`, `translate/`, `forge/`.
 
@@ -32,7 +37,7 @@ After sync: diff new/changed `book/NN-*.md` and catch up each `book/<lang>/`.
 | Path | Role |
 |---|---|
 | `book/NN-*.md` | CN source (upstream paths — frozen) |
-| `book/{en,ru,es}/` | translations |
+| `book/{en,ru,es,pt}/` | translations |
 | `site/` | authored Pages UI (`index.html`, `{lang}/`, `assets/`) |
 | `.publish/` | Pages deploy artifact (`make serve` / `pages_artifact.py`) |
 | `translate/` | ZH→locale conveyor (`steps/`, `llm/`, `shelf/`, `lib/`, …) |
@@ -51,7 +56,7 @@ Local preview: `make serve` → http://127.0.0.1:8000/en/. Deploy: GitHub Action
 
 ## Never overwrite (fork-owned)
 
-`README.md`, `README.ru.md`, `README.es.md`, entire `site/`, `forge/v2.css`, `forge/og/`, `forge/site/build_pages.py`, `translate/langs.json`, `forge/site/pages_artifact.py`, `.github/workflows/`, `CLAUDE.md`, `TRANSLATION.md`, `book/en|ru|es/`, `docs/research/en|ru|es/`. Never restore `ads/`.
+`README.md`, `README.ru.md`, `README.es.md`, `README.pt.md`, entire `site/`, `forge/v2.css`, `forge/og/`, `forge/site/build_pages.py`, `translate/langs.json`, `forge/site/pages_artifact.py`, `.github/workflows/`, `CLAUDE.md`, `TRANSLATION.md`, `book/en|ru|es|pt/`, `docs/research/en|ru|es|pt/`. Never restore `ads/`.
 
 ## Pipeline (for AI agents)
 

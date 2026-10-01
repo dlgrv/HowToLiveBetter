@@ -77,9 +77,16 @@ for i in range(1, meta["items"] + 1):
     if i < meta["items"] and blank:
         parts.append("")
 
-open(out, "w", encoding="utf-8").write(
-    ("\n".join(parts).rstrip() + "\n").replace("\n\n\n", "\n\n"),
-)
+
+def rewrite_fork_links(text: str) -> str:
+    """CN chapters use ](../docs/) and ](../README); book/<lang>/ needs ../../."""
+    # Leave already-rewritten research paths alone.
+    text = re.sub(r"\]\(\.\./docs/(?!research/)", "](../../docs/research/", text)
+    return text.replace("](../README", "](../../README")
+
+
+assembled = rewrite_fork_links(("\n".join(parts).rstrip() + "\n").replace("\n\n\n", "\n\n"))
+open(out, "w", encoding="utf-8").write(assembled)
 
 try:
     src_path = cn_chapter_path(root, n)
@@ -116,7 +123,11 @@ def hanzi(s: str) -> bool:
 zh_lines_out = 0
 for idx, ln in enumerate(tl, 1):
     if hanzi(ln) and not (
-        ln.startswith("- " + source_word + ":") or "成本标签" in ln or "](../" in ln or idx <= 4
+        ln.startswith("- " + source_word + ":")
+        or "成本标签" in ln
+        or "](../" in ln
+        or "](../../" in ln
+        or idx <= 4
     ):
         zh_lines_out += 1
 

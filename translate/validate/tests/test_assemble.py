@@ -236,6 +236,28 @@ class TestAssemble(unittest.TestCase):
             out = f.read()
         self.assertIn("<!-- 成本标签:", out)
 
+    def test_rewrites_cn_relative_links_to_fork_paths(self):
+        intro = (
+            "# 1. Не умирайте рано\n\n"
+            "[← Назад](../README.md)\n\n"
+            "См. [docs/结婚划不划算.md](../docs/结婚划不划算.md).\n"
+            "Already ok: [x](../../docs/research/结婚划不划算.md).\n"
+        )
+        with open(os.path.join(self.workdir, "units", "00.md"), "w", encoding="utf-8") as f:
+            f.write(intro)
+        r = self._run("ru")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        with open(self.out_md, encoding="utf-8") as f:
+            out = f.read()
+        self.assertIn("](../../README.md)", out)
+        self.assertIn("](../../docs/research/结婚划不划算.md)", out)
+        self.assertNotIn("](../README.md)", out)
+        self.assertNotIn("](../docs/", out)
+        # Idempotent: research/ not doubled
+        self.assertNotIn("docs/research/research/", out)
+        # Chinese filename in fork link must not count as untranslated body
+        self.assertNotIn("untranslated lines", r.stdout)
+
     # ---- error cases ----
 
     def test_missing_unit_fails(self):

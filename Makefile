@@ -69,15 +69,19 @@ sync-upstream:  ## Fetch upstream CN changes (follow AGENTS.md ritual)
 	git fetch upstream
 	git checkout upstream/main -- $$(git ls-tree -r --name-only upstream/main book | grep -E '^book/[0-9]{2}-.*\.md$$')
 	git checkout upstream/main -- $$(git ls-tree -r --name-only upstream/main docs | grep -E '^docs/[^/]+\.md$$' ; git ls-tree -r --name-only upstream/main docs/核实记录)
+	git checkout upstream/main -- skills/
 	git show upstream/main:README.md > README.zh.md
 	$(PY) forge/ops/strip_zh_readme_ads.py README.zh.md
-	$(PY) forge/ops/check_content.py
-	@echo "→ Done. Review changes: git diff -- book/ README.zh.md"
+	@echo "→ Touched CN chapters:"
+	@git diff --name-only HEAD -- 'book/[0-9][0-9]-*.md' || true
+	@echo "→ Next: fill docs/.retranslate-pending, catch up en/ru/es/pt, then check_content.py"
+	@echo "→ Review: git diff -- book/ README.zh.md docs/ skills/"
 	@echo "→ Never checkout ads/, site/, translate/, or forge/ from upstream"
 
 # Zero-pad CH when set on the command line (locale LANG is unrelated).
+# awk +0 forces decimal so CH=08 / CH=09 are not parsed as octal.
 ifeq ($(origin CH),command line)
-CH_PAD := $(shell printf '%02d' $(CH))
+CH_PAD := $(shell awk 'BEGIN{printf "%02d", $(CH)+0}')
 else
 CH_PAD :=
 endif
