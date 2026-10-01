@@ -1,7 +1,47 @@
 #!/bin/sh
 # Block pushes that would fail the GitHub `test` job's unit + content steps.
 # Full replica of that job: `make ci`.
+# A push that only changes root README*.md matches CI paths-ignore: skip.
 set -e
 cd "$(git rev-parse --show-toplevel)"
+
+readme_only=true
+saw_update=false
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+  saw_update=true
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    readme_only=false
+    break
+  fi
+  files=$(git diff --name-only "$remote_sha" "$local_sha")
+  if [ -z "$files" ]; then
+    readme_only=false
+    break
+  fi
+  while IFS= read -r f; do
+    [ -z "$f" ] && continue
+    case "$f" in
+      README*.md) ;;
+      *)
+        readme_only=false
+        break
+        ;;
+    esac
+  done <<EOF
+$files
+EOF
+  if [ "$readme_only" = false ]; then
+    break
+  fi
+done
+
+if [ "$saw_update" = false ] || [ "$readme_only" = true ]; then
+  echo "pre-push: README-only (or branch delete), skipping test and content checks"
+  exit 0
+fi
+
 make test
 make check-content

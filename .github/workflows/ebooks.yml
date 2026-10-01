@@ -6,16 +6,17 @@ name: ebooks
 on:
   push:
     branches: [main]
+    # README*.md is omitted on purpose. The book front matter is read from it,
+    # but a README-only edit (header, badges, language table) should not rebuild
+    # every EPUB and PDF. The next book/, docs/, or ebook-tooling change will.
     paths:
       - book/**
-      - README*.md
       - docs/**
       - forge/ebook/**
       - .github/workflows/ebooks.yml
   pull_request:
     paths:
       - book/**
-      - README*.md
       - docs/**
       - forge/ebook/**
       - .github/workflows/ebooks.yml

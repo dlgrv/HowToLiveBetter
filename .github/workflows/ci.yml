@@ -4,8 +4,15 @@ name: test
 on:
   push:
     branches: [main]
+    # Root README*.md is the GitHub landing page. A commit that touches only
+    # those files does not change book text, site templates, or pipeline code.
+    # Skipping here also skips Pages: it deploys only after this workflow succeeds.
+    paths-ignore:
+      - 'README*.md'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - 'README*.md'
 
 jobs:
   test:
