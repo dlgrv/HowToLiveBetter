@@ -12,6 +12,8 @@ import {
   gitCommit,
   buildStamp,
   prepareSection,
+  stripSourceLines,
+  formatEntryFields,
   fitTypstTableColumns,
   parseLang,
   aboutMd,
@@ -34,12 +36,12 @@ docFiles.forEach((f, i) => anchorOf.set(f, `doc-${i + 1}`));
 const pages = [
   {
     src: locale.readme,
-    md: `# ${locale.labels.front}\n\n${description}\n\n${frontMd}`,
+    md: `# ${locale.labels.front}\n\n${description}\n\n${formatEntryFields(stripSourceLines(frontMd), 'deflist')}`,
     anchor: 'front',
   },
   ...[...bookFiles, ...docFiles].map((src) => ({
     src,
-    md: prepareSection(read(src)),
+    md: prepareSection(read(src), 'deflist'),
     anchor: anchorOf.get(src),
   })),
   { src: locale.readme, md: aboutMd(locale, STAMP, COMMIT), anchor: 'about' },
@@ -86,7 +88,7 @@ const typstArg = (value) => value.replaceAll('\\', '\\\\').replaceAll('"', '\\"'
 const typFile = resolve(ROOT, `dist/pdf-build-${lang}.typ`);
 const cover = `/${coverRel(lang)}`;
 run(PANDOC, [
-  '--from=gfm+attributes',
+  '--from=gfm+attributes+definition_lists',
   '--to=typst',
   '--wrap=none',
   `--template=${resolve(ROOT, 'forge/ebook/pdf/template.typ')}`,

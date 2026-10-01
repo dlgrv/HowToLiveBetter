@@ -189,6 +189,127 @@ function fenceMark(line) {
   return { char: match[1][0], rest: match[2].trim() };
 }
 
+// Locale source_label values from translate/rules/*.json — ebook drops these
+// full citation bullets; Evidence grade and Notes stay.
+const SOURCE_LINE =
+  /^- (?:来源|Sources|Источники|Fuentes|Fontes|المصادر)\s*[：:].*$/;
+
+export function stripSourceLines(md) {
+  const lines = md.split('\n');
+  let fence = '';
+  const kept = [];
+  for (const line of lines) {
+    const mark = fenceMark(line);
+    if (mark) {
+      if (!fence) fence = mark.char;
+      else if (mark.char === fence && mark.rest === '') fence = '';
+      kept.push(line);
+      continue;
+    }
+    if (!fence && SOURCE_LINE.test(line)) continue;
+    kept.push(line);
+  }
+  return kept.join('\n').replace(/\n{3,}/g, '\n\n');
+}
+
+// Body field labels from translate/rules/*/labels (not source_label).
+const FIELD_LABELS = [
+  '成本',
+  '说人话',
+  '收益',
+  '证据等级',
+  '备注',
+  'Cost',
+  'In plain terms',
+  'Benefit',
+  'Evidence grade',
+  'Notes',
+  'Стоимость',
+  'Простыми словами',
+  'Эффект',
+  'Уровень доказательности',
+  'Примечания',
+  'Costo',
+  'En términos sencillos',
+  'Beneficio',
+  'Nivel de evidencia',
+  'Notas',
+  'Custo',
+  'Em linguagem simples',
+  'Benefício',
+  'Nível de evidência',
+  'التكلفة',
+  'بعبارة بسيطة',
+  'الفائدة',
+  'مستوى الدليل',
+  'ملاحظات',
+].sort((a, b) => b.length - a.length);
+
+const FIELD_LINE = new RegExp(
+  `^- (${FIELD_LABELS.map((l) => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s*[：:]\\s*(.*)$`,
+);
+
+function parseFieldLine(line) {
+  const m = FIELD_LINE.exec(line);
+  if (!m) return null;
+  return { label: m[1], value: m[2] };
+}
+
+function renderFieldBlock(fields, kind) {
+  if (kind === 'html') {
+    const body = fields
+      .map(
+        ({ label, value }) =>
+          `<dt>${xmlEscape(label)}</dt>\n<dd>${xmlEscape(value)}</dd>`,
+      )
+      .join('\n');
+    return `<dl class="entry">\n${body}\n</dl>`;
+  }
+  return fields.map(({ label, value }) => `${label}\n: ${value}`).join('\n\n');
+}
+
+// Turn consecutive entry-field bullets into a description list (EPUB HTML or
+// pandoc definition list for PDF). Leaves ordinary bullets and fences alone.
+export function formatEntryFields(md, kind = 'deflist') {
+  if (kind !== 'html' && kind !== 'deflist') {
+    throw new Error(`formatEntryFields: unknown kind ${kind}`);
+  }
+  const lines = md.split('\n');
+  let fence = '';
+  const out = [];
+  let pending = [];
+
+  const flush = () => {
+    if (pending.length === 0) return;
+    if (out.length > 0 && out[out.length - 1] !== '') out.push('');
+    out.push(renderFieldBlock(pending, kind));
+    out.push('');
+    pending = [];
+  };
+
+  for (const line of lines) {
+    const mark = fenceMark(line);
+    if (mark) {
+      flush();
+      if (!fence) fence = mark.char;
+      else if (mark.char === fence && mark.rest === '') fence = '';
+      out.push(line);
+      continue;
+    }
+    if (!fence) {
+      const field = parseFieldLine(line);
+      if (field) {
+        pending.push(field);
+        continue;
+      }
+    }
+    flush();
+    out.push(line);
+  }
+  flush();
+  return out.join('\n').replace(/\n{3,}/g, '\n\n');
+}
+
 // Item titles in chapters are ### under a lone H1. Lift those to ## so the
 // outline does not skip a level. Stop at the first real ## (license footers
 // in a few translations) and leave fenced examples alone.
@@ -224,12 +345,146 @@ export function promoteItemHeadings(md) {
     .join('\n');
 }
 
-export function prepareSection(md) {
-  return promoteItemHeadings(ensureH1(stripBackLink(md)));
+export function prepareSection(md, kind = 'deflist') {
+  return promoteItemHeadings(
+    ensureH1(formatEntryFields(stripSourceLines(stripBackLink(md)), kind)),
+  );
+}
+
+// Pandoc emits equal columns (`2` / `3` or `(50%, 50%)`). Bias known shapes so
+// short label columns shrink to (at least) their header width and long text grows.
+const QUESTION_HEADERS = new Set([
+  'вопрос',
+  'question',
+  'pregunta',
+  'pergunta',
+  '问题',
+  'السؤال',
+]);
+const WHERE_HEADERS = /посмотр|where to look|d[oó]nde|onde (ver|olhar)|在哪|去哪看|أين تنظر/i;
+// Evidence grade: body is A/B/C — size to header only (RU «Уровень» is the widest).
+const GRADE_HEADERS = new Set([
+  'уровень',
+  'grade',
+  'grau',
+  'nivel',
+  'nível',
+  'level',
+  '等级',
+  '证据等级',
+  'الدرجة',
+]);
+const TERM_HEADERS = new Set([
+  'термин',
+  'term',
+  'término',
+  'termo',
+  '术语',
+  'المصطلح',
+]);
+const DIMENSION_HEADERS = new Set([
+  'измерение',
+  'dimension',
+  'dimensión',
+  'dimensão',
+  '维度',
+  'البعد',
+]);
+const HOW_SET_HEADERS =
+  /как определяется|how it is set|cómo se (define|fija)|como (é|e) definido|怎么定|كيف يحدد/i;
+
+function plainTypstCell(cell) {
+  return String(cell ?? '')
+    .replace(/#link\([^]]*\[([^\]]*)\]\)/g, '$1')
+    .replace(/\[([^\]]*)\]/g, '$1')
+    .replace(/[#*]/g, '')
+    .trim();
+}
+
+function parseTypstHeaderCells(headerArgs) {
+  return [...String(headerArgs).matchAll(/\[([^\]]*)\]/g)].map((m) => m[1]);
+}
+
+/** @returns {string[] | null} */
+export function tableColumnFr(headers) {
+  const plain = headers.map((h) => plainTypstCell(h));
+  const left = (plain[0] ?? '').toLowerCase();
+  if (headers.length === 2) {
+    const right = plain[1] ?? '';
+    if (QUESTION_HEADERS.has(left) || WHERE_HEADERS.test(right)) {
+      // RU p90 "where" ≈154pt + chrome → ~36% → 1.8:1
+      return ['1.8fr', '1fr'];
+    }
+    if (GRADE_HEADERS.has(left)) {
+      // Header-limited (~50pt for «Уровень»); body is a single letter.
+      return ['1fr', '7fr'];
+    }
+    if (TERM_HEADERS.has(left)) {
+      return ['1fr', '2.5fr'];
+    }
+    return null;
+  }
+  if (headers.length === 3) {
+    const right = plain[2] ?? '';
+    if (DIMENSION_HEADERS.has(left) || HOW_SET_HEADERS.test(right)) {
+      // Label / short values / long definition → ~22% / 24% / 54%
+      return ['1.1fr', '1.2fr', '2.7fr'];
+    }
+  }
+  return null;
+}
+
+/** @deprecated use tableColumnFr */
+export function twoColumnTableFr(headerLeft, headerRight) {
+  const fr = tableColumnFr([headerLeft, headerRight]);
+  return fr ? /** @type {[string, string]} */ ([fr[0], fr[1]]) : null;
 }
 
 export function fitTypstTableColumns(typ) {
-  return typ.replace(/columns:\s*(\d+),/g, (_, n) => `columns: ${n} * (1fr,),`);
+  let out = typ.replace(/columns:\s*(\d+),/g, (_, n) => `columns: ${n} * (1fr,),`);
+
+  // Pandoc sometimes emits equal percentages instead of a count.
+  out = out.replace(
+    /columns:\s*\(\s*([\d.]+%\s*,\s*)+[\d.]+%\s*\),(\s*align:\s*\([^)]*\),\s*table\.header\(((?:\[[^\]]*\](?:,\s*)?)+)\))/g,
+    (all, _pcts, rest, headerArgs) => {
+      const headers = parseTypstHeaderCells(headerArgs);
+      const fr = tableColumnFr(headers);
+      if (!fr || fr.length !== headers.length) return all;
+      return `columns: (${fr.join(', ')}),${rest}`;
+    },
+  );
+
+  // After the numeric → equal-fr rewrite: bias by header texts.
+  out = out.replace(
+    /columns:\s*(\d+) \* \(1fr,\),(\s*align:\s*\([^)]*\),\s*table\.header\(((?:\[[^\]]*\](?:,\s*)?)+)\))/g,
+    (all, n, rest, headerArgs) => {
+      const headers = parseTypstHeaderCells(headerArgs);
+      if (headers.length !== Number(n)) return all;
+      const fr = tableColumnFr(headers);
+      if (!fr || fr.length !== headers.length) return all;
+      return `columns: (${fr.join(', ')}),${rest}`;
+    },
+  );
+  return out;
+}
+
+function frToWidthPercents(frs) {
+  const nums = frs.map((f) => Number.parseFloat(f));
+  const sum = nums.reduce((a, b) => a + b, 0);
+  return nums.map((n) => `${((100 * n) / sum).toFixed(1)}%`);
+}
+
+/** Insert <colgroup> widths for known front-matter table shapes (EPUB). */
+export function fitEpubTableColumns(html) {
+  return String(html).replace(/<table>(\s*<thead>\s*<tr>\s*)((?:<th>[^<]*<\/th>\s*)+)(<\/tr>)/g, (all, pre, ths, post) => {
+    const headers = [...ths.matchAll(/<th>([^<]*)<\/th>/g)].map((m) => m[1]);
+    const fr = tableColumnFr(headers);
+    if (!fr || fr.length !== headers.length) return all;
+    const cols = frToWidthPercents(fr)
+      .map((w) => `<col style="width:${w}"/>`)
+      .join('');
+    return `<table>\n<colgroup>${cols}</colgroup>${pre}${ths}${post}`;
+  });
 }
 
 const NAMED_ENTITIES = {
@@ -251,6 +506,16 @@ export function decodeEntities(text) {
 
 export function xmlEscape(text) {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// marked html renderer policy for EPUB: keep entry <dl> blocks we inject,
+// drop HTML comments (cost tags) and any other raw HTML.
+export function renderEpubHtmlToken(text) {
+  const t = String(text ?? '').trim();
+  if (!t) return '';
+  if (t.startsWith('<!--')) return '';
+  if (/^<dl\b[^>]*\bclass=(["'])entry\1/i.test(t)) return text;
+  return '';
 }
 
 export function headingText(html) {
@@ -340,6 +605,8 @@ ${commitLine}- EPUB: ${epub}
 - Repository: ${REPO}
 
 Links to other chapters in this book jump inside the file. Links to files that are not part of the book point at GitHub.
+
+Full source citations are on the website, not in this ebook.
 
 The text is in the public domain under the Unlicense.`;
 }

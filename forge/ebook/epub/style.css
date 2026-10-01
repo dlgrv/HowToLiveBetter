@@ -1,12 +1,33 @@
-body { line-height: 1.6; }
-h1 { font-size: 1.5em; margin: 1em 0 0.6em; }
-h2 { font-size: 1.25em; margin: 1.2em 0 0.5em; }
-h3 { font-size: 1.1em; margin: 1.4em 0 0.4em; }
-p { margin: 0.6em 0; }
-ul, ol { padding-left: 1.4em; margin: 0.4em 0; }
-li { margin: 0.25em 0; }
+/*
+  Vertical rhythm (EPUB / screen BP):
+  - relative units only (reflow + reader font-size)
+  - line-height 1.5 = Butterick high end + WCAG 2.2 floor (readers may override)
+  - paragraph: space-after only, not indent+gap (Butterick belts/suspenders)
+  - headings: more margin-top than margin-bottom (closer to following text)
+  - entry fields / TOC: block gaps > body line rhythm so breaks stay visible
+*/
+body { line-height: 1.5; }
+
+h1 { font-size: 1.5em; margin: 1.1em 0 0.55em; }
+h2 { font-size: 1.25em; margin: 1.25em 0 0.5em; }
+h3 { font-size: 1.1em; margin: 1.35em 0 0.45em; }
+
+p { margin: 0 0 0.75em; }
+
+ul, ol { padding-left: 1.4em; margin: 0.5em 0 0.75em; }
+li { margin: 0.35em 0; }
+
+dl.entry { margin: 0.5em 0 1em; }
+dl.entry dt { font-weight: bold; margin: 0.85em 0 0.12em; }
+dl.entry dt:first-child { margin-top: 0.25em; }
+dl.entry dd { margin: 0 0 0.25em; padding: 0; }
+
 a { color: #3451b2; text-decoration: underline; text-underline-offset: 0.12em; overflow-wrap: anywhere; }
 nav a { text-decoration: none; }
+
+nav#toc ol { padding-left: 1.2em; margin: 0.4em 0; list-style: none; }
+nav#toc > ol > li { margin: 0.55em 0; line-height: 1.45; }
+
 code { font-family: monospace; font-size: 0.9em; }
 pre { white-space: pre-wrap; word-break: break-all; font-size: 0.85em; border: 1px solid #cccccc; padding: 0.5em; }
 table { border-collapse: collapse; width: 100%; max-width: 100%; table-layout: fixed; font-size: 0.9em; margin: 0.8em 0; }

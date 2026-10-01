@@ -13,7 +13,11 @@ import {
   gitCommit,
   buildStamp,
   prepareSection,
+  stripSourceLines,
+  formatEntryFields,
   headingText,
+  renderEpubHtmlToken,
+  fitEpubTableColumns,
   xmlEscape,
   parseLang,
   aboutMd,
@@ -43,18 +47,18 @@ const pages = [
     file: 'front.xhtml',
     src: locale.readme,
     title: locale.labels.front,
-    md: `# ${locale.title}\n\n${description}\n\n${frontMd}`,
+    md: `# ${locale.title}\n\n${description}\n\n${formatEntryFields(stripSourceLines(frontMd), 'html')}`,
   },
   { file: 'contents.xhtml', src: locale.readme, title: locale.labels.contents, md: contentsMd },
   ...bookFiles.map((src, i) => ({
     file: `ch${String(i + 1).padStart(2, '0')}.xhtml`,
     src,
-    md: prepareSection(read(src)),
+    md: prepareSection(read(src), 'html'),
   })),
   ...docFiles.map((src, i) => ({
     file: `doc${i + 1}.xhtml`,
     src,
-    md: prepareSection(read(src)),
+    md: prepareSection(read(src), 'html'),
   })),
   {
     file: 'about.xhtml',
@@ -90,7 +94,9 @@ marked.use({
       return `<a href="${esc(rewriteHref(href))}"${t}>${text}</a>`;
     },
     image: () => '',
-    html: () => '',
+    html({ text }) {
+      return renderEpubHtmlToken(text);
+    },
   },
 });
 
@@ -113,8 +119,9 @@ function toXhtml(body) {
 
 function wrap(title, body) {
   const dc = locale.dcLanguage;
+  const dir = locale.code === 'ar' ? ' dir="rtl"' : '';
   return `<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="${dc}" lang="${dc}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="${dc}" lang="${dc}"${dir}>
 <head>
 <meta charset="utf-8"/>
 <title>${esc(title)}</title>
@@ -130,7 +137,7 @@ for (const p of pages) {
   current = p;
   p.headings = [];
   headingSeq = 0;
-  const body = toXhtml(marked.parse(p.md));
+  const body = toXhtml(fitEpubTableColumns(marked.parse(p.md)));
   p.title ??= p.headings[0]?.text ?? p.file;
   p.xhtml = wrap(p.title, `<section epub:type="chapter">\n${body}</section>\n`);
 }

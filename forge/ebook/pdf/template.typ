@@ -1,5 +1,25 @@
 $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
+// Vertical rhythm (print BP: Butterick + Bringhurst):
+// - one body leading (~130% size); add/remove space in related steps
+// - paragraph OR indent, not both → we use paragraph gap
+// - para gap ≈ leading + 4–10pt (Butterick); headings: more above than below
+// - fields / TOC / lists ≥ leading so block breaks never read tighter than lines
+#let lead = 0.65em
+#let para-gap = lead + 6pt
+#let field-gap = lead + 5pt
+#let list-gap = lead + 4pt
+#let toc-gap = lead + 5pt
+#let head-above = 1.5em
+#let head-below = 0.7em
+
 #set terms(hanging-indent: 1.5em)
+#show terms.item: it => {
+  block(breakable: true, spacing: field-gap, {
+    strong(it.term)
+    [. ]
+    it.description
+  })
+}
 
 #set table(inset: (x: 5pt, y: 4pt), stroke: 0.4pt + luma(170))
 #show table.cell: it => {
@@ -18,7 +38,7 @@ $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
 }
 
 #let horizontalRule = line(start: (25%, 0%), end: (75%, 0%))
-#let divider = if "divider" in std { divider } else { horizontalRule }
+#let divider = horizontalRule
 
 #show figure.where(kind: table): set figure.caption(position: top)
 #show figure.where(kind: image): set figure.caption(position: bottom)
@@ -32,15 +52,16 @@ $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
   lang: "$ebooklang$",
   region: "$ebookregion$",
 )
-#set par(justify: false, leading: 0.78em, spacing: 0.9em)
-#set list(indent: 0.6em, spacing: 0.75em)
+#set par(justify: false, leading: lead, spacing: para-gap)
+#set list(indent: 0.6em, spacing: list-gap)
 #show raw: set text(font: ("DejaVu Sans Mono", "Noto Sans Mono CJK SC", "Consolas"), size: 9pt)
 #show link: set text(fill: rgb("#1a4fb4"))
-#show heading: set block(sticky: true, above: 1.5em, below: 0.65em)
+#show heading: set block(sticky: true, above: head-above, below: head-below)
 #show heading.where(level: 1): set text(19pt)
 #show heading.where(level: 2): set text(14pt)
 #show heading.where(level: 3): set text(11.5pt)
 #show heading.where(level: 1): it => { pagebreak(weak: true); it }
+#show outline.entry: set block(spacing: toc-gap)
 
 #let running-head = context {
   let next = query(selector(heading.where(level: 1)).after(here())).at(0, default: none)
@@ -49,8 +70,6 @@ $-- Pandoc typst template. Body helpers follow `pandoc -D typst`. --$
   if seen.len() == 0 { return }
   set text(8.5pt, fill: luma(120))
   grid(columns: (1fr, auto), align(left)[$booktitle$], align(right)[#seen.last().body])
-  v(-7pt)
-  line(length: 100%, stroke: 0.4pt + luma(215))
 }
 
 #set page(paper: "a4", margin: (x: 2.2cm, top: 2.2cm, bottom: 2cm), header: none, footer: none)
