@@ -1,9 +1,10 @@
-![HowToLiveBetter — less time, effort, and expense for more life, freedom, and money](site/assets/og/en.png)
+<div align="center">
+
+<img src="site/assets/og/en.png" alt="HowToLiveBetter — less time, effort, and expense for more life, freedom, and money" width="820">
 
 # HowToLiveBetter: The Best-Value Life Guide
 
-Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.
-
+Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
 649 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
 ![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)
@@ -13,6 +14,8 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 ![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/en/)** | [Table of contents](#table-of-contents) | [Glossary](#reading-the-numbers-glossary) | [Verification records](docs/research/核实记录/) | [Is marriage worth it (long read)](docs/research/en/Is-Marriage-Worth-It.md) | [Home emergency kit (long read)](docs/research/en/Home-Emergency-Kit.md) | [Should you stop to help a stranger (long read)](docs/research/en/Should-You-Stop-To-Help-A-Stranger.md) | [What licenses a platform needs (long read)](docs/research/en/What-Licenses-A-Platform-Needs.md) | [After a layoff (long read)](docs/research/en/After-A-Layoff-What-To-Do-First.md) | [Things around childbirth (long read)](docs/research/en/Things-To-Handle-Around-Childbirth.md) | [Right after a chronic disease diagnosis (long read)](docs/research/en/Right-After-A-Chronic-Disease-Diagnosis.md)
+
+</div>
 
 | Language | Site | README | PDF | EPUB |
 | --- | --- | --- | --- | --- |
