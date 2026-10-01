@@ -5,14 +5,14 @@
 # HowToLiveBetter: Guía de la vida al mejor precio — traducción española
 
 Covers longevity and disease prevention, accidents and first aid, saving money and managing it, fraud prevention and legal red lines, a safety net for unemployment, the risks of running your own business, building a platform and keeping it legal, love, marriage, and children, going abroad, and learning skills.<br>
-641 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
+649 pieces of advice; each one states what it costs, what it buys back, and how hard the evidence is. Sources cite only journal papers and official documents.
 
 You don't have to do it all: this is a ranked shortlist, not a task list — pick one or two and that counts. The author has not done most of these either.
 
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/es/)
-[![Items](https://img.shields.io/badge/Items-641-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20425%20%C2%B7%20B%20165%20%C2%B7%20C%2051-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1443%20links-565a5f?style=flat-square)](docs/research/核实记录/)
+[![Items](https://img.shields.io/badge/Items-649-18794e?style=flat-square)](#table-of-contents)
+[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20428%20%C2%B7%20B%20171%20%C2%B7%20C%2050-915930?style=flat-square)](#evidence-grades)
+[![Primary sources](https://img.shields.io/badge/Primary%20sources-1531%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Open the online search page](https://dlgrv.github.io/HowToLiveBetter/es/)** | [Table of contents](#table-of-contents) | [Glossary](#reading-the-numbers-glossary) | [Verification records](docs/research/核实记录/) | [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md) | [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md) | [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md) | [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md)
@@ -116,7 +116,7 @@ Every piece of advice carries an evidence grade:
 | B | Research-backed but hard to quantify, or evidence from small samples / a single study |
 | C | Author experience or general consensus, no direct literature |
 
-Of the 641 items in the book, 425 are grade A, 165 grade B, and 51 grade C; 60 items are marked as contested and 2 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
+Of the 649 items in the book, 428 are grade A, 171 grade B, and 50 grade C; 65 items are marked as contested and 3 spots are marked TODO, pending verification. Contested A/B items are marked "contested" with the opposing evidence listed. All sources cite primary literature only (journal papers with a DOI or PubMed link, or reports from official bodies such as WHO, CDC, or the national statistics bureau), never second-hand retellings. Uncertain numbers are marked "to be verified".
 
 ## Value-for-money tiers
 
@@ -128,7 +128,7 @@ The evidence grade answers "can this number be trusted", not "is it worth doing"
 | Benefit magnitude | Large / medium / small | Mechanically applied from thresholds in the item's own Benefit field where possible: for lifespan, relative reduction (≥20% large, 10–20% medium, <10% or only surrogate endpoints small); for money, the amount (tens of thousands large, hundreds to thousands medium, tens of yuan small); for personal freedom, the consequence (avoiding criminal liability large, avoiding detention or administrative punishment medium, avoiding a civil dispute small); for time-energy, the saving (hours a day large, hours a week medium, one-off small) |
 | Value for money | Very high / high / ordinary | Large benefit with all three costs zero = very high; large benefit with low costs, or medium benefit with zero costs = high; the rest = ordinary |
 
-Of the 641 items in the book, 109 (17%) are very high, 292 (46%) high, and 240 (37%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
+Of the 649 items in the book, 111 (17%) are very high, 294 (45%) high, and 244 (38%) ordinary. The middle tier is deliberately thick: the underlying benefit magnitude has only three levels, and slicing finer would be false precision.
 
 **This tier is the author's judgment, not evidence** — essentially grade C, and orthogonal to the evidence grade. An item can be grade A but ordinary value (the shingles vaccine has a phase-III RCT at 97.2% efficacy, but two doses cost three to four thousand yuan and shingles is rarely fatal), and it can be grade C but very high value (sending your itinerary to family before going abroad). "Ordinary" does not mean "shouldn't be done" — every item in the book is advice worth taking; it only means you should weigh that spend yourself.
 

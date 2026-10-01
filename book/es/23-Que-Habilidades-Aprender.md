@@ -16,7 +16,7 @@ En esta sección analizamos el costo económico y el tiempo invertido; el segund
 - Notas: El principal beneficiario eres tú. A partir de los 16 años, trabajar es legal. No obstante, los puestos que buscan a alguien de 16 años sin formación académica corresponden precisamente a la categoría descrita en el punto 10 de esta sección: tareas repetitivas y fáciles de automatizar. Los derechos laborales mencionados en el punto 19 —horas extras, vacaciones anuales y compensaciones por accidentes laborales— solo se aplican cuando existe una relación laboral formal y pruebas documentales. Los trabajadores ilegales carecen de ambas cosas, por lo que no pueden reclamar esos beneficios.
 
 ### 2. Incluir el efecto en la mortalidad en el análisis: cada año adicional de educación reduce el riesgo de muerte en adultos en aproximadamente un 1,9 %
-<!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=死亡率 -->
+<!-- 成本标签: 钱=0 时间=多 毅力=是 收益=小 口径=死亡率 -->
 
 - Costo: No cuesta dinero. Lo que se invierte es el tiempo y el esfuerzo para estudiar esos años adicionales; en cuanto a las matrículas, véase el punto 4 de esta sección (matrículas y becas para formación profesional). La dificultad está en mantenerse estudiando sin rendirse en el camino.
 

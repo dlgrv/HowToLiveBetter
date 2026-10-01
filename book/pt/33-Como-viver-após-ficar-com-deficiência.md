@@ -1,6 +1,12 @@
 # 33. Como viver após ficar com deficiência
 
-Esta seção aborda a vida após o surgimento de uma deficiência. Medidas para prevenir deficiências
+Esta seção aborda a vida depois que a deficiência já ocorreu. Como evitar a deficiência está nas seções 1 e 13; aqui não se repete.
+
+As quatro categorias são contadas separadamente, sem conversão entre si. Itens sobre emergências e complicações usam mortalidade. Itens sobre subsídios, benefícios e ações judiciais usam dinheiro. Itens sobre estudo e trâmites usam tempo. Itens sobre internação psiquiátrica, capacidade civil e tutela usam liberdade pessoal.
+
+O manual da Organização Mundial da Saúde traz três números. No mundo há cerca de 1,3 bilhão de pessoas com limitação funcional significativa, 16% da população mundial, ou seja, uma em cada seis pessoas. Parte das pessoas com deficiência morre até 20 anos antes do que pessoas sem deficiência. O risco de depressão, asma, diabetes, AVC, obesidade ou má saúde bucal é duas vezes maior. Grande parte dessas diferenças não vem da deficiência em si, mas de não conseguir atendimento médico, estudar, trabalhar ou sair de casa. Por isso, metade dos itens desta seção trata do corpo e a outra metade, de trâmites e direitos.
+
+Cinco assuntos já tratados em outras seções aparecem aqui só como referência. Como obter o certificado de pessoa com deficiência, as sete categorias e os níveis 1 a 4, veja o item 10 da seção 24. Quando fazer a perícia de incapacidade, veja o item 9 da seção 24. Como receber os dois subsídios para pessoas com deficiência, veja o item 8 da seção 7. Perícia de capacidade laboral e conversão do grau de incapacidade em valores, veja o item 14 da seção 19. Como solicitar o seguro de cuidados de longa duração para incapacidade grave, veja o item 7 da seção 17 — escrito na seção sobre idosos em casa, mas sem limite de idade. A maioria dos itens beneficia você e sua família; onde envolve outras pessoas, as notas indicam.
 ### 1. Após uma lesão medular, se houver dor de cabeça intensa e sudorese súbitas, primeiro ajude a pessoa a sentar-se ereta, solte as roupas apertadas e ligue para o 192 ao mesmo tempo. É necessário chamar o 120 duas vezes, conforme indicado na fonte original.
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 

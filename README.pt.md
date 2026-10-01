@@ -5,14 +5,14 @@
 # HowToLiveBetter: Guia de vida com melhor custo-benefício — tradução em português brasileiro
 
 Cobre longevidade e prevenção de doenças, acidentes e primeiros socorros, economizar e administrar dinheiro, fraudes e linhas vermelhas legais, rede de segurança no desemprego, riscos de empreender, montar uma plataforma dentro da lei, amor, casamento e filhos, viagens ao exterior e habilidades.<br>
-641 recomendações; cada uma diz o que custa, o que devolve e o grau de evidência. As fontes citam só artigos de periódicos e documentos oficiais.
+649 recomendações; cada uma diz o que custa, o que devolve e o grau de evidência. As fontes citam só artigos de periódicos e documentos oficiais.
 
 Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista de tarefas — uma ou duas já contam. O autor também não fez a maior parte.
 
 [![Busca online](https://img.shields.io/badge/Busca%20online-Abrir%20aqui-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/pt/)
-[![Itens](https://img.shields.io/badge/Itens-641-18794e?style=flat-square)](#índice)
-[![Graus de evidência](https://img.shields.io/badge/Graus%20de%20evid%C3%AAncia-A%20425%20%C2%B7%20B%20165%20%C2%B7%20C%2051-915930?style=flat-square)](#graus-de-evidência)
-[![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1443%20links-565a5f?style=flat-square)](docs/research/核实记录/)
+[![Itens](https://img.shields.io/badge/Itens-649-18794e?style=flat-square)](#índice)
+[![Graus de evidência](https://img.shields.io/badge/Graus%20de%20evid%C3%AAncia-A%20428%20%C2%B7%20B%20171%20%C2%B7%20C%2050-915930?style=flat-square)](#graus-de-evidência)
+[![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1531%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md)
@@ -56,7 +56,7 @@ Este guia otimiza quatro recursos, não só a expectativa de vida:
 | B | Há pesquisa, mas difícil quantificar, ou amostra pequena / estudo único |
 | C | Experiência do autor ou consenso geral, sem literatura direta |
 
-Dos 641 itens do livro, 425 são grau A, 165 grau B e 51 grau C; 60 estão marcados como controversos e 2 como TODO, pendentes de verificação.
+Dos 649 itens do livro, 428 são grau A, 171 grau B e 50 grau C; 65 estão marcados como controversos e 3 como TODO, pendentes de verificação.
 
 ## Como ler os números (glossário)
 

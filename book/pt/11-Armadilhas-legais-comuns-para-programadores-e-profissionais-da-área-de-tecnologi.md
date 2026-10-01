@@ -166,7 +166,7 @@ Nesta seção, abordamos dois temas principais: a liberdade pessoal e questões 
 
 - Nível de evidência: A
 - Fontes:国务院 (2011). 互联网信息服务管理办法（2011 年修订，第四、十九、二十二条）. <https://www.gov.cn/gongbao/content/2011/content_1860864.htm>；全国人大常委会 (2025). 网络安全法（2025 年修正，2026 年 1 月 1 日施行，第二十三、六十一条；2016 年文本为第二十一、五十九条）. <https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm>
-- Notas: Servidores nacionais sem registro não conseguem resolver domínios. Dois erros comuns são: registrar como entidade não comercial individual quando na verdade há cobrança, e não atualizar o registro após mudar de domínio ou de titular. Manter os logs por 6 meses é tanto uma obrigação quanto uma proteção: em caso de incidentes, serve como prova de inocência.
+- Notas: Servidores nacionais sem registro não conseguem resolver domínios. Dois erros comuns são: registrar como entidade não comercial individual quando na verdade há cobrança, e não atualizar o registro após mudar de domínio ou de titular. Manter os logs por 6 meses é tanto uma obrigação quanto uma proteção: em caso de incidentes, serve como prova de inocência. 〔26〕
 
 ### 17. Antes de oferecer serviços de IA generativa ao público, é necessário realizar avaliação de segurança e registro do algoritmo conforme as normas; o conteúdo gerado deve ser identificado
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=中 口径=自由 -->

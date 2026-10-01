@@ -14,7 +14,7 @@ Nesta seção, analisamos custos e tempo; o segundo item também considera a mor
 - Notas: O principal beneficiário é o próprio menor. A partir dos 16 anos, o trabalho é legal. Contudo, vagas que aceitam jovens sem qualificação, exatamente aos 16 anos, são as mesmas descritas na Seção 10 deste capítulo: tarefas repetitivas, facilmente substituídas por máquinas. Já os direitos sobre horas extras, férias remuneradas e indenizações por acidente de trabalho, abordados na Seção 19, só valem quando há vínculo empregatício comprovado. Como o trabalho ilegal não garante nenhum desses direitos, o menor também não tem acesso a esses benefícios.
 
 ### 2. Incluindo o efeito da educação na taxa de mortalidade: cada ano a mais de estudo reduz o risco de morte na idade adulta em cerca de 1,9%
-<!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=死亡率 -->
+<!-- 成本标签: 钱=0 时间=多 毅力=是 收益=小 口径=死亡率 -->
 
 - Custo: Não há custo financeiro. O que se gasta são os anos, o tempo e o esforço para estudar; quanto às mensalidades, veja o item 4 desta seção (mensalidades e bolsas para ensino médio técnico). O desafio está em manter os estudos até o fim, sem desistir no meio do caminho.
 
