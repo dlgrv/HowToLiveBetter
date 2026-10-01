@@ -47,8 +47,13 @@
 
 6. make style CH=<NN> LANG=<lang>  # или make quality
 
-7. Human pass + commit (1 глава = 1 коммит)
+7. Human pass + commit (1 глава = 1 коммит; на этом форке — branch → PR → squash)
 ```
+
+**Мультиглавный catch-up после upstream sync:** не копить всё в один mega-PR.
+Как только глава (все shipped-локали) зелёная по verify (+ lt/style) — сразу PR и
+squash в `main`. В коммит только `book/<lang>/`; `translate/runs/` — только локальный
+resume. Подробности: [upstream-sync.md §4b](upstream-sync.md#4b-ship-catch-up-incrementally-agents).
 
 **Только правка plain (без нового перевода):** patch → verify → `make lt` → style → human.
 

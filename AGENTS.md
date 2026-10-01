@@ -135,6 +135,10 @@ Publication only through a GitHub PR; **squash-only** is enforced on the
 repo (`allow_merge_commit` / `allow_rebase_merge` off). `main` requires a
 pull request (branch protection) — do not push directly to `main`.
 
+After an upstream CN sync, ship locale catch-up **incrementally**: each green
+chapter (or small coherent set) → its own PR → squash — do not batch the whole
+wave. See [docs/pipeline/upstream-sync.md](docs/pipeline/upstream-sync.md) §4b.
+
 ```bash
 # After translation work — always ask user before committing.
 # Merge strategy: branch → PR → gh pr merge --squash --delete-branch.

@@ -121,6 +121,19 @@ digest → translate → assemble → verify ↔ repair → lt → style → hum
 - Book-wide style: `make quality` → readability + `style_check --book --strict`.
 - One chapter per commit when the user asks to commit (fork policy).
 
+### 4b. Ship catch-up incrementally (agents)
+
+Do **not** hold an entire post-sync locale catch-up in one mega-PR. As soon as a
+chapter is green for the shipped locales (or a small coherent salvage set) on
+`verify` (+ `lt` / `style`), open a branch, PR, and **squash-merge to `main`**.
+Intermediate landings survive agent or llama crashes; `translate/runs/` stays
+gitignored resume state only.
+
+- Commit only `book/{en,ru,es,pt}/` (and locale READMEs if they changed).
+- Never commit `translate/runs/`, `translate/.status/`, or one-off helpers under
+  `translate/ops/`.
+- One chapter × all locales in a single PR is fine; waiting for later chapters is not.
+
 ### 5. Docs and site
 
 If root Chinese `docs/*.md` (or `docs/核实记录`) changed, catch up matching files under `docs/research/{en,ru,es,pt}/` using the same byte-verification rules as chapters. After all queued chapters verify, clear drifted lines from `.retranslate-pending`, then run `check_content.py` and `build_pages.py` if needed.
