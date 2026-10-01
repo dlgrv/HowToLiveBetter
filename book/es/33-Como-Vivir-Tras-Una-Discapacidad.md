@@ -15,7 +15,7 @@ Cinco asuntos ya escritos en otros lugares se señalan aquí sin repetir. Cómo 
 El beneficiario de la mayoría de las entradas de esta sección eres tú y tu familia, las dos categorías más altas. Los casos en que se ven afectadas otras personas se indican por separado en las notas.
 
 > Nota del traductor: en China, 120 es el número de emergencias médicas, 110 el de la policía y 12385 el de la línea de atención al público de la federación de personas con discapacidad (残联, China Disabled Persons' Federation).
-### 1. Después de una lesión medular, si aparece un dolor de cabeza intenso y sudoración repentina, primero hay que ayudar a la persona a sentarse erguida, aflojarle la ropa y llamar al 120.
+### 1. Después de una lesión medular, si aparece un dolor de cabeza intenso y sudoración repentina, primero hay que ayudar a la persona a sentarse erguida, aflojarle la ropa y llamar al 120
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Costo: No cuesta nada. Solo se necesitan tres acciones que se pueden realizar en unos pocos segundos.

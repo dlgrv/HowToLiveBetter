@@ -23,7 +23,7 @@ Esta sección hace cuentas solo de tiempo: cuántas horas se pueden recuperar al
 - Fuentes:Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69–119. <https://doi.org/10.1016/S0065-2601(06)38002-1>
 - Notas: Las condiciones de salida hay que fijarlas justo al empezar, cuando el ánimo todavía está frío. Si se dejan para después, los costos ya invertidos terminan sesgando la decisión, que debería mirar solo la inversión y el rendimiento futuros; véase el punto 3. Además, «estar dispuesto a retirarse» es solo una conclusión parcial dentro del conjunto de estudios: nadie ha calculado por separado cuánto tiempo ahorra.
 
-### 3. Al decidir si continuar, solo se deben considerar las inversiones y los beneficios futuros, sin tener en cuenta lo que ya se ha invertido.
+### 3. Al decidir si continuar, solo se deben considerar las inversiones y los beneficios futuros, sin tener en cuenta lo que ya se ha invertido
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
 - Costo: No hay costo económico. Lo difícil es aceptar que el tiempo invertido previamente se ha perdido y no se puede recuperar.
 - En términos sencillos: El dinero y el tiempo ya invertidos hacen que la gente tenga más ganas de seguir adelante. Según el análisis conjunto de 98 conjuntos de datos, esta tendencia es constante. Por eso, para decidir si continuar, solo hay que calcular cuánto se invertirá y se obtendrá en el futuro; lo ya gastado no debe contar.

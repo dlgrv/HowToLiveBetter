@@ -145,7 +145,7 @@ El criterio de esta sección es la libertad personal y el dinero: quienes escrib
 - Fuentes:全国人大常委会 (2021). 个人信息保护法（第六、十三、三十一、六十六条）. <http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html>
 - Notas: Los «directamente responsables» en la práctica acaban cayendo con frecuencia sobre quien escribe el código y quien hace el producto. El Ministerio de Industria y TI publica de vez en cuando notificaciones de retirada de Apps infractoras; al redactarse esta sección no se verificó cuál notificación concreta, y por eso no se cita.
 
-### 16. Antes de lanzar un sitio web o app, hay que registrarlo en el sistema ICP y conservar los registros durante al menos 6 meses según los requisitos de protección de niveles.
+### 16. Antes de lanzar un sitio web o app, hay que registrarlo en el sistema ICP y conservar los registros durante al menos 6 meses según los requisitos de protección de niveles
 <!-- 成本标签: 钱=少 时间=中 毅力=否 收益=中 口径=自由 -->
 
 - Costo: El registro ICP es gratuito; el proceso a través de los proveedores de servicios en la nube suele tardar unas semanas. La evaluación de protección de niveles se cobra según el nivel del sistema. La protección de niveles, conocida como “DB”, es un conjunto de medidas de gestión de seguridad que el Estado exige según la importancia del sistema; los sitios pequeños normalmente no necesitan someterse a esta evaluación.
