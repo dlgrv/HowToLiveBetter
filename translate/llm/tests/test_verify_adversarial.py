@@ -465,13 +465,25 @@ class FieldChecks(unittest.TestCase):
     --file mode always diffs against the CN original of chapter 01, so the
     only honest fixture is the committed RU chapter itself (verified clean:
     verify exits 0 on it). Mutations are applied on top of the base text.
+
+    Skip while ch01 is listed in docs/.retranslate-pending (CN sync ahead of
+    locale catch-up) — same soft-parity policy as check_content / mutation CI.
     """
 
     BASE = os.path.join(REPO_ROOT, "book", "ru", "01-Не-умирайте-рано.md")
+    PENDING = os.path.join(REPO_ROOT, "docs", ".retranslate-pending")
 
     def setUp(self):
         if not os.path.isfile(self.BASE):
             self.skipTest("no ru ch01")
+        if os.path.isfile(self.PENDING):
+            pending = {
+                ln.strip()
+                for ln in open(self.PENDING, encoding="utf-8")
+                if ln.strip() and not ln.startswith("#")
+            }
+            if "01" in pending:
+                self.skipTest("ru ch01 retranslate pending after CN sync")
         self.base = open(self.BASE, encoding="utf-8").read()
 
     def test_base_is_clean(self):
