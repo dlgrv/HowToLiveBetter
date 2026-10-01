@@ -104,7 +104,7 @@ According to World Health Organization figures, in 2023 roughly 260,000 women wo
 - Notes: Two critical points require advance verification since retroactive adjustments are impossible. First, confirm you’ve satisfied the minimum continuous enrollment period required by local regulations; otherwise eligibility is denied. Second, if planning childbirth outside your enrollment area, verify whether pre-registration is mandatory — failure to do so may force you to pay upfront and file manual claims later, or even forfeit coverage entirely. Detailed calculations for maternity leave duration and allowances are outlined in Section 18.2.
 - Sources:全国人大常委会 (2010). 中华人民共和国社会保险法（第五十四、五十六条）. <https://guangdong.chinatax.gov.cn/gdsw/qysw_gkwj/2020-02/12/content_8e8c485d0db34b989531f3ba57cec5a9.shtml>（国家税务总局广东省税务局转载）
 
-### 12. Get the “Medical Certificate of Birth” sorted out before discharge; decide on the baby’s name early and avoid typos.
+### 12. Get the “Medical Certificate of Birth” sorted out before discharge; decide on the baby’s name early and avoid typos
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 - Cost: No cost at all. It can be arranged effortlessly while completing discharge procedures.
 - In plain terms: This certificate is a prerequisite for registering the child’s hukou, enrolling in yibao (basic medical insurance), and sending the child to school. Only the medical institution where the delivery took place can issue it for the first time. If you try to obtain it after discharge, you’ll have to follow a completely different process and submit extra documentation. Also, make sure the characters you pick for the baby’s name can be entered into the household registration system without any issues.

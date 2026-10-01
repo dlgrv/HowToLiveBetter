@@ -2,7 +2,7 @@
 
 This section breaks down the financial and time costs involved. Much like Section 10, which examined the costs of marriage, we’re simply laying out the numbers here — without offering any definitive conclusions. If you’re already pregnant and need to follow the necessary steps, please refer to Section 27.
 There are 18 key considerations to keep in mind when deciding whether raising a child is worthwhile.
-### 1. Start by claiming what you’re entitled to: the national dibao program gives 3,600 yuan per child per year until the child turns 3.
+### 1. Start by claiming what you’re entitled to: the national dibao program gives 3,600 yuan per child per year until the child turns 3
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Cost: Zero out-of-pocket expense. Simply apply at the local hukou office where your child is registered — one visit is all it takes.
 - In plain terms: If your child was born after January 1, 2025, and is under 3 years old, you qualify for this payment. One parent or legal guardian can submit the application at the child’s hukou office. The allowance is 3,600 yuan per year per child, paid out until the child reaches age 3. No personal income tax applies to this money, and it does not count toward any dibao or similar assistance calculations.
@@ -11,7 +11,7 @@ There are 18 key considerations to keep in mind when deciding whether raising a 
 - Notes: This is a nationwide baseline benefit. Certain provinces and municipalities also offer their own local subsidies, which can be claimed alongside this national payment. Over three years, the total comes to 10,800 yuan — a modest contribution toward raising a child. Do not let this amount influence your decision about whether or not to have a child.
 - Sources:中共中央办公厅、国务院办公厅 (2025). 育儿补贴制度实施方案. <https://www.gov.cn/gongbao/2025/issue_12206/202508/content_7035435.html>
 
-### 2. Maternity leave lasts 98 days; maternity benefits are paid by the maternity insurance fund based on the employer’s average monthly wage from the prior year.
+### 2. Maternity leave lasts 98 days; maternity benefits are paid by the maternity insurance fund based on the employer’s average monthly wage from the prior year
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Cost: There is no cost to you. Your employer handles all the paperwork — you don’t need to do anything.
 - In plain terms: You’re entitled to at least 98 days of maternity leave, including up to 15 days you can take before the birth. If the delivery is difficult, you get an extra 15 days. For each additional child born, you receive another 15 days of leave. The money paid during this time is called maternity benefits and comes from the maternity insurance fund. If your employer hasn’t enrolled in this insurance, they must pay the benefits themselves.

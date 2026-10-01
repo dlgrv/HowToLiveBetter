@@ -19,7 +19,7 @@ This section is all about time. We look at how many hours you can save each day,
 - Sources:Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69–119. <https://doi.org/10.1016/S0065-2601(06)38002-1>
 - Notes: Exit criteria should be written at the very start of a project, while emotions are still neutral. Deciding on them later gets skewed by all the resources already spent; at that point you should focus only on future investment and future returns, as explained in item 3. Also, “the ability to withdraw” is just one sub‑finding across those studies — no single study has calculated exactly how much time it can save.
 
-### 3. When deciding whether to continue, only consider future investments and future returns — not what has already been invested.
+### 3. When deciding whether to continue, only consider future investments and future returns — not what has already been invested
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
 - Cost: No cost involved. The difficulty lies in accepting that time already invested cannot be recovered.
 - In plain terms: Money and time already spent make people more inclined to keep going. Across 98 datasets, this tendency remains consistent. Therefore, when deciding whether to continue, only factor in future investments and expected returns; past expenditures should be excluded from consideration.

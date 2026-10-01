@@ -30,7 +30,7 @@ Protecting your money and personal data is essential. If someone gains access to
 - Notes: You can set the SIM PIN under “SIM card lock” in your phone settings. The default factory codes are usually 1234 or 0000. If you enter the wrong code three times in a row, you’ll need the PUK code provided by your carrier to unlock it. After setting the PIN, be sure to write it down somewhere safe.
 - Sources:作者经验，无直接文献
 
-### 4. Follow these steps if you lose your phone: block the SIM card, remotely lock it, change passwords, file a police report, and freeze your bank cards if needed.
+### 4. Follow these steps if you lose your phone: block the SIM card, remotely lock it, change passwords, file a police report, and freeze your bank cards if needed
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Cost: No cost involved. Completing all steps takes just a few minutes.
 - In plain terms: The order of actions matters more than speed. First, block the SIM card to cut off access to verification codes. Next, remotely lock the phone. Then, use a computer to change your email and payment passwords. After that, file a police report to obtain a receipt. Finally, freeze your bank cards as needed. Even if you’re using someone else’s phone, you can still call your carrier to block the SIM card.
@@ -72,7 +72,7 @@ Protecting your money and personal data is essential. If someone gains access to
 - Notes: The deciding factor is simple: is this data truly essential to providing the service? Location data is essential for a map app, but contact lists aren’t needed for a flashlight app. After installing an app, head to your phone’s settings under app permissions and turn off any nonessential permissions. Grant access only when you genuinely need them, and even then, limit it to a one-time permission.
 - Sources:全国人大常委会 (2021). 个人信息保护法. 中国人大网. <http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html>：第六条「收集个人信息，应当限于实现处理目的的最小范围，不得过度收集个人信息」；第十六条「个人信息处理者不得以个人不同意处理其个人信息或者撤回同意为由，拒绝提供产品或者服务；处理个人信息属于提供产品或者服务所必需的除外」；第十五条「基于个人同意处理个人信息的，个人有权撤回其同意。个人信息处理者应当提供便捷的撤回同意的方式」
 
-### 8. You have the right to view, copy, correct, and delete your personal information; if refused, you can sue.
+### 8. You have the right to view, copy, correct, and delete your personal information; if refused, you can sue
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=自由 -->
 
 - Cost: There is no cost involved. Only if the company drags its feet do you need to file a complaint or sue. A lawsuit typically takes several months to resolve, and you must pay legal fees yourself. Therefore, filing a complaint first is the more cost-effective option. The difficult part is having to repeatedly follow up when the company delays action.

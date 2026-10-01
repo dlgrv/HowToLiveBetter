@@ -11,7 +11,7 @@ This section deals with both financial matters and personal freedom, and several
 - Sources:国务院 (2026). 关于出境入境管理的规定（国令第 841 号）. <https://www.gov.cn/zhengce/zhengceku/202607/content_7077173.htm>（第二条）；国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十九、二十一条）；外交部领事司. 安全提醒. <https://cs.mfa.gov.cn/zggmzhw/lsbh/aqtx/>
 - Notes: Advisories are updated as situations evolve; this guide does not list them, so be sure to check the page yourself before you travel. As of September 7, 2026, the “Do Not Travel” warnings covered Eswatini (August 25, 2026), Palestine (October 10, 2023), Sudan (April 17, 2023), Afghanistan (February 17, 2023), Syria (January 4, 2023), Peru (December 29, 2022), Somalia (November 24, 2022), as well as specific warnings for northern Myanmar and certain provinces of the Democratic Republic of the Congo. Travel agencies also have a duty to inform clients; before joining a tour, you can request a written summary of destination risks.
 
-### 2. Save the 12308 hotline number and your local embassy/consulate’s consular protection number in your phone, then write them down and keep a copy in your wallet — don’t wait until an emergency to look them up.
+### 2. Save the 12308 hotline number and your local embassy/consulate’s consular protection number in your phone, then write them down and keep a copy in your wallet — don’t wait until an emergency to look them up
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=自由 -->
 
 - Cost: No cost at all. Saving two numbers and writing one copy down takes just a few minutes.
@@ -35,7 +35,7 @@ This section deals with both financial matters and personal freedom, and several
 - Sources:国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第九、十、十四、二十六条）
 - Notes: Consulates cannot pay fines or medical bills on your behalf, nor buy plane tickets or overturn court rulings. What they can provide is information on local lawyers, interpreters, medical providers, and funeral services, plus help contacting family and finding relief resources. Knowing these limits is valuable: it reminds you to prepare sufficient funds and insurance before traveling — don’t rely on the assumption that the state will handle everything if trouble arises.
 
-### 4. Purchase insurance covering overseas medical care and medical evacuation — don’t settle for just flight delay coverage.
+### 4. Purchase insurance covering overseas medical care and medical evacuation — don’t settle for just flight delay coverage
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=金钱 -->
 
 - Cost: A short‑term travel insurance policy covering overseas medical needs typically costs anywhere from a few dozen to several hundred yuan.
@@ -67,7 +67,7 @@ This section deals with both financial matters and personal freedom, and several
 - Sources:国家外汇管理局 (2017). 关于规范银行卡境外大额提取现金交易的通知（汇发〔2017〕29 号，第一、二、三、四、六、七条，2018 年 1 月 1 日起实施）. <https://www.safe.gov.cn/safe/2017/1230/21873.html>；国家外汇管理局 (2017). 外汇局有关负责人就规范银行卡境外大额提取现金交易有关问题答记者问. <https://www.gov.cn/zhengce/2017-12/31/content_5251958.htm>；中国银联国际. 境外ATM取款. <https://m.unionpayintl.com/wap/cn/serviceCenter/cardUsingInstructions/805.shtml>
 - Notes: The annual limit resets on January 1 each year. As mentioned, only cash withdrawals are restricted; regular card purchases are unaffected. If you absolutely need to carry large amounts of cash overseas, you must first apply for foreign exchange under the Individual Foreign Exchange Management Measures before taking the cash out. Two additional caveats apply to cash withdrawals: (1) For dual-brand cards, some ATMs in certain countries do not offer a UnionPay withdrawal option. (2) Some overseas ATMs display extra surcharge fees, which are charged by local acquirers and have no relation to UnionPay. UnionPay also advises that credit card cash withdrawals incur interest charges, so using a UnionPay debit card is preferable for overseas withdrawals. For guidance on what to do if your card is lost, swallowed by an ATM, or fraudulently used, refer to Section 14, Item 5.
 
-### 7. Take photos of your passport, visa, and ID card and store them in the cloud; if lost, report to police first and then apply for a travel document.
+### 7. Take photos of your passport, visa, and ID card and store them in the cloud; if lost, report to police first and then apply for a travel document
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Cost: No cost involved. Simply take a few photos before you depart.
@@ -77,7 +77,7 @@ This section deals with both financial matters and personal freedom, and several
 - Sources:国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十六条）；作者经验，无直接文献
 - Notes: Store the photos in two separate locations — for instance, upload one set to cloud storage and send another to a trusted family member. Also print a hard copy and keep it apart from the original documents. Photograph your bank cards and prescriptions as well. Since phones and passports are frequently lost together, relying only on phone storage is insufficient. Cloud services often require SMS verification, which becomes impossible if your phone is lost; test access from another device before travel to ensure you can retrieve the files. Photos of official documents are sensitive information; encrypted storage is safer, but if you forget the password, no one can access them, so the copy sent to family members remains essential.
 
-### 8. Before driving abroad, verify whether local authorities recognize Chinese driver’s licenses; most “international driver’s permits” sold online are legally worthless.
+### 8. Before driving abroad, verify whether local authorities recognize Chinese driver’s licenses; most “international driver’s permits” sold online are legally worthless
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->
 
 - Cost: No cost at all. Simply check local regulations before you travel.
@@ -105,7 +105,7 @@ This section deals with both financial matters and personal freedom, and several
 - Sources:国务院 (2026). 关于出境入境管理的规定（国令第 841 号）. <https://www.gov.cn/zhengce/zhengceku/202607/content_7077173.htm>（第三、十一条）
 - Notes: This carries the same risks as the advice in Section 8: “Don’t carry items for strangers.” Once you sign a document or stamp a form, you assume full responsibility for its contents. Government employees and military personnel who attempt to obtain foreign citizenship or residency through intermediaries must report such attempts to oversight authorities — intermediaries cannot assist with such illegal requests.
 
-### 11. Before traveling abroad, send your itinerary, accommodation details, and travel companions’ information to a family member, and agree on how often you’ll stay in touch.
+### 11. Before traveling abroad, send your itinerary, accommodation details, and travel companions’ information to a family member, and agree on how often you’ll stay in touch
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=死亡率 -->
 
 - Cost: No cost at all. Simply send a message before you leave.

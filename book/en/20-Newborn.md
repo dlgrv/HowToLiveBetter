@@ -1,7 +1,7 @@
 # 20. How to care for a newborn baby
 
 This section focuses on two main topics: what it takes to keep a newborn alive and how much it will cost you. Only differences that are substantial and backed by solid evidence are included here. Detailed advice on soothing or raising a baby is beyond the scope of this book. For tasks to handle before birth and on the day of discharge, please refer to Section 27.
-### 1. Keep infants sleeping on their backs on a firm surface; share a room but not a bed; and do not place any soft items in the crib or bed.
+### 1. Keep infants sleeping on their backs on a firm surface; share a room but not a bed; and do not place any soft items in the crib or bed
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Cost: This costs nothing upfront. However, you’ll need to replace the mattress with a firm one, which may cost several hundred yuan. The real challenge is resisting pressure from older relatives to deviate from this rule.
 - In plain terms: Always place babies on their backs to sleep on a hard, flat surface. Parents and infants should share a room, but not the same bed. Never put pillows, blankets, bed rails, stuffed animals, or special shaped pillows in the sleeping area. Inclined cribs or baby chairs are only meant for sitting — they must never be used as a sleeping surface. In the United States alone, roughly 3,500 infants die each year from sleep-related causes.
@@ -42,7 +42,7 @@ This section focuses on two main topics: what it takes to keep a newborn alive a
 - Sources:World Health Organization. Breastfeeding. <https://www.who.int/health-topics/breastfeeding>；国家卫生健康委办公厅 (2024). 婴幼儿营养喂养评估服务指南（试行）（国卫办妇幼函〔2024〕452 号）. <https://www.gov.cn/zhengce/zhengceku/202502/content_7002872.htm>
 - Notes: If breast milk is insufficient or not an option, formula is a perfectly acceptable substitute — there is no need for guilt. The difference between breastfeeding and formula feeding is far smaller than the impact of ensuring safe sleeping practices. As for frequency of solid food intake: infants aged 6–8 months should consume solids 1–2 times daily, while those aged 9–12 months should have 2–3 servings per day. Their daily diet must include at least four of the seven essential food groups. For infants with severe eczema or egg allergies, the question of whether to avoid peanuts is addressed in Section 12 of this chapter — the answer is: there is no need to avoid peanuts.
 
-### 5. Use water hotter than 70 °C to prepare formula, then let it cool before feeding; discard any leftovers.
+### 5. Use water hotter than 70 °C to prepare formula, then let it cool before feeding; discard any leftovers
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 - Cost: No monetary cost. It only requires a few extra minutes of waiting for the milk to cool. The difficulty lies in the fact that even when a baby is crying from hunger, caregivers must still wait for the water temperature to drop before mixing the formula.
 - In plain terms: Formula milk is not sterile and may contain a bacterium called Cronobacter sakazakii. Once newborns are infected, reported mortality rates range from 40% to 80%. To minimize this risk, first pour hot water into the feeding bottle, then wait until the temperature drops to around 73.8 °C before adding the formula. At this point, the milk remains above 70 °C, which can reduce the amount of this bacterium to less than one ten-thousandth of its original level. After preparation, let the milk cool completely before feeding, and discard any portions that are not consumed.
@@ -89,7 +89,7 @@ This section focuses on two main topics: what it takes to keep a newborn alive a
 - Sources:Spies EL, Klevens J (2016). Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014. MMWR 65(20):505-509. <https://doi.org/10.15585/mmwr.mm6520a1>；Choudhary AK 等 (2018). Consensus statement on abusive head trauma in infants and young children. Pediatric Radiology 48(8):1048-1065. <https://doi.org/10.1007/s00247-018-4149-1>
 - Notes: When you truly feel you’re about to lose control, the safest action is to return the baby to their crib and leave the room for a few minutes. Allowing them to cry briefly is much safer than holding them and shaking them. This advice is especially vital for parents who care for their children alone and often suffer from sleep deprivation. For guidance on managing your own emotions, please refer to Section 3.
 
-### 10. When choosing diapers, focus on three things: fit, how often you change them, and whether they’ve been flagged in any quality inspections.
+### 10. When choosing diapers, focus on three things: fit, how often you change them, and whether they’ve been flagged in any quality inspections
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Cost: Prices range from a few hundred to over a thousand yuan per month, depending on the brand and quality level you choose. The absolute cost falls between 200 and 300 yuan per month.
@@ -111,7 +111,7 @@ This section focuses on two main topics: what it takes to keep a newborn alive a
 - Sources:作者经验，无直接文献；安全座椅的证据见第 1 节，冲动消费见第 5 节
 - Notes: This book neither recommends nor discourages postpartum care centers, early-education classes, or baby swimming classes. Still, they’re all optional big expenses, so the 24-hour cooling-off period described in Section 5 applies to them.
 
-### 12. For children with severe eczema or egg allergy, don’t avoid peanuts — introduce them early under medical guidance, but never feed whole peanuts.
+### 12. For children with severe eczema or egg allergy, don’t avoid peanuts — introduce them early under medical guidance, but never feed whole peanuts
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Cost: A jar of peanut butter costs just a few dozen yuan. Feeding it a few times a week is easy to fit into a routine. Before starting, though, a doctor’s evaluation is required.

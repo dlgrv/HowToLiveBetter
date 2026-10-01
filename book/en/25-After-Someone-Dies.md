@@ -3,7 +3,7 @@
 When someone dies, there are a few key steps to take: handling the necessary paperwork and dealing with any money matters. First, you’ll need to secure the scene and arrange for a death certificate. After that, the body must be prepared and cremated. If there’s any dispute over how the death occurred, that must be addressed next, followed by closing all relevant accounts. The remaining items are listed in order of how much they can save you money. For any advance planning an older adult might want to make — such as naming a legal guardian, writing a will, or managing accounts — see Section 17. Details on the three types of benefits available for deaths at work can be found in Section 19.
 
 The funeral guidance here follows the newly updated Funeral Management Regulations, which took effect on March 30, 2026. Exact amounts for funeral subsidies and survivor benefits under basic pension plans are set separately by the Human Resources and Social Security Bureau. Since we don’t have an official source text to verify these figures word for word, no specific dollar amounts appear in this section.
-### 1. If someone dies at home or elsewhere, first determine whether it’s a natural or unnatural death: in cases of accidents, unknown causes, or deaths discovered only after a long period of solitude, call the police immediately and leave the body and scene untouched.
+### 1. If someone dies at home or elsewhere, first determine whether it’s a natural or unnatural death: in cases of accidents, unknown causes, or deaths discovered only after a long period of solitude, call the police immediately and leave the body and scene untouched
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=自由 -->
 
 - Cost: No expense at all — just one phone call is needed.
@@ -13,7 +13,7 @@ The funeral guidance here follows the newly updated Funeral Management Regulatio
 - Sources:全国人大常委会 (1958). 中华人民共和国户口登记条例（第八条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/mpost_2531969.html>（广东省人民政府门户网站刊登）；国务院 (2026). 殡葬管理条例（国务院令第 824 号，自 2026 年 3 月 30 日起施行，第二十三条）. <https://www.gov.cn/zhengce/zhengceku/202601/content_7054169.htm>
 - Notes: Deaths occurring after a prolonged illness or at home at the end of life are considered natural. In such cases, a certificate can be obtained from the treating medical institution, or from a local community health center or township hospital. As noted in Item 2 (Death Certificates), only the institution providing treatment may issue the certificate. When it is unclear which category applies, treat it as an unnatural death and call 110 first. Police investigations will still allow a certificate to be issued. Conversely, if you clean up the scene before calling police, no one can help you. Do not move the body, wash or change its clothes, or remove medicine bottles or notes.
 
-### 2. The death certificate is the key to everything that follows: whoever provided treatment issues it; for natural deaths at home, contact the local community health service center. It must be issued within one day.
+### 2. The death certificate is the key to everything that follows: whoever provided treatment issues it; for natural deaths at home, contact the local community health service center. It must be issued within one day
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 
 - Cost: No cost at all.  
@@ -23,7 +23,7 @@ The funeral guidance here follows the newly updated Funeral Management Regulatio
 - Sources:国家卫生计生委办公厅 (2014). 人口死亡信息登记管理规范（试行）（国卫办规划发〔2014〕68 号，第九条）. <https://mzj.sz.gov.cn/szmz/pc/zwgk/jcxxgk/zcfg/byfw/content/post_2952215.html>（深圳市民政局转发）；国家卫生健康委、公安部、民政部、国家中医药局、国家疾控局 (2026). 关于加强居民死亡医学证明信息登记和电子证照管理工作的通知（国卫规划发〔2026〕5 号）. <https://wjw.fujian.gov.cn/xxgk/fgwj/gjwj/202602/t20260228_7102810.htm>（福建省卫生健康委员会转发）
 - Notes: This certificate is indispensable for deregistration, cremation, housing provident fund withdrawals, social insurance benefits, insurance claims, and estate settlement — so make plenty of copies right away. If electronic issuance is available, request it as well. Only one replacement is permitted, so keep the original safe. Any mistakes in name or ID number should be corrected on the spot; otherwise you’ll have to repeat the process at every office later on.
 
-### 3. Transport, storage, and cremation of remains must be handled by funeral homes; hospital morgues cannot provide such services, and storage is generally limited to 3 days.
+### 3. Transport, storage, and cremation of remains must be handled by funeral homes; hospital morgues cannot provide such services, and storage is generally limited to 3 days
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Cost: No cost involved.
 - In plain terms: Transport, storage, embalming, body preparation, and cremation can only be done by funeral homes. Hospital morgues are not authorized to handle funeral services; they may only provide temporary storage for remains. Funeral homes typically store bodies for no more than 3 days; any longer period requires an extension request. Cremation can only proceed with a death certificate and cremation authorization document. The cremation certificate issued afterward is necessary for inheritance claims and insurance processing.
@@ -50,7 +50,7 @@ The funeral guidance here follows the newly updated Funeral Management Regulatio
 - Sources:全国人大常委会 (1958). 中华人民共和国户口登记条例（第八条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/mpost_2531969.html>（广东省人民政府门户网站刊登）
 - Notes: Leaving the hukou registration active will prevent any inheritance transfers, benefit claims, or insurance cancellations, as all these procedures rely on a cleared hukou status. If pension payments continue despite the death, they constitute fraudulent collection and must eventually be repaid. While at the police station, also ask how to suspend social insurance and yibao payments, as well as how to apply for funeral subsidies. Details on these financial matters are covered in Item 9 (housing provident fund balances and related social insurance benefits).
 
-### 6. Funeral services are divided into basic and non-basic categories; a list of basic services exists, with their fees set by law.
+### 6. Funeral services are divided into basic and non-basic categories; a list of basic services exists, with their fees set by law
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Cost: There is no cost involved. Just spend a few minutes before departure to review the official list.
 - In plain terms: Transporting, storing, and cremating a body, holding a farewell ceremony, keeping ashes in storage, and eco-friendly burial options — all fall under the national list of basic services. This also includes burial spaces provided by government-run funeral agencies. Prices for these services are strictly regulated by law; no extra fees may be charged outside this list. Before making any arrangements, be sure to confirm which services are considered basic and what the local rates are.
@@ -59,7 +59,7 @@ The funeral guidance here follows the newly updated Funeral Management Regulatio
 - Sources:国务院 (2026). 殡葬管理条例（国务院令第 824 号，2025 年 11 月 14 日国务院第 72 次常务会议修订通过，「自2026年3月30日起施行」）. <https://www.gov.cn/zhengce/zhengceku/202601/content_7054169.htm> 第五条：「殡葬服务分为基础项目和非基础项目，收费政策由国务院发展改革部门、财政部门会同国务院民政等部门制定。」「国家制定殡葬服务基础项目清单，将遗体接运、遗体存放、遗体告别、遗体火化、骨灰寄存、生态安葬以及政府举办的殡葬服务机构提供的骨灰格位安葬等纳入清单范围」；第五十条「殡葬服务实行清单化管理并动态调整，禁止在清单之外设立项目、收取费用。」
 - Notes: Provinces, autonomous regions, and municipalities may add extra items to the national list. Always verify which services are classified as basic and what their local pricing is before proceeding. It is perfectly acceptable to want a dignified funeral for a loved one; this guideline does not discourage that. Its sole purpose is to clarify which services are fixed-price basics and which are optional extras. Once this distinction is clear, you can decide where to allocate funds — and avoid unnecessary overcharges during an already difficult time.
 
-### 7. If you encounter forced bundling, extra charges beyond the listed price, or a single service being split into multiple line items for billing, make a note of it and file a complaint.
+### 7. If you encounter forced bundling, extra charges beyond the listed price, or a single service being split into multiple line items for billing, make a note of it and file a complaint
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: No cost involved. The real challenge is staying diligent in the moment.

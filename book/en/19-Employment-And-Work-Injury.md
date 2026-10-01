@@ -1,7 +1,7 @@
 # 19. While employed, upon leaving the job, and for work‑related injuries
 
 This section is all about money — how it’s calculated, what paperwork you must sign, and what deadlines apply. The first three items cover payments you’re entitled to while still on the payroll. The next six items deal with situations after you leave your job. Finally, the last seven items address occupational diseases and work‑related injuries. Compensation for injuries is far higher than severance pay, and the time limits are much stricter. Unfortunately, damage caused by an occupational disease can never be fully reversed.
-### 1. Overtime pay is calculated at three rates: 1.5×, 2×, and 3× the regular wage; failure to pay warrants a complaint to labor authorities, and non‑payment after the deadline incurs an additional penalty of 50%–100% of the owed amount.
+### 1. Overtime pay is calculated at three rates: 1.5×, 2×, and 3× the regular wage; failure to pay warrants a complaint to labor authorities, and non‑payment after the deadline incurs an additional penalty of 50%–100% of the owed amount
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: There is no direct cost. Simply keep copies of time‑card records, shift schedules, and overtime approval forms; also screenshot any messages from supervisors assigning work in the team chat. The challenge is remembering to do this each month.
@@ -15,7 +15,7 @@ This section is all about money — how it’s calculated, what paperwork you mu
 
 - Notes: Rest days and statutory holidays are distinct categories; the latter comprise only a handful of nationally designated days each year. Days created through compensatory leave arrangements are treated as rest days and therefore receive the 200% rate. Statements such as “the company requires overtime approval” or “I stayed voluntarily” do not absolve employers of payment obligations, yet they can complicate evidence collection; consequently, it is vital to retain documentation of work assignments and approvals. Implementing alternative work‑time regimes such as a comprehensive‑hour calculation system or a flexible‑hour schedule requires prior authorization from labor authorities. Details on arbitration time limits appear in Section 8, Article 19.
 
-### 2. Annual leave is calculated based on total years of service: 5, 10, or 15 days. If unused, employees receive 300% of their daily wage as compensation.
+### 2. Annual leave is calculated based on total years of service: 5, 10, or 15 days. If unused, employees receive 300% of their daily wage as compensation
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: There is no cost involved. Simply add up all the years you’ve worked at every employer; your social insurance records serve as proof. The main challenge is avoiding signing any form that states you “voluntarily waive annual leave.”
@@ -83,7 +83,7 @@ This section is all about money — how it’s calculated, what paperwork you mu
 - Sources:作者经验，无直接文献；维权路径见第 7 节
 - Notes: Only documents related to your own employment should be saved. Do not take any company source code, client lists, or technical documentation with you; those are separate matters, as explained in Section 11.
 
-### 9. Before taking up a post where there is dust, noise, or chemicals, check whether the contract mentions any occupational hazards; the employer must arrange and pay for three occupational health examinations.
+### 9. Before taking up a post where there is dust, noise, or chemicals, check whether the contract mentions any occupational hazards; the employer must arrange and pay for three occupational health examinations
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 
 - Cost: No cost involved. When signing the contract, read every clause under “Disclosure of Occupational Disease Hazards” carefully. Make sure to keep a copy of each health examination report for yourself. The main difficulty lies in having to ask questions and request documents in person.
@@ -111,7 +111,7 @@ This section is all about money — how it’s calculated, what paperwork you mu
 
 - Notes: Ensure you use respirators specifically rated for particulate filtration; ordinary gauze masks or disposable surgical masks offer no protection against dust. If your employer does not supply earplugs for noisy environments, purchasing them yourself is advisable, as hearing loss cannot be reversed. The belief that “working just two years to save money is safe” does not apply to pneumoconiosis — silicosis can manifest years after exposure ends and may worsen over time, making off-duty health checks essential (see item 10, which mandates three free occupational health examinations paid for by employers). The updated list also includes two new categories: occupational musculoskeletal disorders, specifically carpal tunnel syndrome affecting manufacturing workers performing repetitive wrist motions; and occupational mental and behavioral disorders, specifically post-traumatic stress disorder affecting police officers, medical personnel, and emergency responders involved in crisis response. Immediate first-aid measures for chemical splashes onto skin are detailed in item 13, clause 21.
 
-### 11. If you’re injured at work or hit while commuting, the first step is to get a work‑injury determination; if your employer won’t file it, you must do it yourself.
+### 11. If you’re injured at work or hit while commuting, the first step is to get a work‑injury determination; if your employer won’t file it, you must do it yourself
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=金钱 -->
 
 - Cost: There is no cost — just a trip to the social insurance authority. You’ll need three documents: a work‑injury determination application form, proof of employment, and a medical diagnosis certificate.
@@ -121,7 +121,7 @@ This section is all about money — how it’s calculated, what paperwork you mu
 - Sources:国务院 (2010 修订). 工伤保险条例（国务院令第 586 号）第十四条列了七种「应当认定为工伤」，含「（六）在上下班途中，受到非本人主要责任的交通事故或者城市轨道交通、客运轮渡、火车事故伤害的」；第十七条「所在单位应当自事故伤害发生之日或者被诊断、鉴定为职业病之日起30日内，向统筹地区社会保险行政部门提出工伤认定申请」「用人单位未按前款规定提出工伤认定申请的，工伤职工或者其近亲属、工会组织在事故伤害发生之日或者被诊断、鉴定为职业病之日起1年内，可以直接向用人单位所在地统筹地区社会保险行政部门提出工伤认定申请」「用人单位未在本条第一款规定的时限内提交工伤认定申请，在此期间发生符合本条例规定的工伤待遇等有关费用由该用人单位负担」；第十九条「职工或者其近亲属认为是工伤，用人单位不认为是工伤的，由用人单位承担举证责任」；第二十条「自受理工伤认定申请之日起60日内作出工伤认定的决定」；第五十五条，对「工伤认定申请不予受理的决定不服的」「对工伤认定结论不服的」，「可以依法申请行政复议，也可以依法向人民法院提起行政诉讼」. <https://www.gov.cn/gongbao/content/2011/content_1778064.htm>；最高人民法院 (2014). 关于审理工伤保险行政案件若干问题的规定（法释〔2014〕9 号）第七条：「由于不属于职工或者其近亲属自身原因超过工伤认定申请期限的，被耽误的时间不计算在工伤认定申请期限内」，所列情形为「（一）不可抗力；（二）人身自由受到限制；（三）属于用人单位原因；（四）社会保险行政部门登记制度不完善；（五）当事人对是否存在劳动关系申请仲裁、提起民事诉讼」. <https://www.court.gov.cn/fabu/xiangqing/6775.html>
 - Notes: The one‑year deadline is absolute — after that you can’t apply. The burden of proof rests with the employer: if it denies that an injury is work‑related, it must provide evidence to the contrary. Still, you should keep your own records — photos from the scene, coworkers’ contact info, medical records, and attendance logs. Article 16 lists three situations where injuries are not considered work‑related: intentional criminal acts, intoxication or drug use, and self‑inflicted harm or suicide. Article 15 also defines “deemed work‑injuries”: death from a sudden illness at work or within 48 hours after unsuccessful emergency treatment.
 
-### 12. Don’t believe the myth that “staying at work counts as a workplace injury”: if you suddenly feel unwell, call 120 first — don’t rush to clock in.
+### 12. Don’t believe the myth that “staying at work counts as a workplace injury”: if you suddenly feel unwell, call 120 first — don’t rush to clock in
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Cost: No cost at all.
 - In plain terms: Hurrying to the office when you suddenly feel unwell won’t earn you any extra compensation. To be classified as a workplace injury, the incident must occur during working hours and at the workplace; if it happens on the way to work before you even arrive, it doesn’t qualify. Cases where medical treatment is delayed past 48 hours also don’t count. Those few extra minutes spent trying to meet the criteria can actually lower your chances of survival.
@@ -159,7 +159,7 @@ This section is all about money — how it’s calculated, what paperwork you mu
 - Sources:工伤保险条例第三十九条：「（一）丧葬补助金为6个月的统筹地区上年度职工月平均工资；（二）供养亲属抚恤金按照职工本人工资的一定比例发给由因工死亡职工生前提供主要生活来源、无劳动能力的亲属。标准为：配偶每月40%，其他亲属每人每月30%，孤寡老人或者孤儿每人每月在上述标准的基础上增加10%……（三）一次性工亡补助金标准为上一年度全国城镇居民人均可支配收入的20倍。」. <https://www.gov.cn/gongbao/content/2011/content_1778064.htm>；国家统计局 (2026). 2025 年居民收入和消费支出情况. <https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962321.html>
 - Notes: The one-time death benefit is standardized nationwide, and its exact amount updates each year based on data released by China’s National Bureau of Statistics. When negotiating compensation, claims citing “lower local standards in our region” are not valid.
 
-### 16. If you’ve been bullied, insulted, or mistreated at work for a long time, don’t just endure it: document everything as evidence, then take action based on the nature of the abuse.
+### 16. If you’ve been bullied, insulted, or mistreated at work for a long time, don’t just endure it: document everything as evidence, then take action based on the nature of the abuse
 <!-- 成本标签: 钱=0 时间=中 毅力=是 收益=中 口径=死亡率 -->
 - Cost: There’s no monetary cost. However, it does take time to record details such as dates, witnesses, exact quotes from the abuser, and to keep original screenshots and emails. Legal proceedings like arbitration or lawsuits can last several months. Changing jobs is the most costly option; you must weigh these factors yourself.
 - In plain terms: Employees who experience workplace bullying have a roughly 60% higher risk of developing heart disease or having a stroke, and this risk rises with the severity of the bullying. After several years, they are also about twice as likely to entertain suicidal thoughts compared to their peers. Being constantly insulted and mistreated is far from a minor inconvenience that can simply be “tolerated.”

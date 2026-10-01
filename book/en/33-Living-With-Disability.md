@@ -7,7 +7,7 @@ We calculate four different categories separately, without converting between th
 According to a World Health Organization report, roughly 1.3 billion people worldwide experience significant functional limitations — that’s 16% of the global population, or one in every six individuals. On average, people with disabilities die up to 20 years earlier than those without disabilities. They also face twice the risk of depression, asthma, diabetes, stroke, obesity, and poor oral health. Much of this disparity stems not from the disability itself, but from limited access to healthcare, education, employment, and mobility. Hence, half of the entries here address physical health, while the other half cover procedures and rights.
 
 Five topics already covered elsewhere are only referenced here without repetition. Instructions for obtaining a disability certificate and how the seven categories and four levels are determined appear in Section 24, Item 11 (Disability Certificate). Timing for disability assessments is explained in Section 24, Item 10 (Disability Assessment). Details on claiming the two main disability subsidies are in Section 7, Item 8 (Two Subsidies). Converting work‑capacity evaluations and disability levels into monetary compensation for workplace injuries is described in Section 19, Item 15 (Work‑Capacity Assessment). Finally, eligibility for long‑term care insurance for severely disabled individuals is outlined in Section 17, Item
-### 1. Sudden severe headache and sweating after spinal cord injury: first help the person sit upright, loosen tight clothing, and call 120.
+### 1. Sudden severe headache and sweating after spinal cord injury: first help the person sit upright, loosen tight clothing, and call 120
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Cost: No cost at all. Just three simple actions, completed in just a few dozen seconds.
@@ -72,7 +72,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:国务院 (2017). 残疾预防和残疾人康复条例（第二十条、第二十六条）. <https://www.gov.cn/zhengce/zhengceku/2017-02/27/content_5171308.htm>
 - Notes: The application process for the disability certificate itself is described in Section 24, Item 11. Most subsidy amounts and implementation rules are determined at the provincial level, so the same benefit may vary significantly between provinces. Be sure to write down each benefit name during your visit, then verify the exact regulations on the local civil affairs bureau’s website and government portals. Do not rely solely on verbal explanations at the counter. Expect that not all details will be covered in one visit; returning annually is advisable, as policies frequently change.
 
-### 8. For children under 7 who have disabilities or autism, apply to the county-level civil affairs bureau for rehabilitation assistance.  
+### 8. For children under 7 who have disabilities or autism, apply to the county-level civil affairs bureau for rehabilitation assistance
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=金钱 -->
 - Cost: There is no cost. Simply submit one application to the county-level civil affairs bureau and then choose a qualified rehabilitation center from the approved list.  
 - In plain terms: The government has established a rehabilitation assistance program for children with disabilities and autism aged 0–6, covering surgeries, assistive devices, and therapy sessions. Initially, priority is given to children from low-income families; however, regions with sufficient financial resources may extend eligibility based on age or economic status. This early intervention window yields the best outcomes, so action should not be delayed until school age. Centers must be selected from the official list maintained by the civil affairs bureau.  
@@ -114,7 +114,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:中华人民共和国个人所得税法（2018 年修正，第五条）. <https://flk.npc.gov.cn/detail?id=2c909fdd678bf17901678bf724bd0609>；中华人民共和国残疾人保障法（第三十六条）. <https://flk.npc.gov.cn/detail?id=ff8080816f135f46016f1d134c88132b>
 - Notes: The benefit is rated “minor” because the law does not specify any numerical limits; most provinces offer reductions ranging from a few hundred to a few thousand yuan per year. While the amount is modest, the relief can be used indefinitely once obtained, making it worthwhile to apply. The only authoritative figure for your province is the official announcement from the local tax bureau; online comparison tables are often outdated. Self‑employed individuals should also request exemption from administrative fees under Article 36 of the Law on the Protection of Disabled Persons when applying for a business license.
 
-### 12. Guide dogs are allowed in public places and on public transport; blind individuals ride city buses for free.
+### 12. Guide dogs are allowed in public places and on public transport; blind individuals ride city buses for free
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 - Cost: There is no expense involved. If stopped, one must cite the relevant legal provisions; this may lead to a brief standoff.
 - In plain terms: The law clearly states that managers of public venues, transport facilities, and operators of public transport must provide reasonable accommodations for disabled persons traveling with guide dogs, hearing dogs, or other service animals. Additionally, blind individuals with valid identification may ride city buses, trams, subways, and ferries free of charge, and may bring any necessary assistive devices along. Should anyone object, simply point out these two provisions; if that fails, file a complaint.
@@ -123,7 +123,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:中华人民共和国无障碍环境建设法（第三十五条、第四十六条、第六十二条）. <https://flk.npc.gov.cn/detail?id=ff80818188d7430b0189018493370940>；中华人民共和国残疾人保障法（第五十条）. <https://flk.npc.gov.cn/detail?id=ff8080816f135f46016f1d134c88132b>
 - Notes: The wording “provide reasonable accommodations” carries no explicit penalties, so opponents may not yield immediately during a confrontation. Keeping a screenshot of the relevant statutes on one’s phone is more useful than memorizing article numbers. If a resolution cannot be reached on the spot, Article 62 permits filing a formal complaint, which authorities must address. Separate regulations apply to railways and airlines; it is advisable to contact their customer service beforehand. The definition of “valid identification” for free transit varies by region; consulting the local disability affairs office is recommended.
 
-### 13. Disabled candidates taking the national college entrance exam can request reasonable accommodations, including a 50% time extension for those using Braille test papers.
+### 13. Disabled candidates taking the national college entrance exam can request reasonable accommodations, including a 50% time extension for those using Braille test papers
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=中 口径=时间 -->
 
 - Cost: There is no monetary cost. However, candidates must submit a written application within the timeframe specified by their provincial education authorities and attend an in-person verification session.
@@ -155,7 +155,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:公安部令第 172 号. 机动车驾驶证申领和使用规定（第七十八条、第八十五条、附件 1）. <https://www.gov.cn/gongbao/2025/issue_11866/202502/content_7004031.html>
 - Notes: An alternative, far less restrictive option involves operating specially designed motorized wheelchairs for disabled persons. Classified as non-motorized vehicles under Article 119 of the Road Traffic Safety Law, these do not necessitate a driver’s license; Article 58 further limits their maximum speed on non-motorized lanes to 15 km/h. Modifying a standard vehicle for C5 use involves installing manually operated throttle and brake mechanisms via certified manufacturers, followed by official registration updates at local vehicle authorities. Failure to submit updated health documentation within one year following three consecutive scoring cycles results in automatic license revocation.
 
-### 16. Rehabilitation should be carried out at a proper facility with a rehabilitation medicine department; the intensity must be set by therapists — more intensity does not necessarily mean better results.
+### 16. Rehabilitation should be carried out at a proper facility with a rehabilitation medicine department; the intensity must be set by therapists — more intensity does not necessarily mean better results
 <!-- 成本标签: 钱=多 时间=多 毅力=是 收益=大 口径=死亡率 -->
 
 - Cost: Inpatient rehabilitation costs several hundred yuan per day; the out‑of‑pocket portion varies by region. Treatment is billed on a monthly basis. Daily exercises are required and can be quite monotonous.
@@ -188,7 +188,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:中华人民共和国民法典（第二十一条、第二十二条、第二十三条、第二十四条）. <https://flk.npc.gov.cn/detail?id=ff808081729d1efe01729d50b5c500bf>
 - Notes: The associated costs must be clearly outlined. This procedure is a special court process; it is faster than regular civil cases but still takes several months. Medical diagnosis records must be submitted, and most courts also order an independent evaluation, the fees for which are typically several thousand yuan and paid upfront by the applicant. Signing documents or disposing of property on someone’s behalf without following this process may render those actions invalid; even property sales could be reversed. It is also important to remember that limited capacity does not mean a person can’t perform any actions at all. He may independently handle matters consistent with his mental state or those that bring him pure benefits; guardians should not automatically handle everything on his behalf. Details on determining guardianship are provided in section 19 (Guardians).
 
-### 19. Guardians for adults are appointed in a legal order; if the ward injures someone, the guardian must pay compensation.
+### 19. Guardians for adults are appointed in a legal order; if the ward injures someone, the guardian must pay compensation
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=自由 -->
 - Cost: There are no direct costs. When disputes arise, parties must turn to the residents' committee, villagers' committee, civil affairs bureau, or court to resolve them.
 - In plain terms: Once an adult loses the capacity to act, a guardian must be appointed following this order: spouse, parents and children, other close relatives, and finally any other individual or organization willing to serve. If there is disagreement over who should serve, the local residents' committee, villagers' committee, or civil affairs bureau makes the appointment; parties may appeal to court if they disagree. Conversely, while still of sound mind, an adult may put in writing who they wish to serve as their guardian. If the ward injures someone, the appointed guardian is legally responsible for paying compensation.
@@ -197,7 +197,7 @@ Five topics already covered elsewhere are only referenced here without repetitio
 - Sources:中华人民共和国民法典（第二十八条、第三十一条、第三十三条、第一千一百八十八条、第一千一百八十九条）. <https://flk.npc.gov.cn/detail?id=ff808081729d1efe01729d50b5c500bf>
 - Notes: Article 33 specifically addresses voluntary guardianship. Drafting a written arrangement while still of sound mind can prevent most future disputes; see Section 17, Item 1 for guidance on drafting such documents. Regarding compensation, guardians remain liable even when the ward is placed under the care of relatives or institutions; only when those caretakers are at fault does liability shift partially. Purchasing guardian liability insurance is therefore advisable. Article 78 of the Mental Health Law also holds guardians accountable for any harm caused by neglect or failure to fulfill their duties.
 
-### 20. If you’re denied a job, denied promotion, or paid less because of a disability, you can sue — but first calculate the associated costs.
+### 20. If you’re denied a job, denied promotion, or paid less because of a disability, you can sue — but first calculate the associated costs
 <!-- 成本标签: 钱=多 时间=多 毅力=是 收益=中 口径=金钱 -->
 
 - Cost: Legal fees range from several thousand to tens of thousands of yuan, all paid by you. A standard first-instance trial takes at least six months and can be extended. You must also gather and preserve all relevant evidence on your own.

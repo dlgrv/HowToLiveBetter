@@ -3,7 +3,7 @@
 This section covers several methods people use to alter their appearance: fasting, taking pills, getting injections, and undergoing surgery. They all share one thing in common: the decision to use them is usually driven by comparisons with others. Yet the costs are borne entirely by the individual, and many of those costs are irreversible.
 
 We make no judgment about anyone’s personal choice regarding how they want to look — that is a matter of personal preference. What we do address is this: for the same end result, how much greater is the risk when people follow unregulated paths — buying products online, using services at beauty clinics, or increasing dosages on their own — compared to following medically supervised routes that involve prescriptions, qualified professionals, and follow‑up care? Our assessment focuses on actual physical consequences such as blindness, hospitalization, and death. In addition, illegal cosmetic procedures can lead to serious criminal liability.
-### 1. Do not use extreme dieting, fasting, or self-induced vomiting to control weight; if you want to lose weight, focus on exercise instead.
+### 1. Do not use extreme dieting, fasting, or self-induced vomiting to control weight; if you want to lose weight, focus on exercise instead
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Cost: No cost at all. In fact, it saves money you would otherwise spend on weight-loss products.
 - In plain terms: People with anorexia nervosa have a mortality rate roughly 5.9 times higher than their peers. Over a period of one year, 5.1 out of every 1,000 individuals in this group die. One in five of those who die commit suicide. The root cause of this is dieting: a three-year study of students at 44 secondary schools found that girls who engaged in severe dieting were 18 times more likely to develop eating disorders than those who did not diet. If you want to manage your weight, increase physical activity rather than cutting food intake to the point of hunger.
@@ -26,7 +26,7 @@ We make no judgment about anyone’s personal choice regarding how they want to 
 
 - Notes: Article 16 of the same regulations further specifies that medical aesthetic procedures may only be conducted at licensed medical aesthetic facilities or at hospitals/clinics with designated medical aesthetic departments. Therefore, performing injections at a patient’s home or in a private studio already violates regulations. Article 20 also requires parental consent for minors undergoing such treatments. Routine beauty services such as facials, massages, or nail care fall outside this regulatory framework; however, any procedure involving needles or surgery remains classified as medical aesthetics.
 
-### 3. Facial fillers should avoid the bridge of the nose, glabellar area, and forehead — and never opt for unregulated clinics just to save money.  
+### 3. Facial fillers should avoid the bridge of the nose, glabellar area, and forehead — and never opt for unregulated clinics just to save money
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Cost: No cost at all. You simply choose a different injection site, or skip the treatment altogether.  
 - In plain terms: Between 2015 and 2018, 48 new cases of partial or total vision loss following filler injections were reported worldwide. The nose was the most common site of complications, accounting for 56.3% of cases; followed by the glabellar area at 27.1%, the forehead at 18.8%, and the nasolabial fold at 14.6%. Hyaluronic acid was used in over 80% of these cases. Only 20.8% of patients regained full vision, while 16.7% saw partial recovery; the rest remained visually impaired. Nearly 20% also developed complications affecting the central nervous system. Currently, no single treatment has been proven consistently effective for reversing these effects, so prevention remains the only reliable option.  
@@ -59,7 +59,7 @@ We make no judgment about anyone’s personal choice regarding how they want to 
 - Sources:Horwitz H et al. (2019). Health consequences of androgenic anabolic steroid use. J Intern Med. <https://doi.org/10.1111/joim.12850>；国务院 (2004). 反兴奋剂条例（国务院令第 398 号，第七条、第九条）. <http://www.gov.cn/gongbao/content/2004/content_63129.htm>
 - Notes: This is an observational study, not a randomized trial; steroid users may also engage in other risky behaviors, so the three‑fold risk increase may not be attributable solely to the drugs. The true effect size likely falls between 1.3 and 7.0. However, visible side effects such as acne, gynecomastia, and erectile dysfunction are less prone to bias. Legally these products are termed “anabolic agents”; any product described with that phrase contains them. Ordinary protein powder or creatine does not fall under this category. A problem is that some products marketed as “muscle‑building powders” or “nutritional supplements” may contain hidden steroids while claiming rapid results. The screening method is the same as for weight‑loss products (see item 4: avoid any weight‑loss drug promising quick results). Legitimate drugs are prescription‑only and carry verifiable approval numbers; any product sold as a “muscle‑building supplement” that promises results within weeks is probably adulterated.
 
-### 6. If you need weight-loss medication, get a prescription from a doctor — don’t buy it from online shops that ship it without one.
+### 6. If you need weight-loss medication, get a prescription from a doctor — don’t buy it from online shops that ship it without one
 <!-- 成本标签: 钱=少 时间=中 毅力=否 收益=中 口径=死亡率 -->
 
 - Cost: A single doctor’s visit plus a round trip to the clinic. This costs just a few dozen yuan and takes half a day.
@@ -73,7 +73,7 @@ We make no judgment about anyone’s personal choice regarding how they want to 
 
 - Notes: The legal provisions can be checked word for word, but no study has ever quantified exactly how much safer it is to take prescription drugs versus buying them without one; therefore this evidence rating is recorded as “difficult to quantify,” resulting in a grade B. This rule applies to all prescription drugs, not just weight-loss medications. The same regulations govern steroids and sex hormones, as mentioned in items 5 and 7 of this section. When a patient truly needs medication to manage weight, a doctor first evaluates their BMI, any other medical conditions, and possible contraindications before deciding whether and which drug to prescribe. This professional judgment cannot be replaced by any online purchase.
 
-### 7. Sex hormone therapy should only be used when prescribed by a doctor and with regular follow‑up; do not buy it online and do not adjust the dose on your own.
+### 7. Sex hormone therapy should only be used when prescribed by a doctor and with regular follow‑up; do not buy it online and do not adjust the dose on your own
 <!-- 成本标签: 钱=少 时间=中 毅力=否 收益=中 口径=死亡率 -->
 
 - Cost: Regular doctor visits and blood tests are required. Over a year this can cost several hundred dollars and take up several half‑days of your time.
@@ -87,7 +87,7 @@ We make no judgment about anyone’s personal choice regarding how they want to 
 
 - Notes: The researchers acknowledged a limitation: they could not determine how many participants obtained hormones outside the health‑care system, so the data on actual medication use are incomplete. This limitation actually underscores why regular medical follow‑up is essential. The study only examined vascular events; it does not address whether hormone therapy should be used or what its overall benefits are — those questions require different evidence. The same principle applies to any use of sex hormones, including birth‑control pills, menopausal hormone therapy, and testosterone replacement. Anyone who buys hormones online, adjusts doses based on internet advice, and never monitors blood clots or liver/kidney function is at risk primarily because there is no medical oversight. In China, the proper route is to consult an endocrinology department or relevant specialist at a licensed medical institution for evaluation, prescription, and follow‑up. 〔17〕
 
-### 8. If the feeling of “being unattractive” has reached the point where you constantly check your reflection and obsess over changes, get a body image assessment before considering surgery.
+### 8. If the feeling of “being unattractive” has reached the point where you constantly check your reflection and obsess over changes, get a body image assessment before considering surgery
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=中 口径=死亡率 -->
 
 - Cost: A single visit to a psychiatrist or clinical psychologist costs only a few dozen yuan. The real challenge is making that appointment before scheduling any surgery.

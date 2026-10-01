@@ -3,7 +3,7 @@
 Losing a loved one, receiving a serious diagnosis, losing a job, or going through a divorce — these events share one thing in common: they affect not only a person’s mood but also their physical health. The period of highest risk spans from the first few weeks up to the first year. This section does not discuss how to “get over it.” Instead, it outlines which matters need close attention, which decisions should be postponed, and when to seek medical help. Most figures here refer to the risk of death. The four items dealing with costs and benefits relate to money: avoid rushing into grief counseling right away (item 9), call 12356 and schedule a mental health appointment (item 11), postpone any irreversible major decisions (item 12), and never treat death as a way to settle debts (item 13). These two sets of numbers are not interchangeable. For those without family or friends to rely on, item 6 explains how to arrange for someone to keep an eye on things.
 
 Details on funeral procedures, handling the body, and claiming benefits after a loved one’s death are covered in section 25. Information on guardianship and wills for elderly relatives appears in section 17. Section 7 describes unemployment benefits. Sections 3 and 22 discuss exercise and light exposure as ways to ease low mood. If suicidal thoughts arise, call 12356 first (see item 25 in section 1); the time frame for such thoughts is explained in item 32 of section 1, while lasting effects after recovery are described in item 33 of section 1. None of these topics are repeated here.
-### 1. After a loved one passes, don’t stay alone for the first few days. Those with heart disease, high blood pressure, or diabetes should keep taking their medication. If you feel pressure or pain in the chest, call 120 right away.
+### 1. After a loved one passes, don’t stay alone for the first few days. Those with heart disease, high blood pressure, or diabetes should keep taking their medication. If you feel pressure or pain in the chest, call 120 right away
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Cost: There is no cost involved. Just avoid being alone during these days and keep taking your medicine as usual.
@@ -27,7 +27,7 @@ Details on funeral procedures, handling the body, and claiming benefits after a 
 
 - Notes: These figures apply specifically to cancer patients. No comparable data exist for other serious diagnoses. The actual number of people affected remains low: a total of 6,073,240 individuals were included in the study, and the first‑week suicide rate is 2.50 per 1,000 person‑years, i.e., only 2.5 cases per 1,000 people each year. This information is provided not to frighten, but to emphasize the importance of having someone present during those initial days. Long‑term management, insurance coverage, and follow‑up care are discussed in Sections 16 and 24. For those unable to find a companion, see point 6 in this section, which suggests enlisting neighbours or community contacts instead.
 
-### 3. After losing a job, it’s important to set a regular sleep schedule, keep yibao (basic medical insurance) active, and plan job searches methodically — don’t just stay at home all day.
+### 3. After losing a job, it’s important to set a regular sleep schedule, keep yibao (basic medical insurance) active, and plan job searches methodically — don’t just stay at home all day
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 
 - Cost: There’s no expense involved. First, register as unemployed and apply for unemployment benefits; then schedule job searches at set times. The real challenge is waking up on time when no one is there to push you.
@@ -59,7 +59,7 @@ Details on funeral procedures, handling the body, and claiming benefits after a 
 - Sources:Moon JR, et al. (2011). Widowhood and mortality: a meta-analysis. PLoS ONE. <https://doi.org/10.1371/journal.pone.0023465>；Shor E, et al. (2012). Widowhood and mortality: a meta-analysis and meta-regression. Demography. <https://doi.org/10.1007/s13524-012-0096-x>
 - Notes: These findings come from retrospective analyses of population data; other confounding factors cannot be completely ruled out because spouses naturally share similar lifestyles and health patterns. Nevertheless, the consistent pattern — a markedly higher risk in the first half‑year compared to later periods — observed in two independent meta‑analyses makes this period a worthwhile window for extra care. Men tend to have higher risk and are less likely to ask for help. Families with bereaved elders should follow Section 17 to sort out accounts, guardianship, and wills. For those who cannot find such a person — whether living alone, having no surviving children, or lacking any close relatives — they should turn to community resources and mobile tools as described in Section 6.
 
-### 6. For those without family or friends, replace “the person watching over you” with three simple things: a neighbor who can enter your home, a spot on the community outreach list, and emergency contacts saved on your phone.
+### 6. For those without family or friends, replace “the person watching over you” with three simple things: a neighbor who can enter your home, a spot on the community outreach list, and emergency contacts saved on your phone
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=死亡率 -->
 
 - Cost: No money is required. The hard part is mustering the courage to reach out — simply tell a neighbor or a member of the residents’ committee, “I live alone and have just experienced a crisis.”
@@ -101,7 +101,7 @@ Details on funeral procedures, handling the body, and claiming benefits after a 
 
 - Notes: Don’t fixate on exact time limits. The real indicator is whether grief interferes with eating, sleeping, work, or childcare — if so, it’s time to seek help. The appropriate clinics are psychiatry, psychology, or clinical psychology departments, all of which are available at public psychiatric hospitals. This condition is known as prolonged grief disorder or complex grief in various sources; required duration varies from six to twelve months across different guidelines. The 9.8% prevalence figure stems from 14 studies with differing methodologies, so authors caution that it may not apply universally to all populations.
 
-### 9. Don’t spend money on grief counseling right away — first check whether your grief is truly stuck (see the symptoms listed in item 8).
+### 9. Don’t spend money on grief counseling right away — first check whether your grief is truly stuck (see the symptoms listed in item 8)
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Cost: No cost at all; in fact, this approach saves you the expense of counseling.
 - In plain terms: Offering psychological counseling to every bereaved person right after their loss yields little benefit at first, and over time those benefits disappear entirely. The reason is that most people without any intervention would have recovered on their own anyway. However, for those who clearly struggle to adapt, such counseling works just as well as treatment for other mental health issues. So the proper sequence is: first check whether your grief fits the criteria in item 8 (meaning it’s stuck and warrants a visit to a psychiatrist); only if it does should you spend the money on counseling.
@@ -137,7 +137,7 @@ Details on funeral procedures, handling the body, and claiming benefits after a 
 - Sources:作者经验，无直接文献；「家庭变故、失业、失学」作为心理危机风险的表述见国家卫生健康委等 25 部门 (2026). 健全社会心理服务体系和危机干预机制实施方案（国卫医政发〔2026〕8 号）. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065035.htm>
 - Notes: If you have no such neutral third party nearby, call 12356 and explain your situation (see item 11 in this section on using this line to talk to someone). You can also write down your thoughts and reread them after three days. The “three‑month” timeframe is an author‑set guideline with no scholarly backing, which is why the evidence grade is C. Common scams targeting bereaved individuals and seniors are covered in sections 17 (investment and housing schemes) and 6 (fortune‑telling). Pitfalls related to guarantees and promissory notes are discussed in section 8. A few financial actions must be handled promptly and cannot be postponed: withdrawing your housing provident fund balance, claiming social insurance benefits, and receiving compensation for a work‑related death — details are provided in sections 25 and 19.
 
-### 13. Don’t treat death as a way to settle debts: life insurance won’t pay out for suicides within two years, workplace injuries won’t be recognized, and debts are still deducted from your estate first.
+### 13. Don’t treat death as a way to settle debts: life insurance won’t pay out for suicides within two years, workplace injuries won’t be recognized, and debts are still deducted from your estate first
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 
 - Cost: There is no expense involved; you just need to do the math.

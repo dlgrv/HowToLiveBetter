@@ -28,7 +28,7 @@ This section is all about energy and time. We look at four main factors: how muc
 - Sources:Van Dongen, Maislin, Mullington & Dinges (2003). The cumulative cost of additional wakefulness. Sleep. <https://doi.org/10.1093/sleep/26.2.117>；Lim & Dinges (2010). A meta-analysis of the impact of short-term sleep deprivation on cognitive variables. Psychological Bulletin. <https://doi.org/10.1037/a0018883>
 - Notes: The most important takeaway is that “not feeling sleepy” is not proof that you’ve gotten enough sleep. People who regularly sleep just 6 hours simply get used to the state, but their actual performance does not improve. The results from the meta-analysis apply to staying awake for an entire night; there is only one randomized controlled trial supporting the idea that consistently getting less than 6 hours of sleep has any real negative impact.
 
-### 4. Avoid caffeine after 2 p.m.
+### 4. Avoid caffeine after 2 p.m
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=时间 -->
 - Cost: No cost involved. People accustomed to drinking coffee in the afternoon must summon some willpower to abstain.
 - In plain terms: Consuming a large cup of coffee containing 400 mg of caffeine 6 hours before bedtime reduces measured total sleep time by over 1 hour, yet personal sleep logs show no difference. To avoid any impact on sleep, a regular cup of coffee (107 mg of caffeine) must be consumed at least 8.8 hours prior to bedtime; for those going to bed at 11 p.m., 2 p.m. marks the cutoff point.
@@ -168,7 +168,7 @@ This section is all about energy and time. We look at four main factors: how muc
 
 - Notes: These measures serve as adjuncts for mild‑to‑moderate depression. Individuals with moderate‑to‑severe depression or suicidal thoughts should seek professional care; they may also call 12356 first (see Section 1, Item 25). Most exercise trials involve relatively few participants and cannot employ the placebo blinding used in drug studies. Light‑therapy research available up to 2003 also includes limited sample sizes. The advice to “stick to a schedule” and “talk to someone” reflects the authors’ experience rather than specific published evidence. Remember, even a ten‑minute walk counts as “getting active” for someone dealing with depression.
 
-### 19. Treat police officers, doctors, and bank tellers as rule‑following workers, not as archetypes: paperwork and deadlines — not emotions — drive results.
+### 19. Treat police officers, doctors, and bank tellers as rule‑following workers, not as archetypes: paperwork and deadlines — not emotions — drive results
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=时间 -->
 
 - Cost: No expense involved. You only need to adjust your expectations and the sequence of actions. The first step is to resist the urge to “convince the other party with logic.”
@@ -192,7 +192,7 @@ This section is all about energy and time. We look at four main factors: how muc
 
 - Notes: The correlation findings merely indicate that these patterns tend to appear together; they do not prove causation. The randomized trials do suggest causal links, but they involve U.S. participants prior to the 2018 midterm elections, so applying the results directly to Chinese users is a stretch. The undergraduate trial involved only 143 subjects, limiting its statistical power. Overall effect sizes remain modest, so cutting off these apps alone will not resolve all emotional issues. This advice targets usage aimed at monitoring how others are faring; it does not apply to staying in touch with family, seeking information or job hunting. If strict limits prove hard to maintain, start by disabling push notifications, “people you may know” suggestions and homepage recommendations. For broader screen‑time management, see sections 4.15 and 4.16 (hard caps on short‑video apps and scrolling news). When feeling down, consider the actions outlined in section 19 (exercise, sunlight and regular sleep). For those seeking identity through purchases, see section 6.23; those striving to “move up a social rung” should review section 6.24.
 
-### 21. When you feel like “everyone saw me make a fool of myself,” cut that estimate in half.
+### 21. When you feel like “everyone saw me make a fool of myself,” cut that estimate in half
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=时间 -->
 
 - Cost: No cost at all. It simply requires asking yourself once, when you’re nervous: “Did they really see it?”
@@ -215,7 +215,7 @@ This section is all about energy and time. We look at four main factors: how muc
 - Sources:Smith MM, Sherry SB, Chen S, Saklofske DH, Mushquash C, Flett GL, Hewitt PL (2018). The perniciousness of perfectionism: A meta-analytic review of the perfectionism-suicide relationship. Journal of Personality, 86(3), 522–542. <https://doi.org/10.1111/jopy.12333>
 - Notes: This item is graded B because most included studies relied on single-time surveys, making it hard to establish temporal sequence. The correlation strength is moderate (r ≈ .28), accounting for only a few to ten percent of total variance. Since the outcomes measured are suicidal thoughts and attempts rather than actual mortality, the overall benefit is rated as limited due to reliance on surrogate endpoints. The authors themselves note that the data on perfectionistic concerns and suicide attempts may suffer from publication bias, with studies showing weaker or null results less likely to be published; even after accounting for such missing studies, the overall trend remains unchanged. This recommendation does not oppose setting high standards; rather, it emphasizes where those standards originate and whether failure to meet them leads to feelings of personal worthlessness. Similar to the idea discussed in Item 15 — viewing pessimistic expectations like “things will definitely get worse” as symptoms — this pattern can also be addressed clinically. If you or someone you know is experiencing suicidal thoughts, call 12356 immediately and remove any means of self-harm, as outlined in Section 1, Item 25. For guidance on how to respond when someone close expresses such thoughts, refer to Section 8, Item 15. Information on depression screening for children can be found in Section 30, Item 8.
 
-### 23. When angry, don’t try to vent by smashing things, punching a bag, or going for a run — first calm your body down.
+### 23. When angry, don’t try to vent by smashing things, punching a bag, or going for a run — first calm your body down
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
 
 - Cost: No cost at all. When you’re angry, try a few minutes of activities that slow your heart rate: breathe slowly, sit down, and quiet your mind. It’s hard to resist the urge to vent right then and there.

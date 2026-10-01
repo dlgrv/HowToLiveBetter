@@ -24,7 +24,7 @@ This section looks at overall mortality rates and the associated costs. A chroni
 
 - Notes: Both steps are mandatory: first get outpatient chronic disease certification in your home region, then register for cross-regional medical care. Progress on adding those five new conditions varies by region; exact details are determined by local healthcare security authorities.
 
-### 3. Follow the intervals recommended by your doctor for follow‑up visits, and record every measurement in the same notebook.  
+### 3. Follow the intervals recommended by your doctor for follow‑up visits, and record every measurement in the same notebook
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=死亡率 -->
 - Cost: Each checkup costs anywhere from a few dozen to several hundred yuan. A trip to the hospital and waiting for results also takes some time. The main difficulty is that you must go regularly, which can easily be put off.  
 - In plain terms: For chronic diseases, it’s the trends over time that matter, not any single measurement. Write down the date, the measurement, the medication you’re taking, and its dosage in one place. When you switch doctors, you can show this record so you won’t need to repeat tests or pay for them again.  
@@ -60,7 +60,7 @@ This section looks at overall mortality rates and the associated costs. A chroni
 - Sources:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「加强基层门诊付费与签约服务政策联动，基本服务包按规定纳入医保支付；个性化服务包由签约基层医疗卫生机构按程序向县级卫生健康部门备案，费用由个人支付。」
 - Notes: The real value of signing up lies in having a doctor follow your health over the long term, not in the number of services included. When offered an “upgrade package,” ask three key questions: is it a basic or customized package, is it registered, and what’s the annual cost?
 
-### 7. Get a dilated eye exam right after a diabetes diagnosis, then follow your doctor’s recommended schedule; check your feet once a year.
+### 7. Get a dilated eye exam right after a diabetes diagnosis, then follow your doctor’s recommended schedule; check your feet once a year
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=大 口径=死亡率 -->
 - Cost: A single dilated eye exam costs anywhere from a few dozen to several hundred yuan. Foot exams are usually included in routine outpatient visits, so they don’t incur extra charges. The real challenge is remembering to get these checks done even when neither your eyes nor feet feel any discomfort.
 - In plain terms: Diabetes can damage both the retina and feet, but there are almost no noticeable symptoms until the damage becomes severe enough to cause vision loss or foot ulcers. Early detection makes treatment possible. For type 2 diabetes, a dilated eye exam should be done right after diagnosis; for type 1 diabetes, it’s recommended to start five years after onset. If previous tests showed no issues and blood sugar levels remain well-controlled, the interval can be extended to once every one or two years. Foot checks should be done annually.

@@ -1,7 +1,7 @@
 # 22. How to relax: entertainment venues and stress relief
 
 This section is divided into two parts. The first part covers entertainment venues — it explains which costs are unnecessary and where the emergency exits are located. The focus here is on money and personal freedom. The second part discusses ways to relieve stress, with an emphasis on energy levels and overall mortality risk. The figures from each part are not combined for any calculations. Section 3 already listed several steps to take when feeling down; this section provides more detailed recommendations.
-### 1. Check where the emergency exits are before entering a KTV, bar, or escape room; if they’re locked or blocked, pick another venue.
+### 1. Check where the emergency exits are before entering a KTV, bar, or escape room; if they’re locked or blocked, pick another venue
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Cost: No cost at all. Just take 10 seconds to look around when you enter.
 - In plain terms: By law, entertainment venues must keep all evacuation routes and emergency exits completely unobstructed during operating hours. They cannot be blocked, locked, used to store items, or covered by anything, nor can any signs indicating their location be hidden. The same rules apply to internet cafés — their doors, windows, evacuation routes, and exits must also remain open at all times. Failing to comply is illegal, and you have the right to file a complaint. If a private room is located underground, has only one exit, or its corridors are cluttered with debris, choose a different venue instead.

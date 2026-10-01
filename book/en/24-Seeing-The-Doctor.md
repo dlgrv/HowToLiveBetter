@@ -3,7 +3,7 @@
 This section focuses on the practical steps involved in getting medical treatment — which hospitals to visit first, how to transfer between levels of care, and where you can cut down on expenses. It also explains how to wait in emergency queues, what evaluations and documents are required after serious injuries, and what benefits you may be eligible for (see Section 7). Long‑term management of chronic diseases is covered in Section 16, while immediate actions at the scene of an emergency are described in Section 13.
 
 The content is largely based on the “Several Measures on Accelerating the Development of a Hierarchical Medical System” issued by the General Office of the State Council in April 2026. This system directs patients to hospitals according to the severity of their condition. The document explicitly links using primary‑level facilities with lower medical costs. However, implementation varies by region, so the national rules outlined here should be cross‑checked with local policies issued by your social insurance and health authorities. Your “coordinated region” is simply the area where you’re enrolled in medical insurance — usually a city.
-### 1. For common illnesses, patients should first visit community clinics; referrals then proceed stepwise to larger hospitals, after which the hospital deductible is calculated only once.
+### 1. For common illnesses, patients should first visit community clinics; referrals then proceed stepwise to larger hospitals, after which the hospital deductible is calculated only once
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: No expense is required. You must first make a trip to a community clinic. The hard part is resisting the urge to book an appointment with a specialist right away.
@@ -13,7 +13,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 - Sources:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「统筹地区内经基层医疗卫生机构逐级转诊的参保患者，在上级医院的住院起付线可连续计算；由上级医院下转至基层医疗卫生机构的住院患者，同一疾病周期内不再另设住院起付线。」
 - Notes: The deductible is the amount you pay out-of-pocket per hospitalization before insurance begins to reimburse costs. If you go directly to a tertiary hospital for admission and later return to a community clinic for recovery, you may end up paying this amount twice. Following the proper referral pathway ensures it is calculated only once. Specific referral rules are determined individually by each province, city, and medical consortium. Be sure to ask your community clinic about these rules before seeking care.
 
-### 2. Within the same medical insurance region, the lower the hospital level, the higher the reimbursement rate — the difference is roughly 10 percentage points.
+### 2. Within the same medical insurance region, the lower the hospital level, the higher the reimbursement rate — the difference is roughly 10 percentage points
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: No direct cost involved. The real challenge is resisting the urge to go to a larger hospital.
@@ -23,7 +23,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 - Sources:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「因地制宜适当拉开参保人员在不同等级医疗卫生机构的住院报销水平，原则上统筹地区内医疗卫生机构住院报销比例逐级拉开10个百分点左右的差距。」「具备条件的地方，可按分级诊疗导向酌情拉开参保人员在不同等级医疗卫生机构的门诊报销水平。」
 - Notes: For the same hospitalization bill, the out‑of‑pocket difference between a community clinic and a tertiary hospital can reach several thousand yuan. This guideline does not suggest that every condition should be treated at a community level; rather, it advises seeking care at lower‑level facilities whenever possible. 〔10000〕 〔10000〕 〔3000〕 〔3000〕 〔80〕 〔80〕 〔70〕 〔70〕 〔1000〕
 
-### 3. Go to a major hospital via a referral from a local clinic or the hospital’s referral center — don’t turn to scalpers.
+### 3. Go to a major hospital via a referral from a local clinic or the hospital’s referral center — don’t turn to scalpers
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=中 口径=时间 -->
 - Cost: No direct cost, but an extra referral step is required.
 - In plain terms: Major hospitals must set aside a portion of appointments and beds specifically for patients referred from local clinics. They must also establish a referral center or designate a dedicated department to handle referrals — this requirement will be fully implemented by 2027. Not being able to book a slot online does not mean there is no way in. Scalpers charge exorbitant fees and may even route you to the wrong department.
@@ -32,7 +32,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 - Sources:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「牵头医院要为基层医疗卫生机构预留一定比例的号源和床位，并及时接诊经基层转诊患者。」「医疗机构要强化转诊服务统一管理，设立转诊中心或指定固定部门承担患者转诊服务工作，到2027年实现全覆盖。」
 - Notes: The reserved appointments and beds are specifically meant for referred patients. Failing to book online does not mean there is no way in. Using scalpers is not only costly but may also lead to being assigned to the wrong department. If you cannot locate the referral center, call the hospital’s service line for help.
 
-### 4. Before seeking medical care outside your home province, ask locally first — the need for such care should ideally be assessed by an associate chief physician or higher.
+### 4. Before seeking medical care outside your home province, ask locally first — the need for such care should ideally be assessed by an associate chief physician or higher
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Cost: No cost involved. It simply requires asking a few extra questions beforehand.
@@ -51,7 +51,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 - Sources:国务院 (2018). 医疗纠纷预防和处理条例（国务院令第 701 号）第十六条：「患者有权查阅、复制其门诊病历、住院志、体温单、医嘱单、化验单（检验报告）、医学影像检查资料、特殊检查同意书、手术同意书、手术及麻醉记录、病理资料、护理记录、医疗费用以及国务院卫生主管部门规定的其他属于病历的全部资料。」「患者要求复制病历资料的，医疗机构应当提供复制服务，并在复制的病历资料上加盖证明印记……可以收取工本费，收费标准应当公开。」「患者死亡的，其近亲属可以依照本条例的规定，查阅、复制病历资料。」第十五条「任何单位和个人不得篡改、伪造、隐匿、毁灭或者抢夺病历资料。」<https://www.gov.cn/zhengce/zhengceku/2018-08/31/content_5318057.htm>；国家卫生计生委、国家中医药管理局 (2013). 医疗机构病历管理规定（2013 年版）：医疗机构「应当指定部门或者专（兼）职人员负责受理复制病历资料的申请」，复制在申请人在场的情况下进行并加盖证明印记. <http://www.gov.cn/gongbao/content/2014/content_2600084.htm>
 - Notes: This reflects official policy direction rather than a recommendation. Access to routine outpatient services at large hospitals will become increasingly limited in the future. For patients with stable chronic diseases, primary care clinics can issue medication prescriptions valid for up to 12 weeks — see Section 16 for details.
 
-### 6. If you have doubts about treatment, request to seal the medical records on the spot; both parties must be present, a list must be drawn up, and each side gets a copy.
+### 6. If you have doubts about treatment, request to seal the medical records on the spot; both parties must be present, a list must be drawn up, and each side gets a copy
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: No cost at all. Simply ask the hospital to seal the records; both you and the medical staff must be present to complete the paperwork. The real challenge is mustering the courage to say this out loud in front of the doctors.
@@ -83,7 +83,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 - Sources:国务院办公厅 (2013). 关于建立疾病应急救助制度的指导意见（国办发〔2013〕15 号）. <https://www.gov.cn/zhengce/zhengceku/2013-03/01/content_6069.htm>；国家卫生和计划生育委员会 (2014). 院前医疗急救管理办法（委令第 3 号，第十三、二十二、二十三、二十五条）. <http://www.gov.cn/gongbao/content/2014/content_2580977.htm>
 - Notes: This fund applies strictly to emergency treatment costs. Care is delivered first, after which hospitals submit claims to the fund — patients do not receive direct payments. Those covered by yibao continue using that system as usual. Application procedures and limits vary by province. Per the transport guidelines, “proximity” and “urgency” take precedence over “patient preference”; thus ambulances may not take you to a hospital of your choice if a closer facility can handle your condition. Should post-emergency expenses remain unaffordable, additional assistance is available under medical aid programs — see Section 7, Item 10.
 
-### 9. Disability assessments must be conducted only after treatment is complete; doing it too early results in a lower rating.
+### 9. Disability assessments must be conducted only after treatment is complete; doing it too early results in a lower rating
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: The cost of such assessments ranges from a few hundred to two thousand yuan, typically paid upfront by the party requesting the evaluation. Assessments are only permitted after treatment has ended or when clinical outcomes have stabilized — usually three to six months post-injury, though sometimes longer. The difficulty lies in resisting the urge to get an early assessment when recovery is still underway.
@@ -97,7 +97,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 
 - Notes: Three distinct disability assessment systems exist and must not be confused. For injuries resulting from assaults, traffic accidents, or other personal injuries, the “Classification of Human Injury and Disability Levels” is used for judicial assessments, determining compensation amounts (see Section 9). Workplace injuries are evaluated via a separate ten-grade system for work capacity assessments, governing eligibility for occupational injury benefits (see Section 19). To qualify for disability-related policies and benefits, individuals must also obtain a Disability Certificate (see Article 11). Prior to any assessment, ensure all medical records, surgical reports, and follow-up imaging are fully prepared (see Article 6 regarding personal record-keeping); missing imaging is a common cause of lower disability ratings. When current injuries coexist with pre-existing conditions, the assessment must specify the proportion of disability attributable to the current injury alone — this directly influences compensation calculations.
 
-### 10. After treatment, functional impairments may indeed remain; apply for a disability certificate at the county-level disability association in your hukou area.
+### 10. After treatment, functional impairments may indeed remain; apply for a disability certificate at the county-level disability association in your hukou area
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: There is no fee for issuing the certificate itself. In principle, applicants must cover the assessment and photography costs, though those in financial hardship may request exemptions. You’ll need to bring your ID, hukou registration, and three two-inch photos with a white background to the county-level disability association. Once approved, the decision is posted in your village or community for five working days, after which the association has ten working days to finalize the process. The main difficulty lies in making multiple trips and waiting through this period.
@@ -111,7 +111,7 @@ The content is largely based on the “Several Measures on Accelerating the Deve
 
 - Notes: Calculate the costs and benefits before deciding to apply. The certificate itself does not provide direct financial aid; rather, it unlocks two main subsidies: living allowances for disabled individuals in dibao households, and care subsidies for those at levels one and two requiring long-term assistance — details appear in Section 7, Article 8. It also qualifies holders for local rehabilitation services, assistive devices, tax reductions, employment support, and transport perks; exact criteria vary widely by province, so consult your local disability association website first. Importantly, this certificate differs from judicial disability evaluations or occupational injury assessments — see Section 10 regarding post-treatment evaluation timing. The certificate is strictly personal and non-transferable; misuse or failure to meet ongoing criteria results in revocation, with a one-year ban on reapplication. For multiple disabilities, the most severe category determines the classification level.
 
-### 11. Thank the doctors who saved you — send thank-you letters, banners, or satisfaction ratings instead of cash gifts. The rules prohibit money, not gratitude.
+### 11. Thank the doctors who saved you — send thank-you letters, banners, or satisfaction ratings instead of cash gifts. The rules prohibit money, not gratitude
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Cost: It costs nothing at all. Writing a thank-you letter or filling out a satisfaction survey takes just a few minutes.

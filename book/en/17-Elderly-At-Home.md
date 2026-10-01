@@ -38,7 +38,7 @@ Having elderly relatives living with you often means that the main problems aren
 - Sources:作者经验，无直接文献
 - Notes: Use this together with tip #3 (keeping the senior’s money in a separate account). You can also carry out home modifications to prevent falls, as described in Section 1. This phrase isn’t meant to protect the senior from themselves; it simply provides a way to decline politely without feeling awkward. When surrounded by salespeople, the hardest part isn’t judging whether they’re trustworthy — it’s finding the courage to say no in front of everyone. Agreeing on this line beforehand removes that burden entirely.
 
-### 5. Avoid any “investment-based senior care” schemes that require upfront payments: card enrollment, prepaid care fees, buying senior housing units, travel-based care programs, and sales of senior products all fall under the same category of illegal fundraising.
+### 5. Avoid any “investment-based senior care” schemes that require upfront payments: card enrollment, prepaid care fees, buying senior housing units, travel-based care programs, and sales of senior products all fall under the same category of illegal fundraising
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: No cost at all. Simply read the following list of common tactics to seniors; it takes just a few minutes. In the future, use this list to reject any such offers outright: don’t attend informational sessions, don’t visit facilities, and don’t leave contact details. The real challenge arises when seniors have already attended several sessions and formed relationships with promoters — in those cases, convincing them to back off becomes much harder.
@@ -52,7 +52,7 @@ Having elderly relatives living with you often means that the main problems aren
 
 - Notes: Determining whether a program is legitimate should never rely on superficial impressions like “this organization looks reputable”; instead, focus on two clear indicators: does it demand an upfront payment, and does it promise financial returns? Legitimate senior care providers offer services rather than investment opportunities; any mention of returns, profits, or principal guarantees immediately disqualifies them. While it is difficult to prevent seniors from attending informational sessions, travel excursions, or medical screenings, the critical moment for intervention is when a payment is requested; this aligns perfectly with the dual-confirmation rule outlined in section 3. Once payment has already occurred, immediately contact police at 110 or the anti-fraud hotline 96110 to request a payment freeze, and simultaneously report the incident to local authorities responsible for handling illegal fundraising cases. Separate from these schemes, “housing reverse mortgage insurance” represents a distinct financial mechanism; refer to section 6 for further details.
 
-### 6. Apart from the housing reverse mortgage insurance offered by insurers, you should avoid all other “housing-for-pension” schemes — never mortgage your home to buy financial products.
+### 6. Apart from the housing reverse mortgage insurance offered by insurers, you should avoid all other “housing-for-pension” schemes — never mortgage your home to buy financial products
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: There’s no cost involved. Keep your property deed in your own hands and don’t hand it over to anyone promoting “housing-for-pension” schemes. Before signing any mortgage, guarantee, or loan agreements, show them to your children first. The difficulty lies in the fact that promoters often come repeatedly and appear very enthusiastic, leaving seniors feeling awkward about refusing them.
@@ -66,7 +66,7 @@ Having elderly relatives living with you often means that the main problems aren
 
 - Notes: This grade B reflects that the statements derive from regulatory risk warnings and expert judgment rather than empirical research data. The 6 %, 8 %, and 10 % thresholds are reference points suggested by regulators for consumers, not legally mandated standards. The former CBIRC has been merged into the National Financial Regulatory Administration; the original announcement page is no longer accessible, so we cite a reposted version from a provincial financial regulator. The core issue here is not merely possible losses on financial investments, but that after mortgaging their homes seniors still carry a loan obligation — a loss far exceeding any potential principal loss. General rules concerning contract signing and blank documents are covered in Section 8, Item 17; steps to halt fraudulent transactions after being scammed are outlined in Section 8, Item 2.
 
-### 7. For elderly individuals at home who are bedridden or severely disabled, apply to the local yibao (basic medical insurance) office for long-term care insurance; it is not limited to seniors only.
+### 7. For elderly individuals at home who are bedridden or severely disabled, apply to the local yibao (basic medical insurance) office for long-term care insurance; it is not limited to seniors only
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=金钱 -->
 
 - Cost: You only need to visit the local yibao office once to submit an application and undergo a disability assessment. If you pass the assessment on the first try, the evaluation fee is covered by the insurance fund — no out-of-pocket expense is required.
