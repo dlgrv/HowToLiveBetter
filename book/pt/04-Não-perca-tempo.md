@@ -19,7 +19,7 @@ Esta seção trata apenas de cálculos relacionados ao tempo. O objetivo é ver 
 - Fontes:Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69–119. <https://doi.org/10.1016/S0065-2601(06)38002-1>
 - Notas: As condições de desistência devem ser definidas logo no início do trabalho, quando ainda se está calmo e racional. Decidir isso depois de já ter investido muito tempo e esforço gera enviesamento. Na avaliação, deve-se considerar apenas os investimentos futuros e os retornos futuros, conforme descrito no item 3. Vale ressaltar que “a disposição para desistir” é apenas uma das conclusões obtidas a partir da soma de vários estudos; ninguém calculou isoladamente quanto tempo isso pode economizar.
 
-### 3. Na hora de decidir se deve prosseguir, considere apenas os investimentos e retornos futuros, ignorando o que já foi gasto.
+### 3. Na hora de decidir se deve prosseguir, considere apenas os investimentos e retornos futuros, ignorando o que já foi gasto
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=时间 -->
 
 - Custo: Não há custo financeiro. O desafio está em aceitar que o tempo investido anteriormente se perdeu e não pode ser recuperado.
@@ -33,7 +33,7 @@ Esta seção trata apenas de cálculos relacionados ao tempo. O objetivo é ver 
 
 - Notas: Esse é o procedimento usado no experimento teatral conduzido por Arkes e Blumer. O teatro da Universidade de Ohio oferecia assinaturas sazonais a preços de 15 dólares, 13 dólares e 8 dólares. Na primeira metade da temporada, o grupo que pagou o preço integral assistiu, em média, a 4,11 espetáculos, enquanto os outros dois grupos assistiram a 3,32 e 3,29 espetáculos, respectivamente. Na segunda metade da temporada, não houve diferenças significativas entre os grupos. Roth e seus colegas constataram que esse efeito tende a diminuir com o tempo, sendo menos marcante em pessoas mais velhas.
 
-### 4. Estime o prazo com base no tempo real gasto em tarefas semelhantes no passado, em vez de seguir o plano original.
+### 4. Estime o prazo com base no tempo real gasto em tarefas semelhantes no passado, em vez de seguir o plano original
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=时间 -->
 - Custo: Não há custo algum. Antes de estimar, basta dedicar alguns minutos para verificar quanto tempo foi necessário para concluir tarefas idênticas anteriormente.
 - Em linguagem simples: Estudantes que estimaram que terminariam seus trabalhos em 33,9 dias acabaram levando 55,5 dias para concluí-los; apenas 29,7% conseguiram cumprir o prazo previsto. Outro grupo, ao ser orientado a lembrar primeiro do tempo gasto em tarefas semelhantes antes de fazer a estimativa, viu esse percentual subir para 60,0%. Dois grupos de estudantes foram analisados: um com 29,3% de sucesso na conclusão no prazo estimado e outro com 29,3% de pessoas que conseguiram cumprir o prazo após a nova abordagem.
@@ -87,7 +87,7 @@ Esta seção trata apenas de cálculos relacionados ao tempo. O objetivo é ver 
 - Fontes:Steel P (2007). The nature of procrastination: a meta-analytic and theoretical review of quintessential self-regulatory failure. Psychological Bulletin, 133(1), 65–94. <https://doi.org/10.1037/0033-2909.133.1.65>
 - Notas: O grau de benefício é considerado “médio”, pois esses estudos apenas apontam tendências, sem quantificar exatamente quantas horas podem ser economizadas. As ações práticas recomendadas estão descritas no item 1 desta seção (“definir horário, local e ações a serem tomadas diante de determinadas situações”), no item 7 (“dividir tarefas grandes em subtarefas”) e no item 8 (“estabelecer um prazo para tarefas sem prazo externo”). Trata-se de uma síntese de diversos estudos, portanto não é possível determinar qual fator causa a procrastinação e quais são consequências dela.
 
-### 10. Coloque os itens que deseja usar ao alcance da mão e afaste os que não quer tocar; não conte com a força de vontade para resistir na hora.
+### 10. Coloque os itens que deseja usar ao alcance da mão e afaste os que não quer tocar; não conte com a força de vontade para resistir na hora
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 
 - Custo: Não custa nada; leva apenas alguns minutos. Basta levar o celular para outro cômodo e deixar livros e computador sobre a mesa.

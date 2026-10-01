@@ -3,7 +3,7 @@
 # 14. Segurança de contas e informações pessoais
 
 Em resumo: dinheiro e dados pessoais. Quando alguém invade sua conta, o primeiro prejuízo é financeiro. Além disso, o invasor pode usar sua conta para enganar as pessoas na sua lista de contatos. Sua identidade acaba sendo roubada junto.
-### 1. Ative a autenticação de dois fatores em e-mails, contas de pagamento e redes sociais. Prefira métodos que exibam uma janela pop-up no celular para confirmação, em vez de apenas códigos SMS.
+### 1. Ative a autenticação de dois fatores em e-mails, contas de pagamento e redes sociais. Prefira métodos que exibam uma janela pop-up no celular para confirmação, em vez de apenas códigos SMS
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Custo: Não custa nada. É preciso configurar apenas uma vez em cada conta, e o processo leva cerca de dois a três minutos.
 - Em linguagem simples: A autenticação de dois fatores exige que, além da senha, você confirme sua identidade ao fazer login. O método que exibe uma janela pop-up no celular para confirmação bloqueia mais de 90% das tentativas de roubo de conta por phishing. Já métodos que pedem respostas a perguntas como “Onde você fez login pela última vez?” ou “Qual é seu e-mail alternativo?” conseguem bloquear apenas cerca de 10% dessas tentativas.
@@ -30,7 +30,7 @@ Em resumo: dinheiro e dados pessoais. Quando alguém invade sua conta, o primeir
 - Fontes:作者经验，无直接文献
 - Notas: O código PIN pode ser configurado na opção “Bloqueio do cartão SIM” nas configurações do celular. O código padrão de fábrica costuma ser 1234 ou 0000. Se você digitar o código errado três vezes seguidas, será necessário usar o código PUK fornecido pela operadora para desbloqueá-lo. Por isso, anote esse código em um papel após configurá-lo.
 
-### 4. Se o seu celular se perder, siga esta ordem: bloqueie o cartão SIM, faça o bloqueio remoto, altere as senhas, registre um boletim de ocorrência e, se necessário, bloqueie os cartões bancários.
+### 4. Se o seu celular se perder, siga esta ordem: bloqueie o cartão SIM, faça o bloqueio remoto, altere as senhas, registre um boletim de ocorrência e, se necessário, bloqueie os cartões bancários
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 
 - Custo: Não custa nada. O processo completo leva cerca de dez minutos.
@@ -62,7 +62,7 @@ Em resumo: dinheiro e dados pessoais. Quando alguém invade sua conta, o primeir
 - Fontes:作者经验，无直接文献
 - Notas: Esse recurso está disponível no WeChat, Alipay, e-mails, contas Apple e contas Android. Ao encontrar um dispositivo desconhecido, saia de todos os logins e troque a senha imediatamente.
 
-### 7. Não clique em “Concordar com tudo” só para usar o app: há informações que não são necessárias, e mesmo que você não concorde, o serviço não pode ser negado.
+### 7. Não clique em “Concordar com tudo” só para usar o app: há informações que não são necessárias, e mesmo que você não concorde, o serviço não pode ser negado
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=自由 -->
 - Custo: Não custa nada. O difícil é resistir à tentação de clicar em “Concordar com tudo”.
 - Em linguagem simples: O app pede suas informações, mas se elas não forem indispensáveis para prestar o serviço, ele não pode negar seu acesso só porque você não autorizou o uso. Ele só pode coletar os dados realmente necessários. Por exemplo, o mapa precisa da sua localização, mas a lanterna não precisa da sua lista de contatos.
@@ -71,7 +71,7 @@ Em resumo: dinheiro e dados pessoais. Quando alguém invade sua conta, o primeir
 - Fontes:全国人大常委会 (2021). 个人信息保护法. 中国人大网. <http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html>：第六条「收集个人信息，应当限于实现处理目的的最小范围，不得过度收集个人信息」；第十六条「个人信息处理者不得以个人不同意处理其个人信息或者撤回同意为由，拒绝提供产品或者服务；处理个人信息属于提供产品或者服务所必需的除外」；第十五条「基于个人同意处理个人信息的，个人有权撤回其同意。个人信息处理者应当提供便捷的撤回同意的方式」
 - Notas: O critério para avaliar é se a informação é indispensável para prestar o serviço em questão. A localização é necessária para o mapa, mas a lista de contatos não é para a lanterna. Após instalar um app, acesse as configurações de permissões do celular e desative as permissões desnecessárias. Quando precisar mesmo usar uma função específica, autorize o acesso apenas para aquela ocasião.
 
-### 8. Você tem o direito de consultar, copiar, corrigir e excluir seus dados pessoais; caso seja negado, pode processar a empresa.
+### 8. Você tem o direito de consultar, copiar, corrigir e excluir seus dados pessoais; caso seja negado, pode processar a empresa
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=自由 -->
 - Custo: Não há custo algum. Só quando a empresa se recusa a atender ao pedido é que será necessário registrar uma reclamação ou entrar com processo. Um processo judicial leva meses para ser concluído e os honorários advocatícios ficam por sua conta, por isso é mais vantajoso fazer a reclamação primeiro. O desafio é ter que insistir várias vezes para que a empresa atenda ao pedido.
 - Em linguagem simples: Você tem o direito de exigir que a empresa permita que você consulte, copie, corrija e exclua seus dados pessoais. Quando o serviço é encerrado, o prazo de armazenamento dos dados expira ou você revoga o consentimento, a empresa deve excluir esses dados por iniciativa própria. Caso se recuse, ela precisa apresentar um motivo justificado; se não atender ao pedido, você pode processá-la diretamente no tribunal. O cancelamento da conta e a exclusão dos dados são procedimentos distintos; após cancelar a conta, é preciso solicitar a exclusão dos dados separadamente.

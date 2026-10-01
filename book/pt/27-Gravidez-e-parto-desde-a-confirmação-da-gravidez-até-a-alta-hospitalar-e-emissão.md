@@ -3,7 +3,7 @@
 [← Voltar ao índice](../../README.pt.md)
 
 A primeira parte desta seção calcula os riscos de morte para a gestante e o feto. A segunda parte calcula os custos e o tempo gasto com deslocamentos. Esses dois tipos de cálculos não são comparados entre si. O conteúdo aborda apenas “o que fazer em cada momento”. Assuntos como nutrição na gravidez ou estimulação fetal, que não contam com evidências sólidas ou cujo efeito é mínimo, não são abordados aqui. Informações sobre auxílio-maternidade, licença-maternidade e despesas com a criação do bebê estão na seção 18; orientações sobre os cuidados com o recém-nascido, na seção
-### 1. Comece a tomar 0,4 mg de ácido fólico diariamente antes mesmo de engravidar, mantendo a ingestão até o terceiro mês de gestação.
+### 1. Comece a tomar 0,4 mg de ácido fólico diariamente antes mesmo de engravidar, mantendo a ingestão até o terceiro mês de gestação
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 - Custo: algumas dezenas de reais por frasco. Mulheres do campo não precisam pagar, pois o programa nacional de distribuição gratuita de ácido fólico oferece o suplemento. O desafio maior é lembrar de tomar uma pílula todos os dias.
 - Em linguagem simples: Tomar uma pílula de ácido fólico por dia, antes e durante a gravidez, reduz em cerca de 70% a chance de o bebê desenvolver defeitos do tubo neural — como anencefalia e espinha bífida. Para mulheres que já tiveram um filho com esse tipo de problema, o risco de repetição cai para cerca de um terço.
@@ -12,7 +12,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:De-Regil LM, Peña-Rosas JP, Fernández-Gaxiola AC, Rayco-Solon P (2015). Effects and safety of periconceptional oral folate supplementation for preventing birth defects. Cochrane Database of Systematic Reviews, (12), CD007950. <https://doi.org/10.1002/14651858.CD007950.pub3>
 - Notas: O ponto essencial é começar a tomar o suplemento antes mesmo de engravidar. O tubo neural do feto se fecha dentro de 28 dias após a concepção; se a ingestão for iniciada somente após o diagnóstico de gravidez, grande parte desse período já terá passado. Portanto, quem planeja ter filhos deve começar a tomar o ácido fólico três meses antes. A mesma revisão não encontrou evidências claras de que o ácido fólico previna fissura labiopalatina, doenças cardíacas congênitas ou abortos espontâneos; portanto, não se deve esperar que ele traga benefícios nesses casos.
 
-### 2. Ao completar 13 semanas de gestação, vá ao centro de saúde comunitário para solicitar o “Manual de Saúde Materno-Infantil” e aproveitar as consultas pré-natais gratuitas.
+### 2. Ao completar 13 semanas de gestação, vá ao centro de saúde comunitário para solicitar o “Manual de Saúde Materno-Infantil” e aproveitar as consultas pré-natais gratuitas
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=中 口径=死亡率 -->
 - Custo: Não há custo algum, pois esse serviço faz parte do programa nacional de saúde pública básica. Serão necessárias algumas idas ao centro de saúde conforme a evolução da gestação.
 - Em linguagem simples: A gestante deve fazer, no mínimo, cinco consultas pré-natais, além das visitas domiciliares após o parto e do exame realizado aos 42 dias pós-parto. Todos esses serviços são custeados pelo Estado. Para recebê-los, é preciso solicitar o “Manual de Saúde Materno-Infantil” no centro de saúde antes de completar 13 semanas de gestação. Caso contrário, essas consultas gratuitas serão perdidas.
@@ -31,7 +31,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:国家卫生健康委办公厅 (2020). 预防艾滋病、梅毒和乙肝母婴传播工作规范（2020 年版）. <https://wjw.xinjiang.gov.cn/hfpc/zhgl6/202012/08b7de496f0b40e586d4b99d00cf79c4.shtml>（新疆维吾尔自治区卫生健康委员会转载）；国务院 (2006). 艾滋病防治条例（第四十三、四十四条）. <https://wjw.beijing.gov.cn/zwgk_20040/zcwj2022/flfg/202304/t20230408_2992986.html>（北京市卫生健康委员会转载）
 - Notas: Quanto mais cedo esses testes forem feitos, melhor, pois tanto a prevenção quanto o tratamento exigem tempo. O Artigo 3º do mesmo regulamento também estabelece que “nenhuma unidade ou indivíduo pode discriminar pessoas infectadas pelo HIV, portadoras da doença ou seus familiares”; os direitos legais dessas pessoas — como casar, trabalhar, buscar atendimento médico e estudar — são protegidos por lei. Para informações gerais sobre prevenção e testes, consulte a Seção 1. Já o tratamento pós-exposição após comportamentos de risco está descrito na Seção 13.
 
-### 4. Durante toda a gestação, a gestante não deve fumar nem beber, e as pessoas que moram com ela também não devem fumar no ambiente doméstico.
+### 4. Durante toda a gestação, a gestante não deve fumar nem beber, e as pessoas que moram com ela também não devem fumar no ambiente doméstico
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Custo: Não custa nada; na verdade, ajuda a economizar dinheiro com cigarros e álcool. O desafio está em convencer as pessoas que moram na mesma casa a pararem também.
 - Em linguagem simples: Fumar durante a gestação aumenta o risco de parto prematuro, de o bebê nascer com peso muito baixo e de apresentar fissura labial ou palatina. O risco de hemorragia anormal durante a gestação e o parto dobra. O risco de síndrome da morte súbita infantil também fica maior. O fato de outras pessoas fumarem dentro de casa também conta como exposição para a gestante. Por isso, nunca é tarde demais para parar de fumar.
@@ -40,7 +40,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:Centers for Disease Control and Prevention. Smoking During Pregnancy. <https://www.cdc.gov/tobacco/campaign/tips/diseases/pregnancy.html>
 - Notas: A fumaça de cigarro de terceiros inalada pela gestante também é prejudicial ao feto. Por isso, as pessoas que moram com ela também não devem fumar dentro de casa. O mesmo vale para o álcool: não existe quantidade segura conhecida para consumo na gestação; a medida mais simples e segura é não beber absolutamente nada. Os efeitos do tabaco e do álcool na saúde das próprias adultas são abordados na seção 2.
 
-### 5. Para mulheres com fatores de risco de pré-eclâmpsia, recomenda-se tomar um comprimido diário de aspirina em baixa dose a partir da 12ª semana de gestação.
+### 5. Para mulheres com fatores de risco de pré-eclâmpsia, recomenda-se tomar um comprimido diário de aspirina em baixa dose a partir da 12ª semana de gestação
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=死亡率 -->
 
 - Custo: algumas dezenas de reais. É preciso tomar um comprimido por dia até o parto; o desafio maior é não esquecer diariamente.
@@ -64,7 +64,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:US Preventive Services Task Force (2021). Gestational Diabetes: Screening. <https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/gestational-diabetes-screening>
 - Notas: Na maioria dos casos diagnosticados, a regulação da dieta e a prática de exercícios são suficientes para controlar a glicose no sangue; apenas uma minoria precisa de insulina. Não pule esse rastreamento por medo de ter que usar insulina após o diagnóstico. Após o parto, é necessário fazer novo exame de glicose: mulheres que tiveram diabetes gestacional têm risco significativamente maior de desenvolver diabetes tipo 2 no futuro.
 
-### 7. Guarde esta lista de “Vá ao hospital imediatamente” — ela vale tanto na gravidez quanto no primeiro ano após o parto.
+### 7. Guarde esta lista de “Vá ao hospital imediatamente” — ela vale tanto na gravidez quanto no primeiro ano após o parto
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Custo: Não custa nada. Leve cinco minutos para memorizá-la; é melhor ainda que as pessoas que moram com você também saibam dela.
 - Em linguagem simples: Se algum dos sintomas abaixo aparecer, vá ao hospital no mesmo dia — não espere até o dia seguinte. Dor de cabeça persistente ou que piora; visão turva ou distorcida; febre acima de 38 °C. Inchaço intenso nas mãos ou no rosto; dificuldade para respirar; dor no peito ou batimento cardíaco acelerado. Dor abdominal intensa que não passa; ausência ou redução significativa dos movimentos fetais; sangramento ou secreção vaginal. Inchaço, vermelhidão e dor intensa em um braço ou perna; pensamentos de autolesão ou de prejudicar o bebê. Essas orientações valem também durante o primeiro ano após o parto.
@@ -73,7 +73,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:Centers for Disease Control and Prevention. Hear Her — Urgent Maternal Warning Signs. <https://www.cdc.gov/hearher/maternal-warning-signs/index.html>；World Health Organization. Maternal mortality fact sheet. <https://www.who.int/news-room/fact-sheets/detail/maternal-mortality>
 - Notas: O objetivo dessa lista é distinguir entre “aguentar mais um pouco” e “é preciso ir ao hospital imediatamente”. A combinação de dor de cabeça, visão turva e dor na região abdominal pode indicar pré-eclâmpsia (doença hipertensiva na gravidez). Inchaço e dor intensos em uma perna podem ser sinal de trombose venosa profunda (ver Seção 13). Segundo a OMS, uma hemorragia pós-parto grave pode levar à morte de uma mulher saudável em poucas horas. Se algum dos sintomas listados aparecer, vá ao hospital sem demora — não espere até o dia seguinte.
 
-### 8. Ao romper a bolsa, deite-se imediatamente, eleve os quadris e ligue para o 120. É necessário chamar os serviços de emergência três vezes, totalizando 120 chamadas.
+### 8. Ao romper a bolsa, deite-se imediatamente, eleve os quadris e ligue para o 120. É necessário chamar os serviços de emergência três vezes, totalizando 120 chamadas
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Custo: No cost at all
@@ -92,7 +92,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:Anim-Somuah M, Smyth RMD, Cyna AM, Cuthbert A (2018). Epidural versus non-epidural or no analgesia for pain management in labour. Cochrane Database of Systematic Reviews, (5), CD000331. <https://doi.org/10.1002/14651858.CD000331.pub4>；国家医疗保障局 (2024). 重构产科服务价格项目 助力构建生育友好型社会. <https://www.gov.cn/zhengce/202406/content_6957553.htm>
 - Notas: As afirmações mais divulgadas — “a analgesia obstétrica causa dor lombar para sempre” e “ela aumenta o risco de parto difícil e cesariana” — não têm respaldo científico. A Cochrane comparou a analgesia epidural com outros métodos de alívio da dor e concluiu que ela não influencia o risco de cesariana nem a ocorrência de dor lombar crônica. Os efeitos colaterais reais incluem pressão arterial baixa, febre, fraqueza nas pernas, dificuldade para urinar, além do prolongamento do primeiro e segundo estágios do parto e maior probabilidade de necessidade de ocitocina. A decisão de fazer ou não a analgesia é sua, mas não deixe que boatos a impeçam de optar por ela. Para saber se o procedimento está disponível, pergunte ao médico durante o pré-natal se o hospital conta com anestesistas de plantão 24 horas.
 
-### 10. Não peça cesariana sem indicação médica, nem para escolher uma data específica para o parto.
+### 10. Não peça cesariana sem indicação médica, nem para escolher uma data específica para o parto
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=死亡率 -->
 - Custo: Não tem custo financeiro. O desafio é resistir à pressão da família.
 - Em linguagem simples: Segundo a OMS, quando a taxa de cesarianas em uma região ultrapassa 10%, a redução na mortalidade materna e neonatal para de cair. Quando a indicação médica existe, a cesariana é necessária. Mas optar por ela apenas para escolher a data do parto ou para evitar a dor do trabalho de parto significa submeter-se a uma grande cirurgia abdominal desnecessária.
@@ -147,7 +147,7 @@ A primeira parte desta seção calcula os riscos de morte para a gestante e o fe
 - Fontes:国务院 (1958). 中华人民共和国户口登记条例（第七条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/post_2531969.html>（广东省人民政府转载）
 - Notas: Leve os seguintes documentos: certificado médico de nascimento, identidades e cadernos de hukou dos pais, além da certidão de casamento. É possível registrar a criança sob o sobrenome do pai ou da mãe, porém as regras variam conforme a região, afetando tanto a zona escolar quanto a cobertura de planos de saúde. Pense bem antes de decidir, pois alterações posteriores são complicadas. Crianças nascidas fora do casamento também podem ser registradas sem qualquer impedimento.
 
-### 16. Não pule o exame de acompanhamento aos 42 dias após o parto — ele também serve como rastreamento para a depressão pós-parto.
+### 16. Não pule o exame de acompanhamento aos 42 dias após o parto — ele também serve como rastreamento para a depressão pós-parto
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=死亡率 -->
 - Custo: Não tem custo algum; faz parte dos serviços básicos de saúde pública. Leva cerca de meio dia. O desafio é que, logo após o parto, muitas mulheres não têm vontade de se movimentar.
 - Em linguagem simples: Esse exame é gratuito e inclui hemograma completo, exame de secreção vaginal e rastreamento para depressão pós-parto. Problemas graves podem surgir até um ano após o parto; não se pense que está tudo bem só porque o período pós-parto já terminou.

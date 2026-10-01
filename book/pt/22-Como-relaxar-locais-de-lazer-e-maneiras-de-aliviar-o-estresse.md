@@ -3,7 +3,7 @@
 # 22. Como relaxar: locais de lazer e maneiras de aliviar o estresse
 
 Na primeira parte, abordamos quais gastos são desnecessários em locais de lazer e onde ficam as saídas de emergência, com foco em dinheiro e liberdade pessoal. Na segunda parte, explicamos como aliviar o estresse, considerando energia e mortalidade geral. Os números das duas partes não devem ser comparados entre si. Na seção 3, já descrevemos algumas ações a serem tomadas quando nos sentimos tristes; aqui, apresentamos métodos mais específicos.
-### 1. Antes de entrar em KTVs, bares ou salas de escape, verifique onde ficam as saídas de emergência; se estiverem trancadas ou obstruídas, escolha outro local.
+### 1. Antes de entrar em KTVs, bares ou salas de escape, verifique onde ficam as saídas de emergência; se estiverem trancadas ou obstruídas, escolha outro local
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Custo: Não custa nada. Basta levantar a cabeça e observar por 10 segundos ao entrar.
 - Em linguagem simples: De acordo com as normas, durante o funcionamento, os corredores de evacuação e as saídas de emergência desses estabelecimentos devem permanecer livres. É proibido bloquear, trancar, colocar objetos no caminho ou cobrir as placas de sinalização. O mesmo vale para lan houses, onde é vedado trancar portas, janelas e corredores de evacuação. O descumprimento é ilegal e pode ser denunciado. Se a sala de entretenimento ficar no subsolo, tiver apenas uma saída ou corredores cheios de objetos, opte por outro local.
@@ -12,7 +12,7 @@ Na primeira parte, abordamos quais gastos são desnecessários em locais de laze
 - Fontes:国务院 (2006). 娱乐场所管理条例（国令第 458 号，第二十、二十一条）. <http://www.gov.cn/zhengce/zhengceku/2008-03/28/content_6297.htm>；国务院 (2002). 互联网上网服务营业场所管理条例（国令第 363 号，第二十一条）. <http://www.gov.cn/gongbao/content/2002/content_61788.htm>
 - Notas: Se algum dos seguintes itens estiver presente, escolha outro local: sala no subsolo, apenas uma saída, corredores cheios de objetos ou placas de sinalização de emergência apagadas. Em casos de incêndio, esses ambientes têm fumaça intensa, corredores estreitos, muitas pessoas e a maioria está sob efeito do álcool; o tempo disponível para fuga é muito curto. O número para denúncias deve constar nas placas de aviso do estabelecimento, conforme determina a lei.
 
-### 2. Antes de fazer o pedido, peça a lista de preços — os estabelecimentos de entretenimento devem exibir os valores claramente e não podem adotar o sistema “pague depois de usar”.
+### 2. Antes de fazer o pedido, peça a lista de preços — os estabelecimentos de entretenimento devem exibir os valores claramente e não podem adotar o sistema “pague depois de usar”
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Nenhum custo. Basta pedir a lista de preços uma vez. O desafio está em perguntar o preço na frente de outras pessoas, pois pode ser um pouco constrangedor.
@@ -31,7 +31,7 @@ Na primeira parte, abordamos quais gastos são desnecessários em locais de laze
 - Fontes:国务院 (2006). 娱乐场所管理条例（国令第 458 号，第十四、三十、四十二条）. <http://www.gov.cn/zhengce/zhengceku/2008-03/28/content_6297.htm>
 - Notas: Se alguém lhe oferecer pó, comprimidos ou cartuchos de cigarro eletrônico para experimentar, saia imediatamente — não fique para ver o que acontece. O risco para você é maior do que para o estabelecimento. O consumo próprio de drogas já é punido pela lei. Permitir que um amigo use drogas no seu salão privado ou residência configura crime de acolhimento de consumo de drogas.
 
-### 4. Não aceite doces, lanches ou cigarros eletrônicos oferecidos por estranhos; troque qualquer bebida que saia do seu campo de visão.
+### 4. Não aceite doces, lanches ou cigarros eletrônicos oferecidos por estranhos; troque qualquer bebida que saia do seu campo de visão
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->
 - Custo: Nenhum custo. Não aceite nada que alguém lhe ofereça. Se uma bebida sair do seu campo de visão, troque-a por outra.
 - Em linguagem simples: Hoje em dia, as drogas não têm mais aquela aparência típica de drogas. Os cigarros eletrônicos “que dão um “barato””, contendo canabinoides sintéticos, parecem iguais aos cigarros eletrônicos comuns. Algumas pessoas os oferecem em bares, KTVs e hotéis para que as pessoas experimentem. Quem induz outras pessoas ao uso de drogas pode ser detido por 10 a 15 dias e multado de 1.000 a 5.000 yuan; quem aceita essas drogas também será detido por 10 a 15 dias. Sempre troque a bebida se ela sair do seu campo de visão.
@@ -76,7 +76,7 @@ Na primeira parte, abordamos quais gastos são desnecessários em locais de laze
 - Fontes:Balban MY, Neri E, Kogon MM, et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine, 4(1), 100895. <https://doi.org/10.1016/j.xcrm.2022.100895>
 - Notas: A execução consiste em inspirar pelo nariz, fazer uma segunda inspiração breve para encher totalmente os pulmões e, em seguida, expirar lentamente pela boca por 5 minutos. Trata-se de um único estudo realizado em casa, cujos resultados são relatados pelos próprios participantes por meio de questionários; o número de voluntários foi limitado. O benefício obtido é apenas ligeiramente superior ao da meditação mindfulness, não sendo uma solução definitiva para problemas emocionais. Contudo, não custa nada, leva apenas 5 minutos e pode ser praticado em qualquer lugar, o que o torna uma opção muito vantajosa.
 
-### 9. Considere “encontrar-se regularmente com outras pessoas” como um gasto com saúde, e não apenas procure contato quando estiver de mau humor.
+### 9. Considere “encontrar-se regularmente com outras pessoas” como um gasto com saúde, e não apenas procure contato quando estiver de mau humor
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=大 口径=死亡率 -->
 - Custo: É preciso desembolsar algum dinheiro e dedicar tempo para os encontros. O desafio é marcar esses encontros mesmo quando você está de bom humor.
 - Em linguagem simples: Pessoas que têm pouco contato social apresentam uma probabilidade de morte naquele período cerca de 30% maior. Para quem se sente solitário, esse aumento é de aproximadamente 25%; para os que moram sozinhos, cerca de 30%. O efeito é ainda mais evidente entre pessoas com menos de 65 anos. Esses dados foram obtidos por meio de acompanhamentos de longo prazo; também é possível que pessoas com problemas de saúde sejam mais propensas a viver sozinhas.
@@ -85,7 +85,7 @@ Na primeira parte, abordamos quais gastos são desnecessários em locais de laze
 - Fontes:Holt-Lunstad J, Smith TB, Baker M, Harris T, Stephenson D (2015). Loneliness and social isolation as risk factors for mortality: a meta-analytic review. Perspectives on Psychological Science, 10(2), 227-237. <https://doi.org/10.1177/1745691614568352>
 - Notas: Há controvérsias. Essas associações foram identificadas por meio de observações populacionais, não por ensaios controlados. Pessoas com saúde mais frágil tendem a viver sozinhas e a ter menos interações sociais. Os autores consideram os laços sociais fatores de saúde tão importantes quanto o tabagismo e a obesidade, porém ainda não há ensaios aleatorizados que comprovem que “aumentar o contato social reduz a mortalidade”. Essa informação não contradiz o ponto da seção 3 sobre “reduzir relações que lhe causam desgaste”: lá se trata de eliminar vínculos prejudiciais, enquanto aqui se recomenda manter aqueles que lhe trazem bem-estar.
 
-### 10. Viver perto de áreas verdes faz diferença: caminhar, passear ou simplesmente sentar-se lá conta como atividade útil.
+### 10. Viver perto de áreas verdes faz diferença: caminhar, passear ou simplesmente sentar-se lá conta como atividade útil
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=死亡率 -->
 - Custo: Não custa nada. É algo que você pode fazer no seu dia a dia, sem gastar nada.
 - Em linguagem simples: Quanto melhor a vegetação num raio de 500 metros ao redor da sua casa, menor a chance de você morrer no mesmo período. A cada aumento de 0,1 no Índice de Vegetação Normalizado (NDVI), essa probabilidade cai cerca de 4%. O estudo mediu a vegetação próxima à residência, não quantas vezes você vai a parques. Em áreas com mais vegetação, as pessoas tendem a ter maior renda, ar mais limpo e estilo de vida mais ativo — fatores que também influenciam a saúde. Portanto, não interprete isso como “ir a parques prolonga a vida”; o importante é escolher morar perto de áreas verdes, sem custo algum. O valor 0 também indica que não há despesa envolvida nessa escolha.

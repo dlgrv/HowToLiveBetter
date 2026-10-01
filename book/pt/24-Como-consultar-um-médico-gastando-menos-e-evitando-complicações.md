@@ -5,7 +5,7 @@
 O foco desta seção são os custos e o tempo necessários para o atendimento médico. Aqui explicamos como proceder: qual hospital procurar primeiro, como solicitar encaminhamento para unidades de maior complexidade e onde é possível economizar. Também abordamos como se organizar na fila de emergência, quais perícias e documentos são necessários após o tratamento de lesões graves. As coberturas a que você tem direito estão descritas na seção 7; o manejo de doenças crônicas, na seção 16. Para ações imediatas em casos de emergência, consulte a seção 13.
 
 Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de atendimento médico por níveis”, divulgadas em abril de 2026 pelo Gabinete do Cons
-### 1. Para doenças comuns, procure primeiro a unidade de saúde da comunidade; após encaminhamento por essa unidade, o valor da franquia hospitalar será contabilizado de forma contínua.
+### 1. Para doenças comuns, procure primeiro a unidade de saúde da comunidade; após encaminhamento por essa unidade, o valor da franquia hospitalar será contabilizado de forma contínua
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 - Custo: Não há custo. É preciso ir primeiro à unidade da comunidade. O desafio é resistir à tentação de marcar consulta diretamente com um especialista.
 - Em linguagem simples: Primeiro vá à unidade da comunidade, que então o encaminhará para um hospital de maior porte. O valor pago por você nesse primeiro atendimento contará como franquia. Se, porém, você for diretamente ao hospital e depois retornar à comunidade para recuperação, esse valor poderá ser cobrado duas vezes. Já para pacientes encaminhados do hospital de volta à comunidade, a franquia não será recalculada durante o mesmo período de tratamento.
@@ -14,7 +14,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「统筹地区内经基层医疗卫生机构逐级转诊的参保患者，在上级医院的住院起付线可连续计算；由上级医院下转至基层医疗卫生机构的住院患者，同一疾病周期内不再另设住院起付线。」
 - Notas: Caso o paciente vá diretamente ao hospital e depois retorne à comunidade para recuperação, o valor da franquia poderá ser cobrado duas vezes; já com o encaminhamento correto, esse valor é contabilizado apenas uma vez. As regras de encaminhamento são definidas por cada província, município e rede de saúde; portanto, antes de procurar atendimento, consulte sua unidade de saúde da comunidade.
 
-### 2. Em uma mesma região de cobertura do plano de saúde, quanto menor o nível do hospital, maior a porcentagem de reembolso — a diferença é de cerca de 10 pontos percentuais.
+### 2. Em uma mesma região de cobertura do plano de saúde, quanto menor o nível do hospital, maior a porcentagem de reembolso — a diferença é de cerca de 10 pontos percentuais
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Não há custo financeiro. O desafio é resistir à tentação de ir a hospitais maiores.
@@ -24,7 +24,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「因地制宜适当拉开参保人员在不同等级医疗卫生机构的住院报销水平，原则上统筹地区内医疗卫生机构住院报销比例逐级拉开10个百分点左右的差距。」「具备条件的地方，可按分级诊疗导向酌情拉开参保人员在不同等级医疗卫生机构的门诊报销水平。」
 - Notas: Para o mesmo valor de internação, a diferença no valor pago pelo paciente pode chegar a milhares de reais, dependendo de o atendimento ser feito na rede básica ou em um hospital de terceiro nível. É importante procurar a rede básica para tratar de problemas que ela pode resolver; nem todo problema de saúde exige atendimento em hospitais de grande porte. 〔10000〕 〔10000〕 〔3000〕 〔3000〕 〔80〕 〔80〕 〔70〕 〔70〕 〔1000〕
 
-### 3. É necessário ir a um grande hospital por meio de encaminhamento da rede básica de saúde ou do centro de encaminhamento do próprio hospital; não recorra a cambistas de consultas.
+### 3. É necessário ir a um grande hospital por meio de encaminhamento da rede básica de saúde ou do centro de encaminhamento do próprio hospital; não recorra a cambistas de consultas
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=中 口径=时间 -->
 - Custo: Não há custo financeiro. Porém, é preciso realizar um procedimento adicional de encaminhamento.
 - Em linguagem simples: Os grandes hospitais devem reservar uma parte de suas vagas e leitos exclusivamente para pacientes encaminhados pela rede básica. Além disso, eles precisam criar um centro de encaminhamento ou designar um departamento específico para cuidar desse processo, o que será implementado em todos os hospitais até 2027. Não conseguir marcar consulta diretamente não significa que não há alternativa. As consultas vendidas por cambistas são caras e podem levar o paciente a ser atendido em um setor médico inadequado para seu caso.
@@ -33,7 +33,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「牵头医院要为基层医疗卫生机构预留一定比例的号源和床位，并及时接诊经基层转诊患者。」「医疗机构要强化转诊服务统一管理，设立转诊中心或指定固定部门承担患者转诊服务工作，到2027年实现全覆盖。」
 - Notas: As vagas reservadas são destinadas exclusivamente a pacientes encaminhados; quem não consegue marcar consulta diretamente pode optar por esse caminho. Recorrer a cambistas é caro e pode resultar em atendimento em um setor médico inadequado. Caso não encontre o centro de encaminhamento, ligue para o serviço de atendimento ao paciente do hospital para obter informações.
 
-### 4. Antes de buscar tratamento em outra província, consulte primeiro seu médico local; em princípio, a necessidade deve ser avaliada por médicos assistentes ou de nível superior.
+### 4. Antes de buscar tratamento em outra província, consulte primeiro seu médico local; em princípio, a necessidade deve ser avaliada por médicos assistentes ou de nível superior
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Custo: Não há custo algum. Basta fazer essa pergunta antes de partir.
 - Em linguagem simples: A necessidade de procurar atendimento médico fora da sua região deve, em princípio, ser avaliada por médicos assistentes ou de nível superior em hospitais de segundo ou terceiro escalão. O valor do reembolso para tratamentos temporários fora da região pode ser diferente do oferecido por hospitais locais de mesmo nível; tudo depende das normas locais. Perguntar antes de ir é muito melhor do que descobrir, ao chegar lá, que o tratamento não será reembolsado.
@@ -52,7 +52,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:国务院 (2018). 医疗纠纷预防和处理条例（国务院令第 701 号）第十六条：「患者有权查阅、复制其门诊病历、住院志、体温单、医嘱单、化验单（检验报告）、医学影像检查资料、特殊检查同意书、手术同意书、手术及麻醉记录、病理资料、护理记录、医疗费用以及国务院卫生主管部门规定的其他属于病历的全部资料。」「患者要求复制病历资料的，医疗机构应当提供复制服务，并在复制的病历资料上加盖证明印记……可以收取工本费，收费标准应当公开。」「患者死亡的，其近亲属可以依照本条例的规定，查阅、复制病历资料。」第十五条「任何单位和个人不得篡改、伪造、隐匿、毁灭或者抢夺病历资料。」<https://www.gov.cn/zhengce/zhengceku/2018-08/31/content_5318057.htm>；国家卫生计生委、国家中医药管理局 (2013). 医疗机构病历管理规定（2013 年版）：医疗机构「应当指定部门或者专（兼）职人员负责受理复制病历资料的申请」，复制在申请人在场的情况下进行并加盖证明印记. <http://www.gov.cn/gongbao/content/2014/content_2600084.htm>
 - Notas: Esta é uma diretriz de política, não uma recomendação. No futuro, será cada vez mais difícil conseguir vaga para consultas comuns nos grandes hospitais. Para pacientes com doenças crônicas em estágio estável, é possível receber remédios para 12 semanas de uma só vez na atenção primária, conforme descrito na seção 16.
 
-### 6. Em caso de dúvidas sobre o tratamento, peça na hora o lacramento do prontuário médico; ambas as partes devem estar presentes, elaborar uma lista e cada uma fica com uma cópia.
+### 6. Em caso de dúvidas sobre o tratamento, peça na hora o lacramento do prontuário médico; ambas as partes devem estar presentes, elaborar uma lista e cada uma fica com uma cópia
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Não há custo algum. Basta solicitar o lacramento ao hospital e aguardar que médicos e pacientes compareçam para finalizar o procedimento. O desafio está em conseguir dizer isso diante do médico.
@@ -66,7 +66,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 
 - Notas: Lacrar e copiar o prontuário são procedimentos distintos. A cópia deve ser feita normalmente, conforme descrito no item 6 (guarde uma cópia do prontuário e das imagens médicas). O lacramento serve para preservar as provas quando surge uma disputa, evitando que o documento seja alterado posteriormente. Caso suspeite que o problema tenha origem em soro, transfusão sanguínea ou medicamento, além do prontuário, lacre também o frasco do líquido, o medicamento e o equipamento de infusão, para que ninguém os retire ou descarte. As instituições de saúde devem divulgar em local visível os meios, procedimentos e contatos para resolução de disputas médicas, além de manter um setor de reclamações unificado. Em caso de problemas, procure esse setor, em vez de discutir diretamente com o médico plantonista.
 
-### 7. Depois de cada consulta médica, guarde uma cópia do prontuário, dos exames e das imagens médicas.
+### 7. Depois de cada consulta médica, guarde uma cópia do prontuário, dos exames e das imagens médicas
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 - Custo: Não custa nada. O hospital pode cobrar uma taxa de custo de reprodução, mas o valor deve ser divulgado publicamente. O desafio é lembrar de pedir a cópia após cada consulta.
 - Em linguagem simples: Ter acesso e copiar o próprio prontuário médico é um direito garantido por lei. É possível copiar prontuários ambulatoriais, registros de internação, laudos de exames, imagens médicas, registros de cirurgias e anestesia, materiais de patologia e detalhes de custos. Os hospitais possuem guichês específicos para esse serviço, onde só podem ser cobradas as despesas de reprodução. Esses documentos são essenciais ao trocar de hospital, ao procurar um segundo médico para avaliação, ao fazer pedidos de seguro-saúde ou em caso de litígios.
@@ -84,7 +84,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:国务院办公厅 (2013). 关于建立疾病应急救助制度的指导意见（国办发〔2013〕15 号）. <https://www.gov.cn/zhengce/zhengceku/2013-03/01/content_6069.htm>；国家卫生和计划生育委员会 (2014). 院前医疗急救管理办法（委令第 3 号，第十三、二十二、二十三、二十五条）. <http://www.gov.cn/gongbao/content/2014/content_2580977.htm>
 - Notas: O fundo cobre apenas os custos do atendimento de emergência; após o tratamento, o hospital solicita o reembolso diretamente ao fundo, sem necessidade de o paciente solicitar o pagamento. Quem possui medistrakhovka deve utilizá-la normalmente. Os procedimentos e limites de solicitação variam conforme a província. Entre os princípios de transporte, «proximidade» e «urgência» têm prioridade sobre «vontade do paciente», portanto a ambulância pode não levar o paciente ao hospital escolhido, mas sim ao mais próximo capaz de oferecer tratamento adequado em casos graves. Caso os custos posteriores ainda sejam excessivos, pode-se recorrer à assistência médica social, conforme descrito na Seção 7, item 10.
 
-### 9. A avaliação de incapacidade só deve ser feita após o término do tratamento; se feita antes, o grau de incapacidade tende a ser menor.
+### 9. A avaliação de incapacidade só deve ser feita após o término do tratamento; se feita antes, o grau de incapacidade tende a ser menor
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=大 口径=金钱 -->
 
 - Custo: O valor da avaliação varia entre algumas centenas e 2.000 reais, sendo geralmente pago adiantadamente por quem solicita o exame. É necessário aguardar o término do tratamento ou a estabilização dos efeitos clínicos, o que costuma ocorrer entre três e seis meses após a lesão, às vezes até mais. O desafio está em resistir à tentação de agilizar o processo enquanto a lesão ainda não cicatrizou por completo.
@@ -97,7 +97,7 @@ Esta seção baseia-se nas “Medidas para acelerar a construção do sistema de
 - Fontes:最高人民法院、最高人民检察院、公安部、国家安全部、司法部 (2016). 关于发布《人体损伤致残程度分级》的公告（2016 年 4 月 18 日发布，2017 年 1 月 1 日施行），标准第 4.2、4.4、4.5、5.10.6、6.2 条. <https://www.moj.gov.cn/pub/sfbgw/zwxxgk/fdzdgknr/fdzdgknrtzwj/201908/P020210316701681025917.pdf>
 - Notas: Existem três sistemas diferentes de avaliação de incapacidade; é preciso não confundi-los. Para casos de agressão física, acidentes de trânsito e outros danos corporais, aplica-se o “Grau de Incapacidade por Lesões Corporais”, que serve para calcular a indenização por incapacidade (ver Seção 9). Em casos de acidentes de trabalho, utiliza-se outro sistema de 10 graus, voltado para o cálculo dos benefícios trabalhistas (ver Seção 19). Para ter direito a benefícios destinados a pessoas com deficiência, é necessário obter o “Cartão de Pessoa com Deficiência” (ver Artigo 11). Antes da avaliação, é fundamental reunir prontuários médicos, relatórios cirúrgicos e exames de imagem (ver Artigo 6, que recomenda guardar cópias desses documentos); a ausência de exames de imagem é a causa mais comum de redução no grau de incapacidade atribuído. Quando a lesão atual se mistura a problemas de saúde pré-existentes, o laudo deve especificar qual porcentagem da incapacidade total se deve à lesão atual; esse percentual influencia diretamente o valor da indenização.
 
-### 10. Após o tratamento, podem permanecer deficiências; é preciso solicitar o documento de pessoa com deficiência no escritório distrital de assuntos de pessoas com deficiência do local de registro hukou.
+### 10. Após o tratamento, podem permanecer deficiências; é preciso solicitar o documento de pessoa com deficiência no escritório distrital de assuntos de pessoas com deficiência do local de registro hukou
 <!-- 成本标签: 钱=少 时间=中 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Não há taxa de emissão do documento. Em princípio, os custos de avaliação e das fotos devem ser pagos pelo próprio solicitante; porém, quem enfrenta dificuldades financeiras pode pedir isenção. É necessário levar o documento de identidade, o registro hukou e três fotos 2x3 com fundo branco ao escritório distrital de assuntos de pessoas com deficiência do local de registro. Após a aprovação na avaliação, o resultado é divulgado na aldeia (ou comunidade) por cinco dias úteis; o escritório distrital analisa o pedido em até dez dias úteis. O maior desafio está em ter que fazer várias idas e aguardar esse período.

@@ -5,7 +5,7 @@
 Este tópico trata de questões financeiras. Aqui explicamos quais procedimentos devem ser seguidos e como obter o dinheiro necessário, incluindo as primeiras ações a tomar logo após o falecimento, além de uma lista de despesas que podem ser reembolsadas. Também detalhamos quais valores podem ser retirados das contas bancárias e quem, entre os familiares próximos, tem autoridade para cuidar desses assuntos. Os cinco primeiros itens seguem a ordem cronológica dos acontecimentos: o local do óbito, a emissão da certidão de óbito, o corpo e a cremação, o que fazer caso haja dúvidas sobre a causa da morte e o cancelamento de contas. Os demais itens foram organizados conforme a relação custo-benefício. Para orientações que o idoso deveria tomar ainda em vida — como nomear um tutor, redigir um testamento ou organizar suas contas — consulte o item 17. Quanto aos três tipos de benefícios previstos para casos de morte por acidente de trabalho, veja o item 19.
 
 As informações sobre serviços funerários baseiam-se na nova versão do “Regulamento sobre Gestão de Serviços Funerários”, em vigor desde 30 de março de 2026. O valor exato dos auxílios funeral e pensão por morte previstos no seguro de aposentadoria é definido separadamente pelos órgãos responsáveis pela gestão do trabalho e da seguridade social. Como não dispomos do texto original para conferência detalhada, não indicamos valores específicos neste texto.
-### 1. Primeiro, é preciso distinguir entre morte natural e morte não natural: em casos de acidentes, causas desconhecidas ou quando a morte é descoberta apenas após o falecimento de alguém que vivia sozinho, chame imediatamente a polícia e não mexa no corpo nem no local do ocorrido.
+### 1. Primeiro, é preciso distinguir entre morte natural e morte não natural: em casos de acidentes, causas desconhecidas ou quando a morte é descoberta apenas após o falecimento de alguém que vivia sozinho, chame imediatamente a polícia e não mexa no corpo nem no local do ocorrido
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=自由 -->
 - Custo: Não há custo algum. Basta fazer uma ligação.
 - Em linguagem simples: Para quem morre em um acidente, cuja causa da morte é desconhecida ou que vivia sozinho e só foi encontrado muito tempo depois, apenas a polícia pode emitir a certidão de óbito. Se o local do ocorrido for alterado, fica difícil esclarecer os fatos e emitir a certidão. Sem esse documento, o processo de cremação, cancelamento do registro civil e pedido de indenização do seguro ficam todos bloqueados. Caso não consiga identificar o tipo de morte, ligue para o 110. Após a investigação, a polícia emitirá a certidão normalmente.
@@ -14,7 +14,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 - Fontes:全国人大常委会 (1958). 中华人民共和国户口登记条例（第八条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/mpost_2531969.html>（广东省人民政府门户网站刊登）；国务院 (2026). 殡葬管理条例（国务院令第 824 号，自 2026 年 3 月 30 日起施行，第二十三条）. <https://www.gov.cn/zhengce/zhengceku/202601/content_7054169.htm>
 - Notas: Pessoas que morrem em casa após longo período de doença são consideradas mortas de forma natural. Nesses casos, é possível solicitar a certidão à instituição de saúde que as atendeu ou ao centro de saúde comunitário ou posto de saúde da região onde moram. Conforme o artigo 2º (Certidão de Óbito), quem presta o atendimento médico é responsável pela emissão do documento. Caso não consiga identificar o tipo de morte, trate-a como não natural e ligue para o 110; após a investigação policial, a certidão será emitida normalmente. Se o local do ocorrido for arrumado antes da chegada da polícia, ninguém conseguirá ajudar. Não mova o corpo, não o lave ou troque de roupa, e não retire frascos de remédio ou bilhetes deixados pela vítima.
 
-### 2. A certidão de óbito é essencial para tudo o que vier a seguir: quem realizou o atendimento emite o documento. Para óbitos ocorridos em casa, deve-se procurar o serviço de saúde comunitário ou o posto de saúde da região; a emissão ocorre em até um dia.
+### 2. A certidão de óbito é essencial para tudo o que vier a seguir: quem realizou o atendimento emite o documento. Para óbitos ocorridos em casa, deve-se procurar o serviço de saúde comunitário ou o posto de saúde da região; a emissão ocorre em até um dia
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 
 - Custo: Não há custo algum.
@@ -24,7 +24,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 - Fontes:国家卫生计生委办公厅 (2014). 人口死亡信息登记管理规范（试行）（国卫办规划发〔2014〕68 号，第九条）. <https://mzj.sz.gov.cn/szmz/pc/zwgk/jcxxgk/zcfg/byfw/content/post_2952215.html>（深圳市民政局转发）；国家卫生健康委、公安部、民政部、国家中医药局、国家疾控局 (2026). 关于加强居民死亡医学证明信息登记和电子证照管理工作的通知（国卫规划发〔2026〕5 号）. <https://wjw.fujian.gov.cn/xxgk/fgwj/gjwj/202602/t20260228_7102810.htm>（福建省卫生健康委员会转发）
 - Notas: O documento é indispensável para cancelar o registro civil, cremação, saque do fundo de habitação, recebimento de benefícios da previdência social, processos de seguro e sucessão; por isso, faça várias cópias e, se disponível, solicite também a versão eletrônica. Só é permitida uma segunda via; portanto, guarde bem o original. Caso haja erros de grafia ou no número do documento de identidade, corrija-os na hora, pois, se isso só for percebido na hora da sucessão, será preciso retornar a todos os órgãos envolvidos.
 
-### 3. O transporte, a guarda e a cremação de corpos só podem ser feitos por funerárias; os necrotérios de hospitais não oferecem serviços funerários, e a guarda geralmente não ultrapassa 3 dias.
+### 3. O transporte, a guarda e a cremação de corpos só podem ser feitos por funerárias; os necrotérios de hospitais não oferecem serviços funerários, e a guarda geralmente não ultrapassa 3 dias
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Custo: Não há custos.
 - Em linguagem simples: O transporte, a guarda, a preservação, a preparação e a cremação do corpo só podem ser realizados por funerárias. Os necrotérios de hospitais não prestam serviços funerários; só permitem a guarda temporária do corpo. A guarda em funerárias geralmente não ultrapassa 3 dias; para períodos maiores, é necessário solicitar uma prorrogação. A cremação só pode ser feita com a apresentação da certidão de óbito e do comprovante de cremação. O certificado de cremação emitido após o processo é necessário para processos de herança e seguros.
@@ -51,7 +51,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 - Fontes:全国人大常委会 (1958). 中华人民共和国户口登记条例（第八条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/mpost_2531969.html>（广东省人民政府门户网站刊登）
 - Notas: Manter o registro ativo impede a transferência de herança, o recebimento de benefícios e o cancelamento da medstrakhovka. Esses órgãos verificam sempre o status do hukou. Se a aposentadoria continuar a ser paga, trata-se de recebimento indevido e deverá ser devolvida. Ao ir ao posto de polícia, pergunte também como suspender a social insurance e a medstrakhovka, além de como solicitar o auxílio funeral. Esses valores são detalhados no item 9 (saldo do gongjijin e benefícios da social insurance).
 
-### 6. Os serviços funerários são divididos em itens básicos e não básicos; os itens básicos têm uma lista oficial, e seus custos são definidos por lei.
+### 6. Os serviços funerários são divididos em itens básicos e não básicos; os itens básicos têm uma lista oficial, e seus custos são definidos por lei
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Custo: Não há custo. Antes de partir, reserve alguns minutos para conferir a lista de itens básicos.
@@ -65,7 +65,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 
 - Notas: Estados, regiões autônomas e municípios podem acrescentar itens à lista nacional. Antes de mais nada, confira quais serviços são considerados básicos e quais são os valores padrão locais, para só então negociar os demais. Os preços dos itens na lista são fixados por lei, enquanto os fora dela são opcionais; ao distinguir essas duas categorias, fica mais fácil contestar eventuais cobranças indevidas. Não há problema em querer prestar uma homenagem digna ao ente querido; não incentivamos a simplificação excessiva, pois o valor a ser gasto é uma decisão sua.
 
-### 7. Anote tudo ao deparar-se com venda casada, cobrança extra além do preço anunciado ou divisão de um serviço em vários itens para cobrança separada, e depois faça uma reclamação.
+### 7. Anote tudo ao deparar-se com venda casada, cobrança extra além do preço anunciado ou divisão de um serviço em vários itens para cobrança separada, e depois faça uma reclamação
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Não custa nada. O difícil é manter a calma e insistir nisso na hora.
@@ -79,7 +79,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 
 - Notas: A fiscalização de infrações de preços cabe ao órgão de supervisão do mercado, enquanto os serviços funerários são de responsabilidade dos órgãos de administração civil. Na hora, peça uma tabela de preços e guarde comprovantes de pagamento e registros de conversas; ainda dá tempo de reclamar depois.
 
-### 8. Agências de serviços funerários, compra de artigos funerários, planejamento e organização de cerimônias — todas precisam ser registradas nos órgãos civis administrativos em nível de condado.
+### 8. Agências de serviços funerários, compra de artigos funerários, planejamento e organização de cerimônias — todas precisam ser registradas nos órgãos civis administrativos em nível de condado
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Custo: Não há custo algum. Basta perguntar se a agência está registrada.

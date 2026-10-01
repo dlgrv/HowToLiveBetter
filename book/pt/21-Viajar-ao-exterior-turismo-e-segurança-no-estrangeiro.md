@@ -1,7 +1,7 @@
 # 21. Viajar ao exterior, turismo e segurança no estrangeiro
 
 Esta seção aborda questões financeiras e da liberdade pessoal, além de alguns pontos relacionados à segurança física. Ao chegar a outro país, quem rege a situação são as leis locais, não as leis chinesas. Existem limites claros quanto ao tipo de ajuda que os consulados chineses podem oferecer.
-### 1. Antes de viajar, consulte as recomendações de segurança do Ministério das Relações Exteriores; evite os locais marcados como “não vá agora”.
+### 1. Antes de viajar, consulte as recomendações de segurança do Ministério das Relações Exteriores; evite os locais marcados como “não vá agora”
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Custo: Não custa nada. Basta acessar o site do Serviço Consular da China e dar uma lida; leva apenas alguns minutos.
@@ -11,7 +11,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:国务院 (2026). 关于出境入境管理的规定（国令第 841 号）. <https://www.gov.cn/zhengce/zhengceku/202607/content_7077173.htm>（第二条）；国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十九、二十一条）；外交部领事司. 安全提醒. <https://cs.mfa.gov.cn/zggmzhw/lsbh/aqtx/>
 - Notas: Essas recomendações são atualizadas conforme a situação; este guia não reproduz a lista completa. Antes de viajar, consulte a página oficial. Até 7 de setembro de 2026, constavam ali os seguintes alertas de “não vá agora”: Suazilândia (25/08/2026), Palestina (10/10/2023), Sudão (17/04/2023). Outros quatro destinos eram Afeganistão (17/02/2023), Síria (04/01/2023), Peru (29/12/2022) e Somália (24/11/2022). Há também avisos específicos para o norte de Mianmar e para algumas províncias da República Democrática do Congo. As agências de viagens também têm a obrigação de informar. Antes de embarcar em um tour, peça por escrito um resumo dos riscos do destino.
 
-### 2. Salve o número 12308 e os telefones de assistência consular locais no celular, depois anote-os à mão e guarde numa carteira; não espere acontecer algo para procurar esses contatos.
+### 2. Salve o número 12308 e os telefones de assistência consular locais no celular, depois anote-os à mão e guarde numa carteira; não espere acontecer algo para procurar esses contatos
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=自由 -->
 - Custo: Não custa nada. Basta salvar dois números e anotá-los; leva apenas alguns minutos.
 - Em linguagem simples: Existe apenas um número para pedir ajuda em caso de emergência. No Brasil, basta ligar para 12308; no exterior, o número é +86-10-12308. Desde o início das operações dessa linha, já foram atendidas mais de 3 milhões de chamadas. No mesmo período, o Ministério das Relações Exteriores e as missões diplomáticas chinesas resolveram mais de 500 mil casos de assistência consular.
@@ -20,7 +20,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:外交部、中国驻缅甸使领馆 (2023). 关于当前缅北地区安全局势的领事提醒. <https://cs.mfa.gov.cn/zggmzhw/lsbh/aqtx/202311/t20231109_11176682.shtml>；国务院新闻办 (2023). 国务院政策例行吹风会介绍领事保护与协助有关情况. <https://www.gov.cn/xinwen/2023zccfh/11/index.htm>
 - Notas: As missões diplomáticas chinesas locais também têm seus próprios números de assistência consular, geralmente mais rápidos de acessar que a linha central. Antes de viajar, consulte o site de Serviços Consulares da China para encontrar esses números e salve-os junto com o 12308 no celular. Porém, se o celular for perdido ou ficar sem bateria, esses contatos não poderão ser usados. Por isso, anote-os à mão e guarde numa carteira, ou envie uma cópia para familiares.
 
-### 3. Saiba o que a proteção consular pode e não pode fazer: pode visitar, mas não pode libertar; os custos também são por sua conta.
+### 3. Saiba o que a proteção consular pode e não pode fazer: pode visitar, mas não pode libertar; os custos também são por sua conta
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Custo: Nenhum custo. Basta dedicar alguns minutos para entender bem esses limites.
 - Em linguagem simples: Se você for preso no exterior, o consulado pode: confirmar a situação localmente, exigir um tratamento justo e legal, visitá-lo e assistir ao julgamento. Porém, não pode mudar a sentença nem tirar você da prisão. Despesas como alimentação, transporte e tratamento médico pagas por terceiros acabam sendo de sua responsabilidade. Por isso, antes de viajar, tenha dinheiro e seguro à mão; não conte que o país vai cobrir tudo caso algo dê errado.
@@ -29,7 +29,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第九、十、十四、二十六条）
 - Notas: O consulado não paga multas, despesas médicas ou passagens aéreas por você, nem altera a decisão dos tribunais locais. O que ele pode oferecer são informações sobre advogados, tradutores, hospitais e serviços funerários locais, além de ajudar a contatar familiares e encontrar vias de auxílio. Por isso, antes de viajar, tenha dinheiro e seguro à mão; não conte que o país vai cobrir tudo caso algo dê errado.
 
-### 4. Contrate um seguro que cubra atendimento médico no exterior e transporte médico — não basta apenas um seguro de atraso de voos.
+### 4. Contrate um seguro que cubra atendimento médico no exterior e transporte médico — não basta apenas um seguro de atraso de voos
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Custo: Um seguro de viagem de curto prazo para o exterior custa entre algumas dezenas e algumas centenas de reais.
 - Em linguagem simples: Os custos do tratamento médico no exterior precisam ser pagos por você. A medstraховка (Yibao) chinesa praticamente não cobre esses gastos, e os consulados também não arcam com eles. O que realmente pode arruinar a situação financeira de uma família não são os custos de consultas ambulatoriais, mas os gastos com internação após lesões graves e o transporte do paciente de volta ao país — isso exige aviões especiais ou serviços de transporte médico. Na hora de escolher o seguro, preste atenção em dois limites de cobertura: o valor máximo para despesas médicas no exterior e o valor máximo para transporte médico de emergência e repatriação.
@@ -57,7 +57,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:国家外汇管理局 (2017). 关于规范银行卡境外大额提取现金交易的通知（汇发〔2017〕29 号，第一、二、三、四、六、七条，2018 年 1 月 1 日起实施）. <https://www.safe.gov.cn/safe/2017/1230/21873.html>；国家外汇管理局 (2017). 外汇局有关负责人就规范银行卡境外大额提取现金交易有关问题答记者问. <https://www.gov.cn/zhengce/2017-12/31/content_5251958.htm>；中国银联国际. 境外ATM取款. <https://m.unionpayintl.com/wap/cn/serviceCenter/cardUsingInstructions/805.shtml>
 - Notas: O limite é calculado por ano civil, reiniciando em 1º de janeiro. O bloqueio aplica-se apenas a saques; compras com cartão continuam permitidas. Para quem precisa de grandes quantias em espécie no exterior, é necessário comprar moeda estrangeira conforme o “Regulamento de Gestão de Câmbio Individual” antes de viajar. Há dois pontos importantes a observar: primeiro, em alguns países, cartões com duas bandeiras não permitem selecionar o canal UnionPay para saque; segundo, alguns caixas eletrônicos avisam sobre taxas adicionais (surcharge), cobradas pelas instituições locais e sem relação com a UnionPay. O site da UnionPay também recomenda usar cartões de débito UnionPay para saques no exterior, pois cartões de crédito geram juros por uso de crédito. Para orientações sobre perda, bloqueio ou uso indevido do cartão, consulte o item 5 da seção 14.
 
-### 7. Tire fotos do passaporte, vistos e documento de identidade e salve-as na nuvem; se perdê-los, registre um boletim de ocorrência antes de solicitar um documento de viagem.
+### 7. Tire fotos do passaporte, vistos e documento de identidade e salve-as na nuvem; se perdê-los, registre um boletim de ocorrência antes de solicitar um documento de viagem
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Custo: Nenhum custo. Basta tirar algumas fotos antes da viagem.
 - Em linguagem simples: Se você perder o passaporte, o consulado pode emitir um documento de viagem para que você volte ao seu país. Contudo, para isso é preciso comprovar sua identidade. Ter fotos da página de dados, das páginas de visto e dos registros de entrada e saída acelera bastante o processo. Além disso, é necessário registrar um boletim de ocorrência local para obter um comprovante; este documento é exigido em inspeções de saída e para o ressarcimento de seguros. Como celulares e passaportes costumam ser perdidos juntos, não guarde as fotos apenas no aparelho.
@@ -66,7 +66,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十六条）；作者经验，无直接文献
 - Notas: Para garantir a segurança, salve as fotos em dois locais diferentes, como um serviço de nuvem e um contato familiar. Imprima também uma cópia em papel e guarde-a separadamente do original. Não se esqueça de fotografar cartões bancários e receitas médicas dos medicamentos que costuma usar. Como celulares e passaportes são frequentemente perdidos juntos, armazenar as fotos apenas no celular não oferece proteção alguma.
 
-### 8. Antes de dirigir no exterior, verifique se o país reconhece a carteira de motorista chinesa; a maioria dos chamados “documentos internacionais de condução” vendidos na internet não têm validade alguma.
+### 8. Antes de dirigir no exterior, verifique se o país reconhece a carteira de motorista chinesa; a maioria dos chamados “documentos internacionais de condução” vendidos na internet não têm validade alguma
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->
 - Custo: Não há custo algum. Basta consultar as normas do destino antes da viagem.
 - Em linguagem simples: Os “documentos internacionais de condução” vendidos online não têm validade na China continental. Trata-se de uma tradução reconhecida entre os países signatários da Convenção de Genebra de 1949; contudo, a China continental não integra essa lista de 103 países e regiões. Portanto, independentemente de quem o emita na China, esse documento não tem valor legal. Para saber se pode dirigir com a carteira chinesa, consulte as regras locais do destino; não tente dirigir sem essa confirmação.
@@ -75,7 +75,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:United Nations Treaty Collection. Convention on Road Traffic, Geneva, 19 September 1949 — status of treaties. <https://treaties.un.org/pages/ViewDetailsV.aspx?src=TREATY&mtdsg_no=XI-B-1&chapter=11&clang=_en>
 - Notas: Na maioria dos países, dirigir sem carteira de motorista é crime ou gera multas pesadas. Além disso, em caso de acidente, as seguradoras provavelmente negarão a cobertura — esse é o verdadeiro custo oculto. Existem duas formas de verificar: consulte a seção “Informações para cidadãos chineses” no site do Serviço Consular da China para o país desejado, ou peça por escrito à locadora de veículos uma confirmação oficial. Hong Kong, Macau, Taiwan e alguns outros países possuem regras específicas próprias.
 
-### 9. Ao procurar agências para tratar de vistos, estudos no exterior ou imigração, verifique primeiro se elas estão registradas nos órgãos de imigração.
+### 9. Ao procurar agências para tratar de vistos, estudos no exterior ou imigração, verifique primeiro se elas estão registradas nos órgãos de imigração
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=自由 -->
 - Custo: Não há custo algum. Basta perguntar se a agência está registrada e guardar os documentos por escrito.
 - Em linguagem simples: A partir de 15 de setembro de 2026, agências que atuam com vistos, estudos no exterior ou imigração devem se registrar nos órgãos de imigração. Frases como “garantimos a aprovação”, “visto assegurado” ou “nós preparamos toda a documentação” são expressamente proibidas por lei. Se você preencher o formulário sozinho e errar, no máximo terá o pedido negado desta vez. Porém, se for constatado uso de documentos falsos, esse fato ficará registrado em seu histórico de entrada e saída do país.
@@ -93,7 +93,7 @@ Esta seção aborda questões financeiras e da liberdade pessoal, além de algun
 - Fontes:国务院 (2026). 关于出境入境管理的规定（国令第 841 号）. <https://www.gov.cn/zhengce/zhengceku/202607/content_7077173.htm>（第三、十一条）
 - Notas: Este caso tem o mesmo risco do item 8, “Não leve objetos para estranhos”: se os documentos forem emitidos em seu nome, as consequências recairão sobre você. Funcionários públicos e militares que tentarem, por meio de intermediários, obter ilegalmente cidadania estrangeira ou autorização de residência no exterior não só não conseguirão o que desejam, como os intermediários têm a obrigação de relatar o fato ao órgão de supervisão.
 
-### 11. Antes de viajar, envie seu itinerário, endereço de hospedagem e os dados dos companheiros de viagem para um familiar, combinando com ele a frequência das comunicações.
+### 11. Antes de viajar, envie seu itinerário, endereço de hospedagem e os dados dos companheiros de viagem para um familiar, combinando com ele a frequência das comunicações
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=死亡率 -->
 
 - Custo: Não custa nada. Basta enviar uma mensagem antes de partir.

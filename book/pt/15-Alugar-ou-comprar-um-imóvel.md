@@ -33,7 +33,7 @@ O foco deste texto é o dinheiro. Na hora de alugar, os maiores prejuízos vêm 
 - Fontes:国务院 (2025). 住房租赁条例（国令第 812 号，2025 年 9 月 15 日施行）（第二十五条）. <https://www.gov.cn/zhengce/zhengceku/202507/content_7032956.htm>
 - Notas: Antes de efetuar o pagamento, verifique se o nome do beneficiário é o mesmo constante no registro de propriedade. Caso não seja, peça esclarecimentos e obtenha uma autorização por escrito. A imobiliária só pode cobrar uma taxa de intermediação pelo serviço de conexão entre as partes.
 
-### 4. Antes de alugar um apartamento por um ano, verifique se há uma conta de fiscalização de fundos; não se deixe levar por preços baixos e pague o valor de um ano de uma só vez.
+### 4. Antes de alugar um apartamento por um ano, verifique se há uma conta de fiscalização de fundos; não se deixe levar por preços baixos e pague o valor de um ano de uma só vez
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=大 口径=金钱 -->
 - Custo: Não custa nada. Leva apenas alguns minutos para verificar.
 - Em linguagem simples: O desconto obtido ao pagar um ano de aluguel de uma só vez é mínimo. Se a empresa falir, seu depósito e o valor do aluguel dos meses restantes serão perdidos. A situação piora se houver um empréstimo de aluguel vinculado: mesmo que o apartamento seja abandonado, você ainda terá de pagar o empréstimo mensalmente. Antes de assinar o contrato, verifique se a empresa possui uma conta de fiscalização de fundos divulgada publicamente.

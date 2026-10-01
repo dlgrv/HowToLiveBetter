@@ -1,7 +1,7 @@
 # 16. Como viver após desenvolver uma doença crônica
 
 A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o diagnóstico de uma doença crônica, ainda restam muitas décadas de vida, e este tópico analisa como lidar com elas.
-### 1. Tome os medicamentos conforme orientado pelo médico; não pare o tratamento só porque se sente melhor.
+### 1. Tome os medicamentos conforme orientado pelo médico; não pare o tratamento só porque se sente melhor
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Custo: Não há custo direto; ao contrário, evita gastos futuros com tratamento de complicações. Tomar os remédios diariamente leva apenas alguns minutos; o desafio está em manter a regularidade.
 - Em linguagem simples: Pessoas que tomam todos os medicamentos conforme prescrito têm cerca de metade da probabilidade de morrer no mesmo período em comparação àquelas que tomam os remédios de forma irregular. Esse valor deve ser interpretado com cautela. Até quem toma placebos regularmente apresenta menor taxa de mortalidade, o que indica que parte dos benefícios se deve ao fato de quem mantém a adesão ao tratamento também cuida melhor da própria saúde. Porém, os riscos de interromper o tratamento são reais, especialmente no caso de medicamentos para pressão arterial, anticoagulantes e imunossupressores.
@@ -10,7 +10,7 @@ A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o 
 - Fontes:Simpson SH, Eurich DT, Majumdar SR, et al. (2006). A meta-analysis of the association between adherence to drug therapy and mortality. BMJ, 333(7557), 15. <https://doi.org/10.1136/bmj.38875.675486.55>
 - Notas: Este é um dos dados mais controversos deste livro e merece interpretação crítica. No mesmo metaanálise, observou-se que pessoas que tomavam placebos regularmente também apresentavam menor taxa de mortalidade (razão de chances de 0,56, intervalo de 0,43 a 0,74). Isso demonstra que parte dos benefícios está ligada ao fato de quem mantém a adesão ao tratamento também adota hábitos mais saudáveis. Os autores denominam esse fenômeno de “efeito da adesão à saúde”. Contudo, os riscos associados à interrupção do tratamento são inegáveis, sobretudo no caso de medicamentos para pressão arterial, anticoagulantes e imunossupressores.
 
-### 2. Primeiro faça o cadastro das doenças crônicas e especiais no plano de saúde e depois registre o atendimento em outra região; assim, pacientes com hipertensão, diabetes, tratamento oncológico ambulatorial, diálise e imunossupressão pós-transplante podem usar o plano de saúde diretamente em outros locais.
+### 2. Primeiro faça o cadastro das doenças crônicas e especiais no plano de saúde e depois registre o atendimento em outra região; assim, pacientes com hipertensão, diabetes, tratamento oncológico ambulatorial, diálise e imunossupressão pós-transplante podem usar o plano de saúde diretamente em outros locais
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 
 - Custo: Não há custo algum. Antes de viajar, basta fazer o registro do atendimento em outra região no aplicativo do plano de saúde, tudo pelo celular.
@@ -24,7 +24,7 @@ A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o 
 
 - Notas: É indispensável cumprir os dois requisitos: primeiro fazer o cadastro das doenças crônicas e especiais no plano de saúde e depois registrar o atendimento em outra região. Quanto ao andamento da inclusão dos cinco novos tipos de doenças, o progresso varia conforme a região; consulte as informações divulgadas pelos órgãos locais de seguro-saúde.
 
-### 3. Faça os exames de acompanhamento nos intervalos indicados pelo médico, anotando todos os resultados no mesmo caderno.
+### 3. Faça os exames de acompanhamento nos intervalos indicados pelo médico, anotando todos os resultados no mesmo caderno
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=中 口径=死亡率 -->
 - Custo: Cada exame custa de algumas dezenas a algumas centenas de reais. Ir ao hospital e aguardar os resultados consome um pouco do seu tempo. O desafio é que é preciso ir com certa frequência, o que pode levar ao adiamento dessas consultas.
 - Em linguagem simples: No caso de doenças crônicas, o que importa são as mudanças ao longo do tempo, não apenas um único valor isolado. Anote a data, os resultados dos exames, além dos medicamentos e suas doses no mesmo caderno. Assim, ao mudar de hospital, você não precisará refazer os exames nem gastar novamente.
@@ -55,7 +55,7 @@ A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o 
 - Fontes:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「对于符合条件的慢性病患者，基层医疗卫生机构单次可开具不超过12周用药的长期处方。」；同文「原则上统筹地区内医疗卫生机构住院报销比例逐级拉开10个百分点左右的差距」，并要求上级医院在基层开设高血压、糖尿病、慢性阻塞性肺疾病等常见病慢性病门诊；同文「三级医院要聚焦急危重症和疑难复杂疾病，加强转诊会诊和住院服务，逐步酌减常见病复诊和诊断明确、病情稳定的慢性病等普通门诊」，「并将专家团队普通门诊向基层医疗卫生机构延伸」
 - Notas: A avaliação de "atender aos critérios" é feita pelo médico; geralmente se aplica a pacientes com diagnóstico já definido e tratamento medicamentoso estável. Os medicamentos são os mesmos, mas o paciente economiza o tempo gasto em deslocamentos mensais e as taxas de consulta. Caso a unidade básica não disponha do medicamento necessário, é possível solicitar seu registro como item em falta para posterior entrega. O mesmo documento determina que os hospitais de terceiro nível devem, progressivamente, reduzir o atendimento ambulatorial para esse tipo de doença crônica, transferindo o atendimento para as unidades comunitárias. Continuar usando os grandes hospitais apenas para retirar remédios tornará cada vez mais difícil obter vagas em suas consultas.
 
-### 6. Antes de assinar um contrato com um médico de família na sua comunidade, verifique quais serviços são cobertos pelo plano de saúde e quais precisam ser pagos por conta própria.
+### 6. Antes de assinar um contrato com um médico de família na sua comunidade, verifique quais serviços são cobertos pelo plano de saúde e quais precisam ser pagos por conta própria
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=金钱 -->
 
 - Custo: Não custa nada. Basta fazer uma pergunta simples antes de assinar — leva apenas um minuto.
@@ -65,7 +65,7 @@ A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o 
 - Fontes:国务院办公厅 (2026). 关于加快建设分级诊疗体系的若干措施. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065031.htm>：「加强基层门诊付费与签约服务政策联动，基本服务包按规定纳入医保支付；个性化服务包由签约基层医疗卫生机构按程序向县级卫生健康部门备案，费用由个人支付。」
 - Notas: O principal valor de assinar esse contrato é ter um profissional acompanhando seu tratamento a longo prazo, e não a quantidade de serviços incluídos no pacote. Ao receber propostas para um “pacote avançado”, faça três perguntas essenciais: trata-se do pacote básico ou personalizado, está registrado oficialmente e qual o custo anual.
 
-### 7. Ao ser diagnosticado com diabetes, faça um exame de fundo de olho; depois, siga os intervalos indicados pelo médico. Verifique os pés anualmente.
+### 7. Ao ser diagnosticado com diabetes, faça um exame de fundo de olho; depois, siga os intervalos indicados pelo médico. Verifique os pés anualmente
 <!-- 成本标签: 钱=少 时间=少 毅力=些 收益=大 口径=死亡率 -->
 - Custo: Um exame de fundo de olho com dilatação da pupila custa de algumas dezenas a algumas centenas de reais. O exame dos pés geralmente está incluído na consulta médica, sem custo adicional. O desafio é lembrar de fazer esses exames mesmo quando os olhos e os pés não apresentam nenhum desconforto.
 - Em linguagem simples: A diabetes pode danificar o fundo de olho e os pés, mas, antes de ocorrerem problemas graves como perda de visão ou úlceras, quase não há sintomas. Detectar a condição precocemente permite tratamento eficaz. No caso do diabetes tipo 2, o exame deve ser feito logo após o diagnóstico; no tipo 1, a partir dos 5 anos após o início da doença. Se os exames anteriores forem normais e o controle glicêmico estiver adequado, o intervalo pode ser ampliado para 1 ou 2 anos. Os pés devem ser examinados anualmente.
@@ -74,7 +74,7 @@ A abordagem aqui considera a mortalidade geral e os custos financeiros. Após o 
 - Fontes:美国糖尿病学会 (2026). 糖尿病诊疗标准 2026·第 12 章 视网膜病变、神经病变与足部护理. Diabetes Care：「People with type 2 diabetes should have an initial dilated and comprehensive eye examination by an ophthalmologist or optometrist at the time of the diabetes diagnosis.」「Adults with type 1 diabetes should have an initial dilated and comprehensive eye examination by an ophthalmologist or optometrist 5 years after the onset of diabetes.」「If there is no evidence of retinopathy from one or more annual eye exams and glycemic indicators are within the goal range, then screening every 1–2 years may be considered.」「Perform a comprehensive foot evaluation at least annually to identify risk factors for ulcers and amputations.」<https://doi.org/10.2337/dc26-S012>
 - Notas: Para o diabetes tipo 2, o exame deve ser realizado imediatamente após o diagnóstico; para o tipo 1, a partir dos 5 anos de evolução da doença. Isso ocorre porque, no tipo 2, os níveis de glicose já podem estar elevados há algum tempo sem que o paciente perceba. Caso os exames anteriores tenham sido normais e o controle glicêmico seja bom, o intervalo pode ser estendido para 1 ou 2 anos. Pessoas que sentem menos sensibilidade nos pés devem inspecioná-los diariamente, inclusive usando um espelho, para identificar possíveis lesões.
 
-### 8. Quem já teve cálculos renais deve beber de 2,5 a 3 litros de água por dia e manter o consumo de sal abaixo de 6 gramas.
+### 8. Quem já teve cálculos renais deve beber de 2,5 a 3 litros de água por dia e manter o consumo de sal abaixo de 6 gramas
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 - Custo: Não custa nada. Basta tornar o hábito de beber água constante. Em dias de muito suor, é preciso beber ainda mais; o desafio é lembrar disso todos os dias.
 - Em linguagem simples: Entre pessoas que tiveram cálculos de cálcio pela primeira vez, cerca de um quarto terá novos episódios em cinco anos se não fizer nada. Já quem bebe a quantidade recomendada de água, terá recorrência em pouco mais de 10% dos casos — ou seja, menos da metade. As diretrizes britânicas sugerem beber de 2,5 a 3 litros de água por dia e manter o consumo de sal abaixo de 6 gramas.

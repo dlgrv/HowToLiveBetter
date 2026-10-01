@@ -26,7 +26,7 @@ O número total de bebês analisados foi de 20.
 - Fontes:World Health Organization. Hepatitis B fact sheet. <https://www.who.int/news-room/fact-sheets/detail/hepatitis-b>
 - Notas: Se a mãe for portadora do antígeno de superfície da hepatite B, o bebê também recebe uma dose de imunoglobulina contra a hepatite B logo após o nascimento. Esse dado deve ser verificado durante o pré-natal, para evitar dúvidas após o parto. As orientações de rastreamento para a mãe estão na Seção 1.
 
-### 3. Vacine-se conforme o programa nacional de imunização; todo o ciclo é gratuito. Se perder alguma dose, basta completar as faltantes.
+### 3. Vacine-se conforme o programa nacional de imunização; todo o ciclo é gratuito. Se perder alguma dose, basta completar as faltantes
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=死亡率 -->
 
 - Custo: Não há custo algum. A lei estabelece que “os postos de vacinação não podem cobrar nada pela aplicação de vacinas do programa nacional de imunização”. Será necessário comparecer ao posto de vacinação várias vezes, conforme a idade da criança. Guarde bem o cartão de vacinação; não o perca.
@@ -98,7 +98,7 @@ O número total de bebês analisados foi de 20.
 - Fontes:Spies EL, Klevens J (2016). Fatal Abusive Head Trauma Among Children Aged <5 Years — United States, 1999–2014. MMWR 65(20):505-509. <https://doi.org/10.15585/mmwr.mm6520a1>；Choudhary AK 等 (2018). Consensus statement on abusive head trauma in infants and young children. Pediatric Radiology 48(8):1048-1065. <https://doi.org/10.1007/s00247-018-4149-1>
 - Notas: Quando sentir que está prestes a perder o controle, coloque o bebê de volta no berço e afaste-se por alguns minutos. Deixá-lo chorar um pouco é muito mais seguro do que balançá-lo nos braços. Isso é especialmente importante para quem cuida sozinho do filho e tem dormido pouco. Para saber como lidar com suas próprias emoções, consulte a seção 3.
 
-### 10. Na hora de escolher fraldas, preste atenção em três coisas: se servem bem, se são trocadas com frequência e se houve alguma fiscalização ou notificação sobre elas.
+### 10. Na hora de escolher fraldas, preste atenção em três coisas: se servem bem, se são trocadas com frequência e se houve alguma fiscalização ou notificação sobre elas
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=中 口径=金钱 -->
 - Custo: O preço varia entre duzentos e trezentos até milhares de reais por mês, dependendo da qualidade do produto que você escolher. No total, são necessários cerca de 200 a 300 reais mensais para a compra das fraldas.
 - Em linguagem simples: Nenhum órgão oficial fez um ranking de “quais são as melhores marcas”. As únicas informações disponíveis são as notificações de fiscalização de qualidade do Serviço Nacional de Supervisão e Administração de Mercados e as investigações feitas por órgãos reguladores sobre casos específicos. Um produto caro não é necessariamente seguro, e um importado não é obrigatoriamente aprovado. Comece comprando embalagens pequenas para testar por uma semana; observe se o bebê desenvolve assaduras ou marcas de pressão. Se tudo estiver bem, pode comprar mais.
@@ -116,7 +116,7 @@ O número total de bebês analisados foi de 20.
 - Fontes:作者经验，无直接文献；安全座椅的证据见第 1 节，冲动消费见第 5 节
 - Notas: Esta obra não recomenda nem desaconselha maternidades, aulas de estimulação infantil e piscinas para bebês. Contudo, são gastos consideráveis que podem ser evitados; portanto, aplica-se o período de reflexão de 24 horas mencionado na seção 5.
 
-### 12. Crianças com eczema grave ou alergia a ovos não devem evitar amendoins; devem introduzi-los cedo sob orientação médica, mas nunca devem receber amendoins inteiros.
+### 12. Crianças com eczema grave ou alergia a ovos não devem evitar amendoins; devem introduzi-los cedo sob orientação médica, mas nunca devem receber amendoins inteiros
 <!-- 成本标签: 钱=少 时间=少 毅力=否 收益=大 口径=死亡率 -->
 
 - Custo: Uma embalagem de pasta de amendoim custa algumas dezenas de yuanes. Basta oferecer algumas vezes por semana, de forma prática. Antes de introduzir o alimento, leve a criança ao médico para avaliação.
