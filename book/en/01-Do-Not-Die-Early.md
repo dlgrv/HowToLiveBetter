@@ -1,4 +1,4 @@
-[← Back to table of contents](../README.md)
+[← Back to table of contents](../../README.md)
 
 # 1. Do not die early
 

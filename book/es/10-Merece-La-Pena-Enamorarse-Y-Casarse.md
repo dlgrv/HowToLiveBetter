@@ -148,7 +148,7 @@ Esta sección desglosa la pregunta «¿conviene casarse?» en varias cuentas que
 - Beneficio: Los beneficios que obtienen sus mayores son reales. Sin embargo, no se convierten automáticamente en beneficios para su salud (apartado 8) ni en una mejora de la calidad de sus relaciones (apartado 4, según sus propias sensaciones). El costo en tiempo (apartado 9), el costo económico (apartados 10 a 12) y el costo de abandonar el matrimonio (apartado 15) los asume íntegramente la persona que se casa. Al llevar un registro separado, podrá determinar si este matrimonio “por obligación” resulta rentable o no.
 - Nivel de evidencia: C
 - Fuentes:作者经验，方法类建议；数据部分见本节前面各条
-- Notas: La columna de beneficios para sus mayores también puede considerarse de gran importancia; la decisión final sobre cómo ponderarlos depende de usted. Para una lista de cálculo, consulte [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+- Notas: La columna de beneficios para sus mayores también puede considerarse de gran importancia; la decisión final sobre cómo ponderarlos depende de usted. Para una lista de cálculo, consulte [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
 
 ### 17. Consider the calidad de la relación conyugal como un factor de salud: discutan sobre el tema en cuestión sin atacarse ni usar sarcasmo
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->

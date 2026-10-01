@@ -15,7 +15,7 @@ Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista
 [![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1531%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md)
+**[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md) | [Depois de uma demissão (texto longo)](docs/research/pt/After-A-Layoff-What-To-Do-First.md) | [Coisas a resolver no parto (texto longo)](docs/research/pt/Things-To-Handle-Around-Childbirth.md) | [Logo após diagnóstico de doença crônica (texto longo)](docs/research/pt/Right-After-A-Chronic-Disease-Diagnosis.md)
 
 </div>
 
@@ -79,10 +79,10 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 13. [Situações de emergência: o que fazer primeiro](book/pt/13-Situações-de-emergência-o-que-fazer-primeiro.md)
 14. [Segurança de contas e informações pessoais](book/pt/14-Segurança-de-contas-e-informações-pessoais.md)
 15. [Alugar ou comprar um imóvel](book/pt/15-Alugar-ou-comprar-um-imóvel.md): caução, despejo forçado, cobrança pelo intermediário, custódia de fundos, a venda não rompe o aluguel, conferir titularidade, conta dedicada à transação, cômodos subdividos, com hukou urbano não comprar terra de moradia rural (só alugar casa na aldeia). Medida: dinheiro.
-16. [Como viver após desenvolver uma doença crônica](book/pt/16-Como-viver-após-desenvolver-uma-doença-crônica.md)
+16. [Como viver após desenvolver uma doença crônica](book/pt/16-Como-viver-após-desenvolver-uma-doença-crônica.md) — texto longo: [Logo após diagnóstico de doença crônica](docs/research/pt/Right-After-A-Chronic-Disease-Diagnosis.md)
 17. [Idosos em casa](book/pt/17-Idosos-em-casa.md)
 18. [Vale a pena ter filhos?](book/pt/18-Vale-a-pena-ter-filhos.md)
-19. [Emprego, demissão e acidentes de trabalho](book/pt/19-Emprego-demissão-e-acidentes-de-trabalho.md)
+19. [Emprego, demissão e acidentes de trabalho](book/pt/19-Emprego-demissão-e-acidentes-de-trabalho.md) — texto longo: [Depois de uma demissão](docs/research/pt/After-A-Layoff-What-To-Do-First.md)
 20. [Recém-nascido: cuidados iniciais](book/pt/20-Recém-nascido-cuidados-iniciais.md)
 21. [Viajar ao exterior, turismo e segurança no estrangeiro](book/pt/21-Viajar-ao-exterior-turismo-e-segurança-no-estrangeiro.md)
 22. [Como relaxar: locais de lazer e maneiras de aliviar o estresse](book/pt/22-Como-relaxar-locais-de-lazer-e-maneiras-de-aliviar-o-estresse.md)
@@ -90,7 +90,7 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 24. [Como consultar um médico gastando menos e evitando complicações](book/pt/24-Como-consultar-um-médico-gastando-menos-e-evitando-complicações.md)
 25. [O que fazer após o falecimento de alguém](book/pt/25-O-que-fazer-após-o-falecimento-de-alguém.md)
 26. [Criar um site ou plataforma: licenças, registros e servidores](book/pt/26-Criar-um-site-ou-plataforma-licenças-registros-e-servidores.md)
-27. [Gravidez e parto: desde a confirmação da gravidez até a alta hospitalar e emissão de documentos](book/pt/27-Gravidez-e-parto-desde-a-confirmação-da-gravidez-até-a-alta-hospitalar-e-emissão.md)
+27. [Gravidez e parto: desde a confirmação da gravidez até a alta hospitalar e emissão de documentos](book/pt/27-Gravidez-e-parto-desde-a-confirmação-da-gravidez-até-a-alta-hospitalar-e-emissão.md) — texto longo: [Coisas a resolver no parto](docs/research/pt/Things-To-Handle-Around-Childbirth.md)
 28. [Não prejudique a saúde só para mudar a aparência](book/pt/28-Não-prejudique-a-saúde-só-para-mudar-a-aparência.md)
 29. [Após sofrer um grande golpe](book/pt/29-Após-sofrer-um-grande-golpe.md)
 30. [Crianças em idade escolar](book/pt/30-Crianças-em-idade-escolar.md)
@@ -98,7 +98,7 @@ O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos esta
 32. [Estudar no exterior: status legal, trabalho, seguros e reconhecimento do diploma](book/pt/32-Estudar-no-exterior-status-legal-trabalho-seguros-e-reconhecimento-do-diploma.md)
 33. [Como viver após ficar com deficiência](book/pt/33-Como-viver-após-ficar-com-deficiência.md)
 34. [Cuidado ao usar os medicamentos que tem em casa](book/pt/34-Cuidado-ao-usar-os-medicamentos-que-tem-em-casa.md)
-Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-Kit.md), [Quais licenças uma plataforma precisa](docs/research/pt/What-Licenses-A-Platform-Needs.md), [Vale a pena casar](docs/research/pt/Is-Marriage-Worth-It.md), [Devo parar para ajudar um estranho](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md). O rastro de verificação das fontes está em [docs/核实记录](docs/research/核实记录/).
+Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-Kit.md), [Quais licenças uma plataforma precisa](docs/research/pt/What-Licenses-A-Platform-Needs.md), [Vale a pena casar](docs/research/pt/Is-Marriage-Worth-It.md), [Devo parar para ajudar um estranho](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md), e três checklists por tempo: [Depois de uma demissão](docs/research/pt/After-A-Layoff-What-To-Do-First.md), [Coisas a resolver no parto](docs/research/pt/Things-To-Handle-Around-Childbirth.md) e [Logo após diagnóstico de doença crônica](docs/research/pt/Right-After-A-Chronic-Disease-Diagnosis.md). O rastro de verificação das fontes está em [docs/核实记录](docs/research/核实记录/).
 
 `site/index.html` é o modelo da busca online; `make web-build` gera páginas em `site/{en,ru,es,zh,pt}/`. Localmente: `make serve` e abra http://127.0.0.1:8000/pt/.
 

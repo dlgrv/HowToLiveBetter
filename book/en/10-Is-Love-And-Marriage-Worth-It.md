@@ -170,7 +170,7 @@ This section breaks down the question “Is marriage a good financial decision?�
 - Benefit: The benefits your elders receive are genuine. Yet they do not automatically become gains in your own health (see Section 8) or relationship quality (see Section 4; how good your relationship is depends on your own feelings). All time costs (Section 9), financial expenses (Sections 10–12), and exit costs (Section 15) must be borne by you. Once you keep separate records, you can easily judge whether marrying “as a duty” offers any real value for you.
 - Evidence grade: C
 - Sources:作者经验，方法类建议；数据部分见本节前面各条
-- Notes: You may also treat the elders’ share of benefits as a major factor in your calculations; how you weigh it is entirely up to you. A fill‑in worksheet is available at [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+- Notes: You may also treat the elders’ share of benefits as a major factor in your calculations; how you weigh it is entirely up to you. A fill‑in worksheet is available at [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
 
 ### 17. Treating relationship quality as a health factor: focus on the issue, not the person — avoid insults and sarcasm
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->

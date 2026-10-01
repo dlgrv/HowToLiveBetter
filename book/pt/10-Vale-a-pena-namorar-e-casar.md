@@ -163,7 +163,7 @@ Esta seção divide a pergunta “Vale a pena casar?” em vários itens separad
 - Benefício: Os benefícios para os pais são reais. Contudo, eles não se convertem sozinhos em ganhos para a sua saúde (item 8) ou na qualidade do seu relacionamento (item 4, que depende da sua percepção pessoal). Os custos de tempo (item 9), financeiros (itens 10 a 12) e de desistência (item 15) são todos suportados por você. Depois de separar as contas, fica evidente se esse casamento “feito como uma tarefa” é vantajoso ou não.
 - Nível de evidência: C
 - Fontes:作者经验，方法类建议；数据部分见本节前面各条
-- Notas: A coluna dos pais também pode ser considerada um custo muito relevante; a decisão de como ponderar isso fica a seu critério. A lista de itens para preencher está em [docs/结婚划不划算.md](../docs/结婚划不划算.md).
+- Notas: A coluna dos pais também pode ser considerada um custo muito relevante; a decisão de como ponderar isso fica a seu critério. A lista de itens para preencher está em [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
 
 ### 17. Tratar a qualidade do relacionamento como um indicador de saúde: discutir o problema, não as pessoas; evite insultos e sarcasmo
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->
