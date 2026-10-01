@@ -257,7 +257,17 @@ class IssuesStillPresent(unittest.TestCase):
 
         issue = {"kind": "number_absent", "value": "610000"}
         self.assertEqual(
-            issues_still_present("61 тысяча человек", [issue], "ru"), ["number 610000 still absent"]
+            issues_still_present("61 тысяча человек", [issue], "ru"),
+            ["number 610000 still absent (0/1)"],
+        )
+
+    def test_number_count_shortfall_still_dirty(self):
+        from translate.steps.repair.verify_issues import issues_still_present
+
+        issue = {"kind": "number_absent", "value": "2022", "count": 2}
+        self.assertEqual(
+            issues_still_present("year 2022 only", [issue], "en"),
+            ["number 2022 still absent (1/2)"],
         )
 
     def test_calque_single_gloss_passes_assert(self):

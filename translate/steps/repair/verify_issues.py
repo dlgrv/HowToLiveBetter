@@ -121,18 +121,22 @@ def issues_still_present(unit_tr_text: str, issues: list[dict], lang: str) -> li
     ASYMMETRY with locate_issues (by design, not a bug): the assert only sees
     the repaired TR text — no CN side — so it cannot do a full cn-vs-tr
     deficit diff. It checks the weaker, conservative condition: the required
-    value is present at all, and the banned stem is down to ≤1 occurrence
-    (one first-use gloss is allowed). The locator's job is to FIND the dirty
-    unit (full deficit diff); the assert's job is to CONFIRM the specific
-    repair landed. Conservative here means erring toward "still dirty" on a
-    partial fix, never toward a false clear.
+    value appears at least ``count`` times (default 1), and the banned stem is
+    down to ≤1 occurrence (one first-use gloss is allowed). The locator's job
+    is to FIND the dirty unit (full deficit diff); the assert's job is to
+    CONFIRM the specific repair landed. Conservative here means erring toward
+    "still dirty" on a partial fix, never toward a false clear.
     """
     counts = _num_counter(unit_tr_text, lang)
     leftovers: list[str] = []
     for iss in issues:
         kind = iss.get("kind")
-        if kind == "number_absent" and str(iss["value"]) not in counts:
-            leftovers.append(f"number {iss['value']} still absent")
+        if kind == "number_absent":
+            value = str(iss["value"])
+            want = max(1, int(iss.get("count") or 1))
+            have = counts.get(value, 0)
+            if have < want:
+                leftovers.append(f"number {value} still absent ({have}/{want})")
         if kind == "banned_calque":
             n = len(re.findall(iss["stem"], unit_tr_text, re.IGNORECASE))
             if n > 1:

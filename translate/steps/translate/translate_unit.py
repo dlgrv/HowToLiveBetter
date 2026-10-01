@@ -279,9 +279,13 @@ def main(argv: list[str] | None = None) -> int:
         translated = strip_fence(translated)
         if uu != "00":
             # Late import: mechanical sits under repair/; avoid cycle at module load.
-            from translate.steps.repair.mechanical import collapse_multiline_fields
+            from translate.steps.repair.mechanical import (
+                collapse_multiline_fields,
+                fix_heading_number,
+            )
 
             translated = collapse_multiline_fields(translated, args.lang)
+            translated = fix_heading_number(translated, uu)
         translated = inject_mechanical_markers(translated, uu)
         last_errs = validate_unit(translated, uu, args.lang)
         if not last_errs:

@@ -54,7 +54,7 @@ class IssueAssert(unittest.TestCase):
         leftovers = ru.issues_still_present(
             "61 тысяча человек", [{"kind": "number_absent", "value": "610000"}], "ru"
         )
-        self.assertEqual(leftovers, ["number 610000 still absent"])
+        self.assertEqual(leftovers, ["number 610000 still absent (0/1)"])
 
     def test_calque_stem_cleared(self):
         leftovers = ru.issues_still_present(

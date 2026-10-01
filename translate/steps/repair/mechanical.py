@@ -43,6 +43,99 @@ def _all_field_labels(lang: str) -> list[str]:
     return labels
 
 
+_ITEM_HEADING = re.compile(r"^(### )(\d+)(\. .+)$")
+_TRAILING_TITLE_PERIOD = re.compile(r"^(### \d+\. .+?)[.。．]\s*$")
+_ABBREV_OR_ELLIPSIS = re.compile(
+    r"(?:\b(?:U\.S\.?|U\.K\.?|e\.g|i\.e|etc|vs|Mr|Mrs|Ms|Dr|No|vol|pp)|[A-Za-z]\.[A-Za-z]|[.。．]{2})\s*$"
+)
+
+
+def _fence_char(line: str) -> str | None:
+    m = re.match(r"^(`{3,}|~{3,})(.*)$", line)
+    if not m:
+        return None
+    return m.group(1)[0]
+
+
+def _map_unfenced_lines(text: str, transform) -> str:
+    """Apply ``transform(line) -> line`` outside fenced code blocks."""
+    ended = text.endswith("\n")
+    out: list[str] = []
+    fence = ""
+    for raw in text.splitlines():
+        mark = _fence_char(raw)
+        if mark:
+            if not fence:
+                fence = mark
+            elif mark == fence and re.match(r"^(`{3,}|~{3,})\s*$", raw):
+                fence = ""
+            out.append(raw)
+            continue
+        out.append(raw if fence else transform(raw))
+    body = "\n".join(out)
+    if not text:
+        return ""
+    return body + ("\n" if ended else "")
+
+
+def strip_trailing_item_period(text: str) -> str:
+    """Drop a final ``.`` / ``。`` / ``．`` on ``### N.`` item titles only."""
+
+    def one(line: str) -> str:
+        m = _TRAILING_TITLE_PERIOD.match(line)
+        if not m:
+            return line
+        if _ABBREV_OR_ELLIPSIS.search(line.rstrip()):
+            return line
+        return m.group(1)
+
+    return _map_unfenced_lines(text, one)
+
+
+def normalize_bold_fields(text: str, lang: str) -> str:
+    """Rewrite ``**Label:** value`` to ``- Label: value`` for known field labels."""
+    labels = sorted(_all_field_labels(lang), key=len, reverse=True)
+    label_alt = "|".join(re.escape(x) for x in labels)
+    bold_re = re.compile(rf"^\*\*({label_alt})[：:]\*\*\s*(.*)$")
+
+    def one(line: str) -> str:
+        m = bold_re.match(line)
+        if not m:
+            return line
+        value = m.group(2)
+        return f"- {m.group(1)}: {value}".rstrip() if value else f"- {m.group(1)}:"
+
+    return _map_unfenced_lines(text, one)
+
+
+def fix_heading_number(text: str, uu: str) -> str:
+    """Force the first ``### M.`` heading to match unit id ``uu`` (items only)."""
+    if uu == "00" or not text:
+        return text
+    want = str(int(uu))
+    ended = text.endswith("\n")
+    lines = text.splitlines()
+    fence = ""
+    for i, raw in enumerate(lines):
+        mark = _fence_char(raw)
+        if mark:
+            if not fence:
+                fence = mark
+            elif mark == fence and re.match(r"^(`{3,}|~{3,})\s*$", raw):
+                fence = ""
+            continue
+        if fence:
+            continue
+        m = _ITEM_HEADING.match(raw)
+        if not m:
+            continue
+        if m.group(2) != want:
+            lines[i] = f"{m.group(1)}{want}{m.group(3)}"
+        break
+    body = "\n".join(lines)
+    return body + ("\n" if ended else "")
+
+
 def clean_pollution(text: str) -> str:
     """Strip naive digit dumps left by earlier inject attempts."""
     lines: list[str] = []
@@ -91,18 +184,35 @@ def ensure_notes_inject(text: str, missing: list[tuple[str, int]], lang: str) ->
 
 def collapse_multiline_fields(text: str, lang: str) -> str:
     """Join ``- Label:\\n  value`` (and unindented next-line values) onto one line."""
+    text = strip_trailing_item_period(text)
+    text = normalize_bold_fields(text, lang)
     labels = _all_field_labels(lang)
     label_alt = "|".join(re.escape(x) for x in labels)
-    empty_re = re.compile(rf"^- ({label_alt}):\s*$")
-    next_field_re = re.compile(rf"^- ({label_alt}):")
+    empty_re = re.compile(rf"^- ({label_alt})[：:]\s*$")
+    next_field_re = re.compile(rf"^- ({label_alt})[：:]")
     lines = text.splitlines(keepends=True)
     out: list[str] = []
     i = 0
+    fence = ""
     while i < len(lines):
-        raw = lines[i].rstrip("\n")
+        raw_line = lines[i]
+        raw = raw_line.rstrip("\n")
+        mark = _fence_char(raw)
+        if mark:
+            if not fence:
+                fence = mark
+            elif mark == fence and re.match(r"^(`{3,}|~{3,})\s*$", raw):
+                fence = ""
+            out.append(raw_line if raw_line.endswith("\n") else raw_line + "\n")
+            i += 1
+            continue
+        if fence:
+            out.append(raw_line if raw_line.endswith("\n") else raw_line + "\n")
+            i += 1
+            continue
         m = empty_re.match(raw)
         if not m:
-            out.append(lines[i] if lines[i].endswith("\n") else lines[i] + "\n")
+            out.append(raw_line if raw_line.endswith("\n") else raw_line + "\n")
             i += 1
             continue
         label = m.group(1)
@@ -135,7 +245,7 @@ def collapse_multiline_fields(text: str, lang: str) -> str:
             out.append(f"- {label}: {' '.join(chunks)}\n")
             i = j
             continue
-        out.append(lines[i] if lines[i].endswith("\n") else lines[i] + "\n")
+        out.append(raw_line if raw_line.endswith("\n") else raw_line + "\n")
         i += 1
 
     body = "".join(out)

@@ -23,7 +23,11 @@ from pathlib import Path
 
 from translate.lib.config import default_root, translation_langs
 from translate.llm.client import LLMError, chat
-from translate.steps.repair.mechanical import collapse_multiline_fields, mechanical_fix_unit
+from translate.steps.repair.mechanical import (
+    collapse_multiline_fields,
+    fix_heading_number,
+    mechanical_fix_unit,
+)
 from translate.steps.repair.verify_issues import REPAIRABLE_KINDS, issues_still_present
 from translate.steps.translate.translate_unit import (
     LOCALE_FIELD_HINTS,
@@ -132,6 +136,7 @@ def main(argv: list[str] | None = None) -> int:
 
     # 1) Structural collapse + mechanical number inject (no LLM).
     draft = collapse_multiline_fields(current_tr, args.lang)
+    draft = fix_heading_number(draft, uu)
     number_issues = [i for i in issues if i.get("kind") == "number_absent"]
     calque_issues = [i for i in issues if i.get("kind") == "banned_calque"]
     if number_issues:
@@ -165,6 +170,7 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
             repaired = strip_fence(repaired)
             repaired = collapse_multiline_fields(repaired, args.lang)
+            repaired = fix_heading_number(repaired, uu)
             # Re-apply number inject so calque rewrite cannot drop digits again.
             if number_issues:
                 repaired = mechanical_fix_unit(repaired, number_issues, args.lang)
