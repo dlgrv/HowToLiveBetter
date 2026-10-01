@@ -148,10 +148,14 @@ class TestVerifyWrapper(unittest.TestCase):
         self.assertTrue(os.path.isfile(p))
 
     def test_clean_chapter_passes_wrapper(self):
-        # Primary locale + a chapter outside the usual post-sync pending set.
+        # Primary locale + a chapter outside the post-sync pending set.
         lang = _primary_lang()
-        code, out = mt.run_verify("04", lang)
-        self.assertEqual((code, out["status"]), (0, "pass"), f"{lang}04 must be green")
+        pending = _retranslate_pending()
+        nn = next((c for c in CHAPTERS if c not in pending), None)
+        if nn is None:
+            self.skipTest("all control chapters are retranslate-pending")
+        code, out = mt.run_verify(nn, lang)
+        self.assertEqual((code, out["status"]), (0, "pass"), f"{lang}{nn} must be green")
 
     def test_broken_file_fails_wrapper(self):
         _code, out = mt.run_verify("02", "ru", file_text="кактус без структуры\n")
