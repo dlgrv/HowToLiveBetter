@@ -9,6 +9,11 @@ run/
 translate/digest/
 translate/runs/
 translate/.status/
+# one-off catchup/smoke scripts and logs never belong in runs/ as tracked files
+translate/runs/*.log
+translate/runs/*.py
+translate/runs/old-*/
+translate/runs/smoke/
 
 # local tool caches
 .pytest_cache/
