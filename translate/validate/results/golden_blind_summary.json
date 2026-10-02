@@ -6,12 +6,11 @@
     "ties": 1,
     "rate": 0.882
   },
-  "decoy_fp_rate": 0.667,
+  "decoy_fp_rate": 0.786,
   "decoy_detail": {
-    "picked_original": 22,
-    "answered": 33,
+    "false_positives": 33,
     "ties": 9,
-    "rate": 0.667
+    "rate": 0.786
   },
   "tie_contrast": {
     "decoy_ties": 9,

@@ -34,10 +34,15 @@ def load_answers(results_dir=RESULTS):
 def _rate(pairs, answers):
     """Share of pairs where the judge picked variant_a (the original).
 
-    On decoys (A==B) any preference is a false positive; when the judge ties
-    on all decoys the FP rate is 0.0, not None. But if the judge never even
-    ANSWERED the decoys (empty/lost data), rate is null — a missing metric
-    must not read as a perfect one (review code#6).
+    `rate` here is picked_native / answered — meaningful ONLY for non-decoy
+    pairs, where variant_a is a real distinct original. For decoys (A==B)
+    there is no "original" to prefer: which side the judge happens to pick
+    when they wrongly claim a difference is a coin flip by construction, not
+    a false-positive signal. Use `fp_rate` (judge expressed ANY preference
+    instead of a tie) for decoys instead — see `_fp_rate` below.
+
+    If the judge never even ANSWERED the pairs (empty/lost data), rate is
+    null — a missing metric must not read as a perfect one (review code#6).
     """
     picked_native = answered = ties = 0
     for p in pairs:
@@ -67,6 +72,30 @@ def _rate(pairs, answers):
     }
 
 
+def _fp_rate(decoys, answers):
+    """True false-positive rate on decoys: judge claimed a difference (any
+    non-tie answer) on a pair where variant_a == variant_b. There is no
+    "which side" signal to measure on a decoy, only answered-vs-tied."""
+    answered = ties = 0
+    for p in decoys:
+        a = answers.get(p["id"])
+        if a is None:
+            continue
+        if a in ("=", 0):
+            ties += 1
+        else:
+            answered += 1
+    total = answered + ties
+    if total == 0:
+        missing = all(answers.get(p["id"]) is None for p in decoys)
+        return {"false_positives": answered, "ties": ties, "rate": None if missing else 0.0}
+    return {
+        "false_positives": answered,
+        "ties": ties,
+        "rate": round(answered / total, 3),
+    }
+
+
 def summarize(results_dir=RESULTS):
     manifest = json.load(open(os.path.join(results_dir, "golden_manifest.json"), encoding="utf-8"))
     answers = load_answers(results_dir)
@@ -76,7 +105,7 @@ def summarize(results_dir=RESULTS):
     for recipe in {p["recipe"] for p in non_decoy}:
         per_recipe[recipe] = _rate([p for p in non_decoy if p["recipe"] == recipe], answers)
     pref = _rate(non_decoy, answers)
-    fp = _rate(decoys, answers)
+    fp = _fp_rate(decoys, answers)
     summary = {
         "native_preference": pref["rate"],
         "native_detail": pref,
