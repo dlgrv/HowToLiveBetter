@@ -28,12 +28,6 @@
 | 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 | 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
 
-## المساهمون
-
-[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
-
----
-
 ## الأسئلة التي يحاول هذا الكتاب الإجابة عنها
 
 | السؤال | أين تنظر |
@@ -233,3 +227,7 @@
 ## الكتاب نفسه
 
 ينقسم النص إلى 34 ملف فصول تحت [book/ar/](book/ar/)؛ وانقر عنوان فصل في جدول المحتويات أعلاه لتفتحه. قسم لأنه لو كان ملفا واحدا لتجاوز حد GitHub البالغ 512 KB لعرض Markdown ولما ظهرت الفصول الأخيرة؛ وتقرأ [صفحة البحث عبر الإنترنت](https://dlgrv.github.io/HowToLiveBetter/ar/) هذه الملفات مجمعة وتعمل بالطريقة نفسها.
+
+## المساهمون
+
+[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)

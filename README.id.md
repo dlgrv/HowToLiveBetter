@@ -22,10 +22,6 @@ Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna
 | 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
 
-## Kontributor
-
-[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
-
 > Edisi ini berdasarkan [versi Inggris dlgrv](README.md), dengan penyesuaian Indonesia yang diperiksa pada **30 September 2026**. [Bab 7](book/id/07-Saat-Tidak-Punya-Uang.md) memakai jalur bantuan Indonesia. Butir berlabel **Ada konteks luar negeri** tetap menjadi bahan perbandingan; gunakan [panduan Indonesia per bab](docs/research/id/Panduan-Untuk-Indonesia.md) untuk urusan setempat.
 
 **[Panduan Indonesia dan kontak penting](docs/research/id/Panduan-Untuk-Indonesia.md)** · **[Harga lokal dan kurs 2026](docs/research/id/Harga-Dan-Kurs-2026.md)**
@@ -95,3 +91,7 @@ Kolom **Singkatnya** membantu kamu menangkap inti saran. Baca **Manfaat**, **Cat
 ## Lisensi
 
 Naskah dan adaptasi dalam fork ini mengikuti [Unlicense](LICENSE). Edisi Indonesia berdasarkan kontribusi [ahxar](https://github.com/ahxar/HowToLiveBetter) atas versi Inggris [dlgrv](https://github.com/dlgrv/HowToLiveBetter) dan dipelihara di sini.
+
+## Kontributor
+
+[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)

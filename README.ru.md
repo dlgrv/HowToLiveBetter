@@ -31,12 +31,6 @@
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
 | 🇮🇩 Bahasa Indonesia | [Baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
 
-## Участники
-
-[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
-
----
-
 ## Вопросы, на которые хочет ответить эта книга
 
 | Вопрос | Где посмотреть |
@@ -240,3 +234,7 @@
 ## Текст книги
 
 Текст разбит на 34 файла по главам в каталоге [book/ru/](book/ru/): нажмите на название раздела в оглавлении выше. Разбивка сделана потому, что единый файл превысил лимит GitHub в 512 KB на рендеринг Markdown и последние разделы перестали бы отображаться; [страница онлайн-поиска](https://dlgrv.github.io/HowToLiveBetter/ru/) читает эти файлы вместе, порядок работы тот же.
+
+## Участники
+
+[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)

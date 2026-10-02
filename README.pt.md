@@ -31,12 +31,6 @@ Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista
 | 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
 | 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 
-## Colaboradores
-
-[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
-
----
-
 ## Perguntas que este livro tenta responder
 
 Use a [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) para filtrar por palavra-chave, seção e grau de evidência. Os capítulos em português estão em [book/pt/](book/pt/).
@@ -113,3 +107,7 @@ Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-K
 ## O livro em si
 
 O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice acima. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
+
+## Colaboradores
+
+[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
