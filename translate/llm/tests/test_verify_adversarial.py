@@ -386,13 +386,22 @@ class RoundTrip(unittest.TestCase):
 
 
 class BannedCalque(unittest.TestCase):
-    """Check 7 semantics via real verify.py run: >1 occurrence fails, 1 warns."""
+    """Check 7 semantics via real verify.py run: >1 occurrence fails, 1
+    occurrence fails too unless it carries a parenthetical first-use gloss."""
 
-    def test_calque_once_is_warn_not_fail(self):
+    def test_calque_once_without_gloss_fails(self):
         rep, _ = run_verify_json("### 1. x\n- Примечания: это когорта пациентов\n")
         kinds = [f["kind"] for f in rep["fails"]]
+        self.assertIn("calque_unglossed", kinds)
+
+    def test_calque_once_with_gloss_is_warn_not_fail(self):
+        rep, _ = run_verify_json(
+            "### 1. x\n- Примечания: это когорта (группа наблюдения) пациентов\n"
+        )
+        kinds = [f["kind"] for f in rep["fails"]]
         self.assertNotIn("banned_calque", kinds)
-        self.assertTrue(any(w["kind"] == "calque_once" for w in rep["warns"]))
+        self.assertNotIn("calque_unglossed", kinds)
+        self.assertTrue(any(w["kind"] == "calque_once_glossed" for w in rep["warns"]))
 
     def test_calque_twice_fails(self):
         rep, _ = run_verify_json("### 1. x\n- Примечания: когорта и снова когорта\n")
