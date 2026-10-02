@@ -525,7 +525,7 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
+        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -704,6 +704,8 @@ function fileCountPhrase(n){
   if (!n) return '…';
   if (LANG === 'zh') return n + ' 个文件';
   if (LANG === 'en') return n + (n === 1 ? ' file' : ' files');
+  if (LANG === 'id') return n + ' file';
+  if (LANG === 'es') return n + (n === 1 ? ' archivo' : ' archivos');
   const m10 = n % 10, m100 = n % 100;
   if (m10 === 1 && m100 !== 11) return n + ' файл';
   if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return n + ' файла';
@@ -872,7 +874,7 @@ const I18N = {
    keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
    author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
    about:['kesehatan','umur panjang','keuangan pribadi','pertolongan pertama','hukum','hak konsumen'],
-   forkNote:'Terjemahan tidak resmi. <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">Naskah Mandarin</a> tetap menjadi rujukan utama.',
+   forkNote:'Edisi Indonesia dari versi Inggris dlgrv. <a href="https://github.com/ahxar/HowToLiveBetter/blob/translation/id-full/docs/research/id/Panduan-Untuk-Indonesia.md" target="_blank" rel="noopener">Panduan Indonesia</a> · <a href="https://github.com/ahxar/HowToLiveBetter/blob/translation/id-full/docs/research/id/Harga-Dan-Kurs-2026.md" target="_blank" rel="noopener">Harga dan kurs, 30 September 2026</a>. Rujukan asing ditandai pada setiap saran terkait.',
    snapshotNote:'' },
  zh:{ htmlLang:'zh-CN', title:'高性价比人生指南', search:'搜索建议', searchShort:'搜索',
    noscriptH:'高性价比人生指南',
@@ -937,7 +939,7 @@ function applyI18n(){
   const dhp=dh.querySelectorAll(':scope > p:not(.fork-note):not(.meta-line)'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
-  const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
+  const fbTitle='['+LANG.toUpperCase()+'] ';
   const issueUrl='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle);
   const ft=document.getElementById('fb-issue-t'); if(ft) ft.textContent=t.fbIssueT;
   const fb=document.getElementById('fb-issue');
@@ -975,7 +977,7 @@ function applyI18n(){
   document.getElementById('lang-label').textContent=(HTLB.shortLabels&&HTLB.shortLabels[LANG])||LANG.toUpperCase();
   document.getElementById('lang').open=false;
   // nav attributes
-  const ddS=document.querySelector('.lang-dd > summary'); if(ddS) ddS.title=t.ddTitle;
+  const ddS=document.querySelector('.lang-dd > summary'); if(ddS){ ddS.title=t.ddTitle; ddS.setAttribute('aria-label',t.ddTitle); }
   const menu=document.getElementById('menu'); if(menu){
     const collapsed=document.documentElement.classList.contains('side-collapsed');
     const desk=window.__HTLB_V2__ && matchMedia('(min-width:1100px)').matches;
@@ -983,8 +985,8 @@ function applyI18n(){
     menu.setAttribute('title', desk ? (collapsed ? t.sideExpand : t.sideCollapse) : t.menuAria);
   }
   const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
-  const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
-  const rm=document.querySelector('.nav-r a[href^="README"]'); if(rm){ rm.setAttribute('href',t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
+  const gh=document.querySelector('.nav-r .ic-gh'); if(gh){ gh.setAttribute('title',t.ghTitle); gh.href='https://github.com/'+(LANG==='id'?'ahxar':'dlgrv')+'/HowToLiveBetter'; }
+  const rm=document.querySelector('.nav-r a[href*="README"]'); if(rm){ rm.setAttribute('href',window.__HTLB_BASE__+t.readmeHref); rm.setAttribute('title',t.readmeTitle); }
   // head meta / social cards / JSON-LD
   const setm=(sel,attr,val)=>{const el=document.querySelector(sel); if(el) el.setAttribute(attr,val);};
   setm('meta[name="description"]','content',t.metaDesc);
@@ -1173,12 +1175,14 @@ function trimUrl(u){
   return [u, t];
 }
 // Markdown 链接 [文字](地址) 或裸 URL；仓库内的相对路径指向 GitHub 上的源文件
-const REPO_BLOB = 'https://github.com/eternity4719/HowToLiveBetter/blob/main/';
+const REPO_BLOB = 'https://github.com/dlgrv/HowToLiveBetter/blob/main/';
 const MD_LINK_RE = /\[([^\]\n]+)\]\(([^)\s]+)\)/;
 const LINK_RE = new RegExp(MD_LINK_RE.source + '|' + URL_RE.source, 'g');
 function hrefOf(p){
   if (/^(https?:|mailto:|#)/.test(p)) return p;
-  return REPO_BLOB + p.replace(/^(\.\.?\/)+/, '').split('/').map(encodeURIComponent).join('/');
+  const [path, fragment] = p.split('#', 2);
+  const base = LANG === 'id' ? 'https://github.com/ahxar/HowToLiveBetter/blob/translation/id-full/' : REPO_BLOB;
+  return base + path.replace(/^(\.\.?\/)+/, '').split('/').map(encodeURIComponent).join('/') + (fragment ? '#' + fragment : '');
 }
 function mkLink(href, text){
   const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = text;

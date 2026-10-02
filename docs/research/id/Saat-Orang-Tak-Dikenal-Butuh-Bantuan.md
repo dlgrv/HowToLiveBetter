@@ -1,5 +1,7 @@
 > Terjemahan tidak resmi dari [versi Inggris](../en/Should-You-Stop-To-Help-A-Stranger.md). Jika ada perbedaan, naskah asli yang berlaku.
 
+> **Untuk Indonesia:** aturan, layanan, dan kewajiban Tiongkok dalam bacaan ini adalah rujukan asing. Gunakan [panduan Indonesia](Panduan-Untuk-Indonesia.md) dan [harga lokal](Harga-Dan-Kurs-2026.md) untuk keputusan setempat.
+
 [← Kembali ke daftar isi utama](../../../README.md)
 
 # Orang asing mengalami kecelakaan di jalan: pergi atau berhenti
@@ -13,7 +15,7 @@ Ini adalah versi lengkap dari Bagian 13, butir 2. Berdasarkan tolok ukur penerim
 | | Pergi | Berhenti tetapi jangan menyentuh | Berhenti dan hadapi hingga tuntas |
 | --- | --- | --- | --- |
 | Legalitas | Legal. Orang biasa tidak memiliki kewajiban untuk menolong orang asing, dan hukum pidana tidak mengenal tindak pidana "mengetahui dan tidak menolong" | Legal | Legal |
-| Waktu | 0 | Beberapa menit; menelepon 120 (nomor darurat medis Tiongkok) akan meninggalkan nomor teleponmu | Minimal setengah hari, kemungkinan sampai menemani mereka ke rumah sakit |
+| Waktu | 0 | Beberapa menit; menelepon 119 (nomor darurat medis Tiongkok) akan meninggalkan nomor teleponmu | Minimal setengah hari, kemungkinan sampai menemani mereka ke rumah sakit |
 | Kemungkinan dilacak kemudian | Terendah | Kamu adalah orang yang meninggalkan nomor | Tertinggi |
 | Manfaat bagi orang lain | 0 | Ambulans tiba lebih cepat | Terbesar |
 
@@ -25,7 +27,7 @@ Ini adalah versi lengkap dari Bagian 13, butir 2. Berdasarkan tolok ukur penerim
 
 **3. Ditetapkan sebagai tergugat.** Pihak yang mengaku kamu tabrak memikul sendiri beban pembuktian; jika tidak dapat menunjukkan bukti, pihak tersebut menanggung akibat hukum yang merugikan (Interpretasi Mahkamah Agung tentang Penerapan Hukum Acara Perdata, Ps. 90) — **tetapi aturan ini hanya menjamin hasil putusan, bukan membuatmu lepas dari kasus**. Batas waktu penyelesaian kasus tingkat pertama dalam prosedur biasa adalah 6 bulan, dapat diperpanjang 6 bulan lagi dalam keadaan khusus; prosedur sederhana adalah 3 bulan (Hukum Acara Perdata, Ps. 152 dan 164). Sekalipun kamu menang mutlak, hanya tiga komponen yang dapat dibebankan kepada pihak lawan: biaya penerimaan perkara, biaya permohonan, serta biaya perjalanan dan kehilangan penghasilan dari saksi, saksi ahli, dan pihak serupa yang hadir di pengadilan (Metode Pembayaran Biaya Litigasi, Ps. 6 dan 29). **Biaya pengacara tidak termasuk di dalamnya.**
 
-**4. Masalah sampai ke tempat kerja.** Mengganggu ketertiban perusahaan atau lembaga publik sehingga pekerjaan tidak dapat berjalan normal: peringatan atau denda hingga 500 yuan; jika keadaan relatif serius, penahanan 5 hingga 10 hari ditambah denda hingga 1000 yuan; jika dilakukan oleh orang banyak, penahanan 10 hingga 15 hari bagi para pelaku utama (Undang-Undang Hukuman Administrasi Keamanan Publik, Ps. 26, butir 1). Pelecehan, perundungan, atau penguntitan yang mengganggu kehidupan normal dihukum berdasarkan Ps. 50, butir 5, dan dengan persetujuan kepala organ keamanan publik, perintah dapat diterbitkan untuk melarang kontak selama jangka waktu tertentu. Perusahaan yang memecatmu karena hal ini umumnya dianggap sebagai pemutusan hubungan kerja yang tidak sah, dengan kompensasi dihitung sebesar 2N (Bagian 19, butir 6) — namun melapor ke polisi dan mengajukan arbitrase adalah urusan yang kamu jalani sendiri, dan kerugian selama masa pengangguran tersebut tidak dipulihkan di kemudian hari dengan pencairan 2N.
+**4. Masalah sampai ke tempat kerja.** Mengganggu ketertiban perusahaan atau lembaga publik sehingga pekerjaan tidak dapat berjalan normal: peringatan atau denda hingga sekitar Rp1.342.393 (nilai sumber: 500 yuan); jika keadaan relatif serius, penahanan 5 hingga 10 hari ditambah denda hingga sekitar Rp2.684.785 (nilai sumber: 1000 yuan); jika dilakukan oleh orang banyak, penahanan 10 hingga 15 hari bagi para pelaku utama (Undang-Undang Hukuman Administrasi Keamanan Publik, Ps. 26, butir 1). Pelecehan, perundungan, atau penguntitan yang mengganggu kehidupan normal dihukum berdasarkan Ps. 50, butir 5, dan dengan persetujuan kepala organ keamanan publik, perintah dapat diterbitkan untuk melarang kontak selama jangka waktu tertentu. Perusahaan yang memecatmu karena hal ini umumnya dianggap sebagai pemutusan hubungan kerja yang tidak sah, dengan kompensasi dihitung sebesar 2N (Bagian 19, butir 6) — namun melapor ke polisi dan mengajukan arbitrase adalah urusan yang kamu jalani sendiri, dan kerugian selama masa pengangguran tersebut tidak dipulihkan di kemudian hari dengan pencairan 2N.
 
 **5. Direkam dan diunggah ke internet.** Hal terpenting yang perlu diketahui pada lapisan ini: **kamu mungkin tidak dapat menghentikan perekaman tersebut**. Pembuatan, penggunaan, atau publikasi rupa orang lain tanpa izin dilarang (Kitab Undang-Undang Hukum Perdata, Ps. 1019), tetapi "pembuatan, penggunaan, atau publikasi rupa pemegang hak jika tidak dapat dihindari untuk tujuan pelaporan berita" dihitung sebagai penggunaan yang wajar (Ps. 1020, butir 2). Apa yang dapat kamu kendalikan: tidak ada wawancara, tidak tampil di depan kamera, tidak berbicara di hadapan lensa — memberikan izin atau tidak adalah keputusanmu; tidak ada seorang pun yang dapat memberikan izin untukmu.
 
@@ -41,7 +43,7 @@ Ini adalah versi lengkap dari Bagian 13, butir 2. Berdasarkan tolok ukur penerim
 ## Jika kamu memutuskan untuk berhenti, cara paling mudah adalah
 
 1. **Jangan memindahkan mereka dengan tanganmu.** Ini adalah satu-satunya tindakan yang tidak boleh diubah, dan alasannya adalah medis, bukan hukum — memaksa seseorang berdiri dapat memperparah pendarahan otak atau cedera tulang belakang. Dari sisi hukum, bahaya yang ditimbulkan selama proses penyelamatan dibebaskan oleh 民法典第一百八十四条 (Kitab Undang-Undang Hukum Perdata, Ps. 184 — pengecualian pertolongan darurat sukarela).
-2. Berteriaklah dari jarak jauh dan periksa apakah mereka bernapas; jika tidak, mulailah kompresi dada (Bagian 13, butir 1); jika ya, hubungi 120 dari tempatmu berada dan laporkan lokasinya.
+2. Berteriaklah dari jarak jauh dan periksa apakah mereka bernapas; jika tidak, mulailah kompresi dada (Bagian 13, butir 1); jika ya, hubungi 119 dari tempatmu berada dan laporkan lokasinya.
 3. Ajaklah pejalan kaki lain dan mulailah merekam dengan ponselmu. Keterangan saksi dan bukti fisik lebih ampuh daripada berdebat setelah kejadian.
 4. Jangan mengangkat mereka ke dalam mobil sendirian, dan jangan membayar sendiri untuk membawa mereka ke rumah sakit. Ini adalah bagian yang paling tinggi biayanya dan paling kecil hasilnya di sepanjang perjalanan.
 5. Jika kamu terluka saat menolong mereka atau mengeluarkan uang sendiri, cara mendapatkan uang tersebut kembali dibahas dalam Bagian 13, butir 40.

@@ -115,8 +115,8 @@ def main() -> None:
         values = {
             **loc,
             "tips_n": TIPS_N,
-            "grade_a_n": GRADE_A_N,
-            "links_n": LINKS_N,
+            "grade_a_n": "407" if code == "id" else GRADE_A_N,
+            "links_n": "1302" if code == "id" else LINKS_N,
         }
         path = os.path.join(HERE, f"{code}.html")
         open(path, "w", encoding="utf-8").write(render(template, values))

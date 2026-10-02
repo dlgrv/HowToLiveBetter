@@ -1,10 +1,24 @@
 {
   "labels": {
-    "cn": ["成本", "说人话", "收益", "证据等级", "备注"],
-    "id": ["Biaya", "Singkatnya", "Manfaat", "Tingkat bukti", "Catatan"]
+    "cn": [
+      "成本",
+      "说人话",
+      "收益",
+      "证据等级",
+      "备注"
+    ],
+    "id": [
+      "Biaya",
+      "Singkatnya",
+      "Manfaat",
+      "Tingkat bukti",
+      "Catatan"
+    ]
   },
   "source_label": "Sumber",
   "evidence_grade_label": "Tingkat bukti",
   "banned_calques": [],
-  "style_markers": []
+  "style_markers": [],
+  "soft_calques": [],
+  "whitelist_zones": []
 }

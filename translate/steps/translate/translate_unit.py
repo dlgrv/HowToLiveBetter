@@ -18,7 +18,7 @@ REQUIRED_FIELDS: dict[str, tuple[str, ...]] = {
     lang: tuple(f"- {name}:" for name in field_labels(lang)) for lang in LANGS
 }
 
-_LANG_NAMES = {"ru": "Russian", "en": "English", "es": "Spanish"}
+_LANG_NAMES = {"ru": "Russian", "en": "English", "es": "Spanish", "id": "Indonesian"}
 
 LOCALE_FIELD_HINTS = {
     lang: (

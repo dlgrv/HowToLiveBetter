@@ -11,7 +11,7 @@ YAMLLINT = .venv/bin/yamllint
 
 .PHONY: help sync-upstream digest assemble verify verify-all wave status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style triage clarity polish lt check-content check-links
 
-OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html
+OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/id.html
 
 check-content:  ## CJK-leak, parity, readme-badge checks
 	$(PY) forge/ops/check_content.py

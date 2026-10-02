@@ -5,7 +5,7 @@ The published tree mirrors the public URL space:
 
   .publish/
     index.html, {en,ru,es,zh}/, assets/, robots.txt, …   ← from site/
-    book/                                                ← from repo
+    book/, docs/research/                                ← from repo
     README*.md                                           ← from repo
 
 Locale pages use __HTLB_BASE__='../', so README and book must sit next to
@@ -40,6 +40,10 @@ def main() -> int:
     if not os.path.isdir(book_src):
         sys.exit("missing book/")
     shutil.copytree(book_src, os.path.join(OUT, "book"))
+
+    research_src = os.path.join(ROOT, "docs", "research")
+    if os.path.isdir(research_src):
+        shutil.copytree(research_src, os.path.join(OUT, "docs", "research"))
 
     readmes = sorted(glob.glob(os.path.join(ROOT, "README*.md")))
     if not readmes:

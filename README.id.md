@@ -2,7 +2,7 @@
 
 # Panduan Hidup yang Sepadan
 
-**630 saran dalam 34 bab.** Dari jumlah itu, 420 bertingkat bukti A, dan buku ini mencantumkan 1341 tautan sumber. Buku ini membahas cara menjaga kesehatan, menghadapi keadaan darurat, menghemat uang dan waktu, menghindari penipuan serta masalah hukum, bekerja, membangun keluarga, dan mengambil keputusan besar. Setiap saran menjelaskan apa yang perlu kamu keluarkan, manfaat yang mungkin didapat, kekuatan buktinya, dan sumbernya.
+**630 saran dalam 34 bab.** Edisi ini memuat 407 butir tingkat A, 169 tingkat B, dan 54 tingkat C, dengan 1302 tautan pada kolom Sumber. Buku ini membahas kesehatan, keadaan darurat, uang, waktu, kerja, keluarga, dan keputusan besar. Tiap saran menjelaskan biaya, manfaat, kekuatan bukti, dan sumbernya. Naskah dasarnya mencatat 420 butir tingkat A dan 1341 tautan; angka edisi Indonesia berubah karena Bab 7 menggunakan program Indonesia.
 
 Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna untuk keadaanmu, lalu kembali lagi saat membutuhkan.
 
@@ -12,7 +12,9 @@ Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna
 
 Bahasa lain: [English](README.md) · [Русский](README.ru.md) · [中文](README.zh.md) · [Español](README.es.md) · **Bahasa Indonesia**
 
-> Ini terjemahan tidak resmi dari [versi Inggris](README.md). Isi dan aturan yang menyangkut layanan publik atau hukum terutama membahas Tiongkok. Periksa aturan yang berlaku di tempatmu sebelum bertindak.
+> Edisi ini berdasarkan [versi Inggris dlgrv](README.md), dengan penyesuaian Indonesia yang diperiksa pada **30 September 2026**. [Bab 7](book/id/07-Saat-Tidak-Punya-Uang.md) memakai jalur bantuan Indonesia. Butir berlabel **Ada konteks luar negeri** tetap menjadi bahan perbandingan; gunakan [panduan Indonesia per bab](docs/research/id/Panduan-Untuk-Indonesia.md) untuk urusan setempat.
+
+**[Panduan Indonesia dan kontak penting](docs/research/id/Panduan-Untuk-Indonesia.md)** · **[Harga lokal dan kurs 2026](docs/research/id/Harga-Dan-Kurs-2026.md)**
 
 ## Daftar isi
 
@@ -64,7 +66,7 @@ Bahasa lain: [English](README.md) · [Русский](README.ru.md) · [中文](
 
 Saran diurutkan menurut perbandingan manfaat dan biaya. **Biaya** bisa berupa uang, waktu, tenaga, atau usaha untuk mengubah kebiasaan. **Manfaat** bisa berupa peluang hidup lebih lama, waktu yang dihemat, uang yang terselamatkan, atau perlindungan hukum. Jangan menyamakan angka dari kategori yang berbeda.
 
-Angka pada kolom **Singkatnya** membantu kamu menangkap inti saran. Baca kolom **Manfaat**, **Catatan**, dan **Sumber** jika keputusanmu bergantung pada angka, syarat, atau pengecualian tertentu. Banyak aturan dan layanan yang disebut di buku ini berlaku khusus di Tiongkok.
+Kolom **Singkatnya** membantu kamu menangkap inti saran. Baca **Manfaat**, **Catatan**, dan **Sumber** untuk angka, syarat, dan pengecualian. Hasil penelitian tetap menyebut populasi sumber; angka luar negeri tidak diubah menjadi statistik Indonesia. Nominal asing tampil dalam rupiah dengan jumlah sumbernya, sedangkan harga lokal punya penawaran serta tanggal pengecekan tersendiri. Tarif yang belum tersedia perlu diminta dari penyedia.
 
 ## Cara membaca angka
 
@@ -76,4 +78,4 @@ Angka pada kolom **Singkatnya** membantu kamu menangkap inti saran. Baca kolom *
 
 ## Lisensi
 
-Naskah dan terjemahan dalam fork ini mengikuti [Unlicense](LICENSE). Terjemahan bahasa Indonesia dipelihara secara terpisah dari [naskah asli berbahasa Mandarin](https://github.com/eternity4719/HowToLiveBetter).
+Naskah dan adaptasi dalam fork ini mengikuti [Unlicense](LICENSE). Edisi Indonesia dipelihara di [fork ahxar](https://github.com/ahxar/HowToLiveBetter) berdasarkan versi Inggris dari [dlgrv](https://github.com/dlgrv/HowToLiveBetter).

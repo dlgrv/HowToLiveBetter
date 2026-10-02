@@ -1,5 +1,7 @@
 > Terjemahan tidak resmi dari [versi Inggris](../en/Home-Emergency-Kit.md). Jika ada perbedaan, naskah asli yang berlaku.
 
+> **Untuk Indonesia:** aturan, layanan, dan kewajiban Tiongkok dalam bacaan ini adalah rujukan asing. Gunakan [panduan Indonesia](Panduan-Untuk-Indonesia.md) dan [harga lokal](Harga-Dan-Kurs-2026.md) untuk keputusan setempat.
+
 # Perlengkapan darurat di rumah: apa yang dibeli, disimpan di mana, dan kapan diperiksa
 
 Ini sesuai dengan butir 26 dari Bagian 1 di README. Daftar periksa ini hanya menjawab pertanyaan tentang apa saja yang harus disiapkan oleh rumah tangga; panduan cara menggunakannya tidak diulang di sini. Tindakan untuk menyelamatkan diri dari kebakaran, resusitasi jantung paru (RJP), pendarahan hebat, luka bakar, dan keracunan karbon monoksida semuanya ada di Bagian 13; alarm asap dan alarm karbon monoksida ada di Bagian 1, butir 3; selang gas dan kompor ada di Bagian 1, butir 4.
@@ -71,7 +73,7 @@ Kata-kata persis dari biro Beijing adalah: "periksa kondisi perlengkapan darurat
 
 ## 6. Barang yang tidak perlu dibeli
 
-- **AED rumahan.** Harganya lebih dari 10.000 yuan per unit, dan untuk penggunaan di rumah, tidak ada bukti yang mendukung pembelian alat ini secara mandiri. Tindakan yang benar saat terjadi henti jantung adalah segera lakukan kompresi dada dan minta seseorang menelepon 120 (nomor darurat medis Tiongkok) serta mengambil AED dari tempat umum terdekat, lihat Bagian 13, butir 1.
+- **AED rumahan.** Harganya lebih dari sekitar Rp26.847.850 (nilai sumber: 10.000 yuan) per unit, dan untuk penggunaan di rumah, tidak ada bukti yang mendukung pembelian alat ini secara mandiri. Tindakan yang benar saat terjadi henti jantung adalah segera lakukan kompresi dada dan minta seseorang menelepon 119 (nomor darurat medis Tiongkok) serta mengambil AED dari tempat umum terdekat, lihat Bagian 13, butir 1.
 - **"Masker api" dan "masker gas" tanpa tanda CCC.** Pasal 24 Undang-Undang Perlindungan Kebakaran menyatakan bahwa produk perlindungan kebakaran yang tunduk pada sertifikasi produk wajib berdasarkan undang-undang "hanya dapat diproduksi, dijual, dan digunakan setelah disertifikasi memenuhi persyaratan wajib standar nasional dan industri oleh lembaga sertifikasi dengan kualifikasi hukum." Gas beracun yang dilindungi oleh tabung filter industri tidak sama dengan asap dalam kebakaran gedung.
 - **"Paket hadiah darurat" kemasan.** Paket ini biasanya diisi dengan senter murah dan masker untuk memenuhi jumlah; membeli alat pemadam api, selang pemadam, respirator, dan kotak P3K secara terpisah biayanya lebih murah dan membuat pemeriksaan sertifikasi menjadi lebih mudah.
 - **Menimbun makanan dan air untuk lebih dari 3 hari.** Tolok ukur dalam daftar resmi adalah 3 hari per orang; lebih dari itu akan menjadi kedaluwarsa yang sia-sia, lihat Bagian 5, butir 24.

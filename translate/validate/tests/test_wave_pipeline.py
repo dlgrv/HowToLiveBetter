@@ -9,6 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from translate.lib.config import translation_langs
 from translate.ops import wave_pipeline
 from translate.test_paths import REPO_ROOT
 
@@ -25,13 +26,13 @@ def _setup_temp_repo(tmp: str) -> None:
     )
 
     stub = "# 2. stub\n\nMinimal chapter for wave_pipeline smoke test.\n"
-    for lang in ("ru", "en", "es"):
+    for lang in translation_langs(REPO_ROOT):
         lang_dir = os.path.join(tmp, "book", lang)
         os.makedirs(lang_dir, exist_ok=True)
         with open(os.path.join(lang_dir, "02-stub.md"), "w", encoding="utf-8") as f:
             f.write(stub)
 
-    for lang in ("ru", "en", "es"):
+    for lang in translation_langs(REPO_ROOT):
         units = os.path.join(tmp, "translate", "runs", "active", lang, "02", "units")
         os.makedirs(units, exist_ok=True)
         with open(os.path.join(units, "01.md"), "w", encoding="utf-8") as f:
@@ -65,12 +66,12 @@ class TestWavePipelineMain(unittest.TestCase):
                 rc = wave_pipeline.main(["02"])
 
         self.assertEqual(rc, 0)
-        self.assertEqual(len(assemble_calls), 3)
-        self.assertEqual(len(verify_calls), 3)
+        self.assertEqual(len(assemble_calls), len(translation_langs(REPO_ROOT)))
+        self.assertEqual(len(verify_calls), len(translation_langs(REPO_ROOT)))
         langs_assembled = {c[-1] for c in assemble_calls}
         langs_verified = {c[c.index("--lang") + 1] for c in verify_calls}
-        self.assertEqual(langs_assembled, {"ru", "en", "es"})
-        self.assertEqual(langs_verified, {"ru", "en", "es"})
+        self.assertEqual(langs_assembled, set(translation_langs(REPO_ROOT)))
+        self.assertEqual(langs_verified, set(translation_langs(REPO_ROOT)))
 
 
 if __name__ == "__main__":

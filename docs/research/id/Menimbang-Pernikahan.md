@@ -1,5 +1,7 @@
 > Terjemahan tidak resmi dari [versi Inggris](../en/Is-Marriage-Worth-It.md). Jika ada perbedaan, naskah asli yang berlaku.
 
+> **Untuk Indonesia:** aturan, layanan, dan kewajiban Tiongkok dalam bacaan ini adalah rujukan asing. Gunakan [panduan Indonesia](Panduan-Untuk-Indonesia.md) dan [harga lokal](Harga-Dan-Kurs-2026.md) untuk keputusan setempat.
+
 # Apakah Pernikahan Layak Dilakukan: Memecah Satu Catatan Keuangan yang Rumit Menjadi Lima Rekening yang Jelas
 
 Pembaca mengajukan satu pertanyaan gabungan: apakah secara keseluruhan pernikahan itu merugikan atau menguntungkan; apakah pasangan akan memberikan nilai emosional, berbagi pekerjaan rumah tangga, menghasilkan uang — atau apakah menikah hanya sekadar tugas yang dilakukan demi orang tua. Sebagai satu pertanyaan tunggal, hal ini tidak dapat dijawab, karena menggabungkan beberapa hal yang tidak dapat dikonversi satu sama lain. Artikel ini mengurainya. Setiap rekening hanya menggunakan angka yang dapat ditemukan dalam statistik resmi atau meta-analisis; jika suatu angka tidak dapat dihitung, hal itu dikatakan secara terus terang; di bagian akhir terdapat lembar kerja yang dapat kamu isi sendiri. Artikel ini tidak menarik kesimpulan tentang "apakah harus menikah."

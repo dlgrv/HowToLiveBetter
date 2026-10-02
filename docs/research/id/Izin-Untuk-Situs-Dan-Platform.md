@@ -1,5 +1,7 @@
 > Terjemahan tidak resmi dari [versi Inggris](../en/What-Licenses-A-Platform-Needs.md). Jika ada perbedaan, naskah asli yang berlaku.
 
+> **Untuk Indonesia:** aturan, layanan, dan kewajiban Tiongkok dalam bacaan ini adalah rujukan asing. Gunakan [panduan Indonesia](Panduan-Untuk-Indonesia.md) dan [harga lokal](Harga-Dan-Kurs-2026.md) untuk keputusan setempat.
+
 # Izin untuk situs dan platform: tabel kebutuhan dan pilihan server
 
 Ini sesuai dengan Bagian 26 dari README. Halaman ini hanya berisi dua tabel dan beberapa catatan tentang poin-poin yang mudah salah; teks pengantar dan sumber berada di dalam README. Cara mendaftarkan perusahaan dan cara melaporkan pajak dibahas di Bagian 12; garis merah bagi pekerja teknologi yang dipekerjakan ada di Bagian 11.
@@ -23,7 +25,7 @@ Pemetaan ketiga izin tersebut dinyatakan paling jelas dalam pendapat panduan 202
 
 ### Tiga poin yang mudah salah
 
-**Perorangan tidak dapat memperoleh izin telekomunikasi bernilai tambah.** Syarat kelayakan pertama adalah "operator adalah perusahaan yang didirikan sesuai dengan hukum"; modal terdaftar tidak boleh kurang dari 1.000.000 yuan untuk operasi dalam satu provinsi dan tidak kurang dari 10.000.000 yuan untuk operasi lintas provinsi, masa tinjauan adalah 60 hari, dan izin berlaku selama 5 tahun. Untuk menjalankan bisnis berbayar, kamu butuh perusahaan terlebih dahulu; langkah tersebut ada di Bagian 12.
+**Perorangan tidak dapat memperoleh izin telekomunikasi bernilai tambah.** Syarat kelayakan pertama adalah "operator adalah perusahaan yang didirikan sesuai dengan hukum"; modal terdaftar tidak boleh kurang dari sekitar Rp2.684.785.000 (nilai sumber: 1.000.000 yuan) untuk operasi dalam satu provinsi dan tidak kurang dari sekitar Rp26.847.850.000 (nilai sumber: 10.000.000 yuan) untuk operasi lintas provinsi, masa tinjauan adalah 60 hari, dan izin berlaku selama 5 tahun. Untuk menjalankan bisnis berbayar, kamu butuh perusahaan terlebih dahulu; langkah tersebut ada di Bagian 12.
 
 **Operator swasta pada dasarnya tidak akan pernah bisa mendapatkan izin program audio-visual.** Ketentuan permohonan menyatakan "memiliki status badan hukum dan merupakan entitas yang sepenuhnya milik negara atau dikendalikan negara". Jadi jalur video panjang dan program asli tertutup bagi pendiri perorangan; siaran langsung sebaliknya berjalan melalui jalur 网络文化经营许可证 — Izin Usaha Budaya Jaringan.
 
