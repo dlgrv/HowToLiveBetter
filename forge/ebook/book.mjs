@@ -557,6 +557,11 @@ export function renderEpubHtmlToken(text) {
   if (!t) return '';
   if (t.startsWith('<!--')) return '';
   if (/^<dl\b[^>]*\bclass=(["'])entry\1/i.test(t)) return text;
+  // Locale research notes use bare fragment anchors (e.g. <a id="bab-01"></a>).
+  // marked emits the open and close tags as separate html tokens — keep both
+  // (and a self-closing form) so Panduan#bab-NN links pass epubcheck.
+  if (/^<a\b[^>]*\bid=(["'])[A-Za-z][\w:-]*\1[^>]*\/?>$/i.test(t)) return t;
+  if (/^<\/a>$/i.test(t)) return t;
   return '';
 }
 

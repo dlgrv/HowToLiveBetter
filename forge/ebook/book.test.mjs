@@ -153,6 +153,10 @@ test('renderEpubHtmlToken keeps entry dl and drops comments', () => {
   assert.equal(renderEpubHtmlToken('<!-- 成本标签: 钱=0 -->'), '');
   assert.equal(renderEpubHtmlToken('<script>alert(1)</script>'), '');
   assert.equal(renderEpubHtmlToken('<p class="x">x</p>'), '');
+  assert.equal(renderEpubHtmlToken('<a id="bab-01">'), '<a id="bab-01">');
+  assert.equal(renderEpubHtmlToken('</a>'), '</a>');
+  assert.equal(renderEpubHtmlToken('<a id="bab-01"/>'), '<a id="bab-01"/>');
+  assert.equal(renderEpubHtmlToken('<a href="x">'), '');
 });
 
 test('pdf and epub keep field gaps above body leading', () => {
