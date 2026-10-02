@@ -29,6 +29,8 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
 | 🇮🇩 Bahasa Indonesia | [Baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
 
+Have ideas for this project (app, checklists, site features, …)? [Share them in issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — one idea per comment; upvote with 👍.
+
 ## Questions this book tries to answer
 
 | Question                                                                                                                                                              | Where to look                                                                                  |

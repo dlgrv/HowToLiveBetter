@@ -31,6 +31,8 @@ You don't have to do it all: this is a ranked shortlist, not a task list — pic
 | 🇷🇺 Русский | [Читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/) | [README.ru.md](README.ru.md) | [Скачать PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [Скачать EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
 | 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
 
+¿Ideas para el proyecto (app, listas, funciones del sitio, …)? [Compártelas en el issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — una idea por comentario; vota con 👍.
+
 ## Questions this book tries to answer
 
 | Question | Where to look |
