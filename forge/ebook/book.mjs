@@ -126,6 +126,24 @@ export const read = (rel) => readFileSync(resolveRepoFile(rel), 'utf8').replace(
 
 export const unique = (arr) => [...new Set(arr)];
 
+// Right-to-left locales. EPUB spine page-progression-direction, XHTML dir
+// attributes, and Typst running-head mirroring key off this (see epub/build.mjs
+// and pdf/template.typ). Typst itself infers paragraph direction from
+// `#set text(lang: "ar")`, so no per-paragraph tagging is needed.
+export const RTL_LANGS = new Set(['ar']);
+export const isRtl = (code) => RTL_LANGS.has(code);
+
+// Stable per-locale EPUB identifiers. Every code in translate/langs.json needs
+// one (loadLangs throws otherwise); keep values unique across locales.
+export const EBOOK_IDS = {
+  en: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000001',
+  ru: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000002',
+  zh: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000003',
+  es: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000004',
+  pt: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000005',
+  ar: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000006',
+};
+
 export function loadLangs() {
   const raw = JSON.parse(read('translate/langs.json'));
   return raw.languages.map((row) => {

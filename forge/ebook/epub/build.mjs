@@ -22,6 +22,8 @@ import {
   parseLang,
   aboutMd,
   coverRel,
+  isRtl,
+  EBOOK_IDS,
 } from '../book.mjs';
 
 const lang = parseLang();
@@ -30,14 +32,9 @@ const { locale, description, frontMd, bookFiles, docFiles } = book;
 const OUT = resolve(ROOT, `dist/HowToLiveBetter-${lang}.epub`);
 const COMMIT = gitCommit();
 const NOW = new Date();
-const BOOK_IDS = {
-  en: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000001',
-  ru: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000002',
-  zh: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000003',
-  es: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000004',
-  pt: 'urn:uuid:6f0e2a10-7b21-4c3a-9d11-000000000005',
-};
-const BOOK_ID = BOOK_IDS[lang];
+const RTL = isRtl(lang);
+const BOOK_ID = EBOOK_IDS[lang];
+if (!BOOK_ID) throw new Error(`no ebook id for ${lang} (see EBOOK_IDS in book.mjs)`);
 const contentsMd = book.contentsMd.replace(/^## [^\n]+/, `# ${locale.labels.contents}`);
 
 const esc = xmlEscape;
@@ -119,7 +116,10 @@ function toXhtml(body) {
 
 function wrap(title, body) {
   const dc = locale.dcLanguage;
-  const dir = locale.code === 'ar' ? ' dir="rtl"' : '';
+  // EPUB 3 RTL: readers and validators (epubcheck, Kindle) key off the spine
+  // page-progression-direction plus per-document dir/lang. Mixed-direction
+  // fragments inside the body keep explicit dir attributes from the source.
+  const dir = RTL ? ' dir="rtl"' : '';
   return `<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="${dc}" lang="${dc}"${dir}>
 <head>
@@ -127,7 +127,7 @@ function wrap(title, body) {
 <title>${esc(title)}</title>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
-<body>
+<body${dir}>
 ${body}</body>
 </html>
 `;
@@ -191,7 +191,7 @@ const manifestPages = pages.map(
   (p) => `<item id="${p.file.replace('.xhtml', '')}" href="${p.file}" media-type="application/xhtml+xml"/>`,
 );
 const opf = `<?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="pub-id" xml:lang="${locale.dcLanguage}">
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="pub-id" xml:lang="${locale.dcLanguage}"${RTL ? ' dir="rtl"' : ''}>
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
 <dc:identifier id="pub-id">${BOOK_ID}</dc:identifier>
 <dc:title>${esc(locale.title)}</dc:title>
@@ -212,7 +212,7 @@ const opf = `<?xml version="1.0" encoding="UTF-8"?>
 <item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>
 ${manifestPages.join('\n')}
 </manifest>
-<spine toc="ncx">
+<spine toc="ncx"${RTL ? ' page-progression-direction="rtl"' : ''}>
 <itemref idref="cover"/>
 ${pages.map((p) => `<itemref idref="${p.file.replace('.xhtml', '')}"/>`).join('\n')}
 </spine>

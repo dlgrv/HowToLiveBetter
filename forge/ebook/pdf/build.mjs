@@ -18,6 +18,7 @@ import {
   parseLang,
   aboutMd,
   coverRel,
+  isRtl,
 } from '../book.mjs';
 
 const lang = parseLang();
@@ -100,6 +101,8 @@ run(PANDOC, [
   '-V', `coverline1=${typstArg(`Built ${STAMP} (Asia/Shanghai)`)}`,
   '-V', `coverline2=${typstArg(`Commit ${COMMIT.slice(0, 7) || 'unknown'}`)}`,
   '-V', `coverline3=${typstArg(locale.site)}`,
+  // Omitted (not "false") when LTR: pandoc $if() treats any set value as true.
+  ...(isRtl(lang) ? ['-V', 'rtl=true'] : []),
   '-o',
   typFile,
   WORK,

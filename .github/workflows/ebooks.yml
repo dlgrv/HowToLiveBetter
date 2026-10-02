@@ -40,7 +40,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [en, ru, zh, es, pt]
+        # CI matrix may be a subset of translate/langs.json; keep in sync when adding ebook locales.
+        lang: [en, ru, zh, es, pt, ar]
     steps:
       - uses: actions/checkout@v4
 
@@ -56,10 +57,16 @@ jobs:
       - name: Manifest tests
         run: node --test forge/ebook/book.test.mjs
 
-      - name: Install pandoc, typst, and CJK fonts
+      - name: Install pandoc, typst, and CJK + Arabic fonts
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          mkdir -p ~/.fonts
+          for face in Regular Bold Italic BoldItalic; do
+            curl -sSL -o ~/.fonts/Amiri-$face.ttf \
+              "https://github.com/google/fonts/raw/main/ofl/amiri/Amiri-$face.ttf"
+          done
+          fc-cache -f ~/.fonts
           curl -sSL -o pandoc.tgz \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz"
           tar xzf pandoc.tgz
@@ -75,6 +82,7 @@ jobs:
       - name: PDF
         run: |
           typst fonts | grep -i -E 'noto (serif|sans) cjk'
+          typst fonts | grep -i 'amiri'
           node forge/ebook/pdf/build.mjs --lang ${{ matrix.lang }}
 
       - uses: actions/setup-java@v4
@@ -127,12 +135,12 @@ jobs:
           set -euo pipefail
           mapfile -t files < <(find dist -maxdepth 1 -type f \
             \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \) | sort)
-          if [ "${#files[@]}" -ne 10 ]; then
-            echo "expected 10 assets, got ${#files[@]}"
+          if [ "${#files[@]}" -ne 12 ]; then
+            echo "expected 12 assets, got ${#files[@]}"
             ls -l dist
             exit 1
           fi
-          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt."
+          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt, ar."
           notes="$notes Assets are replaced on each main build; download URLs stay fixed."
           if gh release view ebooks-latest >/dev/null 2>&1; then
             gh release edit ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes"
