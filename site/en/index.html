@@ -529,7 +529,7 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -706,6 +706,7 @@ try {
   }
   if(!HTLB_CODES.includes(LANG)) LANG=HTLB_PRIMARY;
 } catch(e){}
+try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e){}
 window.__HTLB_BASE__ = window.__HTLB_BASE__ || '';
 let BOOK_FILES = 0;
 function fileCountPhrase(n){
@@ -1482,6 +1483,65 @@ function spyTick(){
   }
 }
 
+/* ---------- resume reading position (sessionStorage) ---------- */
+/* Twin of forge/site/reading_pos.py — keep posKey/pick/restore rules in sync. */
+function posKey(){ return 'htlb-pos:' + LANG; }
+function posNavOffset(){
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--nav-h').trim();
+  const n = parseFloat(raw);
+  return (Number.isFinite(n) ? n : 56) + 24;
+}
+function clearPos(){ try { sessionStorage.removeItem(posKey()); } catch(e){} }
+function currentPosId(){
+  const limit = posNavOffset();
+  let best = null, bestTop = -Infinity;
+  for (const card of CARDS){
+    const el = card.el;
+    if (el.hidden) continue;
+    const top = el.getBoundingClientRect().top;
+    if (top <= limit && top >= bestTop){ bestTop = top; best = el.id; }
+  }
+  return best;
+}
+function savePos(){
+  try {
+    const key = posKey();
+    if (scrollY < 12){ sessionStorage.removeItem(key); return; }
+    const id = currentPosId();
+    if (!id){ sessionStorage.removeItem(key); return; }
+    if (sessionStorage.getItem(key) !== id) sessionStorage.setItem(key, id);
+  } catch(e){}
+}
+function scrollToEl(el){
+  if (!el) return;
+  el.scrollIntoView();
+  requestAnimationFrame(() => el.scrollIntoView());
+}
+function posTargetVisible(el){
+  if (!el || el.hidden) return false;
+  const block = el.closest('.sec-block');
+  if (block && block.hidden) return false;
+  return true;
+}
+function restorePos(){
+  // Hash wins when visible; missing/hidden hash falls through to sessionStorage
+  // (see resolve_restore_id in forge/site/reading_pos.py).
+  if (location.hash){
+    const hid = location.hash.slice(1);
+    if (hid){
+      const hashEl = document.getElementById(hid);
+      if (posTargetVisible(hashEl)){ scrollToEl(hashEl); return; }
+    }
+  }
+  try {
+    const id = sessionStorage.getItem(posKey());
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!posTargetVisible(el)) return;
+    scrollToEl(el);
+  } catch(e){}
+}
+
 /* ---------- 事件 ---------- */
 function wire(){
   const sb = document.getElementById('sidebar'), bd = document.getElementById('backdrop'), mb = document.getElementById('menu');
@@ -1489,7 +1549,20 @@ function wire(){
     sb.classList.toggle('open', on); bd.classList.toggle('on', on); mb.setAttribute('aria-expanded', String(on));
     if (on) document.documentElement.classList.remove('nav-hidden');
   };
-  const toTop = () => { setMenu(false); scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  const toTop = () => {
+    clearPos();
+    setMenu(false);
+    scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  };
+  /* persist reading card for F5 resume */
+  {
+    let ticking = false;
+    addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { ticking = false; savePos(); });
+    }, {passive:true});
+  }
   /* mobile: hide topbar on scroll down, show on scroll up */
   {
     const mq = matchMedia('(max-width:1099px)');
@@ -1610,12 +1683,7 @@ function wire(){
       spyTick();
     }
     PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
-    if (location.hash){
-      const target = document.getElementById(location.hash.slice(1));
-      target?.scrollIntoView();
-      // 卡片是 content-visibility:auto，首次定位后高度才准，下一帧再对一次
-      if (target) requestAnimationFrame(() => target.scrollIntoView());
-    }
+    restorePos();
   } catch (err) {
     clearSkel();
     const c = document.getElementById('cnt'), t = document.getElementById('tot');
