@@ -850,6 +850,10 @@ def main():
 
     if banned:
         alltr = "\n".join(tl).lower()
+        # a legitimate single use must carry a parenthetical gloss right after
+        # the term, e.g. "когорта (группа наблюдения)" — else it's an
+        # unexplained calque and must fail, not just warn.
+        gloss_re_cache: dict[str, re.Pattern] = {}
         for stem in banned:
             cnt = len(re.findall(stem, alltr))
             if cnt > 1:
@@ -858,10 +862,21 @@ def main():
                     {"kind": "banned_calque", "stem": stem, "count": cnt},
                 )
             elif cnt == 1:
-                add_warn(
-                    f'calque stem "{stem}" occurs once — must be a parenthetical first-use gloss',
-                    {"kind": "calque_once", "stem": stem, "count": 1},
+                gloss_re = gloss_re_cache.setdefault(
+                    stem, re.compile(stem + r"[а-яёa-z]*\s*\([^)]+\)")
                 )
+                if gloss_re.search(alltr):
+                    add_warn(
+                        f'calque stem "{stem}" occurs once with a gloss — '
+                        f"verify the gloss is adequate",
+                        {"kind": "calque_once_glossed", "stem": stem, "count": 1},
+                    )
+                else:
+                    add_fail(
+                        f'calque stem "{stem}" occurs once without a parenthetical '
+                        f"first-use gloss — unexplained calque",
+                        {"kind": "calque_unglossed", "stem": stem, "count": 1},
+                    )
 
     print(f"verify {os.path.basename(tr_path)} vs {os.path.basename(src_path)}")
     for w in warns:
