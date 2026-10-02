@@ -12,7 +12,7 @@ YAMLLINT = .venv/bin/yamllint
 .PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
 
 # Locale list must stay in sync with translate/langs.json (registry).
-OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html forge/og/ar.html
+OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html forge/og/ar.html forge/og/id.html
 
 check-content:  ## CJK-leak, parity, readme-badge checks
 	$(PY) forge/ops/check_content.py
@@ -143,12 +143,12 @@ update-readme:  ## Audit README/OG. Usage: make update-readme [ARGS=--fix]
 web-build:  ## Regenerate site/{lang}/ pages from site/index.html
 	$(PY) forge/site/build_pages.py
 
-og-html:  ## Render forge/og/{en,ru,es,zh,pt}.html from _template.html
+og-html:  ## Render forge/og/{en,ru,es,zh,pt,ar,id}.html from _template.html
 	$(PY) forge/og/build_og_html.py
 
 og: og-html  ## Regenerate OG PNGs from forge/og/*.html → site/assets/og/
 	@mkdir -p site/assets/og
-	@for lang in en ru es zh pt ar; do \
+	@for lang in en ru es zh pt ar id; do \
 		"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
 			--headless --disable-gpu --hide-scrollbars \
 			--force-device-scale-factor=1 --window-size=1200,630 \

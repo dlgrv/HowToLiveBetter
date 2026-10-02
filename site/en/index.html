@@ -4,7 +4,7 @@
 <script>window.__HTLB_LANG__='en';window.__HTLB_BASE__='../';window.__HTLB_V2__=1;document.documentElement.classList.add('v2');</script>
 <script>
 /* HTLB_LANGS_BEGIN */
-window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES","pt":"PT","ar":"ع"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español","pt":"Português","ar":"العربية"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md","pt":"README.pt.md","ar":"README.ar.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419","pt":"pt_BR","ar":"ar_SA"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419","pt":"pt-BR","ar":"ar"}};
+window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"en","shortLabels":{"en":"EN","ru":"РУ","zh":"中","es":"ES","pt":"PT","ar":"ع","id":"ID"},"menuLabels":{"en":"English","ru":"Русский","zh":"中文","es":"Español","pt":"Português","ar":"العربية","id":"Bahasa Indonesia"},"readmes":{"en":"README.md","ru":"README.ru.md","zh":"README.zh.md","es":"README.es.md","pt":"README.pt.md","ar":"README.ar.md","id":"README.id.md"},"ogLocales":{"en":"en_US","ru":"ru_RU","zh":"zh_CN","es":"es_419","pt":"pt_BR","ar":"ar_SA","id":"id_ID"},"inLanguages":{"en":"en","ru":"ru","zh":"zh-CN","es":"es-419","pt":"pt-BR","ar":"ar","id":"id"}};
 /* HTLB_LANGS_END */
 </script>
 <script>
@@ -528,13 +528,14 @@ h1,h2,h3{text-wrap:wrap}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
+        <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
           <button type="button" role="menuitem" data-lang="es">Español</button>
           <button type="button" role="menuitem" data-lang="pt">Português</button>
           <button type="button" role="menuitem" data-lang="ar">العربية</button>
+          <button type="button" role="menuitem" data-lang="id">Bahasa Indonesia</button>
         </div>
       </details>
       <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
@@ -880,6 +881,44 @@ const I18N = {
    author:'HowToLiveBetter (tradução para português brasileiro)',
    forkNote:'Tradução independente. Fonte — o <a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener">original em chinês</a>',
    snapshotNote:'' },
+ id:{ htmlLang:'id', title:'Panduan Hidup yang Sepadan', search:'Cari saran', searchShort:'Cari',
+   noscriptH:'Panduan Hidup yang Sepadan',
+   noscriptP:'Terjemahan bahasa Indonesia dari HowToLiveBetter: 34 bab dan 630 saran. Tiap saran memuat biaya, manfaat, tingkat bukti, dan sumber.',
+   noscriptLink:'Pencarian dan filter memerlukan JavaScript. Kamu juga bisa membaca <a href="../README.id.md">daftar isi</a> dan berkas di <a href="../book/id/">book/id/</a>.',
+   docHead:'Tiap saran menjawab: apa yang kamu keluarkan, dan apa yang kamu dapatkan.',
+   docHead2:'Manfaat untuk diri sendiri didahulukan, lalu keluarga dekat, teman dan rekan kerja, kemudian orang yang tidak dikenal. Risiko dan manfaat tetap perlu ditimbang bersama.',
+   fbAria:'Masukan', fbIssueT:'Menemukan kesalahan atau ingin menambahkan sesuatu?', fbIssue:'Buat issue', fbStarT:'Suka bukunya?', fbStar:'Beri bintang di GitHub', fbDlT:'Butuh PDF atau EPUB —', fbDl:'unduh dari repositori',
+   shown:'Menampilkan', of:'dari', loading:'Memuat isi…',
+   empty:'Tidak ada hasil. Coba lepas salah satu filter atau gunakan kata kunci yang lebih pendek.', reset:'Atur ulang', resetF:'Hapus filter',
+   sections:'Bab', ratioH:'Manfaat dibanding biaya', ratioS:'Penilaian penulis; hanya dapat dibandingkan dalam kategori yang sama',
+   lensH:'Manfaatnya', lensS:'Kategori berbeda tidak dibandingkan',
+   gradeH:'Tingkat bukti', gradeS:'Analisis gabungan/uji klinis · ada penelitian · konsensus', gradeA:'Tingkat A', gradeB:'Tingkat B', gradeC:'Tingkat C',
+   moneyH:'Uang', timeH:'Waktu', willH:'Usaha',
+   money0:'Gratis', moneyL:'Sedikit', moneyM:'Banyak', timeL:'Sebentar', timeM:'Beberapa jam', timeH2:'Setiap hari', willN:'Tidak perlu', willS:'Sedikit', willB:'Besar',
+   fDispute:'hanya yang diperdebatkan', fTodo:'hanya yang belum diverifikasi',
+   hint1:'Pilih satu bab. Kamu bisa memilih beberapa biaya dan tingkat bukti sekaligus.',
+   hint2:'Urutan saran dalam bab mengikuti manfaat dibanding biayanya. Pencarian tidak mengubah urutan.',
+   hint3:'Isi diambil dari <a href="../book/id/">book/id/</a> ({n}); perbaiki naskah di sana.',
+   foot:'Setiap saran menyebut jenis manfaatnya: umur dan kesehatan, waktu dan tenaga, uang, atau perlindungan hukum. Jenis yang berbeda tidak dibandingkan. Teks ini berlisensi Unlicense.',
+   kCost:'Biaya', kGain:'Manfaat', kNote:'Catatan', src:'Sumber', anchor:'Tautan ke saran ini',
+   ratioBadge:'Manfaat/biaya', ratioTitle:'Penilaian penulis berdasarkan besarnya manfaat', gradeBadge:'Bukti', dispute:'Diperdebatkan', todo:'Belum diverifikasi',
+   ratio:{'极高':'Sangat tinggi','高':'Tinggi','一般':'Biasa'},
+   lens:{'死亡率':'Umur dan kesehatan','金钱':'Uang','时间':'Waktu dan tenaga','自由':'Kebebasan'},
+   moneyL2:{'0':'Gratis','少':'Biaya kecil','多':'Biaya besar'},
+   timeL2:{'少':'Sebentar','中':'Beberapa jam','多':'Setiap hari'},
+   willL2:{'否':'Tidak perlu usaha ekstra','些':'Sedikit usaha','是':'Usaha besar'},
+   ratioFull:'Manfaat/biaya: ', gradeFull:'Tingkat bukti: ',
+   errFile:'Buka halaman ini melalui http. Jalankan <code>python -m http.server</code> di folder repo lalu buka <code>http://localhost:8000/</code>, atau gunakan GitHub Pages.',
+   errLoad:(m)=>`Gagal memuat isi (${m}). Pastikan README dan folder book/ ada di samping index.html.`,
+   cap:true, allSections:'Semua bab',
+   readmeHref:'README.id.md', readmeTitle:'Buka README bahasa Indonesia',
+   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
+   metaDesc:'Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.',
+   keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
+   author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
+   about:['kesehatan','umur panjang','keuangan pribadi','pertolongan pertama','hukum','hak konsumen'],
+   forkNote:'Edisi Indonesia dari versi Inggris dlgrv. <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/research/id/Panduan-Untuk-Indonesia.md" target="_blank" rel="noopener">Panduan Indonesia</a> · <a href="https://github.com/dlgrv/HowToLiveBetter/blob/main/docs/research/id/Harga-Dan-Kurs-2026.md" target="_blank" rel="noopener">Harga dan kurs, 30 September 2026</a>. Rujukan asing ditandai pada setiap saran terkait.',
+   snapshotNote:'' },
  ar:{ htmlLang:'ar', title:'دليل الحياة الأعلى قيمة', search:'ابحث في التوصيات', searchShort:'بحث',
    noscriptH:'دليل الحياة الأعلى قيمة',
    noscriptP:'الترجمة العربية لكتاب HowToLiveBetter (高性价比人生指南): ٣٤ قسمًا؛ كل توصية تذكر تكلفتها وفائدتها ومستوى الدليل والمصدر الأصلي.',
@@ -1124,12 +1163,12 @@ function parseReadme(md){
       continue;
     }
     if (entry){
-      if ((m = /^- (?:成本|Стоимость|Costo|Custo|Cost|التكلفة)[：:](.*)$/.exec(line))) entry.cost = m[1];
-      else if ((m = /^- (?:说人话|Простыми словами|En términos sencillos|Em linguagem simples|In plain terms|بعبارة بسيطة)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:收益|Эффект|Beneficio|Benefício|Benefit|الفائدة)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
-      else if ((m = /^- (?:证据等级|Уровень доказательности|Nivel de evidencia|Nível de evidência|Evidence grade|مستوى الدليل)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
-      else if ((m = /^- (?:来源|Источники|Fuentes|Fontes|Sources|المصادر)[：:]?(.*)$/.exec(line))) entry.src = m[1];
-      else if ((m = /^- (?:备注|Примечания|Notas|Notes|ملاحظات)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      if ((m = /^- (?:成本|Стоимость|Costo|Custo|Cost|التكلفة|Biaya)[：:](.*)$/.exec(line))) entry.cost = m[1];
+      else if ((m = /^- (?:说人话|Простыми словами|En términos sencillos|Em linguagem simples|In plain terms|بعبارة بسيطة|Singkatnya)[：:](.*)$/.exec(line))) { entry.human = m[1]; if (T().cap) entry.human = entry.human.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:收益|Эффект|Beneficio|Benefício|Benefit|الفائدة|Manfaat)[：:](.*)$/.exec(line))) { entry.gain = m[1]; if (T().cap) entry.gain = entry.gain.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
+      else if ((m = /^- (?:证据等级|Уровень доказательности|Nivel de evidencia|Nível de evidência|Evidence grade|مستوى الدليل|Tingkat bukti)[：:]\s*([ABC])/.exec(line))) entry.grade = m[1];
+      else if ((m = /^- (?:来源|Источники|Fuentes|Fontes|Sources|المصادر|Sumber)[：:]?(.*)$/.exec(line))) entry.src = m[1];
+      else if ((m = /^- (?:备注|Примечания|Notas|Notes|ملاحظات|Catatan)[：:](.*)$/.exec(line))) { entry.note = m[1]; if (T().cap) entry.note = entry.note.replace(/^\s*(.)/, (c)=>c.toUpperCase()); }
       continue;
     }
     if (line && !sec.intro && !line.startsWith('>')) sec.intro = line;
@@ -1140,6 +1179,7 @@ function parseReadme(md){
               : LANG==='es' ? /^\s*En disputa/.test(e.note)
               : LANG==='pt' ? /^\s*Em disputa/.test(e.note)
               : LANG==='ar' ? /^\s*متنازع/.test(e.note)
+              : LANG==='id' ? /^\s*Kontroversi/.test(e.note)
               : /^\s*(争议|[Сс]порно)/.test(e.note);
     e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
     e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);

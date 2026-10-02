@@ -9,6 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from translate.lib.config import translation_langs
 from translate.ops import wave_pipeline
 from translate.test_paths import REPO_ROOT
 
@@ -70,7 +71,7 @@ class TestWavePipelineMain(unittest.TestCase):
                 rc = wave_pipeline.main(["02"])
 
         self.assertEqual(rc, 0)
-        expected = {"ru", "en", "es", "pt", "ar"}
+        expected = set(translation_langs(REPO_ROOT))
         self.assertEqual(len(assemble_calls), len(expected))
         self.assertEqual(len(verify_calls), len(expected))
         langs_assembled = {c[-1] for c in assemble_calls}

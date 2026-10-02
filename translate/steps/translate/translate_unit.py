@@ -24,6 +24,7 @@ _LANG_NAMES = {
     "es": "Spanish",
     "ar": "Arabic",
     "pt": "Brazilian Portuguese",
+    "id": "Indonesian",
 }
 
 LOCALE_FIELD_HINTS = {

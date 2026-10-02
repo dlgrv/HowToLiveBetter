@@ -325,7 +325,9 @@ def inject_root(src: str, langs, primary: str) -> str:
     src = LANGS_BLOCK_RE.sub(script, src, count=1)
 
     menu = menu_html(langs)
-    menu_re = re.compile(r'<div class="lang-menu" role="menu">.*?</div>', re.DOTALL)
+    menu_re = re.compile(
+        r'^[ \t]*<div class="lang-menu" role="menu">.*?</div>', re.DOTALL | re.MULTILINE
+    )
     if not menu_re.search(src):
         sys.exit("site/index.html: lang-menu not found")
     src = menu_re.sub(menu, src, count=1)

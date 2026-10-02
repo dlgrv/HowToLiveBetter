@@ -27,7 +27,7 @@ class TestProjectConfig(unittest.TestCase):
         self.assertIn("zh", site)
         self.assertNotIn("zh", tr)
         self.assertNotIn("cn", tr)
-        self.assertEqual(set(tr), {"en", "ru", "es", "pt", "ar"})
+        self.assertEqual(set(tr), {"en", "ru", "es", "pt", "ar", "id"})
         self.assertTrue(set(tr).issubset(set(site)))
 
     def test_lang_rules_skeleton_keys(self):

@@ -1,0 +1,4413 @@
+{
+  "checked_at": "2026-09-30",
+  "source_commit": "0d797ae",
+  "currency": {
+    "CNY": "2684.785",
+    "USD": "17998",
+    "GBP": "23817.665",
+    "source": "https://www.bi.go.id/id/statistik/informasi-kurs/transaksi-bi/default.aspx",
+    "method": "midpoint of published transaction buy/sell rates; half-up rounding"
+  },
+  "items": [
+    {
+      "chapter": 1,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 17,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 19,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 20,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 21,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 22,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 23,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 24,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 25,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 26,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 27,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 28,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 29,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 30,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 31,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 32,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 33,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 34,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 35,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 1,
+      "item": 36,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 17,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 19,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 20,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 21,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 22,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 23,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 24,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 25,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 26,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 27,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 28,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 29,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 30,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 31,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 32,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 33,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 34,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 35,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 36,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 37,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 38,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 39,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 40,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 41,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 2,
+      "item": 42,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 21,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 22,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 24,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 3,
+      "item": 25,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 17,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 4,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 18,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 21,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 24,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 25,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 26,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 27,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 28,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 29,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 30,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 31,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 32,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 33,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 34,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 35,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 36,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 37,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 38,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 39,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 40,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 41,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 42,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 43,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 44,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 5,
+      "item": 45,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 19,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 21,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 23,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 24,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 25,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 6,
+      "item": 26,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 7,
+      "item": 1,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 2,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 3,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 4,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 5,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 6,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 7,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 8,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 9,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 10,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 11,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 12,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 13,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 14,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 15,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 16,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 17,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 18,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 19,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 20,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 7,
+      "item": 21,
+      "mode": "indonesian-replacement",
+      "money": false
+    },
+    {
+      "chapter": 8,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 18,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 21,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 24,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 25,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 26,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 27,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 28,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 29,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 30,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 31,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 32,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 33,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 34,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 35,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 36,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 37,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 38,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 39,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 40,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 41,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 42,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 8,
+      "item": 43,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 18,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 21,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 9,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 10,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 11,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 18,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 21,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 12,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 17,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 19,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 20,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 21,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 22,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 23,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 24,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 25,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 26,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 27,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 28,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 29,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 30,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 31,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 32,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 33,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 34,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 35,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 36,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 37,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 38,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 39,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 40,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 13,
+      "item": 41,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 14,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 15,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 16,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 17,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 18,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 19,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 20,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 21,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 22,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 11,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 14,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 15,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 17,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 18,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 21,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 22,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 23,
+      "item": 23,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 24,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 25,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 26,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 27,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 28,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 29,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 10,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 12,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 30,
+      "item": 13,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 31,
+      "item": 16,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 4,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 5,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 32,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 1,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 2,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 3,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 6,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 7,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 8,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 9,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 10,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 11,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 12,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 13,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 14,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 15,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 16,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 17,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 18,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 19,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 33,
+      "item": 20,
+      "mode": "foreign-context-marked",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 1,
+      "mode": "foreign-context-marked",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 2,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 3,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 4,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 5,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 6,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 7,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 8,
+      "mode": "general-evidence",
+      "money": true,
+      "source": "English"
+    },
+    {
+      "chapter": 34,
+      "item": 9,
+      "mode": "general-evidence",
+      "money": false,
+      "source": "English"
+    }
+  ],
+  "review_scope": {
+    "chapters": 34,
+    "items": 630,
+    "local_program_items": 21,
+    "foreign_context_items": 371,
+    "price_note": "Local published examples are separate from exchange-rate conversions. Prices without a verified local quote remain source equivalents."
+  },
+  "safety_corrections": [
+    "Do not induce vomiting after suspected poisoning without medical instruction.",
+    "Use Healing119 channels without importing Chinese hotline operating hours."
+  ]
+}

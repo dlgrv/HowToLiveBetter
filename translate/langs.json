@@ -65,6 +65,17 @@
       "inLanguage": "ar",
       "shortLabel": "ع",
       "menuLabel": "العربية"
+    },
+    {
+      "code": "id",
+      "primary": false,
+      "contentRoot": "book/id",
+      "readme": "README.id.md",
+      "htmlLang": "id",
+      "ogLocale": "id_ID",
+      "inLanguage": "id",
+      "shortLabel": "ID",
+      "menuLabel": "Bahasa Indonesia"
     }
   ]
 }

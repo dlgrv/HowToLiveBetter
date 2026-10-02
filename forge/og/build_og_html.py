@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render forge/og/{en,ru,es,zh,pt,ar}.html from forge/og/_template.html.
+"""Render forge/og/{en,ru,es,zh,pt,ar,id}.html from forge/og/_template.html.
 
 Usage (from repo root):
   python3 forge/og/build_og_html.py
@@ -103,6 +103,19 @@ LOCALES = {
         "grade_a_suffix": "",
         "links_label": "رابطًا للمصادر الأولية",
         "filter_label": "صفِّ حسب القيمة مقابل الجهد",
+    },
+    "id": {
+        "font_family": LATIN_SERIF,
+        "h1_size": "52",
+        "brand": "HowToLiveBetter: Panduan Hidup yang Sepadan",
+        "h1_line1": "Lebih sedikit waktu, tenaga, dan biaya —",
+        "h1_line2": "lebih banyak hidup, kebebasan, dan uang",
+        "topics": "Umur panjang | Pertolongan pertama | Uang | Hukum | Keluarga | Keterampilan",
+        "tips_label": "saran",
+        "grade_a_label": "bukti tingkat A",
+        "grade_a_suffix": "",
+        "links_label": "tautan sumber primer",
+        "filter_label": "Filter menurut nilai dibanding biaya",
     },
 }
 

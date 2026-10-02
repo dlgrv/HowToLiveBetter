@@ -41,7 +41,7 @@ jobs:
       fail-fast: false
       matrix:
         # CI matrix may be a subset of translate/langs.json; keep in sync when adding ebook locales.
-        lang: [en, ru, zh, es, pt, ar]
+        lang: [en, ru, zh, es, pt, ar, id]
     steps:
       - uses: actions/checkout@v4
 
@@ -135,12 +135,12 @@ jobs:
           set -euo pipefail
           mapfile -t files < <(find dist -maxdepth 1 -type f \
             \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \) | sort)
-          if [ "${#files[@]}" -ne 12 ]; then
-            echo "expected 12 assets, got ${#files[@]}"
+          if [ "${#files[@]}" -ne 14 ]; then
+            echo "expected 14 assets, got ${#files[@]}"
             ls -l dist
             exit 1
           fi
-          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt, ar."
+          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt, ar, id."
           notes="$notes Assets are replaced on each main build; download URLs stay fixed."
           if gh release view ebooks-latest >/dev/null 2>&1; then
             gh release edit ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes"
