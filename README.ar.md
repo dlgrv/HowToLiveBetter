@@ -16,6 +16,8 @@
 
 **[افتح صفحة البحث عبر الإنترنت](https://dlgrv.github.io/HowToLiveBetter/ar/)** | [جدول المحتويات](#table-of-contents) | [المصطلحات](#reading-the-numbers-glossary) | [سجلات التحقق](docs/research/核实记录/) | [هل الزواج يستحق (قراءة مطولة)](docs/research/ar/Is-Marriage-Worth-It.md) | [عدة الطوارئ المنزلية (قراءة مطولة)](docs/research/ar/Home-Emergency-Kit.md) | [هل تتوقف لمساعدة غريب (قراءة مطولة)](docs/research/ar/Should-You-Stop-To-Help-A-Stranger.md) | [ما التراخيص التي تحتاجها المنصة (قراءة مطولة)](docs/research/ar/What-Licenses-A-Platform-Needs.md)
 
+## اللغات
+
 | اللغة | الموقع | README | PDF | EPUB |
 | --- | --- | --- | --- | --- |
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
@@ -25,6 +27,10 @@
 | 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
 | 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 | 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
+
+## المساهمون
+
+[![Contributors](https://contrib.rocks/image?repo=dlgrv/HowToLiveBetter)](https://github.com/dlgrv/HowToLiveBetter/graphs/contributors)
 
 ---
 
