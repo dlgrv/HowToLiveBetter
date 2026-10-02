@@ -178,7 +178,6 @@ html.dark .theme-btn .moon{display:none}
 .sec-block{margin-top:40px}
 .sec-h{display:flex;align-items:baseline;gap:12px;padding-top:24px;border-top:1px solid var(--divider);margin-bottom:8px}
 .sec-h h2{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em;margin:0}
-.sec-h .shown{margin-left:auto;font-size:13px;color:var(--t3);font-variant-numeric:tabular-nums}
 .intro{margin:0 0 20px;color:var(--t2);font-size:14px;max-width:100%}
 
 .card{background:var(--bg-soft);border:1px solid transparent;border-radius:12px;padding:22px 24px 18px;margin-bottom:16px;transition:border-color .25s,background .25s;content-visibility:auto;contain-intrinsic-size:300px;contain-intrinsic-size:auto 300px}
@@ -288,7 +287,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <div class="nav-r">
       <details class="lang-dd" id="lang">
         <summary title="Language / Язык / 语言" aria-label="Выбрать язык"><span id="lang-label">РУ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="lang-menu" role="menu">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="lang-menu" role="menu">
           <button type="button" role="menuitem" data-lang="en">English</button>
           <button type="button" role="menuitem" data-lang="ru">Русский</button>
           <button type="button" role="menuitem" data-lang="zh">中文</button>
@@ -1060,7 +1059,7 @@ function build(sections){
     b.innerHTML = `<span>${s.n}. ${esc(s.title)}</span><i>${s.entries.length}</i>`; fsec.appendChild(b);
 
     const block = document.createElement('section'); block.className='sec-block'; block.dataset.sec = s.n; block.id = 'sec-'+s.n;
-    block.innerHTML = `<div class="sec-h"><h2>${s.n}. ${esc(s.title)}</h2><span class="shown"><span class="k"></span> / ${s.entries.length}</span></div><p class="intro"></p>`;
+    block.innerHTML = `<div class="sec-h"><h2>${s.n}. ${esc(s.title)}</h2></div><p class="intro"></p>`;
     renderText(block.querySelector('.intro'), s.intro, [], false);
     for (const e of s.entries){
       const id = `e-${e.sec}-${e.n}`;
@@ -1101,7 +1100,7 @@ function build(sections){
       CARDS.push(card); CARD_OF.set(c, card); CARD_IO.observe(c);
     }
     list.appendChild(block);
-    BLOCKS.push({n:s.n, el:block, k:block.querySelector('.shown .k')});
+    BLOCKS.push({n:s.n, el:block});
   }
   document.getElementById('tot').textContent = CARDS.length;
 }
@@ -1217,7 +1216,7 @@ function apply(){
       if (card.vis && card.key !== key) { rerender++; renderCard(card, terms, key); }
     }
   }
-  for (const b of BLOCKS){ const n = perSec[b.n]||0; if (b.el.hidden !== (n === 0)) b.el.hidden = n === 0; b.k.textContent = n; }
+  for (const b of BLOCKS){ const n = perSec[b.n]||0; if (b.el.hidden !== (n === 0)) b.el.hidden = n === 0; }
   document.getElementById('cnt').textContent = shown;
   document.getElementById('empty').hidden = shown !== 0;
   syncControls(); writeUrl();
@@ -1311,8 +1310,15 @@ function wire(){
   const toTop = () => {
     clearPos();
     setMenu(false);
+    if (location.hash){
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    }
     scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
+  /* Brand title → page top (href="./" is a same-URL no-op otherwise) */
+  document.querySelectorAll('a.title').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); toTop(); });
+  });
   /* persist reading card for F5 resume */
   {
     let ticking = false;
@@ -1346,11 +1352,20 @@ function wire(){
     const b = ev.target.closest('[data-v]'); if (!b) return;
     const dim = g.dataset.dim, v = b.dataset.v, set = state[dim];
     if (dim === 'sec'){
-      // 章节单选：再点一次已选中的不取消，免得双击退回全部章节；要看全部点「全部章节」
-      if (v === '') set.clear(); else { set.clear(); set.add(v); }
-    } else {
-      set.has(v) ? set.delete(v) : set.add(v);
+      // TOC: jump to the section. Do not filter (that shrinks the counter) or toTop.
+      if (v === ''){
+        set.clear();
+        apply();
+        setMenu(false);
+        return;
+      }
+      if (set.size){ set.clear(); apply(); }
+      setMenu(false);
+      const el = document.getElementById('sec-' + v);
+      if (el) scrollToEl(el);
+      return;
     }
+    set.has(v) ? set.delete(v) : set.add(v);
     apply(); toTop();
   }));
   document.getElementById('f-dispute').addEventListener('change', e => { state.dispute = e.target.checked; apply(); toTop(); });

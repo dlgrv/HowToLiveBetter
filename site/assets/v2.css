@@ -245,7 +245,6 @@ html.side-collapsed .content{padding-left:var(--content-pad-x)}
 .sec-block{max-width:var(--measure);margin:0 auto var(--sec-gap)}
 .sec-h{display:flex;align-items:baseline;gap:var(--sec-h-gap);padding-top:var(--sp-4);margin-bottom:var(--sp-2)}
 .sec-h h2{margin:0;flex:1;min-width:0;font:var(--fw-strong) var(--fs-4)/var(--lh-tight) var(--serif);letter-spacing:-.01em;color:var(--ink);overflow-wrap:break-word}
-.sec-h .shown{margin-left:auto;flex:none;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
 .intro{margin:var(--sp-3) 0 var(--sp-6);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
 
 /* ---------- loading skeletons ---------- */
