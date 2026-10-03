@@ -1,2 +1,10 @@
-# Soft parity: empty after upstream CN sync through 18de323 locale catch-up.
-# Add NN here only when CN drifts ahead of en/ru/es/pt again.
+# Soft parity: remaining ar/id catch-up after upstream 18de323.
+# Done tonight: ar ch01. Resume: ar 05 (partial workdir) 07 08 09 12 13 14 26; then all nine for id.
+05
+07
+08
+09
+12
+13
+14
+26

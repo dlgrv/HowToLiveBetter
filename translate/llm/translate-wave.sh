@@ -7,9 +7,9 @@ cd "$(dirname "$0")/../.." || exit
 lang="${1:?usage: $0 <lang> <nn>…}"
 shift
 case "$lang" in
-  ru|en|es|pt) ;;
+  ru|en|es|pt|ar|id) ;;
   *)
-    echo "unsupported lang: $lang (want ru|en|es|pt)" >&2
+    echo "unsupported lang: $lang (want ru|en|es|pt|ar|id)" >&2
     exit 1
     ;;
 esac
