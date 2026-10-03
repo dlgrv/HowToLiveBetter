@@ -9,6 +9,8 @@ so the next sync does not reintroduce them.
 Also remaps upstream paths that this fork relocates:
 - markdown ``](docs/…`` → ``](docs/research/…`` (idempotent if already remapped)
 - hero ``og.png`` → ``site/assets/og/zh.png``
+- Pages search URLs ``eternity4719.github.io/HowToLiveBetter/`` →
+  ``dlgrv.github.io/HowToLiveBetter/zh/``
 - inserts the shipped-language table from root README.md when missing
   (detected by absence of ``[README.md](README.md)``)
 """
@@ -53,6 +55,14 @@ def remap_og_image(text: str) -> str:
     return re.sub(r"\]\((?:\.\/)?og\.png\)", "](site/assets/og/zh.png)", text)
 
 
+def remap_pages_urls(text: str) -> str:
+    """Point Chinese search-page links at this fork's /zh/ site."""
+    return text.replace(
+        "https://eternity4719.github.io/HowToLiveBetter/",
+        "https://dlgrv.github.io/HowToLiveBetter/zh/",
+    )
+
+
 def _language_table_from_readme(repo_root: str) -> str | None:
     readme = os.path.join(repo_root, "README.md")
     if not os.path.isfile(readme):
@@ -92,6 +102,7 @@ def apply_fork_overlay(text: str, repo_root: str | None = None) -> str:
     text = strip_ads(text)
     text = remap_docs_links(text)
     text = remap_og_image(text)
+    text = remap_pages_urls(text)
     text = insert_language_table(text, repo_root)
     return text.rstrip() + "\n"
 

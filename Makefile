@@ -67,13 +67,23 @@ help:  ## Show this help
 sync-upstream:  ## Fetch upstream CN changes (follow AGENTS.md ritual)
 	@echo "→ Follow docs/pipeline/upstream-sync.md"
 	git fetch upstream
-	git checkout upstream/main -- $$(git ls-tree -r --name-only upstream/main book | grep -E '^book/[0-9]{2}-.*\.md$$')
-	git checkout upstream/main -- $$(git ls-tree -r --name-only upstream/main docs | grep -E '^docs/[^/]+\.md$$' ; git ls-tree -r --name-only upstream/main docs/核实记录)
+	# core.quotepath=false: CJK paths must not be shell-quoted pathspecs (empty list → accidental branch switch)
+	git -c core.quotepath=false ls-tree -r --name-only upstream/main book \
+		| grep -E '^book/[0-9]{2}-.*\.md$$' \
+		| while IFS= read -r f; do git checkout upstream/main -- "$$f"; done
+	git -c core.quotepath=false ls-tree -r --name-only upstream/main docs \
+		| grep -E '^docs/[^/]+\.md$$' \
+		| while IFS= read -r f; do git checkout upstream/main -- "$$f"; done
+	git -c core.quotepath=false ls-tree -r --name-only upstream/main docs/核实记录 \
+		| while IFS= read -r f; do git checkout upstream/main -- "$$f"; done
+	# Fork site serves Chinese long-reads / 核实记录 under docs/research/
+	@if [ -f docs/引用对照.md ]; then cp -f docs/引用对照.md docs/research/引用对照.md; fi
+	@if [ -d docs/核实记录 ]; then rsync -a --delete docs/核实记录/ docs/research/核实记录/; fi
 	git checkout upstream/main -- skills/
 	git show upstream/main:README.md > README.zh.md
 	$(PY) forge/ops/strip_zh_readme_ads.py README.zh.md
 	@echo "→ Touched CN chapters:"
-	@git diff --name-only HEAD -- 'book/[0-9][0-9]-*.md' || true
+	@git -c core.quotepath=false diff --name-only HEAD -- 'book/[0-9][0-9]-*.md' || true
 	@echo "→ Next: fill docs/.retranslate-pending, catch up en/ru/es/pt, then check_content.py"
 	@echo "→ Review: git diff -- book/ README.zh.md docs/ skills/"
 	@echo "→ Never checkout ads/, site/, translate/, or forge/ from upstream"

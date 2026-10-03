@@ -1,2 +1,11 @@
-# Soft parity: empty after upstream CN sync through 6f6d969 locale catch-up.
-# Add NN here only when CN drifts ahead of en/ru/es/pt again.
+# Soft parity: CN drifted ahead of en/ru/es/pt after sync to upstream 18de323.
+# Chapters below need locale catch-up.
+01
+05
+07
+08
+09
+12
+13
+14
+26
