@@ -1,10 +1,22 @@
-> Unofficial translation of [book/12-创业与做生意.md](../12-创业与做生意.md). In case of any discrepancy the Chinese original prevails.
+# 12. Emprender y montar un negocio: no arriesgue sus ahorros
 
-[← Volver al índice](../../README.md)
+En esta sección solo se tratan cuestiones económicas y legales, sin vincularlas a la esperanza de vida. Al abrir un local o constituir una empresa, ¿en qué pasos podría perder su dinero, el de su familia o el de su cónyuge? ¿Qué establece la ley al respecto y cómo se pueden proteger esos fondos de antemano? Los puntos que más fácilmente ponen en riesgo sus ahorros, pero que también son los más sencillos de evitar, se colocan al principio. Por eso, las cláusulas que requieren firma aparecen primero, mientras que los métodos que exigen acción propia quedan al final. Aquellos consejos basados únicamente en experiencia sin respaldo bibliográfico se marcan como nivel C.
 
-# 12. Emprender y hacer negocios: no pierdas el patrimonio familiar
+Los apartados de esta sección se agrupan por temas; entre paréntesis se indica el número correspondiente.
 
-El enfoque de esta sección es el dinero y la responsabilidad legal: al abrir una tienda o constituir una empresa, en qué paso tus bienes personales, los bienes familiares y los del cónyuge pasan a responder por las deudas, cómo lo regula la ley y si es posible separarlos por adelantado; no se convierte a años de vida. El orden va de mayor a menor según «qué tan fácil es perder el patrimonio familiar y qué tan sencillo es evitarlo»: los asuntos de firma van primero, los métodos que requieren actos concretos van después, y los ítems de experiencia llevan nivel C.
+**Antes de abrir: no arriesgue sus ahorros**: invierta solo el dinero que pueda permitirse perder (punto 1); evite firmar garantías personales para préstamos de la empresa (punto 2); elija la figura jurídica adecuada antes de iniciar (punto 3); no sea accionista nominal sin participación real (punto 4); verifique los registros oficiales antes de unirse a una franquicia (punto 5); consulte bien antes de contratar a alguien para gestionar su tienda online (punto 24).
+
+**Registro y licencias**: defina el nombre y el ámbito de actividad antes de registrarse (punto 6); no inicie operaciones hasta obtener las licencias necesarias (punto 7).
+
+**Alimentos**: determine primero a qué categoría pertenece su producto (punto 8); respete las normas de etiquetado de alimentos preenvasados (punto 9); no afirme que los alimentos curan enfermedades (punto 10); conozca los límites legales penales en materia alimentaria (punto 11).
+
+**Impuestos y facturas**: presente declaraciones cero aunque no haya ingresos (punto 12); emita facturas únicamente por transacciones reales (punto 13); quien afirme ser de la administración tributaria y le exija pago es un estafador (punto 14).
+
+**Contratos y personal**: utilice el término “depósito” y no “señal” al recibir pagos (punto 15); firme contratos con sus empleados en el primer mes (punto 16); pague los salarios conforme al contrato y a la ley (punto 17); actúe siempre siguiendo los procedimientos establecidos en su puesto (punto 22).
+
+**Productos y compras**: produzca primero y venda después (punto 18); elabore una lista de producción con margen de seguridad para las muestras (punto 19); conserve los comprobantes y datos de sus proveedores (punto 20); cree sus propios diseños o adquiera las licencias correspondientes (punto 21).
+
+**Cierre del negocio**: si las pérdidas son inevitables, cierre el negocio siguiendo los procedimientos legales (punto 23).
 ### 1. Emprende solo con dinero que puedas perder: no toques el patrimonio familiar ni pidas préstamos para arrancar
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 - Costo: No cuesta dinero. Antes de empezar, fija tú mismo una cifra: aunque ese dinero se pierda del todo, seguirás pagando la hipoteca, manteniendo a los hijos y atendiendo la salud. Si la cantidad la supera, no la metas. El dinero de los familiares y el prestado no entran en esa cifra. Lo difícil es aguantarse y no seguir echando dinero cuando el negocio parece que despega.

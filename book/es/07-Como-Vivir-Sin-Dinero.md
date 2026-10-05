@@ -1,10 +1,6 @@
-> Unofficial translation of [book/07-没钱的时候怎么活.md](../07-没钱的时候怎么活.md). In case of any discrepancy the Chinese original prevails.
+# 7. Cómo sobrevivir cuando no se tiene dinero
 
-[← Volver al índice](../../README.md)
-
-# 7. Cómo vivir cuando no hay dinero
-
-El enfoque de esta sección es dinero y protección: cuánto se puede recibir, cuánto se puede ahorrar, qué servicios se obtienen y cuáles son las condiciones; no se convierte en esperanza de vida. Las políticas cambian cada año y difieren según la región; todos los montos y umbrales deben regirse por lo publicado localmente en el año correspondiente. El ordenamiento prioriza «no cuesta dinero, pocos trámites, efecto rápido»; los rubros que requieren elegibilidad a largo plazo o que varían mucho según la región van después, y los consejos de experiencia al final.
+En esta sección se describen las ayudas económicas y sociales disponibles. Se indican los montos que se pueden recibir, los servicios a los que se tiene derecho y los requisitos para acceder a ellos, sin convertirlos en años de vida ganados. Las políticas cambian cada año y varían según la región, por lo que los importes y condiciones deben consultarse en la normativa vigente de su zona. Los temas se ordenan de modo que las opciones que no cuestan nada, requieren pocos trámites y dan resultados rápidos aparezcan primero; las que exigen permanencia prolongada o dependen mucho de la ubicación vienen después. Aquellas basadas únicamente en experiencias personales, sin documentación oficial, se incluyen al final.
 ### 1. Cómo solicitar en línea el subsidio por desempleo si se queda sin trabajo
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Costo: No cuesta nada. Se puede presentar la solicitud desde el móvil mediante tres vías: la app «Zhangshang 12333», el mini programa de la tarjeta de seguro social electrónica en WeChat o Alipay, o la plataforma nacional de servicios de seguro social. Con la tarjeta de seguro social o el DNI a mano, se puede tramitar; en la mayoría de las regiones no es necesario acudir en persona. El requisito previo es haber realizado el registro de desempleo.

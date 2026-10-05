@@ -1,8 +1,8 @@
-[← Volver al índice](../../README.es.md)
+# 2. Cómo evitar una muerte lenta
 
-# 2. No morir lentamente
+En esta sección solo se incluyen dos tipos de riesgos crónicos: aquellos que influyen mucho en la mortalidad general y aquellos con evidencia sólida. Los consejos se ordenan de mayor a menor relación costo-beneficio. Algunos llevan la etiqueta «ensayo aleatorizado», lo que significa que se dividió a las personas al azar en dos grupos para compararlos; estos resultados son los más fiables. El resto de cifras provienen de estudios observacionales, en los que simplemente se registran los datos sin dividir a los participantes. En estos estudios, los índices de riesgo como HR o RR contienen dos factores de confusión: las personas son distintas entre sí y algunas ya padecían enfermedades antes de adoptar esos hábitos. Por eso, dichas cifras solo indican la tendencia y el orden de magnitud, pero no garantizan que seguir esos consejos reduzca el riesgo en esa proporción exacta.
 
-Esta sección recoge solo dos tipos de riesgos crónicos: aquellos que influyen mucho en la mortalidad general y aquellos con evidencia sólida. Los ítems se ordenan de mayor a menor relación costo‑beneficio. Algunos llevan la etiqueta «ensayo aleatorizado», lo que significa que los participantes se dividieron al azar en dos grupos para comparar resultados; este tipo de estudios ofrece la mayor fiabilidad. El resto de cifras provienen de estudios observacionales, en los que simplemente se registran los datos sin dividir a los participantes. En estos estudios, los valores de HR, RR y otros índices de riesgo se ven afectados por dos factores confusores: las personas estudiadas son diferentes entre sí y algunas ya padecían enfermedades antes de participar. Por eso, dich
+Los consejos se agrupan por temas, y entre paréntesis se indica el número correspondiente.
 ### 1. Dejar de fumar, cuanto antes mejor
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Costo: No cuesta nada; al contrario, ahorra dinero. Un paquete diario de cigarrillos cuesta unos 20–30 yuanes; al dejar de fumar, ese dinero se queda en el bolsillo. Lo difícil es superar la fase de abstinencia, que suele durar unas semanas o meses.

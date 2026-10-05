@@ -1,20 +1,28 @@
-> Traducción no oficial de [book/01-不要早死.md](../01-不要早死.md). En caso de discrepancia, prevalece el original chino.
+# 33. Cómo vivir tras quedar discapacitado
 
-[← Volver al índice general](../../README.es.md)
+En esta sección se describe la vida después de que la discapacidad ya se ha producido. Para prevenirla, véanse los apartados 1 y 13; aquí no se repiten esos consejos.
 
-# 33. Cómo vivir después de una discapacidad
+Se calculan por separado cuatro tipos de datos: los casos de urgencia y complicaciones se miden por mortalidad; las ayudas económicas, prestaciones y litigios, por dinero; los trámites escolares y administrativos, por tiempo; y la privacidad personal en casos de hospitalización por trastornos mentales, capacidad de obrar y tutela, por libertad personal.
 
-Esta sección trata de la vida después de que la discapacidad ya ha ocurrido. Cómo prevenir la discapacidad está en las secciones 1 y 13; aquí no se repite.
+Según la OMS, tres cifras son especialmente relevantes. En todo el mundo, alrededor de 1.300 millones de personas padecen alguna discapacidad grave, lo que equivale al 16 % de la población mundial; es decir, aproximadamente una de cada seis personas. Los discapacitados mueren, en promedio, hasta 20 años antes que quienes no lo son. Además, el riesgo de sufrir depresión, asma, diabetes, infarto, obesidad o problemas bucales es el doble. Gran parte de esas diferencias no se deben a la discapacidad en sí, sino a la falta de acceso a la sanidad, a la educación, al empleo y a la movilidad. Por eso, la mitad de los puntos de este capítulo tratan del cuerpo y la otra mitad de los trámites y derechos.
 
-Las cuatro categorías se contabilizan por separado y no se convierten entre sí. Las entradas sobre urgencias y complicaciones se contabilizan por mortalidad. Las entradas sobre subsidios, prestaciones y juicios se contabilizan en dinero. Las entradas sobre estudios y trámites se contabilizan en tiempo. Las entradas sobre hospitalización por trastornos mentales, capacidad de obrar y tutela se contabilizan en libertad personal.
+Hay cinco temas ya tratados en otros apartados; aquí solo se indica dónde encontrarlos, sin repetirlos. Cómo obtener el certificado de discapacidad y cómo se clasifican las siete categorías y los cuatro grados: apartado 24, punto 10. Cuándo realizar la evaluación de discapacidad: apartado 24, punto 9. Cómo solicitar las dos ayudas económicas para discapacitados: apartado 7, punto 8. Cómo convertir la evaluación de capacidad laboral y el grado de discapacidad laboral en una compensación económica: apartado 19, punto 14. Cómo solicitar el seguro de cuidados a largo plazo para personas con discapacidad grave: apartado 17, punto 7. Este último se menciona en el apartado «Cuando hay ancianos en casa», pero no hay límite de edad; los jóvenes también pueden acceder a él.
 
-El manual de la Organización Mundial de la Salud da tres cifras. En el mundo hay alrededor de 1300 millones de personas con una disfunción significativa, el 16 % de la población mundial, es decir, una de cada seis personas. Las personas con parte de discapacidad mueren hasta 20 años antes que las personas sin discapacidad. Las personas con discapacidad tienen el doble de riesgo de depresión, asma, diabetes, ictus, obesidad o mala salud bucodental. En estas brechas, gran parte no la causa la discapacidad en sí, sino no poder recibir atención médica, no poder estudiar, no encontrar trabajo o no poder salir de casa. Por eso, la mitad de las entradas de esta sección tratan del cuerpo y la otra mitad, de trámites y derechos.
+En la mayoría de los puntos de este capítulo, los beneficiarios son usted y su familia; se trata de los niveles de mayor protección. Cuando se menciona a otras personas, se indica expresamente en la nota correspondiente.
 
-Cinco asuntos ya escritos en otros lugares se señalan aquí sin repetir. Cómo tramitar el certificado de discapacidad y cómo se evalúan las siete categorías y los grados 1 a 4, véase la sección 24, entrada 11 (certificado de discapacidad). Cuándo conviene esperar para hacer la peritación de invalidez, véase la sección 24, entrada 10 (peritación de invalidez). Cómo cobrar los dos subsidios para personas con discapacidad, véase la sección 7, entrada 8 (los dos subsidios). Cómo se convierte en dinero la evaluación de la capacidad laboral y el grado de invalidez por accidente de trabajo, véase la sección 19, entrada 15 (evaluación de la capacidad laboral). Cómo solicitar el seguro de cuidados de larga duración para gran dependencia, véase la sección 17, entrada 7 (seguro de cuidados de larga duración): esa entrada está escrita en la sección «hay personas mayores en casa», pero esta prestación no tiene umbral de edad, los jóvenes también pueden cobrarla.
+Los puntos se agrupan por temas; entre paréntesis figura el número de cada uno.
 
-El beneficiario de la mayoría de las entradas de esta sección eres tú y tu familia, las dos categorías más altas. Los casos en que se ven afectadas otras personas se indican por separado en las notas.
+**Salud y rehabilitación**: Dolor de cabeza intenso tras una lesión medular (punto 1). Cambiar el cojín de la silla de ruedas por uno de presión reducida (punto 5). Evitar los tratamientos que prometen curar la parálisis (punto 6). Realizar la rehabilitación en centros autorizados (punto 16). Usar audífonos si se pierde audición (punto 17).
 
-> Nota del traductor: en China, 120 es el número de emergencias médicas, 110 el de la policía y 12385 el de la línea de atención al público de la federación de personas con discapacidad (残联, China Disabled Persons' Federation).
+**Prestaciones y ayudas**: Consultar en la federación de discapacitados para conocer todas las ayudas disponibles (punto 7). Solicitar ayudas de rehabilitación para niños con discapacidad (punto 8). Pedir subvenciones para instalar rampas y barandillas en el baño (punto 9). Obtener reducciones en el impuesto sobre la renta (punto 11).
+
+**Empleo y defensa de derechos**: Informar voluntariamente de su condición de discapacitado al buscar empleo (punto 10). Recurrir a la justicia si se le niega el trabajo por su discapacidad (punto 20).
+
+**Educación y movilidad**: Acceder a lugares públicos con perros guía (punto 12). Solicitar adaptaciones razonables en el examen de ingreso a la universidad (punto 13). Las escuelas no pueden negarse a admitir a niños con discapacidad (punto 14). Con discapacidad en ambas piernas, aún puede obtener el permiso de conducir (punto 15).
+
+**Salud mental y cuidadores**: El riesgo de suicidio en los diez primeros años tras quedar discapacitado (punto 2). Los cuidadores deben cuidar también de su propia salud (punto 4).
+
+**Trastornos mentales y tutela**: La hospitalización por trastornos mentales debe ser voluntaria (punto 3). Para determinar la capacidad de obrar, hay que solicitarlo al tribunal (punto 18). La designación del tutor sigue el orden legal establecido (punto 19).
 ### 1. Después de una lesión medular, si aparece un dolor de cabeza intenso y sudoración repentina, primero hay que ayudar a la persona a sentarse erguida, aflojarle la ropa y llamar al 120
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 

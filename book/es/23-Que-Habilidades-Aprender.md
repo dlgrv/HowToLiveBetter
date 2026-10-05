@@ -1,10 +1,18 @@
-[← Volver al índice](../../README.es.md)
+[← Volver al índice](../../README.md)
 
 # 23. ¿Qué habilidades merece la pena aprender?
 
-[← Volver al índice](../../README.es.md)
+En esta sección analizamos el dinero y el tiempo; el segundo punto también considera la mortalidad. Los primeros seis puntos responden a una pregunta: ¿conviene seguir estudiando? El primer punto explica qué opciones elimina la ley; el segundo estudia la relación entre estudios y esperanza de vida; el tercero muestra en qué nivel educativo se sitúa la población nacional. El cuarto describe las ayudas disponibles cuando los estudios resultan costosos; el quinto expone las alternativas si no se logra ingresar a la escuela secundaria; el sexto convierte la decisión de «estudiar o trabajar» en un ejercicio práctico con una fórmula sencilla. Los siete puntos siguientes responden a otra pregunta: una vez decidido aprender algo, ¿cómo elegirlo? En China resulta difícil verificar estadísticas salariales por oficio a través de fuentes oficiales, por lo que aquí solo mencionamos datos comprobables: cuánto aumenta el salario con un año más de estudios (conocido como retorno educativo), cómo comprobar la legalidad de un certificado, dónde solicitar subvenciones para formación y qué criterios ayudan a evitar que una habilidad quede obsoleta. No ofrecemos cifras concretas sobre el ingreso mensual en cada oficio. Los puntos 14 a 19 responden a una tercera pregunta: una vez elegida la habilidad, ¿cómo aprenderla de forma rápida? Estos seis puntos miden el tiempo, sin convertirlo en dinero. Por último, los puntos 20 a 23 responden a una cuarta pregunta: para quienes ya ejercen profesiones técnicas, ¿cómo solicitar y obtener títulos profesionales, qué errores evitar y cuánto valor añaden?
 
-En esta sección analizamos el costo económico y el tiempo invertido; el segundo punto también considera la mortalidad. Los seis primeros apartados responden a una pregunta clave: ¿vale la pena seguir estudiando? El primero explica qué opciones legales quedan descartadas; el segundo estudia la relación entre la educación y la esperanza de vida; el tercero muestra en qué nivel educativo
+Los apartados de esta sección se agrupan por temas, indicados entre paréntesis con el número correspondiente.
+
+**¿Conviene seguir estudiando?**: los menores de 16 años no pueden trabajar (punto 1); el valor de los estudios se relaciona con la mortalidad (punto 2); la distribución educativa en el país (punto 3); ayudas estatales para quienes no pueden costear la educación (punto 4); opciones si no se ingresa a la escuela secundaria (punto 5); cómo transformar la elección de «estudiar o trabajar» en un cálculo personal (punto 6).
+
+**¿Cómo elegir lo que aprender?**: retorno educativo de un año adicional de estudio (punto 7); cómo consultar el catálogo de profesiones certificadas antes de obtener un título (punto 8); cómo acceder a subvenciones gubernamentales para la formación (punto 9); cómo priorizar habilidades que requieran acción práctica y juicio inmediato (punto 10); cómo verificar si una habilidad cuenta con evaluación de nivel (punto 11); cómo consultar el listado de oficios con demanda en la zona (punto 12); cómo optar por programas cortos que permitan incorporarse al trabajo de inmediato (punto 13).
+
+**¿Cómo aprender rápido?**: cómo autoevaluarse tras finalizar un curso (punto 14); cómo distribuir el tiempo de estudio en varios días (punto 15); por qué no centrarse solo en resaltar los puntos clave (punto 16); cómo combinar distintos tipos de ejercicios (punto 17); por qué no elegir métodos de estudio según el tipo de percepción sensorial (punto 18); cómo crear pruebas propias para memorizar mejor (punto 19).
+
+**Obtención de títulos profesionales**: cómo localizar los canales de solicitud de títulos (punto 20); cómo prepararse para los exámenes de niveles básico e intermedio en contabilidad (punto 21); por qué evitar contratar intermediarios para gestionar los títulos (punto 22); por qué contar con un título no implica automáticamente un aumento salarial (punto 23).
 ### 1. Menores de 16 años no tienen opción de «trabajar»: la empresa que los contrate pagará 5000 yuanes de multa al mes; solo las empresas que emplean mano de obra ilegal lo harán
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=自由 -->
 

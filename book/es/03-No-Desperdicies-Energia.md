@@ -1,12 +1,18 @@
-> Unofficial translation of [book/03-不要浪费精力.md](../03-不要浪费精力.md). In case of any discrepancy the Chinese original prevails.
+# 3. No desperdicies energía ni tiempo
 
-[← Volver al índice](../../README.md)
+Este apartado se centra exclusivamente en el gasto de energía mental y tiempo. Analizamos cuatro aspectos clave: cuánta atención puedes dedicar cada día, qué tan rápida es tu reacción, cuántos errores cometes y cuánto tardas en volver a concentrarte tras una interrupción. Todos los valores numéricos provienen de mediciones directas, experimentos o estudios de seguimiento de grupos de personas (estudios de cohorte). Estos datos no se convierten en años de vida ganados ni en tasas de mortalidad. La mayoría de los ítems de este apartado tienen nivel de evidencia B; esa es la naturaleza de este campo, aunque ello no invalida las recomendaciones. El ítem 19 trata sobre las expectativas al tratar con policías, médicos y cajeros; al basarse en normativas legales y no en experimentos, su nivel de evidencia es C. Los ítems 15 (considerar los pensamientos negativos como síntomas) y 22 (considerar la presión de ser perfecto como síntoma) emplean cifras de mortalidad y riesgo de suicidio distintas a las del resto del apartado, por lo que no se comparan con ellos.
 
-# 3. No desperdicies energía
-§TAG§
+Los ítems se agrupan por temas; entre paréntesis se indica el número correspondiente.
 
-Esta sección hace cuentas solo de energía y de tiempo: la atención disponible cada día, la velocidad de reacción, la tasa de errores, el tiempo de recuperación tras una interrupción. Todos los números provienen de mediciones directas en experimentos o estudios de cohortes, sin convertirlos en esperanza de vida ni en mortalidad. La mayoría de los puntos tienen un nivel de evidencia B, que es lo habitual en este campo y no significa que las recomendaciones no se sostengan. El último punto trata de qué esperar al tratar con instituciones; cita normativa en lugar de experimentos, y su nivel se registra como C.
-§SRC§
+**Atención en el trabajo**: desactiva las notificaciones innecesarias (ítem 1), procesa los mensajes en bloques diarios (ítem 5), bloquea interrupciones breves (ítem 6), concéntrate en una sola tarea a la vez (ítem 7), usa tapones para los oídos en oficinas abiertas (ítem 12) y no trabajes más de 49 horas semanales (ítem 13).
+
+**Sueño y noches en vela**: mantén una hora fija para levantarte (ítem 2), duerme entre 7 y 8 horas cada noche (ítem 3), evita la cafeína después de las 14:00 (ítem 4), no mires pantallas una hora antes de dormir (ítem 8), acuéstate a la hora habitual (ítem 9), no tomes decisiones importantes a altas horas de la noche (ítem 10) y descansa 10 minutos si sientes somnolencia por la tarde (ítem 11).
+
+**Pensamientos mentales**: al dar vueltas a algo, cambia a una actividad manual (ítem 14), considera los pensamientos negativos como síntomas (ítem 15), divide por dos cualquier estimación cuando temas quedar en ridículo (ítem 21) y considera la presión de ser perfecto como síntoma (ítem 22).
+
+**Enfado y tristeza**: al enfadarte, aléjate del entorno (ítem 17), realiza ciertas acciones al sentirte triste (ítem 18), no descargues tu ira rompiendo objetos (ítem 23) y escribe tus preocupaciones durante varios días seguidos (ítem 24).
+
+**Relaciones personales y redes sociales**: aprende a rechazar peticiones que no des aceptar (ítem 16), trata a policías y médicos como profesionales que siguen sus normas (ítem 19) y limita el uso de aplicaciones donde ves la actividad de personas de tu edad (ítem 20).
 ### 1. Desactiva las notificaciones no esenciales y deja el teléfono fuera de la vista mientras trabajas
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 - Costo: No cuesta dinero. Unos minutos de configuración; casi no requiere fuerza de voluntad.

@@ -1,10 +1,20 @@
-> Unofficial translation of [book/10-恋爱和结婚划不划算.md](../10-恋爱和结婚划不划算.md). In case of any discrepancy the Chinese original prevails.
-
-[← Volver al índice](../../README.md)
-
 # 10. ¿Vale la pena enamorarse y casarse?
 
-Esta sección desglosa la pregunta «¿conviene casarse?» en varias cuentas que se pueden calcular por separado: dinero, tiempo, salud, riesgos legales y calidad de la relación. Cada cuenta incluye únicamente cifras que se pueden encontrar en estadísticas oficiales o metaanálisis, sin juicios morales ni conclusiones en lugar del lector; las cifras de salud se expresan en términos de riesgo de muerte, las de tiempo en minutos por día y las legales en términos de disposiciones normativas, y las tres no se convierten entre sí. El método de desglose, la lista para completar y los errores comunes están en [docs/结婚划不划算.md](../../docs/research/es/Is-Marriage-Worth-It.md).
+En esta sección desglosamos si “vale la pena casarse” en varios aspectos: dinero, tiempo, salud, riesgos legales y calidad de la relación, calculando cada uno por separado. Para cada cálculo utilizamos únicamente cifras con fuentes verificables, que provengan de estadísticas oficiales o de metaanálisis (que reúnen datos de múltiples estudios para volver a calcularlos). No se emiten juicios morales ni se dan conclusiones por el lector. Los cálculos de salud se basan en el riesgo de mortalidad; los de tiempo, en minutos diarios; y los legales, en el texto de las leyes. Estos tres tipos de cálculos no se convierten entre sí. Para conocer el método de desglose, la lista de ítems a completar y los errores frecuentes, consulte [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+
+Los ítems de esta sección se agrupan por temas, indicados entre paréntesis con su número correspondiente.
+
+**Conocer gente y enamorarse**: conocer a más personas (n.º 1); detenerse tras un rechazo (n.º 2); observar el comportamiento para detectar interés (n.º 3); responder turnándose preguntas cada vez más personales (n.º 5); las relaciones a distancia no son peores que las locales (n.º 6).
+
+**Cómo es la relación**: evaluar cómo nos sentimos dentro de ella (n.º 4); discutir los hechos sin atacar a la otra persona (n.º 17); acudir juntos a terapia de pareja (n.º 20).
+
+**Cálculos para saber si vale la pena casarse**: revisar primero los datos de registro civil (n.º 7); aplicar un descuento a los beneficios para la salud según estudios observacionales (n.º 8); calcular el coste en tiempo como trabajo no remunerado (n.º 9); evaluar el coste de abandonar la relación (n.º 15); llevar un registro aparte para los matrimonios por presión familiar (n.º 16).
+
+**Registro civil y exámenes prenupciales**: para registrar el matrimonio basta con el documento de identidad (n.º 13); se recomienda realizarse un examen médico antes de casarse (n.º 14).
+
+**Dinero y deudas**: los cálculos económicos parten de las normas legales por defecto (n.º 10); cuando los padres aportan para comprar una vivienda, hay que dejar claro si es préstamo o regalo (n.º 11); también se consideran grandes préstamos otorgados por uno de los cónyuges (n.º 12).
+
+**Parejas del mismo sexo y orientación sexual**: las parejas del mismo sexo deben establecer tutela voluntaria y testamento (n.º 18); no se debe ocultar la orientación sexual para contraer matrimonio (n.º 19).
 ### 1. Conocer a más gente en vez de obsesionarse con una sola persona: la compatibilidad entre dos personas no se puede predecir antes de conocerse
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
 - Costo: 0 yuanes; dedicar el tiempo a ampliar el círculo de conocidos en lugar de darle vueltas una y otra vez a la misma persona
