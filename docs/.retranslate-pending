@@ -1,10 +1,22 @@
-# Soft parity: remaining ar/id catch-up after upstream 18de323.
-# Done tonight: ar ch01. Resume: ar 05 (partial workdir) 07 08 09 12 13 14 26; then all nine for id.
+# Soft parity after upstream a4e920f CN sync.
+# Locales en/ru/es/pt catch-up in follow-up PRs; until then list all drifted NNs.
+# After those land, trim to remaining ar/id lag only.
+01
+02
+03
 05
+06
 07
 08
 09
+10
+11
 12
 13
 14
+23
+24
 26
+28
+30
+33
