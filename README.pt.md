@@ -31,7 +31,7 @@ Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista
 | 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
 | 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 
-Tem ideias para o projeto (app, checklists, recursos do site, …)? [Compartilhe no issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — uma ideia por comentário; vote com 👍.
+Tem ideias para o projeto (app, checklists, recursos do site, …)? [Compartilhe no issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — uma ideia por comentário; vote com 👍
 
 ## Perguntas que este livro tenta responder
 

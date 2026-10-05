@@ -31,7 +31,7 @@
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
 | 🇮🇩 Bahasa Indonesia | [Baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
 
-Есть идеи для проекта (приложение, чеклисты, фичи сайта, …)? [Пишите в issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — одна идея на комментарий; голосуйте 👍.
+Есть идеи для проекта (приложение, чеклисты, фичи сайта, …)? [Пишите в issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — одна идея на комментарий; голосуйте 👍
 
 ## Вопросы, на которые хочет ответить эта книга
 

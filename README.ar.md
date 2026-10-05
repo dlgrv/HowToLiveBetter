@@ -28,7 +28,7 @@
 | 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 | 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
 
-أفكار للمشروع (تطبيق، قوائم تحقق، ميزات للموقع، …)؟ [شاركوها في issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — فكرة واحدة لكل تعليق؛ وصوّتوا بـ 👍.
+أفكار للمشروع (تطبيق، قوائم تحقق، ميزات للموقع، …)؟ [شاركوها في issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — فكرة واحدة لكل تعليق؛ وصوّتوا بـ 👍
 
 ## الأسئلة التي يحاول هذا الكتاب الإجابة عنها
 

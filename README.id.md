@@ -22,7 +22,7 @@ Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna
 | 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
 | 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
 
-Punya ide untuk proyek ini (aplikasi, checklist, fitur situs, …)? [Sampaikan di issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — satu ide per komentar; upvote dengan 👍.
+Punya ide untuk proyek ini (aplikasi, checklist, fitur situs, …)? [Sampaikan di issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — satu ide per komentar; upvote dengan 👍
 
 > Edisi ini berdasarkan [versi Inggris dlgrv](README.md), dengan penyesuaian Indonesia yang diperiksa pada **30 September 2026**. [Bab 7](book/id/07-Saat-Tidak-Punya-Uang.md) memakai jalur bantuan Indonesia. Butir berlabel **Ada konteks luar negeri** tetap menjadi bahan perbandingan; gunakan [panduan Indonesia per bab](docs/research/id/Panduan-Untuk-Indonesia.md) untuk urusan setempat.
 
