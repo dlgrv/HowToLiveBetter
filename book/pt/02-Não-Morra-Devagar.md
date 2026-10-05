@@ -1,8 +1,8 @@
-[← Voltar ao índice](../../README.pt.md)
+[← Voltar ao índice](../../README.md)
 
 # 2. Não morra devagar
 
-Esta seção reúne apenas dois tipos de riscos crônicos: aqueles que influenciam bastante a mortalidade geral e aqueles com evidências mais sólidas. Os itens estão ordenados do mais vantajoso para o menos vantajoso. Alguns têm a indicação “ensaios aleatórios”, o que significa que os participantes foram divididos aleatoriamente em dois grupos para comparação; esses resultados são os mais confiáveis. Os demais valores provêm de estudos que apenas acompanham as pessoas, sem fazer essa separação. Nesses estudos, os índices de risco como HR e RR contêm dois fatores de confusão: as pessoas são diferentes entre si, e algumas já tinham doenças antes de participar. Por isso, esses números mostram apenas a tendência e a magnitude aproximada, não garantem que seguir essas orientações reduzirá
+Esta seção reúne apenas dois tipos de riscos crônicos: aqueles que influenciam bastante a mortalidade geral e aqueles com evidências mais sólidas. Os itens estão organizados por ordem de custo-benefício, do maior para o menor. Alguns itens trazem a menção “ensaios clínicos randomizados”, o que significa que os participantes foram divididos aleatoriamente em dois grupos para comparação; esses resultados são os mais confiáveis. Os demais números vêm de estudos observacionais, que apenas acompanham as pessoas sem fazer essa divisão. Nesses estudos, os índices de risco como HR e RR contêm dois fatores de confusão: as pessoas são naturalmente diferentes entre si, e algumas já tinham doenças antes de adotar determinados hábitos. Por isso, esses valores indicam apenas a tendência e a magnitude aproximada do efeito, não garantem que seguir essas recomendações reduzirá o risco exatamente nessa proporção.
 ### 1. Deixar de fumar, quanto antes, melhor
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Custo: Não custa nada; na verdade, gera economia. Um maço de cigarros por dia custa cerca de 20–30 yuan; ao parar de fumar, esse valor é economizado. O desafio está em superar o período de abstinência, que geralmente dura algumas semanas a meses.

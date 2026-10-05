@@ -1,6 +1,22 @@
-# 12. Empreendedorismo e negócios: como evitar perder seus bens
+# 12. Abrir um negócio: como proteger seu patrimônio
 
-Nesta seção abordamos apenas questões financeiras e jurídicas, sem relação direta com expectativa de vida. Ao abrir uma loja ou constituir uma empresa, em quais etapas há risco de perder seu dinheiro, o patrimônio da família e o dinheiro do cônjuge? Quais são as regras legais e como é possível se proteger antecipadamente? Os itens que representam maior risco de perda patrimonial e, ao mesmo tempo, são mais fáceis de evitar, aparecem no início da lista. Por isso, as cláusulas que exigem assinatura são colocadas na frente, enquanto os procedimentos que exigem ação pessoal ficam no final. As informações baseadas apenas em experiência prática, sem respaldo em estudos científicos, recebem classificação C.
+Esta seção trata apenas de questões financeiras e jurídicas, sem relação com expectativas de vida. Ao abrir uma loja ou constituir uma empresa, em quais etapas seu dinheiro, o dinheiro da família e o patrimônio do cônjuge podem ser comprometidos? Quais são as regras legais e como é possível se proteger antecipadamente? Os tópicos que mais facilmente levam à perda do patrimônio, mas que são os mais simples de evitar, estão listados no início. Por isso, os itens que exigem assinatura aparecem primeiro, enquanto os procedimentos que exigem ação direta do empreendedor vêm depois. Aqueles baseados apenas em experiência e sem respaldo em literatura científica recebem classificação C.
+
+Os tópicos desta seção estão agrupados por temas, conforme indicado entre parênteses:
+
+**Proteja seu patrimônio antes de começar**: invista apenas o valor que pode perder (item 1); evite assinar garantias pessoais para empréstimos da empresa (item 2); escolha a forma jurídica correta antes de iniciar (item 3); não seja sócio nominal sem responsabilidade real (item 4); verifique se o franqueador está devidamente registrado antes de aderir (item 5); consulte um especialista antes de contratar terceiros para gerenciar sua loja virtual (item 24).
+
+**Registro e licenças**: defina o nome e o ramo de atividade antes de registrar a empresa (item 6); não inicie as atividades sem obter as licenças necessárias (item 7).
+
+**Produção de alimentos**: identifique a categoria à qual seu produto pertence antes de produzir (item 8); siga as normas de rotulagem para alimentos pré-embalados (item 9); não faça alegações terapêuticas sobre produtos alimentícios comuns (item 10); conheça os limites legais que envolvem a produção de alimentos (item 11).
+
+**Impostos e notas fiscais**: declare rendimentos nulos mesmo sem receita (item 12); emita notas fiscais apenas para transações reais (item 13); desconfie de quem se diz representante da Receita Federal e exige pagamentos imediatos (item 14).
+
+**Contratos e contratação**: utilize o termo “sinal” em vez de “depósito” ao receber pagamentos antecipados (item 15); celebre contrato de trabalho no prazo de um mês após a contratação (item 16); pague salários conforme estipulado em contrato e na lei (item 17); siga os procedimentos operacionais padrão em seu cargo (item 22).
+
+**Produtos e compras**: produza após vender, e não o contrário (item 18); elabore uma lista de produção com quantidade superior ao previsto (item 19); guarde comprovantes de compra e dados dos fornecedores (item 20); crie ou adquira licença para usar qualquer imagem ou desenho (item 21).
+
+**Encerramento das atividades**: encerre o negócio conforme os procedimentos legais quando houver prejuízo (item 23).
 ### 1. Use apenas dinheiro que você pode perder para começar um negócio; não use suas economias pessoais nem empréstimos
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 - Custo: Não há custo algum. Antes de começar, defina um valor limite: se todo esse dinheiro for perdido, ainda assim você conseguirá pagar o financiamento da casa, criar os filhos e arcar com despesas médicas. Não invista mais do que esse valor. O dinheiro da família e os empréstimos não devem ser incluídos nesse cálculo. O mais difícil é resistir à tentação de investir mais quando o negócio começa a mostrar sinais de crescimento.

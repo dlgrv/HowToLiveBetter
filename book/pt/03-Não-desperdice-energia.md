@@ -1,8 +1,20 @@
-[← Voltar ao índice](../../README.pt.md)
+[← Voltar ao índice](../../README.md)
 
 # 3. Não desperdice energia
 
-Esta seção trata apenas de energia e tempo. Analisamos quatro aspectos: a atenção que você consegue usar por dia, a rapidez de suas reações, quantos erros comete e quanto tempo leva para se recuperar após uma interrupção. Todos os valores foram obtidos diretamente por meio de testes ou de estudos observacionais com grupos de pessoas. Eles não foram convertidos em anos de vida ou em taxas de mortalidade. A maioria dos itens desta seção tem nível de evidência B. Essa é a realidade desse campo; isso não significa que as recomendações não sejam válidas. O item 20 aborda o que esperar ao lidar com policiais, médicos e caixas de banco; como se baseia em leis e não em experimentos, seu nível de evidência é C. Os itens 15 (considerar pensamentos negativos como sintoma)
+Esta seção trata apenas de energia e tempo. Analisamos quatro aspectos: a atenção que você consegue usar por dia, a rapidez de suas reações, quantos erros comete e quanto tempo leva para se recuperar após uma interrupção. Todos os números foram obtidos diretamente em testes ou em estudos de acompanhamento de grupos de pessoas (estudos de coorte). Eles não foram convertidos em anos de vida ou em taxas de mortalidade. A maioria dos itens desta seção tem nível de evidência B. Esse é o padrão da área; isso não significa que as recomendações sejam inválidas. O item 19 trata do que esperar ao lidar com policiais, médicos e caixas de banco; ele cita leis, não experimentos, por isso tem nível C. Os itens 15 (considerar pensamentos negativos como sintomas) e 22 (considerar a exigência de perfeição dos outros como sintoma) usam dados de mortalidade e risco de suicídio, que são calculados de forma diferente dos demais itens, por isso não são comparados com eles.
+
+Os itens foram agrupados por temas, conforme indicado entre parênteses:
+
+**Atenção no trabalho**: desative notificações desnecessárias (item 1), processe mensagens em blocos diários (item 5), bloqueie interrupções que duram poucos segundos (item 6), concentre-se em uma única tarefa por vez (item 7), use tampões auriculares em escritórios abertos (item 12) e trabalhe no máximo 49 horas por semana (item 13).
+
+**Sono e noites em claro**: mantenha um horário fixo para acordar (item 2), durma de 7 a 8 horas por noite (item 3), evite cafeína após as 14h (item 4), não use telas na hora de dormir (item 8), vá para a cama assim que sentir sono (item 9), não tome decisões importantes à noite (item 10) e tire um cochilo de 10 minutos à tarde se sentir sono (item 11).
+
+**Pensamentos internos**: troque atividades mentais por tarefas manuais quando ficar remoendo (item 14), considere pensamentos negativos como sintomas (item 15), divida por dois suas estimativas quando se sentir envergonhado (item 21) e considere a exigência de perfeição dos outros como sintoma (item 22).
+
+**Raiva e tristeza**: afaste-se quando ficar irritado (item 17), faça algumas coisas simples quando se sentir triste (item 18), evite descontar a raiva quebrando objetos (item 23) e anote seus pensamentos por alguns dias seguidos (item 24).
+
+**Relacionamentos e redes sociais**: aprenda a recusar pedidos que não quer atender (item 16), entenda que policiais e médicos seguem regras no trabalho (item 19) e limite o uso de aplicativos com postagens de pessoas da mesma idade (item 20).
 ### 1. Desligue notificações desnecessárias e mantenha o celular fora do seu campo de visão durante o trabalho
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 - Custo: Não custa nada. Leva apenas alguns minutos para ajustar as configurações, sem exigir grande esforço de vontade.

@@ -1,12 +1,28 @@
 # 33. Como viver após ficar com deficiência
 
-Esta seção aborda a vida depois que a deficiência já ocorreu. Como evitar a deficiência está nas seções 1 e 13; aqui não se repete.
+Esta seção aborda a vida após o surgimento de uma deficiência. As formas de prevenir deficiências são tratadas nas seções 1 e 13, portanto não serão repetidas aqui.
 
-As quatro categorias são contadas separadamente, sem conversão entre si. Itens sobre emergências e complicações usam mortalidade. Itens sobre subsídios, benefícios e ações judiciais usam dinheiro. Itens sobre estudo e trâmites usam tempo. Itens sobre internação psiquiátrica, capacidade civil e tutela usam liberdade pessoal.
+Os quatro tipos de critérios são calculados separadamente, sem conversão entre si. Os itens sobre emergências e complicações são expressos em termos de mortalidade; os relativos a subsídios, benefícios e processos judiciais são expressos em valores monetários; os que tratam de estudos e trâmites administrativos são expressos em tempo; e os que envolvem internação por transtornos mentais, capacidade de agir e tutela são expressos em termos de liberdade pessoal.
 
-O manual da Organização Mundial da Saúde traz três números. No mundo há cerca de 1,3 bilhão de pessoas com limitação funcional significativa, 16% da população mundial, ou seja, uma em cada seis pessoas. Parte das pessoas com deficiência morre até 20 anos antes do que pessoas sem deficiência. O risco de depressão, asma, diabetes, AVC, obesidade ou má saúde bucal é duas vezes maior. Grande parte dessas diferenças não vem da deficiência em si, mas de não conseguir atendimento médico, estudar, trabalhar ou sair de casa. Por isso, metade dos itens desta seção trata do corpo e a outra metade, de trâmites e direitos.
+Segundo dados da OMS, três números são especialmente relevantes. Globalmente, cerca de 1,3 bilhão de pessoas apresentam algum tipo de limitação funcional, o que corresponde a 16% da população mundial, ou seja, aproximadamente uma em cada seis pessoas. Pessoas com deficiência tendem a morrer até 20 anos mais cedo do que quem não tem deficiência. O risco de desenvolver depressão, asma, diabetes, acidente vascular cerebral, obesidade ou problemas bucais é duas vezes maior entre elas. Grande parte dessas diferenças não se deve à deficiência em si, mas à dificuldade de acesso a tratamentos médicos, à educação, ao emprego e à mobilidade. Por isso, metade dos tópicos desta seção trata do corpo e da saúde, e a outra metade trata de procedimentos e direitos.
 
-Cinco assuntos já tratados em outras seções aparecem aqui só como referência. Como obter o certificado de pessoa com deficiência, as sete categorias e os níveis 1 a 4, veja o item 10 da seção 24. Quando fazer a perícia de incapacidade, veja o item 9 da seção 24. Como receber os dois subsídios para pessoas com deficiência, veja o item 8 da seção 7. Perícia de capacidade laboral e conversão do grau de incapacidade em valores, veja o item 14 da seção 19. Como solicitar o seguro de cuidados de longa duração para incapacidade grave, veja o item 7 da seção 17 — escrito na seção sobre idosos em casa, mas sem limite de idade. A maioria dos itens beneficia você e sua família; onde envolve outras pessoas, as notas indicam.
+Cinco assuntos já abordados em outros trechos são aqui apenas referenciados, sem repetição. Como obter o certificado de pessoa com deficiência, quais são as sete categorias e os quatro níveis de avaliação, veja o item 10 da seção 24 (Certificado de pessoa com deficiência). Quando é possível solicitar a avaliação da deficiência, veja o item 9 da seção 24 (Avaliação da deficiência). Como receber os dois tipos de subsídio para pessoas com deficiência, veja o item 8 da seção 7 (Dois tipos de subsídio). Como converter a avaliação da capacidade laboral e o grau de deficiência em acidente de trabalho em valores monetários, veja o item 14 da seção 19 (Avaliação da capacidade laboral). Como solicitar o seguro de cuidados de longo prazo para quem tem grande perda de autonomia, veja o item 7 da seção 17 (Seguro de cuidados de longo prazo). Esse tópico está na seção “Quando há idosos em casa”, mas não há limite de idade para receber esse benefício; jovens também podem solicitá-lo.
+
+Na maioria dos casos, os beneficiários mencionados nesta seção são o próprio indivíduo e seus familiares, pertencendo aos dois níveis mais altos de prioridade. Quando o beneficiário for outra pessoa, isso será especificado nas notas.
+
+Os tópicos desta seção foram agrupados por temas, conforme listado entre parênteses:
+
+**Saúde e reabilitação**: dor de cabeça intensa após lesão na medula espinhal (item 1); trocar o assento da cadeira de rodas por um modelo com alívio de pressão (item 5); evitar terapias que prometem curar a paralisia (item 6); fazer reabilitação em instituições credenciadas (item 16); usar aparelho auditivo quando houver perda de audição (item 17).
+
+**Benefícios e subsídios**: consultar a federação de pessoas com deficiência para saber quais benefícios podem ser solicitados (item 7); solicitar auxílio para reabilitação de crianças com deficiência (item 8); pedir subsídio para adaptar o banheiro com corrimãos e rampas (item 9); obter dedução no imposto de renda (item 11).
+
+**Emprego e defesa dos direitos**: informar voluntariamente que possui certificado de pessoa com deficiência ao procurar emprego (item 10); entrar com ação judicial caso seja rejeitado por causa da deficiência (item 20).
+
+**Estudos e mobilidade**: levar cão-guia a locais públicos (item 12); solicitar adaptações no vestibular (item 13); exigir que a escola aceite a matrícula de crianças com deficiência (item 14); obter habilitação para dirigir mesmo após perda dos membros inferiores (item 15).
+
+**Saúde mental e cuidadores**: risco de suicídio nos dez primeiros anos após a deficiência (item 2); cuidadores devem zelar pela própria saúde (item 4).
+
+**Transtornos mentais e tutela**: a internação por transtorno mental deve ser voluntária (item 3); solicitar ao tribunal a avaliação da capacidade de agir (item 18); definir o tutor conforme a ordem legal (item 19).
 ### 1. Após lesão medular, dor de cabeça intensa e sudorese repentinas: primeiro, ajude a pessoa a sentar-se e solte as roupas apertadas, chamando o 192 ao mesmo tempo
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 - Custo: Não custa nada. São três ações que levam apenas alguns segundos para serem feitas.

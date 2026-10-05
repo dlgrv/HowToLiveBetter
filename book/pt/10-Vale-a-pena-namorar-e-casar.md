@@ -1,6 +1,20 @@
 # 10. Vale a pena namorar e casar?
 
-Esta seção divide a pergunta “Vale a pena casar?” em vários itens separados para análise: dinheiro, tempo, saúde, riscos legais e qualidade do relacionamento. Para cada item utilizamos apenas números com fontes confiáveis, como estatísticas oficiais ou metaanálises (estudos que reúnem dados de várias pesquisas). Não fazemos julgamentos morais nem damos recomendações pessoais. Os cálculos de saúde baseiam‑se no risco de morte; os de tempo, na quantidade de minutos diários; e os legais, na redação das leis. Essas três formas de cálculo não são intercambiáveis. Para conhecer o método de desagregação, a lista de campos a preencher e os erros comuns, consulte [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+Este capítulo divide a pergunta “Vale a pena casar?” em vários aspectos: dinheiro, tempo, saúde, riscos legais e qualidade do relacionamento, calculando cada um separadamente. Para cada cálculo usamos apenas números com fontes confiáveis, como estatísticas oficiais ou metaanálises (que reúnem dados de vários estudos). Não fazemos julgamentos morais nem damos respostas definitivas. Os cálculos de saúde consideram o risco de morte; os de tempo, quantos minutos por dia são gastos; e os legais, o que dizem as leis. Esses três tipos de cálculo não são intercambiáveis. Para saber mais sobre como dividir os custos, listas de verificação e erros comuns, consulte [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+
+Os tópicos deste capítulo estão agrupados da seguinte forma, com os números dos itens entre parênteses:
+
+**Encontrar parceiros e namorar**: conhecer mais pessoas (item 1), parar após uma recusa (item 2), avaliar o interesse pelo comportamento da outra pessoa (item 3), responder perguntas cada vez mais pessoais de forma alternada (item 5), e namorar à distância não é pior do que perto (item 6).
+
+**Como é o relacionamento**: observar como você se sente nele (item 4), discutir problemas sem atacar a pessoa (item 17), e fazer terapia de casal juntos (item 20).
+
+**Cálculos para saber se vale a pena casar**: analisar os dados de registro civil (item 7), calcular os benefícios para a saúde usando estudos observacionais (item 8), calcular o tempo gasto com trabalho não remunerado (item 9), estimar os custos de desistir do casamento (item 15) e fazer um cálculo separado para casamentos feitos por pressão familiar (item 16).
+
+**Registro civil e exames pré-nupciais**: para registrar o casamento basta o documento de identidade (item 13), e um exame médico pré-nupcial deve ser feito uma vez (item 14).
+
+**Dinheiro e dívidas**: os cálculos financeiros consideram as regras legais padrão (item 10), é preciso deixar claro se o dinheiro dos pais para comprar imóveis é empréstimo ou presente (item 11) e como lidar com dívidas grandes contraídas por um dos cônjuges (item 12).
+
+**Casais do mesmo sexo e orientação sexual**: casais do mesmo sexo devem fazer testamentos e designar tutores voluntários (item 18), e não se deve casar escondendo a orientação sexual (item 19).
 ### 1. Conhecer mais pessoas, em vez de focar apenas em uma: não é possível prever se duas pessoas combinam antes de se encontrarem
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
 - Custo: Não custa nada. Invista seu tempo em conhecer várias pessoas, em vez de ficar pensando apenas em uma. O desafio é resistir à tentação de focar só nela.

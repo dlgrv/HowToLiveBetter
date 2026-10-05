@@ -1,8 +1,22 @@
-[← Voltar ao índice](../../README.pt.md)
+[← Voltar ao índice](../../README.md)
 
 # 7. Como sobreviver quando não se tem dinheiro
 
-Esta seção trata de recursos financeiros e benefícios sociais. Nela estão listados os valores que podem ser recebidos, os custos que podem ser isentados, os serviços disponíveis e os requisitos para obtê-los, sem conversão para anos de vida ganhos. Como as políticas mudam anualmente e variam conforme a região, todos os valores e condições devem ser consultados conforme as normas vigentes na sua localidade. A ordem dos itens segue o critério de menor custo, menor burocracia e resultados mais rápidos; já aqueles que exigem tempo para se qualificar ou apresentam grandes diferenças regionais vêm depois. Por fim, as informações baseadas apenas em experiências pessoais, sem documentação oficial, são apresentadas por último.
+Esta seção trata de dinheiro e proteção social. Ela lista quanto se pode receber, quais custos podem ser isentos, quais serviços estão disponíveis e quais requisitos devem ser cumpridos, sem converter esses valores em anos de vida. As políticas mudam anualmente e variam conforme a região, portanto os valores e condições indicados devem ser verificados conforme as normas vigentes na sua localidade. Os itens são organizados de modo que os que não exigem gastos, têm pouca burocracia e trazem resultados rápidos apareçam primeiro; já aqueles que exigem tempo para qualificação ou apresentam grandes diferenças regionais ficam no final. As sugestões baseadas apenas em experiência pessoal, sem documentação oficial, são listadas por último.
+
+Os tópicos desta seção estão divididos em blocos temáticos, indicados entre parênteses com seus respectivos números:
+
+**Perda do emprego**: solicitar o seguro-desemprego online (item 1), obter a certificação de pessoa em situação de dificuldade para emprego (item 12) e receber subsídios para capacitação profissional (item 13).
+
+**Não recebimento de salários**: registrar primeiramente a reclamação no órgão de fiscalização trabalhista (item 2), solicitar assistência jurídica gratuita (item 3) e identificar corretamente quem é o empregador responsável (item 22).
+
+**Ajuda de emergência**: procurar o abrigo municipal (item 4), solicitar auxílio temporário (item 6), requerer o programa Dibaо (item 7), obter os dois tipos de subsídios para pessoas com deficiência (item 8), pedir a emissão imediata de nova carteira de identidade (item 11) e, se não houver onde dormir, buscar abrigo (item 21).
+
+**Plano de saúde e seguro social**: manter a adesão ao plano de saúde para moradores (item 9), em casos graves recorrer primeiro ao plano de saúde e à assistência médica gratuita (item 10), não se preocupar caso o pagamento do seguro social seja interrompido (item 18) e contratar um seguro médico ou de doenças graves (item 20).
+
+**Busca por trabalho e recomeço**: utilizar os serviços públicos de emprego e os mercados de trabalho informal (item 5), aplicar métodos sistemáticos na busca por vagas (item 14), evitar pagar depósitos ou entregar documentos como garantia (item 15) e saber que até quem já cumpriu pena ou teve falência ainda tem chance de recomeçar (item 19).
+
+**Moradia e alimentação**: inscrever-se na lista de espera para moradias populares (item 16) e reduzir ao mínimo os gastos com moradia e alimentação (item 17).
 ### 1. Como solicitar o seguro-desemprego online após ficar desempregado
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Custo: Não custa nada. É possível enviar o pedido pelo celular por meio de três vias: o app “Zhangshang 12333”, o mini-programa do cartão de seguro social eletrônico no WeChat ou no Alipay, ou a Plataforma Nacional de Serviços Públicos de Seguro Social. Basta ter o cartão de seguro social ou o documento de identidade; na maioria das regiões, não é preciso ir pessoalmente ao órgão. O requisito prévio é ter feito o registro de desemprego.
