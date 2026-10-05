@@ -1,6 +1,18 @@
-# 3. Don’t waste your energy
+# 3. Don’t waste energy
 
-This section is all about energy and time. We look at four main factors: how much attention you can actually use each day, how quick your reactions are, how often you make mistakes, and how long it takes you to get back on track after being interrupted. All the numbers here come from direct measurements — either from lab experiments or from tracking large groups of people over time (observational studies). These figures are not converted into life expectancy or mortality rates. Most items in this section carry a B evidence grade; that’s just how this field works, and it doesn’t make the recommendations any less valid. Item 20 deals with what to expect when dealing with police, doctors, or bank tellers; it cites laws rather than experimental data, so its grade is C. Items 15 (treating pessimistic thoughts as symptoms) and 23 (treating the belief that “others expect me to be perfect” as a symptom) use mortality and suicide‑risk figures that follow a different calculation method than the rest of this section, so they’re not compared with the other numbers here.
+This section looks purely at energy and time costs. We focus on four key factors: how much attention you can actually use each day, how quickly you react, how many mistakes you make, and how long it takes you to get back on track after an interruption. All figures come straight from experiments or from tracking large groups of people over time (observational studies). They are not converted into life expectancy or mortality rates. Most items here carry a B evidence grade; that’s just how this field works and does not mean the recommendations lack merit. Item 19 deals with expectations when dealing with police officers, doctors, and bank tellers; it cites laws rather than experiments, so its grade is C. Items 15 and 22 use mortality and suicide‑risk numbers that come from a different source than the rest of the section, so they are not compared with the other figures.
+
+The items are grouped by theme, with item numbers shown in parentheses.
+
+**Attention at work**: Turn off unnecessary notifications (1), batch‑process messages daily (5), block brief interruptions (6), focus on one task at a time (7), use earplugs in open offices (12), and keep weekly working hours under 49 (13).
+
+**Sleep and staying awake**: Keep a regular wake‑up time (2), get 7–8 hours of sleep each night (3), avoid caffeine after 2 p.m. (4), stop screen use an hour before bed (8), go to bed at a set time (9), avoid big decisions late at night (10), and take a 10‑minute nap when you feel drowsy in the afternoon (11).
+
+**Thoughts and mental patterns**: Switch to a hands‑on activity when you keep replaying the same thoughts (14), treat persistent negative thoughts as a symptom (15), and cut any self‑criticism estimate in half when you feel embarrassed (21); also treat the belief that “others expect me to be perfect” as a symptom (22).
+
+**Anger and low mood**: Step away when you feel angry (17), do a few simple things first when you’re down (18), avoid venting anger by breaking things (23), and write down what’s on your mind over several days (24).
+
+**People and social media**: Learn to decline requests you don’t want to handle (16), expect police officers, doctors, and bank tellers to follow rules (19), and set limits on apps that show peers’ posts (20).
 ### 1. Turn off non‑essential notifications and keep your phone out of sight while working
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=中 口径=时间 -->
 - Cost: No cost at all. It takes just a few minutes to adjust the settings, and hardly any willpower is required.

@@ -1,5 +1,24 @@
-# 2. Don’t die slowly
-This section covers just two types of long‑term health risks: those with a big impact on overall mortality and those backed by solid evidence. The items are listed from most cost‑effective to least. A few entries note “randomized trials,” meaning participants were randomly assigned to different groups for comparison — this is the most reliable type of research. All other figures come from observational studies that simply track people over time without any grouping. Such studies produce risk ratios like HR or RR, but they also contain two kinds of confounding factors: participants naturally differ from one another, and some already had health problems before the study began. Therefore these numbers only indicate general trends and approximate magnitudes; they do not guarantee that following these recommendations will produce exactly those results.
+[← Back to main index](../../README.md)
+
+# 2. Avoid a slow death
+
+This section covers just two types of long-term health risks: those with a major impact on overall mortality and those backed by solid evidence. The items are listed in order of cost-effectiveness. A few entries are marked “randomized trials,” meaning participants were randomly assigned to different groups for comparison — this is the most reliable type of evidence. All other figures come from observational studies that only track people over time without any grouping. These studies produce risk ratios such as HR and RR, but they also contain two kinds of confounding factors: participants naturally differ from one another, and some already had health problems before the study began. Therefore these numbers only indicate general trends and approximate magnitudes; they do not guarantee that following these steps will bring about exactly those reductions.
+
+The items in this section are grouped by topic, with item numbers shown in parentheses.
+
+**Smoking, alcohol, and betel nut**: The earlier you quit smoking, the better (Item 1); avoid smoking at home or in the car (Item 2); get medication to help you quit (Item 3); pick a specific quit date (Item 4); visit a smoking cessation clinic or call 12320 (Item 5); if quitting proves difficult, consider e‑cigarettes as a last resort (Item 6); never chew betel nut (Item 8); limit or completely avoid alcohol (Item 19); if stopping abruptly causes tremors, do not force yourself to quit cold turkey (Item 20); keep track of how much you drink each week (Item 21).
+
+**Foods to cut back on**: Skip sugary drinks altogether (Item 7); reduce consumption of processed meats (Item 18); limit ultra‑processed foods as much as possible (Item 28); avoid drinking tea or soup that is piping hot (Item 30).
+
+**Healthier swaps and additions**: Switch to low‑sodium salt (Item 9); enjoy a small handful of nuts every day (Item 22); replace red meat with fish and poultry (Item 23); choose whole grains instead of refined rice and flour (Item 24); sip tea at least three times a week (Item 25); drink three to four cups of coffee daily (Item 26); eat five servings of fruits and vegetables each day (Item 27); include chili peppers in your diet more than four times a week (Item 33); have a serving of dairy each day (Item 34); there is no need to avoid eggs (Item 35).
+
+**Exercise and weight**: Aim for 7,000–8,000 steps each day (Item 11); play racket sports regularly (Item 14); fit in short bursts of physical effort whenever possible (Item 15); add strength training to your weekly routine (Item 16); avoid sitting for long stretches without a break (Item 17); keep your BMI between 20 and 25 (Item 32).
+
+**Sleep and night shifts**: Get roughly seven hours of sleep each night (Item 13); limit naps to half an hour or less (Item 37); catch up on sleep the day after a late night (Item 38); if you work night shifts, try to switch to a day schedule as soon as you can (Item 39).
+
+**Cooking oils and smoke**: Refrain from burning coal or firewood for cooking or heating (Item 29); do not buy bulk, homemade peanut oil (Item 40); use plant oils instead of lard or butter (Item 41); always run a range hood while stir‑frying (Item 42).
+
+**Dental care, medication, and other habits**: Brush and floss your teeth thoroughly each day (Item 10); take prescribed medications exactly as directed (Item 12); spend some time outdoors in daylight (Item 31); take a bath whenever you have the chance (Item 36).
 ### 1. Quitting smoking, the earlier the better
 <!-- 成本标签: 钱=0 时间=少 毅力=是 收益=大 口径=死亡率 -->
 - Cost: It costs nothing — in fact, it saves money. A pack-a-day habit costs roughly $3–$4, which you’ll no longer spend after quitting. The hard part is getting through the withdrawal period, which usually lasts a few weeks to several months.

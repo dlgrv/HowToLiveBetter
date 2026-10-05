@@ -1,12 +1,28 @@
-# 33. How to live after becoming disabled
+# 33. Living after becoming disabled
 
-This section covers life after a disability has already occurred. Preventing disability is discussed in Sections 1 and 13, so we won’t repeat that here.
+This section covers life after a disability has already occurred. Preventing disabilities is discussed in Sections 1 and 13, so it is not repeated here.
 
-We calculate four different categories separately, without converting between them. Mortality rates apply to entries about emergencies and complications. Financial amounts apply to entries about subsidies, benefits, and legal claims. Time requirements apply to entries about education and administrative procedures. Restrictions on personal freedom apply to entries about psychiatric hospitalization, decision‑making capacity, and guardianship.
+Four different measurement types are used separately and never converted into one another. Mortality rates apply to entries about emergencies and complications. Financial amounts apply to entries about subsidies, benefits, and legal claims. Time requirements apply to entries about education and administrative procedures. Personal liberty considerations apply to entries about psychiatric hospitalization, decision-making capacity, and guardianship.
 
-According to a World Health Organization report, roughly 1.3 billion people worldwide experience significant functional limitations — that’s 16% of the global population, or one in every six individuals. On average, people with disabilities die up to 20 years earlier than those without disabilities. They also face twice the risk of depression, asthma, diabetes, stroke, obesity, and poor oral health. Much of this disparity stems not from the disability itself, but from limited access to healthcare, education, employment, and mobility. Hence, half of the entries here address physical health, while the other half cover procedures and rights.
+According to WHO statistics, roughly 1.3 billion people worldwide experience significant functional limitations — that is 16% of the global population, or about one in six individuals. On average, people with disabilities die up to 20 years earlier than those without disabilities. They also face twice the risk of depression, asthma, diabetes, stroke, obesity, and poor oral health. Much of this disparity stems not from the disabilities themselves, but from limited access to medical care, education, employment, and mobility. Consequently, half of the entries in this section address physical health, while the other half cover administrative procedures and rights.
 
-Five topics already covered elsewhere are only referenced here without repetition. Instructions for obtaining a disability certificate and how the seven categories and four levels are determined appear in Section 24, Item 11 (Disability Certificate). Timing for disability assessments is explained in Section 24, Item 10 (Disability Assessment). Details on claiming the two main disability subsidies are in Section 7, Item 8 (Two Subsidies). Converting work‑capacity evaluations and disability levels into monetary compensation for workplace injuries is described in Section 19, Item 15 (Work‑Capacity Assessment). Finally, eligibility for long‑term care insurance for severely disabled individuals is outlined in Section 17, Item
+Five topics already covered elsewhere are only referenced here without repetition. Instructions for obtaining a disability certificate and details about its seven categories and four severity levels appear in Section 24, Item 10. Information on when to undergo disability assessment is provided in Section 24, Item 9. Steps for claiming the two main disability subsidies are outlined in Section 7, Item 8. Calculations converting work-related injury assessments into monetary compensation are explained in Section 19, Item 14. Finally, eligibility criteria for long-term care insurance for severely disabled individuals are described in Section 17, Item 7. Although that item is placed under “Caring for elderly family members,” there is no age restriction — younger people may also qualify.
+
+Most entries in this section benefit the individual and their family, representing the highest priority category. Any entries involving third parties are explicitly noted in the remarks section.
+
+The entries are organized thematically as follows, with corresponding item numbers in parentheses.
+
+**Physical health and rehabilitation**: Sudden severe headaches after spinal cord injury (Item 1); switching to a pressure-relieving wheelchair cushion (Item 5); avoiding unproven treatments claiming to cure paralysis (Item 6); receiving rehabilitation at accredited facilities (Item 16); using hearing aids when hearing deteriorates (Item 17).
+
+**Benefits and subsidies**: Consulting disability services agencies to learn about all available benefits (Item 7); applying for rehabilitation assistance for disabled children (Item 8); requesting subsidies for installing ramps and bathroom modifications (Item 9); claiming tax deductions (Item 11).
+
+**Employment and legal rights**: Disclosing one’s disability status voluntarily during job applications (Item 10); filing lawsuits when employers unlawfully reject disabled applicants (Item 20).
+
+**Education and mobility**: Bringing guide dogs into public spaces (Item 12); requesting reasonable accommodations for college entrance exams (Item 13); ensuring schools cannot refuse admission to disabled students (Item 14); obtaining driver’s licenses despite having no lower limbs (Item 15).
+
+**Mental health and caregiver care**: Understanding heightened suicide risk during the first decade after disability (Item 2); caregivers must also prioritize their own health (Item 4).
+
+**Mental disorders and guardianship**: Psychiatric hospitalization must remain voluntary (Item 3); applying to courts for formal assessment of decision-making capacity (Item 18); determining legal guardians according to statutory priority (Item 19).
 ### 1. Sudden severe headache and sweating after spinal cord injury: first help the person sit upright, loosen tight clothing, and call 120
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=死亡率 -->
 

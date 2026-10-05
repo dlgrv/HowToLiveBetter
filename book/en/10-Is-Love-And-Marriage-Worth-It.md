@@ -1,6 +1,20 @@
-# 10. Is it worth dating and getting married?
+# 10. Is dating and marriage worth it?
 
-This section breaks down the question “Is marriage a good financial decision?” into several separate calculations. These calculations cover money, time, health, legal risks, and relationship quality. For each calculation we use only figures with verifiable sources — primarily official statistics or meta-analyses that combine data from multiple studies. No moral judgments are made here, nor are any conclusions drawn on your behalf. The health calculations rely on mortality risks, the time calculations use average daily minutes, and the legal calculations follow the wording of relevant statutes. These three types of calculations are not converted into one another. For more details on this breakdown method, the checklist of factors to consider, and common misconceptions, please refer to [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+This section breaks down the question “Is marriage worth it?” into separate calculations involving money, time, health, legal risks, and relationship quality. Each calculation relies solely on verifiable figures drawn from official statistics or meta-analyses — comprehensive reviews that pool data from multiple studies. No moral judgments are made here, nor are any conclusions offered on your behalf. Health-related figures are expressed in terms of mortality risk; time-related figures are measured in minutes per day; legal figures reflect how statutes are written. These three types of calculations are not interchangeable. For more on the methodology, a fill-in-the-blank worksheet, and common misconceptions, see [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+
+The items in this section are grouped by theme, with item numbers shown in parentheses.
+
+**Finding a partner and dating**: Meet more people (Item 1); stop pursuing someone after they decline (Item 2); gauge interest based on behavior (Item 3); take turns asking increasingly personal questions (Item 5); long-distance relationships perform just as well as local ones (Item 6).
+
+**Relationship quality**: Pay attention to how you feel within the relationship (Item 4); keep arguments focused on issues rather than personal attacks (Item 17); consider attending couples therapy together (Item 20).
+
+**Calculations on whether marriage is worth it**: Start with official registration statistics (Item 7); adjust health benefits using observational study data (Item 8); account for unpaid labor when calculating time costs (Item 9); factor in the costs of exiting a marriage (Item 15); keep a separate tally for marriages arranged by elders (Item 16).
+
+**Obtaining a marriage license and premarital exams**: A marriage license requires only a valid ID (Item 13); a single premarital medical exam is sufficient (Item 14).
+
+**Money and debt**: Begin by reviewing default legal rules governing finances (Item 10); clearly specify whether parental contributions toward a home purchase are loans or gifts (Item 11); address situations where one spouse incurs substantial debt (Item 12).
+
+**Same-sex couples and sexual orientation**: Same-sex couples should arrange designated guardianship and draft wills (Item 18); avoid marrying solely to conceal one’s sexual orientation (Item 19).
 ### 1. Getting to know more people rather than fixating on just one: You can’t predict compatibility before meeting someone
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=中 口径=时间 -->
 

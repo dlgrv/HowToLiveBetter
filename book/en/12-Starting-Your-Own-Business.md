@@ -1,6 +1,22 @@
-# 12. Starting a business: how to protect your personal assets
+# 12. Starting a business: protect your savings
 
-This section deals with money and legal liability. What steps could potentially put your own savings, your family’s money, and even your spouse’s funds at risk when opening a shop or forming a company? What does the law say about this? Is it possible to set up safeguards in advance? This section answers those questions without trying to convert the risks into life‑years lost. The items are ordered from the scenarios that most easily threaten personal assets to those that are easiest to avoid. Consequently, items that require only a signature come first, while methods that demand hands‑on effort appear later. Any statements based purely on experience and lacking supporting research are marked as Grade C evidence.
+This section deals solely with money and legal matters — no life‑years are factored in. What steps can cause you to lose your own money, family funds, or even your spouse’s assets when opening a shop or forming a company? What does the law require, and how can you shield yourself in advance? The items most likely to drain your savings — yet easiest to avoid — appear first. Hence, clauses requiring signatures are listed early, while actions you must perform yourself come later. Items based purely on experience without any supporting research are marked as Grade C.
+
+All topics are grouped by theme, with the corresponding item numbers shown in parentheses.
+
+**Don’t risk your savings before launch**: Only invest money you can afford to lose (Item 1); never sign personal guarantees for a company loan (Item 2); pick the right business entity beforehand (Item 3); avoid being a nominal shareholder (Item 4); verify any franchise registration first (Item 5); ask detailed questions before hiring someone to run your online store (Item 24).
+
+**Registration and permits**: Choose a business name and scope of activities before registering (Item 6); do not open for business until all permits are granted (Item 7).
+
+**Food production**: Determine which regulatory category your food product falls under (Item 8); follow proper labeling rules for prepackaged foods (Item 9); never claim that ordinary food can treat medical conditions (Item 10); be aware of criminal penalties related to food safety (Item 11).
+
+**Tax filing and invoices**: File a zero‑tax return even when there is no income (Item 12); issue invoices only for genuine transactions (Item 13); anyone claiming to be from the tax bureau demanding payment is a fraudster (Item 14).
+
+**Contracts and hiring**: Use “deposit” rather than “advance payment” in written agreements (Item 15); sign an employment contract within the first month of hiring (Item 16); pay wages exactly as stipulated by contract and law (Item 17); follow established procedures while performing job duties (Item 22).
+
+**Products and sourcing**: Produce goods only after confirming market demand (Item 18); prepare an over‑estimated production list for any sample runs (Item 19); keep all purchase receipts and supplier details (Item 20); either create original designs or purchase proper licensing rights (Item 21).
+
+**Winding down**: Exit the business legally and methodically if losses become unavoidable (Item 23).
 ### 1. Only invest money you can afford to lose — never use family savings or borrowed funds
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 - Cost: Zero upfront cost. Before you start, set a personal limit: this is the maximum amount you can lose without affecting your mortgage payments, child support, or medical expenses. Do not invest any more than this figure. Family funds and borrowed money must be excluded from this limit. The real challenge arises when your business starts showing promise — you must resist the urge to pour in extra capital.

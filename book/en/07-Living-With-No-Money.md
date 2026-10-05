@@ -1,6 +1,8 @@
-# 7. How to get by when you have little money
+[← Back to main index](../../README.md)
 
-This section covers money and social safeguards. It lists how much you might receive, what costs could be waived, which services may be available, and what eligibility criteria apply — but it does not translate these figures into any health impact. Policies change yearly and vary by region, so always refer to the official figures released for your local area. Items are ordered from those requiring no spending, minimal paperwork, and quick results at the top, while those demanding long-term qualification periods or carrying large regional differences appear toward the end. Suggestions based purely on personal experience without any official documentation are placed last.
+# 7. Getting by when you have no money
+
+This section covers money and social safeguards. It lists how much you might receive, what expenses can be waived, which services are available, and what eligibility criteria apply — without trying to convert these benefits into years of life expectancy. Policies change yearly and vary by region, so all amounts and thresholds should be checked against the latest local regulations. Items are ordered by how little they cost, how few steps they require, and how quickly they provide relief; those that demand long-term commitment or carry large regional differences appear later, while suggestions based purely on personal experience and lacking official backing are placed at the end.
 ### 1. Apply online for unemployment benefits if you’ve lost your job
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=大 口径=金钱 -->
 - Cost: There is no cost. You can submit the application via smartphone using any of three portals: the “12333 Mobile App”, the e‑Social Security Card mini‑program in WeChat or Alipay, or the National Social Insurance Public Service Platform. Having a social security card or ID is enough; in most regions you won’t need to visit an office. The prerequisite is to first register as unemployed.

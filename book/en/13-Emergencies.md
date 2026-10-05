@@ -1,8 +1,26 @@
+[← Back to main index](../../README.md)
+
 # 13. Emergency situations: what to do first
 
-This section covers just one thing: what actions you should take right away when an emergency occurs, what to do next, and what to avoid. The entries on first aid and wilderness survival focus on specific causes of death and survival rates. Those dealing with scams and threats involve financial loss and threats to personal freedom. These two sets of figures cannot be compared with each other. Entries are ordered by how common each situation is and how much difference proper or improper action can make in terms of lives saved. These guidelines are primarily meant for you, your spouse, and close family members. In fact, 79.2% of cardiac arrests happen at home, so the people you’re most likely to help are your household members, followed by friends and coworkers. While helping strangers can also be worthwhile, it ranks last in priority due to risks such as false accusations or getting involved in legal trouble. Therefore, the entries in this category emphasize actions to protect yourself and include clauses that limit your liability.
+This section outlines exactly what steps to take, what to avoid, and what not to do at all. The entries on first aid and wilderness survival focus on specific causes of death and survival rates. Those dealing with scams and threats relate to financial loss and personal liberty. These two sets of figures aren’t interchangeable. Items are listed in descending order based on how common each situation is and how much difference proper action can make to someone’s chances of survival. These guidelines are primarily meant for you, your spouse, and close family members. Since 79.2% of cardiac arrests happen at home, you’ll most likely be helping someone you love. Friends and coworkers come next. Helping strangers can still be worthwhile, but this category ranks lowest in priority; doing so may even expose you to fraud or legal complications. Therefore, protective actions and legal safeguards are highlighted first in these entries.
 
-Only actions that must be taken within a few minutes are included here. Identifying scams or dealing with extortion attempts require longer-term measures and are not covered in this section. Detailed anti-fraud rules and descriptions of seven common types of fraud can be found in Section 8, Item 3. Information on handling situations where someone threatens to release private photos or intimate videos is provided in Section 8, Item 32. If money has already been transferred, you should immediately call 110 or 96110 to request a stop payment, as explained in Section 8, Item 2.
+Only actions that must be taken within minutes are included here. Recognizing scams or handling blackmail situations requires longer-term responses and thus fall outside this section. Detailed anti-fraud rules and seven common scam types are covered in Section 8, Item 3. If someone threatens to release private photos or intimate videos, refer to Section 8, Item 32. Should money already have been transferred, call 110 or 96110 immediately to request a stop on the payment, as explained in Section 8, Item 2.
+
+The entries are grouped by topic, with item numbers shown in parentheses.
+
+**CPR and choking**: If someone collapses and stops breathing (Item 1), avoid rushing to help an elderly person who has fallen (Item 2). In cases of choking where speech is impossible (Item 26) or when an infant can’t cry due to blockage (Item 43), proper CPR techniques apply (Item 44).
+
+**Sudden medical emergencies**: Watch for facial drooping or weakness on one side (Item 3), sudden dizziness or loss of balance (Item 4), sudden vision loss in one eye (Item 5), intense eye pain and swelling (Item 6), chest pressure or pain (Item 7), tearing pains elsewhere (Item 8), the worst headache imaginable (Item 9), confusion following a head injury in seniors (Item 10), sudden leg swelling (Item 11), allergic reactions leading to shock (Item 15), seizures (Item 16), and sudden tremors in diabetics (Item 17).
+
+**Wounds and burns**: Apply direct pressure to stop bleeding (Item 12), treat dog or cat bites (Item 13), cool burns with water (Item 14), and never remove foreign objects from wounds (Item 40) or move suspected fractures (Item 41).
+
+**Poisoning, fires, and accidents**: Cut power first if someone is electrocuted (Item 18), respond to carbon monoxide alarms (Item 19), handle accidental ingestion of cleaners, pesticides, or medicines (Item 20), flush chemicals off skin (Item 21), recognize heat exhaustion without sweating (Item 22), give mildly salted water to heatstroke victims (Item 23), crawl low during fires (Item 24), spot drowning victims (Item 25), and check building safety after earthquakes (Item 30).
+
+**Wilderness survival**: Stay put if lost in remote areas (Item 27), watch for shivering and slurred speech as signs of hypothermia (Item 28), never cut or suction venom after snake bites (Item 29), handle encounters with bears, wild boars, or stray dogs (Item 31), seek shelter during thunderstorms (Item 32), ascend high altitudes gradually (Item 33), remove ticks carefully (Item 34), and always boil wild water before drinking (Item 35).
+
+**Conflicts and aftermath**: Defend yourself if robbed in isolated areas (Item 36), intervene cautiously if witnessing a fight (Item 37), and claim compensation for injuries or expenses incurred while saving others (Item 39).
+
+**Sexual assault and HIV exposure**: Seek immediate medical care after possible HIV exposure (Item 38) or sexual assault (Item 42).
 ### 1. Immediate chest compressions can save lives when someone collapses and stops breathing — call 120 and fetch an AED too
 <!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=死亡率 -->
 
