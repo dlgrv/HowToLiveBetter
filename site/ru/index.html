@@ -385,6 +385,17 @@ body.login-page > *{position:relative;z-index:1}
 }
 .login-provider-icon svg{display:block;width:var(--sp-5);height:var(--sp-5)}
 .login-provider-label{flex:0 1 auto}
+.login-status{
+  margin:0;
+  min-height:1.4em;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--mut);
+  text-align:center;
+  text-wrap:pretty;
+}
+.login-status[data-tone="error"]{color:var(--ink)}
+.login-status[hidden]{display:none}
+.login-provider[disabled]{opacity:.55;cursor:wait}
 .login-back{
   display:block;
   align-self:center;

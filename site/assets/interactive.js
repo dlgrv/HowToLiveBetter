@@ -1,9 +1,45 @@
 /**
  * HTLB interactive client — guest sync + optional OAuth (Google/GitHub).
  * Guest: X-HTLB-Sync. User: Authorization Bearer. Never mix.
+ *
+ * Auth/sync only on book.dlgrv.com (+ local preview). GitHub Pages stays
+ * a static mirror without account UI.
  */
 (function () {
   'use strict';
+
+  function interactiveHostOk() {
+    var h = (typeof location !== 'undefined' && location.hostname) || '';
+    return (
+      h === 'book.dlgrv.com' ||
+      h === '127.0.0.1' ||
+      h === 'localhost' ||
+      h.endsWith('.book.dlgrv.com')
+    );
+  }
+
+  if (!interactiveHostOk()) {
+    function hideAccount() {
+      var acc = document.getElementById('account');
+      if (acc) acc.hidden = true;
+    }
+    window.HTLBInteractive = {
+      init: hideAccount,
+      ensureGuest: function () { return Promise.resolve(null); },
+      loginOAuth: function () {},
+      logout: function () {},
+      loginHref: function () { return '#'; },
+      initLoginPage: function () {
+        hideAccount();
+        location.replace('../en/');
+      },
+      api: function () { return Promise.reject(new Error('interactive disabled')); },
+    };
+    addEventListener('htlb:ready', hideAccount);
+    if (document.readyState !== 'loading') hideAccount();
+    else document.addEventListener('DOMContentLoaded', hideAccount);
+    return;
+  }
 
   var API =
     (typeof window !== 'undefined' && window.__HTLB_API__) ||
@@ -90,11 +126,34 @@
     return api('/merge', { method: 'POST', body: {} });
   }
 
+  function setLoginStatus(text, tone) {
+    var el = document.getElementById('login-status');
+    if (!el) return;
+    if (!text) {
+      el.hidden = true;
+      el.textContent = '';
+      el.removeAttribute('data-tone');
+      return;
+    }
+    el.hidden = false;
+    el.textContent = text;
+    if (tone) el.setAttribute('data-tone', tone);
+    else el.removeAttribute('data-tone');
+  }
+
+  function setLoginBusy(busy) {
+    ['login-google', 'login-github'].forEach(function (id) {
+      var b = document.getElementById(id);
+      if (b) b.disabled = !!busy;
+    });
+  }
+
   /** OAuth via PocketBase popup (Google / GitHub only). */
   function loginOAuth(provider) {
     if (provider !== 'google' && provider !== 'github') {
       throw new Error('unsupported provider');
     }
+    var L = labels();
     var w = 600;
     var h = 700;
     var left = (screen.width - w) / 2;
@@ -104,15 +163,26 @@
       'htlb_oauth',
       'width=' + w + ',height=' + h + ',left=' + left + ',top=' + top
     );
-    if (!popup) throw new Error('popup blocked');
+    if (!popup) {
+      setLoginStatus(L.loginError || 'Sign-in failed. Close the popup and try again.', 'error');
+      throw new Error('popup blocked');
+    }
 
-    // Load PocketBase UMD only for authWithOAuth2
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/pocketbase@0.28.4/dist/pocketbase.umd.js';
-    s.onload = function () {
+    setLoginBusy(true);
+    setLoginStatus(L.loginWorking || 'Waiting for sign-in…');
+
+    // PocketBase UMD (vendored latest npm JS SDK; Go server version is independent — see api/go.mod)
+    function failOAuth(err) {
+      console.warn('oauth failed', err);
+      try { popup.close(); } catch (e) {}
+      setLoginBusy(false);
+      setLoginStatus(L.loginError || 'Sign-in failed. Close the popup and try again.', 'error');
+      dispatchEvent(new CustomEvent('htlb:auth', { detail: { ok: false, error: String(err && err.message || err) } }));
+    }
+    function runOAuth() {
       var PBCtor = window.PocketBase;
       if (!PBCtor) {
-        popup.close();
+        failOAuth(new Error('PocketBase SDK missing'));
         return;
       }
       var pb = new PBCtor(PB);
@@ -124,14 +194,21 @@
         })
         .then(function () {
           try { popup.close(); } catch (e) {}
+          setLoginBusy(false);
+          setLoginStatus('');
           dispatchEvent(new CustomEvent('htlb:auth', { detail: { ok: true } }));
           renderAccountMenu();
         })
-        .catch(function (err) {
-          console.warn('oauth failed', err);
-          try { popup.close(); } catch (e) {}
-        });
-    };
+        .catch(failOAuth);
+    }
+    if (window.PocketBase) {
+      runOAuth();
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = siteBase() + 'assets/pocketbase.umd.js';
+    s.onload = runOAuth;
+    s.onerror = function () { failOAuth(new Error('failed to load PocketBase SDK')); };
     document.head.appendChild(s);
   }
 
@@ -150,6 +227,8 @@
       logout: t.accountLogout || 'Log out',
       signedIn: t.accountSignedIn || 'Signed in',
       hint: t.accountHint || 'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.',
+      loginWorking: t.loginWorking || 'Waiting for sign-in…',
+      loginError: t.loginError || 'Sign-in failed. Close the popup and try again.',
     };
   }
 

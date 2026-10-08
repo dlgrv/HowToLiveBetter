@@ -32,7 +32,7 @@ func NewApp(t *testing.T) core.App {
 		t.Fatalf("migrations: %v", err)
 	}
 	t.Cleanup(func() {
-		_ = app.ResetBootstrapState()
+		_ = app.ClearBootstrap()
 		_ = os.RemoveAll(dir)
 	})
 	return app

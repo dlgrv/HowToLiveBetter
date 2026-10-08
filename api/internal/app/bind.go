@@ -68,7 +68,7 @@ func applyOAuth(app core.App, cfg config.Config) error {
 	if err != nil {
 		return err
 	}
-	denyAPI(users)
+	lockUsersExceptOAuthCreate(users)
 	users.PasswordAuth.Enabled = false
 
 	googleID := strings.TrimSpace(os.Getenv("HTLB_OAUTH_GOOGLE_CLIENT_ID"))
@@ -96,11 +96,14 @@ func applyOAuth(app core.App, cfg config.Config) error {
 	return app.Save(users)
 }
 
-func denyAPI(c *core.Collection) {
+// lockUsersExceptOAuthCreate keeps users CRUD locked except Create, which must
+// allow OAuth signup (nil CreateRule = superuser-only → new OAuth users fail).
+func lockUsersExceptOAuthCreate(c *core.Collection) {
 	c.ListRule = nil
 	c.ViewRule = nil
-	c.CreateRule = nil
 	c.UpdateRule = nil
 	c.DeleteRule = nil
 	c.ManageRule = nil
+	oauthCreate := `@request.context = "oauth2"`
+	c.CreateRule = &oauthCreate
 }

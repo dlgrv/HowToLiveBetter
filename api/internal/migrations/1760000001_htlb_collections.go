@@ -137,7 +137,14 @@ func lockUsers(app core.App) error {
 	if err != nil {
 		return err
 	}
-	denyAll(users)
+	users.ListRule = nil
+	users.ViewRule = nil
+	users.UpdateRule = nil
+	users.DeleteRule = nil
+	users.ManageRule = nil
+	// Empty/locked create blocks OAuth signup; allow only oauth2 context.
+	oauthCreate := `@request.context = "oauth2"`
+	users.CreateRule = &oauthCreate
 	users.PasswordAuth.Enabled = false
 	// OAuth providers are enabled at runtime when client credentials exist.
 	users.OAuth2.Enabled = false
@@ -145,6 +152,5 @@ func lockUsers(app core.App) error {
 		{Name: "google"},
 		{Name: "github"},
 	}
-	users.ManageRule = nil
 	return app.Save(users)
 }

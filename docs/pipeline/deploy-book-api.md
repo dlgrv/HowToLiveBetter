@@ -9,7 +9,7 @@ Ops checklist for the interactive book stack (fork dlgrv). Product decisions liv
 | `https://book.dlgrv.com` | Static book (nginx → `/var/www/book.dlgrv.com`) |
 | `https://book.dlgrv.com/login/` | Sign-in page (Google/GitHub); `?next=` returns to the book URL after OAuth |
 | `https://api.dlgrv.com` | `htlb-api` (Go + PocketBase) behind nginx → `127.0.0.1:8090` |
-| `https://dlgrv.github.io/HowToLiveBetter/` | Redirect stub → `book.dlgrv.com` |
+| `https://dlgrv.github.io/HowToLiveBetter/` | Static mirror (no auth UI; interactive sync only on `book.dlgrv.com`) |
 
 DNS (Cloudflare, grey cloud / DNS only): `book` and `api` A → dlgrv `178.104.217.93`.
 
@@ -48,7 +48,7 @@ Env (see `deploy/htlb-api.env.example`):
 1. GitHub OAuth App + Google Cloud OAuth client  
 2. Redirect URI: `https://api.dlgrv.com/api/oauth2-redirect`  
 3. Enable only Google + GitHub in PocketBase admin (`/_/`); disable password auth  
-4. Restrict `/_/` in nginx (IP allowlist / VPN)
+4. Keep `/_/` publicly reachable in nginx — OAuth completion loads `/_/#/auth/oauth2-*` in the popup (admin actions still need a superuser)
 
 ## Secrets (GitHub Environment `production`)
 
@@ -80,11 +80,11 @@ Live:
 - `https://book.dlgrv.com/en/` — static book
 - `https://api.dlgrv.com/api/htlb/v1/health` — API
 - Guest: `POST /guest/session`, `X-HTLB-Sync` on `/bookmarks`
-- GitHub Pages workflow publishes redirect stub → `book.dlgrv.com`
+- GitHub Pages workflow publishes the static book (auth disabled on that host)
 
 Still manual:
 
 - GitHub Environment `production` secrets: `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_USER=deploy`
 - OAuth Google + GitHub client IDs/secrets in `/etc/htlb-api.env`, then `systemctl restart htlb-api`
-- PocketBase first superuser: `ssh dlgrv` → `/opt/htlb-api/htlb-api superuser upsert EMAIL PASS` (admin UI `/_/` IP-restricted)
-- Confirm github.io redirect after next Pages deploy on `main`
+- PocketBase first superuser: `ssh dlgrv` → `/opt/htlb-api/htlb-api superuser upsert EMAIL PASS` (admin UI `/_/` — public shell, auth-gated)
+- Confirm github.io serves the static book (no redirect) after next Pages deploy on `main`

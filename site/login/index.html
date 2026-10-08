@@ -49,6 +49,8 @@ window.__HTLB_BASE__ = '../';
       </button>
     </div>
 
+    <p class="login-status" id="login-status" role="status" aria-live="polite" hidden></p>
+
     <a class="login-back" id="login-back" href="../en/">Back to the book</a>
   </main>
 
@@ -63,6 +65,8 @@ var LOGIN_I18N = {
     google: 'Continue with Google',
     github: 'Continue with GitHub',
     back: 'Back to the book',
+    working: 'Waiting for sign-in…',
+    error: 'Sign-in failed. Close the popup and try again.',
     docTitle: 'Sign in · HowToLiveBetter'
   },
   ru: {
@@ -71,6 +75,8 @@ var LOGIN_I18N = {
     google: 'Войти через Google',
     github: 'Войти через GitHub',
     back: 'Обратно к книге',
+    working: 'Ждём вход…',
+    error: 'Не удалось войти. Закройте окно и попробуйте снова.',
     docTitle: 'Вход · HowToLiveBetter'
   },
   zh: {
@@ -79,6 +85,8 @@ var LOGIN_I18N = {
     google: '使用 Google 登录',
     github: '使用 GitHub 登录',
     back: '返回书籍',
+    working: '正在等待登录…',
+    error: '登录失败。请关闭弹窗后重试。',
     docTitle: '登录 · HowToLiveBetter'
   },
   es: {
@@ -87,6 +95,8 @@ var LOGIN_I18N = {
     google: 'Continuar con Google',
     github: 'Continuar con GitHub',
     back: 'De vuelta al libro',
+    working: 'Esperando el inicio de sesión…',
+    error: 'No se pudo iniciar sesión. Cierra la ventana e inténtalo de nuevo.',
     docTitle: 'Iniciar sesión · HowToLiveBetter'
   },
   pt: {
@@ -95,6 +105,8 @@ var LOGIN_I18N = {
     google: 'Continuar com Google',
     github: 'Continuar com GitHub',
     back: 'De volta ao livro',
+    working: 'A aguardar o início de sessão…',
+    error: 'Falha ao entrar. Feche a janela e tente de novo.',
     docTitle: 'Entrar · HowToLiveBetter'
   },
   ar: {
@@ -103,6 +115,8 @@ var LOGIN_I18N = {
     google: 'المتابعة مع Google',
     github: 'المتابعة مع GitHub',
     back: 'العودة إلى الكتاب',
+    working: 'بانتظار تسجيل الدخول…',
+    error: 'فشل تسجيل الدخول. أغلق النافذة وحاول مرة أخرى.',
     docTitle: 'تسجيل الدخول · HowToLiveBetter'
   },
   id: {
@@ -111,6 +125,8 @@ var LOGIN_I18N = {
     google: 'Lanjut dengan Google',
     github: 'Lanjut dengan GitHub',
     back: 'Kembali ke buku',
+    working: 'Menunggu masuk…',
+    error: 'Gagal masuk. Tutup jendela dan coba lagi.',
     docTitle: 'Masuk · HowToLiveBetter'
   }
 };
@@ -149,7 +165,9 @@ function applyLoginLang() {
       accountSignIn: t.title,
       accountLogout: lang === 'ru' ? 'Выйти' : lang === 'zh' ? '退出' : 'Log out',
       accountSignedIn: lang === 'ru' ? 'Вы вошли' : lang === 'zh' ? '已登录' : 'Signed in',
-      accountAria: t.title
+      accountAria: t.title,
+      loginWorking: t.working,
+      loginError: t.error
     };
   };
 }

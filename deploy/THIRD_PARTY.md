@@ -3,7 +3,7 @@
 ## PocketBase
 
 - **Project:** [github.com/pocketbase/pocketbase](https://github.com/pocketbase/pocketbase)
-- **Version (pinned):** v0.28.4 (see `api/go.mod`)
+- **Version (pinned):** v0.40.4 (see `api/go.mod`); JS SDK `pocketbase@0.28.1` in `site/assets/pocketbase.umd.js`
 - **License:** MIT
 
 `htlb-api` embeds PocketBase as a Go library (not a separate PocketBase binary).

@@ -3,6 +3,8 @@
 # Raw `python3 translate/…` needs PYTHONPATH=. (or use these targets).
 
 export PYTHONPATH := $(CURDIR)
+# PocketBase v0.40+ needs Go ≥1.27; let the module toolchain download it.
+export GOTOOLCHAIN := auto
 
 PY = .venv/bin/python3
 RUFF = .venv/bin/ruff
@@ -11,7 +13,7 @@ YAMLLINT = .venv/bin/yamllint
 
 .PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks api-dev api-test api-lint api-format api-build api-smoke api-vuln api-cover
 
-GOLANGCI_LINT_VERSION := v2.1.6
+GOLANGCI_LINT_VERSION := v2.14.0
 GOLANGCI_LINT := github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(GOLANGCI_LINT_VERSION)
 API_DIR := api
 
@@ -81,7 +83,8 @@ api-cover:  ## Go coverage report
 
 api-lint:  ## golangci-lint + go mod tidy -diff
 	cd $(API_DIR) && go mod tidy -diff
-	cd $(API_DIR) && go run $(GOLANGCI_LINT) run ./...
+	# Rebuild golangci-lint with Go ≥ api/go.mod (host may be older).
+	cd $(API_DIR) && GOTOOLCHAIN=go1.27.0 go run $(GOLANGCI_LINT) run ./...
 
 api-format:  ## gofumpt via golangci-lint formatters
 	cd $(API_DIR) && gofmt -w $$(find . -name '*.go' -not -path './.local/*')
