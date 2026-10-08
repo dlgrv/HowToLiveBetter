@@ -1,0 +1,20 @@
+[Unit]
+Description=HowToLiveBetter API (htlb-api / PocketBase)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=htlb
+Group=htlb
+WorkingDirectory=/opt/htlb-api
+EnvironmentFile=-/etc/htlb-api.env
+ExecStart=/opt/htlb-api/htlb-api serve --http=127.0.0.1:8090 --dir=/opt/htlb-api/pb_data
+Restart=on-failure
+RestartSec=5
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/htlb-api
+
+[Install]
+WantedBy=multi-user.target

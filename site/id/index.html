@@ -47,29 +47,29 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"e
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
-<link rel="canonical" href="https://dlgrv.github.io/HowToLiveBetter/id/">
+<link rel="canonical" href="https://book.dlgrv.com/id/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Panduan Hidup yang Sepadan">
 <meta property="og:locale" content="id_ID">
-<meta property="og:url" content="https://dlgrv.github.io/HowToLiveBetter/id/">
+<meta property="og:url" content="https://book.dlgrv.com/id/">
 <meta property="og:title" content="Panduan Hidup yang Sepadan">
 <meta property="og:description" content="Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.">
-<meta property="og:image" content="https://dlgrv.github.io/HowToLiveBetter/assets/og/id.png">
+<meta property="og:image" content="https://book.dlgrv.com/assets/og/id.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Panduan Hidup yang Sepadan">
 <meta name="twitter:description" content="Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.">
-<meta name="twitter:image" content="https://dlgrv.github.io/HowToLiveBetter/assets/og/id.png">
+<meta name="twitter:image" content="https://book.dlgrv.com/assets/og/id.png">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
   {
    "@type": "WebSite",
-   "@id": "https://dlgrv.github.io/HowToLiveBetter/id/#website",
-   "url": "https://dlgrv.github.io/HowToLiveBetter/id/",
+   "@id": "https://book.dlgrv.com/id/#website",
+   "url": "https://book.dlgrv.com/id/",
    "name": "Panduan Hidup yang Sepadan",
    "description": "Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.",
    "inLanguage": "id",
@@ -77,7 +77,7 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"e
     "@type": "SearchAction",
     "target": {
      "@type": "EntryPoint",
-     "urlTemplate": "https://dlgrv.github.io/HowToLiveBetter/id/?q={search_term_string}"
+     "urlTemplate": "https://book.dlgrv.com/id/?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
    },
@@ -89,9 +89,9 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"e
   },
   {
    "@type": "Book",
-   "@id": "https://dlgrv.github.io/HowToLiveBetter/id/#book",
+   "@id": "https://book.dlgrv.com/id/#book",
    "name": "Panduan Hidup yang Sepadan",
-   "url": "https://dlgrv.github.io/HowToLiveBetter/id/",
+   "url": "https://book.dlgrv.com/id/",
    "inLanguage": "id",
    "bookFormat": "https://schema.org/EBook",
    "numberOfPages": 630,
@@ -286,6 +286,114 @@ html.dark .theme-btn .moon{display:none}
 .lang-menu{position:absolute;right:0;top:calc(100% + var(--sp-1));background:var(--pop-bg);border:var(--line-w) solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--sp-1);min-width:7.5rem;z-index:40}
 .lang-menu button{display:block;width:100%;text-align:left;padding:var(--sp-2) var(--sp-3);border:0;border-radius:var(--radius-sm);background:none;color:var(--mut);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);cursor:pointer;transition:color .15s,background .15s}
 .lang-menu button:hover{color:var(--ink);background:var(--line)}
+
+.account-dd{position:relative}
+.account-dd>summary.icon-btn{list-style:none}
+.account-dd>summary.icon-btn::-webkit-details-marker{display:none}
+.account-menu{min-width:12rem}
+.account-menu .account-sep{height:1px;background:var(--line);margin:var(--sp-1) 0}
+.account-menu .account-note{display:block;padding:var(--sp-1) var(--sp-3);font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint)}
+.account-dd[data-signed-in="1"]>summary{color:var(--ink)}
+
+/* ---------- login page (/login/) ---------- */
+body.login-page{
+  position:relative;
+  isolation:isolate;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  overflow-x:clip;
+  background:var(--bg);
+}
+body.login-page::before,
+body.login-page::after{
+  content:"";
+  position:fixed;
+  left:0;right:0;top:0;
+  height:28vh;
+  pointer-events:none;
+  z-index:0;
+  transform-origin:50% 0%;
+  will-change:transform,opacity;
+}
+/* Soft wash — ellipse center sits above the viewport edge */
+body.login-page::before{
+  background:radial-gradient(ellipse 58% 140% at 50% -45%, var(--line-soft) 0%, transparent 62%);
+  opacity:.78;
+  animation:login-glow-a 16s ease-in-out infinite;
+}
+/* Narrower highlight along the rim, also centered above the edge */
+body.login-page::after{
+  height:14vh;
+  background:radial-gradient(ellipse 32% 160% at 50% -70%, color-mix(in srgb, var(--hover) 32%, transparent) 0%, transparent 58%);
+  opacity:.5;
+  animation:login-glow-b 20s ease-in-out infinite;
+}
+html.dark body.login-page::before{opacity:.7}
+html.dark body.login-page::after{opacity:.42}
+body.login-page > *{position:relative;z-index:1}
+@keyframes login-glow-a{
+  0%,100%{transform:scaleX(1) scaleY(1);opacity:.62}
+  50%{transform:scaleX(1.08) scaleY(1.12);opacity:.88}
+}
+@keyframes login-glow-b{
+  0%,100%{transform:translateX(0) scaleX(1);opacity:.36}
+  40%{transform:translateX(8%) scaleX(1.15);opacity:.58}
+  70%{transform:translateX(-7%) scaleX(.95);opacity:.44}
+}
+@media (prefers-reduced-motion:reduce){
+  body.login-page::before,
+  body.login-page::after{animation:none}
+}
+.login-main{
+  width:min(22.5rem,100%);
+  margin:auto;
+  padding:var(--sp-9) var(--sp-5) var(--sp-11);
+  display:flex;flex-direction:column;align-items:stretch;gap:var(--sp-4);
+}
+.login-main h1{
+  margin:0;
+  font:var(--fw-strong) var(--fs-4)/var(--lh-tight) var(--serif);
+  color:var(--ink);
+  text-align:center;
+}
+.login-hint{
+  margin:calc(var(--sp-2) * -1) 0 var(--sp-2);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-body) var(--sans);
+  color:var(--mut);
+  text-align:center;
+  text-wrap:pretty;
+}
+.login-actions{display:flex;flex-direction:column;gap:var(--sp-3)}
+.login-provider{
+  display:flex;align-items:center;justify-content:center;gap:var(--sp-3);
+  width:100%;min-height:calc(var(--control-h) + var(--sp-2));
+  padding:var(--sp-2) var(--sp-4);
+  border:var(--line-w) solid var(--line);
+  border-radius:var(--radius);
+  background:var(--pop-bg);
+  color:var(--ink);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:border-color .15s,background .15s,color .15s;
+}
+.login-provider:hover{border-color:var(--line-soft);background:var(--line)}
+.login-provider:focus-visible{outline:var(--focus-off) solid var(--hover);outline-offset:var(--focus-off)}
+.login-provider-icon{
+  display:grid;place-items:center;
+  width:var(--sp-5);height:var(--sp-5);flex:0 0 var(--sp-5);
+}
+.login-provider-icon svg{display:block;width:var(--sp-5);height:var(--sp-5)}
+.login-provider-label{flex:0 1 auto}
+.login-back{
+  display:block;
+  align-self:center;
+  margin-top:var(--sp-2);
+  text-align:center;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--faint);
+}
+.login-back:hover{color:var(--hover)}
 
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
@@ -538,8 +646,14 @@ h1,h2,h3{text-wrap:wrap}
           <button type="button" role="menuitem" data-lang="id">Bahasa Indonesia</button>
         </div>
       </details>
-      <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
       <button type="button" class="icon-btn theme-btn" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="m6.34 17.66-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+      <details class="account-dd" id="account" data-signed-in="0">
+        <summary class="icon-btn" id="account-btn" title="Аккаунт" aria-label="Аккаунт" aria-haspopup="menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </summary>
+        <div class="lang-menu account-menu" id="account-menu" role="menu"></div>
+      </details>
     </div>
   </div>
 </header>
@@ -760,7 +874,7 @@ const I18N = {
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
    cap:true,
    allSections:'Разделы',
-   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
+   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', accountAria:'Аккаунт', accountSignIn:'Войти', accountGoogle:'Войти через Google', accountGithub:'Войти через GitHub', accountLogout:'Выйти', accountSignedIn:'Вы вошли', accountHint:'Войдите, чтобы на любом устройстве продолжать чтение с того места, где остановились, и сохранять отметки «Полезно» у рекомендаций.', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
@@ -798,7 +912,7 @@ const I18N = {
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
    cap:true,
    allSections:'Sections',
-   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
+   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', accountAria:'Account', accountSignIn:'Sign in', accountGoogle:'Continue with Google', accountGithub:'Continue with GitHub', accountLogout:'Log out', accountSignedIn:'Signed in', accountHint:'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
@@ -836,7 +950,7 @@ const I18N = {
    errLoad:(m)=>`No se pudo cargar el texto (${m}). Asegúrate de que el README y el directorio book/ estén junto a index.html.`,
    cap:true,
    allSections:'Secciones',
-   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', accountAria:'Cuenta', accountSignIn:'Iniciar sesión', accountGoogle:'Continuar con Google', accountGithub:'Continuar con GitHub', accountLogout:'Salir', accountSignedIn:'Sesión iniciada', accountHint:'Inicia sesión para, en cualquier dispositivo, seguir leyendo donde lo dejaste y conservar qué recomendaciones marcaste como útiles.', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
    metaDesc:'Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
    keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
    about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
@@ -874,7 +988,7 @@ const I18N = {
    errLoad:(m)=>`Não foi possível carregar o texto (${m}). Confira se o README e o diretório book/ estão ao lado de index.html.`,
    cap:true,
    allSections:'Seções',
-   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', accountAria:'Conta', accountSignIn:'Entrar', accountGoogle:'Continuar com Google', accountGithub:'Continuar com GitHub', accountLogout:'Sair', accountSignedIn:'Sessão iniciada', accountHint:'Entre para, em qualquer dispositivo, continuar a leitura de onde parou e guardar quais recomendações marcou como úteis.', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
    metaDesc:'Guia ordenado por custo-benefício: 528 recomendações — saúde e longevidade, primeiros socorros, dinheiro, proteção contra fraudes, limites legais, trabalho, família. Cada uma indica custo, benefício, nível de evidência e fonte primária; filtre por dinheiro, tempo e força de vontade.',
    keywords:'saúde,longevidade,medicina baseada em evidências,mortalidade,economizar dinheiro,finanças pessoais,fraude,primeiros socorros,direito,psicologia',
    about:['saúde','longevidade','finanças pessoais','primeiros socorros','direito','proteção do consumidor'],
@@ -912,7 +1026,7 @@ const I18N = {
    errLoad:(m)=>`Gagal memuat isi (${m}). Pastikan README dan folder book/ ada di samping index.html.`,
    cap:true, allSections:'Semua bab',
    readmeHref:'README.id.md', readmeTitle:'Buka README bahasa Indonesia',
-   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
+   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', accountAria:'Akun', accountSignIn:'Masuk', accountGoogle:'Lanjut dengan Google', accountGithub:'Lanjut dengan GitHub', accountLogout:'Keluar', accountSignedIn:'Sudah masuk', accountHint:'Masuk agar di perangkat mana pun Anda bisa lanjut membaca dari tempat terakhir, dan menyimpan tanda «Berguna» pada rekomendasi.', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
    metaDesc:'Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.',
    keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
    author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
@@ -950,7 +1064,7 @@ const I18N = {
    errLoad:(m)=>`تعذّر تحميل النص (${m}). تأكد من وجود README ومجلد book/ بجانب index.html.`,
    cap:false,
    allSections:'الأقسام',
-   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
+   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', accountAria:'الحساب', accountSignIn:'تسجيل الدخول', accountGoogle:'المتابعة مع Google', accountGithub:'المتابعة مع GitHub', accountLogout:'تسجيل الخروج', accountSignedIn:'أنت مسجّل الدخول', accountHint:'سجّل الدخول لتتابع القراءة من حيث توقفت على أي جهاز، وتحتفظ بعلامة «مفيد» على التوصيات.', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
    metaDesc:'دليل مرتب حسب القيمة مقابل المال: ٦٣٠ توصية — الصحة وطول العمر، الإسعافات الأولية، المال، الحماية من الاحتيال، الخطوط القانونية الحمراء، العمل، الأسرة. كل توصية تذكر التكلفة والفائدة ومستوى الدليل والمصدر الأصلي؛ صفِّ حسب المال والوقت والإرادة.',
    keywords:'الصحة,طول العمر,الطب المبني على الدليل,الوفيات,توفير المال,المالية الشخصية,الاحتيال,الإسعافات الأولية,القانون,علم النفس',
    author:'HowToLiveBetter (الترجمة العربية)',
@@ -989,7 +1103,7 @@ const I18N = {
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
    cap:false,
    allSections:'小节',
-   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
+   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', accountAria:'账户', accountSignIn:'登录', accountGoogle:'使用 Google 登录', accountGithub:'使用 GitHub 登录', accountLogout:'退出', accountSignedIn:'已登录', accountHint:'登录后，可在任意设备从上次停下的地方继续阅读，并保留你对条目的「有用」标记。', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
@@ -1068,6 +1182,7 @@ function applyI18n(){
     menu.setAttribute('title', desk ? (collapsed ? t.sideExpand : t.sideCollapse) : t.menuAria);
   }
   const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
+  const ab=document.getElementById('account-btn'); if(ab && t.accountAria){ ab.setAttribute('aria-label',t.accountAria); ab.setAttribute('title',t.accountAria); }
   const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
   // head meta / social cards / JSON-LD
   const setm=(sel,attr,val)=>{const el=document.querySelector(sel); if(el) el.setAttribute(attr,val);};
@@ -1111,7 +1226,23 @@ document.getElementById('lang').addEventListener('click',e=>{
   if(e.target.closest('.lang-menu button')){ e.preventDefault(); __setLang(e.target.closest('.lang-menu button').dataset.lang); }
   else { e.preventDefault(); const d=document.getElementById('lang'); d.open=!d.open; }
 });
-document.addEventListener('click',e=>{ if(!e.target.closest('#lang')) document.getElementById('lang').open=false; });
+(function(){
+  const acc=document.getElementById('account');
+  if(!acc) return;
+  const btn=document.getElementById('account-btn');
+  acc.addEventListener('toggle',()=>{ if(btn) btn.setAttribute('aria-expanded',String(acc.open)); });
+  acc.addEventListener('click',e=>{
+    if(e.target.closest('summary')){
+      e.preventDefault();
+      acc.open=!acc.open;
+      const lang=document.getElementById('lang'); if(lang) lang.open=false;
+    }
+  });
+})();
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#lang')){ const d=document.getElementById('lang'); if(d) d.open=false; }
+  if(!e.target.closest('#account')){ const d=document.getElementById('account'); if(d) d.open=false; }
+});
 /* ---------- отладочная панель: добавьте ?perf=1 к адресу ---------- */
 const PERF = (function(){
   const off = { on:false, log(){}, mark(){} };
@@ -1157,7 +1288,7 @@ function parseReadme(md){
     if ((m = /^#{1,2} (\d+)\. (.+)$/.exec(line))) { flush(); sec = {n:m[1], title:m[2].trim(), intro:'', entries:[]}; sections.push(sec); continue; }
     if (/^#{1,2} /.test(line)) { flush(); sec = null; continue; }
     if (!sec) continue;
-    if ((m = /^### (\d+)\. (.+)$/.exec(line))) { flush(); entry = {sec:sec.n, n:m[1], title:m[2].trim(), cost:'', human:'', gain:'', grade:'', src:'', note:'', money:'', time:'', will:'', level:'', lens:''}; continue; }
+    if ((m = /^### (\d+)\. (.+)$/.exec(line))) { flush(); entry = {sec:sec.n, n:m[1], id:sec.n+'-'+m[1], title:m[2].trim(), cost:'', human:'', gain:'', grade:'', src:'', note:'', money:'', time:'', will:'', level:'', lens:''}; continue; }
     if ((m = /^<!--\s*成本标签:\s*(.*?)\s*-->/.exec(line)) && entry){
       for (const kv of m[1].split(/\s+/)){ const [k,v] = kv.split('='); if(k==='钱') entry.money=v; if(k==='时间') entry.time=v; if(k==='毅力') entry.will=v; if(k==='收益') entry.level=v; if(k==='口径') entry.lens=v; }
       continue;
@@ -1198,6 +1329,7 @@ function parseGlossary(md){
     LANG==='en' || LANG==='es' ? /^## Reading the numbers[^\n]*\n([\s\S]*?)(?=^## )/m :
     LANG==='pt' ? /^## Como ler os números[^\n]*\n([\s\S]*?)(?=^## )/m :
     LANG==='ar' ? /^## قراءة الأرقام[^\n]*\n([\s\S]*?)(?=^## )/m :
+    LANG==='id' ? /^## Cara membaca angka[^\n]*\n([\s\S]*?)(?=^## )/m :
     /^## 读懂数字[^\n]*\n([\s\S]*?)(?=^## )/m;
   const m = glossHeading.exec(md);
   if (!m) return [];
@@ -1739,6 +1871,7 @@ function wire(){
     }
     PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
     restorePos();
+    try { dispatchEvent(new Event('htlb:ready')); } catch (e) {}
   } catch (err) {
     clearSkel();
     const c = document.getElementById('cnt'), t = document.getElementById('tot');
@@ -1751,5 +1884,7 @@ function wire(){
   }
 })();
 </script>
+<script>window.__HTLB_API__=window.__HTLB_API__||'https://api.dlgrv.com/api/htlb/v1';window.__HTLB_PB__=window.__HTLB_PB__||'https://api.dlgrv.com';</script>
+<script src="../assets/interactive.js"></script>
 </body>
 </html>

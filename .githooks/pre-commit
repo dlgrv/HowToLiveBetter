@@ -5,3 +5,9 @@ set -e
 cd "$(git rev-parse --show-toplevel)"
 make lint
 make check-content
+# Extra Go lint when api/ paths are staged (make lint already runs api-lint if go present)
+if git diff --cached --name-only | grep -q '^api/'; then
+  if command -v go >/dev/null 2>&1; then
+    make api-lint
+  fi
+fi

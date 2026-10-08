@@ -1,0 +1,56 @@
+name: deploy-book
+# Build static book and rsync to dlgrv (book.dlgrv.com).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'book/**'
+      - 'site/**'
+      - 'forge/site/**'
+      - 'README*.md'
+      - 'docs/research/**'
+      - 'translate/langs.json'
+      - '.github/workflows/deploy-book.yml'
+      - 'deploy/scripts/deploy-book.sh'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-book
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements-dev.txt
+      - name: Build + stage
+        run: |
+          .venv/bin/python3 forge/site/build_pages.py
+          .venv/bin/python3 forge/site/pages_artifact.py
+          test -f .publish/en/index.html
+      - name: Setup SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          test -n "$DEPLOY_SSH_KEY"
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Rsync to dlgrv
+        env:
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          DEPLOY_USER="$DEPLOY_USER" DEPLOY_HOST="$DEPLOY_HOST" bash deploy/scripts/deploy-book.sh

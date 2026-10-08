@@ -1,0 +1,50 @@
+name: deploy-api
+# Lint/test/build htlb-api and rsync binary to dlgrv (api.dlgrv.com).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'api/**'
+      - 'deploy/htlb-api.service'
+      - 'deploy/scripts/deploy-api.sh'
+      - '.github/workflows/deploy-api.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-api
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: api/go.mod
+          cache-dependency-path: api/go.sum
+      - name: Lint
+        run: make api-lint
+      - name: Test
+        run: make api-test
+      - name: Build linux/amd64
+        run: make api-build
+      - name: Setup SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          test -n "$DEPLOY_SSH_KEY"
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Deploy binary
+        env:
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          HEALTH_URL: https://api.dlgrv.com/api/htlb/v1/health
+        run: |
+          DEPLOY_USER="$DEPLOY_USER" DEPLOY_HOST="$DEPLOY_HOST" HEALTH_URL="$HEALTH_URL" \
+            bash deploy/scripts/deploy-api.sh deploy

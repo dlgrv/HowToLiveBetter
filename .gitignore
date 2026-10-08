@@ -66,3 +66,9 @@ venv/
 
 # archived agent session notes (not part of the live pipeline)
 docs/agent-sessions/
+
+# htlb-api local state
+api/.local/
+api/pb_data/
+api/bin/
+api/coverage.out

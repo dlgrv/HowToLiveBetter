@@ -168,6 +168,114 @@ html.dark .theme-btn .moon{display:none}
 .lang-menu button{display:block;width:100%;text-align:left;padding:var(--sp-2) var(--sp-3);border:0;border-radius:var(--radius-sm);background:none;color:var(--mut);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);cursor:pointer;transition:color .15s,background .15s}
 .lang-menu button:hover{color:var(--ink);background:var(--line)}
 
+.account-dd{position:relative}
+.account-dd>summary.icon-btn{list-style:none}
+.account-dd>summary.icon-btn::-webkit-details-marker{display:none}
+.account-menu{min-width:12rem}
+.account-menu .account-sep{height:1px;background:var(--line);margin:var(--sp-1) 0}
+.account-menu .account-note{display:block;padding:var(--sp-1) var(--sp-3);font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint)}
+.account-dd[data-signed-in="1"]>summary{color:var(--ink)}
+
+/* ---------- login page (/login/) ---------- */
+body.login-page{
+  position:relative;
+  isolation:isolate;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  overflow-x:clip;
+  background:var(--bg);
+}
+body.login-page::before,
+body.login-page::after{
+  content:"";
+  position:fixed;
+  left:0;right:0;top:0;
+  height:28vh;
+  pointer-events:none;
+  z-index:0;
+  transform-origin:50% 0%;
+  will-change:transform,opacity;
+}
+/* Soft wash — ellipse center sits above the viewport edge */
+body.login-page::before{
+  background:radial-gradient(ellipse 58% 140% at 50% -45%, var(--line-soft) 0%, transparent 62%);
+  opacity:.78;
+  animation:login-glow-a 16s ease-in-out infinite;
+}
+/* Narrower highlight along the rim, also centered above the edge */
+body.login-page::after{
+  height:14vh;
+  background:radial-gradient(ellipse 32% 160% at 50% -70%, color-mix(in srgb, var(--hover) 32%, transparent) 0%, transparent 58%);
+  opacity:.5;
+  animation:login-glow-b 20s ease-in-out infinite;
+}
+html.dark body.login-page::before{opacity:.7}
+html.dark body.login-page::after{opacity:.42}
+body.login-page > *{position:relative;z-index:1}
+@keyframes login-glow-a{
+  0%,100%{transform:scaleX(1) scaleY(1);opacity:.62}
+  50%{transform:scaleX(1.08) scaleY(1.12);opacity:.88}
+}
+@keyframes login-glow-b{
+  0%,100%{transform:translateX(0) scaleX(1);opacity:.36}
+  40%{transform:translateX(8%) scaleX(1.15);opacity:.58}
+  70%{transform:translateX(-7%) scaleX(.95);opacity:.44}
+}
+@media (prefers-reduced-motion:reduce){
+  body.login-page::before,
+  body.login-page::after{animation:none}
+}
+.login-main{
+  width:min(22.5rem,100%);
+  margin:auto;
+  padding:var(--sp-9) var(--sp-5) var(--sp-11);
+  display:flex;flex-direction:column;align-items:stretch;gap:var(--sp-4);
+}
+.login-main h1{
+  margin:0;
+  font:var(--fw-strong) var(--fs-4)/var(--lh-tight) var(--serif);
+  color:var(--ink);
+  text-align:center;
+}
+.login-hint{
+  margin:calc(var(--sp-2) * -1) 0 var(--sp-2);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-body) var(--sans);
+  color:var(--mut);
+  text-align:center;
+  text-wrap:pretty;
+}
+.login-actions{display:flex;flex-direction:column;gap:var(--sp-3)}
+.login-provider{
+  display:flex;align-items:center;justify-content:center;gap:var(--sp-3);
+  width:100%;min-height:calc(var(--control-h) + var(--sp-2));
+  padding:var(--sp-2) var(--sp-4);
+  border:var(--line-w) solid var(--line);
+  border-radius:var(--radius);
+  background:var(--pop-bg);
+  color:var(--ink);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:border-color .15s,background .15s,color .15s;
+}
+.login-provider:hover{border-color:var(--line-soft);background:var(--line)}
+.login-provider:focus-visible{outline:var(--focus-off) solid var(--hover);outline-offset:var(--focus-off)}
+.login-provider-icon{
+  display:grid;place-items:center;
+  width:var(--sp-5);height:var(--sp-5);flex:0 0 var(--sp-5);
+}
+.login-provider-icon svg{display:block;width:var(--sp-5);height:var(--sp-5)}
+.login-provider-label{flex:0 1 auto}
+.login-back{
+  display:block;
+  align-self:center;
+  margin-top:var(--sp-2);
+  text-align:center;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--faint);
+}
+.login-back:hover{color:var(--hover)}
+
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
 .backdrop.on{opacity:1;pointer-events:auto}

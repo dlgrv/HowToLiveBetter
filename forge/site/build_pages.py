@@ -33,7 +33,7 @@ INDEX_PATH = os.path.join(SITE, "index.html")
 V2_CSS_SRC = os.path.join(ROOT, "forge", "v2.css")
 V2_CSS_DST = os.path.join(SITE, "assets", "v2.css")
 
-HOST = "https://dlgrv.github.io/HowToLiveBetter"
+HOST = "https://book.dlgrv.com"
 ORIGIN_PAGES = "https://eternity4719.github.io/HowToLiveBetter/"
 ORIGIN_REPO = "https://github.com/eternity4719/HowToLiveBetter"
 
@@ -349,6 +349,7 @@ def build_locale_page(src: str, bootstrap_tpl: str, v2css: str, lang_meta: dict)
     )
     # Locale pages live in site/{lang}/; content is fetched from the flat Pages root.
     page = page.replace('href="README', 'href="../README').replace('href="book/', 'href="../book/')
+    page = page.replace('src="assets/interactive.js"', 'src="../assets/interactive.js"')
     # Skin is inlined (forge/v2.css); drop the router stylesheet link so it is not
     # resolved as site/{lang}/assets/v2.css.
     page = STYLESHEET_V2_RE.sub("", page, count=1)

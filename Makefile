@@ -9,7 +9,11 @@ RUFF = .venv/bin/ruff
 DJLINT = .venv/bin/djlint
 YAMLLINT = .venv/bin/yamllint
 
-.PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks
+.PHONY: help sync-upstream digest assemble verify verify-all wave repair status lint format test test-integration ci og og-html update-readme hooks check-commit-msg pages-artifact serve web-build quality style lt check-content check-links ebook-deps ebook-test ebook-epub ebook-pdf ebooks api-dev api-test api-lint api-format api-build api-smoke api-vuln api-cover
+
+GOLANGCI_LINT_VERSION := v2.1.6
+GOLANGCI_LINT := github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(GOLANGCI_LINT_VERSION)
+API_DIR := api
 
 # Locale list must stay in sync with translate/langs.json (registry).
 OG_HTML = forge/og/en.html forge/og/ru.html forge/og/es.html forge/og/zh.html forge/og/pt.html forge/og/ar.html forge/og/id.html
@@ -35,6 +39,10 @@ ci:  ## Local CI ≈ GitHub test job (tests+lint+links+content+pages+artifact)
 	@echo "=== Pages artifact ==="
 	$(PY) forge/site/pages_artifact.py
 	@test -f .publish/en/index.html && test -f .publish/README.md && test -d .publish/book
+	@echo "=== API ==="
+	$(MAKE) api-lint
+	$(MAKE) api-test
+	cd $(API_DIR) && CGO_ENABLED=0 go build -o /tmp/htlb-api-ci ./cmd/htlb-api
 
 hooks:  ## Install local git hooks (commit-msg + pre-commit lint/content + pre-push tests)
 	git config core.hooksPath .githooks
@@ -58,6 +66,35 @@ quality:  ## Content quality (readability + style --book). Usage: make quality [
 		echo "=== $$lang: style --book ==="; \
 		$(PY) translate/shelf/style_check.py --book --lang $$lang --strict || exit 1; \
 	done
+
+
+# --- htlb-api (Go / PocketBase) ---
+api-dev:  ## Run API locally on :8090
+	cd $(API_DIR) && HTLB_DEV=1 HTLB_VOTE_SALT=$${HTLB_VOTE_SALT:-dev} HTLB_CORS_ORIGINS=$${HTLB_CORS_ORIGINS:-http://127.0.0.1:8000,http://localhost:8000} go run ./cmd/htlb-api serve --http=127.0.0.1:8090
+
+api-test:  ## Go unit/integration tests (CGO_ENABLED=0)
+	cd $(API_DIR) && CGO_ENABLED=0 go test ./...
+
+api-cover:  ## Go coverage report
+	cd $(API_DIR) && CGO_ENABLED=0 go test ./... -coverprofile=coverage.out
+	cd $(API_DIR) && go tool cover -func=coverage.out | tail -n 1
+
+api-lint:  ## golangci-lint + go mod tidy -diff
+	cd $(API_DIR) && go mod tidy -diff
+	cd $(API_DIR) && go run $(GOLANGCI_LINT) run ./...
+
+api-format:  ## gofumpt via golangci-lint formatters
+	cd $(API_DIR) && gofmt -w $$(find . -name '*.go' -not -path './.local/*')
+
+api-build:  ## Build linux/amd64 static binary to api/bin/htlb-api
+	mkdir -p $(API_DIR)/bin
+	cd $(API_DIR) && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -X main.Version=$$(git rev-parse --short HEAD)" -o bin/htlb-api ./cmd/htlb-api
+
+api-smoke:  ## Smoke against ephemeral binary + pb_data
+	bash $(API_DIR)/scripts/smoke.sh
+
+api-vuln:  ## govulncheck
+	cd $(API_DIR) && go run golang.org/x/vuln/cmd/govulncheck@latest ./...
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -190,10 +227,12 @@ lint:  ## All code linters (must match CI)
 	$(DJLINT) site/index.html --lint
 	$(YAMLLINT) .github/workflows/
 	shellcheck translate/steps/translate/*.sh
+	@if command -v go >/dev/null 2>&1; then $(MAKE) api-lint; else echo "skip api-lint (go not on PATH)"; fi
 
 test:  ## Run unit tests (excludes integration)
 	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
 	node --test forge/ebook/book.test.mjs
+	@if command -v go >/dev/null 2>&1; then $(MAKE) api-test; else echo "skip api-test (go not on PATH)"; fi
 
 ebook-deps:  ## Install forge/ebook npm dependencies
 	npm ci --prefix forge/ebook

@@ -1,5 +1,5 @@
 name: pages
-# Deploy to GitHub Pages only after workflow "test" succeeds on main.
+# GitHub Pages is a redirect stub to https://book.dlgrv.com (canonical book host).
 
 on:
   workflow_run:
@@ -24,25 +24,51 @@ jobs:
       (github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
-    env:
-      PYTHONPATH: ${{ github.workspace }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          # workflow_run checkout defaults to default branch tip; pin to the
-          # commit that passed tests when triggered by workflow_run.
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install deps
-        run: pip install -r requirements-dev.txt
-      - name: Build site pages
-        run: python3 forge/site/build_pages.py
-      - name: Stage Pages artifact
-        run: python3 forge/site/pages_artifact.py
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Stage redirect stub
+        run: |
+          mkdir -p .publish
+          cat > .publish/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=https://book.dlgrv.com/">
+            <link rel="canonical" href="https://book.dlgrv.com/">
+            <title>Moved to book.dlgrv.com</title>
+            <script>
+            location.replace(
+              'https://book.dlgrv.com/'
+              + location.pathname.replace(/^\\/HowToLiveBetter\\/?/, '')
+              + location.search + location.hash
+            );
+            </script>
+          </head>
+          <body>
+            <p>This book now lives at <a href="https://book.dlgrv.com/">book.dlgrv.com</a>.</p>
+          </body>
+          </html>
+          HTML
+          # Also redirect common locale paths via meta pages
+          for lang in en ru zh es pt ar id; do
+            mkdir -p ".publish/$lang"
+            cat > ".publish/$lang/index.html" <<HTML
+          <!doctype html>
+          <meta http-equiv="refresh" content="0; url=https://book.dlgrv.com/$lang/">
+          <link rel="canonical" href="https://book.dlgrv.com/$lang/">
+          <script>location.replace('https://book.dlgrv.com/$lang/'+location.search+location.hash)</script>
+          <p><a href="https://book.dlgrv.com/$lang/">Continue</a></p>
+          HTML
+          done
+          mkdir -p .publish/login
+          cat > .publish/login/index.html <<'HTML'
+          <!doctype html>
+          <meta http-equiv="refresh" content="0; url=https://book.dlgrv.com/login/">
+          <link rel="canonical" href="https://book.dlgrv.com/login/">
+          <script>location.replace('https://book.dlgrv.com/login/'+location.search+location.hash)</script>
+          <p><a href="https://book.dlgrv.com/login/">Continue</a></p>
+          HTML
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .publish
 

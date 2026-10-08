@@ -116,3 +116,21 @@ jobs:
       - name: Content quality gates
         run: make quality
         continue-on-error: true
+
+  api:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: api/go.mod
+          cache-dependency-path: api/go.sum
+      - name: Lint
+        run: cd .. && make api-lint
+      - name: Test
+        run: cd .. && make api-test
+      - name: Build
+        run: CGO_ENABLED=0 go build -o /tmp/htlb-api ./cmd/htlb-api
