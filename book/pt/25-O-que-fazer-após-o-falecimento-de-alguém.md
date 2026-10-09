@@ -42,7 +42,7 @@ As informações sobre serviços funerários baseiam-se na nova versão do “Re
 - Fontes:国务院 (2018). 医疗纠纷预防和处理条例（国务院令第 701 号，第二十四、二十六条）. <https://www.gov.cn/zhengce/content/2018-08/31/content_5318057.htm>
 - Notas: Depois de ultrapassado esse prazo, a alegação de “eu já suspeitava que algo estava errado” não terá validade; a responsabilidade recairá sobre quem atrasou o processo. Uma vez cremado o corpo, não será mais possível realizar a autópsia, portanto essa decisão deve ser tomada antes mesmo de entrar em contato com o serviço funerário. Para saber como lacrar os prontuários, consulte a seção 24.
 
-### 5. Prazo legal para cancelar o registro de hukou: na cidade, antes do sepultamento; no campo, dentro de um mês
+### 5. Prazo legal para cancelar o registro de hukou da pessoa falecida: na cidade, antes do sepultamento; no campo, dentro de um mês
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=时间 -->
 - Custo: Não há custos. Basta levar o atestado de óbito e a domovaya kniga (hukou) até o posto de polícia.
 - Em linguagem simples: Na cidade, o cancelamento deve ser feito antes do sepultamento; no campo, dentro de um mês. Leve o atestado de óbito e a domovaya kniga ao posto de polícia para efetuar o procedimento. Caso contrário, a transferência de herança, o recebimento de benefícios e o cancelamento da medstrakhovka (ibaо) ficarão bloqueados devido ao status do registro.

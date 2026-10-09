@@ -1,7 +1,7 @@
 # 15. Alugar ou comprar um imóvel
 
 O foco deste texto é o dinheiro. Na hora de alugar, os maiores prejuízos vêm do depósito caução e das taxas pagas ao corretor. Já na compra de um imóvel, o maior custo é o pagamento dos juros do financiamento, além de todos os detalhes que o vendedor conhece, mas que você ainda desconhece.
-### 1. O valor da caução, o prazo de reembolso e as situações em que ela pode ser retida devem constar no contrato
+### 1. Ao alugar, o valor da caução, o prazo de reembolso e as situações em que ela pode ser retida devem constar no contrato
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Não há custo financeiro. O único custo é dedicar cerca de 10 minutos ao assinar o contrato. O desafio maior é ter que levantar o assunto na presença do proprietário.
@@ -51,7 +51,7 @@ O foco deste texto é o dinheiro. Na hora de alugar, os maiores prejuízos vêm 
 - Fontes:全国人大 (2020). 民法典（第七百二十五条）. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>
 - Notas: O benefício só se aplica se você já estiver morando legalmente no imóvel; a lei se refere a essa situação como “posse e uso legítimos”. É fundamental manter em mãos o contrato, os comprovantes de pagamento e os registros de entrada.
 
-### 6. Verificação prévia do registro de propriedade e de hipotecas antes da assinatura do contrato; todos os pagamentos devem ser feitos por transferência bancária com indicação do motivo
+### 6. Verificação prévia do registro de propriedade e de hipotecas antes da assinatura do contrato de aluguel; todos os pagamentos devem ser feitos por transferência bancária com indicação do motivo
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 
 - Custo: Não há custo. A verificação leva cerca de meia hora.

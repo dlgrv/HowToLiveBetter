@@ -28,7 +28,7 @@ Nesta seção, analisamos os custos financeiros e o tempo necessário para criar
 - Fontes:国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
 - Notas: Se você realmente tiver sido demitida de forma ilegal, o caminho para entrar com uma ação judicial está descrito na seção 19. Para comprovar o caso, guarde documentos escritos sobre mudanças de função ou redução salarial, além de registros de conversas relacionadas ao assunto.
 
-### 4. O cálculo do tempo leva em conta “quem teve o tempo ocupado”, não “se foi difícil ou não”
+### 4. O cálculo do tempo de criar filhos leva em conta “quem teve o tempo ocupado”, não “se foi difícil ou não”
 <!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=时间 -->
 - Custo: Não há gastos financeiros, mas o custo é o tempo. Antes dos 3 anos, a atenção da criança ocupa os pais praticamente o dia todo. O desafio é que isso acontece diariamente, sem pausas possíveis.
 - Em linguagem simples: Basta converter as horas diárias dedicadas aos cuidados com o filho e as vezes que se acorda à noite em tempo total. Depois, multiplique esse valor pelo salário horário da pessoa que realiza essas tarefas. O resultado costuma ser muito maior do que o gasto com fórmula e fraldas. Por isso, é melhor combinar a divisão das tarefas antes mesmo do nascimento da criança.

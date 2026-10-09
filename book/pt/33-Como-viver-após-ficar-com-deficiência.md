@@ -115,7 +115,7 @@ Os tópicos desta seção foram agrupados por temas, conforme listado entre par�
 
 - Notas: A classificação B se deve ao fato de a lei mencionar apenas que “devem ser concedidos subsídios adequados”, deixando a definição do valor exato e dos critérios de elegibilidade a critério das autoridades locais, sem parâmetros nacionais fixos. Para saber mais, consulte no site da associação de pessoas com deficiência local a seção “Adaptação de residências para pessoas com deficiência grave e de baixa renda”. Os subsídios são geralmente distribuídos anualmente, portanto é essencial se inscrever com antecedência. Instalação de elevadores em condomínios ou reformas de corredores seguem procedimentos diferentes, sob a responsabilidade do departamento de habitação. Caso as instalações acessíveis em locais públicos não estejam em conformidade, pode-se acionar o órgão competente conforme o artigo 62, exigindo uma resposta oficial.
 
-### 10. Ao se candidatar a um emprego, mencione voluntariamente que possui o certificado; ao contratá-lo, a empresa economiza dinheiro
+### 10. Ao se candidatar a um emprego, mencione voluntariamente que possui o certificado de deficiência; ao contratá-lo, a empresa economiza dinheiro
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Custo: Nenhum. Basta dizer uma frase a mais na entrevista. O desafio está em abrir a boca.

@@ -79,7 +79,7 @@ The items in this section are grouped by theme, with item numbers shown in paren
 - Sources:民政部 (2025). 2024 年民政事业发展统计公报（五（二）1 婚姻登记服务、注释 5），网页版与 PDF 版. <https://www.mca.gov.cn/n1288/n1294/n1554/c1662004999980006190/content.html>、<https://www.mca.gov.cn/gdnps/n2445/n2451/n2458/n2681/c1662004999980006189/attr/400985.pdf>
 - Notes: The common online figure of “over 50% divorce rate” is obtained by dividing the number of divorces by the number of marriages for the same year (351.3 ÷ 610.6 ≈ 57.5%). This ratio is known as the “divorce‑to‑marriage ratio.” Because the two sets of individuals are not identical and the report does not list such a metric, it cannot be taken as “half of all marriages end in divorce.” To calculate the actual probability that a given marriage eventually ends in divorce, one would need longitudinal data tracking the same cohort of newlyweds — data not available in this report.
 
-### 8. Accounting for health benefits while adjusting for observational data
+### 8. Accounting for the health benefits of marriage while adjusting for observational data
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=死亡率 -->
 - Cost: There is no cost in money or time. Just keep in mind that these figures reflect a lower mortality rate among married individuals — this simply means both conditions occur together, not that marriage itself extends life expectancy.
 - In plain terms: Over a given period, married people have a roughly 12% lower chance of dying compared to unmarried individuals, while those who have never married face a roughly 24% higher risk. However, this merely shows a correlation between marital status and mortality; it does not prove that marriage directly causes longer life. People who are healthier, wealthier, and more socially active are both more likely to marry and more likely to live longer. These statistics are primarily drawn from European and North American populations, so they can only serve as rough benchmarks for China.
@@ -102,7 +102,7 @@ The items in this section are grouped by theme, with item numbers shown in paren
 
 - Notes: Both surveys analyzed data only by gender, urban/rural residence, and age; marital status was not considered. Consequently, no official statistics exist on how much housework increases after marriage; the gender disparity can only be used as a rough upper bound. These figures represent national averages, but couples are free to negotiate a division of labor that suits them — and that is precisely the value of having this discussion.
 
-### 10. First check the default legal rules regarding money and property, then decide whether to make a written agreement
+### 10. First check the default legal rules regarding marriage money and property, then decide whether to make a written agreement
 <!-- 成本标签: 钱=0 时间=中 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: There is no cost involved. Simply read the relevant articles in the Civil Code regarding marital property. If needed, the couple can sign a written property agreement; the law only requires it to be in writing, no notarization is necessary. The real challenge is discussing money matters openly beforehand.
