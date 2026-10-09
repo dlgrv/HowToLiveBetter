@@ -106,7 +106,7 @@ The entries are organized thematically as follows, with corresponding item numbe
 - Sources:中华人民共和国无障碍环境建设法（第十八条、第十九条、第六十二条、第六十三条）. <https://flk.npc.gov.cn/detail?id=ff80818188d7430b0189018493370940>
 - Notes: This grade is assigned because the law merely requires “appropriate subsidies” without specifying exact amounts or eligibility criteria; those details are left to local discretion. First, check the local disability services council website for programs targeting “home modifications for low-income families with severe disabilities.” Most slots are allocated annually, so early application is crucial. Installing elevators or modifying stairways falls under separate procedures managed by housing authorities. For non-compliant public facilities, Article 62 permits filing a complaint with authorities, who must provide a response.
 
-### 10. Mentioning your certification during a job interview can save the employer money
+### 10. Mentioning your disability certificate during a job interview can save the employer money
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 
 - Cost: Zero. You only need to add one extra sentence during the interview; the real challenge is simply speaking up.

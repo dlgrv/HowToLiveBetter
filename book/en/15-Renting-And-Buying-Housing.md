@@ -1,7 +1,7 @@
 # 15. Renting vs. buying a home
 
 Renting can easily cost you extra due to security deposits and realtor fees. Buying a home, on the other hand, brings high expenses in the form of mortgage interest and all those hidden details that sellers know but buyers often overlook.
-### 1. The amount of the deposit, its refund timeline, and permissible deduction scenarios must be specified in the contract
+### 1. When renting, the amount of the deposit, its refund timeline, and permissible deduction scenarios must be specified in the contract
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 - Cost: No monetary cost. It only requires an extra ten minutes when signing the contract. The challenge lies in bringing this up in front of the landlord.
 - In plain terms: The deposit amount, when it will be returned, and under what circumstances deductions are allowed must all be written into the contract before you sign it. Any deduction reasons not explicitly stated in the contract cannot be used by the landlord to withhold your deposit at the end of the lease.
@@ -46,7 +46,7 @@ Renting can easily cost you extra due to security deposits and realtor fees. Buy
 - Sources:全国人大 (2020). 民法典（第七百二十五条）. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>
 - Notes: This applies only if you’re already residing there lawfully; the law refers to such occupancy as “legal possession and use.” It’s essential to retain all relevant documentation, including the lease, proof of payments, and records indicating your move-in date.
 
-### 6. Checking property rights and mortgages before signing the contract; all payments must be transferred with a purpose note
+### 6. Before signing a rental, checking property rights and mortgages; all payments must be transferred with a purpose note
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 
 - Cost: No cost involved. The check takes about half an hour.

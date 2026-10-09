@@ -35,7 +35,7 @@ We make no judgment about anyone’s personal choice regarding how they want to 
 - Sources:Beleznay K et al. (2019). Update on Avoiding and Treating Blindness From Fillers: A Recent Review of the World Literature. Aesthet Surg J. <https://doi.org/10.1093/asj/sjz053>
 - Notes: These figures were derived by manually tallying each reported case across medical journals. They reflect only the number of patients experiencing complications, not the total number of injections performed; thus it is impossible to calculate the exact probability of blindness per injection. The B rating reflects this limitation. Reputable clinics naturally employ standard risk‑minimization practices: mapping vascular pathways beneath the injection sites, using blunt‑tip needles instead of sharp ones, administering small amounts of filler while slowly withdrawing the needle, and keeping hyaluronidase on hand. All these steps must be carried out by trained physicians — which is precisely why unregulated providers should be avoided. Before proceeding, verify that the clinic holds proper licensing and that the attending physician is qualified, as outlined in Section 2 of this chapter.
 
-### 4. Don’t buy weight‑loss pills, coffee, candies, or “enzymatic plums” that promise rapid results
+### 4. Don’t buy weight‑loss pills, coffee, candies, or “enzymatic plums” (plums claimed to be soaked in enzymes) that promise rapid results
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=死亡率 -->
 
 - Cost: Zero. In fact, you’ll save the money you’d otherwise spend on these products. The hard part is accepting that there’s no such thing as “losing several pounds in a week.”

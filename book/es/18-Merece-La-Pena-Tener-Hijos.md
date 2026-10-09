@@ -33,7 +33,7 @@ Enfoque: dinero y tiempo. Igual que en la sección 10, aquí solo se desglosan l
 - Fuentes: 国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
 - Notas: Si de verdad te separan del empleo de forma ilegal, las vías de reclamación están en la sección 19. Para la prueba, lo esencial son los avisos escritos de traslado o rebaja salarial y los registros de chat
 
-### 4. La cuenta del tiempo se calcula según «de quién es el tiempo que se consume», no según «si es agotador»
+### 4. La cuenta del tiempo de criar hijos se calcula según «de quién es el tiempo que se consume», no según «si es agotador»
 <!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=时间 -->
 - Costo: Hasta los 3 años ocupa prácticamente todo el día
 - En términos sencillos: Convierte en horas el cuidado diario del niño y las veces que te despiertan de noche, y multiplícalo por la tarifa por hora de quien asume esas tareas: el resultado suele ser mucho mayor que el dinero de la leche y los pañales. Antes de los 3 años ocupa prácticamente todo el día, así que conviene terminar de acordar el reparto de tareas sobre la misma tabla antes de tener el hijo, en lugar de discutir después del nacimiento.

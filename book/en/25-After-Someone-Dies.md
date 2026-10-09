@@ -41,7 +41,7 @@ The funeral guidance here follows the newly updated Funeral Management Regulatio
 - Sources:国务院 (2018). 医疗纠纷预防和处理条例（国务院令第 701 号，第二十四、二十六条）. <https://www.gov.cn/zhengce/content/2018-08/31/content_5318057.htm>
 - Notes: After this deadline passes, any later claims of “I always suspected something was wrong” will instead place liability on the party responsible for the delay. Once a body is cremated, no autopsy can ever be performed. Therefore, this decision must be made before contacting any funeral home. Details on how to seal medical records can be found in Section 24.
 
-### 5. Legal deadlines for canceling hukou registration: in cities, before burial; in rural areas, within one month
+### 5. Legal deadlines for canceling hukou registration for the deceased: in cities, before burial; in rural areas, within one month
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=时间 -->
 - Cost: No expense involved. Just bring the death certificate and household register to your local police station.
 - In plain terms: In cities, you must cancel hukou registration before burial; in rural areas, you must do it within one month. Bring the death certificate and household register to the police station to complete the process. Failing to do so will block any inheritance transfers, benefit claims, or insurance cancellations due to the unresolved hukou status.

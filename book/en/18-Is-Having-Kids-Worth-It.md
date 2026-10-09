@@ -29,7 +29,7 @@ There are 18 key considerations to keep in mind when deciding whether raising a 
 - Notes: If you are illegally fired, refer to Section 19 for steps on filing a claim. Key evidence includes any written notices or messages regarding job reassignment or pay cuts — be sure to keep these records safe.
 - Sources:国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm>
 
-### 4. The time-cost calculation is based on “whose time is being used,” not on “how hard it is”
+### 4. The time-cost calculation of raising kids is based on “whose time is being used,” not on “how hard it is”
 <!-- 成本标签: 钱=0 时间=多 毅力=是 收益=大 口径=时间 -->
 
 - Cost: There’s no monetary expense — only time is spent. For children under 3, that time is essentially taken up around the clock. The difficulty lies in the fact that this happens daily, not just for a few tough days.

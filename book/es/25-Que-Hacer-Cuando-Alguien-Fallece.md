@@ -43,7 +43,7 @@ La parte funeraria se basa en la nueva versión del Reglamento sobre Gestión de
 - Fuentes:国务院 (2018). 医疗纠纷预防和处理条例（国务院令第 701 号，第二十四、二十六条）. <https://www.gov.cn/zhengce/content/2018-08/31/content_5318057.htm>
 - Notas: Si cuando pase esa ventana dices «ya entonces me parecía raro», la responsabilidad recae al revés, sobre la parte que retrasó. Una vez cremado el cuerpo ya no hay posibilidad de autopsia, así que esto debe quedar decidido antes de contactar a la funeraria. Cómo sellar la historia clínica: ver la sección 24.
 
-### 5. La baja del registro de hogar tiene un plazo legal: en la ciudad, antes del entierro; en el campo, dentro de 1 mes
+### 5. La baja del registro de hogar de la persona fallecida tiene un plazo legal: en la ciudad, antes del entierro; en el campo, dentro de 1 mes
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=时间 -->
 - Costo: 0 yuanes; un viaje a la comisaría llevando el certificado de defunción y la libreta de registro de hogar
 - En términos sencillos: En la ciudad hay que dar de baja el registro de hogar en la comisaría antes del entierro; en el campo, dentro de 1 mes, presentando el certificado de defunción y la libreta de registro de hogar. Si lo aplazas, el cambio de titularidad por herencia, el cobro de prestaciones y la cancelación del seguro se atascan en el estado del registro; seguir cobrando la pensión cuenta como cobro indebido y tarde o temprano hay que devolverla.

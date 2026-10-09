@@ -5,7 +5,7 @@
 # 15. Alquilar y comprar vivienda
 
 Enfoque: dinero. En el alquiler, el gasto principal está en el depósito y las agencias; en la compra, en los intereses y la asimetría de información.
-### 1. El importe del depósito, el plazo de devolución y los motivos de deducción deben constar en el contrato
+### 1. Al alquilar, el importe del depósito, el plazo de devolución y los motivos de deducción deben constar en el contrato
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=中 口径=金钱 -->
 - Costo: 0 yuanes; dedica 10 minutos extra al momento de firmar
 - En términos sencillos: Los motivos de descuento que no estén escritos en el contrato no pueden usarse para retener tu depósito cuando devuelves la vivienda. Cuánto es el depósito, cuándo se devuelve y en qué casos se descuenta debe quedar por escrito antes de firmar.
@@ -50,7 +50,7 @@ Enfoque: dinero. En el alquiler, el gasto principal está en el depósito y las 
 - Fuentes:全国人大 (2020). 民法典（第七百二十五条）. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>
 - Notas: La condición es que ya ocupes y uses la vivienda de forma legal. Por eso conviene guardar bien el contrato, los comprobantes de transferencia y las pruebas de la fecha de ocupación
 
-### 6. Antes de firmar, verifica el título de propiedad y si hay hipoteca, y haz todos los pagos por transferencia con el concepto anotado
+### 6. Antes de firmar un alquiler, verifica el título de propiedad y si hay hipoteca, y haz todos los pagos por transferencia con el concepto anotado
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=大 口径=金钱 -->
 - Costo: 0 yuanes; una comprobación lleva media hora
 - En términos sencillos: Las dos maneras más comunes de perder todo el dinero: pagar el alquiler a alguien que no es el propietario, y la vivienda ya hipotecada al banco que luego es embargada. Antes de firmar, comprueba una vez en el centro de registro de la propiedad inmueble la titularidad y las hipotecas; haz todos los pagos por transferencia anotando el concepto, por ejemplo «alquiler de mes X de la vivienda de tal», porque en una disputa eso es prueba directa.
