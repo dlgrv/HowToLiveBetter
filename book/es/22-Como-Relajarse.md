@@ -88,9 +88,9 @@ La primera mitad de la sección trata de las trampas de dinero y de las salidas 
 - Fuentes:Holt-Lunstad J, Smith TB, Baker M, Harris T, Stephenson D (2015). Loneliness and social isolation as risk factors for mortality: a meta-analytic review. Perspectives on Psychological Science, 10(2), 227-237. <https://doi.org/10.1177/1745691614568352>
 - Notas: Polémica. Todo son datos observacionales y la causalidad inversa no se elimina: quien ya está enfermo tiende más a vivir solo y a socializar menos. La lectura de los autores es que las relaciones sociales son un factor de salud pública del mismo orden que fumar o la obesidad, pero no hay ensayos aleatorizados que prueben que «aumentar la vida social reduce la mortalidad». Esta entrada no contradice la de la sección 3 «reduce las relaciones que te desgastan»: aquella habla de cortar lo que te desgasta, esta de conservar los vínculos que te recuperan
 
-### 10. Si vives cerca de zonas verdes, úsalas: caminar, pasear o sentarse cuentan
+### 10. Al elegir dónde vivir, cuenta el verde del entorno, pero no esperes que ir más al parque alargue la vida
 <!-- 成本标签: 钱=0 时间=少 毅力=否 收益=小 口径=死亡率 -->
-- Costo: 0 yuanes; de camino
+- Costo: 0 yuanes. Al ver una vivienda, echa un vistazo a la vegetación de los alrededores
 - En términos sencillos: 9 estudios, 7 países y 8 320 000 personas: por cada 0,1 de aumento del índice de vegetación en los 500 metros alrededor de la vivienda, la probabilidad de morir en el mismo período fue alrededor de un 4 % menor. Lo que se mide es la vegetación del entorno de la vivienda, no cuántas veces vas al parque, y quienes viven en zonas con más verde suelen tener más dinero y mejor aire. Así que no lo leas como «ir al parque alarga la vida»: lo aprovechable es contar las zonas verdes del entorno al elegir dónde vivir.
 - Beneficio: Metaanálisis de 9 estudios de cohorte, 7 países y 8 320 000 personas: por cada 0,1 de aumento del índice de vegetación diferencial normalizado (NDVI) en los 500 metros alrededor de la vivienda, el riesgo relativo combinado de mortalidad total fue de 0,96 (IC del 95 %: 0,94–0,97). 7 de los 9 estudios hallaron una asociación negativa significativa y 2 no hallaron asociación
 - Nivel de evidencia: A
