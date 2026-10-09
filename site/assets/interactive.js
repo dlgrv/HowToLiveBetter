@@ -110,6 +110,12 @@
     return data.token;
   }
 
+  /** Drop merged/revoked guest token and mint a fresh one. */
+  async function refreshGuest() {
+    setSyncToken('');
+    return ensureGuest();
+  }
+
   async function toggleUseful(entryId, useful) {
     await ensureGuest();
     return api('/useful', { method: 'POST', body: { entryId: entryId, useful: !!useful } });
@@ -123,7 +129,18 @@
 
   async function mergeGuest() {
     if (!authToken() || !syncToken()) return null;
-    return api('/merge', { method: 'POST', body: {} });
+    try {
+      return await api('/merge', { method: 'POST', body: {} });
+    } catch (err) {
+      // After logout/re-login the stored guest is often already merged → 401.
+      // Auth itself succeeded; refresh guest and continue signed-in.
+      if (err && err.status === 401) {
+        console.warn('merge skipped (stale guest)', err);
+        await refreshGuest();
+        return null;
+      }
+      throw err;
+    }
   }
 
   function setLoginStatus(text, tone) {
@@ -214,7 +231,14 @@
 
   function logout() {
     setAuthToken('');
-    renderAccountMenu();
+    // Previous guest was merged into the user; mint a clean anonymous session.
+    refreshGuest()
+      .catch(function (e) {
+        console.warn('guest refresh after logout', e);
+      })
+      .finally(function () {
+        renderAccountMenu();
+      });
   }
 
   function labels() {
@@ -371,23 +395,6 @@
     });
   }
 
-  function wireAccountLoginRedirect(acc) {
-    if (acc.dataset.htlbLoginGate === '1') return;
-    acc.dataset.htlbLoginGate = '1';
-    acc.addEventListener(
-      'click',
-      function (e) {
-        if (acc.dataset.signedIn === '1') return;
-        if (!e.target.closest('summary')) return;
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        acc.open = false;
-        location.assign(loginHref());
-      },
-      true
-    );
-  }
-
   function renderAccountMenu() {
     var old = document.getElementById('htlb-account');
     if (old) old.remove();
@@ -397,27 +404,37 @@
     var btn = document.getElementById('account-btn');
     if (!acc || !menu) return;
 
-    wireAccountLoginRedirect(acc);
-
     var L = labels();
     var signedIn = !!authToken();
     acc.dataset.signedIn = signedIn ? '1' : '0';
-    if (!signedIn) acc.open = false;
     if (btn) {
       var label = signedIn ? L.aria : L.signIn;
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
-      btn.setAttribute('aria-haspopup', signedIn ? 'menu' : 'false');
+      btn.setAttribute('aria-haspopup', 'menu');
     }
 
     menu.innerHTML = '';
-    if (!signedIn) return;
+    if (signedIn) {
+      var note = document.createElement('span');
+      note.className = 'account-note';
+      note.textContent = L.signedIn;
+      menu.appendChild(note);
+      menu.appendChild(menuButton(L.logout, logout));
+      return;
+    }
 
-    var note = document.createElement('span');
-    note.className = 'account-note';
-    note.textContent = L.signedIn;
-    menu.appendChild(note);
-    menu.appendChild(menuButton(L.logout, logout));
+    if (L.hint) {
+      var hint = document.createElement('span');
+      hint.className = 'account-note';
+      hint.textContent = L.hint;
+      menu.appendChild(hint);
+    }
+    menu.appendChild(
+      menuButton(L.signIn, function () {
+        location.assign(loginHref());
+      })
+    );
   }
 
   async function init() {
