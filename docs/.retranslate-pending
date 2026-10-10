@@ -1,7 +1,8 @@
-# Soft parity: ar/id lag after upstream bb25081 (+ residual from a4e920f).
-# en/ru/es/pt chapter catch-up landed in #150–#164.
-# Still needed: ar/id chapters below; locale long-read for Before Changing Jobs/Cities;
-# README/OG badge refresh once ar/id catch up or when stats are bumped intentionally.
+# Upstream sync (path-filtered). en/ru/es/pt catch-up queued:
+#   06 07 12 14 15 16 17 19 20 29
+# Soft parity leftover for ar/id:
+#   01 02 03 05 06 07 08 09 10 11 12 13 14 15 17 19 20 22 27 28 30 34
+# (16 and 29 may align for ar/id after sync; keep soft list conservative.)
 01
 02
 03
@@ -16,11 +17,13 @@
 13
 14
 15
+16
 17
 19
 20
 22
 27
 28
+29
 30
 34
