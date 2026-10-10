@@ -293,12 +293,6 @@
     btn.textContent = formatUsefulLabel(n);
   }
 
-  async function toggleBookmark(entryId, on) {
-    await ensureGuest();
-    if (on) return api('/bookmarks', { method: 'PUT', body: { entryId: entryId } });
-    return api('/bookmarks?entryId=' + encodeURIComponent(entryId), { method: 'DELETE' });
-  }
-
   async function mergeGuest() {
     if (!authToken() || !syncToken()) return null;
     try {
