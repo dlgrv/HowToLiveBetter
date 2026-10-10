@@ -182,7 +182,7 @@ html.dark .theme-btn .moon{display:none}
 
 /* Useful + Sources summary — one type scale (do not inherit card body 17.5px) */
 .htlb-actions{
-  display:block;margin:0;
+  display:block;margin:var(--sp-2) 0 0; /* gap under Sources so taps don't miss */
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
 }
 .src summary,
@@ -200,6 +200,7 @@ html.dark .theme-btn .moon{display:none}
 .htlb-useful{
   appearance:none;border:0;background:none;
   font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;
+  margin-top:0; /* don't pull up into Sources (shared rule uses -sp-2) */
 }
 .htlb-useful[aria-pressed="true"]{color:var(--ink)}
 .htlb-useful:disabled{opacity:.55;cursor:wait}
