@@ -7,12 +7,14 @@ import (
 
 	"github.com/dlgrv/HowToLiveBetter/api/internal/authz"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/library"
+	"github.com/dlgrv/HowToLiveBetter/api/internal/useful"
 	"github.com/pocketbase/pocketbase/core"
 )
 
 type Service struct {
 	App     core.App
 	Library library.Service
+	Salt    string
 }
 
 type Result struct {
@@ -51,7 +53,8 @@ func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
 			res.ReadingMerged = true
 		}
 
-		// Re-home useful votes voterKeys stay salted; also copy owner fields for audit
+		// Re-home useful votes: rehash voterKey to the user identity and collapse
+		// duplicates so guest+user votes on the same entry do not double-count.
 		votes, err := txApp.FindRecordsByFilter("useful_votes",
 			"ownerKind = 'guest' && ownerId = {:i}", "", 0, 0,
 			dbx.Params{"i": guestID},
@@ -59,9 +62,29 @@ func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
 		if err != nil {
 			return err
 		}
+		newVK := useful.VoterKey(uOwner, s.Salt)
 		for _, v := range votes {
+			entryID := v.GetString("entryId")
+			existing, findErr := txApp.FindFirstRecordByFilter(
+				"useful_votes",
+				"entryId = {:e} && voterKey = {:v}",
+				dbx.Params{"e": entryID, "v": newVK},
+			)
+			if findErr == nil && existing.Id != v.Id {
+				if v.GetBool("useful") || existing.GetBool("useful") {
+					existing.Set("useful", true)
+					if err := txApp.Save(existing); err != nil {
+						return err
+					}
+				}
+				if err := txApp.Delete(v); err != nil {
+					return err
+				}
+				continue
+			}
 			v.Set("ownerKind", "user")
 			v.Set("ownerId", userID)
+			v.Set("voterKey", newVK)
 			if err := txApp.Save(v); err != nil {
 				return err
 			}

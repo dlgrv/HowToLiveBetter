@@ -20,7 +20,7 @@ func TestMergeGuestIntoUser(t *testing.T) {
 	uSvc := useful.Service{App: app, Salt: "s"}
 	_, _ = uSvc.Toggle(gOwner, "e1", true)
 
-	svc := merge.Service{App: app, Library: lib}
+	svc := merge.Service{App: app, Library: lib, Salt: "s"}
 	res, err := svc.MergeGuestIntoUser(gOwner.ID, user.Id)
 	if err != nil {
 		t.Fatal(err)
@@ -33,6 +33,10 @@ func TestMergeGuestIntoUser(t *testing.T) {
 	if len(items) != 1 {
 		t.Fatalf("bookmarks %+v", items)
 	}
+	got, err := uSvc.Get(uOwner, "e1")
+	if err != nil || !got.Useful || got.Count != 1 {
+		t.Fatalf("merged useful %+v err=%v", got, err)
+	}
 	rec, err := app.FindRecordById("guest_sessions", gOwner.ID)
 	if err != nil || rec.GetString("status") != "merged" {
 		t.Fatalf("status %v %v", err, rec)
@@ -40,5 +44,32 @@ func TestMergeGuestIntoUser(t *testing.T) {
 	_, err = svc.MergeGuestIntoUser(gOwner.ID, user.Id)
 	if err == nil {
 		t.Fatal("expected second merge to fail")
+	}
+}
+
+func TestMergeUsefulNoDoubleCount(t *testing.T) {
+	app := testutil.NewApp(t)
+	_, gOwner := testutil.MakeGuest(t, app)
+	user := testutil.MakeUser(t, app, "double@example.com")
+	uOwner := authz.Owner{Kind: authz.KindUser, ID: user.Id}
+	uSvc := useful.Service{App: app, Salt: "s"}
+	_, _ = uSvc.Toggle(gOwner, "e1", true)
+	_, _ = uSvc.Toggle(uOwner, "e1", true)
+	n, err := uSvc.Count("e1")
+	if err != nil || n != 2 {
+		t.Fatalf("pre-merge count want 2 got %d err=%v", n, err)
+	}
+
+	svc := merge.Service{App: app, Library: library.Service{App: app}, Salt: "s"}
+	if _, err := svc.MergeGuestIntoUser(gOwner.ID, user.Id); err != nil {
+		t.Fatal(err)
+	}
+	n, err = uSvc.Count("e1")
+	if err != nil || n != 1 {
+		t.Fatalf("post-merge count want 1 got %d err=%v", n, err)
+	}
+	got, err := uSvc.Get(uOwner, "e1")
+	if err != nil || !got.Useful || got.Count != 1 {
+		t.Fatalf("%+v err=%v", got, err)
 	}
 }

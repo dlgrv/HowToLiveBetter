@@ -15,11 +15,31 @@ type Handlers struct {
 }
 
 func Register(g *router.RouterGroup[*core.RequestEvent], h Handlers) {
-	g.GET("/useful", h.get)
-	g.POST("/useful", h.post)
+	g.GET("/useful/mine", h.Mine)
+	g.GET("/useful", h.Get)
+	g.POST("/useful", h.Post)
 }
 
-func (h Handlers) get(e *core.RequestEvent) error {
+func (h Handlers) Mine(e *core.RequestEvent) error {
+	owner, err := h.Az.Resolve(e)
+	if err != nil {
+		return e.UnauthorizedError("credential required", nil)
+	}
+	if owner.Kind != authz.KindUser {
+		return e.UnauthorizedError("sign-in required", nil)
+	}
+	ids, err := h.Svc.ListMine(owner)
+	if err != nil {
+		return e.InternalServerError("list failed", err)
+	}
+	items := make([]map[string]any, 0, len(ids))
+	for _, id := range ids {
+		items = append(items, map[string]any{"entryId": id})
+	}
+	return e.JSON(http.StatusOK, map[string]any{"items": items})
+}
+
+func (h Handlers) Get(e *core.RequestEvent) error {
 	ids := e.Request.URL.Query().Get("entryIds")
 	if ids == "" {
 		ids = e.Request.URL.Query().Get("entryId")
@@ -29,6 +49,7 @@ func (h Handlers) get(e *core.RequestEvent) error {
 		return e.BadRequestError("entryId or entryIds required", nil)
 	}
 	owner, ok := h.Az.ResolveOptional(e)
+	userOK := ok && owner.Kind == authz.KindUser
 	counts, err := h.Svc.Counts(parts)
 	if err != nil {
 		return e.InternalServerError("count failed", err)
@@ -36,7 +57,7 @@ func (h Handlers) get(e *core.RequestEvent) error {
 	items := make([]map[string]any, 0, len(parts))
 	for _, id := range parts {
 		item := map[string]any{"entryId": id, "count": counts[id]}
-		if ok {
+		if userOK {
 			v, err := h.Svc.Get(owner, id)
 			if err == nil {
 				item["useful"] = v.Useful
@@ -47,10 +68,13 @@ func (h Handlers) get(e *core.RequestEvent) error {
 	return e.JSON(http.StatusOK, map[string]any{"items": items})
 }
 
-func (h Handlers) post(e *core.RequestEvent) error {
+func (h Handlers) Post(e *core.RequestEvent) error {
 	owner, err := h.Az.Resolve(e)
 	if err != nil {
 		return e.UnauthorizedError("credential required", nil)
+	}
+	if owner.Kind != authz.KindUser {
+		return e.UnauthorizedError("sign-in required", nil)
 	}
 	var body struct {
 		EntryID string `json:"entryId"`
