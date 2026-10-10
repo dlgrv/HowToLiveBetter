@@ -23,7 +23,7 @@
 - **Routes:** только `/api/htlb/v1/...` (авто-CRUD коллекций закрыт).
 - **Auth:** только Google + GitHub OAuth; без email/password.
 - **Guest:** `X-HTLB-Sync` + one-time `?sync=` claim; после OAuth — merge guest→user.
-- **«Полезно»:** публично без аккаунта; антифрод на сервере.
+- **«Полезно»:** голос только после OAuth (Google/GitHub); счётчики публичные для всех.
 - **CI/CD:** GitHub Actions → dlgrv (rsync book + binary).
 
 ---
@@ -32,8 +32,10 @@
 
 ### 1. Соцсигнал «Полезно»
 
-- Кнопка на карточке рядом с «Источники»; Top + «На этой неделе»; без `·`.
-- Публичные голоса; rate limit / fingerprint на API.
+- Кнопка на карточке (подпись `Полезно (N)`, всегда со счётчиком); без `·` и без `✓`.
+- Счётчики публичные (GET); голосовать только OAuth user (POST → 401 без Bearer).
+- Страница «Мои Полезно»: `GET /useful/mine` + `site/useful/` из меню аккаунта.
+- Top + «На этой неделе» — ещё не в этом MVP.
 
 ### 2. Закладки на бэке
 
@@ -47,7 +49,7 @@
 
 - Guest: `htlb_sync_token` + one-time claim link «Другое устройство».
 - OAuth: Google / GitHub; merge при логине.
-- «Полезно» без токена.
+- «Полезно»: читать без токена; голосовать — только OAuth Bearer.
 
 ### UI (v2)
 

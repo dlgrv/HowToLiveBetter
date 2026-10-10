@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" class="v2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My useful · HowToLiveBetter</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+<link rel="icon" data-href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 16.5l5 5 11-12' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 16.5l5 5 11-12' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/v2.css">
+<script>
+window.__HTLB_V2__ = 1;
+window.__HTLB_BASE__ = '../';
+(function () {
+  try {
+    var s = localStorage.getItem('theme');
+    var d = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    if (d) document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="login-page useful-page">
+  <main class="login-main useful-main">
+    <h1 id="useful-title">My useful</h1>
+    <p class="login-hint" id="useful-hint">Recommendations you marked as useful.</p>
+    <p class="useful-status" id="useful-status" role="status" aria-live="polite"></p>
+    <ul class="useful-list" id="useful-list" hidden></ul>
+    <p class="useful-empty" id="useful-empty" hidden></p>
+    <a class="login-back" id="useful-back" href="../en/">Back to the book</a>
+  </main>
+
+<script>
+window.__HTLB_API__ = 'https://api.dlgrv.com/api/htlb/v1';
+window.__HTLB_PB__ = 'https://api.dlgrv.com';
+
+var USEFUL_I18N = {
+  en: {
+    title: 'My useful',
+    hint: 'Recommendations you marked as useful.',
+    empty: 'No marks yet. Open the book and tap Useful on a card.',
+    loading: 'Loading…',
+    error: 'Could not load your list. Sign in again and retry.',
+    back: 'Back to the book',
+    docTitle: 'My useful · HowToLiveBetter',
+    accountUseful: 'My useful'
+  },
+  ru: {
+    title: 'Мои «Полезно»',
+    hint: 'Рекомендации, которые вы отметили как полезные.',
+    empty: 'Пока пусто. Откройте книгу и нажмите «Полезно» на карточке.',
+    loading: 'Загрузка…',
+    error: 'Не удалось загрузить список. Войдите снова и попробуйте ещё раз.',
+    back: 'Обратно к книге',
+    docTitle: 'Мои «Полезно» · HowToLiveBetter',
+    accountUseful: 'Мои «Полезно»'
+  },
+  zh: {
+    title: '我的「有用」',
+    hint: '你标记为有用的条目。',
+    empty: '还没有标记。打开正文，在卡片上点「有用」。',
+    loading: '加载中…',
+    error: '无法加载列表。请重新登录后再试。',
+    back: '返回书籍',
+    docTitle: '我的「有用」 · HowToLiveBetter',
+    accountUseful: '我的「有用」'
+  },
+  es: {
+    title: 'Mis útiles',
+    hint: 'Recomendaciones que marcaste como útiles.',
+    empty: 'Aún no hay marcas. Abre el libro y pulsa Útil en una tarjeta.',
+    loading: 'Cargando…',
+    error: 'No se pudo cargar la lista. Vuelve a iniciar sesión e inténtalo de nuevo.',
+    back: 'De vuelta al libro',
+    docTitle: 'Mis útiles · HowToLiveBetter',
+    accountUseful: 'Mis útiles'
+  },
+  pt: {
+    title: 'Meus úteis',
+    hint: 'Recomendações que você marcou como úteis.',
+    empty: 'Ainda não há marcas. Abra o livro e toque em Útil num cartão.',
+    loading: 'Carregando…',
+    error: 'Não foi possível carregar a lista. Entre de novo e tente outra vez.',
+    back: 'De volta ao livro',
+    docTitle: 'Meus úteis · HowToLiveBetter',
+    accountUseful: 'Meus úteis'
+  },
+  ar: {
+    title: 'علاماتي «مفيد»',
+    hint: 'التوصيات التي علّمتها كمفيدة.',
+    empty: 'لا علامات بعد. افتح الكتاب واضغط مفيد على بطاقة.',
+    loading: 'جارٍ التحميل…',
+    error: 'تعذّر تحميل القائمة. سجّل الدخول مجددًا وحاول مرة أخرى.',
+    back: 'العودة إلى الكتاب',
+    docTitle: 'علاماتي «مفيد» · HowToLiveBetter',
+    accountUseful: 'علاماتي «مفيد»'
+  },
+  id: {
+    title: 'Tanda Berguna saya',
+    hint: 'Rekomendasi yang Anda tandai sebagai berguna.',
+    empty: 'Belum ada tanda. Buka buku dan ketuk Berguna pada kartu.',
+    loading: 'Memuat…',
+    error: 'Gagal memuat daftar. Masuk lagi lalu coba lagi.',
+    back: 'Kembali ke buku',
+    docTitle: 'Tanda Berguna saya · HowToLiveBetter',
+    accountUseful: 'Tanda Berguna saya'
+  }
+};
+
+var USEFUL_READMES = {
+  en: 'README.md', ru: 'README.ru.md', zh: 'README.zh.md',
+  es: 'README.es.md', pt: 'README.pt.md', ar: 'README.ar.md', id: 'README.id.md'
+};
+
+function resolveUsefulLang() {
+  var p = new URLSearchParams(location.search);
+  var lang = (p.get('lang') || '').toLowerCase();
+  if (USEFUL_I18N[lang]) return lang;
+  try { lang = (localStorage.getItem('htlb-lang') || '').toLowerCase(); } catch (e) {}
+  if (USEFUL_I18N[lang]) return lang;
+  if (navigator.language) lang = navigator.language.slice(0, 2).toLowerCase();
+  return USEFUL_I18N[lang] ? lang : 'en';
+}
+
+function applyUsefulLang() {
+  var lang = resolveUsefulLang();
+  window.__HTLB_LANG__ = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  var t = USEFUL_I18N[lang];
+  document.title = t.docTitle;
+  document.getElementById('useful-title').textContent = t.title;
+  document.getElementById('useful-hint').textContent = t.hint;
+  document.getElementById('useful-empty').textContent = t.empty;
+  var back = document.getElementById('useful-back');
+  back.textContent = t.back;
+  back.href = '../' + lang + '/';
+
+  window.T = function () {
+    return {
+      accountUseful: t.accountUseful,
+      accountSignIn: lang === 'ru' ? 'Войти' : lang === 'zh' ? '登录' : 'Sign in',
+      accountLogout: lang === 'ru' ? 'Выйти' : lang === 'zh' ? '退出' : 'Log out',
+      accountSignedIn: lang === 'ru' ? 'Вы вошли' : lang === 'zh' ? '已登录' : 'Signed in',
+      accountAria: lang === 'ru' ? 'Аккаунт' : lang === 'zh' ? '账户' : 'Account',
+      usefulLabel: lang === 'ru' ? 'Полезно' : lang === 'zh' ? '有用' : 'Useful'
+    };
+  };
+}
+
+applyUsefulLang();
+</script>
+<script src="../assets/interactive.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.HTLBInteractive && HTLBInteractive.initUsefulPage) {
+    HTLBInteractive.initUsefulPage({
+      readmes: USEFUL_READMES,
+      i18n: USEFUL_I18N[resolveUsefulLang()]
+    });
+  }
+});
+</script>
+</body>
+</html>
