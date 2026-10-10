@@ -72,7 +72,8 @@
 
   /* card / section rhythm */
   --sec-gap:var(--sp-10);              /* между разделами (было 88) */
-  --card-pad-y:var(--sp-6) 0; /* симметрия верх/низ */
+  --card-pad-y:var(--sp-4) 0; /* симметрия верх/низ; было sp-6 */
+  --card-stack:var(--sp-2);            /* единый вертикальный шаг внутри карточки */
   --card-intrinsic:18.75rem;           /* 300px contain-intrinsic */
   --idx-min:2ch;
   --idx-gap:var(--sp-2);               /* было 12+28 мёртвого */
@@ -156,6 +157,9 @@ button,input,kbd,summary{font-family:var(--sans);font-size:var(--fs-ui)}
 .theme-btn .sun{display:none}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
+.compact-btn .ico-full{display:none}
+html.compact .compact-btn .ico-full{display:block}
+html.compact .compact-btn .ico-compact{display:none}
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}
@@ -180,31 +184,41 @@ html.dark .theme-btn .moon{display:none}
 }
 /* No ink/brand glow when signed in — same muted icon as the rest of the topbar. */
 
-/* Useful + Sources summary — one type scale (do not inherit card body 17.5px) */
+/* Card chrome: Expand / Sources / Useful — type only; vertical rhythm = .card gap */
 .htlb-actions{
-  display:block;margin:var(--sp-2) 0 0; /* gap under Sources so taps don't miss */
+  display:block;margin:0;
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
 }
 .src summary,
-.htlb-useful{
-  display:inline-block;cursor:pointer;
+.htlb-useful,
+.card-expand{
+  display:block;cursor:pointer;
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
-  padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+  padding:0;margin:0;
   transition:color .15s;
   -webkit-text-size-adjust:100%;text-size-adjust:100%;
 }
 .src summary{list-style:none}
 .src summary::-webkit-details-marker{display:none}
 .src summary:hover,
-.htlb-useful:hover{color:var(--ink)}
+.htlb-useful:hover,
+.card-expand:hover{color:var(--ink)}
+.htlb-useful,
+.card-expand{appearance:none;border:0;background:none}
 .htlb-useful{
-  appearance:none;border:0;background:none;
+  display:inline-flex;align-items:center;gap:var(--sp-2);
   font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;
-  margin-top:0; /* don't pull up into Sources (shared rule uses -sp-2) */
 }
+.htlb-useful-n{
+  font-variant-numeric:tabular-nums;
+}
+.htlb-useful-n::before{content:"–";margin-inline-end:var(--sp-2)}
 .htlb-useful[aria-pressed="true"]{color:var(--ink)}
 .htlb-useful:disabled{opacity:.55;cursor:wait}
-.htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.htlb-useful:focus-visible,
+.card-expand:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.card-expand{display:none}
+html.compact .card-expand{display:block}
 
 /* Guest Useful → brief bottom-right toast */
 .htlb-signin-toast{
@@ -474,35 +488,42 @@ html.side-collapsed .content{padding-left:var(--content-pad-x)}
 @keyframes skel-pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){.skel-bar{animation:none}}
 
-.card{padding:var(--card-pad-y);content-visibility:auto;contain-intrinsic-size:auto var(--card-intrinsic)}
-.card-h{display:flex;align-items:baseline;gap:var(--idx-gap)}
+.card{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:var(--card-stack);
+  padding:var(--card-pad-y);
+  content-visibility:auto;contain-intrinsic-size:auto var(--card-intrinsic);
+}
+/* Compact collapsed: hide body. Expanded uses the same .card gap as collapsed. */
+html.compact .card:not(.expanded) .human,
+html.compact .card:not(.expanded) .rows,
+html.compact .card:not(.expanded) .marg{display:none}
+.card-h{display:flex;align-items:baseline;gap:var(--idx-gap);align-self:stretch}
 .idx{flex:none;min-width:var(--idx-min);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--serif);font-variant-numeric:tabular-nums;color:var(--faint)}
 .card-h h3{margin:0;flex:1;min-width:0;font:var(--fw-strong) var(--fs-3)/var(--lh-tight) var(--serif);color:var(--ink);overflow-wrap:break-word}
 .anchor{flex:none;color:var(--faint);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--serif);opacity:0;transition:opacity .15s,color .15s}
 .card:hover .anchor,.anchor:focus-visible{opacity:1}
 .anchor:hover{color:var(--hover)}
-/* meta-ряд: chrome; иерархия только цветом */
-.badges{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-3);margin-top:var(--sp-3);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none}
+.badges{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--card-stack);margin:0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none}
 .badge{color:var(--faint)}
 .badge.r3{color:var(--ink)}
 .badge.r2{color:var(--mut)}
 .badge.r1{color:var(--faint)}
 .badge.danger{color:var(--ink)}
 .badge.warn{color:var(--mut)}
-/* тело карточки: один кегль/цвет/ритм --sp-3 между блоками */
-.human{margin-top:var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);min-width:0;overflow-wrap:break-word}
-.rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-3);margin-top:var(--sp-3)}
+.human{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);min-width:0;overflow-wrap:break-word;align-self:stretch}
+.rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--card-stack);margin:0;align-self:stretch}
 .rows .row{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
 .rows .k{font-weight:var(--fw-strong)}
 .rows .k::after{content:". "}
 .rows .v{min-width:0;overflow-wrap:break-word}
-.src{margin-top:var(--sp-3);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.src{margin:0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
 /* summary + .htlb-useful type rules live with Useful above (shared selectors) */
-.src .body{margin-top:var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);overflow-wrap:break-word}
+.src .body{margin-top:var(--card-stack);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);overflow-wrap:break-word}
 .src .body ul{margin:var(--sp-2) 0 0;padding-left:var(--sp-5);list-style:disc}
 .src .body li{margin:0 0 var(--sp-2);padding-left:var(--sp-1)}
 .src .body li:last-child{margin-bottom:0}
-.src .body p{margin:0 0 var(--sp-3)}
+.src .body p{margin:0 0 var(--card-stack)}
 .src .body p:last-child{margin-bottom:0}
 .src .body a{color:var(--hover)}
 .src .body a:hover{color:var(--hover)}

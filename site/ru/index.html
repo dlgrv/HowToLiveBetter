@@ -115,7 +115,7 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"e
  ]
 }
 </script>
-<script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){};try{if(localStorage.getItem('htlb-side')==='collapsed')document.documentElement.classList.add('side-collapsed')}catch(e){}})();</script>
+<script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){};try{if(localStorage.getItem('htlb-side')==='collapsed')document.documentElement.classList.add('side-collapsed')}catch(e){};try{if(localStorage.getItem('htlb-compact')!=='0')document.documentElement.classList.add('compact')}catch(e){}})();</script>
 <style>
 /* ============================================================
    HTLB v2 — editorial minimal skin (dlgrv.com style)
@@ -191,7 +191,8 @@ window.__HTLB_LANGS__={"codes":["en","ru","zh","es","pt","ar","id"],"primary":"e
 
   /* card / section rhythm */
   --sec-gap:var(--sp-10);              /* между разделами (было 88) */
-  --card-pad-y:var(--sp-6) 0; /* симметрия верх/низ */
+  --card-pad-y:var(--sp-4) 0; /* симметрия верх/низ; было sp-6 */
+  --card-stack:var(--sp-2);            /* единый вертикальный шаг внутри карточки */
   --card-intrinsic:18.75rem;           /* 300px contain-intrinsic */
   --idx-min:2ch;
   --idx-gap:var(--sp-2);               /* было 12+28 мёртвого */
@@ -275,6 +276,9 @@ button,input,kbd,summary{font-family:var(--sans);font-size:var(--fs-ui)}
 .theme-btn .sun{display:none}
 html.dark .theme-btn .sun{display:block}
 html.dark .theme-btn .moon{display:none}
+.compact-btn .ico-full{display:none}
+html.compact .compact-btn .ico-full{display:block}
+html.compact .compact-btn .ico-compact{display:none}
 
 /* ---------- language dropdown ---------- */
 .lang-dd{position:relative}
@@ -299,31 +303,41 @@ html.dark .theme-btn .moon{display:none}
 }
 /* No ink/brand glow when signed in — same muted icon as the rest of the topbar. */
 
-/* Useful + Sources summary — one type scale (do not inherit card body 17.5px) */
+/* Card chrome: Expand / Sources / Useful — type only; vertical rhythm = .card gap */
 .htlb-actions{
-  display:block;margin:var(--sp-2) 0 0; /* gap under Sources so taps don't miss */
+  display:block;margin:0;
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
 }
 .src summary,
-.htlb-useful{
-  display:inline-block;cursor:pointer;
+.htlb-useful,
+.card-expand{
+  display:block;cursor:pointer;
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
-  padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+  padding:0;margin:0;
   transition:color .15s;
   -webkit-text-size-adjust:100%;text-size-adjust:100%;
 }
 .src summary{list-style:none}
 .src summary::-webkit-details-marker{display:none}
 .src summary:hover,
-.htlb-useful:hover{color:var(--ink)}
+.htlb-useful:hover,
+.card-expand:hover{color:var(--ink)}
+.htlb-useful,
+.card-expand{appearance:none;border:0;background:none}
 .htlb-useful{
-  appearance:none;border:0;background:none;
+  display:inline-flex;align-items:center;gap:var(--sp-2);
   font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;
-  margin-top:0; /* don't pull up into Sources (shared rule uses -sp-2) */
 }
+.htlb-useful-n{
+  font-variant-numeric:tabular-nums;
+}
+.htlb-useful-n::before{content:"–";margin-inline-end:var(--sp-2)}
 .htlb-useful[aria-pressed="true"]{color:var(--ink)}
 .htlb-useful:disabled{opacity:.55;cursor:wait}
-.htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.htlb-useful:focus-visible,
+.card-expand:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.card-expand{display:none}
+html.compact .card-expand{display:block}
 
 /* Guest Useful → brief bottom-right toast */
 .htlb-signin-toast{
@@ -593,35 +607,42 @@ html.side-collapsed .content{padding-left:var(--content-pad-x)}
 @keyframes skel-pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){.skel-bar{animation:none}}
 
-.card{padding:var(--card-pad-y);content-visibility:auto;contain-intrinsic-size:auto var(--card-intrinsic)}
-.card-h{display:flex;align-items:baseline;gap:var(--idx-gap)}
+.card{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:var(--card-stack);
+  padding:var(--card-pad-y);
+  content-visibility:auto;contain-intrinsic-size:auto var(--card-intrinsic);
+}
+/* Compact collapsed: hide body. Expanded uses the same .card gap as collapsed. */
+html.compact .card:not(.expanded) .human,
+html.compact .card:not(.expanded) .rows,
+html.compact .card:not(.expanded) .marg{display:none}
+.card-h{display:flex;align-items:baseline;gap:var(--idx-gap);align-self:stretch}
 .idx{flex:none;min-width:var(--idx-min);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--serif);font-variant-numeric:tabular-nums;color:var(--faint)}
 .card-h h3{margin:0;flex:1;min-width:0;font:var(--fw-strong) var(--fs-3)/var(--lh-tight) var(--serif);color:var(--ink);overflow-wrap:break-word}
 .anchor{flex:none;color:var(--faint);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--serif);opacity:0;transition:opacity .15s,color .15s}
 .card:hover .anchor,.anchor:focus-visible{opacity:1}
 .anchor:hover{color:var(--hover)}
-/* meta-ряд: chrome; иерархия только цветом */
-.badges{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-3);margin-top:var(--sp-3);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none}
+.badges{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--card-stack);margin:0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none}
 .badge{color:var(--faint)}
 .badge.r3{color:var(--ink)}
 .badge.r2{color:var(--mut)}
 .badge.r1{color:var(--faint)}
 .badge.danger{color:var(--ink)}
 .badge.warn{color:var(--mut)}
-/* тело карточки: один кегль/цвет/ритм --sp-3 между блоками */
-.human{margin-top:var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);min-width:0;overflow-wrap:break-word}
-.rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-3);margin-top:var(--sp-3)}
+.human{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);min-width:0;overflow-wrap:break-word;align-self:stretch}
+.rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--card-stack);margin:0;align-self:stretch}
 .rows .row{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
 .rows .k{font-weight:var(--fw-strong)}
 .rows .k::after{content:". "}
 .rows .v{min-width:0;overflow-wrap:break-word}
-.src{margin-top:var(--sp-3);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.src{margin:0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
 /* summary + .htlb-useful type rules live with Useful above (shared selectors) */
-.src .body{margin-top:var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);overflow-wrap:break-word}
+.src .body{margin-top:var(--card-stack);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);overflow-wrap:break-word}
 .src .body ul{margin:var(--sp-2) 0 0;padding-left:var(--sp-5);list-style:disc}
 .src .body li{margin:0 0 var(--sp-2);padding-left:var(--sp-1)}
 .src .body li:last-child{margin-bottom:0}
-.src .body p{margin:0 0 var(--sp-3)}
+.src .body p{margin:0 0 var(--card-stack)}
 .src .body p:last-child{margin-bottom:0}
 .src .body a{color:var(--hover)}
 .src .body a:hover{color:var(--hover)}
@@ -735,6 +756,7 @@ h1,h2,h3{text-wrap:wrap}
           <button type="button" role="menuitem" data-lang="id">Bahasa Indonesia</button>
         </div>
       </details>
+      <button type="button" class="icon-btn compact-btn" id="compact" aria-pressed="false" aria-label="Краткий вид" title="Краткий вид"><svg class="ico-compact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="14" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg><svg class="ico-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
       <button type="button" class="icon-btn theme-btn" id="theme" aria-label="Переключить тёмную тему" title="Переключить тёмную тему"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="m6.34 17.66-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
       <a class="icon-btn ic-gh" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener" title="Исходный репозиторий на GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
       <details class="account-dd" id="account" data-signed-in="0">
@@ -834,18 +856,18 @@ h1,h2,h3{text-wrap:wrap}
       <h1>Пособие по выгодной жизни</h1>
       <p>Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.</p>
       <p>Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надёжда на ответ меньше, а риски нужно учитывать вместе с выгодой.</p>
+      <p class="meta-line" id="feedback-line-useful">
+        <span aria-hidden="true">💡</span>
+        <span id="fb-useful">Понравилась рекомендация — отметьте «Полезно»: так видно, что людям реально помогает</span>
+      </p>
       <p class="meta-line" id="feedback-line-star">
         <span aria-hidden="true">⭐</span>
         <span id="fb-star-t">Понравилась книга —</span>
-        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a>
+        <a id="fb-star" href="https://github.com/dlgrv/HowToLiveBetter" target="_blank" rel="noopener">поставьте звезду репозиторию</a><span id="fb-star-why">: это лучшая поддержка</span>
       </p>
       <p class="meta-line" id="feedback-line-dl">
         <span id="fb-dl-t">Нужны PDF или EPUB —</span>
         <a id="fb-dl" href="https://github.com/dlgrv/HowToLiveBetter/releases/tag/ebooks-latest" target="_blank" rel="noopener">скачайте из репозитория</a>
-      </p>
-      <p class="meta-line" id="feedback-line">
-        <span id="fb-issue-t">Нашли ошибку в переводе или есть что добавить —</span>
-        <a id="fb-issue" href="https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md" target="_blank" rel="noopener">откройте issue</a>
       </p>
       <p class="meta-line fork-note" id="fork-note"></p>
       <div class="stat" aria-live="polite">Показано <span id="cnt"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span> из <span id="tot"><i class="skel-bar skel-stat" aria-hidden="true"></i><span class="stat-fallback">–</span></span></div>
@@ -938,7 +960,7 @@ const I18N = {
    noscriptLink:'Фильтры и поиск на этой странице требуют JavaScript. Текст можно читать напрямую: <a href="../README.ru.md">README.ru.md</a> (оглавление) и каталог <a href="../book/ru/">book/ru/</a>.',
    docHead:'Каждая рекомендация отвечает на два вопроса: чем рискуешь — и что получаешь.',
    docHead2:'Кому достаётся выгода, тоже разбито по уровням: сам ты — выше всего, затем супруг и близкие родственники, потом друзья и коллеги, незнакомцы — ниже всех. «Ниже всех» не значит «ноль»: просто надежда на ответ меньше, а риски нужно учитывать вместе с выгодой.',
-   fbAria:'Обратная связь', fbIssueT:'Нашли ошибку в переводе или есть что добавить —', fbIssue:'откройте issue', fbStarT:'Понравилась книга —', fbStar:'поставьте звезду репозиторию', fbDlT:'Нужны PDF или EPUB —', fbDl:'скачайте из репозитория',
+   fbAria:'Обратная связь', fbUseful:'Понравилась рекомендация — отметьте «Полезно»: так видно, что людям реально помогает', fbStarT:'Понравилась книга —', fbStar:'поставьте звезду репозиторию', fbStarWhy:': это лучшая поддержка', fbDlT:'Нужны PDF или EPUB —', fbDl:'скачайте из репозитория',
    shown:'Показано', of:'из', loading:'Загружаю текст…',
    empty:'Ничего не найдено. Уберите один из фильтров или попробуйте более короткий запрос.', reset:'Сбросить', resetF:'Сбросить фильтры',
    sections:'Разделы', ratioH:'Выгода/затраты', ratioS:'Оценка автора, сравнима в рамках одной категории',
@@ -963,7 +985,7 @@ const I18N = {
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
    cap:true,
    allSections:'Разделы',
-   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', accountAria:'Аккаунт', accountSignIn:'Войти', accountGoogle:'Войти через Google', accountGithub:'Войти через GitHub', accountLogout:'Выйти', accountSignedIn:'Вы вошли', accountHint:'Войдите, чтобы на любом устройстве продолжать чтение с того места, где остановились, и сохранять отметки «Полезно» у рекомендаций.', accountUseful:'Мои «Полезно»', usefulLabel:'Полезно', usefulLabelN:'Полезно {n}', usefulNeedSignIn:'Чтобы отметить «Полезно», нужно войти.', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
+   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', compactAria:'Краткий вид', compactAriaOn:'Полный вид', cardExpand:'Подробнее', cardCollapse:'Свернуть', accountAria:'Аккаунт', accountSignIn:'Войти', accountGoogle:'Войти через Google', accountGithub:'Войти через GitHub', accountLogout:'Выйти', accountSignedIn:'Вы вошли', accountHint:'Войдите, чтобы на любом устройстве продолжать чтение с того места, где остановились, и сохранять отметки «Полезно» у рекомендаций.', accountUseful:'Мои «Полезно»', usefulLabel:'Полезно', usefulLabelN:'Полезно {n}', usefulNeedSignIn:'Чтобы отметить «Полезно», нужно войти.', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 677 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
@@ -976,7 +998,7 @@ const I18N = {
    noscriptLink:'Filters and search on this page require JavaScript. The text can be read directly: <a href="../README.md">README.md</a> (table of contents) and the <a href="../book/en/">book/en/</a> directory.',
    docHead:'Every recommendation answers two questions: what it costs — and what it buys back.',
    docHead2:'Whose account the benefit lands on is tiered too: you yourself come first, then spouse and immediate family, then friends and colleagues; strangers come lowest. "Lowest" does not mean "zero": the chance of return is smaller, and the risks must be weighed together with the benefit.',
-   fbAria:'Feedback', fbIssueT:'Spotted a mistake or have something to add —', fbIssue:'open an issue', fbStarT:'Like the book —', fbStar:'give the repo a star', fbDlT:'Need a PDF or EPUB —', fbDl:'download it from the repo',
+   fbAria:'Feedback', fbUseful:'Liked a recommendation — mark it Useful: that shows what actually helps people', fbStarT:'Like the book —', fbStar:'give the repo a star', fbStarWhy:': the best way to support it', fbDlT:'Need a PDF or EPUB —', fbDl:'download it from the repo',
    shown:'Showing', of:'of', loading:'Loading text…',
    empty:'Nothing found. Remove one of the filters or try a shorter query.', reset:'Reset', resetF:'Reset filters',
    sections:'Sections', ratioH:'Benefit / costs', ratioS:'Author judgment, comparable within one category only',
@@ -1001,7 +1023,7 @@ const I18N = {
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
    cap:true,
    allSections:'Sections',
-   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', accountAria:'Account', accountSignIn:'Sign in', accountGoogle:'Continue with Google', accountGithub:'Continue with GitHub', accountLogout:'Log out', accountSignedIn:'Signed in', accountHint:'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.', accountUseful:'My useful', usefulLabel:'Useful', usefulLabelN:'Useful {n}', usefulNeedSignIn:'Sign in to mark this as useful.', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
+   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', compactAria:'Compact view', compactAriaOn:'Full view', cardExpand:'More', cardCollapse:'Collapse', accountAria:'Account', accountSignIn:'Sign in', accountGoogle:'Continue with Google', accountGithub:'Continue with GitHub', accountLogout:'Log out', accountSignedIn:'Signed in', accountHint:'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.', accountUseful:'My useful', usefulLabel:'Useful', usefulLabelN:'Useful {n}', usefulNeedSignIn:'Sign in to mark this as useful.', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
    metaDesc:'A guide sorted by value for money: 677 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
@@ -1014,7 +1036,7 @@ const I18N = {
    noscriptLink:'Los filtros y la búsqueda de esta página requieren JavaScript. El texto se puede leer directamente: <a href="../README.es.md">README.es.md</a> (índice) y el directorio <a href="../book/es/">book/es/</a>.',
    docHead:'Cada recomendación responde a dos preguntas: qué cuesta — y qué devuelve.',
    docHead2:'A quién llega el beneficio también está por niveles: primero tú mismo, luego tu cónyuge y la familia directa, después amigos y colegas; los extraños van al final. «Final» no significa «cero»: la probabilidad de retorno es menor y hay que sopesar los riesgos junto con el beneficio.',
-   fbAria:'Comentarios', fbIssueT:'¿Detectaste un error o tienes algo que añadir —', fbIssue:'abre un issue', fbStarT:'¿Te gusta el libro —', fbStar:'dale una estrella al repositorio', fbDlT:'¿Quieres PDF o EPUB —', fbDl:'descárgalo del repositorio',
+   fbAria:'Comentarios', fbUseful:'¿Te gustó una recomendación — márcala como Útil: así se ve lo que de verdad ayuda', fbStarT:'¿Te gusta el libro —', fbStar:'dale una estrella al repositorio', fbStarWhy:': es la mejor forma de apoyar', fbDlT:'¿Quieres PDF o EPUB —', fbDl:'descárgalo del repositorio',
    shown:'Mostrando', of:'de', loading:'Cargando el texto…',
    empty:'No se encontró nada. Quita uno de los filtros o prueba con una búsqueda más corta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
    sections:'Secciones', ratioH:'Beneficio / costos', ratioS:'Juicio del autor, comparable solo dentro de una misma categoría',
@@ -1039,7 +1061,7 @@ const I18N = {
    errLoad:(m)=>`No se pudo cargar el texto (${m}). Asegúrate de que el README y el directorio book/ estén junto a index.html.`,
    cap:true,
    allSections:'Secciones',
-   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', accountAria:'Cuenta', accountSignIn:'Iniciar sesión', accountGoogle:'Continuar con Google', accountGithub:'Continuar con GitHub', accountLogout:'Salir', accountSignedIn:'Sesión iniciada', accountHint:'Inicia sesión para, en cualquier dispositivo, seguir leyendo donde lo dejaste y conservar qué recomendaciones marcaste como útiles.', accountUseful:'Mis útiles', usefulLabel:'Útil', usefulLabelN:'Útil {n}', usefulNeedSignIn:'Inicia sesión para marcar como útil.', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', compactAria:'Vista compacta', compactAriaOn:'Vista completa', cardExpand:'Más', cardCollapse:'Ocultar', accountAria:'Cuenta', accountSignIn:'Iniciar sesión', accountGoogle:'Continuar con Google', accountGithub:'Continuar con GitHub', accountLogout:'Salir', accountSignedIn:'Sesión iniciada', accountHint:'Inicia sesión para, en cualquier dispositivo, seguir leyendo donde lo dejaste y conservar qué recomendaciones marcaste como útiles.', accountUseful:'Mis útiles', usefulLabel:'Útil', usefulLabelN:'Útil {n}', usefulNeedSignIn:'Inicia sesión para marcar como útil.', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
    metaDesc:'Guía ordenada por relación valor-precio: 677 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
    keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
    about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
@@ -1052,7 +1074,7 @@ const I18N = {
    noscriptLink:'Os filtros e a busca desta página exigem JavaScript. O texto pode ser lido diretamente: <a href="../README.pt.md">README.pt.md</a> (índice) e o diretório <a href="../book/pt/">book/pt/</a>.',
    docHead:'Cada recomendação responde a duas perguntas: o que custa — e o que devolve.',
    docHead2:'A quem o benefício chega também é em camadas: primeiro você, depois cônjuge e família direta, depois amigos e colegas; estranhos vêm por último. «Por último» não significa «zero»: a chance de retorno é menor e os riscos precisam ser pesados junto com o benefício.',
-   fbAria:'Feedback', fbIssueT:'Encontrou um erro ou quer sugerir algo —', fbIssue:'abra um issue', fbStarT:'Gostou do livro —', fbStar:'dê uma estrela ao repositório', fbDlT:'Quer PDF ou EPUB —', fbDl:'baixe no repositório',
+   fbAria:'Feedback', fbUseful:'Gostou de uma recomendação — marque Útil: assim dá para ver o que realmente ajuda', fbStarT:'Gostou do livro —', fbStar:'dê uma estrela ao repositório', fbStarWhy:': é a melhor forma de apoiar', fbDlT:'Quer PDF ou EPUB —', fbDl:'baixe no repositório',
    shown:'Mostrando', of:'de', loading:'Carregando o texto…',
    empty:'Nada encontrado. Remova um dos filtros ou tente uma busca mais curta.', reset:'Reiniciar', resetF:'Reiniciar filtros',
    sections:'Seções', ratioH:'Benefício / custos', ratioS:'Julgamento do autor, comparável só dentro da mesma categoria',
@@ -1077,7 +1099,7 @@ const I18N = {
    errLoad:(m)=>`Não foi possível carregar o texto (${m}). Confira se o README e o diretório book/ estão ao lado de index.html.`,
    cap:true,
    allSections:'Seções',
-   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', accountAria:'Conta', accountSignIn:'Entrar', accountGoogle:'Continuar com Google', accountGithub:'Continuar com GitHub', accountLogout:'Sair', accountSignedIn:'Sessão iniciada', accountHint:'Entre para, em qualquer dispositivo, continuar a leitura de onde parou e guardar quais recomendações marcou como úteis.', accountUseful:'Meus úteis', usefulLabel:'Útil', usefulLabelN:'Útil {n}', usefulNeedSignIn:'Entre para marcar como útil.', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', compactAria:'Vista compacta', compactAriaOn:'Vista completa', cardExpand:'Mais', cardCollapse:'Recolher', accountAria:'Conta', accountSignIn:'Entrar', accountGoogle:'Continuar com Google', accountGithub:'Continuar com GitHub', accountLogout:'Sair', accountSignedIn:'Sessão iniciada', accountHint:'Entre para, em qualquer dispositivo, continuar a leitura de onde parou e guardar quais recomendações marcou como úteis.', accountUseful:'Meus úteis', usefulLabel:'Útil', usefulLabelN:'Útil {n}', usefulNeedSignIn:'Entre para marcar como útil.', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
    metaDesc:'Guia ordenado por custo-benefício: 677 recomendações — saúde e longevidade, primeiros socorros, dinheiro, proteção contra fraudes, limites legais, trabalho, família. Cada uma indica custo, benefício, nível de evidência e fonte primária; filtre por dinheiro, tempo e força de vontade.',
    keywords:'saúde,longevidade,medicina baseada em evidências,mortalidade,economizar dinheiro,finanças pessoais,fraude,primeiros socorros,direito,psicologia',
    about:['saúde','longevidade','finanças pessoais','primeiros socorros','direito','proteção do consumidor'],
@@ -1090,7 +1112,7 @@ const I18N = {
    noscriptLink:'Pencarian dan filter memerlukan JavaScript. Kamu juga bisa membaca <a href="../README.id.md">daftar isi</a> dan berkas di <a href="../book/id/">book/id/</a>.',
    docHead:'Tiap saran menjawab: apa yang kamu keluarkan, dan apa yang kamu dapatkan.',
    docHead2:'Manfaat untuk diri sendiri didahulukan, lalu keluarga dekat, teman dan rekan kerja, kemudian orang yang tidak dikenal. Risiko dan manfaat tetap perlu ditimbang bersama.',
-   fbAria:'Masukan', fbIssueT:'Menemukan kesalahan atau ingin menambahkan sesuatu?', fbIssue:'Buat issue', fbStarT:'Suka bukunya?', fbStar:'Beri bintang di GitHub', fbDlT:'Butuh PDF atau EPUB —', fbDl:'unduh dari repositori',
+   fbAria:'Masukan', fbUseful:'Suka rekomendasinya — tandai Berguna: supaya terlihat mana yang benar-benar membantu', fbStarT:'Suka bukunya?', fbStar:'Beri bintang di GitHub', fbStarWhy:': dukungan terbaik', fbDlT:'Butuh PDF atau EPUB —', fbDl:'unduh dari repositori',
    shown:'Menampilkan', of:'dari', loading:'Memuat isi…',
    empty:'Tidak ada hasil. Coba lepas salah satu filter atau gunakan kata kunci yang lebih pendek.', reset:'Atur ulang', resetF:'Hapus filter',
    sections:'Bab', ratioH:'Manfaat dibanding biaya', ratioS:'Penilaian penulis; hanya dapat dibandingkan dalam kategori yang sama',
@@ -1115,7 +1137,7 @@ const I18N = {
    errLoad:(m)=>`Gagal memuat isi (${m}). Pastikan README dan folder book/ ada di samping index.html.`,
    cap:true, allSections:'Semua bab',
    readmeHref:'README.id.md', readmeTitle:'Buka README bahasa Indonesia',
-   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', accountAria:'Akun', accountSignIn:'Masuk', accountGoogle:'Lanjut dengan Google', accountGithub:'Lanjut dengan GitHub', accountLogout:'Keluar', accountSignedIn:'Sudah masuk', accountHint:'Masuk agar di perangkat mana pun Anda bisa lanjut membaca dari tempat terakhir, dan menyimpan tanda «Berguna» pada rekomendasi.', accountUseful:'Tanda Berguna saya', usefulLabel:'Berguna', usefulLabelN:'Berguna {n}', usefulNeedSignIn:'Masuk dulu untuk menandai sebagai Berguna.', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
+   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', compactAria:'Tampilan ringkas', compactAriaOn:'Tampilan penuh', cardExpand:'Selengkapnya', cardCollapse:'Sembunyikan', accountAria:'Akun', accountSignIn:'Masuk', accountGoogle:'Lanjut dengan Google', accountGithub:'Lanjut dengan GitHub', accountLogout:'Keluar', accountSignedIn:'Sudah masuk', accountHint:'Masuk agar di perangkat mana pun Anda bisa lanjut membaca dari tempat terakhir, dan menyimpan tanda «Berguna» pada rekomendasi.', accountUseful:'Tanda Berguna saya', usefulLabel:'Berguna', usefulLabelN:'Berguna {n}', usefulNeedSignIn:'Masuk dulu untuk menandai sebagai Berguna.', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
    metaDesc:'Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.',
    keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
    author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
@@ -1128,7 +1150,7 @@ const I18N = {
    noscriptLink:'تتطلب الفلاتر والبحث في هذه الصفحة JavaScript. يمكن قراءة النص مباشرة: <a href="../README.ar.md">README.ar.md</a> (الفهرس) ومجلد <a href="../book/ar/">book/ar/</a>.',
    docHead:'كل توصية تجيب عن سؤالين: ماذا تدفع — وماذا تستعيد.',
    docHead2:'لمن تعود الفائدة مقسّم أيضًا على درجات: أنت أولًا، ثم الزوج والأهل المباشرون، ثم الأصدقاء والزملاء؛ والغرباء في الدرجة الأدنى. «الأدنى» لا تعني «صفرًا»: بل إن احتمال العائد أصغر، ويجب وزن المخاطر مع الفائدة.',
-   fbAria:'ملاحظات', fbIssueT:'وجدت خطأ في الترجمة أو لديك إضافة —', fbIssue:'افتح issue', fbStarT:'أعجبك الكتاب —', fbStar:'ضع نجمة للمستودع', fbDlT:'هل تريد PDF أو EPUB —', fbDl:'نزّله من المستودع',
+   fbAria:'ملاحظات', fbUseful:'أعجبتك توصية — ضع علامة «مفيد»: هكذا يتضح ما يساعد الناس فعلاً', fbStarT:'أعجبك الكتاب —', fbStar:'ضع نجمة للمستودع', fbStarWhy:': أفضل دعم', fbDlT:'هل تريد PDF أو EPUB —', fbDl:'نزّله من المستودع',
    shown:'عرض', of:'من', loading:'جارٍ تحميل النص…',
    empty:'لا نتائج. أزل أحد الفلاتر أو جرّب كلمة أقصر.', reset:'إعادة ضبط', resetF:'إعادة ضبط الفلاتر',
    sections:'الأقسام', ratioH:'الفائدة / التكلفة', ratioS:'تقدير المؤلف، قابل للمقارنة داخل الفئة الواحدة فقط',
@@ -1153,7 +1175,7 @@ const I18N = {
    errLoad:(m)=>`تعذّر تحميل النص (${m}). تأكد من وجود README ومجلد book/ بجانب index.html.`,
    cap:false,
    allSections:'الأقسام',
-   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', accountAria:'الحساب', accountSignIn:'تسجيل الدخول', accountGoogle:'المتابعة مع Google', accountGithub:'المتابعة مع GitHub', accountLogout:'تسجيل الخروج', accountSignedIn:'أنت مسجّل الدخول', accountHint:'سجّل الدخول لتتابع القراءة من حيث توقفت على أي جهاز، وتحتفظ بعلامة «مفيد» على التوصيات.', accountUseful:'علاماتي «مفيد»', usefulLabel:'مفيد', usefulLabelN:'مفيد {n}', usefulNeedSignIn:'سجّل الدخول لتضع علامة «مفيد».', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
+   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', compactAria:'عرض مختصر', compactAriaOn:'عرض كامل', cardExpand:'المزيد', cardCollapse:'طيّ', accountAria:'الحساب', accountSignIn:'تسجيل الدخول', accountGoogle:'المتابعة مع Google', accountGithub:'المتابعة مع GitHub', accountLogout:'تسجيل الخروج', accountSignedIn:'أنت مسجّل الدخول', accountHint:'سجّل الدخول لتتابع القراءة من حيث توقفت على أي جهاز، وتحتفظ بعلامة «مفيد» على التوصيات.', accountUseful:'علاماتي «مفيد»', usefulLabel:'مفيد', usefulLabelN:'مفيد {n}', usefulNeedSignIn:'سجّل الدخول لتضع علامة «مفيد».', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
    metaDesc:'دليل مرتب حسب القيمة مقابل المال: ٦٣٠ توصية — الصحة وطول العمر، الإسعافات الأولية، المال، الحماية من الاحتيال، الخطوط القانونية الحمراء، العمل، الأسرة. كل توصية تذكر التكلفة والفائدة ومستوى الدليل والمصدر الأصلي؛ صفِّ حسب المال والوقت والإرادة.',
    keywords:'الصحة,طول العمر,الطب المبني على الدليل,الوفيات,توفير المال,المالية الشخصية,الاحتيال,الإسعافات الأولية,القانون,علم النفس',
    author:'HowToLiveBetter (الترجمة العربية)',
@@ -1167,7 +1189,7 @@ const I18N = {
    noscriptLink:'本页的筛选与搜索需要 JavaScript。也可直接阅读：<a href="../README.zh.md">README.zh.md</a>（目录）与 <a href="../book/">book/</a> 目录。',
    docHead:'每条建议回答两个问题：付出什么——换回什么。',
    docHead2:'收益算在谁头上也分档：你自己最高，其次是配偶与直系亲属，再次是朋友同事，陌生人最低。「最低」不是「零」：只是回报的期望更小，风险要与收益一起权衡。',
-   fbAria:'反馈', fbIssueT:'发现翻译有误或有补充想法 —', fbIssue:'欢迎提 issue', fbStarT:'觉得这本书不错 —', fbStar:'给仓库点个 star', fbDlT:'想要 PDF 或 EPUB —', fbDl:'从仓库下载',
+   fbAria:'反馈', fbUseful:'觉得某条建议有用 — 点「有用」：这样能看出大家真正觉得有帮助的条目', fbStarT:'觉得这本书不错 —', fbStar:'给仓库点个 star', fbStarWhy:'：这是最好的支持', fbDlT:'想要 PDF 或 EPUB —', fbDl:'从仓库下载',
    shown:'显示', of:'/', loading:'正在载入正文…',
    empty:'没有符合条件的结果。请去掉一个筛选条件，或换更短的关键词。', reset:'重置', resetF:'重置筛选',
    sections:'小节', ratioH:'性价比', ratioS:'作者判断，仅在同一口径内可比',
@@ -1192,7 +1214,7 @@ const I18N = {
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
    cap:false,
    allSections:'小节',
-   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', accountAria:'账户', accountSignIn:'登录', accountGoogle:'使用 Google 登录', accountGithub:'使用 GitHub 登录', accountLogout:'退出', accountSignedIn:'已登录', accountHint:'登录后，可在任意设备从上次停下的地方继续阅读，并保留你对条目的「有用」标记。', accountUseful:'我的「有用」', usefulLabel:'有用', usefulLabelN:'有用 {n}', usefulNeedSignIn:'标记「有用」前请先登录。', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
+   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', compactAria:'简洁视图', compactAriaOn:'完整视图', cardExpand:'展开', cardCollapse:'收起', accountAria:'账户', accountSignIn:'登录', accountGoogle:'使用 Google 登录', accountGithub:'使用 GitHub 登录', accountLogout:'退出', accountSignedIn:'已登录', accountHint:'登录后，可在任意设备从上次停下的地方继续阅读，并保留你对条目的「有用」标记。', accountUseful:'我的「有用」', usefulLabel:'有用', usefulLabelN:'有用 {n}', usefulNeedSignIn:'标记「有用」前请先登录。', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
    metaDesc:'按性价比排序的人生指南：677 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
@@ -1223,13 +1245,10 @@ function applyI18n(){
   const dhp=dh.querySelectorAll(':scope > p:not(.fork-note):not(.meta-line)'); dhp[0].textContent=t.docHead; dhp[1].textContent=t.docHead2;
   dh.querySelector('.stat').childNodes[0].textContent=t.shown+' ';
   dh.querySelector('.stat').childNodes[2].textContent=' '+t.of+' ';
-  const fbTitle=LANG==='ru'?'[RU] ':LANG==='zh'?'[ZH] ':'[EN] ';
-  const issueUrl='https://github.com/dlgrv/HowToLiveBetter/issues/new?template=translation-feedback.md&title='+encodeURIComponent(fbTitle);
-  const ft=document.getElementById('fb-issue-t'); if(ft) ft.textContent=t.fbIssueT;
-  const fb=document.getElementById('fb-issue');
-  if(fb){ fb.textContent=t.fbIssue; fb.href=issueUrl; }
+  const fu=document.getElementById('fb-useful'); if(fu) fu.textContent=t.fbUseful;
   const st=document.getElementById('fb-star-t'); if(st) st.textContent=t.fbStarT;
   const fs=document.getElementById('fb-star'); if(fs) fs.textContent=t.fbStar;
+  const fsw=document.getElementById('fb-star-why'); if(fsw) fsw.textContent=t.fbStarWhy||'';
   const dt=document.getElementById('fb-dl-t'); if(dt) dt.textContent=t.fbDlT;
   const fd=document.getElementById('fb-dl'); if(fd) fd.textContent=t.fbDl;
   document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
@@ -1271,6 +1290,17 @@ function applyI18n(){
     menu.setAttribute('title', desk ? (collapsed ? t.sideExpand : t.sideCollapse) : t.menuAria);
   }
   const th=document.getElementById('theme'); if(th){ th.setAttribute('aria-label',t.themeAria); th.setAttribute('title',t.themeAria); }
+  const cp=document.getElementById('compact'); if(cp){
+    const on=document.documentElement.classList.contains('compact');
+    const lab=on ? (t.compactAriaOn||t.compactAria) : t.compactAria;
+    if(lab){ cp.setAttribute('aria-label',lab); cp.setAttribute('title',lab); }
+    cp.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  document.querySelectorAll('.card-expand').forEach(btn=>{
+    const open=btn.closest('.card')?.classList.contains('expanded');
+    btn.textContent=open ? (t.cardCollapse||'Collapse') : (t.cardExpand||'More');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   const ab=document.getElementById('account-btn'); if(ab && t.accountAria){ ab.setAttribute('aria-label',t.accountAria); ab.setAttribute('title',t.accountAria); }
   const gh=document.querySelector('.nav-r a[href*="github.com/dlgrv"]'); if(gh) gh.setAttribute('title',t.ghTitle);
   // head meta / social cards / JSON-LD
@@ -1569,6 +1599,7 @@ function build(sections){
       c.innerHTML = `
         <div class="card-h"><span class="idx">${e.n}</span><h3 class="t"></h3><a class="anchor" href="#${id}" aria-label="Ссылка на этот пункт">#</a></div>
         <div class="badges"></div>
+        <button type="button" class="card-expand" aria-expanded="false"></button>
         <p class="human"></p>
         <div class="rows">
           <p class="row"><strong class="k" data-k="cost"></strong><span class="v cost"></span></p>
@@ -1581,6 +1612,8 @@ function build(sections){
         mg.innerHTML = `<strong class="k"></strong><span class="mt"></span>`;
         c.appendChild(mg);
       }
+      const expandBtn = c.querySelector('.card-expand');
+      if (expandBtn) expandBtn.textContent = T().cardExpand || 'More';
       c.querySelector('[data-k="cost"]').textContent = T().kCost;
       c.querySelector('[data-k="gain"]').textContent = T().kGain;
       c.querySelector('[data-k="note"]').textContent = T().kNote;
@@ -1914,6 +1947,34 @@ function wire(){
     document.documentElement.classList.toggle('dark', dark);
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
   });
+  const compactBtn = document.getElementById('compact');
+  if (compactBtn) {
+    compactBtn.setAttribute('aria-pressed', document.documentElement.classList.contains('compact') ? 'true' : 'false');
+    compactBtn.addEventListener('click', () => {
+      const on = !document.documentElement.classList.contains('compact');
+      document.documentElement.classList.toggle('compact', on);
+      compactBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      try { localStorage.setItem('htlb-compact', on ? '1' : '0'); } catch (e) {}
+      const t = T();
+      const lab = on ? (t.compactAriaOn || t.compactAria) : t.compactAria;
+      if (lab) { compactBtn.setAttribute('aria-label', lab); compactBtn.setAttribute('title', lab); }
+    });
+  }
+  const listEl = document.getElementById('list');
+  if (listEl && !listEl.dataset.expandBound) {
+    listEl.dataset.expandBound = '1';
+    listEl.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.card-expand');
+      if (!btn || !listEl.contains(btn)) return;
+      const card = btn.closest('.card');
+      if (!card) return;
+      const open = !card.classList.contains('expanded');
+      card.classList.toggle('expanded', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const t = T();
+      btn.textContent = open ? (t.cardCollapse || 'Collapse') : (t.cardExpand || 'More');
+    });
+  }
 }
 
 /* ---------- 启动 ---------- */
