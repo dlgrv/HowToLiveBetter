@@ -43,7 +43,7 @@ func Bind(pb *pocketbase.PocketBase, cfg config.Config) {
 		gSvc := guest.Service{App: e.App, GuestTTL: cfg.GuestTTL, ClaimTTL: cfg.ClaimTTL}
 		uSvc := useful.Service{App: e.App, Salt: cfg.VoteSalt}
 		lSvc := library.Service{App: e.App}
-		mSvc := merge.Service{App: e.App, Library: lSvc}
+		mSvc := merge.Service{App: e.App, Library: lSvc, Salt: cfg.VoteSalt}
 
 		g := e.Router.Group("/api/htlb/v1")
 		g.GET("/health", func(re *core.RequestEvent) error {
@@ -57,7 +57,6 @@ func Bind(pb *pocketbase.PocketBase, cfg config.Config) {
 		useful.Register(g, useful.Handlers{Svc: uSvc, Az: az})
 		library.Register(g, library.Handlers{Svc: lSvc, Az: az})
 		merge.Register(g, merge.Handlers{Svc: mSvc, Az: az})
-
 		return e.Next()
 	})
 }

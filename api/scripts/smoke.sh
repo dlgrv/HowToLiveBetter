@@ -23,4 +23,9 @@ code=$(curl -s -o /dev/null -w '%{http_code}' -H "X-HTLB-Sync: $TOKEN" "http://1
 test "$code" = "200"
 code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:18090/api/htlb/v1/bookmarks")
 test "$code" = "401"
+# useful: public GET counts; guest POST requires sign-in
+curl -fsS "http://127.0.0.1:18090/api/htlb/v1/useful?entryIds=smoke-e1" | grep -q '"count"'
+code=$(curl -s -o /dev/null -w '%{http_code}' -H "X-HTLB-Sync: $TOKEN" -H "Content-Type: application/json" \
+  -d '{"entryId":"smoke-e1","useful":true}' "http://127.0.0.1:18090/api/htlb/v1/useful")
+test "$code" = "401"
 echo "smoke ok"

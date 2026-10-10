@@ -97,6 +97,7 @@ func createUsefulVotes(app core.App) error {
 	)
 	c.AddIndex("idx_useful_votes_entry_voter", true, "entryId, voterKey", "")
 	c.AddIndex("idx_useful_votes_entry", false, "entryId", "")
+	c.AddIndex("idx_useful_votes_voter", false, "voterKey", "")
 	return app.Save(c)
 }
 
