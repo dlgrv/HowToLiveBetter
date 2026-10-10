@@ -292,8 +292,25 @@ html.dark .theme-btn .moon{display:none}
 .account-dd>summary.icon-btn::-webkit-details-marker{display:none}
 .account-menu{min-width:12rem}
 .account-menu .account-sep{height:1px;background:var(--line);margin:var(--sp-1) 0}
-.account-menu .account-note{display:block;padding:var(--sp-1) var(--sp-3);font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint)}
+.account-menu .account-note{
+  display:block;padding:var(--sp-1) var(--sp-3);
+  font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint);
+  overflow-wrap:anywhere;max-width:16rem;
+}
 /* No ink/brand glow when signed in — same muted icon as the rest of the topbar. */
+
+/* Useful vote — same type as Sources summary */
+.htlb-actions{display:flex;align-items:center;gap:var(--sp-2);margin:0}
+.htlb-useful{
+  appearance:none;border:0;background:none;cursor:pointer;
+  display:inline-block;padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
+  transition:color .15s;
+}
+.htlb-useful:hover{color:var(--ink)}
+.htlb-useful[aria-pressed="true"]{color:var(--ink)}
+.htlb-useful:disabled{opacity:.55;cursor:wait}
+.htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
 
 /* ---------- login page (/login/) ---------- */
 body.login-page{
@@ -405,6 +422,34 @@ body.login-page > *{position:relative;z-index:1}
   color:var(--faint);
 }
 .login-back:hover{color:var(--hover)}
+
+/* ---------- my useful page (/useful/) ---------- */
+body.useful-page .useful-main{max-width:28rem}
+.useful-status{
+  margin:0 0 var(--sp-3);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--faint);text-align:center;
+}
+.useful-status:empty{display:none}
+.useful-empty{
+  margin:0 0 var(--sp-5);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--mut);text-align:center;text-wrap:pretty;
+}
+.useful-empty[hidden]{display:none}
+.useful-list{
+  list-style:none;margin:0 0 var(--sp-5);padding:0;
+  width:100%;text-align:start;
+}
+.useful-list[hidden]{display:none}
+.useful-list li{margin:0;border-bottom:var(--line-w) solid var(--line)}
+.useful-list li:first-child{border-top:var(--line-w) solid var(--line)}
+.useful-list a{
+  display:block;padding:var(--sp-3) 0;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--ink);text-decoration:none;
+}
+.useful-list a:hover{color:var(--hover)}
 
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
@@ -885,7 +930,7 @@ const I18N = {
    errLoad:(m)=>`Не удалось загрузить текст (${m}). Проверьте, что README и каталог book/ лежат рядом с index.html.`,
    cap:true,
    allSections:'Разделы',
-   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', accountAria:'Аккаунт', accountSignIn:'Войти', accountGoogle:'Войти через Google', accountGithub:'Войти через GitHub', accountLogout:'Выйти', accountSignedIn:'Вы вошли', accountHint:'Войдите, чтобы на любом устройстве продолжать чтение с того места, где остановились, и сохранять отметки «Полезно» у рекомендаций.', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
+   menuAria:'Открыть фильтры', sideCollapse:'Свернуть оглавление', sideExpand:'Показать оглавление', themeAria:'Переключить тёмную тему', accountAria:'Аккаунт', accountSignIn:'Войти', accountGoogle:'Войти через Google', accountGithub:'Войти через GitHub', accountLogout:'Выйти', accountSignedIn:'Вы вошли', accountHint:'Войдите, чтобы на любом устройстве продолжать чтение с того места, где остановились, и сохранять отметки «Полезно» у рекомендаций.', accountUseful:'Мои «Полезно»', usefulLabel:'Полезно', usefulLabelN:'Полезно {n}', ghTitle:'Исходный репозиторий на GitHub', ddTitle:'Выбрать язык',
    metaDesc:'Руководство, отсортированное по соотношению «результат/затраты»: 528 рекомендаций — здоровье и долголетие, первая помощь, деньги, защита от мошенников, правовые красные линии, работа, семья. У каждой — стоимость, эффект, уровень доказательности и первоисточник; фильтры по деньгам, времени и силе воли.',
    keywords:'здоровье,долголетие,доказательная медицина,смертность,экономия,финансы,мошенники,первая помощь,право,психология',
    author:'Как жить выгодно (перевод HowToLiveBetter)',
@@ -923,7 +968,7 @@ const I18N = {
    errLoad:(m)=>`Failed to load the text (${m}). Make sure the README and the book/ directory sit next to index.html.`,
    cap:true,
    allSections:'Sections',
-   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', accountAria:'Account', accountSignIn:'Sign in', accountGoogle:'Continue with Google', accountGithub:'Continue with GitHub', accountLogout:'Log out', accountSignedIn:'Signed in', accountHint:'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
+   menuAria:'Open filters', sideCollapse:'Collapse sidebar', sideExpand:'Expand sidebar', themeAria:'Toggle dark theme', accountAria:'Account', accountSignIn:'Sign in', accountGoogle:'Continue with Google', accountGithub:'Continue with GitHub', accountLogout:'Log out', accountSignedIn:'Signed in', accountHint:'Sign in so that on any of your devices you can continue reading where you left off, and keep which recommendations you marked as useful.', accountUseful:'My useful', usefulLabel:'Useful', usefulLabelN:'Useful {n}', ghTitle:'Source repository on GitHub', ddTitle:'Choose language',
    metaDesc:'A guide sorted by value for money: 528 recommendations — health and longevity, first aid, money, fraud protection, legal red lines, work, family. Each states its cost, benefit, evidence grade, and primary source; filter by money, time, and willpower.',
    keywords:'health,longevity,evidence-based medicine,mortality,saving money,personal finance,fraud,first aid,law,psychology',
    author:'HowToLiveBetter (English translation)',
@@ -961,7 +1006,7 @@ const I18N = {
    errLoad:(m)=>`No se pudo cargar el texto (${m}). Asegúrate de que el README y el directorio book/ estén junto a index.html.`,
    cap:true,
    allSections:'Secciones',
-   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', accountAria:'Cuenta', accountSignIn:'Iniciar sesión', accountGoogle:'Continuar con Google', accountGithub:'Continuar con GitHub', accountLogout:'Salir', accountSignedIn:'Sesión iniciada', accountHint:'Inicia sesión para, en cualquier dispositivo, seguir leyendo donde lo dejaste y conservar qué recomendaciones marcaste como útiles.', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Contraer barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Cambiar tema oscuro', accountAria:'Cuenta', accountSignIn:'Iniciar sesión', accountGoogle:'Continuar con Google', accountGithub:'Continuar con GitHub', accountLogout:'Salir', accountSignedIn:'Sesión iniciada', accountHint:'Inicia sesión para, en cualquier dispositivo, seguir leyendo donde lo dejaste y conservar qué recomendaciones marcaste como útiles.', accountUseful:'Mis útiles', usefulLabel:'Útil', usefulLabelN:'Útil {n}', ghTitle:'Repositorio fuente en GitHub', ddTitle:'Elegir idioma',
    metaDesc:'Guía ordenada por relación valor-precio: 528 recomendaciones — salud y longevidad, primeros auxilios, dinero, protección contra fraudes, límites legales, trabajo, familia. Cada una indica costo, beneficio, nivel de evidencia y fuente primaria; filtra por dinero, tiempo y voluntad.',
    keywords:'salud,longevidad,medicina basada en evidencia,mortalidad,ahorrar dinero,finanzas personales,fraude,primeros auxilios,ley,psicología',
    about:['salud','longevidad','finanzas personales','primeros auxilios','ley','protección del consumidor'],
@@ -999,7 +1044,7 @@ const I18N = {
    errLoad:(m)=>`Não foi possível carregar o texto (${m}). Confira se o README e o diretório book/ estão ao lado de index.html.`,
    cap:true,
    allSections:'Seções',
-   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', accountAria:'Conta', accountSignIn:'Entrar', accountGoogle:'Continuar com Google', accountGithub:'Continuar com GitHub', accountLogout:'Sair', accountSignedIn:'Sessão iniciada', accountHint:'Entre para, em qualquer dispositivo, continuar a leitura de onde parou e guardar quais recomendações marcou como úteis.', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
+   menuAria:'Abrir filtros', sideCollapse:'Recolher barra lateral', sideExpand:'Expandir barra lateral', themeAria:'Alternar tema escuro', accountAria:'Conta', accountSignIn:'Entrar', accountGoogle:'Continuar com Google', accountGithub:'Continuar com GitHub', accountLogout:'Sair', accountSignedIn:'Sessão iniciada', accountHint:'Entre para, em qualquer dispositivo, continuar a leitura de onde parou e guardar quais recomendações marcou como úteis.', accountUseful:'Meus úteis', usefulLabel:'Útil', usefulLabelN:'Útil {n}', ghTitle:'Repositório fonte no GitHub', ddTitle:'Escolher idioma',
    metaDesc:'Guia ordenado por custo-benefício: 528 recomendações — saúde e longevidade, primeiros socorros, dinheiro, proteção contra fraudes, limites legais, trabalho, família. Cada uma indica custo, benefício, nível de evidência e fonte primária; filtre por dinheiro, tempo e força de vontade.',
    keywords:'saúde,longevidade,medicina baseada em evidências,mortalidade,economizar dinheiro,finanças pessoais,fraude,primeiros socorros,direito,psicologia',
    about:['saúde','longevidade','finanças pessoais','primeiros socorros','direito','proteção do consumidor'],
@@ -1037,7 +1082,7 @@ const I18N = {
    errLoad:(m)=>`Gagal memuat isi (${m}). Pastikan README dan folder book/ ada di samping index.html.`,
    cap:true, allSections:'Semua bab',
    readmeHref:'README.id.md', readmeTitle:'Buka README bahasa Indonesia',
-   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', accountAria:'Akun', accountSignIn:'Masuk', accountGoogle:'Lanjut dengan Google', accountGithub:'Lanjut dengan GitHub', accountLogout:'Keluar', accountSignedIn:'Sudah masuk', accountHint:'Masuk agar di perangkat mana pun Anda bisa lanjut membaca dari tempat terakhir, dan menyimpan tanda «Berguna» pada rekomendasi.', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
+   menuAria:'Buka filter', sideCollapse:'Tutup daftar bab', sideExpand:'Tampilkan daftar bab', themeAria:'Ganti tema gelap', accountAria:'Akun', accountSignIn:'Masuk', accountGoogle:'Lanjut dengan Google', accountGithub:'Lanjut dengan GitHub', accountLogout:'Keluar', accountSignedIn:'Sudah masuk', accountHint:'Masuk agar di perangkat mana pun Anda bisa lanjut membaca dari tempat terakhir, dan menyimpan tanda «Berguna» pada rekomendasi.', accountUseful:'Tanda Berguna saya', usefulLabel:'Berguna', usefulLabelN:'Berguna {n}', ghTitle:'Repo sumber di GitHub', ddTitle:'Pilih bahasa',
    metaDesc:'Panduan hidup berisi 630 saran tentang kesehatan, pertolongan pertama, uang, hukum, kerja, dan keluarga. Cari menurut biaya, waktu, usaha, dan kekuatan bukti.',
    keywords:'kesehatan,umur panjang,pertolongan pertama,keuangan,penipuan,hukum,keluarga',
    author:'HowToLiveBetter (terjemahan bahasa Indonesia)',
@@ -1075,7 +1120,7 @@ const I18N = {
    errLoad:(m)=>`تعذّر تحميل النص (${m}). تأكد من وجود README ومجلد book/ بجانب index.html.`,
    cap:false,
    allSections:'الأقسام',
-   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', accountAria:'الحساب', accountSignIn:'تسجيل الدخول', accountGoogle:'المتابعة مع Google', accountGithub:'المتابعة مع GitHub', accountLogout:'تسجيل الخروج', accountSignedIn:'أنت مسجّل الدخول', accountHint:'سجّل الدخول لتتابع القراءة من حيث توقفت على أي جهاز، وتحتفظ بعلامة «مفيد» على التوصيات.', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
+   menuAria:'افتح الفلاتر', sideCollapse:'اطوِ الشريط الجانبي', sideExpand:'اعرض الشريط الجانبي', themeAria:'بدّل المظهر الداكن', accountAria:'الحساب', accountSignIn:'تسجيل الدخول', accountGoogle:'المتابعة مع Google', accountGithub:'المتابعة مع GitHub', accountLogout:'تسجيل الخروج', accountSignedIn:'أنت مسجّل الدخول', accountHint:'سجّل الدخول لتتابع القراءة من حيث توقفت على أي جهاز، وتحتفظ بعلامة «مفيد» على التوصيات.', accountUseful:'علاماتي «مفيد»', usefulLabel:'مفيد', usefulLabelN:'مفيد {n}', ghTitle:'المستودع الأصلي على GitHub', ddTitle:'اختر اللغة',
    metaDesc:'دليل مرتب حسب القيمة مقابل المال: ٦٣٠ توصية — الصحة وطول العمر، الإسعافات الأولية، المال، الحماية من الاحتيال، الخطوط القانونية الحمراء، العمل، الأسرة. كل توصية تذكر التكلفة والفائدة ومستوى الدليل والمصدر الأصلي؛ صفِّ حسب المال والوقت والإرادة.',
    keywords:'الصحة,طول العمر,الطب المبني على الدليل,الوفيات,توفير المال,المالية الشخصية,الاحتيال,الإسعافات الأولية,القانون,علم النفس',
    author:'HowToLiveBetter (الترجمة العربية)',
@@ -1114,7 +1159,7 @@ const I18N = {
    errLoad:(m)=>`正文载入失败（${m}）。请确认 README 与 book/ 目录就在 index.html 旁边。`,
    cap:false,
    allSections:'小节',
-   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', accountAria:'账户', accountSignIn:'登录', accountGoogle:'使用 Google 登录', accountGithub:'使用 GitHub 登录', accountLogout:'退出', accountSignedIn:'已登录', accountHint:'登录后，可在任意设备从上次停下的地方继续阅读，并保留你对条目的「有用」标记。', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
+   menuAria:'打开筛选栏', sideCollapse:'收起侧栏', sideExpand:'展开侧栏', themeAria:'切换深色模式', accountAria:'账户', accountSignIn:'登录', accountGoogle:'使用 Google 登录', accountGithub:'使用 GitHub 登录', accountLogout:'退出', accountSignedIn:'已登录', accountHint:'登录后，可在任意设备从上次停下的地方继续阅读，并保留你对条目的「有用」标记。', accountUseful:'我的「有用」', usefulLabel:'有用', usefulLabelN:'有用 {n}', ghTitle:'GitHub 仓库', ddTitle:'选择语言',
    metaDesc:'按性价比排序的人生指南：528 条建议——健康长寿、急救、省钱、防骗、法律红线、工作、家庭。每条写明成本、收益、证据等级与原始出处，可按花钱、花时间、要毅力筛选。',
    keywords:'健康,长寿,循证医学,死亡率,省钱,个人理财,防骗,急救,法律,心理',
    author:'高性价比人生指南',
@@ -1882,6 +1927,8 @@ function wire(){
     }
     PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
     restorePos();
+    // Expose for interactive.js (top-level `let CARDS` is not on window).
+    window.CARDS = CARDS;
     try { dispatchEvent(new Event('htlb:ready')); } catch (e) {}
   } catch (err) {
     clearSkel();
