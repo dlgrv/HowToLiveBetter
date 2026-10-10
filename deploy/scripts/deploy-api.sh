@@ -49,6 +49,17 @@ backup_pb_data() {
   remote "sudo mkdir -p '$REMOTE_OPT/backups' && sudo tar -czf '$REMOTE_OPT/backups/pb_data-$STAMP.tgz' -C '$REMOTE_OPT' pb_data"
 }
 
+# Service User=htlb needs traverse on WorkingDirectory=/opt/htlb-api (755).
+# deployer owns releases/ for rsync; pb_data stays htlb:htlb.
+fix_runtime_perms() {
+  remote "sudo chown root:htlb '$REMOTE_OPT' \
+    && sudo chmod 755 '$REMOTE_OPT' \
+    && sudo chown -R htlb:htlb '$REMOTE_DATA' \
+    && sudo chown -R '$DEPLOY_USER:$DEPLOY_USER' '$REMOTE_RELEASES' \
+    && sudo chmod 755 '$REMOTE_RELEASES' \
+    && sudo chown -h htlb:htlb '$REMOTE_BIN'"
+}
+
 do_deploy() {
   if [[ ! -f "$BINARY_LOCAL" ]]; then
     echo "Missing binary: $BINARY_LOCAL (run: make api-build)" >&2
@@ -66,7 +77,8 @@ do_deploy() {
   remote "chmod 0755 '$REMOTE_RELEASE/htlb-api'"
 
   echo "==> activate binary"
-  remote "sudo ln -sfn '$REMOTE_RELEASE/htlb-api' '$REMOTE_BIN' && sudo chown -h htlb:htlb '$REMOTE_BIN'"
+  remote "sudo ln -sfn '$REMOTE_RELEASE/htlb-api' '$REMOTE_BIN'"
+  fix_runtime_perms
 
   echo "==> start htlb-api"
   remote "sudo systemctl start htlb-api.service"
@@ -104,6 +116,7 @@ do_rollback() {
   echo "==> rollback binary → $target"
   remote "sudo systemctl stop htlb-api.service" || true
   remote "sudo ln -sfn '$target' '$REMOTE_BIN'"
+  fix_runtime_perms
   remote "sudo systemctl start htlb-api.service"
   health_check
   echo "rollback ok"
