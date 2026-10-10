@@ -51,3 +51,10 @@ test('card UI has no Bookmark button yet', () => {
   assert.equal(/toggleBookmark/.test(JS), false);
 });
 
+test('guest Useful click shows auto-dismiss sign-in toast', () => {
+  assert.match(JS, /function showUsefulSignInToast\(/);
+  assert.match(JS, /showUsefulSignInToast\(\)/);
+  assert.match(JS, /htlb-signin-toast/);
+  assert.match(INDEX, /usefulNeedSignIn:'Sign in to mark this as useful\.'/);
+});
+

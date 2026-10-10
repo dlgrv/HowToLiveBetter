@@ -350,8 +350,8 @@ def build_locale_page(src: str, bootstrap_tpl: str, v2css: str, lang_meta: dict)
     # Locale pages live in site/{lang}/; content is fetched from the flat Pages root.
     page = page.replace('href="README', 'href="../README').replace('href="book/', 'href="../book/')
     page = page.replace(
-        'src="assets/interactive.js?v=2"', 'src="../assets/interactive.js?v=2"'
-    ).replace('src="assets/interactive.js"', 'src="../assets/interactive.js?v=2"')
+        'src="assets/interactive.js?v=5"', 'src="../assets/interactive.js?v=5"'
+    ).replace('src="assets/interactive.js"', 'src="../assets/interactive.js?v=5"')
     # Skin is inlined (forge/v2.css); drop the router stylesheet link so it is not
     # resolved as site/{lang}/assets/v2.css.
     page = STYLESHEET_V2_RE.sub("", page, count=1)

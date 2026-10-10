@@ -206,6 +206,27 @@ html.dark .theme-btn .moon{display:none}
 .htlb-useful:disabled{opacity:.55;cursor:wait}
 .htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
 
+/* Guest Useful → brief bottom-right toast */
+.htlb-signin-toast{
+  position:fixed;right:var(--sp-6);bottom:var(--sp-6);z-index:100;
+  max-width:min(20rem,calc(100vw - var(--sp-8)));
+  padding:var(--sp-3) var(--sp-4);
+  background:var(--pop-bg);color:var(--ink);
+  border:var(--line-w) solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  pointer-events:none;
+  animation:htlb-toast-in .2s ease-out,htlb-toast-out .25s ease-in 2.6s forwards;
+}
+@keyframes htlb-toast-in{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes htlb-toast-out{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:0;transform:translateY(6px)}
+}
+
 /* ---------- login page (/login/) ---------- */
 body.login-page{
   position:relative;

@@ -232,6 +232,23 @@
     location.assign(loginHref());
   }
 
+  /** Bottom-left toast — auto-dismisses (no modal / confirm). */
+  function showUsefulSignInToast() {
+    var prev = document.getElementById('htlb-signin-toast');
+    if (prev) prev.remove();
+    var L = labels();
+    var toast = document.createElement('div');
+    toast.id = 'htlb-signin-toast';
+    toast.className = 'htlb-signin-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = L.usefulNeedSignIn || 'Sign in to mark this as useful.';
+    document.body.appendChild(toast);
+    window.setTimeout(function () {
+      if (toast.parentNode) toast.remove();
+    }, 3000);
+  }
+
   async function toggleUseful(entryId, useful) {
     if (!authToken()) {
       promptSignIn();
@@ -448,6 +465,7 @@
       loginError: t.loginError || 'Sign-in failed. Close the popup and try again.',
       useful: t.usefulLabel || 'Useful',
       myUseful: t.accountUseful || 'My useful',
+      usefulNeedSignIn: t.usefulNeedSignIn || 'Sign in to mark this as useful.',
     };
   }
 
@@ -600,7 +618,7 @@
       useful.textContent = formatUsefulLabel(0);
       useful.addEventListener('click', function () {
         if (!authToken()) {
-          promptSignIn();
+          showUsefulSignInToast();
           return;
         }
         // One in-flight vote per button — blocks double-click / spam clicks.
