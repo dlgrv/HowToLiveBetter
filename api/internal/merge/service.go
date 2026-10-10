@@ -53,7 +53,8 @@ func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
 			res.ReadingMerged = true
 		}
 
-		// Re-home useful votes: owner fields + voterKey (Get looks up by voterKey).
+		// Re-home useful votes: rehash voterKey to the user identity and collapse
+		// duplicates so guest+user votes on the same entry do not double-count.
 		votes, err := txApp.FindRecordsByFilter("useful_votes",
 			"ownerKind = 'guest' && ownerId = {:i}", "", 0, 0,
 			dbx.Params{"i": guestID},
@@ -70,8 +71,7 @@ func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
 				dbx.Params{"e": entryID, "v": newVK},
 			)
 			if findErr == nil && existing != nil && existing.Id != v.Id {
-				// User already voted: keep useful=true if either side had it, drop guest row.
-				if !existing.GetBool("useful") && v.GetBool("useful") {
+				if v.GetBool("useful") || existing.GetBool("useful") {
 					existing.Set("useful", true)
 					if err := txApp.Save(existing); err != nil {
 						return err
