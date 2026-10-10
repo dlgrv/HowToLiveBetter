@@ -13,6 +13,7 @@ Base: `https://api.dlgrv.com/api/htlb/v1`
 | POST | `/guest/claim-code` | `X-HTLB-Sync` |
 | POST | `/guest/claim` | body `{code}` |
 | GET/POST | `/useful` | optional / required |
+| GET | `/useful/mine` | user Bearer |
 | GET/PUT/DELETE | `/bookmarks` | guest or user |
 | GET/PUT | `/reading` | guest or user |
 | POST | `/merge` | `Authorization` + `X-HTLB-Sync` |
@@ -33,8 +34,15 @@ OAuth: Google + GitHub only (password auth disabled). Configure via env:
 cd api
 export HTLB_VOTE_SALT=dev
 export HTLB_CORS_ORIGINS=http://127.0.0.1:8000
-make -C .. api-dev
+make -C .. api-dev   # sets HTLB_DEV=1
 ```
+
+With `HTLB_DEV=1`, stub auth is on:
+
+- `GET /api/htlb/v1/dev/status` → `{enabled:true}`
+- `POST /api/htlb/v1/dev/login` → `{token, email:"dev@htlb.local"}` (PocketBase JWT)
+
+On `http://127.0.0.1:8000/…` the account menu and login page show **Dev sign-in**. Never enable `HTLB_DEV` in production.
 
 ## Build
 

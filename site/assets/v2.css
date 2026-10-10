@@ -173,8 +173,25 @@ html.dark .theme-btn .moon{display:none}
 .account-dd>summary.icon-btn::-webkit-details-marker{display:none}
 .account-menu{min-width:12rem}
 .account-menu .account-sep{height:1px;background:var(--line);margin:var(--sp-1) 0}
-.account-menu .account-note{display:block;padding:var(--sp-1) var(--sp-3);font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint)}
+.account-menu .account-note{
+  display:block;padding:var(--sp-1) var(--sp-3);
+  font:var(--fw-ui) var(--fs-caption,11px)/1.35 var(--sans);color:var(--faint);
+  overflow-wrap:anywhere;max-width:16rem;
+}
 /* No ink/brand glow when signed in — same muted icon as the rest of the topbar. */
+
+/* Useful vote — same type as Sources summary */
+.htlb-actions{display:flex;align-items:center;gap:var(--sp-2);margin:0}
+.htlb-useful{
+  appearance:none;border:0;background:none;cursor:pointer;
+  display:inline-block;padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
+  transition:color .15s;
+}
+.htlb-useful:hover{color:var(--ink)}
+.htlb-useful[aria-pressed="true"]{color:var(--ink)}
+.htlb-useful:disabled{opacity:.55;cursor:wait}
+.htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
 
 /* ---------- login page (/login/) ---------- */
 body.login-page{
@@ -286,6 +303,34 @@ body.login-page > *{position:relative;z-index:1}
   color:var(--faint);
 }
 .login-back:hover{color:var(--hover)}
+
+/* ---------- my useful page (/useful/) ---------- */
+body.useful-page .useful-main{max-width:28rem}
+.useful-status{
+  margin:0 0 var(--sp-3);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--faint);text-align:center;
+}
+.useful-status:empty{display:none}
+.useful-empty{
+  margin:0 0 var(--sp-5);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--mut);text-align:center;text-wrap:pretty;
+}
+.useful-empty[hidden]{display:none}
+.useful-list{
+  list-style:none;margin:0 0 var(--sp-5);padding:0;
+  width:100%;text-align:start;
+}
+.useful-list[hidden]{display:none}
+.useful-list li{margin:0;border-bottom:var(--line-w) solid var(--line)}
+.useful-list li:first-child{border-top:var(--line-w) solid var(--line)}
+.useful-list a{
+  display:block;padding:var(--sp-3) 0;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--ink);text-decoration:none;
+}
+.useful-list a:hover{color:var(--hover)}
 
 /* ---------- tooltip popup ---------- */
 .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}

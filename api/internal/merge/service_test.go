@@ -34,11 +34,8 @@ func TestMergeGuestIntoUser(t *testing.T) {
 		t.Fatalf("bookmarks %+v", items)
 	}
 	got, err := uSvc.Get(uOwner, "e1")
-	if err != nil {
-		t.Fatal(err)
-	}
-	if !got.Useful || got.Count != 1 {
-		t.Fatalf("useful vote not visible to user after merge: %+v", got)
+	if err != nil || !got.Useful || got.Count != 1 {
+		t.Fatalf("useful vote not visible to user after merge: %+v err=%v", got, err)
 	}
 	rec, err := app.FindRecordById("guest_sessions", gOwner.ID)
 	if err != nil || rec.GetString("status") != "merged" {
@@ -64,10 +61,34 @@ func TestMergeUsefulConflictKeepsTrue(t *testing.T) {
 		t.Fatal(err)
 	}
 	got, err := uSvc.Get(uOwner, "e2")
-	if err != nil {
+	if err != nil || !got.Useful || got.Count != 1 {
+		t.Fatalf("conflict merge should keep useful=true: %+v err=%v", got, err)
+	}
+}
+
+func TestMergeUsefulNoDoubleCount(t *testing.T) {
+	app := testutil.NewApp(t)
+	_, gOwner := testutil.MakeGuest(t, app)
+	user := testutil.MakeUser(t, app, "double@example.com")
+	uOwner := authz.Owner{Kind: authz.KindUser, ID: user.Id}
+	uSvc := useful.Service{App: app, Salt: "s"}
+	_, _ = uSvc.Toggle(gOwner, "e1", true)
+	_, _ = uSvc.Toggle(uOwner, "e1", true)
+	n, err := uSvc.Count("e1")
+	if err != nil || n != 2 {
+		t.Fatalf("pre-merge count want 2 got %d err=%v", n, err)
+	}
+
+	svc := merge.Service{App: app, Library: library.Service{App: app}, VoteSalt: "s"}
+	if _, err := svc.MergeGuestIntoUser(gOwner.ID, user.Id); err != nil {
 		t.Fatal(err)
 	}
-	if !got.Useful || got.Count != 1 {
-		t.Fatalf("conflict merge should keep useful=true: %+v", got)
+	n, err = uSvc.Count("e1")
+	if err != nil || n != 1 {
+		t.Fatalf("post-merge count want 1 got %d err=%v", n, err)
+	}
+	got, err := uSvc.Get(uOwner, "e1")
+	if err != nil || !got.Useful || got.Count != 1 {
+		t.Fatalf("%+v err=%v", got, err)
 	}
 }

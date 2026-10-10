@@ -35,6 +35,14 @@ test('off-host stub hides account and rejects api', () => {
   assert.match(JS, /interactive disabled/);
 });
 
-test('useful toggle posts to /useful', () => {
-  assert.match(JS, /api\('\/useful',\s*\{\s*method:\s*'POST'/);
+test('useful toggle posts via usefulApi (Bearer, not guest sync)', () => {
+  assert.match(JS, /usefulApi\('\/useful',\s*\{/);
+  assert.match(JS, /function usefulHeaders\(\)/);
 });
+
+test('Useful button is placed after Sources, not under title', () => {
+  assert.match(JS, /details\.src/);
+  assert.match(JS, /htlb-useful/);
+  assert.equal(/insertBefore\(bar,\s*title\.nextSibling\)/.test(JS), false);
+});
+

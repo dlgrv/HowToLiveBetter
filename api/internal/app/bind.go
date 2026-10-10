@@ -57,7 +57,6 @@ func Bind(pb *pocketbase.PocketBase, cfg config.Config) {
 		useful.Register(g, useful.Handlers{Svc: uSvc, Az: az})
 		library.Register(g, library.Handlers{Svc: lSvc, Az: az})
 		merge.Register(g, merge.Handlers{Svc: mSvc, Az: az})
-
 		return e.Next()
 	})
 }
