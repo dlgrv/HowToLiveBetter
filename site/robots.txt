@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dlgrv.github.io/HowToLiveBetter/sitemap.xml
+Sitemap: https://book.dlgrv.com/sitemap.xml
