@@ -2,7 +2,7 @@
 
 # Panduan Hidup yang Sepadan
 
-**630 saran dalam 34 bab.** Edisi ini memuat 407 butir tingkat A, 169 tingkat B, dan 54 tingkat C, dengan 1302 tautan pada kolom Sumber. Buku ini membahas kesehatan, keadaan darurat, uang, waktu, kerja, keluarga, dan keputusan besar. Tiap saran menjelaskan biaya, manfaat, kekuatan bukti, dan sumbernya. Naskah dasarnya (fork EN/CN) mencatat 665 saran, 434 tingkat A, dan 1653 tautan; angka edisi Indonesia berubah karena Bab 7 menggunakan program Indonesia.
+**630 saran dalam 34 bab.** Edisi ini memuat 407 butir tingkat A, 169 tingkat B, dan 54 tingkat C, dengan 1304 tautan pada kolom Sumber. Buku ini membahas kesehatan, keadaan darurat, uang, waktu, kerja, keluarga, dan keputusan besar. Tiap saran menjelaskan biaya, manfaat, kekuatan bukti, dan sumbernya. Naskah dasarnya (fork EN/CN) mencatat 677 saran, 441 tingkat A, dan 1786 tautan; angka edisi Indonesia berubah karena Bab 7 menggunakan program Indonesia.
 
 Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna untuk keadaanmu, lalu kembali lagi saat membutuhkan.
 

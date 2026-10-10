@@ -1,8 +1,11 @@
-# Upstream sync (path-filtered). en/ru/es/pt catch-up queued:
-#   06 07 12 14 15 16 17 19 20 29
-# Soft parity leftover for ar/id:
+# Upstream sync through 33362af (path-filtered).
+# en/ru/es/pt catch-up DONE locally (verify OK) for:
+#   06 07 12 14 15 16 17 19 20 29 — still need commit/PRs.
+# Soft parity leftover for ar/id (item-count lag), still open:
 #   01 02 03 05 06 07 08 09 10 11 12 13 14 15 17 19 20 22 27 28 30 34
-# (16 and 29 may align for ar/id after sync; keep soft list conservative.)
+# (16 and 29 aligned across all langs including ar/id — cleared.)
+# Also: locale long-read for Before Changing Jobs/Cities if still lagging.
+# README badges + site/assets/og/*.png refreshed to 677 / 441 / 1786.
 01
 02
 03
@@ -17,13 +20,11 @@
 13
 14
 15
-16
 17
 19
 20
 22
 27
 28
-29
 30
 34
