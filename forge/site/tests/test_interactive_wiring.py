@@ -43,7 +43,7 @@ class TestIndexInteractiveWiring(unittest.TestCase):
 
     def test_loads_interactive_after_api_globals(self):
         api = self.text.find("__HTLB_API__")
-        script = self.text.find('src="assets/interactive.js"')
+        script = self.text.find('src="assets/interactive.js')
         self.assertGreater(api, 0)
         self.assertGreater(script, api, "interactive.js must load after __HTLB_API__ globals")
 
@@ -92,6 +92,10 @@ class TestInteractiveJsContract(unittest.TestCase):
             "Useful must sit after Sources, not under the title",
         )
 
+    def test_no_bookmark_button_on_cards(self):
+        self.assertNotIn("toggleBookmark", self.text)
+        self.assertNotRegex(self.text, r"textContent\s*=\s*['\"]Bookmark['\"]")
+
 
 class TestBuiltLocaleKeepsWiring(unittest.TestCase):
     def test_en_page_exposes_cards_before_ready(self):
@@ -103,7 +107,7 @@ class TestBuiltLocaleKeepsWiring(unittest.TestCase):
             text,
         )
         self.assertIsNotNone(m, "built en page must keep window.CARDS + htlb:ready wiring")
-        self.assertIn('src="../assets/interactive.js"', text)
+        self.assertRegex(text, r'src="\.\./assets/interactive\.js(\?[^"]*)?"')
 
 
 if __name__ == "__main__":

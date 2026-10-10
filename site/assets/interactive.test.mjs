@@ -46,3 +46,8 @@ test('Useful button is placed after Sources, not under title', () => {
   assert.equal(/insertBefore\(bar,\s*title\.nextSibling\)/.test(JS), false);
 });
 
+test('card UI has no Bookmark button yet', () => {
+  assert.equal(/textContent = ['"]Bookmark['"]/.test(JS), false);
+  assert.equal(/toggleBookmark/.test(JS), false);
+});
+
