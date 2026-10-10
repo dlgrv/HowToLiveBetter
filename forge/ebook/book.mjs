@@ -7,7 +7,7 @@ import { execSync } from 'node:child_process';
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 export const REPO = 'https://github.com/dlgrv/HowToLiveBetter';
-export const SITE_BASE = 'https://dlgrv.github.io/HowToLiveBetter';
+export const SITE_BASE = 'https://book.dlgrv.com';
 export const RELEASE_TAG = 'ebooks-latest';
 
 const LOCALE = {

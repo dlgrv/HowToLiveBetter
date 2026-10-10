@@ -10,7 +10,7 @@ Also remaps upstream paths that this fork relocates:
 - markdown ``](docs/…`` → ``](docs/research/…`` (idempotent if already remapped)
 - hero ``og.png`` → ``site/assets/og/zh.png``
 - Pages search URLs ``eternity4719.github.io/HowToLiveBetter/`` →
-  ``dlgrv.github.io/HowToLiveBetter/zh/``
+  ``book.dlgrv.com/zh/``
 - inserts the shipped-language table from root README.md when missing
   (detected by absence of ``[README.md](README.md)``)
 """
@@ -59,7 +59,7 @@ def remap_pages_urls(text: str) -> str:
     """Point Chinese search-page links at this fork's /zh/ site."""
     return text.replace(
         "https://eternity4719.github.io/HowToLiveBetter/",
-        "https://dlgrv.github.io/HowToLiveBetter/zh/",
+        "https://book.dlgrv.com/zh/",
     )
 
 

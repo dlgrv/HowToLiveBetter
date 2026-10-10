@@ -9,13 +9,13 @@
 
 Не обязательно делать всё: это отобранный по отдаче список, а не список задач — хватит одной-двух. Автор сам большую часть не сделал.
 
-[![Онлайн-поиск](https://img.shields.io/badge/%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD--%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B7%D0%B4%D0%B5%D1%81%D1%8C-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/ru/)
+[![Онлайн-поиск](https://img.shields.io/badge/%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD--%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B7%D0%B4%D0%B5%D1%81%D1%8C-3451b2?style=flat-square)](https://book.dlgrv.com/ru/)
 [![Пунктов](https://img.shields.io/badge/%D0%9F%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D0%B2-677-18794e?style=flat-square)](#оглавление)
 [![Уровни доказательности](https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%20%D0%B4%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-A%20441%20%C2%B7%20B%20189%20%C2%B7%20C%2047-915930?style=flat-square)](#уровни-доказательности)
 [![Первоисточники](https://img.shields.io/badge/%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8-1786%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Лицензия](https://img.shields.io/badge/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Открыть страницу онлайн-поиска](https://dlgrv.github.io/HowToLiveBetter/ru/)** | [Оглавление](#оглавление) | [Глоссарий](#как-читать-цифры-глоссарий) | [Записи проверки](docs/research/核实记录/) | [Выгоден ли брак](docs/research/ru/Выгоден-ли-брак.md) | [Домашний аварийный комплект](docs/research/ru/Домашний-аварийный-комплект.md) | [Стоит ли останавливаться, если с незнакомцем случилась беда](docs/research/ru/Стоит-ли-помогать-незнакомцу.md) | [Какие документы нужны для запуска площадки](docs/research/ru/Какие-документы-нужны-для-запуска-площадки.md) | [После увольнения](docs/research/ru/После-увольнения-что-делать-сначала.md) | [При рождении ребёнка](docs/research/ru/Что-оформить-при-рождении-ребёнка.md) | [После диагноза хронической болезни](docs/research/ru/Сразу-после-диагноза-хронической-болезни.md)
+**[Открыть страницу онлайн-поиска](https://book.dlgrv.com/ru/)** | [Оглавление](#оглавление) | [Глоссарий](#как-читать-цифры-глоссарий) | [Записи проверки](docs/research/核实记录/) | [Выгоден ли брак](docs/research/ru/Выгоден-ли-брак.md) | [Домашний аварийный комплект](docs/research/ru/Домашний-аварийный-комплект.md) | [Стоит ли останавливаться, если с незнакомцем случилась беда](docs/research/ru/Стоит-ли-помогать-незнакомцу.md) | [Какие документы нужны для запуска площадки](docs/research/ru/Какие-документы-нужны-для-запуска-площадки.md) | [После увольнения](docs/research/ru/После-увольнения-что-делать-сначала.md) | [При рождении ребёнка](docs/research/ru/Что-оформить-при-рождении-ребёнка.md) | [После диагноза хронической болезни](docs/research/ru/Сразу-после-диагноза-хронической-болезни.md)
 
 </div>
 
@@ -23,13 +23,13 @@
 
 | Язык | Сайт | README | PDF | EPUB |
 | --- | --- | --- | --- | --- |
-| 🇷🇺 Русский | [Читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/) | [README.ru.md](README.ru.md) | [Скачать PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [Скачать EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
-| 🇬🇧 English | [Read on the site](https://dlgrv.github.io/HowToLiveBetter/en/) | [README.md](README.md) | [Download PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [Download EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
-| 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
-| 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
-| 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
-| 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
-| 🇮🇩 Bahasa Indonesia | [Baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
+| 🇷🇺 Русский | [Читать на сайте](https://book.dlgrv.com/ru/) | [README.ru.md](README.ru.md) | [Скачать PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [Скачать EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
+| 🇬🇧 English | [Read on the site](https://book.dlgrv.com/en/) | [README.md](README.md) | [Download PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [Download EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
+| 🇨🇳 中文 | [在网站阅读](https://book.dlgrv.com/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
+| 🇪🇸 Español | [Leer en el sitio](https://book.dlgrv.com/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
+| 🇧🇷 Português | [Ler no site](https://book.dlgrv.com/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
+| 🇸🇦 العربية | [اقرأ على الموقع](https://book.dlgrv.com/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
+| 🇮🇩 Bahasa Indonesia | [Baca di situs](https://book.dlgrv.com/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
 
 Есть идеи для проекта (приложение, чеклисты, фичи сайта, …)? [Пишите в issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — одна идея на комментарий; голосуйте 👍
 
@@ -74,7 +74,7 @@
 
 ## Как читать
 
-- **Хочу отфильтровать по условиям**: откройте [страницу онлайн-поиска](https://dlgrv.github.io/HowToLiveBetter/ru/) — там можно комбинировать поиск по ключевым словам, главам и уровню доказательности, а также по трём измерениям стоимости: «тратятся ли деньги, сколько времени, нужна ли сила воли». Данные читаются напрямую из файлов book/, правите текст — обновляется и поиск.
+- **Хочу отфильтровать по условиям**: откройте [страницу онлайн-поиска](https://book.dlgrv.com/ru/) — там можно комбинировать поиск по ключевым словам, главам и уровню доказательности, а также по трём измерениям стоимости: «тратятся ли деньги, сколько времени, нужна ли сила воли». Данные читаются напрямую из файлов book/, правите текст — обновляется и поиск.
 - **Хочу читать подряд**: внутри каждого раздела пункты отсортированы по убыванию соотношения «результат/затраты» — начинайте с первых пунктов каждого раздела.
 - **Не понимаю строку с цифрами**: у каждого пункта есть строка «Простыми словами», которая переводит цифры из графы «Эффект» — «отношение рисков», «доверительный интервал» — на человеческий язык вида «за тот же период вероятность смерти ниже примерно на 20%» или «несколько суток задержания и штраф столько-то». Она использует только факты из оригинала и не добавляет новых чисел. Для решения достаточно этой одной строки; в графе «Эффект» остаются все исходные цифры и интервалы, чтобы вы могли проверить сами.
 - **Хочу только самые твёрдые выводы**: отметьте на странице поиска уровень доказательности A — останутся 441 пунктов с конкретными цифрами, из метаанализов или крупных исследований.
@@ -235,7 +235,7 @@
 
 ## Текст книги
 
-Текст разбит на 34 файла по главам в каталоге [book/ru/](book/ru/): нажмите на название раздела в оглавлении выше. Разбивка сделана потому, что единый файл превысил лимит GitHub в 512 KB на рендеринг Markdown и последние разделы перестали бы отображаться; [страница онлайн-поиска](https://dlgrv.github.io/HowToLiveBetter/ru/) читает эти файлы вместе, порядок работы тот же.
+Текст разбит на 34 файла по главам в каталоге [book/ru/](book/ru/): нажмите на название раздела в оглавлении выше. Разбивка сделана потому, что единый файл превысил лимит GitHub в 512 KB на рендеринг Markdown и последние разделы перестали бы отображаться; [страница онлайн-поиска](https://book.dlgrv.com/ru/) читает эти файлы вместе, порядок работы тот же.
 
 ## Участники
 

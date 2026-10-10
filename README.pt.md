@@ -9,13 +9,13 @@ Cobre longevidade e prevenção de doenças, acidentes e primeiros socorros, eco
 
 Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista de tarefas — uma ou duas já contam. O autor também não fez a maior parte.
 
-[![Busca online](https://img.shields.io/badge/Busca%20online-Abrir%20aqui-3451b2?style=flat-square)](https://dlgrv.github.io/HowToLiveBetter/pt/)
+[![Busca online](https://img.shields.io/badge/Busca%20online-Abrir%20aqui-3451b2?style=flat-square)](https://book.dlgrv.com/pt/)
 [![Itens](https://img.shields.io/badge/Itens-677-18794e?style=flat-square)](#índice)
 [![Graus de evidência](https://img.shields.io/badge/Graus%20de%20evid%C3%AAncia-A%20441%20%C2%B7%20B%20189%20%C2%B7%20C%2047-915930?style=flat-square)](#graus-de-evidência)
 [![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1786%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-Unlicense-565a5f?style=flat-square)](LICENSE)
 
-**[Abrir a página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md) | [Depois de uma demissão (texto longo)](docs/research/pt/After-A-Layoff-What-To-Do-First.md) | [Coisas a resolver no parto (texto longo)](docs/research/pt/Things-To-Handle-Around-Childbirth.md) | [Logo após diagnóstico de doença crônica (texto longo)](docs/research/pt/Right-After-A-Chronic-Disease-Diagnosis.md)
+**[Abrir a página de busca online](https://book.dlgrv.com/pt/)** | [Índice](#índice) | [Glossário](#como-ler-os-números-glossário) | [Registros de verificação](docs/research/核实记录/) | [Vale a pena casar (texto longo)](docs/research/pt/Is-Marriage-Worth-It.md) | [Kit de emergência doméstico (texto longo)](docs/research/pt/Home-Emergency-Kit.md) | [Devo parar para ajudar um estranho (texto longo)](docs/research/pt/Should-You-Stop-To-Help-A-Stranger.md) | [Quais licenças uma plataforma precisa (texto longo)](docs/research/pt/What-Licenses-A-Platform-Needs.md) | [Depois de uma demissão (texto longo)](docs/research/pt/After-A-Layoff-What-To-Do-First.md) | [Coisas a resolver no parto (texto longo)](docs/research/pt/Things-To-Handle-Around-Childbirth.md) | [Logo após diagnóstico de doença crônica (texto longo)](docs/research/pt/Right-After-A-Chronic-Disease-Diagnosis.md)
 
 </div>
 
@@ -23,23 +23,23 @@ Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista
 
 | Idioma | Site | README | PDF | EPUB |
 | --- | --- | --- | --- | --- |
-| 🇧🇷 Português | [Ler no site](https://dlgrv.github.io/HowToLiveBetter/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
-| 🇸🇦 العربية | [اقرأ على الموقع](https://dlgrv.github.io/HowToLiveBetter/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
-| 🇮🇩 Bahasa Indonesia | [Baca di situs](https://dlgrv.github.io/HowToLiveBetter/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
-| 🇬🇧 English | [Read on the site](https://dlgrv.github.io/HowToLiveBetter/en/) | [README.md](README.md) | [Download PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [Download EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
-| 🇷🇺 Русский | [Читать на сайте](https://dlgrv.github.io/HowToLiveBetter/ru/) | [README.ru.md](README.ru.md) | [Скачать PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [Скачать EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
-| 🇨🇳 中文 | [在网站阅读](https://dlgrv.github.io/HowToLiveBetter/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
-| 🇪🇸 Español | [Leer en el sitio](https://dlgrv.github.io/HowToLiveBetter/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
+| 🇧🇷 Português | [Ler no site](https://book.dlgrv.com/pt/) | [README.pt.md](README.pt.md) | [Baixar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.pdf) | [Baixar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-pt.epub) |
+| 🇸🇦 العربية | [اقرأ على الموقع](https://book.dlgrv.com/ar/) | [README.ar.md](README.ar.md) | [تنزيل PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.pdf) | [تنزيل EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ar.epub) |
+| 🇮🇩 Bahasa Indonesia | [Baca di situs](https://book.dlgrv.com/id/) | [README.id.md](README.id.md) | [Unduh PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.pdf) | [Unduh EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-id.epub) |
+| 🇬🇧 English | [Read on the site](https://book.dlgrv.com/en/) | [README.md](README.md) | [Download PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.pdf) | [Download EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-en.epub) |
+| 🇷🇺 Русский | [Читать на сайте](https://book.dlgrv.com/ru/) | [README.ru.md](README.ru.md) | [Скачать PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.pdf) | [Скачать EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-ru.epub) |
+| 🇨🇳 中文 | [在网站阅读](https://book.dlgrv.com/zh/) | [README.zh.md](README.zh.md) | [下载 PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.pdf) | [下载 EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-zh.epub) |
+| 🇪🇸 Español | [Leer en el sitio](https://book.dlgrv.com/es/) | [README.es.md](README.es.md) | [Descargar PDF](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.pdf) | [Descargar EPUB](https://github.com/dlgrv/HowToLiveBetter/releases/download/ebooks-latest/HowToLiveBetter-es.epub) |
 
 Tem ideias para o projeto (app, checklists, recursos do site, …)? [Compartilhe no issue #127](https://github.com/dlgrv/HowToLiveBetter/issues/127) — uma ideia por comentário; vote com 👍
 
 ## Perguntas que este livro tenta responder
 
-Use a [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) para filtrar por palavra-chave, seção e grau de evidência. Os capítulos em português estão em [book/pt/](book/pt/).
+Use a [página de busca online](https://book.dlgrv.com/pt/) para filtrar por palavra-chave, seção e grau de evidência. Os capítulos em português estão em [book/pt/](book/pt/).
 
 ## Como ler
 
-- **Para filtrar por condições**: abra a [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/); você pode combinar três dimensões de custo — dinheiro, tempo e força de vontade.
+- **Para filtrar por condições**: abra a [página de busca online](https://book.dlgrv.com/pt/); você pode combinar três dimensões de custo — dinheiro, tempo e força de vontade.
 - **Para ler em ordem**: dentro de cada seção, os itens vão do maior para o menor custo-benefício.
 - **Se os números assustam**: cada item tem uma linha «Em linguagem simples» que traduz riscos e intervalos do campo Benefício para o dia a dia, sem inventar números novos.
 
@@ -64,7 +64,7 @@ Dos 677 itens do livro, 441 são grau A, 189 grau B e 47 grau C; 72 estão marca
 
 ## Como ler os números (glossário)
 
-O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos estatísticos. Na [página de busca online](https://dlgrv.github.io/HowToLiveBetter/pt/), passe o mouse (ou toque) em palavras sublinhadas para ver explicações curtas.
+O texto tenta falar de forma direta, mas citar pesquisa exige alguns termos estatísticos. Na [página de busca online](https://book.dlgrv.com/pt/), passe o mouse (ou toque) em palavras sublinhadas para ver explicações curtas.
 
 ## Índice
 
@@ -108,7 +108,7 @@ Textos longos: [Kit de emergência doméstico](docs/research/pt/Home-Emergency-K
 
 ## O livro em si
 
-O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice acima. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://dlgrv.github.io/HowToLiveBetter/pt/) lê os arquivos combinados da mesma forma.
+O texto está dividido em 34 arquivos de seção em [book/pt/](book/pt/); clique nos títulos do índice acima. A divisão evita o limite de 512 KB de renderização do GitHub em um único arquivo; a [busca online](https://book.dlgrv.com/pt/) lê os arquivos combinados da mesma forma.
 
 ## Colaboradores
 

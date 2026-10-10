@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/</loc>
+    <loc>https://book.dlgrv.com/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/en/</loc>
+    <loc>https://book.dlgrv.com/en/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/ru/</loc>
+    <loc>https://book.dlgrv.com/ru/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/zh/</loc>
+    <loc>https://book.dlgrv.com/zh/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/es/</loc>
+    <loc>https://book.dlgrv.com/es/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/pt/</loc>
+    <loc>https://book.dlgrv.com/pt/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dlgrv.github.io/HowToLiveBetter/ar/</loc>
+    <loc>https://book.dlgrv.com/ar/</loc>
     <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://book.dlgrv.com/id/</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
