@@ -210,10 +210,26 @@
     return ensureGuest();
   }
 
-  function formatUsefulLabel(count) {
+  /** Label + count badge (not "text expand" chrome). */
+  function renderUsefulButton(btn, count) {
     var L = labels();
     var n = Number(count) || 0;
-    return (L.useful || 'Useful') + ' (' + n + ')';
+    var label = L.useful || 'Useful';
+    var lab = btn.querySelector('.htlb-useful-label');
+    var num = btn.querySelector('.htlb-useful-n');
+    if (!lab || !num) {
+      btn.textContent = '';
+      lab = document.createElement('span');
+      lab.className = 'htlb-useful-label';
+      num = document.createElement('span');
+      num.className = 'htlb-useful-n';
+      num.setAttribute('aria-hidden', 'true');
+      btn.appendChild(lab);
+      btn.appendChild(num);
+    }
+    lab.textContent = label;
+    num.textContent = String(n);
+    btn.setAttribute('aria-label', label + ', ' + n);
   }
 
   function promptSignIn() {
@@ -307,7 +323,7 @@
     btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     if (typeof count === 'number') btn.dataset.count = String(count);
     var n = typeof count === 'number' ? count : Number(btn.dataset.count) || 0;
-    btn.textContent = formatUsefulLabel(n);
+    renderUsefulButton(btn, n);
   }
 
   async function mergeGuest() {
@@ -615,7 +631,7 @@
       useful.dataset.entry = id;
       useful.dataset.count = '0';
       useful.setAttribute('aria-pressed', 'false');
-      useful.textContent = formatUsefulLabel(0);
+      renderUsefulButton(useful, 0);
       useful.addEventListener('click', function () {
         if (!authToken()) {
           showUsefulSignInToast();
