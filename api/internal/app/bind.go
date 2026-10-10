@@ -8,6 +8,7 @@ import (
 
 	"github.com/dlgrv/HowToLiveBetter/api/internal/authz"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/config"
+	"github.com/dlgrv/HowToLiveBetter/api/internal/devauth"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/guest"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/library"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/merge"
@@ -57,6 +58,8 @@ func Bind(pb *pocketbase.PocketBase, cfg config.Config) {
 		useful.Register(g, useful.Handlers{Svc: uSvc, Az: az})
 		library.Register(g, library.Handlers{Svc: lSvc, Az: az})
 		merge.Register(g, merge.Handlers{Svc: mSvc, Az: az})
+		devauth.Register(g, e.App, cfg.Dev)
+
 		return e.Next()
 	})
 }
