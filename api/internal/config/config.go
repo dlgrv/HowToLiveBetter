@@ -17,6 +17,8 @@ type Config struct {
 	DataDir       string
 	MigrationsDir string
 	Version       string
+	// Dev enables stub auth (POST /dev/login). Set only via HTLB_DEV=1 — never in prod.
+	Dev bool
 }
 
 func Load() (Config, error) {
@@ -29,6 +31,7 @@ func Load() (Config, error) {
 		DataDir:       env("HTLB_DATA_DIR", ""),
 		MigrationsDir: env("HTLB_MIGRATIONS_DIR", ""),
 		Version:       env("HTLB_VERSION", "dev"),
+		Dev:           os.Getenv("HTLB_DEV") == "1",
 	}
 	if cfg.VoteSalt == "" {
 		return cfg, fmt.Errorf("HTLB_VOTE_SALT is required")
