@@ -1528,6 +1528,8 @@ function wire(){
     }
     PERF.mark(`DOM-узлов ${document.getElementsByTagName('*').length}, терминов ${GLOSS.length}`);
     restorePos();
+    // expose for interactive.js (let/const are not window properties)
+    window.CARDS = CARDS;
     try { dispatchEvent(new Event('htlb:ready')); } catch (e) {}
   } catch (err) {
     clearSkel();

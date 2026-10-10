@@ -348,8 +348,9 @@
   }
 
   function enhanceCards() {
-    if (!window.CARDS || !CARDS.length) return;
-    CARDS.forEach(function (card) {
+    var cards = window.CARDS;
+    if (!cards || !cards.length) return;
+    cards.forEach(function (card) {
       var e = card.e;
       var el = card.el;
       if (!el || el.querySelector('.htlb-actions')) return;

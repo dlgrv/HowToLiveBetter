@@ -23,4 +23,12 @@ code=$(curl -s -o /dev/null -w '%{http_code}' -H "X-HTLB-Sync: $TOKEN" "http://1
 test "$code" = "200"
 code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:18090/api/htlb/v1/bookmarks")
 test "$code" = "401"
+# useful: guest can vote; anonymous POST is 401; public GET counts work without auth
+code=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H "Content-Type: application/json" \
+  -d '{"entryId":"smoke-1","useful":true}' "http://127.0.0.1:18090/api/htlb/v1/useful")
+test "$code" = "401"
+body=$(curl -fsS -X POST -H "Content-Type: application/json" -H "X-HTLB-Sync: $TOKEN" \
+  -d '{"entryId":"smoke-1","useful":true}' "http://127.0.0.1:18090/api/htlb/v1/useful")
+echo "$body" | grep -q '"useful":true'
+curl -fsS "http://127.0.0.1:18090/api/htlb/v1/useful?entryId=smoke-1" | grep -q '"count":1'
 echo "smoke ok"
