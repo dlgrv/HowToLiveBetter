@@ -180,15 +180,27 @@ html.dark .theme-btn .moon{display:none}
 }
 /* No ink/brand glow when signed in — same muted icon as the rest of the topbar. */
 
-/* Useful vote — same type as Sources summary */
-.htlb-actions{display:flex;align-items:center;gap:var(--sp-2);margin:0}
-.htlb-useful{
-  appearance:none;border:0;background:none;cursor:pointer;
-  display:inline-block;padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+/* Useful + Sources summary — one type scale (do not inherit card body 17.5px) */
+.htlb-actions{
+  display:block;margin:0;
   font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
-  transition:color .15s;
 }
+.src summary,
+.htlb-useful{
+  display:inline-block;cursor:pointer;
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);
+  padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0;
+  transition:color .15s;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+}
+.src summary{list-style:none}
+.src summary::-webkit-details-marker{display:none}
+.src summary:hover,
 .htlb-useful:hover{color:var(--ink)}
+.htlb-useful{
+  appearance:none;border:0;background:none;
+  font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit;
+}
 .htlb-useful[aria-pressed="true"]{color:var(--ink)}
 .htlb-useful:disabled{opacity:.55;cursor:wait}
 .htlb-useful:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
@@ -462,9 +474,8 @@ html.side-collapsed .content{padding-left:var(--content-pad-x)}
 .rows .k{font-weight:var(--fw-strong)}
 .rows .k::after{content:". "}
 .rows .v{min-width:0;overflow-wrap:break-word}
-.src{margin-top:var(--sp-3)}
-.src summary{display:inline-block;cursor:pointer;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);transition:color .15s;padding:var(--sp-2) 0;margin:calc(var(--sp-2) * -1) 0}
-.src summary:hover{color:var(--ink)}
+.src{margin-top:var(--sp-3);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+/* summary + .htlb-useful type rules live with Useful above (shared selectors) */
 .src .body{margin-top:var(--sp-3);font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);overflow-wrap:break-word}
 .src .body ul{margin:var(--sp-2) 0 0;padding-left:var(--sp-5);list-style:disc}
 .src .body li{margin:0 0 var(--sp-2);padding-left:var(--sp-1)}
