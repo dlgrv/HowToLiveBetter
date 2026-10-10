@@ -29,6 +29,11 @@ func voterKey(owner authz.Owner, salt string) string {
 	return hex.EncodeToString(sum[:])
 }
 
+// VoterKey is the stable salted identity used in useful_votes rows.
+func VoterKey(owner authz.Owner, salt string) string {
+	return voterKey(owner, salt)
+}
+
 func (s Service) Count(entryID string) (int, error) {
 	records, err := s.App.FindRecordsByFilter("useful_votes",
 		"entryId = {:e} && useful = true", "", 0, 0,
