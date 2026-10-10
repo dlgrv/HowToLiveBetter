@@ -80,7 +80,15 @@ class TestInteractiveJsContract(unittest.TestCase):
 
     def test_useful_and_bookmark_endpoints(self):
         self.assertIn("api('/useful'", self.text)
-        self.assertIn("api('/bookmarks'", self.text)
+
+    def test_useful_inserted_after_sources(self):
+        self.assertIn("details.src", self.text)
+        self.assertIn("htlb-useful", self.text)
+        self.assertNotRegex(
+            self.text,
+            r"insertBefore\(bar,\s*title\.nextSibling\)",
+            "Useful must sit after Sources, not under the title",
+        )
 
 
 class TestBuiltLocaleKeepsWiring(unittest.TestCase):

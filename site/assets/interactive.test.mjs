@@ -38,3 +38,10 @@ test('off-host stub hides account and rejects api', () => {
 test('useful toggle posts to /useful', () => {
   assert.match(JS, /api\('\/useful',\s*\{\s*method:\s*'POST'/);
 });
+
+test('Useful button is placed after Sources, not under title', () => {
+  assert.match(JS, /details\.src/);
+  assert.match(JS, /htlb-useful/);
+  assert.equal(/insertBefore\(bar,\s*title\.nextSibling\)/.test(JS), false);
+});
+
