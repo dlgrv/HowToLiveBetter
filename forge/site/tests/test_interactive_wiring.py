@@ -78,8 +78,10 @@ class TestInteractiveJsContract(unittest.TestCase):
         self.assertIn("addEventListener('htlb:ready'", self.text)
         self.assertIn("enhanceCards();", self.text)
 
-    def test_useful_and_bookmark_endpoints(self):
-        self.assertIn("api('/useful'", self.text)
+    def test_useful_endpoint_via_bearer_api(self):
+        # Useful votes require signed-in user (usefulApi / Bearer), not guest sync.
+        self.assertIn("usefulApi('/useful'", self.text)
+        self.assertIn("function usefulHeaders()", self.text)
 
     def test_useful_inserted_after_sources(self):
         self.assertIn("details.src", self.text)
