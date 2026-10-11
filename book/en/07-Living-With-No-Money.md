@@ -1,4 +1,4 @@
-# How to get by when you have no money
+# 7. How to get by when you have no money
 
 This section covers money and social safeguards. It lists how much you might receive, what services are available, and what requirements you must meet — without trying to convert these benefits into years of life expectancy. Policies change yearly and vary by region, so all amounts and eligibility criteria reflect what’s officially posted in your area at the moment. Items are ordered so that those requiring no cost, minimal paperwork, and quick results appear first; options needing long‑term qualification or showing large regional differences come later. Suggestions based purely on personal experience and lacking official backing are placed at the very end.
 
