@@ -556,6 +556,30 @@ h1,h2,h3{text-wrap:wrap}
 .foot{max-width:var(--measure);margin:var(--sp-10) auto 0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
 .foot a{color:var(--hover)}
 .foot a:hover{color:var(--hover)}
+.foot-legal{text-align:center;margin:var(--sp-4) auto var(--sp-8);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.foot-legal a{color:var(--faint);text-decoration:none}
+.foot-legal a:hover{color:var(--hover)}
+body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var(--sp-5)}
+.privacy-main{width:min(36rem,100%);gap:var(--sp-5)}
+.privacy-main .login-hint{margin-bottom:var(--sp-1)}
+.privacy-section{margin:0;text-align:start}
+.privacy-section h2{
+  margin:0 0 var(--sp-2);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);
+  color:var(--ink);
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.privacy-section p{
+  margin:0 0 var(--sp-2);
+  font:var(--fw-ui) var(--fs-ui)/var(--lh-body) var(--sans);
+  color:var(--mut);
+  text-wrap:pretty;
+}
+.privacy-section p:last-child{margin-bottom:0}
+.privacy-section a{color:var(--hover)}
+.privacy-section a:hover{color:var(--hover-2)}
+.privacy-section code{font-family:var(--mono);font-size:var(--fs-ui)}
 .meta-line a{color:var(--hover)}
 .meta-line a:hover{color:var(--hover)}
 

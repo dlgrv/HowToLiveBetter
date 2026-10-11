@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" class="v2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · HowToLiveBetter</title>
+<meta name="description" content="How book.dlgrv.com handles sign-in, account data, cookies, and third parties.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://book.dlgrv.com/privacy/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 16.5l5 5 11-12' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/v2.css">
+<script>
+window.__HTLB_V2__ = 1;
+window.__HTLB_BASE__ = '../';
+(function () {
+  try {
+    var s = localStorage.getItem('theme');
+    var d = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    if (d) document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="login-page privacy-page">
+  <main class="login-main privacy-main">
+    <h1>Privacy</h1>
+    <p class="login-hint">Short description of how optional sign-in works on this site. This is not a formal legal document.</p>
+
+    <section class="privacy-section">
+      <h2>Who</h2>
+      <p>The site is <a href="https://book.dlgrv.com/">book.dlgrv.com</a>. Interactive account features use the API at <a href="https://api.dlgrv.com/">api.dlgrv.com</a>. Source: <a href="https://github.com/dlgrv/HowToLiveBetter">github.com/dlgrv/HowToLiveBetter</a>.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>What we collect</h2>
+      <p>Sign-in is optional. If you continue with Google or GitHub, we store the profile PocketBase receives from that provider (typically name, email, username, and avatar URL).</p>
+      <p>When signed in, we store which recommendations you mark as Useful. The API can also store bookmarks and reading position; those may be used as features expand.</p>
+      <p>Without signing in, the book itself is readable; the browser may keep UI preferences and a temporary reading position locally.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>Where it lives</h2>
+      <p>In the browser: auth token and profile cache, theme/language/layout prefs in <code>localStorage</code>; last reading anchor in <code>sessionStorage</code>.</p>
+      <p>On the server: account and feature data in SQLite behind <code>api.dlgrv.com</code> (self-hosted PocketBase).</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>Cookies</h2>
+      <p>The book site does not set first-party tracking or advertising cookies. Session and prefs for the account UI use browser storage, not cookies on <code>book.dlgrv.com</code>.</p>
+      <p>During OAuth, Google or GitHub may set their own cookies on their domains. That is outside this site.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>Third parties</h2>
+      <p>Google and GitHub for sign-in only. There are no analytics or ad scripts embedded in the book pages.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>Book text vs account data</h2>
+      <p>The guide text is Public Domain (<a href="https://unlicense.org/">Unlicense</a>). Your account data is separate and is not part of that dedication.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2>Contact and deletion</h2>
+      <p>To ask about your account or request deletion, open an issue on <a href="https://github.com/dlgrv/HowToLiveBetter/issues">github.com/dlgrv/HowToLiveBetter/issues</a>.</p>
+    </section>
+
+    <a class="login-back" id="privacy-back" href="../en/">Back to the book</a>
+  </main>
+
+<script>
+(function () {
+  var lang = 'en';
+  try {
+    var p = new URLSearchParams(location.search);
+    var q = (p.get('lang') || '').toLowerCase();
+    var saved = (localStorage.getItem('htlb-lang') || '').toLowerCase();
+    var codes = ['en', 'ru', 'zh', 'es', 'pt', 'ar', 'id'];
+    if (codes.indexOf(q) >= 0) lang = q;
+    else if (codes.indexOf(saved) >= 0) lang = saved;
+  } catch (e) {}
+  var back = document.getElementById('privacy-back');
+  if (back) back.href = '../' + lang + '/';
+})();
+</script>
+</body>
+</html>

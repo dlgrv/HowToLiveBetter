@@ -30,6 +30,7 @@ window.__HTLB_BASE__ = '../';
     <p class="useful-empty" id="useful-empty" hidden></p>
     <a class="login-back" id="useful-back" href="../en/">Back to the book</a>
   </main>
+  <p class="foot-legal"><a id="privacy-link" href="../privacy/">Privacy</a></p>
 
 <script>
 window.__HTLB_API__ = 'https://api.dlgrv.com/api/htlb/v1';
@@ -43,6 +44,7 @@ var USEFUL_I18N = {
     loading: 'Loading…',
     error: 'Could not load your list. Sign in again and retry.',
     back: 'Back to the book',
+    privacyLink: 'Privacy',
     docTitle: 'My useful · HowToLiveBetter',
     accountUseful: 'My useful'
   },
@@ -53,6 +55,7 @@ var USEFUL_I18N = {
     loading: 'Загрузка…',
     error: 'Не удалось загрузить список. Войдите снова и попробуйте ещё раз.',
     back: 'Обратно к книге',
+    privacyLink: 'Конфиденциальность',
     docTitle: 'Мои «Полезно» · HowToLiveBetter',
     accountUseful: 'Мои «Полезно»'
   },
@@ -63,6 +66,7 @@ var USEFUL_I18N = {
     loading: '加载中…',
     error: '无法加载列表。请重新登录后再试。',
     back: '返回书籍',
+    privacyLink: '隐私',
     docTitle: '我的「有用」 · HowToLiveBetter',
     accountUseful: '我的「有用」'
   },
@@ -73,6 +77,7 @@ var USEFUL_I18N = {
     loading: 'Cargando…',
     error: 'No se pudo cargar la lista. Vuelve a iniciar sesión e inténtalo de nuevo.',
     back: 'De vuelta al libro',
+    privacyLink: 'Privacidad',
     docTitle: 'Mis útiles · HowToLiveBetter',
     accountUseful: 'Mis útiles'
   },
@@ -83,6 +88,7 @@ var USEFUL_I18N = {
     loading: 'Carregando…',
     error: 'Não foi possível carregar a lista. Entre de novo e tente outra vez.',
     back: 'De volta ao livro',
+    privacyLink: 'Privacidade',
     docTitle: 'Meus úteis · HowToLiveBetter',
     accountUseful: 'Meus úteis'
   },
@@ -93,6 +99,7 @@ var USEFUL_I18N = {
     loading: 'جارٍ التحميل…',
     error: 'تعذّر تحميل القائمة. سجّل الدخول مجددًا وحاول مرة أخرى.',
     back: 'العودة إلى الكتاب',
+    privacyLink: 'الخصوصية',
     docTitle: 'علاماتي «مفيد» · HowToLiveBetter',
     accountUseful: 'علاماتي «مفيد»'
   },
@@ -103,6 +110,7 @@ var USEFUL_I18N = {
     loading: 'Memuat…',
     error: 'Gagal memuat daftar. Masuk lagi lalu coba lagi.',
     back: 'Kembali ke buku',
+    privacyLink: 'Privasi',
     docTitle: 'Tanda Berguna saya · HowToLiveBetter',
     accountUseful: 'Tanda Berguna saya'
   }
@@ -137,6 +145,8 @@ function applyUsefulLang() {
   var back = document.getElementById('useful-back');
   back.textContent = t.back;
   back.href = '../' + lang + '/';
+  var pl = document.getElementById('privacy-link');
+  if (pl) pl.textContent = t.privacyLink || 'Privacy';
 
   window.T = function () {
     return {

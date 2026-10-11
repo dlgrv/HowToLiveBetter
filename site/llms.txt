@@ -82,4 +82,5 @@ Chapter Markdown paths: English under `/book/en/`, Russian `/book/ru/`, Spanish 
 
 - [EPUB / PDF releases](https://github.com/dlgrv/HowToLiveBetter/releases/tag/ebooks-latest): Offline books per language
 - [Verification records (Chinese)](https://book.dlgrv.com/docs/research/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95/): Source-check notes for contested numbers
+- [Privacy](https://book.dlgrv.com/privacy/): Sign-in, account data, cookies, third parties
 - [Login / account UI](https://book.dlgrv.com/login/): Interactive features only; not book content (noindex)
