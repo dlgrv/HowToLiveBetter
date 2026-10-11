@@ -53,6 +53,7 @@ window.__HTLB_BASE__ = '../';
 
     <a class="login-back" id="login-back" href="../en/">Back to the book</a>
   </main>
+  <p class="foot-legal"><a id="privacy-link" href="../privacy/">Privacy</a></p>
 
 <script>
 window.__HTLB_API__ = 'https://api.dlgrv.com/api/htlb/v1';
@@ -65,6 +66,7 @@ var LOGIN_I18N = {
     google: 'Continue with Google',
     github: 'Continue with GitHub',
     back: 'Back to the book',
+    privacyLink: 'Privacy',
     working: 'Waiting for sign-in…',
     error: 'Sign-in failed. Close the popup and try again.',
     docTitle: 'Sign in · HowToLiveBetter'
@@ -75,6 +77,7 @@ var LOGIN_I18N = {
     google: 'Войти через Google',
     github: 'Войти через GitHub',
     back: 'Обратно к книге',
+    privacyLink: 'Конфиденциальность',
     working: 'Ждём вход…',
     error: 'Не удалось войти. Закройте окно и попробуйте снова.',
     docTitle: 'Вход · HowToLiveBetter'
@@ -85,6 +88,7 @@ var LOGIN_I18N = {
     google: '使用 Google 登录',
     github: '使用 GitHub 登录',
     back: '返回书籍',
+    privacyLink: '隐私',
     working: '正在等待登录…',
     error: '登录失败。请关闭弹窗后重试。',
     docTitle: '登录 · HowToLiveBetter'
@@ -95,6 +99,7 @@ var LOGIN_I18N = {
     google: 'Continuar con Google',
     github: 'Continuar con GitHub',
     back: 'De vuelta al libro',
+    privacyLink: 'Privacidad',
     working: 'Esperando el inicio de sesión…',
     error: 'No se pudo iniciar sesión. Cierra la ventana e inténtalo de nuevo.',
     docTitle: 'Iniciar sesión · HowToLiveBetter'
@@ -105,6 +110,7 @@ var LOGIN_I18N = {
     google: 'Continuar com Google',
     github: 'Continuar com GitHub',
     back: 'De volta ao livro',
+    privacyLink: 'Privacidade',
     working: 'A aguardar o início de sessão…',
     error: 'Falha ao entrar. Feche a janela e tente de novo.',
     docTitle: 'Entrar · HowToLiveBetter'
@@ -115,6 +121,7 @@ var LOGIN_I18N = {
     google: 'المتابعة مع Google',
     github: 'المتابعة مع GitHub',
     back: 'العودة إلى الكتاب',
+    privacyLink: 'الخصوصية',
     working: 'بانتظار تسجيل الدخول…',
     error: 'فشل تسجيل الدخول. أغلق النافذة وحاول مرة أخرى.',
     docTitle: 'تسجيل الدخول · HowToLiveBetter'
@@ -125,6 +132,7 @@ var LOGIN_I18N = {
     google: 'Lanjut dengan Google',
     github: 'Lanjut dengan GitHub',
     back: 'Kembali ke buku',
+    privacyLink: 'Privasi',
     working: 'Menunggu masuk…',
     error: 'Gagal masuk. Tutup jendela dan coba lagi.',
     docTitle: 'Masuk · HowToLiveBetter'
@@ -156,6 +164,8 @@ function applyLoginLang() {
   var back = document.getElementById('login-back');
   back.textContent = t.back;
   back.href = '../' + lang + '/';
+  var pl = document.getElementById('privacy-link');
+  if (pl) pl.textContent = t.privacyLink || 'Privacy';
 
   window.T = function () {
     return {

@@ -463,6 +463,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       </div>
     </div>
     <div class="foot">Категория эффекта указана в каждом пункте (смертность / время и силы / деньги / гарантии и личная свобода); категории между собой не сравниваются. Проверка источников: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (на китайском)</a>. Текст — Public Domain (Unlicense).</div>
+    <p class="foot-legal"><a id="privacy-link" href="privacy/">Privacy</a></p>
   </div>
 </main>
 
@@ -526,6 +527,7 @@ const I18N = {
    hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
    hint3:'Данные — из каталога <a href="book/ru/">book/ru/</a> ({n}); правки текста вносятся там.',
    foot:'Категория эффекта указана в каждом пункте (смертность / время и силы / деньги / гарантии и личная свобода); категории между собой не сравниваются. Проверка источников: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (на китайском)</a>. Текст — Public Domain (Unlicense).',
+   privacyLink:'Конфиденциальность',
    kCost:'Стоимость', kGain:'Эффект', kNote:'Примечания', src:'Источники', anchor:'Ссылка на этот пункт',
    ratioBadge:'Выгода/затраты', ratioTitle:'Оценка автора: из уровня эффекта', gradeBadge:'Доказательность', dispute:'Спорно', todo:'Есть непроверенное',
    ratio:{'极高':'Очень высокая','高':'Высокая','一般':'Обычная'},
@@ -564,6 +566,7 @@ const I18N = {
    hint2:'Within a section — by descending benefit. Search does not change the order.',
    hint3:'Data comes from the <a href="book/en/">book/en/</a> directory ({n}); edit the text there.',
    foot:'The benefit category is stated on every item (mortality / time and energy / money / protection and personal freedom); categories are not compared with each other. Source verification: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (in Chinese)</a>. Text is Public Domain (Unlicense).',
+   privacyLink:'Privacy',
    kCost:'Cost', kGain:'Benefit', kNote:'Notes', src:'Sources', anchor:'Link to this item',
    ratioBadge:'Benefit/costs', ratioTitle:'Author judgment: from the effect level', gradeBadge:'Evidence', dispute:'Contested', todo:'Has unverified',
    ratio:{'极高':'Very high','高':'High','一般':'Ordinary'},
@@ -602,6 +605,7 @@ const I18N = {
    hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
    hint3:'Los datos vienen del directorio <a href="../book/es/">book/es/</a> ({n}); edita el texto allí.',
    foot:'La categoría del beneficio se indica en cada entrada (mortalidad / tiempo y energía / dinero / protección y libertad personal); las categorías no se comparan entre sí. Verificación de fuentes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (en chino)</a>. El texto es de dominio público (Unlicense).',
+   privacyLink:'Privacidad',
    kCost:'Costo', kGain:'Beneficio', kNote:'Notas', src:'Fuentes', anchor:'Enlace a esta entrada',
    ratioBadge:'Beneficio/costos', ratioTitle:'Juicio del autor: a partir del nivel del efecto', gradeBadge:'Evidencia', dispute:'En disputa', todo:'Tiene sin verificar',
    ratio:{'极高':'Muy alta','高':'Alta','一般':'Normal'},
@@ -640,6 +644,7 @@ const I18N = {
    hint2:'Dentro de uma seção — por benefício decrescente. A busca não altera a ordem.',
    hint3:'Os dados vêm do diretório <a href="../book/pt/">book/pt/</a> ({n}); edite o texto lá.',
    foot:'A categoria do benefício está em cada entrada (mortalidade / tempo e energia / dinheiro / proteção e liberdade pessoal); as categorias não se comparam entre si. Verificação de fontes: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (em chinês)</a>. O texto é de domínio público (Unlicense).',
+   privacyLink:'Privacidade',
    kCost:'Custo', kGain:'Benefício', kNote:'Notas', src:'Fontes', anchor:'Link para esta entrada',
    ratioBadge:'Benefício/custos', ratioTitle:'Julgamento do autor: a partir do nível do efeito', gradeBadge:'Evidência', dispute:'Em disputa', todo:'Tem item sem verificar',
    ratio:{'极高':'Muito alta','高':'Alta','一般':'Normal'},
@@ -678,6 +683,7 @@ const I18N = {
    hint2:'Urutan saran dalam bab mengikuti manfaat dibanding biayanya. Pencarian tidak mengubah urutan.',
    hint3:'Isi diambil dari <a href="../book/id/">book/id/</a> ({n}); perbaiki naskah di sana.',
    foot:'Setiap saran menyebut jenis manfaatnya: umur dan kesehatan, waktu dan tenaga, uang, atau perlindungan hukum. Jenis yang berbeda tidak dibandingkan. Teks ini berlisensi Unlicense.',
+   privacyLink:'Privasi',
    kCost:'Biaya', kGain:'Manfaat', kNote:'Catatan', src:'Sumber', anchor:'Tautan ke saran ini',
    ratioBadge:'Manfaat/biaya', ratioTitle:'Penilaian penulis berdasarkan besarnya manfaat', gradeBadge:'Bukti', dispute:'Diperdebatkan', todo:'Belum diverifikasi',
    ratio:{'极高':'Sangat tinggi','高':'Tinggi','一般':'Biasa'},
@@ -716,6 +722,7 @@ const I18N = {
    hint2:'داخل القسم — مرتبة حسب الفائدة تنازليًا. البحث لا يغيّر الترتيب.',
    hint3:'البيانات من مجلد <a href="../book/ar/">book/ar/</a> ({n})؛ صحّح النص هناك.',
    foot:'فئة الفائدة مذكورة في كل بند (الوفيات / الوقت والطاقة / المال / الحماية والحرية الشخصية)؛ والفئات لا تُقارن فيما بينها. التحقق من المصادر: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (بالصينية)</a>. النص ملكية عامة (Unlicense).',
+   privacyLink:'الخصوصية',
    kCost:'التكلفة', kGain:'الفائدة', kNote:'ملاحظات', src:'المصادر', anchor:'رابط هذا البند',
    ratioBadge:'الفائدة/التكلفة', ratioTitle:'تقدير المؤلف: من مستوى الأثر', gradeBadge:'الدليل', dispute:'متنازع عليه', todo:'بحاجة إلى تحقق',
    ratio:{'极高':'عالية جدًا','高':'عالية','一般':'عادية'},
@@ -755,6 +762,7 @@ const I18N = {
    hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
    hint3:'数据来自 <a href="book/">book/</a> 目录（{n}）；改正文请改那里。',
    foot:'每个条目都标明收益口径（死亡率 / 时间精力 / 金钱 / 保障与人身自由）；口径之间不做比较。来源核查：<a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录（中文）</a>。正文为 Public Domain（Unlicense）。',
+   privacyLink:'隐私',
    kCost:'成本', kGain:'收益', kNote:'备注', src:'来源', anchor:'链接到此条',
    ratioBadge:'性价比', ratioTitle:'作者判断：由效果量级', gradeBadge:'证据', dispute:'争议', todo:'有待核实',
    ratio:{'极高':'极高','高':'高','一般':'一般'},
@@ -820,6 +828,11 @@ function applyI18n(){
   document.querySelectorAll('.sidebar .hint p')[1].textContent=t.hint2;
   document.querySelectorAll('.sidebar .hint p')[2].innerHTML=t.hint3.replace('{n}', fileCountPhrase(BOOK_FILES));
   document.querySelector('.foot').innerHTML=t.foot;
+  const pl=document.getElementById('privacy-link');
+  if(pl){
+    pl.textContent=t.privacyLink||'Privacy';
+    pl.href=(window.__HTLB_BASE__||'')+'privacy/';
+  }
   const chips={ratio:[['极高',t.ratio['极高']],['高',t.ratio['高']],['一般',t.ratio['一般']]],
     lens:[['死亡率',t.lens['死亡率']],['金钱',t.lens['金钱']],['时间',t.lens['时间']],['自由',t.lens['自由']]],
     grade:[['A',t.gradeA],['B',t.gradeB],['C',t.gradeC]],
