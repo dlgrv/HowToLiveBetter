@@ -5,7 +5,11 @@ import unittest
 from pathlib import Path
 
 from forge.ops import check_content
-from forge.ops.check_content import section_count_issues, stale_status_issues
+from forge.ops.check_content import (
+    chapter_h1_issues,
+    section_count_issues,
+    stale_status_issues,
+)
 
 from translate.test_paths import REPO_ROOT
 
@@ -13,6 +17,34 @@ from translate.test_paths import REPO_ROOT
 class CheckContentRepoTest(unittest.TestCase):
     def test_repo_content_gates_pass(self):
         self.assertEqual(check_content.main(), 0)
+
+
+def test_chapter_h1_ok():
+    assert chapter_h1_issues("book/en/07-x.md", "07", "# 7. Title\n\n### 1. Item\n") == []
+
+
+def test_chapter_h1_unnumbered():
+    issues = chapter_h1_issues("book/en/07-x.md", "07", "# Title\n\n### 1. Item\n")
+    assert len(issues) == 1
+    assert "[chapter-h1]" in issues[0]
+    assert "book/en/07-x.md" in issues[0]
+
+
+def test_chapter_h1_wrong_number():
+    issues = chapter_h1_issues("book/en/07-x.md", "07", "# 8. Title\n")
+    assert len(issues) == 1
+    assert "# 7." in issues[0]
+
+
+def test_chapter_h1_after_back_link():
+    text = "[← back](../README.md)\n\n# 7. Title\n\n### 1. Item\n"
+    assert chapter_h1_issues("book/07-x.md", "07", text) == []
+
+
+def test_chapter_h1_missing():
+    issues = chapter_h1_issues("book/en/07-x.md", "07", "### 1. Item only\n")
+    assert len(issues) == 1
+    assert "missing" in issues[0]
 
 
 def test_section_count_matches():

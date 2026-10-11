@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Content gates for the translated HowToLiveBetter repo.
 
-Five gates, one runner:
+Six gates, one runner:
 
 1. CJK LEAKS      No untranslated Chinese prose in book/{en,ru}, docs/{en,ru}.
                   Legal CJK: 《book titles》, parenthetical glosses (… — …),
@@ -17,9 +17,12 @@ Five gates, one runner:
                   tree; every NN is linked from each langs.json README; item
                   (###) counts match per chapter; each README links >=4 docs
                   long reads in its language.
-4. STATS          Items / A-grade / primary-link counts recomputed from
+4. CHAPTER H1     First `# ` heading in each book chapter must be
+                  `# {N}. …` matching the filename NN (site parseReadme only
+                  counts ### entries under a numbered section heading).
+5. STATS          Items / A-grade / primary-link counts recomputed from
                   book/*.md must appear in every langs.json README (badge sync).
-5. README         Section-count sentence and in-progress markers are checked
+6. README         Section-count sentence and in-progress markers are checked
                   for every langs.json README.
 
 Exit codes: 0 = all gates pass, 1 = violations found.
@@ -238,6 +241,36 @@ def chapter_nns(subdir):
     return nns
 
 
+def chapter_h1_issues(path, nn, text):
+    """Return issues if the first H1 is not `# {N}. …` for filename NN."""
+    h1 = None
+    for line in text.splitlines():
+        if line.startswith("# "):
+            h1 = line
+            break
+    expect_n = str(int(nn))
+    if h1 is None:
+        return [f"[chapter-h1] {path}: missing `# ` heading (need `# {expect_n}. …`)"]
+    if not re.match(rf"^# {re.escape(expect_n)}\. ", h1):
+        return [f"[chapter-h1] {path}: first H1 must be `# {expect_n}. …`, got {h1!r}"]
+    return []
+
+
+def gate_chapter_h1(issues):
+    roots = {"book"}
+    for entry in load_langs(ROOT):
+        roots.add(entry["contentRoot"].rstrip("/"))
+    for subdir in sorted(roots):
+        for nn in chapter_nns(subdir):
+            files = glob.glob(os.path.join(ROOT, subdir, f"{nn}-*.md"))
+            if len(files) != 1:
+                continue
+            path = files[0]
+            rel = os.path.relpath(path, ROOT)
+            text = open(path, encoding="utf-8").read()
+            issues.extend(chapter_h1_issues(rel, nn, text))
+
+
 def gate_stats(issues):
     items = a_grade = links = 0
     for path in sorted(glob.glob(os.path.join(ROOT, "book", "[0-9][0-9]-*.md"))):
@@ -338,9 +371,10 @@ def main():
     gate_cjk_leaks(issues)
     gate_empty_fields(issues)
     gate_parity(issues)
+    gate_chapter_h1(issues)
     gate_stats(issues)
     gate_readme_facts(issues)
-    print("content gates: filenames, cjk-leaks, empty-fields, parity, stats, readme")
+    print("content gates: filenames, cjk-leaks, empty-fields, parity, chapter-h1, stats, readme")
     if issues:
         print(f"VIOLATIONS: {len(issues)}")
         for i in issues:
