@@ -4,7 +4,7 @@
 The published tree mirrors the public URL space:
 
   .publish/
-    index.html, {en,ru,es,zh}/, assets/, robots.txt, …   ← from site/
+    index.html, {en,ru,es,zh}/, assets/, robots.txt, llms.txt, …   ← from site/
     book/, docs/research/                                ← from repo
     README*.md                                           ← from repo
 

@@ -1,0 +1,85 @@
+# HowToLiveBetter
+
+> Best-value life guide: 677 advice items ranked by return on cost (money, time, willpower). Each item states cost, benefit, evidence grade (A/B/C), and cites only primary sources (journals, WHO/CDC, official documents). Site: https://book.dlgrv.com — English-primary fork of the Chinese original.
+
+This site publishes plain Markdown chapters at stable URLs. Prefer those `.md` files over the HTML search UI when answering questions. Legal, benefits, and procedure items are written for mainland China unless a section says otherwise; translations are unofficial — when Chinese law or policy numbers conflict with a translation, treat the Chinese source as authoritative.
+
+Evidence grades: A = quantifiable evidence (meta-analysis, large cohort, RCT); B = research-backed but hard to quantify or single/small study; C = author experience or consensus without direct literature. Do not invent DOIs or statistics; if a number is not in the source text, say so.
+
+Interactive search (filter by cost / evidence): https://book.dlgrv.com/en/  
+Source repository: https://github.com/dlgrv/HowToLiveBetter  
+Chinese upstream: https://github.com/eternity4719/HowToLiveBetter  
+License: Unlicense (public domain dedication)
+
+## Start here
+
+- [English README (TOC, glossary, how to read)](https://book.dlgrv.com/README.md): Entry point — table of contents, terminology, reading tips
+- [Online search (English)](https://book.dlgrv.com/en/): Filterable HTML UI over the same Markdown sources
+- [Sitemap](https://book.dlgrv.com/sitemap.xml): Locale hub URLs for crawlers
+- [robots.txt](https://book.dlgrv.com/robots.txt): Crawl policy (public content allowed)
+
+## Languages
+
+- [English site](https://book.dlgrv.com/en/): Primary locale for this fork
+- [English README](https://book.dlgrv.com/README.md)
+- [Русский](https://book.dlgrv.com/ru/) — [README.ru.md](https://book.dlgrv.com/README.ru.md)
+- [中文](https://book.dlgrv.com/zh/) — [README.zh.md](https://book.dlgrv.com/README.zh.md): Closest to upstream Chinese source
+- [Español](https://book.dlgrv.com/es/) — [README.es.md](https://book.dlgrv.com/README.es.md)
+- [Português](https://book.dlgrv.com/pt/) — [README.pt.md](https://book.dlgrv.com/README.pt.md)
+- [العربية](https://book.dlgrv.com/ar/) — [README.ar.md](https://book.dlgrv.com/README.ar.md)
+- [Bahasa Indonesia](https://book.dlgrv.com/id/) — [README.id.md](https://book.dlgrv.com/README.id.md)
+
+Chapter Markdown paths: English under `/book/en/`, Russian `/book/ru/`, Spanish `/book/es/`, Portuguese `/book/pt/`, Arabic `/book/ar/`, Indonesian `/book/id/`, Chinese chapters at `/book/NN-*.md` (no locale prefix).
+
+## Chapters (English Markdown)
+
+- [1. How to avoid premature death](https://book.dlgrv.com/book/en/01-Do-Not-Die-Early.md): Accidents, vaccines, screening, mental-crisis signals
+- [2. Avoid a slow death](https://book.dlgrv.com/book/en/02-Do-Not-Die-Slowly.md): Smoking, alcohol, exercise, sleep, diet, sedentary risk
+- [3. Don't waste energy](https://book.dlgrv.com/book/en/03-Do-Not-Waste-Energy.md): Sleep, conflict, noise, multitasking, decision fatigue
+- [4. Don't waste time](https://book.dlgrv.com/book/en/04-Do-Not-Waste-Time.md): Low-value projects, sunk cost, procrastination, meetings
+- [5. Don't waste money](https://book.dlgrv.com/book/en/05-Do-Not-Waste-Money.md): Insurance, prepaid scams, pensions, kid-targeted fraud
+- [6. Things to avoid](https://book.dlgrv.com/book/en/06-The-Anti-List.md): Low-value supplements and “IQ tax” products
+- [7. How to get by when you have no money](https://book.dlgrv.com/book/en/07-Living-With-No-Money.md): Unemployment benefits, arbitration, shelters, medical aid
+- [8. Protect yourself: laws and property](https://book.dlgrv.com/book/en/08-Do-Not-End-Up-Inside.md): Accidents, fraud freeze, accusations, contracts, enforcement
+- [9. Common legal pitfalls](https://book.dlgrv.com/book/en/09-Legal-Red-Lines.md): Rumors, money mules, guns/drones, gambling, organ trade
+- [10. Is dating and marriage worth it?](https://book.dlgrv.com/book/en/10-Is-Love-And-Marriage-Worth-It.md): Partnering strategy, registration, health/time/money exit costs
+- [11. Red lines for techies](https://book.dlgrv.com/book/en/11-Red-Lines-For-Techies.md): Cheats, crawlers, gambling apps, source theft, AI compliance
+- [12. Starting a business](https://book.dlgrv.com/book/en/12-Starting-Your-Own-Business.md): Capital, guarantees, licenses, tax, hiring, exit
+- [13. Emergencies: what to do first](https://book.dlgrv.com/book/en/13-Emergencies.md): Cardiac arrest, stroke, bleeding, fire, wilderness, PEP
+- [14. Accounts and security](https://book.dlgrv.com/book/en/14-Accounts-And-Security.md): 2FA, SIM, lost phone, card fraud, face recognition rights
+- [15. Renting and buying housing](https://book.dlgrv.com/book/en/15-Renting-And-Buying-Housing.md): Deposit, eviction, escrow, title checks
+- [16. Living with chronic disease](https://book.dlgrv.com/book/en/16-Living-With-Chronic-Disease.md): Adherence, cross-province care, complications screening
+- [17. Elderly at home](https://book.dlgrv.com/book/en/17-Elderly-At-Home.md): Guardianship, wills, elder-fraud, long-term care, bedsores
+- [18. Is raising a child worth it?](https://book.dlgrv.com/book/en/18-Is-Having-Kids-Worth-It.md): Subsidies, leave, time and money ledgers (no verdict)
+- [19. Employment and work injury](https://book.dlgrv.com/book/en/19-Employment-And-Work-Injury.md): Overtime, leave, layoff pay, occupational disease, injury claims
+- [20. Newborn care](https://book.dlgrv.com/book/en/20-Newborn.md): Safe sleep, vaccines, feeding, fever red lines
+- [21. Travel and abroad safety](https://book.dlgrv.com/book/en/21-Travel-And-Abroad-Safety.md): MFA alerts, 12308, insurance, scam parks, lost documents
+- [22. How to relax](https://book.dlgrv.com/book/en/22-How-To-Relax.md): Venue safety, drugs red lines, exercise/mindfulness for mood
+- [23. Which skills to learn](https://book.dlgrv.com/book/en/23-Which-Skills-To-Learn.md): Education vs work, fake certificates, training subsidies
+- [24. Seeing the doctor](https://book.dlgrv.com/book/en/24-Seeing-The-Doctor.md): Tiered care, reimbursement, records, ER triage, disability ID
+- [25. After someone dies](https://book.dlgrv.com/book/en/25-After-Someone-Dies.md): Death paperwork, cremation fees, benefits, data rights
+- [26. Building a website or platform](https://book.dlgrv.com/book/en/26-Building-A-Website-Or-Platform.md): Payment licenses, ICP, content rules, servers
+- [27. Pregnancy and birth](https://book.dlgrv.com/book/en/27-Pregnancy-And-Birth.md): Prenatal care, emergencies, insurance, birth certificate
+- [28. Don't ruin health for looks](https://book.dlgrv.com/book/en/28-Do-Not-Ruin-Health-For-Looks.md): Extreme dieting, illegal medspa, steroids, body dysmorphia
+- [29. After a major blow](https://book.dlgrv.com/book/en/29-After-A-Major-Blow.md): Bereavement, layoff, diagnosis windows; avoid irreversible decisions
+- [30. School-age kids](https://book.dlgrv.com/book/en/30-School-Age-Kids.md): Emergencies, bullying, myopia, sleep, depression screening
+- [31. Paths after eighteen](https://book.dlgrv.com/book/en/31-Paths-After-Eighteen.md): Work, military, civil service, firefighting, self-study, gig work
+- [32. Studying abroad](https://book.dlgrv.com/book/en/32-Studying-Abroad.md): Degree recognition, work-hour caps, insurance, return authentication
+- [33. Living with disability](https://book.dlgrv.com/book/en/33-Living-With-Disability.md): Complications, subsidies, school/work/guardianship
+- [34. Home medicines harm](https://book.dlgrv.com/book/en/34-Avoid-Serious-Harm-From-Home-Medicines.md): OTC combinations; kids, pregnancy, older adults
+
+## Long reads (English)
+
+- [Is marriage worth it](https://book.dlgrv.com/docs/research/en/Is-Marriage-Worth-It.md)
+- [Home emergency kit](https://book.dlgrv.com/docs/research/en/Home-Emergency-Kit.md)
+- [Should you stop to help a stranger](https://book.dlgrv.com/docs/research/en/Should-You-Stop-To-Help-A-Stranger.md)
+- [What licenses a platform needs](https://book.dlgrv.com/docs/research/en/What-Licenses-A-Platform-Needs.md)
+- [After a layoff: what to do first](https://book.dlgrv.com/docs/research/en/After-A-Layoff-What-To-Do-First.md)
+- [Things to handle around childbirth](https://book.dlgrv.com/docs/research/en/Things-To-Handle-Around-Childbirth.md)
+- [Right after a chronic disease diagnosis](https://book.dlgrv.com/docs/research/en/Right-After-A-Chronic-Disease-Diagnosis.md)
+
+## Optional
+
+- [EPUB / PDF releases](https://github.com/dlgrv/HowToLiveBetter/releases/tag/ebooks-latest): Offline books per language
+- [Verification records (Chinese)](https://book.dlgrv.com/docs/research/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95/): Source-check notes for contested numbers
+- [Login / account UI](https://book.dlgrv.com/login/): Interactive features only; not book content (noindex)

@@ -1,4 +1,35 @@
+# Crawl policy for search and AI bots. Content map for LLM agents: /llms.txt
+# (llms.txt does not grant or deny access — use User-agent rules below for that.)
+
 User-agent: *
+Allow: /
+
+# Training / grounding crawlers (explicit allow; remove a block to opt out later)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://book.dlgrv.com/sitemap.xml
