@@ -14,9 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "_template.html")
 
 # Shared stats (keep in sync with site badges / README until a stats sync lands).
-TIPS_N = "677"
-GRADE_A_N = "441"
-LINKS_N = "1786"
+TIPS_N = "690"
+GRADE_A_N = "450"
+LINKS_N = "1841"
 
 LATIN_SERIF = 'Georgia,"Times New Roman","Noto Serif",serif'
 ARABIC_SERIF = '"Noto Sans Arabic",Georgia,"Times New Roman",serif'

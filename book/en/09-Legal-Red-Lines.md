@@ -213,7 +213,7 @@ The topics below are grouped by theme, with article numbers in parentheses.
 - Notes: For guidance on conflict prevention, why initiating violence is disadvantageous, and the limits of self-defense, refer to Section 8, Article 10. This section solely outlines financial and legal consequences. Information on retaliatory violence is provided in Sections 8, Articles 11 through 14. In minor disputes arising from interpersonal conflicts, police may facilitate mediation. Even when compensation is paid and accepted, offenders still face legal penalties; such payments do not exempt them from punishment. The precise criteria defining “minor injury” are set by official assessment standards not detailed here. Actual compensation amounts for lost wages and nursing services depend on individual circumstances and lack standardized figures.
 
 ### 20. If parents cannot care for their newborn, the only legal option is to register the adoption with the civil affairs bureau: paying someone to hand over the child may be prosecuted as child trafficking, while abandoning the child constitutes abandonment
-<!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=自由 -->
+<!-- 成本标签: 钱=0 时间=中 毅力=否 收益=大 口径=自由 人群=婴幼儿,孩子,怀孕 -->
 
 - Cost: There is no monetary cost. However, submitting documents to a civil affairs bureau at or above the county level, waiting for review, and undergoing an adoption assessment all require time and effort.
 

@@ -29,7 +29,7 @@ Esta é a versão longa do item 2 da seção 13. Pelo critério de beneficiário
 
 **5. Gravação e exposição na internet.** **Pode não conseguir impedir a gravação.** Produzir, usar ou divulgar imagem sem consentimento é proibido (Código Civil, art. 1019), mas uso «inevitável para informação jornalística» é razoável (art. 1020). O que controla: não dar entrevista, não sair na câmera — consentir ou não é seu.
 
-**6. Redifusão e assédio online.** Com vídeo espalhado, comentários fogem do controle. Autoproteção nas Disposições sobre Governança de Informação de Assédio em Rede (desde 1 de agosto de 2024): plataformas devem oferecer bloqueio, limitar visibilidade, proibir republicações, restringir mensagens (art. 23); obtenção rápida de provas (art. 25); canal de denúncia (art. 26); denunciar crimes à polícia (art. 15). Provas e B.O.: seção 8, item 14.
+**6. Redifusão e assédio online.** Com vídeo espalhado, comentários fogem do controle. Autoproteção nas Disposições sobre Governança de Informação de Assédio em Rede (desde 1 de agosto de 2024): plataformas devem oferecer bloqueio, limitar visibilidade, proibir republicações, restringir mensagens (art. 23); obtenção rápida de provas (art. 25); canal de denúncia (art. 26); denunciar crimes à polícia (art. 15). Provas e B.O.: seção 8, item 37.
 
 **7. Quando não dá mais.** As seis camadas anteriores têm saída legal; a sétima não. Sem dados chineses confiáveis sobre impacto emocional de ataques online — só saída: linha 12356 (apoio psicológico na China), seção 1, item 25.
 

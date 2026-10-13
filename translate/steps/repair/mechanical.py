@@ -169,6 +169,12 @@ def ensure_notes_inject(text: str, missing: list[tuple[str, int]], lang: str) ->
     payload = " " + " ".join(forms)
     notes = _notes_label(lang)
     notes_prefixes = (f"- {notes}:", f"- {notes}：")
+    # Chapter intros have no Notes field; a new "- Notes:" line fails validate_unit.
+    has_notes = any(line.startswith(notes_prefixes) for line in text.splitlines())
+    if "### " not in text and not has_notes:
+        lines = text.splitlines() or [""]
+        lines[-1] = lines[-1].rstrip() + payload
+        return "\n".join(lines)
     out: list[str] = []
     injected = False
     for raw in text.splitlines():
