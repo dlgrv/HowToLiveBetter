@@ -55,6 +55,26 @@ Env (see `deploy/htlb-api.env.example`):
 - `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_USER`
 - Never commit OAuth client secrets or encryption keys
 
+## Mac deploy (while GitHub Actions is unavailable)
+
+Use `deployer` + `~/.ssh/htlb_deployer` → `178.104.217.93`. Book docroot is writable by `deployer`. API: `deployer` has NOPASSWD `systemctl` / `ln` / `chown` / `tar`; after each API release keep `/opt/htlb-api` as `root:htlb` `755` and `pb_data` as `htlb:htlb` (otherwise systemd fails with `status=200/CHDIR`).
+
+```bash
+# ssh/rsync as deployer with the deploy key
+WRAP=$(mktemp -d)
+printf '%s\n' '#!/bin/bash' 'exec /usr/bin/ssh -i "$HOME/.ssh/htlb_deployer" -o IdentitiesOnly=yes -o BatchMode=yes "$@"' >"$WRAP/ssh"
+chmod +x "$WRAP/ssh"
+export PATH="$WRAP:$PATH" RSYNC_RSH="$WRAP/ssh"
+export DEPLOY_USER=deployer DEPLOY_HOST=178.104.217.93
+
+PYTHONPATH=. python3 forge/site/build_pages.py
+PYTHONPATH=. python3 forge/site/pages_artifact.py
+bash deploy/scripts/deploy-book.sh
+
+make api-build
+bash deploy/scripts/deploy-api.sh
+```
+
 ## Deploy order (API)
 
 1. `go test` / lint green  
