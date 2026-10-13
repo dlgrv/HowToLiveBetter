@@ -167,6 +167,11 @@ def ensure_notes_inject(text: str, missing: list[tuple[str, int]], lang: str) ->
     for value, count in missing:
         forms.extend([inject_token(value, lang)] * max(1, count))
     payload = " " + " ".join(forms)
+    # Chapter intros have no Notes field; a new "- Notes:" line fails validate_unit.
+    if "### " not in text:
+        lines = text.splitlines() or [""]
+        lines[-1] = lines[-1].rstrip() + payload
+        return "\n".join(lines)
     notes = _notes_label(lang)
     notes_prefixes = (f"- {notes}:", f"- {notes}：")
     out: list[str] = []

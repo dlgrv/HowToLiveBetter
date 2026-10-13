@@ -70,7 +70,8 @@ for i in range(1, meta["items"] + 1):
     if not inserted:
         fails.append(f"unit {i:02d}: §SRC§ marker not found")
     txt = "\n".join(out_lines)
-    if "§" in txt:
+    # Legal citations may contain "§" (e.g. StGB § 323c). Only unreplaced markers fail.
+    if "§TAG§" in txt or "§SRC§" in txt:
         fails.append(f"unit {i:02d}: leftover placeholder")
     parts.extend(txt.rstrip().splitlines())
     blank = meta.get("blank_before_next", {}).get(str(i), True)

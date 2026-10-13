@@ -1,22 +1,3 @@
-# Upstream sync through 8485c55 (path-filtered, 2026-10-13).
-# CN chapters drifted — catch up en/ru/es/pt (and soft ar/id if shipped):
-01
-02
-03
-05
-06
-08
-09
-10
-12
-13
-15
-17
-20
-23
-27
-30
-33
-34
-# Also: README.zh.md changed → queue non-zh README refresh after chapter catch-up.
-# Docs: 遇到陌生人出事该不该停.md + new/updated 核实记录 (买车, 买房, 咖啡, 冲奶粉, 读研读博, …).
+# Cleared after locale catch-up of upstream 8485c55.
+# Chapters 01 02 03 05 06 08 09 10 12 13 15 17 20 23 27 30 33 34
+# are current in book/{en,ru,es,pt,ar,id}/.
