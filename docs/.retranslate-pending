@@ -1,30 +1,22 @@
-# Upstream sync through 33362af (path-filtered).
-# en/ru/es/pt catch-up DONE locally (verify OK) for:
-#   06 07 12 14 15 16 17 19 20 29 — still need commit/PRs.
-# Soft parity leftover for ar/id (item-count lag), still open:
-#   01 02 03 05 06 07 08 09 10 11 12 13 14 15 17 19 20 22 27 28 30 34
-# (16 and 29 aligned across all langs including ar/id — cleared.)
-# Also: locale long-read for Before Changing Jobs/Cities if still lagging.
-# README badges + site/assets/og/*.png refreshed to 677 / 441 / 1786.
+# Upstream sync through 8485c55 (path-filtered, 2026-10-13).
+# CN chapters drifted — catch up en/ru/es/pt (and soft ar/id if shipped):
 01
 02
 03
 05
 06
-07
 08
 09
 10
-11
 12
 13
-14
 15
 17
-19
 20
-22
+23
 27
-28
 30
+33
 34
+# Also: README.zh.md changed → queue non-zh README refresh after chapter catch-up.
+# Docs: 遇到陌生人出事该不该停.md + new/updated 核实记录 (买车, 买房, 咖啡, 冲奶粉, 读研读博, …).
