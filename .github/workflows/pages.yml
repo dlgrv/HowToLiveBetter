@@ -1,12 +1,15 @@
 name: pages
-# Deploy static book to GitHub Pages after workflow "test" succeeds on main.
-# Auth / interactive sync stays on book.dlgrv.com only (see interactive.js).
+# GitHub Pages no longer mirrors the book. It serves a permanent redirect to
+# book.dlgrv.com (the canonical site) so old dlgrv.github.io links keep working.
+# Deep links are preserved by the JS in 404.html (GitHub Pages serves it for
+# unknown paths). Rebuilds only when the redirect page itself changes.
 
 on:
-  workflow_run:
-    workflows: [test]
-    types: [completed]
+  push:
     branches: [main]
+    paths:
+      - 'deploy/pages-redirect/**'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -19,40 +22,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.head_branch == 'main')
-    runs-on: ubuntu-latest
-    env:
-      PYTHONPATH: ${{ github.workspace }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          # workflow_run checkout defaults to default branch tip; pin to the
-          # commit that passed tests when triggered by workflow_run.
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install deps
-        run: pip install -r requirements-dev.txt
-      - name: Build site pages
-        run: python3 forge/site/build_pages.py
-      - name: Stage Pages artifact
-        run: python3 forge/site/pages_artifact.py
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .publish
-
-  deploy:
-    needs: build
+  redirect:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - name: Stage redirect site
+        run: |
+          mkdir -p .publish
+          cp deploy/pages-redirect/index.html .publish/index.html
+          cp deploy/pages-redirect/404.html .publish/404.html
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .publish
       - id: deployment
         uses: actions/deploy-pages@v4

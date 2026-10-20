@@ -9,7 +9,7 @@ Ops checklist for the interactive book stack (fork dlgrv). Product decisions liv
 | `https://book.dlgrv.com` | Static book (nginx → `/var/www/book.dlgrv.com`) |
 | `https://book.dlgrv.com/login/` | Sign-in page (Google/GitHub); `?next=` returns to the book URL after OAuth |
 | `https://api.dlgrv.com` | `htlb-api` (Go + PocketBase) behind nginx → `127.0.0.1:8090` |
-| `https://dlgrv.github.io/HowToLiveBetter/` | Static mirror (no auth UI; interactive sync only on `book.dlgrv.com`) |
+| `https://dlgrv.github.io/HowToLiveBetter/` | Permanent redirect → `book.dlgrv.com` (deep links preserved via 404.html JS) |
 
 DNS (Cloudflare, grey cloud / DNS only): `book` and `api` A → dlgrv `178.104.217.93`.
 
@@ -107,4 +107,4 @@ Still manual:
 - GitHub Environment `production` secrets: `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_USER=deploy`
 - OAuth Google + GitHub client IDs/secrets in `/etc/htlb-api.env`, then `systemctl restart htlb-api`
 - PocketBase first superuser: `ssh dlgrv` → `/opt/htlb-api/htlb-api superuser upsert EMAIL PASS` (admin UI `/_/` — public shell, auth-gated)
-- Confirm github.io serves the static book (no redirect) after next Pages deploy on `main`
+- Confirm github.io serves the redirect to `book.dlgrv.com` (deep links preserved) after next Pages deploy on `main`
