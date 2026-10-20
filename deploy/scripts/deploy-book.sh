@@ -47,7 +47,8 @@ if [[ -n "$INDEXNOW_KEY_FILE" && -s "$CHANGED_LIST" ]]; then
   if [[ ${#URLS[@]} -gt 0 ]]; then
     PAYLOAD="$(jq -nc --arg host "$SITE_HOST" --arg key "$KEY" \
       --arg keyloc "https://$SITE_HOST/$KEY.txt" \
-      --args "${URLS[@]}" '{host:$host, key:$key, keyLocation:$keyloc, urlList:$ARGS.positional}')"
+      --args '{host:$host, key:$key, keyLocation:$keyloc, urlList:$ARGS.positional}' \
+      "${URLS[@]}")"
     echo "==> indexnow: pinging ${#URLS[@]} urls"
     if ! curl -sS -f -X POST "https://api.indexnow.org/indexnow" \
         -H 'Content-Type: application/json; charset=utf-8' \
