@@ -15,6 +15,7 @@ License: Unlicense (public domain dedication)
 
 - [English README (TOC, glossary, how to read)](https://book.dlgrv.com/README.md): Entry point — table of contents, terminology, reading tips
 - [Online search (English)](https://book.dlgrv.com/en/): Filterable HTML UI over the same Markdown sources
+- [Full book in one file](https://book.dlgrv.com/llms-full.txt): Every chapter of every language in a single document, section headers are stable chapter URLs
 - [Sitemap](https://book.dlgrv.com/sitemap.xml): Locale hub URLs for crawlers
 - [robots.txt](https://book.dlgrv.com/robots.txt): Crawl policy (public content allowed)
 

@@ -18,8 +18,13 @@ import glob
 import os
 import shutil
 import sys
+from datetime import UTC, datetime
 
 from translate.lib.config import default_root
+from translate.lib.config import load_langs as load_langs_registry
+
+from forge.site.build_llms_full import write_llms_full
+from forge.site.build_sitemap import write_sitemap
 
 ROOT = default_root()
 SITE = os.path.join(ROOT, "site")
@@ -50,6 +55,19 @@ def main() -> int:
         sys.exit("no README*.md at repo root")
     for path in readmes:
         shutil.copy2(path, os.path.join(OUT, os.path.basename(path)))
+
+    # Generated after staging: these must reflect the assembled publish tree,
+    # not the source tree (they overwrite the placeholders copied from site/).
+    langs = load_langs_registry(ROOT)
+    lang_codes = [lang["code"] for lang in langs]
+    write_sitemap(OUT, ROOT, lang_codes)
+    generated_at = datetime.now(UTC).strftime("%Y-%m-%d")
+    write_llms_full(OUT, langs, generated_at)
+
+    # IndexNow key: must be served from the docroot root (deploy-book.sh pings
+    # keyLocation=https://book.dlgrv.com/<key>.txt).
+    for key_file in sorted(glob.glob(os.path.join(ROOT, "deploy", "indexnow", "*.txt"))):
+        shutil.copy2(key_file, os.path.join(OUT, os.path.basename(key_file)))
 
     print("staged", os.path.relpath(OUT, ROOT))
     return 0

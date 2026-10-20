@@ -7,6 +7,11 @@ def test_stages_research_with_book_and_removes_stale_files(tmp_path, monkeypatch
     site = tmp_path / "site"
     site.mkdir()
     (site / "index.html").write_text("<html></html>")
+    langs = tmp_path / "translate"
+    langs.mkdir()
+    (langs / "langs.json").write_text(
+        '{"languages": [{"code": "id", "contentRoot": "book/id", "readme": "README.id.md"}]}'
+    )
     book = tmp_path / "book" / "id"
     book.mkdir(parents=True)
     (book / "07-example.md").write_text("[Guide](../../docs/research/id/guide.md)")
