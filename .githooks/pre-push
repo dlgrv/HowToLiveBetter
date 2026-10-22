@@ -45,3 +45,4 @@ fi
 
 make test
 make check-content
+make check-links
