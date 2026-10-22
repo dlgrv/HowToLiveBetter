@@ -1462,13 +1462,13 @@ function parseReadme(md){
   }
   flush();
   for (const s of sections) for (const e of s.entries){
-    e.dispute = LANG==='en' ? /^\s*Contested/.test(e.note)
-              : LANG==='es' ? /^\s*En disputa/.test(e.note)
-              : LANG==='pt' ? /^\s*Em disputa/.test(e.note)
-              : LANG==='ar' ? /^\s*متنازع/.test(e.note)
+    e.dispute = LANG==='en' ? /^\s*(Contested|Disputed|Controvers)/.test(e.note)
+              : LANG==='es' ? /^\s*(En disputa|Controvers)/.test(e.note)
+              : LANG==='pt' ? /^\s*(Em disputa|Controvers)/.test(e.note)
+              : LANG==='ar' ? /^\s*(متنازع|خلاف)/.test(e.note)
               : LANG==='id' ? /^\s*Kontroversi/.test(e.note)
-              : /^\s*(争议|[Сс]порно)/.test(e.note);
-    e.todo = /待核实|TODO|to be verified/i.test(e.src + e.gain + e.note + e.cost);
+              : /^\s*(争议|[Сс]порно|[Сс]порный)/.test(e.note);
+    e.todo = /\bTODO\b|待核实|[Tt]o be verified/.test(e.src + e.gain + e.note + e.cost);
     e.cs = (COST_W.money[e.money] ?? 0) + (COST_W.time[e.time] ?? 0) + (COST_W.will[e.will] ?? 0);
     e.ratio = e.level === '大' ? (e.cs === 0 ? '极高' : (e.cs <= 2 ? '高' : '一般'))
             : e.level === '中' ? (e.cs === 0 ? '高' : '一般') : '一般';
