@@ -2,7 +2,7 @@
 """Mechanical post-MT / repair helpers (no LLM).
 
 Catchup lessons (2026-09):
-- Hy-MT2 oscillates on absolute digits — never re-prompt for ``number_absent``.
+- LLMs oscillate on absolute digits — never re-prompt for ``number_absent``.
 - es/pt: bare ``0.499`` folds to ``499`` in ``norm_numbers``; inject ``0,499``.
 - Space-separated ``2022 523`` folds to ``2022523`` (thousands strip); inject ``〔N〕``.
 - MT often puts the field value on the next line — collapse before ``validate_unit``.

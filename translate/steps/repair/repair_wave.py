@@ -15,11 +15,10 @@ read-only inputs). No style/LT inside the loop.
 
 CONCURRENCY INVARIANT (locked decision, do not "optimize" away): units within
 a round are repaired SEQUENTIALLY — a plain for-loop, no threadpool, no async.
-This matches the locked `-np 1` llama-server config (see
-translate/steps/translate/start-llama-server.sh): the server slot count is what enforces the
-concurrency limit, and the Python side must stay strictly serial to respect
-it. Do not parallelize this loop without first raising server concurrency to
-match (and re-validating the whole pipeline).
+Kept from the local-LLM era (single llama-server slot) and still the safe
+default: serial repair keeps verify round-trips deterministic and provider
+rate limits out of the repair path. Do not parallelize this loop without
+re-validating the whole pipeline against the real provider.
 """
 
 from __future__ import annotations

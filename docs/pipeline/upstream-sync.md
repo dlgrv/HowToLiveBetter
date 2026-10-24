@@ -126,7 +126,7 @@ digest → translate → assemble → verify ↔ repair → lt → style → hum
 Do **not** hold an entire post-sync locale catch-up in one mega-PR. As soon as a
 chapter is green for the shipped locales (or a small coherent salvage set) on
 `verify` (+ `lt` / `style`), open a branch, PR, and **squash-merge to `main`**.
-Intermediate landings survive agent or llama crashes; `translate/runs/` stays
+Intermediate landings survive agent or API crashes; `translate/runs/` stays
 gitignored resume state only.
 
 - Commit only `book/{en,ru,es,pt}/` (and locale READMEs if they changed).

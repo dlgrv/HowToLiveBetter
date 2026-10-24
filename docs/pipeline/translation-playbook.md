@@ -40,7 +40,7 @@
     **Числа — только механически** (`steps/repair/mechanical.py`: locale-форма
     `0,499` для es/pt/ru, inject `〔N〕` в Notes, collapse multiline fields).
     LLM-ретрай и fallback-retranslate для `number_absent` **запрещены**
-    (Hy-MT2 осциллирует: 2022↔8000). `banned_calque` по-прежнему через LLM.
+    (LLM осциллирует: 2022↔8000). `banned_calque` по-прежнему через LLM.
     Style/LT не запускать до OK.
 
 5. make lt CH=<NN> LANG=<lang>     # LT :8010 обязателен; down → exit 2
@@ -61,10 +61,9 @@ resume. Подробности: [upstream-sync.md §4b](upstream-sync.md#4b-ship
 - Сабагент / API-модель с целой главой (30–42КБ) таймится или режет середину —
   **никогда не кормить целый `book/*.md`**. Только `translate/digest/<NN>/units/*.md`.
 - Юнит 1–2КБ = один пункт. Риск потери = один пункт, а не глава.
-- **Локальный Hy-MT2 Q8 на 48 GB:** один `llama-server` (`-np 1`, `-c 10240`),
-  юниты строго по одному. Не поднимать второй инстанс и не резать контекст
-  до 4096 — длинные пункты обрезаются. Канон:
-  `./translate/steps/translate/start-llama-server.sh`.
+- **Сторонний API — единственный поддерживаемый путь:** OpenAI-совместимый
+  endpoint из `.env` (`HTLB_LLM_*`), один юнит на запрос; параллельность —
+  по квотам провайдера. Локальный llama.cpp/Hy-MT2 больше не используется.
   См. [translate/llm/README.md](../../translate/llm/README.md).
 - Сборка централизована: источники не входят в контекст LLM.
 - **`make wave` / `wave_pipeline.py`:** только главы из аргумента; не трогать
@@ -83,18 +82,19 @@ resume. Подробности: [upstream-sync.md §4b](upstream-sync.md#4b-ship
 | `steps/repair/mechanical.py` | locale digit inject + collapse `- Label:\\n value` |
 | `shelf/lt_check.py` (`make lt`) | LT plain-terms; exit 2 если `:8010` down |
 | `shelf/style_check.py` | маркеры стиля |
-| `steps/translate/translate_unit.py` | Hy-MT2: один digest-юнит |
+| `steps/translate/translate_unit.py` | LLM API: один digest-юнит |
 
 ### Ops: модель перевода + LanguageTool
 
 | Сервис | Где описано | Как поднять |
 |---|---|---|
-| **Hy-MT2** Q8 → `llama-server` `:8080` | [translate/llm/README.md](../../translate/llm/README.md) | `./translate/steps/translate/start-llama-server.sh` (`-np 1` `-c 10240`); `.env` `HTLB_LLM_*`; юниты по одному |
+| **LLM API** (сторонний) | [translate/llm/README.md](../../translate/llm/README.md) | `.env` `HTLB_LLM_*` (OpenAI-совместимый endpoint); юниты по одному |
 | **LanguageTool** `:8010` | [translate/languagetool/README.md](../../translate/languagetool/README.md) | Docker → `make lt` |
 
 **Канонический workdir:** `translate/runs/active/<lang>/<NN>/`.
 
-Публикационный LLM — только локальный Hy-MT2. Cloud endpoints не нужны.
+Перевод — только сторонние API (OpenAI-совместимый endpoint из `.env`).
+Локальный llama.cpp/Hy-MT2 удалён из репозитория.
 
 ### Exit codes
 
@@ -109,16 +109,16 @@ resume. Подробности: [upstream-sync.md §4b](upstream-sync.md#4b-ship
 ### Reading order (новый агент)
 
 1. Этот playbook §2 (порядок) + Ops выше  
-2. [translate/llm/README.md](../../translate/llm/README.md) — Hy-MT2 / `.env` / local server  
+2. [translate/llm/README.md](../../translate/llm/README.md) — API-провайдер / `.env`  
 3. [translate/languagetool/README.md](../../translate/languagetool/README.md) — LT `:8010`  
 
-Перед mass retranslate: Hy-MT2 + LT подняты; `make lt` не должен давать exit 2.
+Перед mass retranslate: API-ключи в `.env` + LT подняты; `make lt` не должен давать exit 2.
 
 ## 3. Сабагенты: как использовать
 
 ### Волны параллельно
-- Перевод (cloud / лёгкий backend): 5–6 сабагентов параллельно, по 1 юниту на каждого. Крупные главы (13 — 42 пункта) режутся на 2 волны.
-- Перевод (**локальный Q8 llama.cpp на 48 GB**): один `llama-server` (`start-llama-server.sh`: `-np 1`, `-c 10240`), строго 1 юнит за раз; не крутить параллельно с тяжёлым Docker LT + браузером, если Activity Monitor уже в swap.
+- Перевод: 5–6 сабагентов параллельно, по 1 юниту на каждого (сторонний API;
+  параллельность — по квотам провайдера). Крупные главы (13 — 42 пункта) режутся на 2 волны.
 - Ревью: волны по главам/аспектам. QA — юнитами по ~10 пар строк, 8 параллельно; 316 строк проверены за ~12 минут (целые главы — 50+ минут и таймауты).
 
 ### Контракт с сабагентом (проверено)
@@ -192,7 +192,7 @@ resume. Подробности: [upstream-sync.md §4b](upstream-sync.md#4b-ship
 3. [ ] TRANSLATION.md: секция EN (метки полей: 成本→Cost, 说人话→In plain terms, 收益→Benefit, 证据等级→Evidence grade, 来源→Sources, 备注→Notes), слаги файлов (решить: английские или зеркало китайских; не смешивать схемы).
 4. [ ] Статусная строка и бэк-линки с пересчитанной глубиной (`book/en/x.md` → `../../README.md`).
 5. [ ] `make_digest.py` уже готов — юниты те же; блоки инъектируются как есть.
-6. [ ] Волны: cloud 5–6 / локальный Q8 — строго по 1; контракт «работа = запись файла»; стиль-сэмпл в задаче.
+6. [ ] Волны: 5–6 сабагентов параллельно, по 1 юниту; контракт «работа = запись файла»; стиль-сэмпл в задаче.
 7. [ ] `assemble.py` проверяет каждый файл; правило «источники после метки байт-в-байт» в силе.
 8. [ ] Волновики: локализация → естественность → ретрофит `[eng. "…"]` → reconciliation → native pass.
 9. [ ] README.en.md + язык-селектор в README.md (строка уже есть — добавить EN рядом с RU).

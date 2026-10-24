@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Translate a batch of chapters. Units run one at a time to match the locked
-# llama-server config (-np 1, -c 10240). Usage: ./translate-wave.sh <lang> 16 17 18
+# Translate a batch of chapters via the third-party LLM API (.env HTLB_LLM_*).
+# Units run one at a time — stable default; raise only per-provider capacity.
+# Usage: ./translate-wave.sh <lang> 16 17 18
 set -uo pipefail
 cd "$(dirname "$0")/../.." || exit
 
