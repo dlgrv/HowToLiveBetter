@@ -4,8 +4,8 @@
 Kinds: number_absent / banned_calque.
 
 **number_absent is mechanical first** (locale-aware digit inject into Notes).
-LLM re-prompt for digits is skipped when inject clears the assert — Hy-MT2
-oscillates on absolute values and is not worth the slot. banned_calque still
+LLM re-prompt for digits is skipped when inject clears the assert — LLMs
+oscillate on absolute values and the re-prompt is not worth the round-trip. banned_calque still
 uses the constrained LLM path.
 
 After any draft: strip → collapse multiline fields → markers → validate_unit.

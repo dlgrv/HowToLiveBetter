@@ -229,7 +229,7 @@ lint:  ## All code linters (must match CI)
 	$(DJLINT) $(OG_HTML) --check
 	$(DJLINT) site/index.html --lint
 	$(YAMLLINT) .github/workflows/
-	shellcheck translate/steps/translate/*.sh
+	shellcheck translate/llm/translate-wave.sh
 	@if command -v go >/dev/null 2>&1; then $(MAKE) api-lint; else echo "skip api-lint (go not on PATH)"; fi
 
 test:  ## Run unit tests (excludes integration)

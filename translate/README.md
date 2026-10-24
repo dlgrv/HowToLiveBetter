@@ -12,13 +12,13 @@ live in [`docs/pipeline/`](../docs/pipeline/).
 | `translate/lib/` | shared config / labels / paths |
 | `translate/shelf/` | `style_check`, `readability`, `lt_check` (required LT after verify) |
 | `translate/ops/` | `status`, `wave_pipeline`, `watchdog` |
-| `translate/llm/` | Hy-MT2 client (`HTLB_LLM_*` → `:8080`) |
+| `translate/llm/` | third-party OpenAI-compatible API client (`HTLB_LLM_*`) |
 
 Output dirs `translate/digest/` and `translate/runs/` are gitignored.
 
 | Doc | Scope |
 |---|---|
-| [llm/README.md](llm/README.md) | Hy-MT2 / `llama-server` / `.env` |
+| [llm/README.md](llm/README.md) | LLM provider / `.env` |
 | [languagetool/README.md](languagetool/README.md) | LT Docker `:8010` — required after verify |
 | [../docs/pipeline/translation-playbook.md](../docs/pipeline/translation-playbook.md) | command notes |
 | [../docs/pipeline/add-chapter.md](../docs/pipeline/add-chapter.md) | chapter checklist |
@@ -72,7 +72,7 @@ See [llm/README.md](llm/README.md). Workdir = parent of `units/`
 - `number_absent` → **mechanical only** (`steps/repair/mechanical.py`): locale
   decimals (`0,499` for es/pt/ru), safe Notes inject `〔N〕`, fix mangled
   `g = 0499`, collapse `- Label:\n value`. **No LLM retry / no fallback
-  retranslate** (Hy-MT2 oscillates on abs values).
+  retranslate** (absolute digits oscillate across LLM re-prompts).
 - `banned_calque` → constrained LLM (`repair-unit.md`); fallback retranslate allowed.
 - Caps: ≤8 dirty/round, ≤3 rounds; `--dry-locate` to preview the unit map.
 
@@ -103,7 +103,7 @@ Tone, titles, Cost tags, locale parity by eye. Overlay only via MR + squash to `
 | Need | How |
 |---|---|
 | Python ≥ 3.11 venv | repo root; `PYTHONPATH=.` or `make …` |
-| Hy-MT2 | [llm/README.md](llm/README.md) — GGUF + `llama-server` `:8080`, `.env` `HTLB_LLM_*` |
+| LLM API | [llm/README.md](llm/README.md) — third-party OpenAI-compatible endpoint, `.env` `HTLB_LLM_*` |
 | LanguageTool | Docker `:8010` before `make lt` |
 
 Workdirs under `translate/runs/` / `translate/digest/` are local. Publication is `book/<lang>/` + `translations.json` via MR.

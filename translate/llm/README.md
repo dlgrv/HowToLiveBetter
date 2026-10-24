@@ -1,4 +1,4 @@
-# HTLB local LLM adapter
+# HTLB LLM adapter (third-party API)
 
 OpenAI-compatible client: one digest unit → `translate/runs/.../units/*.md`.
 Never write into `translate/digest/`.
@@ -6,59 +6,32 @@ Never write into `translate/digest/`.
 Canonical wave workdir: `translate/runs/active/<lang>/<NN>/` (parent of `units/`).
 Other wave names under `translate/runs/<wave>/...` are fine; `status.py` / `wave_pipeline.py` prefer `active`.
 
-## Build llama.cpp (Metal) + download official Q8
+## Provider config (`.env`)
+
+Translation runs on **third-party (cloud) OpenAI-compatible APIs only**. Local
+llama.cpp / Hy-MT2 serving is retired — do not reintroduce it.
+
+Copy `.env.example` → `.env` and fill in:
+
+| Var | Meaning |
+|---|---|
+| `HTLB_LLM_BASE_URL` | Provider base URL, e.g. `https://api.example.com/v1` |
+| `HTLB_LLM_API_KEY` | Provider API key |
+| `HTLB_LLM_MODEL` | Model id for unit translation |
+| `HTLB_LLM_TEMPERATURE` | `0.2` — factual unit translation; card default 0.7 is creative |
+
+Client timeout 300s; up to 2 retries on connection/timeout only. One unit per
+request; parallel waves are per-provider capacity decisions (see
+[translation-playbook.md](../../docs/pipeline/translation-playbook.md) §3).
+
+## Wave driver
 
 ```bash
-git clone https://github.com/ggml-org/llama.cpp.git ~/llama.cpp
-cd ~/llama.cpp
-cmake -B build -DGGML_METAL=ON
-cmake --build build --config Release -j
-
-# ~30 GB — official Tencent GGUF only
-hf download tencent/Hy-MT2-30B-A3B-GGUF Hy-MT2-30B-A3B-Q8_0.gguf \
-  --local-dir ~/models/Hy-MT2-30B-A3B-GGUF
+./translate/llm/translate-wave.sh <lang> 16 17 18
 ```
 
-Needs `hy_v3` in llama.cpp. If load fails with `unknown model architecture: 'hy_v3'`, update/rebuild. Fallback on swap/OOM: official `Q4_K_M` from the same HF repo (ask before community quants).
-
-## Server (Hy-MT2 Q8)
-
-**Canonical launcher** (always use this; do not hand-type flags):
-
-```bash
-./translate/steps/translate/start-llama-server.sh
-```
-
-Locked defaults inside that script:
-
-| Flag | Value | Why |
-|---|---|---|
-| `-np` | **1** | One instance / one slot. Units run sequentially. |
-| `-c` | **10240** | Long units need ~9k tokens (prompt + gen). `-c 4096` truncates Notes/Benefit and causes `number_absent` in verify. |
-
-Equivalent manual command (keep in sync with the script):
-
-```bash
-./build/bin/llama-server \
-  -m ~/models/Hy-MT2-30B-A3B-GGUF/Hy-MT2-30B-A3B-Q8_0.gguf \
-  --host 127.0.0.1 --port 8080 \
-  -ngl 99 -fa on -c 10240 -b 512 -ub 512 -np 1 \
-  --cache-type-k q8_0 --cache-type-v q8_0 \
-  --jinja
-```
-
-Do **not** start a second `llama-server` on another port for “speed”. One process, one slot, large context. Override only for experiments: `HTLB_LLAMA_CTX`, `HTLB_LLAMA_SLOTS`.
-
-Copy `.env.example` → `.env`: `HTLB_LLM_BASE_URL`, `HTLB_LLM_MODEL`, `HTLB_LLM_API_KEY`, `HTLB_LLM_TEMPERATURE=0.2`.
-Client timeout 300s; up to 2 retries on connection/timeout only.
-
-Swap models by changing `-m` / `HTLB_LLAMA_MODEL` and `HTLB_LLM_MODEL`, then restart (Q8 ↔ official Q4).
-
-## Sequential units on Q8
-
-On 48 GB Mac with Q8: **one** server (`-np 1`) and **one** `translate_unit.py` at a time. Parallel unit workers are forbidden on Q8 — they fight for the single slot and thrash Metal. Parallel waves = cloud / Q4 only — see [translation-playbook.md](../../docs/pipeline/translation-playbook.md).
-
-Do not run heavy Docker LT + browser thrash during Q8 waves if Activity Monitor shows sustained swap.
+Copies digest units into the canonical workdir, translates them one at a time,
+re-adds the chapter number to H1, then runs one repair round.
 
 ## Translate one unit
 
@@ -94,12 +67,12 @@ python3 translate/steps/repair/repair_wave.py --nn 01 --lang ru \
 - Safe inject into Notes uses `〔N〕` — never space-separated `2022 523`
   (thousands-fold glues them to `2022523`).
 - Mangled `g = 0499` is rewritten to the locale form before inject.
-- Multiline empty fields (`- Cost:\\n  …`) are collapsed after every MT/repair
+- Multiline empty fields (`- Cost:\n  …`) are collapsed after every MT/repair
   draft; `validate_unit` rejects bare `- Label:` lines.
 
 LLM re-prompt and fallback `translate_unit` are **skipped** for
-`number_absent`-only rounds (Hy-MT2 oscillates). `banned_calque` still uses
-`repair-unit.md` + optional fallback retranslate.
+`number_absent`-only rounds (absolute digits oscillate across LLM re-prompts).
+`banned_calque` still uses `repair-unit.md` + optional fallback retranslate.
 
 Per round: assemble → `verify --json` → locate → `repair_unit.py` →
 re-assemble → re-verify. ≤ 8 dirty units/round; never writes
@@ -108,4 +81,4 @@ re-assemble → re-verify. ≤ 8 dirty units/round; never writes
 
 Assemble workdir = parent of `units/`. One script for all langs: `assemble.py <NN> <workdir> <out.md> [lang]` (`lang` defaults to `ru`).
 
-Ops detail: this README + [start-llama-server.sh](../steps/translate/start-llama-server.sh) + [translation-playbook.md](../../docs/pipeline/translation-playbook.md) (§ Ops).
+Ops detail: this README + [translation-playbook.md](../../docs/pipeline/translation-playbook.md) (§ Ops).
