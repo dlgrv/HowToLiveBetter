@@ -1690,9 +1690,9 @@ function placePop(el, side){
   pop.hidden = false;
   const r = el.getBoundingClientRect();
   if (side){
-    // справа от элемента (summary раздела из сайдбара): в области контента
-    const w = Math.max(200, Math.min(360, innerWidth - r.right - 24));
-    let x = Math.max(12, Math.min(r.right + 12, innerWidth - w - 12));
+    // справа от элемента (summary раздела из сайдбара), чуть внахлёст к ссылке
+    let x = Math.max(12, Math.min(r.right - 6, innerWidth - 212));
+    const w = Math.max(200, Math.min(360, innerWidth - x - 12));
     let top = r.top + scrollY;
     const overflow = top + pop.offsetHeight - (scrollY + innerHeight);
     if (overflow > 0) top -= overflow + 8;
