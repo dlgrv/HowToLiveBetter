@@ -542,9 +542,21 @@ html.side-collapsed .sidebar > *{opacity:0;visibility:hidden}
 .sec-link.spy-on{color:var(--ink)}
 .sec-link i{margin-left:auto;font:var(--fw-ui) var(--fs-ui)/1 var(--sans);font-style:normal;font-variant-numeric:tabular-nums;color:var(--faint)}
 .chips{display:flex;flex-direction:column;align-items:flex-start;gap:0}
-.chip{border:0;background:none;color:var(--mut);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none;padding:var(--ui-row-pad);cursor:pointer;transition:color .15s;text-align:left}
+/* Чип = мини-чекбокс: пустой квадрат в покое, чернильный с галочкой при выборе
+   (та же графика, что у .toggle input:checked). Состояние ведёт aria-pressed. */
+.chip{display:inline-flex;align-items:baseline;gap:var(--sp-2);border:0;background:none;color:var(--mut);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-synthesis:none;padding:var(--ui-row-pad);cursor:pointer;transition:color .15s;text-align:left}
+.chip::before{content:"";flex:none;width:var(--sp-4);height:var(--sp-4);align-self:center;box-sizing:border-box;border:var(--line-w) solid var(--line-soft);border-radius:var(--radius-sm);background:transparent;transition:border-color .15s,background-color .15s}
 .chip:hover{color:var(--ink)}
+.chip:hover::before{border-color:var(--mut)}
 .chip[aria-pressed="true"]{color:var(--ink)}
+.chip[aria-pressed="true"]::before{
+  border-color:var(--ink);background-color:var(--ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  background-size:12px 12px;background-position:center;background-repeat:no-repeat;
+}
+html.dark .chip[aria-pressed="true"]::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}
 .toggle{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-2) 0;color:var(--mut);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);cursor:pointer}
 .toggle:hover{color:var(--ink)}
 .toggle input{

@@ -155,9 +155,13 @@ html.compact .card-expand{display:block}
 .sec-link i{font-style:normal;font-size:12px;color:var(--t3);font-variant-numeric:tabular-nums}
 .sec-link.all{padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--divider)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:6px}
-.chip{border:1px solid var(--divider);background:var(--bg-elv);color:var(--t2);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:500;line-height:18px;transition:all .2s}
+/* мини-чекбокс внутри пилюли: пустой в покое, branded с галочкой при выборе */
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--divider);background:var(--bg-elv);color:var(--t2);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:500;line-height:18px;transition:all .2s}
+.chip::before{content:"";flex:none;width:13px;height:13px;box-sizing:border-box;border:1px solid var(--divider);border-radius:4px;background:transparent;transition:all .2s}
 .chip:hover{border-color:var(--brand-3);color:var(--t1)}
+.chip:hover::before{border-color:var(--brand-3)}
 .chip[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand-1);color:var(--brand-1)}
+.chip[aria-pressed="true"]::before{border-color:var(--brand-1);background-color:var(--brand-1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");background-size:9px 9px;background-position:center;background-repeat:no-repeat}
 .toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t2);padding:4px 0;cursor:pointer;font-weight:500}
 .toggle input{accent-color:var(--brand-1);width:15px;height:15px;margin:0}
 .reset{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;border:1px solid var(--divider);border-radius:20px;font-size:13px;font-weight:500;color:var(--t2);background:var(--bg-elv);transition:all .25s}
