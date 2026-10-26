@@ -871,6 +871,15 @@ body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var
     </div>
   </div>
   <div class="group">
+    <div class="gt"><span id="sit-h">Ситуация</span> <small id="sit-s">черновая эвристика по главам</small></div>
+    <div class="chips" data-dim="sit">
+      <button type="button" class="chip" data-v="free" aria-pressed="false">Без затрат</button>
+      <button type="button" class="chip" data-v="d30" aria-pressed="false">Одним заходом</button>
+      <button type="button" class="chip" data-v="35" aria-pressed="false">35+</button>
+      <button type="button" class="chip" data-v="60" aria-pressed="false">60+</button>
+    </div>
+  </div>
+  <div class="group">
     <label class="toggle"><input type="checkbox" id="f-dispute"> только спорные</label>
     <label class="toggle"><input type="checkbox" id="f-todo"> только требующие проверки</label>
     <button type="button" class="reset" id="selfcheck-btn">Пройти самопроверку</button>
@@ -1025,7 +1034,8 @@ const I18N = {
    money0:'Бесплатно', moneyL:'Мало', moneyM:'Много', timeL:'На бегу', timeM:'Несколько часов', timeH2:'Каждый день', willN:'Не нужна', willS:'Немного', willB:'Сильно',
    fDispute:'только спорные', fTodo:'только требующие проверки',
    updH:'Свежее',
-   scStart:'Пройти самопроверку', scExit:'Выйти', scYes:'Да, делаю', scNo:'Нет, не делаю', scBack:'← Вернуть', scResultsH:'Итоги по разделам', scTopH:'Сначала сделай эти', scRestart:'Пройти заново', scOf:'из', scNote:'Ответы хранятся локально и синхронизируются с аккаунтом.', updAdded:'Новые', updChanged:'Обновлённые', updDaysAria:'Окно в днях', updBadge:'Обновлено',
+   scStart:'Пройти самопроверку', scExit:'Выйти', scYes:'Да, делаю', scNo:'Нет, не делаю', scBack:'← Вернуть', scResultsH:'Итоги по разделам', scTopH:'Сначала сделай эти', scRestart:'Пройти заново', scOf:'из', scNote:'Ответы хранятся локально и синхронизируются с аккаунтом.',
+   sitH:'Ситуация', sitFree:'Без затрат', sitD30:'Одним заходом', sit35:'35+', sit60:'60+', sitS:'черновая эвристика по главам и тегам', updAdded:'Новые', updChanged:'Обновлённые', updDaysAria:'Окно в днях', updBadge:'Обновлено',
    hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
    hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
    hint3:'Данные — из каталога <a href="../book/ru/">book/ru/</a> ({n}); правки текста вносятся там.',
@@ -1066,7 +1076,8 @@ const I18N = {
    money0:'Free', moneyL:'Little', moneyM:'Much', timeL:'On the go', timeM:'A few hours', timeH2:'Every day', willN:'None needed', willS:'A little', willB:'A lot',
    fDispute:'contested only', fTodo:'unverified only',
    updH:'Fresh',
-   scStart:'Take the self-check', scExit:'Exit', scYes:'Yes, I do this', scNo:'Not yet', scBack:'← Undo', scResultsH:'Results by section', scTopH:'Do these first', scRestart:'Start over', scOf:'of', scNote:'Answers are stored locally and synced to your account.', updAdded:'New', updChanged:'Updated', updDaysAria:'Window in days', updBadge:'Updated',
+   scStart:'Take the self-check', scExit:'Exit', scYes:'Yes, I do this', scNo:'Not yet', scBack:'← Undo', scResultsH:'Results by section', scTopH:'Do these first', scRestart:'Start over', scOf:'of', scNote:'Answers are stored locally and synced to your account.',
+   sitH:'Situation', sitFree:'Free', sitD30:'One-time', sit35:'35+', sit60:'60+', sitS:'rough chapter/tag heuristic', updAdded:'New', updChanged:'Updated', updDaysAria:'Window in days', updBadge:'Updated',
    hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
    hint2:'Within a section — by descending benefit. Search does not change the order.',
    hint3:'Data comes from the <a href="../book/en/">book/en/</a> directory ({n}); edit the text there.',
@@ -1107,7 +1118,8 @@ const I18N = {
    money0:'Gratis', moneyL:'Poco', moneyM:'Mucho', timeL:'Al momento', timeM:'Unas horas', timeH2:'A diario', willN:'No hace falta', willS:'Un poco', willB:'Bastante',
    fDispute:'solo controvertidas', fTodo:'solo sin verificar',
    updH:'Novedades',
-   scStart:'Haz la autoevaluación', scExit:'Salir', scYes:'Sí, lo cumplo', scNo:'Todavía no', scBack:'← Deshacer', scResultsH:'Resultados por sección', scTopH:'Haz primero esto', scRestart:'Reiniciar', scOf:'de', scNote:'Las respuestas se guardan localmente y se sincronizan con tu cuenta.', updAdded:'Nuevos', updChanged:'Actualizados', updDaysAria:'Ventana en días', updBadge:'Actualizado',
+   scStart:'Haz la autoevaluación', scExit:'Salir', scYes:'Sí, lo cumplo', scNo:'Todavía no', scBack:'← Deshacer', scResultsH:'Resultados por sección', scTopH:'Haz primero esto', scRestart:'Reiniciar', scOf:'de', scNote:'Las respuestas se guardan localmente y se sincronizan con tu cuenta.',
+   sitH:'Situación', sitFree:'Gratis', sitD30:'De una vez', sit35:'35+', sit60:'60+', sitS:'heurística aproximada por capítulos', updAdded:'Nuevos', updChanged:'Actualizados', updDaysAria:'Ventana en días', updBadge:'Actualizado',
    hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
    hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
    hint3:'Los datos vienen del directorio <a href="../book/es/">book/es/</a> ({n}); edita el texto allí.',
@@ -1148,7 +1160,8 @@ const I18N = {
    money0:'Grátis', moneyL:'Pouco', moneyM:'Muito', timeL:'Na hora', timeM:'Algumas horas', timeH2:'Todo dia', willN:'Não precisa', willS:'Um pouco', willB:'Bastante',
    fDispute:'só controversas', fTodo:'só sem verificar',
    updH:'Novidades',
-   scStart:'Faça a autoavaliação', scExit:'Sair', scYes:'Sim, eu faço', scNo:'Ainda não', scBack:'← Desfazer', scResultsH:'Resultados por seção', scTopH:'Faça primeiro isto', scRestart:'Reiniciar', scOf:'de', scNote:'As respostas ficam salvas localmente e sincronizam com a sua conta.', updAdded:'Novos', updChanged:'Atualizados', updDaysAria:'Janela em dias', updBadge:'Atualizado',
+   scStart:'Faça a autoavaliação', scExit:'Sair', scYes:'Sim, eu faço', scNo:'Ainda não', scBack:'← Desfazer', scResultsH:'Resultados por seção', scTopH:'Faça primeiro isto', scRestart:'Reiniciar', scOf:'de', scNote:'As respostas ficam salvas localmente e sincronizam com a sua conta.',
+   sitH:'Situação', sitFree:'Grátis', sitD30:'De uma vez', sit35:'35+', sit60:'60+', sitS:'heurística aproximada por capítulos', updAdded:'Novos', updChanged:'Atualizados', updDaysAria:'Janela em dias', updBadge:'Atualizado',
    hint1:'Uma seção por vez; custos e nível podem ser combinados. Dentro de um grupo a escolha é «ou», entre grupos «e».',
    hint2:'Dentro de uma seção — por benefício decrescente. A busca não altera a ordem.',
    hint3:'Os dados vêm do diretório <a href="../book/pt/">book/pt/</a> ({n}); edite o texto lá.',
@@ -1189,7 +1202,8 @@ const I18N = {
    money0:'Gratis', moneyL:'Sedikit', moneyM:'Banyak', timeL:'Sebentar', timeM:'Beberapa jam', timeH2:'Setiap hari', willN:'Tidak perlu', willS:'Sedikit', willB:'Besar',
    fDispute:'hanya yang diperdebatkan', fTodo:'hanya yang belum diverifikasi',
    updH:'Baru',
-   scStart:'Ikuti cek mandiri', scExit:'Keluar', scYes:'Ya, saya lakukan', scNo:'Belum', scBack:'← Urungkan', scResultsH:'Hasil per bagian', scTopH:'Lakukan ini dulu', scRestart:'Ulangi', scOf:'dari', scNote:'Jawaban disimpan lokal dan disinkronkan dengan akun Anda.', updAdded:'Item baru', updChanged:'Diperbarui', updDaysAria:'Jendela waktu (hari)', updBadge:'Diperbarui',
+   scStart:'Ikuti cek mandiri', scExit:'Keluar', scYes:'Ya, saya lakukan', scNo:'Belum', scBack:'← Urungkan', scResultsH:'Hasil per bagian', scTopH:'Lakukan ini dulu', scRestart:'Ulangi', scOf:'dari', scNote:'Jawaban disimpan lokal dan disinkronkan dengan akun Anda.',
+   sitH:'Situasi', sitFree:'Gratis', sitD30:'Sekali jalan', sit35:'35+', sit60:'60+', sitS:'heuristik kasar per bab', updAdded:'Item baru', updChanged:'Diperbarui', updDaysAria:'Jendela waktu (hari)', updBadge:'Diperbarui',
    hint1:'Pilih satu bab. Kamu bisa memilih beberapa biaya dan tingkat bukti sekaligus.',
    hint2:'Urutan saran dalam bab mengikuti manfaat dibanding biayanya. Pencarian tidak mengubah urutan.',
    hint3:'Isi diambil dari <a href="../book/id/">book/id/</a> ({n}); perbaiki naskah di sana.',
@@ -1230,7 +1244,8 @@ const I18N = {
    money0:'مجانًا', moneyL:'قليل', moneyM:'كثير', timeL:'على الماشي', timeM:'بضع ساعات', timeH2:'كل يوم', willN:'لا حاجة', willS:'قليل', willB:'كثير',
    fDispute:'المتنازع عليها فقط', fTodo:'غير المتحقق منها فقط',
    updH:'الجديد',
-   scStart:'قم بالفحص الذاتي', scExit:'خروج', scYes:'نعم، أفعل ذلك', scNo:'ليس بعد', scBack:'← تراجع', scResultsH:'النتائج حسب القسم', scTopH:'ابدأ بهذه', scRestart:'إعادة', scOf:'من', scNote:'تُحفظ الإجابات محليًا وتُزامن مع حسابك.', updAdded:'أضيف حديثًا', updChanged:'محدّث', updDaysAria:'النافذة بالأيام', updBadge:'محدّث',
+   scStart:'قم بالفحص الذاتي', scExit:'خروج', scYes:'نعم، أفعل ذلك', scNo:'ليس بعد', scBack:'← تراجع', scResultsH:'النتائج حسب القسم', scTopH:'ابدأ بهذه', scRestart:'إعادة', scOf:'من', scNote:'تُحفظ الإجابات محليًا وتُزامن مع حسابك.',
+   sitH:'الحالة', sitFree:'مجانًا', sitD30:'دفعة واحدة', sit35:'+35', sit60:'+60', sitS:'تقدير تقريبي حسب الفصول', updAdded:'أضيف حديثًا', updChanged:'محدّث', updDaysAria:'النافذة بالأيام', updBadge:'محدّث',
    hint1:'قسم واحد في كل مرة؛ يمكن الجمع بين التكلفة والمستوى. داخل المجموعة الاختيار «أو»، وبين المجموعات «و».',
    hint2:'داخل القسم — مرتبة حسب الفائدة تنازليًا. البحث لا يغيّر الترتيب.',
    hint3:'البيانات من مجلد <a href="../book/ar/">book/ar/</a> ({n})؛ صحّح النص هناك.',
@@ -1272,7 +1287,8 @@ const I18N = {
    money0:'免费', moneyL:'少', moneyM:'多', timeL:'顺手', timeM:'几小时', timeH2:'每天', willN:'不需要', willS:'一点点', willB:'明显',
    fDispute:'只看有争议', fTodo:'只看待核实',
    updH:'最近变化',
-   scStart:'生活自查', scExit:'退出', scYes:'是，做到了', scNo:'还没有', scBack:'← 撤销', scResultsH:'各章结果', scTopH:'先做这几件', scRestart:'重新自查', scOf:'/', scNote:'答案保存在本地并同步到你的账号。', updAdded:'新增', updChanged:'有更新', updDaysAria:'时间窗口（天）', updBadge:'已更新',
+   scStart:'生活自查', scExit:'退出', scYes:'是，做到了', scNo:'还没有', scBack:'← 撤销', scResultsH:'各章结果', scTopH:'先做这几件', scRestart:'重新自查', scOf:'/', scNote:'答案保存在本地并同步到你的账号。',
+   sitH:'处境', sitFree:'不花钱', sitD30:'一次搞定', sit35:'35 岁以上', sit60:'60 岁以上', sitS:'按章节和标签粗略估算', updAdded:'新增', updChanged:'有更新', updDaysAria:'时间窗口（天）', updBadge:'已更新',
    hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
    hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
    hint3:'数据来自 <a href="../book/">book/</a> 目录（{n}）；改正文请改那里。',
@@ -1331,6 +1347,8 @@ function applyI18n(){
   document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
   const updH=document.getElementById('upd-h'); if(updH) updH.textContent=t.updH;
   const updD=document.getElementById('upd-days'); if(updD) updD.setAttribute('aria-label',t.updDaysAria);
+  const sitH=document.getElementById('sit-h'); if(sitH) sitH.textContent=t.sitH;
+  const sitS=document.getElementById('sit-s'); if(sitS) sitS.textContent=t.sitS;
   const scB=document.getElementById('selfcheck-btn'); if(scB) scB.textContent=t.scStart;
   const scX=document.getElementById('sc-exit'); if(scX) scX.textContent=t.scExit;
   const scY=document.getElementById('sc-yes'); if(scY) scY.textContent=t.scYes;
@@ -1365,7 +1383,8 @@ function applyI18n(){
     money:[['0',t.money0],['少',t.moneyL],['多',t.moneyM]],
     time:[['少',t.timeL],['中',t.timeM],['多',t.timeH2]],
     will:[['否',t.willN],['些',t.willS],['是',t.willB]],
-    upd:[['added',t.updAdded],['changed',t.updChanged]]};
+    upd:[['added',t.updAdded],['changed',t.updChanged]],
+    sit:[['free',t.sitFree],['d30',t.sitD30],['35',t.sit35],['60',t.sit60]]};
   for (const [dim,arr] of Object.entries(chips)){
     document.querySelectorAll(`.chips[data-dim="${dim}"] .chip`).forEach(b=>{
       const hit=arr.find(([v])=>b.dataset.v===v); if(hit) b.textContent=hit[1];
@@ -1862,8 +1881,24 @@ function updMatch(e, kinds, days, now){
   for (const k of kinds){ const d = e.upd[k]; if (d && (now - Date.parse(d)) <= days * UPD_DAY_MS) hit = true; }
   return hit;
 }
-const DIMS = ['sec','ratio','lens','grade','money','time','will','upd'];
-const state = { q:'', sec:new Set(), ratio:new Set(), lens:new Set(), grade:new Set(), money:new Set(), time:new Set(), will:new Set(), upd:new Set(), dispute:false, todo:false, days:30 };
+/* Twin of forge/site/sit_match.py — keep SITUATIONS/sitMatch in sync. */
+/* TUNE: age chapter lists are a first draft — adjust after reader feedback. */
+const SITUATIONS = {
+  age: {
+    '35': ['05','15','16','18','19','24','26','32'],
+    '60': ['16','17','24','25','33'],
+  },
+};
+function sitMatch(e, tags){
+  for (const t of tags){
+    if (t === 'free' && e.money === '0') return true;
+    if (t === 'd30' && e.time === '少' && e.will === '否') return true;
+    if ((t === '35' || t === '60') && SITUATIONS.age[t].indexOf(e.sec) >= 0) return true;
+  }
+  return false;
+}
+const DIMS = ['sec','ratio','lens','grade','money','time','will','upd','sit'];
+const state = { q:'', sec:new Set(), ratio:new Set(), lens:new Set(), grade:new Set(), money:new Set(), time:new Set(), will:new Set(), upd:new Set(), sit:new Set(), dispute:false, todo:false, days:30 };
 function readUrl(){
   const p = new URLSearchParams(location.search);
   state.q = p.get('q') || '';
@@ -1971,6 +2006,7 @@ function apply(){
     if (ok && state.dispute && !e.dispute) ok = false;
     if (ok && state.todo && !e.todo) ok = false;
     if (ok && state.upd.size && !updMatch(e, state.upd, state.days)) ok = false;
+    if (ok && state.sit.size && !sitMatch(e, state.sit)) ok = false;
     if (ok && terms.length && !terms.every(t => e.hay.includes(t))) ok = false;
     if (el.hidden === ok) el.hidden = !ok;
     if (ok){
