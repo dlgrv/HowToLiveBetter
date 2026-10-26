@@ -1201,10 +1201,14 @@ const MD_LINK_RE = /\[([^\]\n]+)\]\(([^)\s]+)\)/;
 const LINK_RE = new RegExp(MD_LINK_RE.source + '|' + URL_RE.source, 'g');
 function hrefOf(p){
   if (/^(https?:|mailto:|#)/.test(p)) return p;
+  // ссылки на главы книги — прыжок внутри ридера, а не уход на GitHub
+  const ch = /^(?:\.\.\/)*(\d{2})-[^/]+\.md$/.exec(p);
+  if (ch) return '#sec-' + ch[1];
   return REPO_BLOB + p.replace(/^(\.\.?\/)+/, '').split('/').map(encodeURIComponent).join('/');
 }
 function mkLink(href, text){
-  const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = text;
+  const a = document.createElement('a'); a.href = href; a.textContent = text;
+  if (href.charAt(0) !== '#'){ a.target = '_blank'; a.rel = 'noopener'; }
   return a;
 }
 function renderText(el, text, terms, withTerms = true){

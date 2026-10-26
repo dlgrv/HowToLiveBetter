@@ -2,7 +2,7 @@
 
 # 10. Vale a pena namorar e casar?
 
-Esta seção desmonta «vale a pena casar» em contas separadas de dinheiro, tempo, saúde, risco legal e qualidade da relação. Cada conta usa só número cuja origem se pode consultar, e a origem se limita a estatística oficial ou a metanálise (juntar os dados de vários estudos e recalcular). Aqui não há juízo moral, e ninguém conclui no seu lugar. As contas de saúde usam risco de morte; as de tempo, quantos minutos por dia; as legais, o que o texto da lei escreve. Esses três modos de contar não se convertem uns nos outros. O método de desmontar a conta, a lista para preencher e os erros comuns estão em [Vale a pena casar?: análise completa](../../docs/research/pt/Is-Marriage-Worth-It.md).
+Esta seção desmonta «vale a pena casar» em contas separadas de dinheiro, tempo, saúde, risco legal e qualidade da relação. Cada conta usa só número cuja origem se pode consultar, e a origem se limita a estatística oficial ou a metanálise (juntar os dados de vários estudos e recalcular). Aqui não há juízo moral, e ninguém conclui no seu lugar. As contas de saúde usam risco de morte; as de tempo, quantos minutos por dia; as legais, o que o texto da lei escreve. Esses três modos de contar não se convertem uns nos outros. O método de desmontar a conta, a lista para preencher e os erros comuns estão em [capítulo 10 «Vale a pena namorar e casar?»](10-Vale-a-pena-namorar-e-casar.md).
 
 Os itens desta seção estão agrupados por tema; o número do item vai entre parênteses.
 
@@ -159,7 +159,7 @@ Os itens desta seção estão agrupados por tema; o número do item vai entre pa
 - Benefício: O benefício dos mais velhos é real. Mas ele não se converte sozinho no seu benefício de saúde (item 8 desta seção) nem na qualidade da relação (item 4 desta seção; se a relação está boa, olhe a própria sensação). Já a conta de tempo (item 9 desta seção), a de dinheiro (itens 10 a 12 desta seção) e o custo de sair (item 15 desta seção) ficam todos com a pessoa que casa. Depois de separar as contas, se o «casar como tarefa» tem boa relação custo-benefício, você mesmo vê
 - Nível de evidência: C
 - Fontes:作者经验，方法类建议；数据部分见本节前面各条
-- Notas: A coluna dos mais velhos também pode ser pesada; como ponderar fica com você. A lista para preencher está em [Vale a pena casar?: análise completa](../../docs/research/pt/Is-Marriage-Worth-It.md)
+- Notas: A coluna dos mais velhos também pode ser pesada; como ponderar fica com você. A lista para preencher está em [capítulo 10 «Vale a pena namorar e casar?»](10-Vale-a-pena-namorar-e-casar.md)
 
 ### 17. Trate a qualidade da relação como uma conta de saúde: na briga, vá ao fato, não à pessoa; não xingue nem ironize
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->
