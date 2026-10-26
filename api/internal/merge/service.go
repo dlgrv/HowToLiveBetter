@@ -7,6 +7,7 @@ import (
 
 	"github.com/dlgrv/HowToLiveBetter/api/internal/authz"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/library"
+	"github.com/dlgrv/HowToLiveBetter/api/internal/selfcheck"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/useful"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -20,6 +21,7 @@ type Service struct {
 type Result struct {
 	BookmarksMerged int  `json:"bookmarksMerged"`
 	ReadingMerged   bool `json:"readingMerged"`
+	SelfcheckMerged int  `json:"selfcheckMerged"`
 }
 
 func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
@@ -51,6 +53,24 @@ func (s Service) MergeGuestIntoUser(guestID, userID string) (Result, error) {
 				return err
 			}
 			res.ReadingMerged = true
+		}
+
+		// Self-check answers: guest state overlays the user's (guest wins per
+		// key — it is the device the user just logged in from).
+		sc := selfcheck.Service{App: txApp}
+		gAns, err := sc.Get(gOwner)
+		if err != nil {
+			return err
+		}
+		if len(gAns) > 0 {
+			uAns, err := sc.Get(uOwner)
+			if err != nil {
+				return err
+			}
+			if err := sc.Put(uOwner, selfcheck.Overlay(uAns, gAns)); err != nil {
+				return err
+			}
+			res.SelfcheckMerged = len(gAns)
 		}
 
 		// Re-home useful votes: rehash voterKey to the user identity and collapse

@@ -10,6 +10,7 @@ func TestCollectionsLocked(t *testing.T) {
 	app := testutil.NewApp(t)
 	for _, name := range []string{
 		"guest_sessions", "guest_claims", "useful_votes", "bookmarks", "reading_positions",
+		"selfcheck_answers",
 	} {
 		col, err := app.FindCollectionByNameOrId(name)
 		if err != nil {

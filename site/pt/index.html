@@ -873,6 +873,7 @@ body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var
   <div class="group">
     <label class="toggle"><input type="checkbox" id="f-dispute"> только спорные</label>
     <label class="toggle"><input type="checkbox" id="f-todo"> только требующие проверки</label>
+    <button type="button" class="reset" id="selfcheck-btn">Пройти самопроверку</button>
     <button type="button" class="reset" id="reset">Сбросить фильтры</button>
   </div>
   <div class="hint">
@@ -941,6 +942,27 @@ body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var
         <div><button type="button" id="reset2">Сбросить</button></div>
       </div>
     </div>
+    <section class="sc" id="sc" hidden>
+      <div class="sc-head"><span id="sc-count"></span><button type="button" class="sc-exit" id="sc-exit">Выйти</button></div>
+      <div class="sc-q" id="sc-q">
+        <p class="sc-sec" id="sc-sec"></p>
+        <h3 id="sc-title"></h3>
+        <p class="sc-meta" id="sc-meta"></p>
+        <div class="sc-btns">
+          <button type="button" id="sc-yes">Да, делаю</button>
+          <button type="button" id="sc-no">Нет, не делаю</button>
+          <button type="button" id="sc-back">← Вернуть</button>
+        </div>
+        <p class="sc-note" id="sc-note"></p>
+      </div>
+      <div class="sc-res" id="sc-res" hidden>
+        <h3 id="sc-res-h"></h3>
+        <div id="sc-res-list"></div>
+        <h4 id="sc-top-h"></h4>
+        <div id="sc-top-list"></div>
+        <button type="button" class="reset" id="sc-restart"></button>
+      </div>
+    </section>
     <div class="foot">Категория эффекта указана в каждом пункте (смертность / время и силы / деньги / гарантии и личная свобода); категории между собой не сравниваются. Проверка источников: <a href="https://github.com/dlgrv/HowToLiveBetter/tree/main/docs/%E6%A0%B8%E5%AE%9E%E8%AE%B0%E5%BD%95">docs/核实记录 (на китайском)</a>. Текст — Public Domain (Unlicense).</div>
     <p class="foot-legal"><a id="privacy-link" href="privacy/">Privacy</a></p>
   </div>
@@ -1002,7 +1024,8 @@ const I18N = {
    moneyH:'Деньги', timeH:'Время', willH:'Сила воли',
    money0:'Бесплатно', moneyL:'Мало', moneyM:'Много', timeL:'На бегу', timeM:'Несколько часов', timeH2:'Каждый день', willN:'Не нужна', willS:'Немного', willB:'Сильно',
    fDispute:'только спорные', fTodo:'только требующие проверки',
-   updH:'Свежее', updAdded:'Новые', updChanged:'Обновлённые', updDaysAria:'Окно в днях', updBadge:'Обновлено',
+   updH:'Свежее',
+   scStart:'Пройти самопроверку', scExit:'Выйти', scYes:'Да, делаю', scNo:'Нет, не делаю', scBack:'← Вернуть', scResultsH:'Итоги по разделам', scTopH:'Сначала сделай эти', scRestart:'Пройти заново', scOf:'из', scNote:'Ответы хранятся локально и синхронизируются с аккаунтом.', updAdded:'Новые', updChanged:'Обновлённые', updDaysAria:'Окно в днях', updBadge:'Обновлено',
    hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
    hint2:'Внутри раздела — по убыванию выгоды. Поиск не меняет порядок.',
    hint3:'Данные — из каталога <a href="../book/ru/">book/ru/</a> ({n}); правки текста вносятся там.',
@@ -1042,7 +1065,8 @@ const I18N = {
    moneyH:'Money', timeH:'Time', willH:'Willpower',
    money0:'Free', moneyL:'Little', moneyM:'Much', timeL:'On the go', timeM:'A few hours', timeH2:'Every day', willN:'None needed', willS:'A little', willB:'A lot',
    fDispute:'contested only', fTodo:'unverified only',
-   updH:'Fresh', updAdded:'New', updChanged:'Updated', updDaysAria:'Window in days', updBadge:'Updated',
+   updH:'Fresh',
+   scStart:'Take the self-check', scExit:'Exit', scYes:'Yes, I do this', scNo:'Not yet', scBack:'← Undo', scResultsH:'Results by section', scTopH:'Do these first', scRestart:'Start over', scOf:'of', scNote:'Answers are stored locally and synced to your account.', updAdded:'New', updChanged:'Updated', updDaysAria:'Window in days', updBadge:'Updated',
    hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
    hint2:'Within a section — by descending benefit. Search does not change the order.',
    hint3:'Data comes from the <a href="../book/en/">book/en/</a> directory ({n}); edit the text there.',
@@ -1082,7 +1106,8 @@ const I18N = {
    moneyH:'Dinero', timeH:'Tiempo', willH:'Voluntad',
    money0:'Gratis', moneyL:'Poco', moneyM:'Mucho', timeL:'Al momento', timeM:'Unas horas', timeH2:'A diario', willN:'No hace falta', willS:'Un poco', willB:'Bastante',
    fDispute:'solo controvertidas', fTodo:'solo sin verificar',
-   updH:'Novedades', updAdded:'Nuevos', updChanged:'Actualizados', updDaysAria:'Ventana en días', updBadge:'Actualizado',
+   updH:'Novedades',
+   scStart:'Haz la autoevaluación', scExit:'Salir', scYes:'Sí, lo cumplo', scNo:'Todavía no', scBack:'← Deshacer', scResultsH:'Resultados por sección', scTopH:'Haz primero esto', scRestart:'Reiniciar', scOf:'de', scNote:'Las respuestas se guardan localmente y se sincronizan con tu cuenta.', updAdded:'Nuevos', updChanged:'Actualizados', updDaysAria:'Ventana en días', updBadge:'Actualizado',
    hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
    hint2:'Dentro de una sección — por beneficio descendente. La búsqueda no cambia el orden.',
    hint3:'Los datos vienen del directorio <a href="../book/es/">book/es/</a> ({n}); edita el texto allí.',
@@ -1122,7 +1147,8 @@ const I18N = {
    moneyH:'Dinheiro', timeH:'Tempo', willH:'Força de vontade',
    money0:'Grátis', moneyL:'Pouco', moneyM:'Muito', timeL:'Na hora', timeM:'Algumas horas', timeH2:'Todo dia', willN:'Não precisa', willS:'Um pouco', willB:'Bastante',
    fDispute:'só controversas', fTodo:'só sem verificar',
-   updH:'Novidades', updAdded:'Novos', updChanged:'Atualizados', updDaysAria:'Janela em dias', updBadge:'Atualizado',
+   updH:'Novidades',
+   scStart:'Faça a autoavaliação', scExit:'Sair', scYes:'Sim, eu faço', scNo:'Ainda não', scBack:'← Desfazer', scResultsH:'Resultados por seção', scTopH:'Faça primeiro isto', scRestart:'Reiniciar', scOf:'de', scNote:'As respostas ficam salvas localmente e sincronizam com a sua conta.', updAdded:'Novos', updChanged:'Atualizados', updDaysAria:'Janela em dias', updBadge:'Atualizado',
    hint1:'Uma seção por vez; custos e nível podem ser combinados. Dentro de um grupo a escolha é «ou», entre grupos «e».',
    hint2:'Dentro de uma seção — por benefício decrescente. A busca não altera a ordem.',
    hint3:'Os dados vêm do diretório <a href="../book/pt/">book/pt/</a> ({n}); edite o texto lá.',
@@ -1162,7 +1188,8 @@ const I18N = {
    moneyH:'Uang', timeH:'Waktu', willH:'Usaha',
    money0:'Gratis', moneyL:'Sedikit', moneyM:'Banyak', timeL:'Sebentar', timeM:'Beberapa jam', timeH2:'Setiap hari', willN:'Tidak perlu', willS:'Sedikit', willB:'Besar',
    fDispute:'hanya yang diperdebatkan', fTodo:'hanya yang belum diverifikasi',
-   updH:'Baru', updAdded:'Item baru', updChanged:'Diperbarui', updDaysAria:'Jendela waktu (hari)', updBadge:'Diperbarui',
+   updH:'Baru',
+   scStart:'Ikuti cek mandiri', scExit:'Keluar', scYes:'Ya, saya lakukan', scNo:'Belum', scBack:'← Urungkan', scResultsH:'Hasil per bagian', scTopH:'Lakukan ini dulu', scRestart:'Ulangi', scOf:'dari', scNote:'Jawaban disimpan lokal dan disinkronkan dengan akun Anda.', updAdded:'Item baru', updChanged:'Diperbarui', updDaysAria:'Jendela waktu (hari)', updBadge:'Diperbarui',
    hint1:'Pilih satu bab. Kamu bisa memilih beberapa biaya dan tingkat bukti sekaligus.',
    hint2:'Urutan saran dalam bab mengikuti manfaat dibanding biayanya. Pencarian tidak mengubah urutan.',
    hint3:'Isi diambil dari <a href="../book/id/">book/id/</a> ({n}); perbaiki naskah di sana.',
@@ -1202,7 +1229,8 @@ const I18N = {
    moneyH:'المال', timeH:'الوقت', willH:'الإرادة',
    money0:'مجانًا', moneyL:'قليل', moneyM:'كثير', timeL:'على الماشي', timeM:'بضع ساعات', timeH2:'كل يوم', willN:'لا حاجة', willS:'قليل', willB:'كثير',
    fDispute:'المتنازع عليها فقط', fTodo:'غير المتحقق منها فقط',
-   updH:'الجديد', updAdded:'أضيف حديثًا', updChanged:'محدّث', updDaysAria:'النافذة بالأيام', updBadge:'محدّث',
+   updH:'الجديد',
+   scStart:'قم بالفحص الذاتي', scExit:'خروج', scYes:'نعم، أفعل ذلك', scNo:'ليس بعد', scBack:'← تراجع', scResultsH:'النتائج حسب القسم', scTopH:'ابدأ بهذه', scRestart:'إعادة', scOf:'من', scNote:'تُحفظ الإجابات محليًا وتُزامن مع حسابك.', updAdded:'أضيف حديثًا', updChanged:'محدّث', updDaysAria:'النافذة بالأيام', updBadge:'محدّث',
    hint1:'قسم واحد في كل مرة؛ يمكن الجمع بين التكلفة والمستوى. داخل المجموعة الاختيار «أو»، وبين المجموعات «و».',
    hint2:'داخل القسم — مرتبة حسب الفائدة تنازليًا. البحث لا يغيّر الترتيب.',
    hint3:'البيانات من مجلد <a href="../book/ar/">book/ar/</a> ({n})؛ صحّح النص هناك.',
@@ -1243,7 +1271,8 @@ const I18N = {
    moneyH:'花钱', timeH:'花时间', willH:'要毅力',
    money0:'免费', moneyL:'少', moneyM:'多', timeL:'顺手', timeM:'几小时', timeH2:'每天', willN:'不需要', willS:'一点点', willB:'明显',
    fDispute:'只看有争议', fTodo:'只看待核实',
-   updH:'最近变化', updAdded:'新增', updChanged:'有更新', updDaysAria:'时间窗口（天）', updBadge:'已更新',
+   updH:'最近变化',
+   scStart:'生活自查', scExit:'退出', scYes:'是，做到了', scNo:'还没有', scBack:'← 撤销', scResultsH:'各章结果', scTopH:'先做这几件', scRestart:'重新自查', scOf:'/', scNote:'答案保存在本地并同步到你的账号。', updAdded:'新增', updChanged:'有更新', updDaysAria:'时间窗口（天）', updBadge:'已更新',
    hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
    hint2:'小节内按性价比从高到低排列，搜索不改变顺序。',
    hint3:'数据来自 <a href="../book/">book/</a> 目录（{n}）；改正文请改那里。',
@@ -1302,6 +1331,15 @@ function applyI18n(){
   document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
   const updH=document.getElementById('upd-h'); if(updH) updH.textContent=t.updH;
   const updD=document.getElementById('upd-days'); if(updD) updD.setAttribute('aria-label',t.updDaysAria);
+  const scB=document.getElementById('selfcheck-btn'); if(scB) scB.textContent=t.scStart;
+  const scX=document.getElementById('sc-exit'); if(scX) scX.textContent=t.scExit;
+  const scY=document.getElementById('sc-yes'); if(scY) scY.textContent=t.scYes;
+  const scN=document.getElementById('sc-no'); if(scN) scN.textContent=t.scNo;
+  const scK=document.getElementById('sc-back'); if(scK) scK.textContent=t.scBack;
+  const scRH=document.getElementById('sc-res-h'); if(scRH) scRH.textContent=t.scResultsH;
+  const scTH=document.getElementById('sc-top-h'); if(scTH) scTH.textContent=t.scTopH;
+  const scRS=document.getElementById('sc-restart'); if(scRS) scRS.textContent=t.scRestart;
+  const scNT=document.getElementById('sc-note'); if(scNT) scNT.textContent=t.scNote;
   document.getElementById('reset').textContent=t.resetF;
   document.getElementById('reset2').textContent=t.reset;
   document.getElementById('empty').childNodes[0].textContent=t.empty;
@@ -1633,6 +1671,7 @@ const CARD_IO = new IntersectionObserver(list => {
 }, {rootMargin:'600px 0px'});
 function esc(s){ return s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
 function build(sections){
+  SECTIONS = sections;
   const list = document.getElementById('list');
   const fsec = document.getElementById('f-sec');
   fsec.replaceChildren();
@@ -1697,6 +1736,122 @@ function build(sections){
 }
 function buildGlossary(){ /* глоссарий-таблица убрана с сайта: термины объясняются только тултипами */ }
 
+/* ---------- самопроверка ---------- */
+/* Twin of forge/site/sc_model.py — keep scScore/scTop in sync. */
+const SC_KEY = 'htlb-sc';
+const SC_RATIO_W = {'极高':0,'高':1,'一般':2};
+const SC = { on:false, pulled:false, ans:{}, idx:0, order:[] };
+let SECTIONS = [];
+function scScore(entries, ans){
+  const m = {};
+  for (const e of entries){
+    const v = ans[e.id];
+    if (v === undefined) continue;
+    const r = m[e.sec] || (m[e.sec] = {sec:e.sec, total:0, yes:0});
+    r.total++; if (v === 1) r.yes++;
+  }
+  return Object.values(m).sort((a,b) => (parseInt(a.sec,10)||0) - (parseInt(b.sec,10)||0));
+}
+function scTop(entries, ans, k){
+  const unmet = entries.filter(e => ans[e.id] === 0)
+    .sort((a,b) => (SC_RATIO_W[a.ratio] - SC_RATIO_W[b.ratio]) || (a.cs - b.cs) || ((parseInt(a.n,10)||0) - (parseInt(b.n,10)||0)));
+  return unmet.slice(0, k || 8);
+}
+function scLoadLocal(){
+  try { return JSON.parse(localStorage.getItem(SC_KEY)) || {}; } catch (e) { return {}; }
+}
+function scSaveLocal(a){
+  try { localStorage.setItem(SC_KEY, JSON.stringify(a)); } catch (e) {}
+}
+function scPush(){
+  const mod = window.HTLBInteractive && window.HTLBInteractive.selfcheck;
+  if (mod) mod.save(SC.ans);
+}
+function scEnter(){
+  if (!CARDS.length) return;
+  SC.on = true; SC.ans = scLoadLocal(); SC.order = CARDS.map(c => c.e); SC.idx = 0;
+  state.mode = 'selfcheck';
+  document.getElementById('sc').hidden = false;
+  document.getElementById('list').hidden = true;
+  scPull();
+  scAdvance();
+  writeUrl();
+}
+function scExit(){
+  SC.on = false; state.mode = '';
+  document.getElementById('sc').hidden = true;
+  document.getElementById('list').hidden = false;
+  writeUrl();
+}
+function scPull(){
+  if (SC.pulled) return;
+  const mod = window.HTLBInteractive && window.HTLBInteractive.selfcheck;
+  if (!mod) return;
+  SC.pulled = true;
+  mod.load().then(remote => {
+    if (!SC.on || !remote) return;
+    let changed = false;
+    for (const k in remote) if (SC.ans[k] === undefined){ SC.ans[k] = remote[k]; changed = true; }
+    if (changed){ scSaveLocal(SC.ans); scAdvance(); }
+  }).catch(() => {});
+}
+function scAdvance(){
+  while (SC.idx < SC.order.length && SC.ans[SC.order[SC.idx].id] !== undefined) SC.idx++;
+  if (SC.idx >= SC.order.length) scResults(); else scRender();
+}
+function scRender(){
+  const e = SC.order[SC.idx]; if (!e) return;
+  const sec = SECTIONS.find(s => s.n === e.sec);
+  document.getElementById('sc-q').hidden = false;
+  document.getElementById('sc-res').hidden = true;
+  document.getElementById('sc-count').textContent = (SC.idx + 1) + ' / ' + SC.order.length;
+  document.getElementById('sc-sec').textContent = sec ? (sec.n + '. ' + sec.title) : '';
+  document.getElementById('sc-title').textContent = e.title;
+  document.getElementById('sc-meta').textContent = [T().moneyL2[e.money], T().timeL2[e.time], T().willL2[e.will]].filter(Boolean).join(' · ');
+}
+function scAnswer(v){
+  const e = SC.order[SC.idx]; if (!e) return;
+  SC.ans[e.id] = v; scSaveLocal(SC.ans); scPush();
+  SC.idx++; scAdvance();
+}
+function scBack(){
+  if (SC.idx === 0) return;
+  SC.idx--;
+  const e = SC.order[SC.idx];
+  if (e) delete SC.ans[e.id];
+  scSaveLocal(SC.ans); scPush();
+  scRender();
+}
+function scResults(){
+  document.getElementById('sc-q').hidden = true;
+  document.getElementById('sc-res').hidden = false;
+  document.getElementById('sc-count').textContent = Object.keys(SC.ans).length + ' / ' + SC.order.length;
+  const list = document.getElementById('sc-res-list');
+  list.replaceChildren();
+  for (const r of scScore(SC.order, SC.ans)){
+    const sec = SECTIONS.find(s => s.n === r.sec);
+    const pct = r.total ? Math.round(100 * r.yes / r.total) : 0;
+    const row = document.createElement('div');
+    row.className = 'sc-row';
+    row.innerHTML = `<span class="sc-lbl">${sec ? esc(sec.n + '. ' + sec.title) : esc(r.sec)}</span><span class="sc-bar"><i style="width:${pct}%"></i></span><span class="sc-num">${r.yes} ${T().scOf} ${r.total}</span>`;
+    list.appendChild(row);
+  }
+  const top = document.getElementById('sc-top-list');
+  top.replaceChildren();
+  for (const e of scTop(SC.order, SC.ans, 8)){
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'sc-top';
+    b.innerHTML = `<span>${esc(e.title)}</span><small>${e.sec}-${e.n} · ${T().ratio[e.ratio] || ''} · ${T().moneyL2[e.money] || ''}</small>`;
+    b.addEventListener('click', () => {
+      const el = document.getElementById('e-' + e.sec + '-' + e.n);
+      scExit();
+      if (el && el.hidden) reset();
+      requestAnimationFrame(() => { if (el) el.scrollIntoView({behavior:'smooth', block:'center'}); });
+    });
+    top.appendChild(b);
+  }
+}
+
 /* ---------- 筛选状态 ---------- */
 /* Twin of forge/site/upd_match.py — keep updMatch in sync. */
 const UPD_DAY_MS = 86400000;
@@ -1715,6 +1870,7 @@ function readUrl(){
   for (const d of DIMS) state[d] = new Set((p.get(d)||'').split(',').filter(Boolean));
   state.dispute = p.get('dispute') === '1'; state.todo = p.get('todo') === '1';
   state.days = parseInt(p.get('days'),10) || 30;
+  state.mode = p.get('mode') === 'selfcheck' ? 'selfcheck' : '';
 }
 function writeUrl(){
   const p = new URLSearchParams();
@@ -1722,6 +1878,7 @@ function writeUrl(){
   for (const d of DIMS) if (state[d].size) p.set(d, [...state[d]].join(','));
   if (state.dispute) p.set('dispute','1'); if (state.todo) p.set('todo','1');
   if (state.upd.size && state.days !== 30) p.set('days', String(state.days));
+  if (state.mode) p.set('mode', state.mode);
   if (PERF.on) p.set('perf','1');
   const qs = p.toString(); history.replaceState(null, '', (qs ? '?'+qs : location.pathname) + location.hash);
 }
@@ -1980,9 +2137,15 @@ function wire(){
   const reset = () => { state.q=''; for (const d of DIMS) state[d].clear(); state.dispute=false; state.todo=false; apply(); toTop(); };
   document.getElementById('reset').addEventListener('click', reset);
   document.getElementById('reset2').addEventListener('click', reset);
+  document.getElementById('selfcheck-btn').addEventListener('click', scEnter);
+  document.getElementById('sc-exit').addEventListener('click', scExit);
+  document.getElementById('sc-yes').addEventListener('click', () => scAnswer(1));
+  document.getElementById('sc-no').addEventListener('click', () => scAnswer(0));
+  document.getElementById('sc-back').addEventListener('click', scBack);
+  document.getElementById('sc-restart').addEventListener('click', () => { SC.ans = {}; scSaveLocal(SC.ans); scPush(); SC.idx = 0; scAdvance(); });
   document.addEventListener('keydown', e => {
     if (e.key === '/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); document.getElementById('q').focus(); }
-    if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); setMenu(false); }
+    if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); setMenu(false); if (SC.on) scExit(); }
   });
   // 术语弹层
   const pop = document.getElementById('pop');
@@ -2089,6 +2252,7 @@ function wire(){
     status.remove();
     const t2 = performance.now(); build(sections); PERF.log('построение DOM', t2, CARDS.length + ' карточек');
     buildGlossary(); readUrl(); wire(); applyI18n(); apply();
+    if (state.mode === 'selfcheck') scEnter();
     // scroll-spy: только в v2-скине, после первой раскладки
     if (window.__HTLB_V2__ && BLOCKS.length){
       SPY_LINKS = [...document.querySelectorAll('#f-sec .sec-link:not(.all)')].map(btn => ({ n: btn.dataset.v, btn }));

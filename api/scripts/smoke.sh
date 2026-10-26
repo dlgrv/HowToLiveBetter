@@ -31,4 +31,10 @@ test "$code" = "401"
 code=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H "X-HTLB-Sync: $TOKEN" -H "Content-Type: application/json" \
   -d '{"entryId":"smoke-e1","useful":true}' "http://127.0.0.1:18090/api/htlb/v1/useful")
 test "$code" = "401"
+# selfcheck: guest PUT/GET roundtrip; anonymous GET is 401
+curl -fsS -X PUT -H "X-HTLB-Sync: $TOKEN" -H "Content-Type: application/json" \
+  -d '{"answers":{"smoke-1":1,"smoke-2":0}}' "http://127.0.0.1:18090/api/htlb/v1/selfcheck" | grep -q '"ok":true'
+curl -fsS -H "X-HTLB-Sync: $TOKEN" "http://127.0.0.1:18090/api/htlb/v1/selfcheck" | grep -q '"smoke-1":1'
+code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:18090/api/htlb/v1/selfcheck")
+test "$code" = "401"
 echo "smoke ok"

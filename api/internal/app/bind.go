@@ -11,6 +11,7 @@ import (
 	"github.com/dlgrv/HowToLiveBetter/api/internal/guest"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/library"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/merge"
+	"github.com/dlgrv/HowToLiveBetter/api/internal/selfcheck"
 	"github.com/dlgrv/HowToLiveBetter/api/internal/useful"
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/apis"
@@ -56,6 +57,7 @@ func Bind(pb *pocketbase.PocketBase, cfg config.Config) {
 		guest.Register(g, guest.Handlers{Svc: gSvc, Az: az})
 		useful.Register(g, useful.Handlers{Svc: uSvc, Az: az})
 		library.Register(g, library.Handlers{Svc: lSvc, Az: az})
+		selfcheck.Register(g, selfcheck.Handlers{Svc: selfcheck.Service{App: e.App}, Az: az})
 		merge.Register(g, merge.Handlers{Svc: mSvc, Az: az})
 		return e.Next()
 	})
