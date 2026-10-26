@@ -511,6 +511,7 @@ html.compact .card:not(.expanded) .marg{display:none}
 .badge.r1{color:var(--faint)}
 .badge.danger{color:var(--ink)}
 .badge.warn{color:var(--mut)}
+.badge.updb{color:var(--mut)}
 .human{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text);min-width:0;overflow-wrap:break-word;align-self:stretch}
 .rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--card-stack);margin:0;align-self:stretch}
 .rows .row{margin:0;font:var(--fs-2)/var(--lh-body) var(--serif);color:var(--text)}
