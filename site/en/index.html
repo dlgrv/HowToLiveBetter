@@ -324,16 +324,20 @@ html.compact .compact-btn .ico-compact{display:none}
 .card-expand::before{content:"";flex:none;align-self:center;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
 .src[open] summary::before,
 .card.expanded .card-expand::before{transform:rotate(45deg)}
-/* Useful — тот же квадрат-чекбокс, что у чипов фильтров */
-.htlb-useful::before{content:"";flex:none;width:var(--sp-4);height:var(--sp-4);box-sizing:border-box;border:var(--line-w) solid var(--line-soft);border-radius:var(--radius-sm);background:transparent;transition:border-color .15s,background-color .15s}
-.htlb-useful:hover::before{border-color:var(--mut)}
-.htlb-useful[aria-pressed="true"]::before{
-  border-color:var(--ink);background-color:var(--ink);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-  background-size:12px 12px;background-position:center;background-repeat:no-repeat;
+/* Useful — иконка закладки: контур в покое, залитая при aria-pressed.
+   Цвет через currentColor + mask (тёмная тема и hover наследуются сами). */
+.htlb-useful::before{
+  content:"";flex:none;width:var(--sp-4);height:var(--sp-4);
+  background-color:currentColor;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z'/%3E%3C/svg%3E");
+  -webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;
 }
-html.dark .htlb-useful[aria-pressed="true"]::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+.htlb-useful[aria-pressed="true"]::before{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z'/%3E%3C/svg%3E");
 }
 .src summary:hover,
 .htlb-useful:hover,

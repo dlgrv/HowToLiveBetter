@@ -41,21 +41,23 @@ def _has_disclosure_markers(css: str) -> bool:
     )
 
 
-def _has_useful_square(css: str) -> bool:
+def _has_useful_bookmark(css: str) -> bool:
     return (
         ".htlb-useful::before" in css
+        and "mask-image" in css
+        and "m19 21-7-4-7 4V5" in css  # bookmark path
         and bool(re.search(r'\.htlb-useful\[aria-pressed="true"\]::before', css))
-        and "border-radius" in css
+        and "fill='black' stroke='black'" in css  # pressed = filled bookmark
     )
 
 
 def test_v2_skin_disclosure_and_useful():
     css = (ROOT / "forge/v2.css").read_text(encoding="utf-8")
     assert _has_disclosure_markers(css), "v2.css lost the summary/expand carets"
-    assert _has_useful_square(css), "v2.css lost the useful checkbox square"
+    assert _has_useful_bookmark(css), "v2.css lost the useful bookmark icon"
 
 
 def test_v1_skin_disclosure_and_useful():
     html = (ROOT / "site/index.html").read_text(encoding="utf-8")
     assert _has_disclosure_markers(html), "site/index.html lost the summary/expand carets"
-    assert _has_useful_square(html), "site/index.html lost the useful checkbox square"
+    assert _has_useful_bookmark(html), "site/index.html lost the useful bookmark icon"
