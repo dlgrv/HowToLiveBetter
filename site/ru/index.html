@@ -746,11 +746,12 @@ body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var
 }
 
 /* ============================================================
-   Свежие: окно в днях (select в шапке группы) — текст-контрол,
-   как чипы: без рамки, каретка справа, tabular-nums.
+   Свежие: окно в днях (select в шапке группы) — компактное поле
+   как .search input (рамка + каретка), чтобы читалось как кнопка.
    ============================================================ */
-#upd-days{appearance:none;-webkit-appearance:none;border:0;padding:var(--ui-row-pad) var(--sp-4) var(--ui-row-pad) var(--sp-1);background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23767676' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right var(--sp-1) center/var(--sp-2);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-variant-numeric:tabular-nums;color:var(--mut);cursor:pointer}
-#upd-days:hover{color:var(--ink)}
+#upd-days{appearance:none;-webkit-appearance:none;border:var(--line-w) solid var(--line);border-radius:var(--radius);padding:var(--sp-1) var(--sp-4) var(--sp-1) var(--sp-2);background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23767676' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right var(--sp-1) center/var(--sp-2);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-variant-numeric:tabular-nums;color:var(--mut);cursor:pointer;transition:border-color .15s,color .15s}
+#upd-days:hover{border-color:var(--mut);color:var(--ink)}
+#upd-days:focus-visible{outline:var(--line-w) solid var(--hover);outline-offset:var(--focus-off)}
 
 /* ============================================================
    Самопроверка (режим ?mode=selfcheck): вопрос по одному пункту,
