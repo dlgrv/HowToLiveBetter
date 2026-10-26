@@ -59,6 +59,7 @@ for (const [label, path] of pages()) {
     assert.ok(html.includes('data-v="added"'), 'added chip');
     assert.ok(html.includes('data-v="changed"'), 'changed chip');
     assert.ok(html.includes('id="upd-days"'), 'days select');
+    assert.ok(html.includes('id="upd-s"'), 'days hint (i18n-managed, not hardcoded)');
     assert.ok(/state\.days\s*=\s*parseInt\(p\.get\('days'\)/.test(html), 'readUrl days');
     assert.ok(/p\.set\('days'/.test(html), 'writeUrl days');
     assert.ok(html.includes("'upd'"), "DIMS includes 'upd'");
@@ -66,10 +67,11 @@ for (const [label, path] of pages()) {
     assert.ok(html.includes("fetch('updates.json'"), 'init() feed fetch');
     assert.ok(html.includes("'updb'"), 'card badge');
     assert.ok(html.includes('updBadge'), 'badge i18n');
+    assert.ok(html.includes("updS.textContent=t.updS"), 'hint i18n replacement');
   });
 
   test(`[${label}] every I18N block carries the fresh strings`, () => {
-    for (const key of ['updH:', 'updAdded:', 'updChanged:', 'updDaysAria:', 'updBadge:']) {
+    for (const key of ['updH:', 'updS:', 'updAdded:', 'updChanged:', 'updDaysAria:', 'updBadge:']) {
       const n = (html.match(new RegExp(`\\b${key}`, 'g')) || []).length;
       assert.equal(n, 7, `${key} in 7 I18N blocks (got ${n})`);
     }

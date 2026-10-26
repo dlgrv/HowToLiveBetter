@@ -18,6 +18,14 @@ import pytest
 ROOT = Path(__file__).resolve().parents[3]
 BUILD = ROOT / "forge/ebook/anki/build.mjs"
 
+# The builder needs the sql.js wasm from forge/ebook/node_modules (make ebook-deps).
+# Without it (plain `make test` / ci test job) skip instead of failing: the
+# ebooks workflow installs the deps and runs the full deck validation.
+requires_ebook_deps = pytest.mark.skipif(
+    not (ROOT / "forge/ebook/node_modules/sql.js").is_dir(),
+    reason="forge/ebook/node_modules missing — run `make ebook-deps`",
+)
+
 
 @pytest.fixture(scope="module")
 def apkg_path():
@@ -43,6 +51,7 @@ def _open_db(apkg: Path):
     return db, path
 
 
+@requires_ebook_deps
 def test_apkg_structure_and_counts(apkg_path):
     db, path = _open_db(apkg_path)
     try:
@@ -72,6 +81,7 @@ def test_apkg_structure_and_counts(apkg_path):
         os.unlink(path)
 
 
+@requires_ebook_deps
 def test_apkg_guids_stable_across_rebuilds(apkg_path):
     db1, path1 = _open_db(apkg_path)
     guids1 = {r[0] for r in db1.execute("select guid from notes")}

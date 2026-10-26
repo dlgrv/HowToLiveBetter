@@ -54,8 +54,8 @@ jobs:
       - name: Install npm deps
         run: npm ci --prefix forge/ebook
 
-      - name: Manifest tests
-        run: node --test forge/ebook/book.test.mjs forge/ebook/offline/offline.test.mjs
+      - name: Manifest and builder tests
+        run: node --test forge/ebook/book.test.mjs forge/ebook/offline/offline.test.mjs forge/ebook/anki/anki.test.mjs
 
       - name: Install pandoc, typst, and CJK + Arabic fonts
         run: |

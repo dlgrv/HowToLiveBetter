@@ -240,8 +240,8 @@ test:  ## Run unit tests (excludes integration)
 ebook-deps:  ## Install forge/ebook npm dependencies
 	npm ci --prefix forge/ebook
 
-ebook-test:  ## Ebook manifest tests (chapter counts, back-links)
-	node --test forge/ebook/book.test.mjs
+ebook-test:  ## Ebook manifest+builder tests (needs ebook-deps for offline/anki)
+	node --test forge/ebook/book.test.mjs forge/ebook/offline/offline.test.mjs forge/ebook/anki/anki.test.mjs
 
 ebook-epub: ebook-deps  ## Build one EPUB. Usage: make ebook-epub LANG=en
 	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-epub LANG=en" && exit 1)

@@ -416,7 +416,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     </div>
   </div>
   <div class="group">
-    <div class="gt"><span id="upd-h">Свежее</span> <select id="upd-days" aria-label="окно в днях"><option value="7">7</option><option value="30" selected>30</option><option value="90">90</option></select> <small>дней, по истории оригинала</small></div>
+    <div class="gt"><span id="upd-h">Свежее</span> <select id="upd-days" aria-label="окно в днях"><option value="7">7</option><option value="30" selected>30</option><option value="90">90</option></select> <small id="upd-s">дней, по истории оригинала</small></div>
     <div class="chips" data-dim="upd">
       <button type="button" class="chip" data-v="added" aria-pressed="false">Новые</button>
       <button type="button" class="chip" data-v="changed" aria-pressed="false">Обновлённые</button>
@@ -504,7 +504,7 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       </div>
     </div>
     <section class="sc" id="sc" hidden>
-      <div class="sc-head"><span id="sc-count"></span><button type="button" class="sc-exit" id="sc-exit">Выйти</button></div>
+      <div class="sc-head"><span id="sc-count" aria-live="polite"></span><button type="button" class="sc-exit" id="sc-exit">Выйти</button></div>
       <div class="sc-q" id="sc-q">
         <p class="sc-sec" id="sc-sec"></p>
         <h3 id="sc-title"></h3>
@@ -586,6 +586,7 @@ const I18N = {
    money0:'Бесплатно', moneyL:'Мало', moneyM:'Много', timeL:'На бегу', timeM:'Несколько часов', timeH2:'Каждый день', willN:'Не нужна', willS:'Немного', willB:'Сильно',
    fDispute:'только спорные', fTodo:'только требующие проверки',
    updH:'Свежее',
+   updS:'дней, по истории оригинала',
    scStart:'Пройти самопроверку', scExit:'Выйти', scYes:'Да, делаю', scNo:'Нет, не делаю', scBack:'← Вернуть', scResultsH:'Итоги по разделам', scTopH:'Сначала сделай эти', scRestart:'Пройти заново', scOf:'из', scNote:'Ответы хранятся локально и синхронизируются с аккаунтом.',
    sitH:'Ситуация', sitFree:'Без затрат', sitD30:'Одним заходом', sit35:'35+', sit60:'60+', sitS:'черновая эвристика по главам и тегам', updAdded:'Новые', updChanged:'Обновлённые', updDaysAria:'Окно в днях', updBadge:'Обновлено',
    hint1:'Раздел выбирается один, затраты и уровень — можно несколько. Внутри группы выбор «или», между группами «и».',
@@ -628,6 +629,7 @@ const I18N = {
    money0:'Free', moneyL:'Little', moneyM:'Much', timeL:'On the go', timeM:'A few hours', timeH2:'Every day', willN:'None needed', willS:'A little', willB:'A lot',
    fDispute:'contested only', fTodo:'unverified only',
    updH:'Fresh',
+   updS:'days, by the original’s history',
    scStart:'Take the self-check', scExit:'Exit', scYes:'Yes, I do this', scNo:'Not yet', scBack:'← Undo', scResultsH:'Results by section', scTopH:'Do these first', scRestart:'Start over', scOf:'of', scNote:'Answers are stored locally and synced to your account.',
    sitH:'Situation', sitFree:'Free', sitD30:'One-time', sit35:'35+', sit60:'60+', sitS:'rough chapter/tag heuristic', updAdded:'New', updChanged:'Updated', updDaysAria:'Window in days', updBadge:'Updated',
    hint1:'One section at a time; costs and level can be combined. Within a group the choice is "or", between groups "and".',
@@ -670,6 +672,7 @@ const I18N = {
    money0:'Gratis', moneyL:'Poco', moneyM:'Mucho', timeL:'Al momento', timeM:'Unas horas', timeH2:'A diario', willN:'No hace falta', willS:'Un poco', willB:'Bastante',
    fDispute:'solo controvertidas', fTodo:'solo sin verificar',
    updH:'Novedades',
+   updS:'días, según el historial del original',
    scStart:'Haz la autoevaluación', scExit:'Salir', scYes:'Sí, lo cumplo', scNo:'Todavía no', scBack:'← Deshacer', scResultsH:'Resultados por sección', scTopH:'Haz primero esto', scRestart:'Reiniciar', scOf:'de', scNote:'Las respuestas se guardan localmente y se sincronizan con tu cuenta.',
    sitH:'Situación', sitFree:'Gratis', sitD30:'De una vez', sit35:'35+', sit60:'60+', sitS:'heurística aproximada por capítulos', updAdded:'Nuevos', updChanged:'Actualizados', updDaysAria:'Ventana en días', updBadge:'Actualizado',
    hint1:'Una sección a la vez; costos y nivel se pueden combinar. Dentro de un grupo la elección es «o», entre grupos «y».',
@@ -712,6 +715,7 @@ const I18N = {
    money0:'Grátis', moneyL:'Pouco', moneyM:'Muito', timeL:'Na hora', timeM:'Algumas horas', timeH2:'Todo dia', willN:'Não precisa', willS:'Um pouco', willB:'Bastante',
    fDispute:'só controversas', fTodo:'só sem verificar',
    updH:'Novidades',
+   updS:'dias, conforme o histórico do original',
    scStart:'Faça a autoavaliação', scExit:'Sair', scYes:'Sim, eu faço', scNo:'Ainda não', scBack:'← Desfazer', scResultsH:'Resultados por seção', scTopH:'Faça primeiro isto', scRestart:'Reiniciar', scOf:'de', scNote:'As respostas ficam salvas localmente e sincronizam com a sua conta.',
    sitH:'Situação', sitFree:'Grátis', sitD30:'De uma vez', sit35:'35+', sit60:'60+', sitS:'heurística aproximada por capítulos', updAdded:'Novos', updChanged:'Atualizados', updDaysAria:'Janela em dias', updBadge:'Atualizado',
    hint1:'Uma seção por vez; custos e nível podem ser combinados. Dentro de um grupo a escolha é «ou», entre grupos «e».',
@@ -754,6 +758,7 @@ const I18N = {
    money0:'Gratis', moneyL:'Sedikit', moneyM:'Banyak', timeL:'Sebentar', timeM:'Beberapa jam', timeH2:'Setiap hari', willN:'Tidak perlu', willS:'Sedikit', willB:'Besar',
    fDispute:'hanya yang diperdebatkan', fTodo:'hanya yang belum diverifikasi',
    updH:'Baru',
+   updS:'hari, menurut riwayat pembaruan',
    scStart:'Ikuti cek mandiri', scExit:'Keluar', scYes:'Ya, saya lakukan', scNo:'Belum', scBack:'← Urungkan', scResultsH:'Hasil per bagian', scTopH:'Lakukan ini dulu', scRestart:'Ulangi', scOf:'dari', scNote:'Jawaban disimpan lokal dan disinkronkan dengan akun Anda.',
    sitH:'Situasi', sitFree:'Gratis', sitD30:'Sekali jalan', sit35:'35+', sit60:'60+', sitS:'heuristik kasar per bab', updAdded:'Item baru', updChanged:'Diperbarui', updDaysAria:'Jendela waktu (hari)', updBadge:'Diperbarui',
    hint1:'Pilih satu bab. Kamu bisa memilih beberapa biaya dan tingkat bukti sekaligus.',
@@ -796,6 +801,7 @@ const I18N = {
    money0:'مجانًا', moneyL:'قليل', moneyM:'كثير', timeL:'على الماشي', timeM:'بضع ساعات', timeH2:'كل يوم', willN:'لا حاجة', willS:'قليل', willB:'كثير',
    fDispute:'المتنازع عليها فقط', fTodo:'غير المتحقق منها فقط',
    updH:'الجديد',
+   updS:'أيام، بحسب سجل التحديثات',
    scStart:'قم بالفحص الذاتي', scExit:'خروج', scYes:'نعم، أفعل ذلك', scNo:'ليس بعد', scBack:'← تراجع', scResultsH:'النتائج حسب القسم', scTopH:'ابدأ بهذه', scRestart:'إعادة', scOf:'من', scNote:'تُحفظ الإجابات محليًا وتُزامن مع حسابك.',
    sitH:'الحالة', sitFree:'مجانًا', sitD30:'دفعة واحدة', sit35:'+35', sit60:'+60', sitS:'تقدير تقريبي حسب الفصول', updAdded:'أضيف حديثًا', updChanged:'محدّث', updDaysAria:'النافذة بالأيام', updBadge:'محدّث',
    hint1:'قسم واحد في كل مرة؛ يمكن الجمع بين التكلفة والمستوى. داخل المجموعة الاختيار «أو»، وبين المجموعات «و».',
@@ -839,6 +845,7 @@ const I18N = {
    money0:'免费', moneyL:'少', moneyM:'多', timeL:'顺手', timeM:'几小时', timeH2:'每天', willN:'不需要', willS:'一点点', willB:'明显',
    fDispute:'只看有争议', fTodo:'只看待核实',
    updH:'最近变化',
+   updS:'天，按原书更新历史',
    scStart:'生活自查', scExit:'退出', scYes:'是，做到了', scNo:'还没有', scBack:'← 撤销', scResultsH:'各章结果', scTopH:'先做这几件', scRestart:'重新自查', scOf:'/', scNote:'答案保存在本地并同步到你的账号。',
    sitH:'处境', sitFree:'不花钱', sitD30:'一次搞定', sit35:'35 岁以上', sit60:'60 岁以上', sitS:'按章节和标签粗略估算', updAdded:'新增', updChanged:'有更新', updDaysAria:'时间窗口（天）', updBadge:'已更新',
    hint1:'小节单选，花费与等级可多选。组内「或」，组间「且」。',
@@ -898,6 +905,7 @@ function applyI18n(){
   document.getElementById('f-dispute').parentElement.childNodes[1].textContent=t.fDispute;
   document.getElementById('f-todo').parentElement.childNodes[1].textContent=t.fTodo;
   const updH=document.getElementById('upd-h'); if(updH) updH.textContent=t.updH;
+  const updS=document.getElementById('upd-s'); if(updS) updS.textContent=t.updS;
   const updD=document.getElementById('upd-days'); if(updD) updD.setAttribute('aria-label',t.updDaysAria);
   const sitH=document.getElementById('sit-h'); if(sitH) sitH.textContent=t.sitH;
   const sitS=document.getElementById('sit-s'); if(sitS) sitS.textContent=t.sitS;
