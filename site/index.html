@@ -1187,13 +1187,15 @@ function termify(root){
     node.parentNode.replaceChild(frag, node);
   }
 }
-function placePop(el, side){
+function placePop(el, side, cx){
   const pop = document.getElementById('pop');
   pop.hidden = false;
   const r = el.getBoundingClientRect();
   if (side){
-    // справа от элемента (summary раздела из сайдбара), чуть внахлёст к ссылке
-    let x = Math.max(12, Math.min(r.right - 6, innerWidth - 212));
+    // у указателя (как нативный тултип): где вошли в строку — там и плашка;
+    // фолбэк для клавиатурного фокуса — внахлёст к правому краю ссылки
+    let x = (typeof cx === 'number') ? cx + 14 : r.right - 6;
+    x = Math.max(12, Math.min(x, innerWidth - 212));
     const w = Math.max(200, Math.min(360, innerWidth - x - 12));
     let top = r.top + scrollY;
     const overflow = top + pop.offsetHeight - (scrollY + innerHeight);
@@ -1226,14 +1228,15 @@ function tipClamp(s, max){
   const sp = cut.lastIndexOf(' ');
   return (sp > max - 40 ? cut.slice(0, sp) : cut).trimEnd() + '…';
 }
-/* Summary раздела при наведении на ссылку в сайдбаре (issue #127) */
-function showSecTip(btn){
+/* Summary раздела при наведении на ссылку в сайдбаре (issue #127);
+   cx — x указателя при hover (нативный тултип-паттерн), undefined при фокусе */
+function showSecTip(btn, cx){
   const s = SECTIONS.find(x => x.n === btn.dataset.v);
   if (!s || !s.intro) return;
   const pop = document.getElementById('pop');
   pop.querySelector('b').textContent = s.n + '. ' + s.title;
   pop.querySelector('span').textContent = tipClamp(s.intro, 220);
-  placePop(btn, true);
+  placePop(btn, true, cx);
   btn.setAttribute('aria-describedby', 'pop');
 }
 
@@ -1818,7 +1821,7 @@ function wire(){
   {
     const hoverable = matchMedia('(hover: hover) and (pointer: fine)');
     document.querySelectorAll('#f-sec .sec-link').forEach(btn => {
-      btn.addEventListener('pointerenter', () => { if (hoverable.matches) showSecTip(btn); });
+      btn.addEventListener('pointerenter', e => { if (hoverable.matches) showSecTip(btn, e.clientX); });
       btn.addEventListener('focus', () => { if (hoverable.matches) showSecTip(btn); });
       btn.addEventListener('pointerleave', hidePop);
       btn.addEventListener('blur', hidePop);

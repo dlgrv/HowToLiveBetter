@@ -50,7 +50,8 @@ for (const [label, path] of pages()) {
     assert.ok(html.includes('function showSecTip('), 'showSecTip');
     assert.ok(html.includes('function placePop('), 'shared placer');
     assert.ok(html.includes('showTerm(ab);\n  placePop(ab);') || /showTerm[\s\S]{0,200}placePop\(ab\)/.test(html), 'showTerm uses placer');
-    assert.ok(html.includes('placePop(btn, true)'), 'sidebar tip opens to the right of the link');
+    assert.ok(html.includes('placePop(btn, true, cx)'), 'sidebar tip anchors to pointer');
+    assert.ok(html.includes('showSecTip(btn, e.clientX)'), 'pointer x passed on hover');
     assert.ok(html.includes("(hover: hover) and (pointer: fine)"), 'hover-capability gate');
     assert.ok(html.includes("btn.addEventListener('pointerenter'"), 'hover show');
     assert.ok(html.includes("btn.addEventListener('focus'"), 'keyboard show');
