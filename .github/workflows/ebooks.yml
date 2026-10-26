@@ -54,8 +54,8 @@ jobs:
       - name: Install npm deps
         run: npm ci --prefix forge/ebook
 
-      - name: Manifest tests
-        run: node --test forge/ebook/book.test.mjs
+      - name: Manifest and builder tests
+        run: node --test forge/ebook/book.test.mjs forge/ebook/offline/offline.test.mjs forge/ebook/anki/anki.test.mjs
 
       - name: Install pandoc, typst, and CJK + Arabic fonts
         run: |
@@ -85,12 +85,18 @@ jobs:
           typst fonts | grep -i 'amiri'
           node forge/ebook/pdf/build.mjs --lang ${{ matrix.lang }}
 
+      - name: Offline single-file HTML
+        run: node forge/ebook/offline/build.mjs --lang ${{ matrix.lang }}
+
+      - name: Anki deck
+        run: node forge/ebook/anki/build.mjs --lang ${{ matrix.lang }}
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
 
-      - name: epubcheck and PDF size
+      - name: epubcheck, PDF and offline size
         run: |
           curl -sSL -o epubcheck.zip https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip
           unzip -q epubcheck.zip
@@ -103,6 +109,11 @@ jobs:
           if size < 1_048_576 or size > 80 * 1_048_576:
               raise SystemExit(f"{path} size {size} outside 1MB..80MB")
           print(f"{path} {size} bytes")
+          off = f"dist/HowToLiveBetter-{lang}.html"
+          off_size = os.path.getsize(off)
+          if off_size < 512 * 1024 or off_size > 15 * 1_048_576:
+              raise SystemExit(f"{off} size {off_size} outside 512KB..15MB")
+          print(f"{off} {off_size} bytes")
           PY
         env:
           LANG_CODE: ${{ matrix.lang }}
@@ -113,6 +124,8 @@ jobs:
           path: |
             dist/HowToLiveBetter-${{ matrix.lang }}.epub
             dist/HowToLiveBetter-${{ matrix.lang }}.pdf
+            dist/HowToLiveBetter-${{ matrix.lang }}.html
+            dist/HowToLiveBetter-${{ matrix.lang }}.apkg
 
   publish:
     name: publish ebooks-latest
@@ -134,13 +147,14 @@ jobs:
         run: |
           set -euo pipefail
           mapfile -t files < <(find dist -maxdepth 1 -type f \
-            \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \) | sort)
-          if [ "${#files[@]}" -ne 14 ]; then
-            echo "expected 14 assets, got ${#files[@]}"
+            \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \
+               -o -name 'HowToLiveBetter-*.html' -o -name 'HowToLiveBetter-*.apkg' \) | sort)
+          if [ "${#files[@]}" -ne 28 ]; then
+            echo "expected 28 assets, got ${#files[@]}"
             ls -l dist
             exit 1
           fi
-          notes="Built from ${GITHUB_SHA::7}. EPUB and PDF for en, ru, zh, es, pt, ar, id."
+          notes="Built from ${GITHUB_SHA::7}. EPUB, PDF, offline HTML and Anki deck for en, ru, zh, es, pt, ar, id."
           notes="$notes Assets are replaced on each main build; download URLs stay fixed."
           if gh release view ebooks-latest >/dev/null 2>&1; then
             gh release edit ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes"

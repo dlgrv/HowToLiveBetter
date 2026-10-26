@@ -2,7 +2,7 @@
 
 # 10. Apakah pacaran dan menikah sepadan
 
-Bagian ini memecah "apakah menikah sepadan" menjadi beberapa perhitungan: uang, waktu, kesehatan, risiko hukum, dan kualitas hubungan, lalu dihitung terpisah. Setiap perhitungan hanya memakai angka yang sumbernya bisa dicek. Sumbernya terbatas pada statistik resmi, atau meta-analisis (menggabungkan data dari beberapa penelitian lalu menghitung ulang). Di sini tidak ada penilaian moral, dan tidak ada kesimpulan yang diambilkan untukmu. Perhitungan kesehatan memakai risiko kematian, perhitungan waktu memakai berapa menit per hari, perhitungan hukum memakai bunyi pasal. Ketiga cara itu tidak saling dikonversi. Cara memecah perhitungan, daftar isian, dan kekeliruan yang sering muncul ada di [docs/(结婚划不划算).md](../../docs/research/结婚划不划算.md).
+Bagian ini memecah "apakah menikah sepadan" menjadi beberapa perhitungan: uang, waktu, kesehatan, risiko hukum, dan kualitas hubungan, lalu dihitung terpisah. Setiap perhitungan hanya memakai angka yang sumbernya bisa dicek. Sumbernya terbatas pada statistik resmi, atau meta-analisis (menggabungkan data dari beberapa penelitian lalu menghitung ulang). Di sini tidak ada penilaian moral, dan tidak ada kesimpulan yang diambilkan untukmu. Perhitungan kesehatan memakai risiko kematian, perhitungan waktu memakai berapa menit per hari, perhitungan hukum memakai bunyi pasal. Ketiga cara itu tidak saling dikonversi. Cara memecah perhitungan, daftar isian, dan kekeliruan yang sering muncul ada di [bab 10 Apakah pacaran dan menikah sepadan](10-Cinta-Dan-Pernikahan.md).
 
 Butir dalam bagian ini dikelompokkan menurut tema. Nomor butir ada di dalam tanda kurung.
 
@@ -164,7 +164,7 @@ Butir dalam bagian ini dikelompokkan menurut tema. Nomor butir ada di dalam tand
 - Manfaat: Manfaat orang tua nyata. Tetapi tidak otomatis berubah menjadi manfaat kesehatanmu (butir 8) atau kualitas hubungan (butir 4, baik tidaknya hubungan dilihat dari perasaan sendiri). Sementara perhitungan waktu (butir 9), uang (butir 10 sampai 12), dan biaya keluar (butir 15), semuanya ditanggung pihak yang bersangkutan. Setelah dibukukan terpisah, tinggi rendahnya rasio biaya-manfaat "menikah sebagai tugas" bisa kamu lihat sendiri
 - Tingkat bukti: C
 - Sumber:作者经验，方法类建议；数据部分见本节前面各条
-- Catatan: Kolom orang tua juga bisa dihitung sangat berat; bagaimana menimbang ditentukan sendiri. Daftar isian lihat [docs/(结婚划不划算).md](../../docs/research/结婚划不划算.md)
+- Catatan: Kolom orang tua juga bisa dihitung sangat berat; bagaimana menimbang ditentukan sendiri. Daftar isian lihat [bab 10 Apakah pacaran dan menikah sepadan](10-Cinta-Dan-Pernikahan.md)
 
 ### 17. Jadikan baik tidaknya hubungan sebagai perhitungan kesehatan: bertengkar pada masalahnya bukan pada orangnya; jangan menghina, jangan menyindir
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->

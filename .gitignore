@@ -72,3 +72,6 @@ api/.local/
 api/pb_data/
 api/bin/
 api/coverage.out
+
+# ZCode session state
+.zcode/

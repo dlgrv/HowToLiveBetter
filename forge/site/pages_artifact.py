@@ -25,6 +25,7 @@ from translate.lib.config import load_langs as load_langs_registry
 
 from forge.site.build_llms_full import write_llms_full
 from forge.site.build_sitemap import write_sitemap
+from forge.site.build_updates import write_updates
 
 ROOT = default_root()
 SITE = os.path.join(ROOT, "site")
@@ -63,6 +64,8 @@ def main() -> int:
     write_sitemap(OUT, ROOT, lang_codes)
     generated_at = datetime.now(UTC).strftime("%Y-%m-%d")
     write_llms_full(OUT, langs, generated_at)
+    # Per-item add/change feed for the site "fresh" chips (needs full git history).
+    write_updates(OUT, ROOT)
 
     # IndexNow key: must be served from the docroot root (deploy-book.sh pings
     # keyLocation=https://book.dlgrv.com/<key>.txt).

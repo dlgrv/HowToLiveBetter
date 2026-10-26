@@ -342,6 +342,34 @@
     }
   }
 
+  /* ---------- self-check sync (guest|user, one answers map per owner) ---------- */
+  var scRemote = null;
+  var scTimer = null;
+
+  async function scLoad() {
+    if (scRemote) return scRemote;
+    try {
+      await ensureGuest();
+      var data = await api('/selfcheck');
+      scRemote = (data && data.answers) || {};
+    } catch (err) {
+      scRemote = {}; // offline / stub host: the site falls back to localStorage
+    }
+    return scRemote;
+  }
+
+  function scSave(answers) {
+    if (scTimer) clearTimeout(scTimer);
+    scTimer = setTimeout(async function () {
+      try {
+        await ensureGuest();
+        await api('/selfcheck', { method: 'PUT', body: { answers: answers } });
+      } catch (err) {
+        /* keep local; the next answer retries the PUT */
+      }
+    }, 1200);
+  }
+
   function setLoginStatus(text, tone) {
     var el = document.getElementById('login-status');
     if (!el) return;
@@ -887,6 +915,7 @@
     initLoginPage: initLoginPage,
     initUsefulPage: initUsefulPage,
     api: api,
+    selfcheck: { load: scLoad, save: scSave },
   };
 
   addEventListener('htlb:ready', function () {

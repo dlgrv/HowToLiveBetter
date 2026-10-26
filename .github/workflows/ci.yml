@@ -79,6 +79,7 @@ jobs:
           .venv/bin/python3 forge/site/pages_artifact.py
           test -f .publish/en/index.html
           test -f .publish/README.md
+          test -f .publish/updates.json
           test -d .publish/book
       - name: Check for committed bytecode
         run: |

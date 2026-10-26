@@ -2,7 +2,7 @@
 
 # 10. Is dating and marriage worth it
 
-This section splits "is marriage worth it" into separate accounts for money, time, health, legal risk, and relationship quality, and counts them apart. Each account uses only figures whose source can be checked. Sources are limited to official statistics, or to meta-analyses (pooling data from many studies and recalculating them). There is no moral judgment here, and no conclusion is made for you. The health accounts are counted as death risk, the time accounts as how many minutes a day, and the legal accounts as what the articles say. These three ways of counting are not converted into each other. The method for splitting the accounts, a fill-in checklist, and common mistakes are in [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+This section splits "is marriage worth it" into separate accounts for money, time, health, legal risk, and relationship quality, and counts them apart. Each account uses only figures whose source can be checked. Sources are limited to official statistics, or to meta-analyses (pooling data from many studies and recalculating them). There is no moral judgment here, and no conclusion is made for you. The health accounts are counted as death risk, the time accounts as how many minutes a day, and the legal accounts as what the articles say. These three ways of counting are not converted into each other. The method for splitting the accounts, a fill-in checklist, and common mistakes are in [chapter 10 “Is dating and marriage worth it”](10-Is-Love-And-Marriage-Worth-It.md).
 
 Items in this section are grouped by topic below, with item numbers in parentheses.
 
@@ -164,7 +164,7 @@ Items in this section are grouped by topic below, with item numbers in parenthes
 - Benefit: The elders’ benefit is real. But it does not automatically convert into your health benefit (item 8) or relationship quality (item 4 — whether a relationship is good depends on how you feel). The time account (item 9), the money account (items 10 to 12), and the cost of leaving (item 15) are all borne by the parties. After you keep the accounts separate, whether “task-style marriage” has high or low cost-effectiveness is something you can see yourself.
 - Evidence grade: C
 - Sources:作者经验，方法类建议；数据部分见本节前面各条
-- Notes: The elders’ column can also be counted as a very heavy line; how you weigh it is up to you. The fill-in checklist is in [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+- Notes: The elders’ column can also be counted as a very heavy line; how you weigh it is up to you. The fill-in checklist is in [chapter 10 “Is dating and marriage worth it”](10-Is-Love-And-Marriage-Worth-It.md).
 
 ### 17. Treat relationship quality as a health account: argue about the matter not the person — no name-calling, no sarcasm
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->

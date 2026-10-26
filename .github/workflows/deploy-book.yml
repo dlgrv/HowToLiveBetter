@@ -26,7 +26,10 @@ jobs:
     env:
       PYTHONPATH: ${{ github.workspace }}
     steps:
+      # Full history: forge/site/build_updates.py walks per-chapter git logs.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

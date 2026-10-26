@@ -234,14 +234,14 @@ lint:  ## All code linters (must match CI)
 
 test:  ## Run unit tests (excludes integration)
 	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
-	node --test forge/ebook/book.test.mjs site/assets/interactive.test.mjs site/assets/todo_flag.test.mjs
+	node --test forge/ebook/book.test.mjs site/assets/interactive.test.mjs site/assets/todo_flag.test.mjs site/assets/updates_flag.test.mjs site/assets/selfcheck_flag.test.mjs site/assets/situations_flag.test.mjs site/assets/link_rewriter.test.mjs site/assets/sidebar_tip.test.mjs
 	@if command -v go >/dev/null 2>&1; then $(MAKE) api-test; else echo "skip api-test (go not on PATH)"; fi
 
 ebook-deps:  ## Install forge/ebook npm dependencies
 	npm ci --prefix forge/ebook
 
-ebook-test:  ## Ebook manifest tests (chapter counts, back-links)
-	node --test forge/ebook/book.test.mjs
+ebook-test:  ## Ebook manifest+builder tests (needs ebook-deps for offline/anki)
+	node --test forge/ebook/book.test.mjs forge/ebook/offline/offline.test.mjs forge/ebook/anki/anki.test.mjs
 
 ebook-epub: ebook-deps  ## Build one EPUB. Usage: make ebook-epub LANG=en
 	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-epub LANG=en" && exit 1)
@@ -251,10 +251,20 @@ ebook-pdf: ebook-deps  ## Build one PDF. Usage: make ebook-pdf LANG=en
 	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-pdf LANG=en" && exit 1)
 	node forge/ebook/pdf/build.mjs --lang $(LANG)
 
-ebooks: ebook-deps ebook-test  ## Build EPUB+PDF for every language in langs.json
+ebook-offline: ebook-deps  ## Build one single-file offline HTML. Usage: make ebook-offline LANG=en
+	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-offline LANG=en" && exit 1)
+	node forge/ebook/offline/build.mjs --lang $(LANG)
+
+ebook-anki: ebook-deps  ## Build one Anki deck. Usage: make ebook-anki LANG=en
+	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-anki LANG=en" && exit 1)
+	node forge/ebook/anki/build.mjs --lang $(LANG)
+
+ebooks: ebook-deps ebook-test  ## Build EPUB+PDF+offline+Anki for every language in langs.json
 	@for lang in $$(python3 -c 'import json; print(" ".join(x["code"] for x in json.load(open("translate/langs.json"))["languages"]))'); do \
 		node forge/ebook/epub/build.mjs --lang $$lang; \
 		node forge/ebook/pdf/build.mjs --lang $$lang; \
+		node forge/ebook/offline/build.mjs --lang $$lang; \
+		node forge/ebook/anki/build.mjs --lang $$lang; \
 	done
 
 test-integration:  ## Run integration tests (golden manifests, E2E)
