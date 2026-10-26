@@ -745,6 +745,43 @@ body.login-page .foot-legal{margin-top:0;margin-bottom:var(--sp-8);padding:0 var
   .sec-h h2{font-size:var(--fs-3)}
 }
 
+/* ============================================================
+   Свежие: окно в днях (select в шапке группы) — текст-контрол,
+   как чипы: без рамки, каретка справа, tabular-nums.
+   ============================================================ */
+#upd-days{appearance:none;-webkit-appearance:none;border:0;padding:var(--ui-row-pad) var(--sp-4) var(--ui-row-pad) var(--sp-1);background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23767676' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right var(--sp-1) center/var(--sp-2);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-variant-numeric:tabular-nums;color:var(--mut);cursor:pointer}
+#upd-days:hover{color:var(--ink)}
+
+/* ============================================================
+   Самопроверка (режим ?mode=selfcheck): вопрос по одному пункту,
+   итоги по разделам, «сначала сделай». Те же токены, один акцент.
+   ============================================================ */
+.sc{max-width:var(--measure);margin:0 auto;padding:0 0 var(--sp-9)}
+.sc-head{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);font-variant-numeric:tabular-nums;color:var(--mut);margin-bottom:var(--sp-5)}
+.sc-exit{border:0;background:none;padding:var(--sp-1);color:var(--faint);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);cursor:pointer;transition:color .15s}
+.sc-exit:hover{color:var(--ink)}
+.sc-q h3{font:var(--fw-strong) var(--fs-3)/var(--lh-tight) var(--serif);margin:var(--sp-2) 0 var(--sp-1)}
+.sc-sec{margin:0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint)}
+.sc-meta{font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--mut);margin:0 0 var(--sp-5)}
+.sc-btns{display:flex;gap:var(--sp-3);flex-wrap:wrap;align-items:center}
+.sc-btns button{font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);padding:var(--sp-2) var(--sp-5);border:var(--line-w) solid var(--line-soft);border-radius:var(--radius);background:none;color:var(--mut);cursor:pointer;transition:border-color .15s,color .15s}
+.sc-btns button:hover{border-color:var(--ink);color:var(--ink)}
+.sc-btns #sc-yes{border-color:var(--ink);color:var(--ink)}
+.sc-btns #sc-yes:hover{background:var(--ink);color:var(--pop-bg)}
+.sc-btns #sc-back{border:0;padding:var(--sp-2) var(--sp-1);color:var(--faint)}
+.sc-btns #sc-back:hover{color:var(--ink);background:none}
+.sc-note{font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--faint);margin:var(--sp-4) 0 0}
+.sc-res h3{font:var(--fw-strong) var(--fs-4)/var(--lh-tight) var(--serif);margin:var(--sp-6) 0 var(--sp-3)}
+.sc-res h4{font:var(--fw-strong) var(--fs-2)/var(--lh-tight) var(--serif);margin:var(--sp-6) 0 var(--sp-2)}
+.sc-row{display:flex;align-items:center;gap:var(--sp-3);margin:var(--sp-2) 0;font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);color:var(--mut)}
+.sc-row .sc-lbl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc-row .sc-bar{flex:1;height:2px;border-radius:1px;background:var(--line);overflow:hidden}
+.sc-row .sc-bar i{display:block;height:100%;background:var(--hover)}
+.sc-row .sc-num{color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sc-top{display:block;width:100%;text-align:left;font:var(--fw-ui) var(--fs-2)/var(--lh-body) var(--serif);padding:var(--sp-2) 0;border:0;border-bottom:var(--line-w) solid var(--line);background:none;color:var(--ink);cursor:pointer}
+.sc-top:hover{color:var(--hover)}
+.sc-top small{display:block;color:var(--faint);font:var(--fw-ui) var(--fs-ui)/var(--lh-ui) var(--sans);margin-top:var(--hair)}
+
 </style>
 </head>
 <body>

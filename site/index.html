@@ -206,7 +206,8 @@ html.compact .card-expand{display:block}
 .badge.r2{background:var(--green-soft);color:var(--green-1)}
 .badge.r1{background:var(--gray-soft);color:var(--gray-1)}
 .badge.updb{background:var(--brand-soft);color:var(--brand-1);font-weight:500}
-#upd-days{font:inherit;font-size:12px;line-height:18px;padding:0 4px;border:1px solid var(--divider);border-radius:8px;background:transparent;color:var(--t2)}
+#upd-days{appearance:none;-webkit-appearance:none;font:inherit;font-size:12px;line-height:18px;padding:3px 22px 3px 11px;border:1px solid var(--divider);border-radius:999px;background:var(--bg-elv) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23767676' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 8px center/10px;color:var(--t2);cursor:pointer;vertical-align:middle}
+#upd-days:hover{border-color:var(--brand-3);color:var(--t1)}
 .sc{max-width:46rem;margin:0 auto;padding-bottom:2rem}
 .sc-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:var(--t2);margin-bottom:14px}
 .sc-exit{font:inherit;font-size:13px;color:var(--t3);background:none;border:none;padding:4px 6px;cursor:pointer}
@@ -221,6 +222,7 @@ html.compact .card-expand{display:block}
 .sc-note{color:var(--t3);font-size:12px;margin:16px 0 0}
 .sc-res h3,.sc-res h4{font-weight:650;margin:18px 0 8px}
 .sc-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:14px}
+.sc-row .sc-lbl{min-width:0;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sc-row .sc-bar{flex:1;height:4px;border-radius:2px;background:var(--bg-mute);overflow:hidden}
 .sc-row .sc-bar i{display:block;height:100%;background:var(--brand-2)}
 .sc-row .sc-num{color:var(--t3);font-size:12px;white-space:nowrap}
