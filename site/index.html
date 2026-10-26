@@ -1187,10 +1187,21 @@ function termify(root){
     node.parentNode.replaceChild(frag, node);
   }
 }
-function placePop(el){
+function placePop(el, side){
   const pop = document.getElementById('pop');
   pop.hidden = false;
-  const r = el.getBoundingClientRect(); const w = Math.min(360, innerWidth - 24);
+  const r = el.getBoundingClientRect();
+  if (side){
+    // справа от элемента (summary раздела из сайдбара): в области контента
+    const w = Math.max(200, Math.min(360, innerWidth - r.right - 24));
+    let x = Math.max(12, Math.min(r.right + 12, innerWidth - w - 12));
+    let top = r.top + scrollY;
+    const overflow = top + pop.offsetHeight - (scrollY + innerHeight);
+    if (overflow > 0) top -= overflow + 8;
+    pop.style.width = w + 'px'; pop.style.left = x + 'px'; pop.style.top = top + 'px';
+    return;
+  }
+  const w = Math.min(360, innerWidth - 24);
   let x = r.left + r.width/2 - w/2; x = Math.max(12, Math.min(x, innerWidth - w - 12));
   pop.style.width = w + 'px'; pop.style.left = x + 'px';
   const below = r.bottom + 8 + pop.offsetHeight < innerHeight;
@@ -1222,7 +1233,7 @@ function showSecTip(btn){
   const pop = document.getElementById('pop');
   pop.querySelector('b').textContent = s.n + '. ' + s.title;
   pop.querySelector('span').textContent = tipClamp(s.intro, 220);
-  placePop(btn);
+  placePop(btn, true);
   btn.setAttribute('aria-describedby', 'pop');
 }
 
