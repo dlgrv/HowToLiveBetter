@@ -2,7 +2,7 @@
 
 # 10. ¿Vale la pena enamorarse y casarse?
 
-Esta sección parte «si casarse compensa» en varias cuentas separadas: dinero, tiempo, salud, riesgo legal y calidad de la relación. Cada cuenta solo usa cifras cuya procedencia se puede consultar. Esa procedencia se limita a estadísticas oficiales o a un metaanálisis (volver a calcular reuniendo los datos de varios estudios). Aquí no hay juicio moral ni una conclusión puesta en lugar de la suya. Las cuentas de salud van por el riesgo de muerte; las de tiempo, por cuántos minutos al día; las legales, por cómo está escrito el artículo. Esos tres modos de calcular no se convierten entre sí. El método de desglose, la lista para rellenar y los errores frecuentes están en [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md).
+Esta sección parte «si casarse compensa» en varias cuentas separadas: dinero, tiempo, salud, riesgo legal y calidad de la relación. Cada cuenta solo usa cifras cuya procedencia se puede consultar. Esa procedencia se limita a estadísticas oficiales o a un metaanálisis (volver a calcular reuniendo los datos de varios estudios). Aquí no hay juicio moral ni una conclusión puesta en lugar de la suya. Las cuentas de salud van por el riesgo de muerte; las de tiempo, por cuántos minutos al día; las legales, por cómo está escrito el artículo. Esos tres modos de calcular no se convierten entre sí. El método de desglose, la lista para rellenar y los errores frecuentes están en [¿Vale la pena casarse?: desglose completo](../../docs/research/es/Is-Marriage-Worth-It.md).
 
 Los ítems de esta sección se agrupan por tema; entre paréntesis va el número de ítem.
 
@@ -159,7 +159,7 @@ Los ítems de esta sección se agrupan por tema; entre paréntesis va el número
 - Beneficio: El beneficio de los mayores es real. Pero no se convierte solo en tu beneficio de salud (ítem 8) ni en la calidad de la relación (ítem 4: si la relación va bien, mira cómo te sientes). En cambio, la cuenta del tiempo (ítem 9), la del dinero (ítems 10 a 12) y el coste de salir (ítem 15) los asume entero quien se casa. Tras llevar las cuentas por separado, si el «matrimonio por cumplir» compensa o no, se ve solo
 - Nivel de evidencia: C
 - Fuentes:作者经验，方法类建议；数据部分见本节前面各条
-- Notas: La columna de los mayores también puede pesarte mucho; el equilibrio lo fijas tú. La lista para rellenar está en [docs/结婚划不划算.md](../../docs/research/结婚划不划算.md)
+- Notas: La columna de los mayores también puede pesarte mucho; el equilibrio lo fijas tú. La lista para rellenar está en [¿Vale la pena casarse?: desglose completo](../../docs/research/es/Is-Marriage-Worth-It.md)
 
 ### 17. Trata la calidad de la relación como una cuenta de salud: en la discusión, al asunto y no a la persona; no insultes ni humilles
 <!-- 成本标签: 钱=0 时间=少 毅力=些 收益=小 口径=死亡率 -->
