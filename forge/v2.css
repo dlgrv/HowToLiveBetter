@@ -198,8 +198,24 @@ html.compact .compact-btn .ico-compact{display:none}
   transition:color .15s;
   -webkit-text-size-adjust:100%;text-size-adjust:100%;
 }
-.src summary{list-style:none}
+.src summary{list-style:none;display:flex;align-items:baseline;gap:var(--sp-2)}
 .src summary::-webkit-details-marker{display:none}
+/* каретка раскрытия: шеврон на currentColor, при open поворачивается вниз */
+.src summary::before,
+.card-expand::before{content:"";flex:none;align-self:center;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.src[open] summary::before,
+.card.expanded .card-expand::before{transform:rotate(45deg)}
+/* Useful — тот же квадрат-чекбокс, что у чипов фильтров */
+.htlb-useful::before{content:"";flex:none;width:var(--sp-4);height:var(--sp-4);box-sizing:border-box;border:var(--line-w) solid var(--line-soft);border-radius:var(--radius-sm);background:transparent;transition:border-color .15s,background-color .15s}
+.htlb-useful:hover::before{border-color:var(--mut)}
+.htlb-useful[aria-pressed="true"]::before{
+  border-color:var(--ink);background-color:var(--ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  background-size:12px 12px;background-position:center;background-repeat:no-repeat;
+}
+html.dark .htlb-useful[aria-pressed="true"]::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}
 .src summary:hover,
 .htlb-useful:hover,
 .card-expand:hover{color:var(--ink)}
@@ -218,7 +234,7 @@ html.compact .compact-btn .ico-compact{display:none}
 .htlb-useful:focus-visible,
 .card-expand:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
 .card-expand{display:none}
-html.compact .card-expand{display:block}
+html.compact .card-expand{display:flex;align-items:baseline;gap:var(--sp-2)}
 
 /* Guest Useful → brief bottom-right toast */
 .htlb-signin-toast{
