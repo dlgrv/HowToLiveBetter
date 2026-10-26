@@ -1187,16 +1187,43 @@ function termify(root){
     node.parentNode.replaceChild(frag, node);
   }
 }
-function showTerm(ab){
+function placePop(el){
   const pop = document.getElementById('pop');
-  pop.querySelector('b').textContent = ab.dataset.term;
-  pop.querySelector('span').textContent = ab.title;
   pop.hidden = false;
-  const r = ab.getBoundingClientRect(); const w = Math.min(360, innerWidth - 24);
+  const r = el.getBoundingClientRect(); const w = Math.min(360, innerWidth - 24);
   let x = r.left + r.width/2 - w/2; x = Math.max(12, Math.min(x, innerWidth - w - 12));
   pop.style.width = w + 'px'; pop.style.left = x + 'px';
   const below = r.bottom + 8 + pop.offsetHeight < innerHeight;
   pop.style.top = (below ? r.bottom + 8 : r.top - 8 - pop.offsetHeight) + scrollY + 'px';
+}
+function hidePop(){
+  const pop = document.getElementById('pop');
+  pop.hidden = true;
+  document.querySelectorAll('[aria-describedby="pop"]').forEach(el => el.removeAttribute('aria-describedby'));
+}
+function showTerm(ab){
+  const pop = document.getElementById('pop');
+  pop.querySelector('b').textContent = ab.dataset.term;
+  pop.querySelector('span').textContent = ab.title;
+  placePop(ab);
+}
+/* Обрезка интро раздела для тултипа; twin-тест — site/assets/sidebar_tip.test.mjs */
+function tipClamp(s, max){
+  s = String(s || '').trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > max - 40 ? cut.slice(0, sp) : cut).trimEnd() + '…';
+}
+/* Summary раздела при наведении на ссылку в сайдбаре (issue #127) */
+function showSecTip(btn){
+  const s = SECTIONS.find(x => x.n === btn.dataset.v);
+  if (!s || !s.intro) return;
+  const pop = document.getElementById('pop');
+  pop.querySelector('b').textContent = s.n + '. ' + s.title;
+  pop.querySelector('span').textContent = tipClamp(s.intro, 220);
+  placePop(btn);
+  btn.setAttribute('aria-describedby', 'pop');
 }
 
 /* ---------- 文本渲染：链接 + 高亮 ---------- */
@@ -1767,15 +1794,25 @@ function wire(){
     if (e.key === '/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); document.getElementById('q').focus(); }
     if (e.key === 'Escape') { if (document.activeElement.id === 'q') document.activeElement.blur(); setMenu(false); if (SC.on) scExit(); }
   });
-  // 术语弹层
-  const pop = document.getElementById('pop');
+  // 术语弹层 + summary разделов в сайдбаре
   document.addEventListener('click', e => {
     const ab = e.target.closest('abbr.term');
     if (ab) { e.preventDefault(); showTerm(ab); return; }
-    if (!e.target.closest('#pop')) pop.hidden = true;
+    if (!e.target.closest('#pop')) hidePop();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Enter' && document.activeElement.matches?.('abbr.term')) showTerm(document.activeElement); });
-  addEventListener('scroll', () => { pop.hidden = true; }, {passive:true});
+  addEventListener('scroll', hidePop, {passive:true});
+  // summary раздела при наведении/фокусе на ссылке сайдбара — только там,
+  // где есть настоящий hover; на тач-устройствах не показываем (issue #127)
+  {
+    const hoverable = matchMedia('(hover: hover) and (pointer: fine)');
+    document.querySelectorAll('#f-sec .sec-link').forEach(btn => {
+      btn.addEventListener('pointerenter', () => { if (hoverable.matches) showSecTip(btn); });
+      btn.addEventListener('focus', () => { if (hoverable.matches) showSecTip(btn); });
+      btn.addEventListener('pointerleave', hidePop);
+      btn.addEventListener('blur', hidePop);
+    });
+  }
   // сайдбар: на v2≥1100 — сворачивание; иначе мобильный drawer
   const setSideCollapsed = (on) => {
     if (!window.__HTLB_V2__) return;

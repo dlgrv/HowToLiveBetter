@@ -234,7 +234,7 @@ lint:  ## All code linters (must match CI)
 
 test:  ## Run unit tests (excludes integration)
 	$(PY) -m pytest translate/validate/tests/ translate/llm/tests/ forge/site/tests/ -v --ignore=translate/validate/tests/integration
-	node --test forge/ebook/book.test.mjs site/assets/interactive.test.mjs site/assets/todo_flag.test.mjs site/assets/updates_flag.test.mjs site/assets/selfcheck_flag.test.mjs site/assets/situations_flag.test.mjs site/assets/link_rewriter.test.mjs
+	node --test forge/ebook/book.test.mjs site/assets/interactive.test.mjs site/assets/todo_flag.test.mjs site/assets/updates_flag.test.mjs site/assets/selfcheck_flag.test.mjs site/assets/situations_flag.test.mjs site/assets/link_rewriter.test.mjs site/assets/sidebar_tip.test.mjs
 	@if command -v go >/dev/null 2>&1; then $(MAKE) api-test; else echo "skip api-test (go not on PATH)"; fi
 
 ebook-deps:  ## Install forge/ebook npm dependencies
