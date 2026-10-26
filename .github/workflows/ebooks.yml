@@ -88,6 +88,9 @@ jobs:
       - name: Offline single-file HTML
         run: node forge/ebook/offline/build.mjs --lang ${{ matrix.lang }}
 
+      - name: Anki deck
+        run: node forge/ebook/anki/build.mjs --lang ${{ matrix.lang }}
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -122,6 +125,7 @@ jobs:
             dist/HowToLiveBetter-${{ matrix.lang }}.epub
             dist/HowToLiveBetter-${{ matrix.lang }}.pdf
             dist/HowToLiveBetter-${{ matrix.lang }}.html
+            dist/HowToLiveBetter-${{ matrix.lang }}.apkg
 
   publish:
     name: publish ebooks-latest
@@ -144,13 +148,13 @@ jobs:
           set -euo pipefail
           mapfile -t files < <(find dist -maxdepth 1 -type f \
             \( -name 'HowToLiveBetter-*.epub' -o -name 'HowToLiveBetter-*.pdf' \
-               -o -name 'HowToLiveBetter-*.html' \) | sort)
-          if [ "${#files[@]}" -ne 21 ]; then
-            echo "expected 21 assets, got ${#files[@]}"
+               -o -name 'HowToLiveBetter-*.html' -o -name 'HowToLiveBetter-*.apkg' \) | sort)
+          if [ "${#files[@]}" -ne 28 ]; then
+            echo "expected 28 assets, got ${#files[@]}"
             ls -l dist
             exit 1
           fi
-          notes="Built from ${GITHUB_SHA::7}. EPUB, PDF and offline HTML for en, ru, zh, es, pt, ar, id."
+          notes="Built from ${GITHUB_SHA::7}. EPUB, PDF, offline HTML and Anki deck for en, ru, zh, es, pt, ar, id."
           notes="$notes Assets are replaced on each main build; download URLs stay fixed."
           if gh release view ebooks-latest >/dev/null 2>&1; then
             gh release edit ebooks-latest --title "Ebooks (EPUB / PDF)" --notes "$notes"

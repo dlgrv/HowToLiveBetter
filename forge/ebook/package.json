@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Per-locale EPUB and PDF builds",
   "dependencies": {
-    "marked": "18.0.13"
+    "marked": "18.0.13",
+    "sql.js": "^1.15.2"
   }
 }

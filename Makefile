@@ -255,11 +255,16 @@ ebook-offline: ebook-deps  ## Build one single-file offline HTML. Usage: make eb
 	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-offline LANG=en" && exit 1)
 	node forge/ebook/offline/build.mjs --lang $(LANG)
 
-ebooks: ebook-deps ebook-test  ## Build EPUB+PDF+offline for every language in langs.json
+ebook-anki: ebook-deps  ## Build one Anki deck. Usage: make ebook-anki LANG=en
+	@test "$(origin LANG)" = "command line" || (echo "Usage: make ebook-anki LANG=en" && exit 1)
+	node forge/ebook/anki/build.mjs --lang $(LANG)
+
+ebooks: ebook-deps ebook-test  ## Build EPUB+PDF+offline+Anki for every language in langs.json
 	@for lang in $$(python3 -c 'import json; print(" ".join(x["code"] for x in json.load(open("translate/langs.json"))["languages"]))'); do \
 		node forge/ebook/epub/build.mjs --lang $$lang; \
 		node forge/ebook/pdf/build.mjs --lang $$lang; \
 		node forge/ebook/offline/build.mjs --lang $$lang; \
+		node forge/ebook/anki/build.mjs --lang $$lang; \
 	done
 
 test-integration:  ## Run integration tests (golden manifests, E2E)
