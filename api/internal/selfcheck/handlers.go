@@ -19,16 +19,8 @@ func Register(g *router.RouterGroup[*core.RequestEvent], h Handlers) {
 	g.PUT("/selfcheck", h.Put)
 }
 
-func (h Handlers) requireOwner(e *core.RequestEvent) (authz.Owner, error) {
-	owner, err := h.Az.Resolve(e)
-	if err != nil {
-		return owner, e.UnauthorizedError("credential required", nil)
-	}
-	return owner, nil
-}
-
 func (h Handlers) Get(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}
@@ -40,7 +32,7 @@ func (h Handlers) Get(e *core.RequestEvent) error {
 }
 
 func (h Handlers) Put(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}

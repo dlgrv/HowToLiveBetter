@@ -39,3 +39,21 @@ def test_top_ignores_yes_and_unanswered():
 def test_top_caps_k():
     ans = {e["id"]: 0 for e in E}
     assert len(sc_top(E, ans, 2)) == 2
+
+
+def test_top_survives_non_numeric_item_numbers():
+    # The `n` field is data, not a promise: a non-numeric item sorts by the
+    # numeric fallback (0), not crash; the weakest item stays last.
+    entries = [*E, {"id": "1-x", "sec": "1", "n": "x", "ratio": "极高", "cs": 0}]
+    ids = [e["id"] for e in sc_top(entries, {e["id"]: 0 for e in entries})]
+    assert "1-x" in ids
+    assert ids[-1] == "2-1"
+
+
+def test_top_default_k_is_eight():
+    # >8 unmet entries and no explicit k: exactly the default 8 come back.
+    entries = [
+        {"id": f"1-{i}", "sec": "1", "n": str(i), "ratio": "一般", "cs": i} for i in range(1, 10)
+    ]
+    got = sc_top(entries, {e["id"]: 0 for e in entries})
+    assert [e["id"] for e in got] == [f"1-{i}" for i in range(1, 9)]
