@@ -100,24 +100,33 @@ def chapter_files(root: str) -> list[str]:
     )
 
 
-def collect_history(root: str) -> dict[str, dict]:
-    """Walk git history of every zh chapter → {item id: {added?, changed?, fields?}}.
-
-    Items present in the import commit (the single oldest commit that first
-    introduced the chapters) are baseline: recorded without "added", exactly
-    like upstream's manual "since" cutoff — otherwise the whole book would
-    light up as "new" right after the fork import.
-    """
+def chapter_logs(root: str) -> dict[str, list[tuple[str, str]]]:
+    """Per zh chapter: its git log, oldest first, as [(hash, %cI), ...]."""
     logs: dict[str, list[tuple[str, str]]] = {}
     for rel in chapter_files(root):
         out = _git(root, "log", "--reverse", "--format=%H%x01%cI", "--", rel).strip()
         if out:
             logs[rel] = [tuple(line.split("\x01", 1)) for line in out.splitlines()]
+    return logs
+
+
+def import_commit(logs: dict[str, list[tuple[str, str]]]) -> str:
+    """The single oldest commit that first introduced the chapters."""
+    dates = {h: d for lines in logs.values() for h, d in lines}
+    return min({lines[0][0] for lines in logs.values()}, key=lambda h: dates[h])
+
+
+def collect_history(root: str) -> dict[str, dict]:
+    """Walk git history of every zh chapter → {item id: {added?, changed?, fields?}}.
+
+    Items present in the import commit are baseline: recorded without "added",
+    exactly like upstream's manual "since" cutoff — otherwise the whole book
+    would light up as "new" right after the fork import.
+    """
+    logs = chapter_logs(root)
     if not logs:
         return {}
-
-    dates = {h: d for lines in logs.values() for h, d in lines}
-    import_hash = min({lines[0][0] for lines in logs.values()}, key=lambda h: dates[h])
+    import_hash = import_commit(logs)
 
     items: dict[str, dict] = {}
     for rel, lines in logs.items():

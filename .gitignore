@@ -75,3 +75,9 @@ api/coverage.out
 
 # ZCode session state
 .zcode/
+
+# ub-mode tool artifacts (crapper/dryer/mutator + coverage)
+.metrics/
+coverage.xml
+.coverage
+target/

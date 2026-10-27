@@ -194,3 +194,18 @@ def test_write_updates_survives_git_failure(tmp_path, monkeypatch):
     assert n == 0
     data = json.loads((pub / "updates.json").read_text(encoding="utf-8"))
     assert data["items"] == {}
+
+
+def test_git_raises_on_failed_command():
+    # Real git, real exit code, real stderr — also proves capture_output/text work.
+    with pytest.raises(RuntimeError, match="git"):
+        build_updates._git(".", "log", "--bogus-flag")
+
+
+def test_git_timeout_propagates(monkeypatch):
+    def slow(*_args, **_kwargs):
+        raise build_updates.subprocess.TimeoutExpired("git", 1)
+
+    monkeypatch.setattr(build_updates.subprocess, "run", slow)
+    with pytest.raises(build_updates.subprocess.TimeoutExpired):
+        build_updates._git(".", "log")

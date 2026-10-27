@@ -21,16 +21,8 @@ func Register(g *router.RouterGroup[*core.RequestEvent], h Handlers) {
 	g.PUT("/reading", h.putReading)
 }
 
-func (h Handlers) requireOwner(e *core.RequestEvent) (authz.Owner, error) {
-	owner, err := h.Az.Resolve(e)
-	if err != nil {
-		return owner, e.UnauthorizedError("credential required", nil)
-	}
-	return owner, nil
-}
-
 func (h Handlers) listBookmarks(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}
@@ -42,7 +34,7 @@ func (h Handlers) listBookmarks(e *core.RequestEvent) error {
 }
 
 func (h Handlers) putBookmark(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}
@@ -60,7 +52,7 @@ func (h Handlers) putBookmark(e *core.RequestEvent) error {
 }
 
 func (h Handlers) deleteBookmark(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}
@@ -75,7 +67,7 @@ func (h Handlers) deleteBookmark(e *core.RequestEvent) error {
 }
 
 func (h Handlers) getReading(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}
@@ -87,7 +79,7 @@ func (h Handlers) getReading(e *core.RequestEvent) error {
 }
 
 func (h Handlers) putReading(e *core.RequestEvent) error {
-	owner, err := h.requireOwner(e)
+	owner, err := authz.RequireOwner(e, h.Az)
 	if err != nil {
 		return err
 	}

@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pocketbase/dbx"
-
 	"github.com/dlgrv/HowToLiveBetter/api/internal/authz"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -24,15 +22,8 @@ type Reading struct {
 	Offset  float64 `json:"offset"`
 }
 
-func ownerFilter(owner authz.Owner) (string, dbx.Params) {
-	return "ownerKind = {:k} && ownerId = {:i}", dbx.Params{
-		"k": string(owner.Kind),
-		"i": owner.ID,
-	}
-}
-
 func (s Service) ListBookmarks(owner authz.Owner) ([]Bookmark, error) {
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	recs, err := s.App.FindRecordsByFilter("bookmarks", f, "", 0, 0, p)
 	if err != nil {
 		return nil, err
@@ -56,7 +47,7 @@ func (s Service) UpsertBookmark(owner authz.Owner, entryID, note string) error {
 	if err != nil {
 		return err
 	}
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	p["e"] = entryID
 	rec, err := s.App.FindFirstRecordByFilter("bookmarks", f+" && entryId = {:e}", p)
 	if err != nil {
@@ -70,7 +61,7 @@ func (s Service) UpsertBookmark(owner authz.Owner, entryID, note string) error {
 }
 
 func (s Service) DeleteBookmark(owner authz.Owner, entryID string) error {
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	p["e"] = entryID
 	rec, err := s.App.FindFirstRecordByFilter("bookmarks", f+" && entryId = {:e}", p)
 	if err != nil {
@@ -80,7 +71,7 @@ func (s Service) DeleteBookmark(owner authz.Owner, entryID string) error {
 }
 
 func (s Service) GetReading(owner authz.Owner) (Reading, error) {
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	rec, err := s.App.FindFirstRecordByFilter("reading_positions", f, p)
 	if err != nil {
 		return Reading{}, nil
@@ -100,7 +91,7 @@ func (s Service) PutReading(owner authz.Owner, chapter string, offset float64) e
 	if err != nil {
 		return err
 	}
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	rec, err := s.App.FindFirstRecordByFilter("reading_positions", f, p)
 	if err != nil {
 		rec = core.NewRecord(col)

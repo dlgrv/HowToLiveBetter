@@ -76,3 +76,21 @@ func (r Resolver) ResolveOptional(e *core.RequestEvent) (Owner, bool) {
 	}
 	return o, true
 }
+
+// OwnerFilter is the shared per-owner DB filter used by every collection
+// keyed on ownerKind/ownerId (bookmarks, selfcheck answers, …).
+func OwnerFilter(owner Owner) (string, dbx.Params) {
+	return "ownerKind = {:k} && ownerId = {:i}", dbx.Params{
+		"k": string(owner.Kind),
+		"i": owner.ID,
+	}
+}
+
+// RequireOwner resolves the caller or answers the event with 401.
+func RequireOwner(e *core.RequestEvent, az Resolver) (Owner, error) {
+	owner, err := az.Resolve(e)
+	if err != nil {
+		return owner, e.UnauthorizedError("credential required", nil)
+	}
+	return owner, nil
+}

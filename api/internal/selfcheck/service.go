@@ -5,8 +5,6 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/pocketbase/dbx"
-
 	"github.com/dlgrv/HowToLiveBetter/api/internal/authz"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -23,13 +21,6 @@ type Answers map[string]int8
 var ErrInvalid = errors.New("invalid answers")
 
 const maxAnswers = 2000
-
-func ownerFilter(owner authz.Owner) (string, dbx.Params) {
-	return "ownerKind = {:k} && ownerId = {:i}", dbx.Params{
-		"k": string(owner.Kind),
-		"i": owner.ID,
-	}
-}
 
 func validate(answers Answers) error {
 	if len(answers) == 0 {
@@ -50,7 +41,7 @@ func validate(answers Answers) error {
 }
 
 func (s Service) Get(owner authz.Owner) (Answers, error) {
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	rec, err := s.App.FindFirstRecordByFilter("selfcheck_answers", f, p)
 	if err != nil {
 		return Answers{}, nil
@@ -78,7 +69,7 @@ func (s Service) Put(owner authz.Owner, answers Answers) error {
 	if err != nil {
 		return err
 	}
-	f, p := ownerFilter(owner)
+	f, p := authz.OwnerFilter(owner)
 	rec, err := s.App.FindFirstRecordByFilter("selfcheck_answers", f, p)
 	if err != nil {
 		rec = core.NewRecord(col)
