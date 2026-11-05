@@ -2,7 +2,7 @@
 
 # Panduan Hidup yang Sepadan
 
-**630 saran dalam 34 bab.** Edisi ini memuat 407 butir tingkat A, 169 tingkat B, dan 54 tingkat C, dengan 1304 tautan pada kolom Sumber. Buku ini membahas kesehatan, keadaan darurat, uang, waktu, kerja, keluarga, dan keputusan besar. Tiap saran menjelaskan biaya, manfaat, kekuatan bukti, dan sumbernya. Naskah dasarnya (fork EN/CN) mencatat 690 saran, 450 tingkat A, dan 1841 tautan; angka edisi Indonesia berubah karena Bab 7 menggunakan program Indonesia.
+**752 saran dalam 34 bab.** Edisi ini memuat 491 butir tingkat A, 210 tingkat B, dan 51 tingkat C, dengan 2311 tautan pada kolom Sumber dan Catatan. Buku ini membahas kesehatan, keadaan darurat, uang, waktu, kerja, keluarga, dan keputusan besar. Tiap saran menjelaskan biaya, manfaat, kekuatan bukti, dan sumbernya.
 
 Kamu tidak harus melakukan semuanya. Pilih satu atau dua hal yang paling berguna untuk keadaanmu, lalu kembali lagi saat membutuhkan.
 
@@ -27,8 +27,6 @@ Punya ide untuk proyek ini (aplikasi, checklist, fitur situs, …)? [Sampaikan d
 > Edisi ini berdasarkan [versi Inggris dlgrv](README.md), dengan penyesuaian Indonesia yang diperiksa pada **30 September 2026**. [Bab 7](book/id/07-Saat-Tidak-Punya-Uang.md) memakai jalur bantuan Indonesia. Butir berlabel **Ada konteks luar negeri** tetap menjadi bahan perbandingan; gunakan [panduan Indonesia per bab](docs/research/id/Panduan-Untuk-Indonesia.md) untuk urusan setempat.
 
 **[Panduan Indonesia dan kontak penting](docs/research/id/Panduan-Untuk-Indonesia.md)** · **[Harga lokal dan kurs 2026](docs/research/id/Harga-Dan-Kurs-2026.md)**
-
-## Pengantar
 
 ## Daftar isi
 
