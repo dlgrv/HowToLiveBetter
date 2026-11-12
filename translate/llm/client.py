@@ -56,6 +56,14 @@ def _temperature() -> float:
         raise LLMError(f"HTLB_LLM_TEMPERATURE must be a number, got {raw!r}") from e
 
 
+def _max_tokens() -> int:
+    raw = os.environ.get("HTLB_LLM_MAX_TOKENS", "4096").strip() or "4096"
+    try:
+        return int(raw)
+    except ValueError as e:
+        raise LLMError(f"HTLB_LLM_MAX_TOKENS must be an integer, got {raw!r}") from e
+
+
 def _completions_url(base_url: str) -> str:
     base = base_url.rstrip("/")
     if base.endswith("/chat/completions"):
@@ -66,7 +74,7 @@ def _completions_url(base_url: str) -> str:
 def chat(
     messages: list[dict[str, str]],
     *,
-    max_tokens: int = 4096,
+    max_tokens: int | None = None,
     base_url: str | None = None,
     model: str | None = None,
     api_key: str | None = None,
@@ -81,6 +89,8 @@ def chat(
         model = _require_env("HTLB_LLM_MODEL")
     if temperature is None:
         temperature = _temperature()
+    if max_tokens is None:
+        max_tokens = _max_tokens()
     if timeout is None:
         timeout = TIMEOUT_SEC
     if api_key is None and not explicit:
