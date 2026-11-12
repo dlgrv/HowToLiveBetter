@@ -55,6 +55,15 @@ def remap_og_image(text: str) -> str:
     return re.sub(r"\]\((?:\.\/)?og\.png\)", "](site/assets/og/zh.png)", text)
 
 
+def unlink_community_languages(text: str) -> str:
+    link = "](其他语言.md)"
+    while link in text:
+        end = text.index(link)
+        start = text.rindex("[", 0, end)
+        text = text[:start] + text[start + 1 : end] + text[end + len(link) :]
+    return text
+
+
 def remap_pages_urls(text: str) -> str:
     """Point Chinese search-page links at this fork's /zh/ site."""
     return text.replace(
@@ -103,6 +112,7 @@ def apply_fork_overlay(text: str, repo_root: str | None = None) -> str:
     text = remap_docs_links(text)
     text = remap_og_image(text)
     text = remap_pages_urls(text)
+    text = unlink_community_languages(text)
     text = insert_language_table(text, repo_root)
     return text.rstrip() + "\n"
 
