@@ -10,9 +10,9 @@ Covers longevity and disease prevention, accidents and first aid, saving money a
 You don't have to do it all: this is a ranked shortlist, not a task list — pick one or two and that counts. The author has not done most of these either.
 
 [![Online search](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)](https://book.dlgrv.com/es/)
-[![Items](https://img.shields.io/badge/Items-690-18794e?style=flat-square)](#table-of-contents)
-[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20450%20%C2%B7%20B%20193%20%C2%B7%20C%2047-915930?style=flat-square)](#evidence-grades)
-[![Primary sources](https://img.shields.io/badge/Primary%20sources-1841%20links-565a5f?style=flat-square)](docs/research/核实记录/)
+[![Items](https://img.shields.io/badge/Items-772-18794e?style=flat-square)](#table-of-contents)
+[![Evidence grades](https://img.shields.io/badge/Evidence%20grades-A%20497%20%C2%B7%20B%20223%20%C2%B7%20C%2052-915930?style=flat-square)](#evidence-grades)
+[![Primary sources](https://img.shields.io/badge/Primary%20sources-2310%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![License](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)](LICENSE)
 
 **[Open the online search page](https://book.dlgrv.com/es/)** | [Table of contents](#table-of-contents) | [Glossary](#reading-the-numbers-glossary) | [Verification records](docs/research/核实记录/) | [Is marriage worth it (long read)](docs/research/es/Is-Marriage-Worth-It.md) | [Home emergency kit (long read)](docs/research/es/Home-Emergency-Kit.md) | [Should you stop to help a stranger (long read)](docs/research/es/Should-You-Stop-To-Help-A-Stranger.md) | [What licenses a platform needs (long read)](docs/research/es/What-Licenses-A-Platform-Needs.md) | [After a layoff (long read)](docs/research/es/After-A-Layoff-What-To-Do-First.md) | [Things around childbirth (long read)](docs/research/es/Things-To-Handle-Around-Childbirth.md) | [Right after a chronic disease diagnosis (long read)](docs/research/es/Right-After-A-Chronic-Disease-Diagnosis.md)

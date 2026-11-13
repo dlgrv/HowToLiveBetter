@@ -9,9 +9,9 @@
 690 نصيحة، تذكر كل واحدة منها تكلفتها وما تعيده وما درجة صلابة الدليل. تستشهد المصادر بأوراق المجلات العلمية والوثائق الرسمية فقط.
 
 ![البحث عبر الإنترنت](https://img.shields.io/badge/Online%20search-Open%20here-3451b2?style=flat-square)
-![العناصر](https://img.shields.io/badge/Items-690-18794e?style=flat-square)
-![درجات الأدلة](https://img.shields.io/badge/Evidence%20grades-A%20450%20%C2%B7%20B%20193%20%C2%B7%20C%2047-915930?style=flat-square)
-![المصادر الأولية](https://img.shields.io/badge/Primary%20sources-1841%20links-565a5f?style=flat-square)
+![العناصر](https://img.shields.io/badge/Items-772-18794e?style=flat-square)
+![درجات الأدلة](https://img.shields.io/badge/Evidence%20grades-A%20497%20%C2%B7%20B%20223%20%C2%B7%20C%2052-915930?style=flat-square)
+![المصادر الأولية](https://img.shields.io/badge/Primary%20sources-2310%20links-565a5f?style=flat-square)
 ![الترخيص](https://img.shields.io/badge/License-Unlicense-565a5f?style=flat-square)
 
 **[افتح صفحة البحث عبر الإنترنت](https://book.dlgrv.com/ar/)** | [جدول المحتويات](#table-of-contents) | [المصطلحات](#reading-the-numbers-glossary) | [سجلات التحقق](docs/research/核实记录/) | [هل الزواج يستحق (قراءة مطولة)](docs/research/ar/Is-Marriage-Worth-It.md) | [عدة الطوارئ المنزلية (قراءة مطولة)](docs/research/ar/Home-Emergency-Kit.md) | [هل تتوقف لمساعدة غريب (قراءة مطولة)](docs/research/ar/Should-You-Stop-To-Help-A-Stranger.md) | [ما التراخيص التي تحتاجها المنصة (قراءة مطولة)](docs/research/ar/What-Licenses-A-Platform-Needs.md)

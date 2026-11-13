@@ -10,8 +10,8 @@ Cobre longevidade e prevenção de doenças, acidentes e primeiros socorros, eco
 Você não precisa fazer tudo: é uma lista ordenada por retorno, não uma lista de tarefas — uma ou duas já contam. O autor também não fez a maior parte.
 
 [![Busca online](https://img.shields.io/badge/Busca%20online-Abrir%20aqui-3451b2?style=flat-square)](https://book.dlgrv.com/pt/)
-[![Itens](https://img.shields.io/badge/Itens-690-18794e?style=flat-square)](#índice)
-[![Graus de evidência](https://img.shields.io/badge/Graus%20de%20evid%C3%AAncia-A%20450%20%C2%B7%20B%20193%20%C2%B7%20C%2047-915930?style=flat-square)](#graus-de-evidência)
+[![Itens](https://img.shields.io/badge/Itens-772-18794e?style=flat-square)](#índice)
+[![Graus de evidência](https://img.shields.io/badge/Graus%20de%20evid%C3%AAncia-A%20497%20%C2%B7%20B%20223%20%C2%B7%20C%2052-915930?style=flat-square)](#graus-de-evidência)
 [![Fontes primárias](https://img.shields.io/badge/Fontes%20prim%C3%A1rias-1841%20links-565a5f?style=flat-square)](docs/research/核实记录/)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-Unlicense-565a5f?style=flat-square)](LICENSE)
 
