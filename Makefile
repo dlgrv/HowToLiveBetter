@@ -5,6 +5,9 @@
 export PYTHONPATH := $(CURDIR)
 # PocketBase v0.40+ needs Go ≥1.27; let the module toolchain download it.
 export GOTOOLCHAIN := auto
+# Keep the Go build cache inside the repo so git hooks work in sandboxed
+# environments where ~/Library/Caches is not writable.
+export GOCACHE := $(CURDIR)/.gocache
 
 PY = .venv/bin/python3
 RUFF = .venv/bin/ruff
