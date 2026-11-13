@@ -81,3 +81,4 @@ api/coverage.out
 coverage.xml
 .coverage
 target/
+.gocache/
